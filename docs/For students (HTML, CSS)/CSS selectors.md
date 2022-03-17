@@ -23,3 +23,17 @@
 |div > p|any `<p>`, which is a direct child of a `<div>`|
 |div + p|any `<p>` immediately after a `<div>`|
 |a:visited|any visited link|
+
+### Links
+
+|Selector|Description|
+|:---|:---|
+|a:active|link being clicked|
+|a:link|unvisited link|
+|a:visited|visited link|
+
+### Hover
+
+|Selector|Description|
+|:---|:---|
+|.button:hover|any element with `class="button"`, which has the cursor hovering above it|

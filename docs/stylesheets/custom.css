@@ -194,7 +194,7 @@ figcaption {
     margin-left: calc(-12px - 10px);
     margin-right: calc(-12px - 10px);
     color:black;
-    padding-left: 18px;
+    padding: 8px 18px 5px 18px;
 }
 
 .admonition .admonition-title::before {
