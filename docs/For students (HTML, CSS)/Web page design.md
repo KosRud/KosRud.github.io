@@ -43,6 +43,11 @@ Use vivid colors sparingly. The "main" color should be easy on the eyes (desatur
     }
 </style>
 
+!!! note "Color scheme tools"
+    * [Paletton](https://paletton.com)
+    * [Material design color palette generator](https://www.materialpalette.com)
+    * [ColourCode](https://www.toptal.com/designers/colourcode)
+
 ### Consistency
 
 Have consistency in your style - for example, have a list of preset colors instead of selecting a "roughly similar" color by hand every time. Same with border styles, rounded corners, etc.
