@@ -7,6 +7,55 @@ Some advice for making a clean, functional and aesthetically pleasing web-page.
 
 Animations and `:hover` style can hint which elements are interactive. Don't use `:hover` on non-interactive elements to avoid confusion.
 
+<style>
+    .demo-button {
+        color: white;
+        padding: 4px;
+        background: rgb(13,13,57);
+        display: inline-block;
+        border-radius: 8px;
+        box-shadow: 1.5px 1.5px 2px rgba(0,0,0,0.6);
+    }
+
+    .demo-button > div {
+        padding : 4px;
+        box-shadow: 0px 0px 4px rgba(255,255,255,0.5);
+        background: rgba(255,255,255,0.2);
+    }
+
+    .demo-button:hover {
+        transition-duration: 0.1s;
+        transition-timing-function: linear;
+        transform: translateY(-1px);
+        box-shadow: 1.5px 2.5px 2px rgba(0,0,0,0.6);
+    }
+
+    .demo-button:hover > div{
+        transition-duration: 0.5s;
+        transition-timing-function: ease;
+        background: rgba(255,255,255,0.3);
+        box-shadow: 0px 0px 5px rgba(255,255,255,0.75);
+    }
+
+    .demo-button:active{
+        transition-duration: 0.1s;
+        transition-timing-function: cubic-bezier(.95,.05,.8,.04);
+        box-shadow: 0px 0px 0px black;
+        transform: translateY(1px);
+        
+    }
+
+    .demo-button:active>div{
+        transition-duration: 0.1s;
+        box-shadow: 0px 0px 4px rgba(255,255,255,0.5);
+        background: rgba(255,255,255,0.2);
+    }
+</style>
+
+<p>
+<div class="demo-button" onclick="alert('thanks!')"><div>I'm a button. Press me!</div></div>
+</p>
+
 ### Center of the page
 
 Keep the main content towards the center of the page, where it is most comfortable to read.
