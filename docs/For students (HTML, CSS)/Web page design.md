@@ -158,7 +158,7 @@ Text is easier to read, when it doesn't span the entire width of the screen. If 
 
 #### Reduced contrast
 
-Having *almost* black text on *almost* white background (or vice versa) can be easier on the eyes, than maximum contrast. But don't go overboard, to the point of *gray background with slightly darker gray text*.
+Having *almost* black text on *almost* white background (or vice versa) can be easier on the eyes, than maximum contrast. But don't go overboard, to the point of *gray background* with *slightly darker gray* text.
 
 <p>
     <div class="text-color-demo-container">
