@@ -1,9 +1,18 @@
 # Semantic HTML elements
 
+Semantic elements convey their purpose on the page (example: `<nav>` provides navigation links), and help define the structure of your page.
+
+Non-semantic elements, on the other hand, do not have a strictly defined purpose. Example:&nbsp;`<div>`.
+
+By examining the semantic elements on your page, a program can automatically determine the hierarchical structure of your content, and build a table of contents. This is useful for search engines and screen readers, among other things.
+
+!!! note "Links"
+    * Mozilla developer network - [Semantics in HTML](https://developer.mozilla.org/en-US/docs/Glossary/semantics#semantics_in_html)
+    * w3schools - [HTML Semantic Elements](https://www.w3schools.com/html/html5_semantic_elements.asp)
+
 ## Example layout
 
 <style>
-
     .semantic-example-container {
         width: 500px;
         --semantic-example-margin: 12px;
