@@ -151,14 +151,18 @@ div[role=search] {
 	margin-bottom: 4px;
 }
 
-.rst-content pre code {
-	background: unset;
+.rst-content code {
+    color: var(--black);
+    border: 1px solid rgba(0,0,0,0.5);
+    background: unset;
+    padding: 0px 2px 0px 2px;
+    margin: 0px;
 }
-
 
 .rst-content pre code {
 	white-space: pre-wrap;
 	border: unset;
+    background: unset;
 }
 
 img{
