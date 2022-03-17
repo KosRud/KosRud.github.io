@@ -145,7 +145,7 @@ Becomes:
 ```js
 class Player {
 	constructor (health) {
-		this.health = health.
+		this.health = health;
 	}
 	
 	receiveDamage(amount) {
@@ -341,7 +341,7 @@ MDN link: [throw statement](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 ```js
 class Player {
     constructor (health) {
-        this.health = health.
+        this.health = health;
     }
     
     receiveDamage(amount) {
