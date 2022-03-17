@@ -323,16 +323,6 @@ pre{
 	background: var(--gray);
 }
 
-/*
-pre, .admonition, .caption, dd, .highlight {
-	box-shadow: 0px var(--shadow-offset-high) var(--shadow-blur-high) var(--shadow-color-high);
-}
-
-.admonition-title, h1, h2, h3, h4, .toctree-l1.current>.reference, .wy-table-responsive, figure, .image-row, img {
-	box-shadow: 0px var(--shadow-offset-low) var(--shadow-blur-low) var(--shadow-color-low);
-}
-*/
-
 .caption, .highlight, h1, h2, h3, h4 {
 	box-shadow: var(--shadow-offset-high-X) var(--shadow-offset-high) var(--shadow-blur-high) var(--shadow-color-high);
 }
