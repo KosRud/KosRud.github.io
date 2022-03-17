@@ -13,6 +13,7 @@ body {
 	--shadow-offset-high: 2px;
 	--shadow-offset-low: 1px;
 	
+    --shadow-offset-high-X: 1.5px;
 	--shadow-length-high: calc(var(--shadow-blur-high) + var(--shadow-offset-high));
 	--shadow-length-low: calc(var(--shadow-blur-low) + var(--shadow-offset-low));
 	
@@ -333,7 +334,7 @@ pre, .admonition, .caption, dd, .highlight {
 */
 
 .caption, .highlight, h1, h2, h3, h4 {
-	box-shadow: 0px var(--shadow-offset-high) var(--shadow-blur-high) var(--shadow-color-high);
+	box-shadow: var(--shadow-offset-high-X) var(--shadow-offset-high) var(--shadow-blur-high) var(--shadow-color-high);
 }
 
 .rst-content .admonition div.highlight {
