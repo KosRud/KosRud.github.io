@@ -1,0 +1,38 @@
+site_name: Constantine Rudenko
+site_url: https://example.com/
+theme:
+    name: readthedocs
+    navigation_depth: 2
+    features:
+      - search.suggest
+    highlightjs: false
+extra_css:
+  - stylesheets/custom.css
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/config.js
+  - javascripts/jquerry.js
+  - javascripts/image-row.js
+markdown_extensions:
+  - admonition
+  - def_list
+  - mdx_spanner
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      guess_lang: False
+      use_pygments: True
+      noclasses: True
+      pygments_style: default
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+plugins:
+  - search
+  - mkdocs-nav-enhancements
+  - mermaid2

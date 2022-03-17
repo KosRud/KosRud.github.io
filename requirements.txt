@@ -1,0 +1,6 @@
+pymdown-extensions
+mkdocs
+pygments
+mdx_spanner
+mkdocs-mermaid2-plugin
+mkdocs-nav-enhancements
