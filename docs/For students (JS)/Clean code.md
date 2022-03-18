@@ -16,7 +16,7 @@ function DrawEverything(canvas) {
     // ...
 }
 ```
-Becomes
+Becomes:
 ```js
 function DrawEverything(canvas) {
     drawBackground(canvas);
@@ -233,7 +233,7 @@ class Slime {
     // ...
 }
 ```
-Becomes
+Becomes:
 ```js
 class Vector2 {
     constructor(x, y) {
@@ -309,7 +309,7 @@ function castHeal() {
     console.log("you summon healing energies, which make you feel better");
 }
 ```
-Becomes
+Becomes:
 ```js
 function readSpell(name) {
     console.log("preparing to cast a spell...");
@@ -387,7 +387,7 @@ class Circle {
     }
 }
 ```
-Becomes
+Becomes:
 ```js
 const PI = 3.1415;
 
