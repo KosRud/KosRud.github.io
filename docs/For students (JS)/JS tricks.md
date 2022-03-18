@@ -1,6 +1,65 @@
 # JS tricks
 
-These are not necessary to use, but offer convenience and make your code more concise.
+!!! note
+    The same result could be achieved without using these constructs, albeit the code would be longer and messier.
+
+## For loops
+
+### For of
+
+Iterates over values.
+
+```js
+let arr = [10, 20, 30];
+    
+for (const value of arr) {
+   console.log(value);
+}
+```
+
+### For in
+
+Iterates over indices.
+
+```js
+let arr = [10, 20, 30];
+
+for (const i in arr) {
+  console.log(arr[i]);
+}
+```
+
+```js
+let dict = {
+    red: "rgb(255,0,0)",
+    green: "rgb(0,255,0)",
+    blue: "rgb(0,0,255)"
+}
+
+for (const i in dict) {
+    console.log(dict[i]);
+}
+```
+
+### For each
+
+Runs the given function on every value.
+
+```js
+let arr = [10, 20, 30];
+
+arr.forEach(
+	(val) => {
+  	    console.log(val);
+	}
+);
+```
+
+!!! note "Links"
+    * Mozilla Developer Network - [for..of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+    * Mozilla Developer Network - [for..in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
+    * Mozilla Developer Network - [Array.prototype.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+
 
 ## Template strings
 
@@ -10,16 +69,28 @@ Conveniently insert variables into your strings.
 
 ```js
 let foo = 5;
-console.log(`the value of foo is: ${foo}`);
-// prints "the value of foo is: 5"
 
-// you can also do this:
+console.log(`the value of foo is: ${foo}`);
+// "the value of foo is: 5"
+```
+
+You can also do this:
+
+```js
+let foo = 5;
+
 console.log(`foo to the power of 3 is: ${foo ** 3}`);
+// foo to the power of 3 is: 125
+```
+
+```js
 human = {
     name: "Jack",
     age: 13
 }
+
 console.log(`${human.name} is ${human.age} years old`);
+// Jack is 13 years old
 ```
 
 !!! note "Links"
@@ -112,6 +183,137 @@ for (let petOwner of petOwners) {
 }
 ```
 
-!!! note Link
+!!! note "Links"
     Mozilla Developer Network - [Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 
+## Console.table
+
+Useful tool for debugging - display objects and their properties in console, formatted as a table.
+
+### Example
+
+```js
+let arr = [
+	{
+    	name: "Ivy",
+      	age: 29
+	},
+   {
+     	name: "Dilan",
+     	age: 42,
+     	cat: {
+        	name: "Whiskers",
+          	age: 3
+        }
+   }
+];
+
+console.table(arr);
+```
+
+|(index)|name|age|cat|
+|---|---|---|---|
+|0|Ivy|29| |
+|1|Dilan|42|Object { name: "Whiskers", age: 3 }|
+
+!!! note "Links"
+    Mozilla Developer Network - [console.table()](https://developer.mozilla.org/en-US/docs/Web/API/Console/table)
+
+
+## Spread syntax (...)
+
+### Array unpacking
+
+```js
+function sum(x, y, z) {
+  return x + y + z;
+}
+
+const numbers = [1, 2, 3];
+
+console.log(
+    sum(...numbers)
+);
+// 6
+```
+
+### Merging arrays
+
+```js
+let arr = [0, 1, 2];
+let newNumber = 12;
+arr = [...arr, newNumber];
+```
+
+### Assigning variable number of elements
+
+
+Using [Destructuring assignment](#destructuring-assignment)
+
+```js
+const [a, ...b] = [1, 2, 3];
+// a = 1
+// b = [2, 3]
+```
+
+```js
+const [a, ...b] = [1, 2, 3, 4, 5];
+// a = 1
+// b = [2, 3, 4, 5]
+```
+
+### Shallow copy
+
+```js
+let obj = {
+    attr_1: "a",
+    attr_2: "b",
+};
+
+let copy = {
+    ...obj,
+    newAttr :"c"
+};
+
+console.log(obj);
+/*
+    attr_1: "a",
+    attr_2: "b"
+*/
+console.log(copy);
+/*
+    attr_1:  "a",
+    attr_2:  "b",
+    newAttr: "c"
+*/
+
+```
+
+!!! warning
+    Shallow copy sets attributes of the target object identical to the source object.
+
+    This means, that if the source object had a reference (non-[primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)) attribute, the target object will be referencing the same thing!
+
+    There are 7 primitive data types: string, number, bigint, boolean, undefined, symbol, and null.
+
+    <img src="../images.JS tricks.md/shallow copy.png">
+
+### Remove duplicates
+
+```js
+let arr = [
+  1,1,
+  2,2,
+  3,3,
+  4,4,4,4,4,
+  5,5,5,5,5
+];
+
+arr = [...new Set(arr)];
+
+console.log(arr);
+// [1,2,3,4,5]
+```
+
+!!! note "Links"
+    Mozilla Developer Network - [Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
