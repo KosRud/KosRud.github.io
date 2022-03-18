@@ -29,7 +29,7 @@ By examining the semantic elements on your page, a program can automatically det
         padding-bottom: 4px;
         color: black;
         background: #CCCCFF;
-        box-shadow: var(--shadow-offset-high-X) var(--shadow-offset-high) var(--shadow-blur-high) var(--shadow-color-high);
+        box-shadow: 0px var(--shadow-offset-low) var(--shadow-blur-low) var(--shadow-color-low);
     }
 
     .semantic-example > .semantic-example {
