@@ -409,4 +409,4 @@ class Circle {
 !!! note "Note"
     In the first variant different precision was used for $\pi$ in different places. This can create confusion.
     
-    Creating a constant ensures the value is always same throughout the code.
+    Creating a constant ensures the value is always the same throughout the code.

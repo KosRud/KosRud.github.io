@@ -84,7 +84,7 @@ console.log(`foo to the power of 3 is: ${foo ** 3}`);
 ```
 
 ```js
-human = {
+let human = {
     name: "Jack",
     age: 13
 }
@@ -160,10 +160,10 @@ class Player {
 }
 Player.onlinePlayers = new Array(); // static attribute
 
-Archibald = new Player("Archibald");
-Peter = new Player("Pater");
-Jane = new Player("Jane");
-Eva = new Player("Eva");
+let Archibald   = new Player("Archibald");
+let Peter       = new Player("Pater");
+let Jane        = new Player("Jane");
+let Eva         = new Player("Eva");
 
 // note: we don't need an instance of Player to call getNumOnlinePlayers()
 console.log(
