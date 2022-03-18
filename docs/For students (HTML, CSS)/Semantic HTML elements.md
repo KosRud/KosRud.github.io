@@ -51,27 +51,19 @@ By examining the semantic elements on your page, a program can automatically det
         margin-right: var(--semantic-example-margin);
     }
 
-    .semantic-example-flex.horizontal-nav > div:nth-child(1) {
-        flex-grow: 1;
-    }
-
-    .semantic-example-flex.horizontal-nav > div:nth-child(2) {
-        width: 100px;
-    }
-
     .semantic-example-flex > * {
         margin: 0px;
     }
 
-    .semantic-example-flex.vertical-nav > div:nth-child(2) {
+    .semantic-example-flex > div:nth-child(2) {
         flex-grow: 1;
     }
 
-    .semantic-example-flex.vertical-nav > div:nth-child(3) {
+    .semantic-example-flex > div:nth-child(3) {
         width: 100px;
     }
 
-    .semantic-example-flex.vertical-nav > div:nth-child(1) {
+    .semantic-example-flex > div:nth-child(1) {
         width: 100px;
     }
     
@@ -86,7 +78,10 @@ By examining the semantic elements on your page, a program can automatically det
     <div class="semantic-example">
         nav
     </div>
-    <div class="semantic-example-flex horizontal-nav">
+    <div class="semantic-example-flex">
+        <div class="semantic-example">
+            aside
+        </div>
         <div class="semantic-example">
             main
             <div class="semantic-example">
@@ -123,7 +118,7 @@ By examining the semantic elements on your page, a program can automatically det
     <div class="semantic-example">
         header
     </div>
-    <div class="semantic-example-flex vertical-nav">
+    <div class="semantic-example-flex">
         <div class="semantic-example">
             nav
         </div>
