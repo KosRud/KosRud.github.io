@@ -28,12 +28,12 @@
 
 |Selector|Description|
 |:---|:---|
-|a:active|link being clicked|
 |a:link|unvisited link|
 |a:visited|visited link|
 
-### Hover
+### Hover and click
 
 |Selector|Description|
 |:---|:---|
+|.button:active|any element with `class="button"`, which is currently being clicked|
 |.button:hover|any element with `class="button"`, which has the cursor hovering above it|
