@@ -102,9 +102,7 @@ Destructuring assignment syntax allows unpacking values from arrays, and propert
 
 This has several convenient applications, such as swapping variables without creating a temporary variable, or creating functions with named arguments.
 
-### Examples
-
-#### Swap variables
+### Swap variables
 
 ```js
 let a = 1,
@@ -116,7 +114,7 @@ let a = 1,
 // b = 1
 ```
 
-#### Named function arguments
+### Named function arguments
 
 With named function arguments you don't have to remember the order of arguments, when calling a function.
 
