@@ -38,7 +38,7 @@ By examining the semantic elements on your page, a program can automatically det
         background: #FFCCCC;
     }
 
-    .semantic-example > .semantic-example > .semantic-example > .semantic-example {
+    .semantic-example-nav {
         background: #FFFFAA;
     }
 
@@ -74,7 +74,7 @@ By examining the semantic elements on your page, a program can automatically det
         <div class="semantic-example">
             header
         </div>
-        <div class="semantic-example">
+        <div class="semantic-example semantic-example-nav">
             nav
         </div>
         <div class="semantic-example-flex">
@@ -120,7 +120,7 @@ By examining the semantic elements on your page, a program can automatically det
             header
         </div>
         <div class="semantic-example-flex">
-            <div class="semantic-example">
+            <div class="semantic-example semantic-example-nav">
                 nav
             </div>
             <div class="semantic-example">
