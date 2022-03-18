@@ -357,6 +357,7 @@ Applies the given function to every element of an array, then returns results as
 
 ```js
 let arr = [1,2,3];
+
 editedArr = arr.map(
     (x) => x+1
 );
