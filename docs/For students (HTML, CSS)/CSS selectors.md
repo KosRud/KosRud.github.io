@@ -6,7 +6,7 @@
 
 ## Most common selectors
 
-|Selector|Description|Comment|
+|Selector|<div style="width:300px;">Description</div>|Comment|
 |:---|:---|:---|
 |*|any element (universal selector)|
 |#elementID|any element with `id="elementID"`|a page should only have one element with a given `id`|
@@ -35,5 +35,5 @@
 
 |Selector|Description|
 |:---|:---|
-|.button:active|any element with `class="button"`, which is currently being clicked|
-|.button:hover|any element with `class="button"`, which has the cursor hovering above it|
+|.button:active|any element with `class="button"`,<br>which is currently being clicked|
+|.button:hover|any element with `class="button"`,<br>which has the cursor hovering above it|
