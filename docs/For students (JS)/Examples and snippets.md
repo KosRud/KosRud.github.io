@@ -4,4 +4,4 @@
     To create your own editable copy in **Repl.it**, press `Fork repl` button (top right).
 
 * **Repl.it**
-    * [keyboard input handling demo](https://replit.com/@KostiantynRuden/Input-handling-demo)
+    * <a href="https://replit.com/@KostiantynRuden/Input-handling-demo" target="_blank">keyboard input handling demo</a>

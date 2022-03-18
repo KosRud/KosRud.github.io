@@ -5,4 +5,4 @@
 
 * Flexbox [cheat sheet](https://flexboxsheet.com/)
 * **Repl.it**
-    * [CSS demo](https://replit.com/@KostiantynRuden/CSS-demo#grid_columns.html)
+    * <a href="https://replit.com/@KostiantynRuden/CSS-demo#grid_columns.html" target="_blank">CSS demo</a>
