@@ -17,8 +17,6 @@ By examining the semantic elements on your page, a program can automatically det
     .semantic-example-container {
         width: 500px;
         --semantic-example-margin: 12px;
-        margin-bottom: 40px;
-        margin-top: 40px;
     }
     .semantic-example {
         border: 2px solid black;
@@ -71,83 +69,87 @@ By examining the semantic elements on your page, a program can automatically det
 
 ### Horizontal menu
 
-<div class="semantic-example-container">
-    <div class="semantic-example">
-        header
-    </div>
-    <div class="semantic-example">
-        nav
-    </div>
-    <div class="semantic-example-flex">
+<p>
+    <div class="semantic-example-container">
         <div class="semantic-example">
-            aside
+            header
         </div>
-        <div class="semantic-example">
-            main
-            <div class="semantic-example">
-                section
-                <div class="semantic-example">
-                    article
-                </div>
-                <div class="semantic-example">
-                    article
-                </div>
-            </div>
-            <div class="semantic-example">
-                section
-                <div class="semantic-example">
-                    article
-                </div>
-                <div class="semantic-example">
-                    article
-                </div>
-            </div>
-        </div>
-        <div class="semantic-example">
-            aside
-        </div>
-    </div>
-    <div class="semantic-example">
-        footer
-    </div>
-</div>
-
-### Vertical menu
-
-<div class="semantic-example-container">
-    <div class="semantic-example">
-        header
-    </div>
-    <div class="semantic-example-flex">
         <div class="semantic-example">
             nav
         </div>
-        <div class="semantic-example">
-            main
+        <div class="semantic-example-flex">
             <div class="semantic-example">
-                section
+                aside
+            </div>
+            <div class="semantic-example">
+                main
                 <div class="semantic-example">
-                    article
+                    section
+                    <div class="semantic-example">
+                        article
+                    </div>
+                    <div class="semantic-example">
+                        article
+                    </div>
                 </div>
                 <div class="semantic-example">
-                    article
+                    section
+                    <div class="semantic-example">
+                        article
+                    </div>
+                    <div class="semantic-example">
+                        article
+                    </div>
                 </div>
             </div>
             <div class="semantic-example">
-                section
-                <div class="semantic-example">
-                    article
-                </div>
-                <div class="semantic-example">
-                    article
-                </div>
+                aside
             </div>
         </div>
         <div class="semantic-example">
-            aside
+            footer
         </div>
     </div>
-    <div class="semantic-example">
-        footer
+</p>
+
+### Vertical menu
+
+<p>
+    <div class="semantic-example-container">
+        <div class="semantic-example">
+            header
+        </div>
+        <div class="semantic-example-flex">
+            <div class="semantic-example">
+                nav
+            </div>
+            <div class="semantic-example">
+                main
+                <div class="semantic-example">
+                    section
+                    <div class="semantic-example">
+                        article
+                    </div>
+                    <div class="semantic-example">
+                        article
+                    </div>
+                </div>
+                <div class="semantic-example">
+                    section
+                    <div class="semantic-example">
+                        article
+                    </div>
+                    <div class="semantic-example">
+                        article
+                    </div>
+                </div>
+            </div>
+            <div class="semantic-example">
+                aside
+            </div>
+        </div>
+        <div class="semantic-example">
+            footer
+        </div>
     </div>
-</div>
+</p>
