@@ -124,7 +124,7 @@ When the user opens your website, they should immediately see the content they c
 
 ### Menu
 
-If the menu is on the top and [sticky](https://www.w3schools.com/howto/howto_css_sticky_element.asp), it should be very thin, to maximize the amount of useful content that fits on the screen.
+If the menu is on the top and [sticky](https://www.w3schools.com/howto/howto_css_sticky_element.asp), it should be very thin - to maximize the amount of useful content that fits on the screen.
 
 With a non-sticky menu you can afford a bit more vertical space.
 
