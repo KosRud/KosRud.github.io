@@ -296,7 +296,7 @@ console.log(copy);
 
     <img src="../images.JS tricks.md/shallow copy.png">
 
-### Remove duplicates
+### Removing duplicates
 
 ```js
 let arr = [
