@@ -108,7 +108,7 @@ This has several convenient applications, such as swapping variables without cre
 let a = 1,
     b = 2;
 
-[a,b] = [b, a];
+[a,b] = [b,a];
 
 // a = 2
 // b = 1
