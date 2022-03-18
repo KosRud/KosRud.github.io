@@ -24,29 +24,30 @@ Animations and `:hover` style can hint which elements are interactive. Don't use
     }
 
     .demo-button:hover {
-        transition-duration: 0.1s;
-        transition-timing-function: linear;
+        transition-duration: 0.2s;
+        transition-timing-function: cubic-bezier(.19,1,.22,1);
         transform: translateY(-1px);
         box-shadow: 1.5px 2.5px 2px rgba(0,0,0,0.6);
     }
 
     .demo-button:hover > div{
-        transition-duration: 0.5s;
-        transition-timing-function: ease;
+        transition-duration: 0.4s;
+        transition-timing-function: cubic-bezier(.19,1,.22,1);
         background: rgba(255,255,255,0.3);
         box-shadow: 0px 0px 5px rgba(255,255,255,0.75);
     }
 
     .demo-button:active{
-        transition-duration: 0.1s;
-        transition-timing-function: cubic-bezier(.95,.05,.8,.04);
+        transition-duration: 0.2s;
+        transition-timing-function: cubic-bezier(.19,1,.22,1);
         box-shadow: 0px 0px 0px black;
         transform: translateY(1px);
         
     }
 
     .demo-button:active>div{
-        transition-duration: 0.1s;
+        transition-duration: 0.2s;
+        transition-timing-function: cubic-bezier(.19,1,.22,1);
         box-shadow: 0px 0px 4px rgba(255,255,255,0.5);
         background: rgba(255,255,255,0.2);
     }
