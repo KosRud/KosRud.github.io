@@ -2,7 +2,8 @@
 
 Semantic elements convey their purpose on the page (example: `<nav>` provides navigation links), and help define the structure of your page.
 
-Non-semantic elements, on the other hand, do not have a strictly defined purpose. Example:&nbsp;`<div>`.
+Non-semantic elements, on the other hand, do not have a strictly defined purpose 
+(example:&nbsp;`<div>`).
 
 By examining the semantic elements on your page, a program can automatically determine the hierarchical structure of your content, and build a table of contents. This is useful for search engines and screen readers, among other things.
 
