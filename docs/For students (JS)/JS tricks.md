@@ -31,9 +31,9 @@ for (const i in arr) {
 
 ```js
 let dict = {
-    red: "rgb(255,0,0)",
-    green: "rgb(0,255,0)",
-    blue: "rgb(0,0,255)"
+    red:    "rgb(255,0,0)",
+    green:  "rgb(0,255,0)",
+    blue:   "rgb(0,0,255)"
 }
 
 for (const i in dict) {
