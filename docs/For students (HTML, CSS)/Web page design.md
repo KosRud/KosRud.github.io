@@ -166,11 +166,11 @@ Having *almost* black text on *almost* white background (or vice versa) can be e
         <div class="text-color-demo" style="background: white;">
             <div style="color: black">Maximum contrast</div>
         </div>
-        <div class="text-color-demo" style="background: rgb(246,246,246);">
-            <div style="color: rgb(14,14,14)">Reduced contrast</div>
+        <div class="text-color-demo" style="background: rgb(230,230,230);">
+            <div style="color: rgb(10,10,10)">Reduced contrast</div>
         </div>
-        <div class="text-color-demo" style="background: rgb(240,240,240);">
-            <div style="color: rgb(60,60,60)">Not enough contrast</div>
+        <div class="text-color-demo" style="background: rgb(160,160,160);">
+            <div style="color: rgb(10,10,10)">Not enough contrast</div>
         </div>
     </div>
 </p>
