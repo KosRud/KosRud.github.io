@@ -141,6 +141,39 @@ sayTimes(
 !!! note "Links"
     Mozilla Developer Network - [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
+## Static methods and attributes
+
+Static methods and attributes are shared by all instances of the class. A static method can be called directly from the class, without having an instance.
+
+### Example
+
+```js
+class Player {
+    constructor(name){
+        this.name = name;
+        Player.onlinePlayers.push(this);
+    }
+
+    static getNumOnlinePlayers(){   // static method
+        return Player.onlinePlayers.length;
+    }
+}
+Player.onlinePlayers = new Array(); // static attribute
+
+Archibald = new Player("Archibald");
+Peter = new Player("Pater");
+Jane = new Player("Jane");
+Eva = new Player("Eva");
+
+// note: we don't need an instance of Player to call getNumOnlinePlayers()
+console.log(
+    Player.getNumOnlinePlayers()    // 4
+); 
+```
+
+!!! note "Note"
+    We could use a function defined outside the class instead. But a static method clearly implies the connection between the function, and the class.
+
 ## Optional chaining
 
 Normally, if you try to call a method, or read an attribute, which does not exist, you'd raise an error.
