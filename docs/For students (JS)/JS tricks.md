@@ -317,3 +317,68 @@ console.log(arr);
 
 !!! note "Links"
     Mozilla Developer Network - [Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+## Array.map
+
+Applies the given function to every element of an array, then returns results as a new array.
+
+### Example
+
+```js
+let arr = [1,2,3];
+editedArr = arr.map(
+    (x) => x+1
+);
+// editedArr = [2,3,4]
+```
+
+You can nest `array.map` calls for more complex scenarios:
+
+```js
+let grid = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+];
+
+let editedGrid = grid.map(
+    (row) => row.map(
+        (item) => item - 1
+    )
+)
+
+console.table(editedGrid);
+```
+
+||||
+|---|---|---|
+|0|1|2|
+|3|4|5|
+|6|7|8|
+
+Combined with [spread syntax](#spread-syntax):
+
+```js
+let grid = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+];
+
+let editedGrid = grid.map(
+    (row) => [
+        ...row.map(
+            (item) => item - 1
+        ),
+        0
+    ]
+)
+
+console.table(editedGrid);
+```
+
+|||||
+|---|---|---|---|
+|0|1|2|0|
+|3|4|5|0|
+|6|7|8|0|
