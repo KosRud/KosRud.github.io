@@ -6,5 +6,5 @@
 * Repl.it
     * <a href="https://replit.com/@KostiantynRuden/Input-handling-demo" target="_blank">keyboard input handling demo</a>
 * Github
-    * [code](https://github.com/ConstantineRudenko/For-students)
-    * [demo](https://constantinerudenko.github.io/For-students/)
+    * <a href="https://github.com/ConstantineRudenko/For-students" target="_blank">code</a>
+    * <a href="https://constantinerudenko.github.io/For-students/" target="_blank">demo</a>
