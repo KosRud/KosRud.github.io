@@ -178,28 +178,20 @@ class Game {
         }
 
         if (this._isRunning) {
-            let self = this;
             window.requestAnimationFrame(
-                /*
-                    simply passing "this._loop" would not work
-                    because of "this" being "magic"
+                // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
 
-                    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
-                */
-                () => {
-                    self._loop();
-                }
+                this._loop.bind(this)
             );
         }
     }
 
     run() {
         this._isRunning = true;
-        let self = this;
         window.requestAnimationFrame(
-            () => {
-                self._loop();
-            }
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
+
+            this._loop.bind(this)
         );
     }
 }
