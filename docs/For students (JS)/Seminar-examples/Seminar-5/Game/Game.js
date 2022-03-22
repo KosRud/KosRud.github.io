@@ -210,7 +210,6 @@ export default class Game {
 
     stop() {
         this._isRunning = false;
-        //this.canvas.onmousemove
     }
 
     run() {
