@@ -19,7 +19,28 @@ export default class CharacterModel {
         this.size = size;
         this.speed = speed;
 
-        this._health = health;
+        Object.defineProperty(
+            /*
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+            */
+            this,
+            "health", {
+                healt: health,
+                get: () => {
+                    return health;
+                },
+                set: (value) => {
+                    health = value;
+
+                    // notify everyone who subscibed to the event
+                    for (
+                        const callback of this.eventListeners["healthChanged"]
+                    ) {
+                        callback();
+                    }
+                }
+            }
+        );
         this.baseHealth = health;
 
         this.attackCooldown = new Cooldown(1000);
@@ -27,19 +48,6 @@ export default class CharacterModel {
         this.eventListeners = {
             healthChanged: []
         };
-    }
-
-    getHealth() {
-        return this._health;
-    }
-
-    setHealth(value) {
-        this._health = value;
-        for (
-            const callback of this.eventListeners["healthChanged"]
-        ) {
-            callback();
-        }
     }
 
     addEventListener(event, callback) {
