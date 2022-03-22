@@ -1,7 +1,7 @@
 class ThiefModel extends EnemyModel {
     constructor(position) {
         super({
-            strength: 20,
+            strength: 18,
             armor: 3,
             health: 8,
             name: "Thief",
