@@ -123,6 +123,11 @@ class Game {
             
                 log("log string", "important", "bigFont")
                     classList = ["important", "bigFont"]
+            
+            Links:
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
+                https://constantinerudenko.github.io/For%20students%20%28JS%29/JS%20tricks/#spread-syntax
         */
 
         let logLine = document.createElement("p");

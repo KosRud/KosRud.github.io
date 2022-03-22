@@ -49,6 +49,10 @@ class PlayerController extends CharacterController {
         );
 
         switch (true) {
+            /*
+                https: //p3adaptive.com/2015/03/the-diabolical-genius-of-switch-true/
+            */
+
             case newPosition.x - this.model.size < 0:
                 return;
             case newPosition.x + this.model.size > game.canvas.width:

@@ -26,6 +26,10 @@ class EnemyController extends CharacterController {
         );
 
         switch (true) {
+            /*
+                https: //p3adaptive.com/2015/03/the-diabolical-genius-of-switch-true/
+            */
+
             case newPosition.x - this.model.size < 0:
                 this.model.speedVector.direction = Vector2.fromAngle(
                     (Math.random() - 0.5) * Math.PI
