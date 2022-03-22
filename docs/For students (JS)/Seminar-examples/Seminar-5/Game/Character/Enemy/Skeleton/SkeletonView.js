@@ -1,0 +1,3 @@
+class SkeletonView extends EnemyView {
+
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reference implementation</title>
+
+    <!--
+        if you have a server,
+        it's better to use import/export instead of <script>
+
+        but this will not work, if you just launch an html file
+        from a folder on your PC
+        
+        https://javascript.info/import-export
+    -->
+
+    <script src="Game/Utility/DiceRoller.js"></script>
+
+    <script src="Game/MVC/Controller.js"></script>
+    <script src="Game/MVC/View.js"></script>
+
+    <script src="Game/Character/CharacterModel.js"></script>
+    <script src="Game/Character/CharacterView.js"></script>
+    <script src="Game/Character/CharacterController.js"></script>
+
+    <script src="Game/Character/Player/PlayerModel.js"></script>
+    <script src="Game/Character/Player/PlayerView.js"></script>
+    <script src="Game/Character/Player/PlayerController.js"></script>
+
+    <script src="Game/Character/Enemy/EnemyModel.js"></script>
+    <script src="Game/Character/Enemy/EnemyView.js"></script>
+    <script src="Game/Character/Enemy/EnemyController.js"></script>
+
+    <script src="Game/Character/Enemy/Thief/ThiefModel.js"></script>
+    <script src="Game/Character/Enemy/Thief/ThiefView.js"></script>
+    <script src="Game/Character/Enemy/Thief/ThiefController.js"></script>
+
+    <script src="Game/Character/Enemy/Slime/SlimeModel.js"></script>
+    <script src="Game/Character/Enemy/Slime/SlimeView.js"></script>
+    <script src="Game/Character/Enemy/Slime/SlimeController.js"></script>
+
+    <script src="Game/Character/Enemy/Skeleton/SkeletonModel.js"></script>
+    <script src="Game/Character/Enemy/Skeleton/SkeletonView.js"></script>
+    <script src="Game/Character/Enemy/Skeleton/SkeletonController.js"></script>
+
+    <script src="Game/Game.js" defer></script>
+    <!--
+        with "defer" the script will only load after the <body>
+     -->
+
+
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../gameStyle.css">
+</head>
+
+<body>
+    <h2>
+        <a href="../index.html">Back</a>
+    </h2>
+
+    <h2>
+        Game log:
+    </h2>
+
+    <div id="game-log" class="bordered">
+    </div>
+</body>
+
+</html>

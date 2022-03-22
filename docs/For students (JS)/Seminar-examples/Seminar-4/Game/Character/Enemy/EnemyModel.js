@@ -1,0 +1,3 @@
+class EnemyModel extends CharacterModel {
+
+}
