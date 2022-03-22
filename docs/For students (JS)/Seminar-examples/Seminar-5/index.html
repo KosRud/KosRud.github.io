@@ -18,7 +18,7 @@
     <script src="Game/Utility/DiceRoller.js"></script>
     <script src="Game/Utility/Cooldown.js"></script>
     <script src="Game/Utility/Vector2.js"></script>
-    <script src="Game/Utility/Speed.js"></script>
+    <script src="Game/Utility/SpeedVector.js"></script>
     <script src="Game/Utility/InputManager.js"></script>
 
     <script src="Game/MVC/Controller.js"></script>
@@ -78,7 +78,7 @@
                 victory: document.getElementById('victory'),
             });
             game.run();
-            document.getElementById("play-button").hidden = true;
+            document.getElementById("game-start").hidden = true;
             document.getElementById("game-over").hidden = true;
             document.getElementById("victory").hidden = true;
         }
@@ -88,7 +88,7 @@
         <canvas id="game-canvas" class="bordered" width="600" height="400">
         </canvas>
         <div class="centered">
-            <div id="play-button" class="play-button button bordered shadow" onclick="play()">Play
+            <div id="game-start" class="play-button button bordered shadow" onclick="play()">Play
             </div>
         </div>
         <div id="game-over" class="game-end">

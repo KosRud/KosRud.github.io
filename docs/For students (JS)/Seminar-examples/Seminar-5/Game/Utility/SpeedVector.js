@@ -1,4 +1,4 @@
-class Speed {
+class SpeedVector {
     constructor({
         direction,
         magnitude

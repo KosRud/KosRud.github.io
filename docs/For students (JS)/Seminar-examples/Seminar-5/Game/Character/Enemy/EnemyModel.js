@@ -20,7 +20,7 @@ class EnemyModel extends CharacterModel {
             speed: speed
         });
 
-        this.speedVector = new Speed({
+        this.speedVector = new SpeedVector({
             direction: Vector2.randomDirection(),
             magnitude: speed
         })
