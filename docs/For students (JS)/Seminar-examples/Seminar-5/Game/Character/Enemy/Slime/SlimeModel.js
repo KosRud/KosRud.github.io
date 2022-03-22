@@ -8,7 +8,7 @@ class SlimeModel extends EnemyModel {
             color: "green",
             position: position,
             speed: 3,
-            size: 50
+            size: 100
         });
     }
 }
