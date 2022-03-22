@@ -13,6 +13,17 @@ export default class CharacterController extends Controller {
 
         this.game = game;
 
+        Object.defineProperty(
+            /*
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+            */
+            this,
+            "isDead", {
+                get: () => {
+                    return this.model.health == 0;
+                },
+            }
+        );
     }
 
     isColliding(characterController) {
@@ -40,31 +51,26 @@ export default class CharacterController extends Controller {
     }
 
     receiveDamage(amount) {
-        let newHealth = this.model.getHealth() - amount;
+        let newHealth = this.model.health - amount;
 
-        this.model.setHealth(
-            Math.max(
-                newHealth,
-                0
-            )
+        this.model.health = Math.max(
+            newHealth,
+            0
         );
+
 
         this.game.log(
             `${this.model.name} received ${amount} damage`
         );
 
         this.game.log(
-            `his new health is: ${this.model.getHealth()}`,
+            `his new health is: ${this.model.health}`,
             "indent"
         );
     }
 
     attack(characterController) {
         throw "calling abstract method!";
-    }
-
-    getIsDead() {
-        return this.model.getHealth() == 0;
     }
 
     update(game) {

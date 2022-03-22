@@ -14,9 +14,9 @@ export default class PlayerView extends CharacterView {
     }
 
     updateHealthBar() {
-        document.getElementById("hp-text").innerHTML = `hp: ${this.model.getHealth()}`;
+        document.getElementById("hp-text").innerHTML = `hp: ${this.model.health}`;
         const fillPercent = Math.floor(
-            this.model.getHealth() / this.model.baseHealth * 100
+            this.model.health / this.model.baseHealth * 100
         );
         document.getElementById("hp-fill").style.width = `${fillPercent}%`;
     }

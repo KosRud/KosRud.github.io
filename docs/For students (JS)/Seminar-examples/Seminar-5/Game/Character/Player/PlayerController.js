@@ -94,13 +94,12 @@ export default class PlayerController extends CharacterController {
         if (
             this.model.regenCooldown.isAvailable()
         ) {
-            let newHealth = this.model.getHealth() + this.model.regenAmount;
-            this.model.setHealth(
-                Math.min(
-                    newHealth,
-                    this.model.baseHealth
-                )
+            let newHealth = this.model.health + this.model.regenAmount;
+            this.model.health = Math.min(
+                newHealth,
+                this.model.baseHealth
             );
+
 
             this.model.regenCooldown.use();
         }
