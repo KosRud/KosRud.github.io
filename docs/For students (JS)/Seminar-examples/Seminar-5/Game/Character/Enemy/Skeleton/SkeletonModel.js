@@ -7,7 +7,7 @@ class SkeletonModel extends EnemyModel {
             name: "Skeleton",
             color: "gray",
             position: position,
-            speed: 4,
+            speed: 4.5,
             size: 25
         });
     }
