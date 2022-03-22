@@ -1,15 +1,22 @@
-class PlayerView extends CharacterView {
-    updateHealthBar() {
-        /*
-            using observer pattern would be more efficient
-            (only update HTML element, when health changes)
+import CharacterView from "../CharacterView.js";
 
-            PlayerModel would extend Observable
-            and PlayerView would subscribe to observe it
+export default class PlayerView extends CharacterView {
+    constructor(model) {
+        super(model);
+
+        /*
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
         */
-        document.getElementById("hp-text").innerHTML = `hp: ${this.model.health}`;
+        model.addEventListener(
+            "healthChanged",
+            this.updateHealthBar.bind(this)
+        );
+    }
+
+    updateHealthBar() {
+        document.getElementById("hp-text").innerHTML = `hp: ${this.model.getHealth()}`;
         const fillPercent = Math.floor(
-            this.model.health / this.model.baseHealth * 100
+            this.model.getHealth() / this.model.baseHealth * 100
         );
         document.getElementById("hp-fill").style.width = `${fillPercent}%`;
     }

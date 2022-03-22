@@ -1,4 +1,12 @@
-class PlayerController extends CharacterController {
+import CharacterController from "../CharacterController.js"
+import DiceRoller from "../../Utility/DiceRoller.js";
+import Vector2 from "../../Utility/Vector2.js";
+import {
+    Key,
+    InputManager
+} from "../../Utility/InputManager.js";
+
+export default class PlayerController extends CharacterController {
     attack(characterController) {
         this.model.attackCooldown.use();
 
@@ -86,11 +94,12 @@ class PlayerController extends CharacterController {
         if (
             this.model.regenCooldown.isAvailable()
         ) {
-            this.model.health += this.model.regenAmount;
-
-            this.model.health = Math.min(
-                this.model.health,
-                this.model.baseHealth
+            let newHealth = this.model.getHealth() + this.model.regenAmount;
+            this.model.setHealth(
+                Math.min(
+                    newHealth,
+                    this.model.baseHealth
+                )
             );
 
             this.model.regenCooldown.use();

@@ -1,3 +1,5 @@
-class SlimeController extends EnemyController {
+import EnemyController from "../EnemyController.js";
+
+export default class SlimeController extends EnemyController {
 
 }

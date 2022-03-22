@@ -1,4 +1,4 @@
-class SpeedVector {
+export default class SpeedVector {
     constructor({
         direction,
         magnitude

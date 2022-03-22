@@ -1,4 +1,6 @@
-class CharacterController extends Controller {
+import Controller from "../MVC/Controller.js";
+
+export default class CharacterController extends Controller {
     constructor({
         view,
         model,
@@ -38,11 +40,13 @@ class CharacterController extends Controller {
     }
 
     receiveDamage(amount) {
-        this.model.health -= amount;
+        let newHealth = this.model.getHealth() - amount;
 
-        this.model.health = Math.max(
-            this.model.health,
-            0
+        this.model.setHealth(
+            Math.max(
+                newHealth,
+                0
+            )
         );
 
         this.game.log(
@@ -50,7 +54,7 @@ class CharacterController extends Controller {
         );
 
         this.game.log(
-            `his new health is: ${this.model.health}`,
+            `his new health is: ${this.model.getHealth()}`,
             "indent"
         );
     }
@@ -60,7 +64,7 @@ class CharacterController extends Controller {
     }
 
     getIsDead() {
-        return this.model.health == 0;
+        return this.model.getHealth() == 0;
     }
 
     update(game) {

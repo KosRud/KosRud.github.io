@@ -1,4 +1,8 @@
-class EnemyModel extends CharacterModel {
+import CharacterModel from "../CharacterModel.js";
+import SpeedVector from "../../Utility/SpeedVector.js";
+import Vector2 from "../../Utility/Vector2.js";
+
+export default class EnemyModel extends CharacterModel {
     constructor({
         strength,
         health,

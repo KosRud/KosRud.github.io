@@ -1,3 +1,5 @@
-class SkeletonView extends EnemyView {
+import EnemyView from "../EnemyView.js";
+
+export default class SkeletonView extends EnemyView {
 
 }

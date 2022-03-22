@@ -1,4 +1,4 @@
-let Key = {
+export let Key = {
     Space: 32,
     W: 87,
     S: 83,
@@ -8,7 +8,7 @@ let Key = {
     K: 75
 }
 
-let InputManager = {
+export let InputManager = {
 
     _downKeys: {},
     _pressedKeysAfterLastUpdate: {},

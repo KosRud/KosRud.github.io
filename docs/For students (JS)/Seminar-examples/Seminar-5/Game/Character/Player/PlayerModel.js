@@ -1,4 +1,7 @@
-class PlayerModel extends CharacterModel {
+import CharacterModel from "../CharacterModel.js";
+import Cooldown from "../../Utility/Cooldown.js";
+
+export default class PlayerModel extends CharacterModel {
     constructor({
         name,
         position

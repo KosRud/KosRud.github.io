@@ -1,4 +1,22 @@
-class Game {
+import PlayerController from "./Character/Player/PlayerController.js";
+import PlayerView from "./Character/Player/PlayerView.js";
+import PlayerModel from "./Character/Player/PlayerModel.js";
+
+import ThiefController from "./Character/Enemy/Thief/ThiefController.js";
+import ThiefView from "./Character/Enemy/Thief/ThiefView.js";
+import ThiefModel from "./Character/Enemy/Thief/ThiefModel.js";
+
+import SlimeController from "./Character/Enemy/Slime/SlimeController.js";
+import SlimeView from "./Character/Enemy/Slime/SlimeView.js";
+import SlimeModel from "./Character/Enemy/Slime/SlimeModel.js";
+
+import SkeletonController from "./Character/Enemy/Skeleton/SkeletonController.js";
+import SkeletonView from "./Character/Enemy/Skeleton/SkeletonView.js";
+import SkeletonModel from "./Character/Enemy/Skeleton/SkeletonModel.js";
+
+import Vector2 from "./Utility/Vector2.js";
+
+export default class Game {
     constructor({
         logDiv,
         canvas,
@@ -165,7 +183,6 @@ class Game {
         }
 
         this.playerController.draw(this.canvas);
-        this.playerController.view.updateHealthBar();
     }
 
     _loop() {
@@ -189,6 +206,11 @@ class Game {
                 this._loop.bind(this)
             );
         }
+    }
+
+    stop() {
+        this._isRunning = false;
+        //this.canvas.onmousemove
     }
 
     run() {
