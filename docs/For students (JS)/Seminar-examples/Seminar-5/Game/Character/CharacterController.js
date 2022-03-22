@@ -12,18 +12,6 @@ export default class CharacterController extends Controller {
         });
 
         this.game = game;
-
-        Object.defineProperty(
-            /*
-                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
-            */
-            this,
-            "isDead", {
-                get: () => {
-                    return this.model.health == 0;
-                },
-            }
-        );
     }
 
     isColliding(characterController) {
