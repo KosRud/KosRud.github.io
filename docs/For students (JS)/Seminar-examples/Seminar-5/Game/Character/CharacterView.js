@@ -1,4 +1,6 @@
-class CharacterView extends View {
+import View from "../MVC/View.js";
+
+export default class CharacterView extends View {
     draw(canvas) {
         const ctx = canvas.getContext('2d');
 

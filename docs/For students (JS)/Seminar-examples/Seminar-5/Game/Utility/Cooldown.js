@@ -1,4 +1,4 @@
-class Cooldown {
+export default class Cooldown {
     constructor(cooldown) {
         this.cooldown = cooldown;
         this.timeLastUsed = 0;

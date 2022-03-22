@@ -1,4 +1,6 @@
-class SkeletonModel extends EnemyModel {
+import EnemyModel from "../EnemyModel.js";
+
+export default class SkeletonModel extends EnemyModel {
     constructor(position) {
         super({
             strength: 15,

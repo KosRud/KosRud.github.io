@@ -1,4 +1,4 @@
-class DiceRoller {
+export default class DiceRoller {
     static _dx(n) {
         let rollResult = Math.floor(
             Math.random() * n

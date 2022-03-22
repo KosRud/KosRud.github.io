@@ -1,4 +1,6 @@
-class ThiefModel extends EnemyModel {
+import EnemyModel from "../EnemyModel.js";
+
+export default class ThiefModel extends EnemyModel {
     constructor(position) {
         super({
             strength: 18,

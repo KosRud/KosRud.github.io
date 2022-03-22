@@ -1,4 +1,8 @@
-class EnemyController extends CharacterController {
+import CharacterController from "../CharacterController.js";
+import DiceRoller from '../../Utility/DiceRoller.js';
+import Vector2 from '../../Utility/Vector2.js';
+
+export default class EnemyController extends CharacterController {
     attack(characterController) {
         this.model.attackCooldown.use();
 

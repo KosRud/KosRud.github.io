@@ -1,4 +1,6 @@
-class SlimeModel extends EnemyModel {
+import EnemyModel from "../EnemyModel.js";
+
+export default class SlimeModel extends EnemyModel {
     constructor(position) {
         super({
             strength: 12,

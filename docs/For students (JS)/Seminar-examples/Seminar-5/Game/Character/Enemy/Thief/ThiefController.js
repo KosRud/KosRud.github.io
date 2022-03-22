@@ -1,3 +1,5 @@
-class ThiefController extends EnemyController {
+import EnemyController from "../EnemyController.js";
+
+export default class ThiefController extends EnemyController {
 
 }
