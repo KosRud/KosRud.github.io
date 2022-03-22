@@ -1,14 +1,14 @@
 class SlimeModel extends EnemyModel {
     constructor(position) {
         super({
-            strength: 10,
+            strength: 12,
             armor: 1,
             health: 40,
             name: "Slime",
             color: "green",
             position: position,
             speed: 3,
-            size: 90
+            size: 80
         });
     }
 }
