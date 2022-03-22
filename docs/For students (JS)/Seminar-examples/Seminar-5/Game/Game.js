@@ -169,7 +169,7 @@ export default class Game {
 
         this.enemies = this.enemies.filter(
             (enemyController) => {
-                return enemyController.isDead == false
+                return enemyController.model.isDead == false
             }
         );
     }
@@ -189,7 +189,7 @@ export default class Game {
         this._update();
         this._draw();
 
-        if (this.playerController.isDead == true) {
+        if (this.playerController.model.isDead == true) {
             this._isRunning = false;
             this.gameOver.hidden = false;
         }

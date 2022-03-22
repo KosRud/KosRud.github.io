@@ -43,6 +43,18 @@ export default class CharacterModel {
         );
         this.baseHealth = health;
 
+        Object.defineProperty(
+            /*
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+            */
+            this,
+            "isDead", {
+                get: () => {
+                    return this.health == 0;
+                },
+            }
+        );
+
         this.attackCooldown = new Cooldown(1000);
 
         this.eventListeners = {
