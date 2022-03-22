@@ -1,0 +1,3 @@
+class SlimeController extends EnemyController {
+
+}

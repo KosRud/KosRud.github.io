@@ -1,0 +1,3 @@
+class SkeletonController extends EnemyController {
+
+}
