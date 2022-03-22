@@ -3,7 +3,7 @@ class SlimeModel extends EnemyModel {
         super({
             strength: 10,
             armor: 1,
-            health: 25,
+            health: 40,
             name: "Slime",
             color: "green",
             position: position,
