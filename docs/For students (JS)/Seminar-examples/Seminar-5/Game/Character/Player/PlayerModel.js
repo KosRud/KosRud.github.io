@@ -20,8 +20,4 @@ export default class PlayerModel extends CharacterModel {
         this.regenCooldown = new Cooldown(5000);
         this.regenAmount = 5;
     }
-
-    isRegenOnCooldown() {
-        return new Date().getTime() - this.timeLastRegen < this.regenCooldown;
-    }
 }

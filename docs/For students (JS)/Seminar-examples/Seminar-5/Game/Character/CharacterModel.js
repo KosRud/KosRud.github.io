@@ -19,18 +19,15 @@ export default class CharacterModel {
         this.size = size;
         this.speed = speed;
 
+        let _health = health; // no need to store it in "this"
         Object.defineProperty(
-            /*
-                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
-            */
             this,
             "health", {
-                healt: health,
                 get: () => {
-                    return health;
+                    return _health;
                 },
                 set: (value) => {
-                    health = value;
+                    _health = value;
 
                     // notify everyone who subscibed to the event
                     for (
@@ -44,9 +41,6 @@ export default class CharacterModel {
         this.baseHealth = health;
 
         Object.defineProperty(
-            /*
-                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
-            */
             this,
             "isDead", {
                 get: () => {
