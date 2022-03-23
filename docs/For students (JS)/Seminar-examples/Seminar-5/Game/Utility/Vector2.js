@@ -47,6 +47,9 @@ export default class Vector2 {
 
     normalized() {
         const length = this.length();
+        if (this.isZero()) {
+            throw "trying to normalize a zero-length vector!";
+        }
         return new Vector2(
             this.x / this.length(),
             this.y / this.length()
