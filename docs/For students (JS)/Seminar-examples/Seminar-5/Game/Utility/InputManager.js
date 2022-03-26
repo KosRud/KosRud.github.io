@@ -1,58 +1,34 @@
-export let Key = {
-    Space: 32,
-    W: 87,
-    S: 83,
-    A: 65,
-    D: 68,
-    Ctrl: 17,
-    K: 75
-}
-
 export let InputManager = {
 
     _downKeys: {},
     _pressedKeysAfterLastUpdate: {},
     _pressedKeysBeforeLastUpdate: {},
 
-
-    // IsKeyDown(keyCode) tells you whether the key is currently down
-    IsKeyDown: function (keyCode) {
+    isKeyDown: function (key) {
 
         /*
-          if the key was pressed and immediately released
-          between two runs of the game loop (frames)
+          If the key was pressed and immediately released
+          between two runs of the game loop (frames),
           
           it will still be registered for 1 frame
+          as being held down.
         */
-        if (this.WasKeyPressed(keyCode)) {
+        if (this.wasKeyPressed(key)) {
             return true;
         }
 
-        return this._downKeys[keyCode];
+        return this._downKeys[key];
     },
 
-    /*
-		WasKeyPressed(keyCode) tells you whether the key was pressed
-		it only returns "true" during a single frame after the key was pressed
-		holding the key down will not cause it to return "true" for multiple frames
-		only releasing the key and pressing it down again will cause WasKeyPressed(keyCode)
-		to return "true" again
-  */
-    WasKeyPressed: function (keyCode) {
-        return this._pressedKeysBeforeLastUpdate[keyCode];
-    },
-
-    OnKeyDown: function (event) {
-        // we only register key as "pressed" if it wasn't already held down
-        if (!this._downKeys[event.keyCode]) {
-            this._pressedKeysAfterLastUpdate[event.keyCode] = true;
-        }
-
-        this._downKeys[event.keyCode] = true;
-    },
-
-    OnKeyUp: function (event) {
-        delete this._downKeys[event.keyCode];
+    /**
+     * Tells if the key was pressed. Only returns "true" during a single frame after the key was pressed.
+     * 
+     * Holding the key down will not cause it to return "true" for multiple frames. Only releasing the key and pressing it down again will cause WasKeyPressed(keyCode) to return "true" again.
+     * @param {Number} keyCode - Use Key object to get key codes.
+     * @returns {Boolean} True if the key was pressed, false otherwise.
+     */
+    wasKeyPressed: function (key) {
+        return this._pressedKeysBeforeLastUpdate[key];
     },
 
     /**
@@ -62,20 +38,29 @@ export let InputManager = {
         this._pressedKeysBeforeLastUpdate = this._pressedKeysAfterLastUpdate;
         this._pressedKeysAfterLastUpdate = {};
     },
+
+    _onKeyUp: function (event) {
+        delete this._downKeys[event.key];
+    },
+
+    _onKeyDown: function (event) {
+        // we only register key as "pressed" if it wasn't already held down
+        if (!this._downKeys[event.key]) {
+            this._pressedKeysAfterLastUpdate[event.key] = true;
+        }
+
+        this._downKeys[event.key] = true;
+    }
 }
 
 window.addEventListener(
     'keyup',
-    function (event) {
-        InputManager.OnKeyUp(event);
-    },
+    InputManager._onKeyUp.bind(InputManager),
     false
 );
 
 window.addEventListener(
     'keydown',
-    function (event) {
-        InputManager.OnKeyDown(event);
-    },
+    InputManager._onKeyDown.bind(InputManager),
     false
 );
