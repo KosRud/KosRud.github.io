@@ -1,9 +1,24 @@
 const VECTOR_PRECISION = 1e-5;
 
 export default class Vector2 {
+    /**
+     * Either provide both arguments, or none. If no arguments are provided, initializes with {x: 0, y: 0}.
+     * @param {Number=} x 
+     * @param {Number=} y 
+     */
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        switch (true) {
+            case x != undefined && y != undefined:
+                this.x = x;
+                this.y = y;
+                break;
+            case x == undefined && y == undefined:
+                this.x = 0;
+                this.y = 0;
+                break;
+            default:
+                throw ("invalid Vector2 initialization");
+        }
     }
 
     static randomDirection() {
