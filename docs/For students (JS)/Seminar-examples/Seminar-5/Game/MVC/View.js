@@ -3,7 +3,7 @@ export default class View {
         this.model = model;
     }
 
-    draw() {
+    draw(canvas) {
         throw "calling abstract method!";
     }
 }
