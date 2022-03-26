@@ -55,6 +55,9 @@ export let InputManager = {
         delete this._downKeys[event.keyCode];
     },
 
+    /**
+     * Updates which keys were pressed (not just held) during the last frame. Call this function at the START of every frame.
+     */
     Update: function () {
         this._pressedKeysBeforeLastUpdate = this._pressedKeysAfterLastUpdate;
         this._pressedKeysAfterLastUpdate = {};

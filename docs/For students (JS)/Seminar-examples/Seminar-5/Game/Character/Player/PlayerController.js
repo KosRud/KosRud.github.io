@@ -2,8 +2,7 @@ import CharacterController from "../CharacterController.js"
 import DiceRoller from "../../Utility/DiceRoller.js";
 import Vector2 from "../../Utility/Vector2.js";
 import {
-    Key,
-    InputManager
+    Key
 } from "../../Utility/InputManager.js";
 
 export default class PlayerController extends CharacterController {
@@ -22,25 +21,25 @@ export default class PlayerController extends CharacterController {
     move(game) {
         let moveDirection = new Vector2(0, 0);
 
-        if (InputManager.IsKeyDown(Key.W)) {
+        if (this.game.inputManager.IsKeyDown(Key.W)) {
             moveDirection = moveDirection.add(
                 new Vector2(0, 1)
             );
         }
 
-        if (InputManager.IsKeyDown(Key.S)) {
+        if (this.game.inputManager.IsKeyDown(Key.S)) {
             moveDirection = moveDirection.add(
                 new Vector2(0, -1)
             );
         }
 
-        if (InputManager.IsKeyDown(Key.A)) {
+        if (this.game.inputManager.IsKeyDown(Key.A)) {
             moveDirection = moveDirection.add(
                 new Vector2(-1, 0)
             );
         }
 
-        if (InputManager.IsKeyDown(Key.D)) {
+        if (this.game.inputManager.IsKeyDown(Key.D)) {
             moveDirection = moveDirection.add(
                 new Vector2(1, 0)
             );
@@ -76,7 +75,7 @@ export default class PlayerController extends CharacterController {
     }
 
     handleAttackInput() {
-        if (InputManager.IsKeyDown(Key.K)) {
+        if (this.game.inputManager.IsKeyDown(Key.K)) {
             // attack button pressed
 
             for (const enemyController of this.game.enemies) {
