@@ -1,5 +1,6 @@
 import { InputManager } from './Utility/InputManager.js';
 
+import GameObjectController from './GameObject/GameObjectController.js';
 import GemController from './GameObject/Gem/GemController.js';
 import GemModel from './GameObject/Gem/GemModel.js';
 import GemView from './GameObject/Gem/GemView.js';
@@ -13,6 +14,10 @@ export default class Game {
         this.canvas = canvas;
         this.socketDiv = socketDiv;
         this._running = true;
+
+        /**
+         * @type {GameObjectController[]}
+         */
         this.gameObjects = [];
 
         this.inputManager = InputManager;
@@ -83,7 +88,7 @@ export default class Game {
 
     _update() {
         for (const gameObject of this.gameObjects) {
-            gameObject.update(this.canvas);
+            gameObject.update();
         }
     }
 
