@@ -30,7 +30,6 @@ export default class EventDispatcher {
     }
 
     addEventListener(event, callback) {
-        console.log(this._eventListeners);
         if (
             this._eventListeners[event].includes(callback)
         ) {
