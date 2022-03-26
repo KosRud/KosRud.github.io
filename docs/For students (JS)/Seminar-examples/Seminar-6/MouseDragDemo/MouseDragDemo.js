@@ -34,6 +34,7 @@ export default class MouseDragDemo {
             let gemController = new GemController({
                 view: gemView,
                 model: gemModel,
+                mouseDragDemo: this,
             });
 
             this.gameObjects.push(gemController);
@@ -88,10 +89,23 @@ export default class MouseDragDemo {
                 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
 
                 https://constantinerudenko.github.io/For%20students%20%28JS%29/JS%20tricks/#optional-chaining
+
+                "Call gameObject.onMouseDown() if it exists, do nothing otherwise"
             */
-            gameObject?.onMouseDown();
+            gameObject.onMouseDown?.();
         }
     }
 
-    _onMouseUp() {}
+    _onMouseUp() {
+        for (const gameObject of this.gameObjects) {
+            /*
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+
+                https://constantinerudenko.github.io/For%20students%20%28JS%29/JS%20tricks/#optional-chaining
+
+                "Call gameObject.onMouseUp() if it exists, do nothing otherwise"
+            */
+            gameObject.onMouseUp?.();
+        }
+    }
 }

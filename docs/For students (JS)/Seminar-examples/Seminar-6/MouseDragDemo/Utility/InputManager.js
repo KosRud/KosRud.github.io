@@ -2,15 +2,15 @@ import Vector2 from './Vector2.js';
 import EventDispatcher from '../EventDispatcher/EventDispatcher.js';
 
 export let InputManager = {
-    mousePos: new Vector2(),
+    mousePosition: new Vector2(),
     mouseTrackingTarget: null,
 
     eventDispatcher: new EventDispatcher('mousedown', 'mouseup'),
 
     _onMouseMove: function (event) {
-        this.mousePos.x = event.offsetX;
+        this.mousePosition.x = event.offsetX;
         // invert Y axis
-        this.mousePos.y = this.mouseTrackingTarget.height - event.offsetY;
+        this.mousePosition.y = this.mouseTrackingTarget.height - event.offsetY;
     },
 
     _onMouseDown: function () {
