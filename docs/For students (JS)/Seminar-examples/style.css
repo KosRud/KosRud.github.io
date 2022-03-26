@@ -11,9 +11,12 @@ body {
     font-size: 10pt;
 }
 
+h1 {
+    margin: 12px 0px;
+}
+
 h2 {
-    margin-bottom: 12px;
-    margin-top: 12px;
+    margin: 12px 0px;
 }
 
 .bordered {

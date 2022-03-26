@@ -1,9 +1,56 @@
+import Vector2 from "./Vector2.js";
+
+export let Key = {
+    Space: 32,
+    W: 87,
+    S: 83,
+    A: 65,
+    D: 68,
+    Ctrl: 17,
+    K: 75
+}
+
 export let InputManager = {
+
     _downKeys: {},
     _pressedKeysAfterLastUpdate: {},
     _pressedKeysBeforeLastUpdate: {},
+    _mouseCaptureElement: null,
+    _mousePosition: new Vector2(0, 0),
+    _mouseCaptureCallback: (event) => {
+        InputManager._mousePosition.x = event.offsetX;
+        /*
+            flip y coordinate
+            by default it goes down
+        */
+        InputManager._mousePosition.y =
+            InputManager._mouseCaptureElement.height - event.offsetY;
+    },
 
+    setMouseCaptureElement: function (element) {
+        if (this._mouseCaptureElement != null) {
+            this._mouseCaptureElement.removeEventListener(
+                "mousemove",
+                this._mouseCaptureCallback
+            );
+        }
+
+        this._mouseCaptureElement = element;
+
+        this._mouseCaptureElement.addEventListener(
+            "mousemove",
+            this._mouseCaptureCallback
+        )
+    },
+
+    getMousePosition: function () {
+        return this._mousePosition.clone();
+    },
+
+
+    // IsKeyDown(keyCode) tells you whether the key is currently down
     isKeyDown: function (key) {
+
         /*
           If the key was pressed and immediately released
           between two runs of the game loop (frames),
@@ -20,7 +67,7 @@ export let InputManager = {
 
     /**
      * Tells if the key was pressed. Only returns "true" during a single frame after the key was pressed.
-     *
+     * 
      * Holding the key down will not cause it to return "true" for multiple frames. Only releasing the key and pressing it down again will cause WasKeyPressed(keyCode) to return "true" again.
      * @param {Number} keyCode - Use Key object to get key codes.
      * @returns {Boolean} True if the key was pressed, false otherwise.
@@ -48,19 +95,17 @@ export let InputManager = {
         }
 
         this._downKeys[event.key] = true;
-    },
-};
+    }
+}
 
 window.addEventListener(
     'keyup',
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
     InputManager._onKeyUp.bind(InputManager),
     false
 );
 
 window.addEventListener(
     'keydown',
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
     InputManager._onKeyDown.bind(InputManager),
     false
 );

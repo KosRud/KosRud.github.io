@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse drag demo</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../gameStyle.css">
+
+    <style>
+        #game-canvas {
+            background: #EEEEEE;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Click & Drag!</h1>
+    <canvas id="game-canvas" class="bordered" width="600" height="400">
+    </canvas>
+
+    <script type="module">
+        import MouseDragDemo from "./MouseDragDemo/MouseDragDemo.js";
+
+        let canvas = document.getElementById("game-canvas");
+        let mouseDragDemo = new MouseDragDemo(canvas);
+        mouseDragDemo.run();
+    </script>
+</body>
+
+</html>
