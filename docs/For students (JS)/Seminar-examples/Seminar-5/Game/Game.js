@@ -16,6 +16,10 @@ import SkeletonModel from "./Character/Enemy/Skeleton/SkeletonModel.js";
 
 import Vector2 from "./Utility/Vector2.js";
 
+import {
+    InputManager
+} from "./Utility/InputManager.js";
+
 export default class Game {
     constructor({
         logDiv,
@@ -36,8 +40,9 @@ export default class Game {
             this.canvas.height / 2
         );
 
-        // init player
+        this.inputManager = InputManager;
 
+        // init player
         {
             /*
                 These braces are not necessary,
@@ -186,19 +191,23 @@ export default class Game {
     }
 
     _loop() {
+        this.inputManager.Update();
         this._update();
         this._draw();
 
+        // check if the player has lost
         if (this.playerController.model.isDead == true) {
             this._isRunning = false;
             this.gameOver.hidden = false;
         }
 
+        // check if the player has won
         if (this.enemies.length == 0) {
             this._isRunning = false;
             this.victory.hidden = false;
         }
 
+        // request the next frame
         if (this._isRunning) {
             window.requestAnimationFrame(
                 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
