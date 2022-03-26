@@ -61,6 +61,7 @@ export default class Game {
             gemView.updateHTML(this.socketDiv);
         }
 
+        // create Gems
         for (let offset = -3; offset <= 3; offset++) {
             const position = new Vector2(
                 this.canvas.width / 2 + offset * 80,
