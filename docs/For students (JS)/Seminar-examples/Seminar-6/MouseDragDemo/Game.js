@@ -31,60 +31,69 @@ export default class Game {
             this._onMouseDown.bind(this)
         );
 
-        // create a Gem
-        {
-            let gemModel = new GemModel('red');
-
-            gemModel.position = new Vector2(
-                this.canvas.width / 2,
-                this.canvas.height / 2
-            );
-
-            let gemView = new GemView(gemModel);
-            let gemController = new GemController({
-                view: gemView,
-                model: gemModel,
-                mouseDragDemo: this,
-            });
-
-            this.gameObjects.push(gemController);
-
-            /*
-                whenever the Gem is placed in a new socket,
-                call gemView.updateHTML
-            */
-            gemModel.eventDispatcher.addEventListener('socketChanged', () => {
-                gemView.updateHTML(this.socketDiv);
-            });
-
-            // set initial value
-            gemView.updateHTML(this.socketDiv);
-        }
-
-        // create Gems
-        for (let offset = -3; offset <= 3; offset++) {
-            const position = new Vector2(
-                this.canvas.width / 2 + offset * 80,
-                this.canvas.height / 2 + 40
-            );
-
-            this._addSocket({
-                position: position,
-                name: offset + 4,
-            });
-        }
+        this._createGem();
+        this._createSockets(5);
     }
 
-    _addSocket({ position, name }) {
-        let socketModel = new SocketModel(name);
-        socketModel.position = position;
+    _createGem() {
+        let gemModel = new GemModel('red');
 
-        let socketView = new SocketView(socketModel);
-        let socketController = new SocketController({
-            view: socketView,
-            model: socketModel,
+        gemModel.position = new Vector2(
+            this.canvas.width / 2,
+            this.canvas.height / 2
+        );
+
+        let gemView = new GemView(gemModel);
+        let gemController = new GemController({
+            view: gemView,
+            model: gemModel,
+            mouseDragDemo: this,
         });
-        this.gameObjects.push(socketController);
+
+        this.gameObjects.push(gemController);
+
+        /*
+            whenever the Gem is placed in a new socket,
+            call gemView.updateHTML
+        */
+        gemModel.eventDispatcher.addEventListener('socketChanged', () => {
+            gemView.updateHTML(this.socketDiv);
+        });
+
+        // set initial value
+        gemView.updateHTML(this.socketDiv);
+    }
+
+    _createSockets(numSockets) {
+        /*
+            7 sockets:
+
+            0 1 2 (3) 4 5 6
+        */
+        const centralSocketIndex = (numSockets - 1) / 2;
+        const SOCKET_GAP = 80;
+
+        for (let i = 0; i < numSockets; i++) {
+            const offset = (i - centralSocketIndex) * SOCKET_GAP;
+
+            const position = new Vector2(
+                this.canvas.width / 2 + offset,
+                this.canvas.height / 2 + 80
+            );
+
+            const name = i + 1; // first Socket has name "1"
+
+            let socketModel = new SocketModel(name);
+            socketModel.position = position;
+
+            let socketView = new SocketView(socketModel);
+            let socketController = new SocketController({
+                view: socketView,
+                model: socketModel,
+            });
+
+            this.gameObjects.push(socketController);
+        }
     }
 
     _update() {
