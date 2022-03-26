@@ -7,7 +7,7 @@ export default class PlayerView extends CharacterView {
         /*
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
         */
-        model.addEventListener(
+        model.eventDispatcher.addEventListener(
             "healthChanged",
             this.updateHealthBar.bind(this)
         );

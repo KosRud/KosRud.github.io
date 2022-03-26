@@ -1,4 +1,5 @@
 import Cooldown from "../Utility/Cooldown.js";
+import EventDispatcher from "../EventDispatcher/EventDispatcher.js";
 
 export default class CharacterModel {
     constructor({
@@ -19,6 +20,10 @@ export default class CharacterModel {
         this.size = size;
         this.speed = speed;
 
+        this.eventDispatcher = new EventDispatcher(
+            "healthChanged"
+        );
+
         let _health = health; // no need to store it in "this"
         Object.defineProperty(
             this,
@@ -27,13 +32,9 @@ export default class CharacterModel {
                     return _health;
                 },
                 set: (value) => {
-                    _health = value;
-
-                    // notify everyone who subscibed to the event
-                    for (
-                        const callback of this.eventListeners["healthChanged"]
-                    ) {
-                        callback();
+                    if (this._health != value) {
+                        _health = value;
+                        this.eventDispatcher.dispatch("healthChanged");
                     }
                 }
             }
@@ -50,26 +51,6 @@ export default class CharacterModel {
         );
 
         this.attackCooldown = new Cooldown(1000);
-
-        this.eventListeners = {
-            healthChanged: []
-        };
-    }
-
-    addEventListener(event, callback) {
-        if (
-            this.eventListeners[event].includes(callback)
-        ) {
-            throw "adding the same event handler twice!";
-        }
-
-        this.eventListeners[event].push(callback);
-    }
-
-    removeEventlistener(event, callback) {
-        this.eventListeners[event] = this.eventListeners[event].filter(
-            (item) => item != callback
-        );
     }
 
     getColor() {
