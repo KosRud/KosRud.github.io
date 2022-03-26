@@ -1,12 +1,17 @@
+import { InputManager } from './Utility/InputManager.js';
+
 import GemController from './GameObject/Gem/GemController.js';
 import GemModel from './GameObject/Gem/GemModel.js';
 import GemView from './GameObject/Gem/GemView.js';
-import { InputManager } from './Utility/InputManager.js';
+import SocketController from './GameObject/Socket/SocketController.js';
+import SocketModel from './GameObject/Socket/SocketModel.js';
+import SocketView from './GameObject/Socket/SocketView.js';
 import Vector2 from './Utility/Vector2.js';
 
-export default class MouseDragDemo {
-    constructor(canvas) {
+export default class Game {
+    constructor({ canvas, socketDiv }) {
         this.canvas = canvas;
+        this.socketDiv = socketDiv;
         this._running = true;
         this.gameObjects = [];
 
@@ -38,7 +43,42 @@ export default class MouseDragDemo {
             });
 
             this.gameObjects.push(gemController);
+
+            /*
+                whenever the Gem is placed in a new socket,
+                call gemView.updateHTML
+            */
+            gemModel.eventDispatcher.addEventListener('socketChanged', () => {
+                gemView.updateHTML(this.socketDiv);
+            });
+
+            // set initial value
+            gemView.updateHTML(this.socketDiv);
         }
+
+        for (let offset = -3; offset <= 3; offset++) {
+            const position = new Vector2(
+                this.canvas.width / 2 + offset * 80,
+                this.canvas.height / 2 + 40
+            );
+
+            this._addSocket({
+                position: position,
+                name: offset + 4,
+            });
+        }
+    }
+
+    _addSocket({ position, name }) {
+        let socketModel = new SocketModel(name);
+        socketModel.position = position;
+
+        let socketView = new SocketView(socketModel);
+        let socketController = new SocketController({
+            view: socketView,
+            model: socketModel,
+        });
+        this.gameObjects.push(socketController);
     }
 
     _update() {
@@ -48,11 +88,36 @@ export default class MouseDragDemo {
     }
 
     _draw() {
+        /*
+            this.gameObjects constains objects with different draw order
+
+            This function ensures, that for any two objects A and B:
+                if the draw order of A is less, than the draw order of B,
+                B will be rendered on top of A
+            
+            This way the Gem is always drawn on top of Sockets
+        */
+
         const ctx = this.canvas.getContext('2d');
         ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        for (const gameObject of this.gameObjects) {
-            gameObject.draw(this.canvas);
+        // Set has 1 instance of every unique value
+        const drawOrdersSet = new Set(
+            this.gameObjects.map((controller) => controller.model.drawOrder)
+        );
+        // Array of sorted draw orders
+        const drawOrders = [...drawOrdersSet].sort();
+
+        // Iterate over sorted draw orders
+        for (const drawOrder of drawOrders) {
+            // Array of objects with given draw order
+            const gameObjects = this.gameObjects.filter(
+                (controller) => controller.model.drawOrder == drawOrder
+            );
+
+            for (const gameObject of gameObjects) {
+                gameObject.draw(this.canvas);
+            }
         }
     }
 

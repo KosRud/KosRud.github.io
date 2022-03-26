@@ -1,4 +1,4 @@
-import Vector2 from '../../Utility/Vector2.js';
+import EventDispatcher from '../../EventDispatcher/EventDispatcher.js';
 import GameObjectModel from '../GameObjectModel.js';
 
 export default class GemModel extends GameObjectModel {
@@ -8,7 +8,6 @@ export default class GemModel extends GameObjectModel {
     constructor(color) {
         super();
         this.size = 20;
-        this.color = color;
 
         /**
          * Null, if the gem is not being dragged.
@@ -17,5 +16,27 @@ export default class GemModel extends GameObjectModel {
          */
         this.draggingOffset = null;
         this.isMouseOver = false;
+
+        this.eventDispatcher = new EventDispatcher('socketChanged');
+
+        /**
+         * Reference to a Socket controller, where the Gem is placed
+         *
+         * If the Gem is not in a Socket, this will contain null.
+         */
+        let _socket = null;
+        Object.defineProperty(this, 'socket', {
+            get: function () {
+                return _socket;
+            },
+            set: function (newSocket) {
+                if (_socket != newSocket) {
+                    _socket = newSocket;
+                    this.eventDispatcher.dispatch('socketChanged');
+                }
+            },
+        });
+
+        this.drawOrder = 1;
     }
 }

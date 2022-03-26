@@ -14,6 +14,11 @@ export default class GemView extends View {
                 break;
         }
 
+        let fillStyle = 'red';
+        if (this.model.socket != null) {
+            fillStyle = 'green';
+        }
+
         ctx.beginPath();
         ctx.save();
         {
@@ -22,7 +27,7 @@ export default class GemView extends View {
                 it is here only to improve readability
             */
 
-            ctx.fillStyle = this.model.color;
+            ctx.fillStyle = fillStyle;
             ctx.strokeStyle = strokeStyle;
             ctx.arc(
                 // circle
@@ -36,5 +41,17 @@ export default class GemView extends View {
             ctx.stroke();
         }
         ctx.restore();
+    }
+
+    updateHTML(element) {
+        const CLASS_NAME_NULL_SOCKET = 'socket-div-null';
+
+        if (this.model.socket != null) {
+            element.innerHTML = `The Gem is placed inside Socket ${this.model.socket.model.name}`;
+            element.classList.remove(CLASS_NAME_NULL_SOCKET);
+        } else {
+            element.innerHTML = 'The Gem is NOT placed inside a socket';
+            element.classList.add(CLASS_NAME_NULL_SOCKET);
+        }
     }
 }
