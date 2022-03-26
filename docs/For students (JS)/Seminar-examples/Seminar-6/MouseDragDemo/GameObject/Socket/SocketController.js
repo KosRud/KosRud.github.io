@@ -1,5 +1,7 @@
-import Controller from '../../MVC/Controller.js';
+import GameObjectController from '../GameObjectController.js';
 
-export default class GemController extends Controller {
-    //
+export default class GemController extends GameObjectController {
+    update() {
+        //
+    }
 }

@@ -1,7 +1,7 @@
-import Controller from '../../MVC/Controller.js';
+import GameObjectController from '../GameObjectController.js';
 import SocketController from '../Socket/SocketController.js';
 
-export default class GemController extends Controller {
+export default class GemController extends GameObjectController {
     constructor({ model, view, mouseDragDemo }) {
         super({
             view: view,
