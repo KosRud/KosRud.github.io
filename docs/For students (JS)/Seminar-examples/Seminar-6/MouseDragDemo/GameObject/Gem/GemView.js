@@ -50,7 +50,7 @@ export default class GemView extends View {
             element.innerHTML = `The Gem is placed inside Socket ${this.model.socket.model.name}`;
             element.classList.remove(CLASS_NAME_NULL_SOCKET);
         } else {
-            element.innerHTML = 'The Gem is NOT placed inside a socket';
+            element.innerHTML = 'The Gem is NOT placed inside a Socket';
             element.classList.add(CLASS_NAME_NULL_SOCKET);
         }
     }
