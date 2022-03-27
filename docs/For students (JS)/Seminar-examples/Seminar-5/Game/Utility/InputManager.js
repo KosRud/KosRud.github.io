@@ -32,7 +32,7 @@ export let InputManager = {
     /**
      * Updates which keys were pressed (not just held) during the last frame. Call this function at the START of every frame.
      */
-    Update: function () {
+    update: function () {
         this._pressedKeysBeforeLastUpdate = this._pressedKeysAfterLastUpdate;
         this._pressedKeysAfterLastUpdate = {};
     },

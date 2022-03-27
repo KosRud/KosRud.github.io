@@ -166,7 +166,7 @@ export default class Game {
     }
 
     _loop() {
-        this.inputManager.Update();
+        this.inputManager.update();
         this._update();
         this._draw();
 
