@@ -96,6 +96,14 @@ export default class Game {
             view: playerView,
             game: this,
         });
+
+        /*
+            this will be called autmatically by "playerModel.eventDispatcher"
+            whenever "playerMode.health" changes
+
+            but when the game starts, we need to run it once manually
+        */
+        playerView.updateHealthBar();
     }
 
     log(str, ...classList) {

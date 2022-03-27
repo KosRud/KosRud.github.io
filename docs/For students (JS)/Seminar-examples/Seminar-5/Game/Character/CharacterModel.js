@@ -1,5 +1,5 @@
-import Cooldown from "../Utility/Cooldown.js";
-import EventDispatcher from "../EventDispatcher/EventDispatcher.js";
+import Cooldown from '../Utility/Cooldown.js';
+import EventDispatcher from '../EventDispatcher/EventDispatcher.js';
 
 export default class CharacterModel {
     constructor({
@@ -10,7 +10,7 @@ export default class CharacterModel {
         color,
         position,
         size,
-        speed
+        speed,
     }) {
         this.strength = strength;
         this.armor = armor;
@@ -20,44 +20,34 @@ export default class CharacterModel {
         this.size = size;
         this.speed = speed;
 
-        this.eventDispatcher = new EventDispatcher(
-            "healthChanged"
-        );
+        this.eventDispatcher = new EventDispatcher('healthChanged');
 
         let _health = health; // no need to store it in "this"
-        Object.defineProperty(
-            this,
-            "health", {
-                get: () => {
-                    return _health;
-                },
-                set: (value) => {
-                    if (this._health != value) {
-                        _health = value;
-                        this.eventDispatcher.dispatch("healthChanged");
-                    }
+        Object.defineProperty(this, 'health', {
+            get: () => {
+                return _health;
+            },
+            set: (value) => {
+                if (_health != value) {
+                    _health = value;
+                    this.eventDispatcher.dispatch('healthChanged');
                 }
-            }
-        );
+            },
+        });
         this.baseHealth = health;
 
-        Object.defineProperty(
-            this,
-            "isDead", {
-                get: () => {
-                    return this.health == 0;
-                },
-            }
-        );
+        Object.defineProperty(this, 'isDead', {
+            get: () => {
+                return this.health == 0;
+            },
+        });
 
         this.attackCooldown = new Cooldown(1000);
     }
 
     getColor() {
-        if (
-            this.attackCooldown.isAvailable() == false
-        ) {
-            return "red";
+        if (this.attackCooldown.isAvailable() == false) {
+            return 'red';
         }
 
         return this._color;
