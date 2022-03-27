@@ -198,7 +198,6 @@ export default class Game {
         this._isRunning = true;
         window.requestAnimationFrame(
             // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
-
             this._loop.bind(this)
         );
     }
