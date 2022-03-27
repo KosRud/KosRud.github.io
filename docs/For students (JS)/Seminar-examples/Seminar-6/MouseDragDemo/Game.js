@@ -104,11 +104,11 @@ export default class Game {
 
     _draw() {
         /*
-            this.gameObjects constains objects with different draw order
+            this.gameObjects contains objects with different draw order
 
             This function ensures, that for any two objects A and B:
-                if the draw order of A is less, than the draw order of B,
-                B will be rendered on top of A
+                if (B.drawOrder > A.drawOrder) then
+                    B will be rendered on top of A
             
             This way the Gem is always drawn on top of Sockets
         */
@@ -118,9 +118,16 @@ export default class Game {
 
         // Set has 1 instance of every unique value
         const drawOrdersSet = new Set(
+            // An array, which contains the drawOrder of every gameObject
             this.gameObjects.map((controller) => controller.model.drawOrder)
         );
-        // Array of sorted draw orders
+        /*
+            Make and array of sorted draw orders
+
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
+            https://constantinerudenko.github.io/For%20students%20%28JS%29/JS%20tricks/#spread-syntax
+        */
         const drawOrders = [...drawOrdersSet].sort();
 
         // Iterate over sorted draw orders
@@ -130,6 +137,7 @@ export default class Game {
                 (controller) => controller.model.drawOrder == drawOrder
             );
 
+            // Render objects with given draw order
             for (const gameObject of gameObjects) {
                 gameObject.draw(this.canvas);
             }
