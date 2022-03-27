@@ -1,10 +1,8 @@
-const VECTOR_PRECISION = 1e-5;
-
 export default class Vector2 {
     /**
      * Either provide both arguments, or none. If no arguments are provided, initializes with {x: 0, y: 0}.
-     * @param {Number=} x 
-     * @param {Number=} y 
+     * @param {Number=} x
+     * @param {Number=} y
      */
     constructor(x, y) {
         switch (true) {
@@ -17,28 +15,19 @@ export default class Vector2 {
                 this.y = 0;
                 break;
             default:
-                throw ("invalid Vector2 initialization");
+                throw 'invalid Vector2 initialization';
         }
     }
 
     add(vector2) {
-        return new Vector2(
-            this.x + vector2.x,
-            this.y + vector2.y
-        )
+        return new Vector2(this.x + vector2.x, this.y + vector2.y);
     }
 
     subtract(vector2) {
-        return new Vector2(
-            this.x - vector2.x,
-            this.y - vector2.y
-        )
+        return new Vector2(this.x - vector2.x, this.y - vector2.y);
     }
 
     length() {
-        return Math.sqrt(
-            this.x * this.x +
-            this.y * this.y
-        );
+        return Math.sqrt(this.x * this.x + this.y * this.y);
     }
 }

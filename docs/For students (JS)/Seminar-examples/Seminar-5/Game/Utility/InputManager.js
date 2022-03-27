@@ -22,7 +22,7 @@ export let InputManager = {
      * Tells if the key was pressed. Only returns "true" during a single frame after the key was pressed.
      *
      * Holding the key down will not cause it to return "true" for multiple frames. Only releasing the key and pressing it down again will cause WasKeyPressed(keyCode) to return "true" again.
-     * @param {Number} keyCode - Use Key object to get key codes.
+     * @param {String} key - lowercase key string (e.g.: "a").
      * @returns {Boolean} True if the key was pressed, false otherwise.
      */
     wasKeyPressed: function (key) {
