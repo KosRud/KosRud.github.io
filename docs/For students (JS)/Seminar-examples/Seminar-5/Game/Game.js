@@ -130,9 +130,11 @@ export default class Game {
 
         let logLine = document.createElement('p');
         logLine.innerHTML = str;
+
         for (const htmlClass of classList) {
             logLine.classList.add(htmlClass);
         }
+
         this.logDiv.append(logLine);
 
         this.logDiv.scrollTo({
