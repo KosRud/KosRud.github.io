@@ -2,10 +2,7 @@ import EventDispatcher from '../../EventDispatcher/EventDispatcher.js';
 import GameObjectModel from '../GameObjectModel.js';
 
 export default class GemModel extends GameObjectModel {
-    /**
-     * @param {String} color
-     */
-    constructor(color) {
+    constructor() {
         super();
         this.size = 20;
 

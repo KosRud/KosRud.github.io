@@ -49,7 +49,7 @@ export default class Game {
     }
 
     _createGem() {
-        let gemModel = new GemModel('red');
+        let gemModel = new GemModel();
 
         gemModel.position = new Vector2(
             this.canvas.width / 2,
