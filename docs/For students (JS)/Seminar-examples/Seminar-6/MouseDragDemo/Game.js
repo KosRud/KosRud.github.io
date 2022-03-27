@@ -26,6 +26,28 @@ export default class Game {
         this._createSockets(5);
     }
 
+    _connectInputmanager(canvas) {
+        /*
+            We could use "this.canvas"
+            instead of passing it as an argument,
+            but "_connectInputmanager()" is called
+            inside "constructor()".
+            
+            I's better to avoid relying on "this",
+            in case "this.canvas" is assigned AFTER calling _connectInputmanager()
+        */
+        this.inputManager = InputManager;
+        this.inputManager.mouseTrackingTarget = canvas;
+        this.inputManager.eventDispatcher.addEventListener(
+            'mouseup',
+            this._onMouseUp.bind(this)
+        );
+        this.inputManager.eventDispatcher.addEventListener(
+            'mousedown',
+            this._onMouseDown.bind(this)
+        );
+    }
+
     _createGem() {
         let gemModel = new GemModel('red');
 
@@ -53,28 +75,6 @@ export default class Game {
 
         // set initial value
         gemView.updateHTML(this.socketDiv);
-    }
-
-    _connectInputmanager(canvas) {
-        /*
-            We could use "this.canvas"
-            instead of passing it as an argument,
-            but "_connectInputmanager()" is called
-            inside "constructor()".
-            
-            I's better to avoid relying on "this",
-            in case "this.canvas" is assigned AFTER calling _connectInputmanager()
-        */
-        this.inputManager = InputManager;
-        this.inputManager.mouseTrackingTarget = canvas;
-        this.inputManager.eventDispatcher.addEventListener(
-            'mouseup',
-            this._onMouseUp.bind(this)
-        );
-        this.inputManager.eventDispatcher.addEventListener(
-            'mousedown',
-            this._onMouseDown.bind(this)
-        );
     }
 
     _createSockets(numSockets) {
