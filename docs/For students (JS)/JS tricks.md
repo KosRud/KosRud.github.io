@@ -174,6 +174,9 @@ console.log(
 !!! note "Note"
     We could use a function defined outside the class instead. But a static method clearly implies the connection between the function, and the class.
 
+!!! note "Links"
+    Mozilla Developer Network - [static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
+
 ## Optional chaining
 
 Normally, if you try to call a method, or read an attribute, which does not exist, you'd raise an error.
