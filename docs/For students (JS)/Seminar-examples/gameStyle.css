@@ -1,6 +1,6 @@
 body {
-    margin: 8px 32px;
-    background-color: rgb(160, 160, 160);
+    margin: 8px max(20px, calc((100vw - 1000px) * 0.5));
+    background-color: rgb(180, 180, 180);
     --border-thickness: 2px;
     --canvas-width: 600px;
     --canvas-height: 400px;
