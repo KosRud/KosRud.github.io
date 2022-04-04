@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../../style.css" />
+        <link rel="stylesheet" href="../../gameStyle.css" />
+        <link rel="stylesheet" href="audio-controller.css" />
+    </head>
+    <body>
+        <div class="center-content"><h1>Audio controller</h1></div>
+
+        <div class="audio-controls">
+            <div id="button-play" class="button-container">
+                <div class="button bordered">Play</div>
+            </div>
+            <div id="button-pause" class="button-container">
+                <div class="button bordered">Pause</div>
+            </div>
+            <div id="button-stop" class="button-container">
+                <div class="button bordered">Stop</div>
+            </div>
+            <div id="button-skip" class="button-container">
+                <div class="button bordered">Skip 30 seconds</div>
+            </div>
+            <div id="button-jump-end" class="button-container">
+                <div class="button bordered">Jump to end</div>
+            </div>
+            <div class="progress-bar bordered">
+                <div
+                    id="audio-progress-filler"
+                    class="progress-bar-filler"
+                ></div>
+            </div>
+            <div class="input-container">
+                How many loops:<input id="loops-number" type="number" />
+            </div>
+        </div>
+
+        <script>
+            const audio = new Audio('./Dancing With The Wolves.m4a');
+
+            document.getElementById('button-play').onclick = () => {
+                audio.play();
+            };
+
+            document.getElementById('button-pause').onclick = () => {
+                audio.pause();
+            };
+
+            document.getElementById('button-stop').onclick = () => {
+                audio.pause();
+                audio.currentTime = 0;
+            };
+
+            document.getElementById('button-jump-end').onclick = () => {
+                audio.currentTime = audio.duration - 2;
+            };
+
+            document.getElementById('button-skip').onclick = () => {
+                audio.currentTime += 30;
+            };
+
+            audio.addEventListener('ended', () => {
+                let loops_left = document.getElementById('loops-number').value;
+
+                if (isNaN(loops_left)) {
+                    loops_left = 0;
+                } else {
+                    loops_left -= 1;
+                }
+
+                if (loops_left <= 0) {
+                    loops_left = 0;
+                } else {
+                    audio.currentTime = 0;
+                    audio.play();
+                }
+
+                document.getElementById('loops-number').value = loops_left;
+            });
+
+            audio.addEventListener('timeupdate', () => {
+                document.getElementById(
+                    'audio-progress-filler'
+                ).style.width = `${
+                    (audio.currentTime / audio.duration) * 100
+                }%`;
+            });
+        </script>
+
+        <div class="credit bordered">
+            <h2>Music credit:</h2>
+            <ul>
+                <li>
+                    <a href="https://youtu.be/z2iSqQWGFxA"
+                        >Dancing With The Wolves (Combat Theme) - Curse Of
+                        Strahd Soundtrack by Travis Savoie
+                    </a>
+                </li>
+                <li>
+                    <a href="https://youtu.be/B5UtxjNLrXI">Fair Use</a>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
