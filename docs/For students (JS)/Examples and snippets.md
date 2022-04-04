@@ -26,3 +26,9 @@ Basic game, keyboard controls
 Mouse drag, snap
 :   -   <a href="https://github.com/ConstantineRudenko/constantinerudenko.github.io/tree/master/docs/For%20students%20(JS)/Seminar-examples/Seminar-6" target="_blank">code</a>
     -   <a href="/For%20students%20(JS)/Seminar-examples/Seminar-6/index.html" target="_blank">demo</a>
+
+### seminar 7
+
+Audio
+:   -   <a href="https://github.com/ConstantineRudenko/constantinerudenko.github.io/tree/master/docs/For%20students%20(JS)/Seminar-examples/Seminar-7/Audio" target="_blank">code</a>
+    -   <a href="/For%20students%20(JS)/Seminar-examples/Seminar-7/Audio/index.html" target="_blank">demo</a>
