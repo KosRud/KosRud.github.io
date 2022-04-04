@@ -7,4 +7,8 @@ export default class Controller {
     draw(canvas) {
         this.view.draw(canvas);
     }
+
+    update() {
+        throw 'calling abstract method!';
+    }
 }

@@ -32,3 +32,7 @@ Mouse drag, snap
 Audio
 :   -   <a href="https://github.com/ConstantineRudenko/constantinerudenko.github.io/tree/master/docs/For%20students%20(JS)/Seminar-examples/Seminar-7/Audio" target="_blank">code</a>
     -   <a href="/For%20students%20(JS)/Seminar-examples/Seminar-7/Audio/index.html" target="_blank">demo</a>
+
+Collisions
+:   -   <a href="https://github.com/ConstantineRudenko/constantinerudenko.github.io/tree/master/docs/For%20students%20(JS)/Seminar-examples/Seminar-7/Collisions" target="_blank">code</a>
+    -   <a href="/For%20students%20(JS)/Seminar-examples/Seminar-7/Collisions/index.html" target="_blank">demo</a>
