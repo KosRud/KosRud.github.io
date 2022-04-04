@@ -24,11 +24,21 @@ h2 {
     border-radius: 4px;
 }
 
-.button {
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: inline-block;
+}
+
+.button-container > .button {
     text-align: center;
 }
 
-.button:hover {
+.button-container:hover > .button {
     transform: translateY(-2px);
     box-shadow: 1px 4px 2.5px -0.5px rgba(0, 0, 0, 0.5);
     transition: all 0.1s;
@@ -36,7 +46,7 @@ h2 {
     transition: background-color 0s;
 }
 
-.button:active {
+.button-container:active > .button {
     transform: translateY(2px);
     box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.5);
     transition-duration: 0.1s;
