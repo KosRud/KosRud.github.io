@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Mouse drag demo</title>
+        <link rel="stylesheet" href="../../style.css" />
+        <link rel="stylesheet" href="../../gameStyle.css" />
+
+        <style>
+            #game-canvas {
+                background: #eeeeee;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Collision demo</h1>
+        <canvas id="game-canvas" class="bordered" width="600" height="400">
+        </canvas>
+
+        <script type="module">
+            import Game from './Collisions/Game.js';
+
+            let game = new Game(document.getElementById('game-canvas'));
+            game.run();
+        </script>
+    </body>
+</html>
