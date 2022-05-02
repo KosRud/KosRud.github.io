@@ -11,12 +11,6 @@
                 background: #eeeeee;
             }
         </style>
-    </head>
-
-    <body>
-        <h1>Collision demo</h1>
-        <canvas id="game-canvas" class="bordered" width="600" height="400">
-        </canvas>
 
         <script type="module">
             import Game from './Collisions/Game.js';
@@ -24,5 +18,11 @@
             let game = new Game(document.getElementById('game-canvas'));
             game.run();
         </script>
+    </head>
+
+    <body>
+        <h1>Collision demo</h1>
+        <canvas id="game-canvas" class="bordered" width="600" height="400">
+        </canvas>
     </body>
 </html>

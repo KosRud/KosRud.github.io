@@ -6,6 +6,32 @@
 
         <link rel="stylesheet" href="../style.css" />
         <link rel="stylesheet" href="../gameStyle.css" />
+
+        <script type="module">
+            import Game from './Game/Game.js';
+
+            for (const element of Array.from(
+                document.getElementsByClassName('play-button')
+            )) {
+                element.addEventListener('click', () => {
+                    let game = new Game({
+                        canvas: document.getElementById('game-canvas'),
+                        logDiv: document.getElementById('game-log'),
+                        gameOver: document.getElementById('game-over'),
+                        victory: document.getElementById('victory'),
+                    });
+
+                    game.run();
+
+                    document.getElementById('game-start').hidden = true;
+                    document.getElementById('game-over').hidden = true;
+                    document.getElementById('victory').hidden = true;
+                });
+            }
+
+            document.getElementById('game-over').hidden = true;
+            document.getElementById('victory').hidden = true;
+        </script>
     </head>
 
     <body>
@@ -47,34 +73,6 @@
                 </div>
             </div>
         </div>
-
-        <script type="module">
-            import Game from './Game/Game.js';
-
-            for (const element of Array.from(
-                document.getElementsByClassName('play-button')
-            )) {
-                element.addEventListener('click', () => {
-                    let game = new Game({
-                        canvas: document.getElementById('game-canvas'),
-                        logDiv: document.getElementById('game-log'),
-                        gameOver: document.getElementById('game-over'),
-                        victory: document.getElementById('victory'),
-                    });
-
-                    game.run();
-
-                    document.getElementById('game-start').hidden = true;
-                    document.getElementById('game-over').hidden = true;
-                    document.getElementById('victory').hidden = true;
-                });
-            }
-        </script>
-
-        <script>
-            document.getElementById('game-over').hidden = true;
-            document.getElementById('victory').hidden = true;
-        </script>
 
         <div id="game-log" class="bordered"></div>
 
