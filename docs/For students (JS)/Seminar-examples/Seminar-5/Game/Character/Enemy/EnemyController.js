@@ -1,6 +1,6 @@
 import CharacterController from "../CharacterController.js";
-import DiceRoller from '../../Utility/DiceRoller.js';
-import Vector2 from '../../Utility/Vector2.js';
+import DiceRoller from "../../Utility/DiceRoller.js";
+import Vector2 from "../../Utility/Vector2.js";
 
 export default class EnemyController extends CharacterController {
     attack(characterController) {
@@ -12,14 +12,14 @@ export default class EnemyController extends CharacterController {
         ) {
             this.game.log(
                 `${this.model.name} hits ${characterController.model.name} ` +
-                `for ${this.model.strength} damage`
+                    `for ${this.model.strength} damage`
             );
 
             characterController.receiveDamage(this.model.strength);
         } else {
             this.game.log(
                 `${this.model.name} tries to ` +
-                `attack ${characterController.model.name}, but misses`
+                    `attack ${characterController.model.name}, but misses`
             );
         }
     }
