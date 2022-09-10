@@ -22,7 +22,6 @@
 |div p|any `<p>` inside a `<div>`|`<p>` can be a child<br>of a child<br>of a `<div>`|
 |div > p|any `<p>`, which is a direct child of a `<div>`|
 |div + p|any `<p>` immediately after a `<div>`|
-|a:visited|any visited link|
 
 ### Links
 
