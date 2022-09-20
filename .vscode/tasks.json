@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "command": "${config:python.defaultInterpreterPath} -m mkdocs serve",
+            "label": "MkDocs serve",
+            "problemMatcher": []
+        }
+    ]
+}

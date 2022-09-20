@@ -17,6 +17,9 @@ By examining the semantic elements on your page, a program can automatically det
     .semantic-example-container {
         width: 500px;
         --semantic-example-margin: 12px;
+		margin-left:50%;
+        margin-right:-50%;
+        transform:translateX(-50%);
     }
     .semantic-example {
         border: 2px solid black;
@@ -27,7 +30,6 @@ By examining the semantic elements on your page, a program can automatically det
         padding-bottom: 4px;
         color: black;
         background: #CCCCFF;
-        /*box-shadow: 0px var(--shadow-offset-low) var(--shadow-blur-low) var(--shadow-color-low);*/
     }
 
     .semantic-example > .semantic-example {
@@ -38,7 +40,8 @@ By examining the semantic elements on your page, a program can automatically det
         background: #FFCCCC;
     }
 
-    .semantic-example-nav {
+    .semantic-example-nav,
+	.semantic-example .semantic-example-nav {
         background: #FFFFAA;
     }
 
@@ -120,8 +123,11 @@ By examining the semantic elements on your page, a program can automatically det
             header
         </div>
         <div class="semantic-example-flex">
-            <div class="semantic-example semantic-example-nav">
-                nav
+            <div class="semantic-example">
+                aside
+				<div class="semantic-example semantic-example-nav">
+					nav
+				</div>
             </div>
             <div class="semantic-example">
                 main

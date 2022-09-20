@@ -1,9 +1,5 @@
 # CSS selectors
 
-!!! note "Links"
-    * Mozilla Developer Network - [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
-    * w3school - [CSS Selector Reference](https://www.w3schools.com/cssref/css_selectors.asp)
-
 ## Most common selectors
 
 |Selector|<div style="width:300px;">Description</div>|Comment|
@@ -14,7 +10,7 @@
 |div|Any `<div>`.|
 |div#divID.divClass|Any `<div>` with `id="id"` and `class="divClass"`.|
 
-### Combinators
+## Combinators
 
 |Selector|Description|Comment|
 |:---|:---|:---|    
@@ -23,16 +19,21 @@
 |div > p|Any `<p>`, which is a direct child of a `<div>`.|
 |div + p|Any `<p>` immediately after a `<div>`.|
 
-### Links
+## Links
 
 |Selector|Description|
 |:---|:---|
 |a:link|Unvisited link.|
 |a:visited|Visited link.|
 
-### Hover and click
+## Hover and click
 
 |Selector|Description|
 |:---|:---|
 |.button:active|Any element with `class="button"`,<br>which is currently being clicked.|
 |.button:hover|Any element with `class="button"`,<br>which has the cursor hovering above it.|
+
+## Further reading
+
+* [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
+* [w3school](https://www.w3schools.com/cssref/css_selectors.asp)

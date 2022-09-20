@@ -5,7 +5,7 @@ Some advice for making a clean, functional and aesthetically pleasing web-page.
 
 ### Animation and hovering
 
-Animations and `:hover` style can hint which elements are interactive. Don't use `:hover` on non-interactive elements to avoid confusion.
+Animations and `:hover` style can hint towards which elements are interactive. Don't use `:hover` on non-interactive elements to avoid confusion.
 
 <style>
     .demo-button {

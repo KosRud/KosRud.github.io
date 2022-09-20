@@ -1,11 +1,14 @@
-$('span:contains("For students (HTML, CSS)")').each(
-    (index, element) => {
-        element.innerHTML = 'For students <img src="/js/menuPictures/html-css.png" style="height: 100%; float: right;">';
-    }
-)
+const replaceDict = {
+    "HTML, CSS": "/js/menuPictures/html-css.png",
+    JS: "/js/menuPictures/js.png",
+};
 
-$('span:contains("For students (JS)")').each(
-    (index, element) => {
-        element.innerHTML = 'For students <img src="/js/menuPictures/js.png" style="height: 100%; float: right;">';
+window.addEventListener("load", () => {
+    const nav = document.querySelector("nav");
+    let html = nav.innerHTML;
+    for (const text in replaceDict) {
+        const replacement = `<img src="${replaceDict[text]}" style="height: 2.2rem; position: absolute; right: 4px;">`;
+        html = html.replace(`(${text})`, replacement);
     }
-)
+    nav.innerHTML = html;
+});
