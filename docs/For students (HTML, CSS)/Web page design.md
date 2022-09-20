@@ -11,22 +11,23 @@ Animations and `:hover` style can hint towards which elements are interactive. D
     .demo-button {
         color: white;
         padding: 4px;
-        background: rgb(13,13,57);
+        background: rgb(16,16,70);
         display: inline-block;
         border-radius: 8px;
         box-shadow: 1.5px 1.5px 2px rgba(0,0,0,0.6);
+		user-select: none;
     }
 
     .demo-button > div {
         padding : 4px;
-        box-shadow: 0px 0px 4px rgba(255,255,255,0.5);
+        box-shadow: 0px 0px 4px rgba(255,255,255,0.2);
         background: rgba(255,255,255,0.2);
     }
 
     .demo-button:hover {
         transition-duration: 0.1s;
-        transition-timing-function: ease-out;
-        transform: translateY(-2px);
+        transition-timing-function: linear;
+        transform: scale(1.02);
         box-shadow: 1.5px 2.5px 2px rgba(0,0,0,0.6);
     }
 
@@ -34,15 +35,14 @@ Animations and `:hover` style can hint towards which elements are interactive. D
         transition-duration: 0.1s;
         transition-timing-function: ease-out;
         background: rgba(255,255,255,0.3);
-        box-shadow: 0px 0px 5px rgba(255,255,255,0.75);
+        box-shadow: 0px 0px 4px rgba(255,255,255,0.3);
     }
 
     .demo-button:active{
         transition-duration: 0.1s;
         transition-timing-function: cubic-bezier(.19,1,.22,1);
         box-shadow: 0px 0px 0px black;
-        transform: translateY(2px);
-        
+        transform: translateY(2px);        
     }
 
     .demo-button:active>div{
@@ -149,30 +149,12 @@ Text must be easy to read (size, color, contrast, font).
 
 !!! warning "Be careful with shadows"
     <div class="text-shadow-demo">
-        <div style="text-shadow: 3px 3px 3px rgba(0,0,0,0.8)">This is bad</div>
+        <div style="text-shadow: 3px 3px 4px rgba(0,0,0,1)">This is bad</div>
         <div style="text-shadow: 3px 3px 0px rgba(0,0,0,0.8)">This is also bad</div>
-        <div style="text-shadow: 1px 1px 0px rgba(0,0,0,0.8);">This is OK</div>
+        <div style="text-shadow: 1px 2px 0px rgba(0,0,0,0.8);">This is OK</div>
         <div style="font-size: 200%; margin-bottom: 8px"">This is no shadow</div>
     </div>
 
 #### Width
 
-Text is easier to read, when it doesn't span the entire width of the screen. If you have a lot of text, consider multiple columns.    
-
-#### Reduced contrast
-
-Having *almost* black text on *almost* white background (or vice versa) can be easier on the eyes, than maximum contrast. But don't go overboard, to the point of *gray background* with *slightly darker gray* text.
-
-<p>
-    <div class="text-color-demo-container">
-        <div class="text-color-demo" style="background: white; color: black;">
-            <div style="color: black">Maximum contrast.</div>
-        </div>
-        <div class="text-color-demo" style="background: rgb(250,250,250); color: #111;">
-            <div style="color: rgb(10,10,10)">Reduced contrast</div>
-        </div>
-        <div class="text-color-demo" style="background: rgb(160,160,160);">
-            <div style="color: rgb(10,10,10)">Not enough contrast</div>
-        </div>
-    </div>
-</p>
+Text is easier to read, when it doesn't span the entire width of the screen. If you have a lot of text, consider multiple columns.
