@@ -10,9 +10,16 @@
 
 ## Work experience
 
-Nov 2017 - Nov 2018
-:   Software developer at Risa Tech, inc.
-
-    * Converting inherited C/C++ code to .Net platform (C#, C++/CLI)
+### Nov 2017 - Nov 2018
+Software developer at Risa Tech, inc.
+:   * Converting inherited C/C++ code to .Net platform (C#, C++/CLI)
     * developing UI with WPF, Telerik UI and Windows Forms
     * developing a report generation system with Telerik Reporting
+
+## Projects
+
+[DQ skinning](https://github.com/KosRud/DQ-skinning-for-Unity)
+:	GPU dual quaternion skinning for Unity engine with an original bulging compensation method.
+
+[Collection of shaders](https://github.com/KosRud/Shaders)
+:	Various shaders.

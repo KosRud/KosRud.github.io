@@ -1,39 +1,34 @@
 site_name: Constantine Rudenko
+site_subname: personal website
 site_url: https://constantinerudenko.github.io/
 theme:
-    name: readthedocs
-    navigation_depth: 2
-    features:
-      - search.suggest
-    highlightjs: false
-extra_css:
-  - stylesheets/custom.css
+    name: null
+    custom_dir: "theme/"
+    include_search_page: true
 extra_javascript:
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - js/config.js
-  - js/jquerry.js
-  - js/image-row.js
-  - js/menuPictures/menuPictures.js
-markdown_extensions:
-  - admonition
-  - def_list
-  - mdx_spanner
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.highlight:
-      guess_lang: False
-      use_pygments: True
-      noclasses: True
-      pygments_style: default
-  - pymdownx.inlinehilite
-  - pymdownx.superfences:
-      # make exceptions to highlighting of code:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:mermaid2.fence_mermaid
+    - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    - js/configMathjax.js
+    - js/image-row.js
+    - js/menuPictures/menuPictures.js
 plugins:
-  - search
-  - mkdocs-nav-enhancements
-  - mermaid2
+    - search
+    - mkdocs-nav-enhancements
+    - mermaid2
+markdown_extensions:
+    - admonition
+    - def_list
+    - mdx_spanner # rowspan and colspan in markdown tables
+    - pymdownx.arithmatex:
+          generic: true
+    - pymdownx.highlight:
+          guess_lang: False
+          use_pygments: True
+          noclasses: True
+          pygments_style: default
+    - pymdownx.inlinehilite
+    - pymdownx.superfences:
+          # make exceptions to highlighting of code:
+          custom_fences: # https://facelessuser.github.io/pymdown-extensions/extensions/superfences/#custom-fences
+              - name: mermaid
+                class: mermaid
+                format: !!python/name:mermaid2.fence_mermaid

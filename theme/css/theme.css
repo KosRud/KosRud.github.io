@@ -1,0 +1,610 @@
+@import url("reset.css");
+@import url("/fonts/FiraCode/fira_code.css");
+@import url("/fonts/Lato/Lato.css");
+
+/* latin-ext */
+@font-face {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjxAwXiWtFCfQ7A.woff2)
+        format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+        U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+html {
+    font-size: 12pt;
+}
+
+body {
+    --color-white: white;
+    --color-light-gray: #ddd;
+    --color-black: #333;
+    --color-overlay-gray: #8886;
+    --color-muddy-blue: #164e74;
+
+    --inversion: 0.075;
+    background-color: var(--color-white);
+
+    --margin-vertical: 1.3em;
+
+    --border-radius-med: 0.75em;
+
+    --shadow-offset-strong: 2px;
+    --shadow-blur-strong: 3px;
+    --shadow-color-strong: rgba(0, 0, 0, 20%);
+    --shadow-strong: 0px var(--shadow-offset-strong) var(--shadow-blur-strong)
+        var(--shadow-color-strong);
+
+    font-family: Lato;
+    background-color: var(--color-light-gray);
+
+    --footer-height: 4rem;
+}
+
+/*------------------------------------------------
+		Layout
+------------------------------------------------*/
+
+#body-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+}
+
+aside {
+    background-color: var(--color-black);
+    flex: 0;
+    flex-basis: 300px;
+}
+
+.paper-container {
+    overflow-y: scroll;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.paper {
+    background-color: var(--color-white);
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 800px;
+    padding: 10px 40px;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+main {
+    flex-grow: 1;
+}
+
+#site-name,
+#site-subname {
+    line-height: 1;
+    color: var(--color-white);
+}
+
+/*------------------------------------------------
+		Site name
+------------------------------------------------*/
+
+#site-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#site-subname {
+    font-style: italic;
+}
+
+#site-name-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+/*------------------------------------------------
+		Search
+------------------------------------------------*/
+
+#search {
+    text-align: center;
+}
+
+#search input {
+    border-radius: 100px;
+    padding: 0px 16px;
+    width: 200px;
+}
+
+/*------------------------------------------------
+		Navigation
+------------------------------------------------*/
+
+nav {
+    font-size: 0.95rem;
+    margin-top: 35px;
+}
+
+nav li {
+    position: relative;
+}
+
+nav li div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a,
+nav div {
+    display: block;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+nav .nav-folder {
+    background-color: var(--color-muddy-blue);
+    color: var(--color-white);
+    box-shadow: var(--shadow-strong);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+nav a:hover {
+    background-color: #fff2;
+}
+
+nav ul li > a,
+nav ul li > div {
+    padding-left: 30px;
+}
+
+nav ul ul li div {
+    padding-left: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0px;
+}
+
+nav ul ul {
+    list-style: none;
+    margin: 0px;
+}
+
+nav li.active {
+    background: var(--color-light-gray);
+}
+
+nav li.active > div {
+    box-shadow: var(--shadow-strong);
+    background: var(--color-white);
+    padding-left: 10px;
+    color: var(--color-black);
+}
+
+nav li.active > div::after {
+    content: "\01F441";
+    position: absolute;
+    right: 18px;
+    top: -0.6rem;
+    font-size: 1.8rem;
+}
+
+nav li.active {
+    margin-left: 20px;
+}
+
+/*------------------------------------------------
+		Search
+------------------------------------------------*/
+
+#mkdocs-search-results h3 {
+    min-width: unset;
+    background: unset;
+    color: var(--color-black);
+    font-weight: bold;
+    padding: 2px 4px;
+    text-decoration: underline;
+    box-shadow: unset;
+    border: 0px solid transparent;
+    border-radius: 0px;
+}
+
+/*------------------------------------------------
+		TOC
+------------------------------------------------*/
+
+.toc li:first-child a {
+    padding-top: 5px;
+}
+
+.toc li:last-child a {
+    padding-bottom: 7px;
+}
+
+nav .toc a:hover {
+    background-color: #0002;
+}
+
+ul.toc > li > a {
+    color: var(--color-black);
+}
+
+/*------------------------------------------------
+		Footer
+------------------------------------------------*/
+
+footer {
+    font-size: 0.8rem;
+    text-align: right;
+    flex-grow: 0;
+}
+
+/*------------------------------------------------
+		Content margins
+------------------------------------------------*/
+
+#content {
+    background-color: 0004;
+    margin-left: 50%;
+    max-width: 1000px;
+    transform: translateX(-50%);
+}
+
+p,
+ul,
+ol,
+table,
+h1,
+h2,
+h3,
+h4 {
+    margin-bottom: var(--margin-vertical);
+    margin-top: var(--margin-vertical);
+}
+
+/*------------------------------------------------
+		Lists
+------------------------------------------------*/
+
+ul,
+ol {
+    margin-left: 1.7em;
+    margin-right: 0px;
+}
+
+li > ul,
+li > ol {
+    margin: 0px;
+    margin-left: 1.7em;
+}
+
+p + ul,
+p + ol {
+    margin-top: calc(0px - var(--margin-vertical));
+}
+
+ol {
+    list-style: decimal;
+}
+
+li {
+    margin-bottom: 0px;
+}
+
+/*------------------------------------------------
+		Headings
+------------------------------------------------*/
+
+h1:first-child {
+    margin-top: 0px;
+}
+
+h1,
+h2,
+h3 {
+    box-shadow: var(--shadow-strong);
+    min-width: 200px;
+}
+
+h1 {
+    background: var(--color-black);
+    color: var(--color-white);
+    font-size: 1.2rem;
+    font-weight: normal;
+    padding-bottom: 10px;
+    padding-top: 14px;
+    text-align: center;
+}
+
+h2,
+h3 {
+    border-radius: var(--border-radius-med) var(--border-radius-med) 0px 0px;
+}
+
+h2,
+h3,
+h4 {
+    display: block;
+    width: fit-content;
+}
+
+h2 {
+    background: var(--color-white);
+    color: black;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    border: 2px solid black;
+}
+
+h3 {
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: 4px 8px;
+}
+
+h4 {
+    font-weight: bold;
+    padding: 2px 4px;
+    text-decoration: underline;
+}
+
+/*------------------------------------------------
+		Tables
+------------------------------------------------*/
+
+table,
+th,
+td {
+    border-collapse: collapse;
+    border: 0px solid transparent;
+}
+
+th,
+td {
+    padding: 2px 8px;
+}
+
+th {
+    font-weight: bold;
+    background-color: var(--color-muddy-blue);
+    color: var(--color-white);
+}
+
+tr:nth-child(even) > td {
+    backdrop-filter: invert(var(--inversion));
+}
+
+th,
+td,
+table {
+    border-left: 1px solid var(--color-overlay-gray);
+    border-right: 1px solid var(--color-overlay-gray);
+}
+
+table {
+    border: 1px solid var(--color-overlay-gray);
+    margin-left: 50%;
+    margin-right: -50%;
+    transform: translateX(-50%);
+}
+
+/*------------------------------------------------
+		Images
+------------------------------------------------*/
+
+main img {
+    border-radius: var(--border-radius-med);
+}
+
+p > img {
+    height: auto;
+    margin-left: 50%;
+    max-height: 400px;
+    max-width: 100%;
+    transform: translateX(-50%);
+    width: auto;
+}
+
+.img-folder {
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-vertical);
+    align-items: center;
+}
+
+.img-folder-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.img-folder > img {
+    height: 150px;
+}
+
+/*------------------------------------------------
+		Definitions
+------------------------------------------------*/
+
+dd {
+    border: 1px solid var(--color-overlay-gray);
+    padding: 12px;
+    margin-left: 20px;
+    margin-bottom: var(--margin-vertical);
+    backdrop-filter: invert(var(--inversion));
+}
+
+dt {
+    font-weight: bold;
+}
+
+/*------------------------------------------------
+		Admonition
+------------------------------------------------*/
+
+.admonition {
+    border-radius: var(--border-radius-med) var(--border-radius-med);
+    border-width: 0px 3px 0px 3px;
+    border-style: solid;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0px 12px 12px 12px;
+}
+
+.admonition-title {
+    margin: 0px;
+    margin-bottom: -12px;
+    font-weight: bold;
+}
+
+.admonition-title + * {
+    margin-top: 24px;
+}
+
+.admonition > *:last-child:not(.admonition-title) {
+    margin-bottom: 0px;
+}
+
+.admonition .admonition-title {
+    border-radius: var(--border-radius-med) var(--border-radius-med);
+    margin-left: -22px;
+    margin-right: -22px;
+    color: black;
+    padding: 8px 18px 5px 18px;
+}
+
+.admonition.headless > .admonition-title {
+    display: none;
+}
+
+/*------------------------------------------------
+		Admonition types
+------------------------------------------------*/
+
+.admonition.quote > .admonition-title {
+    background: hsl(0deg 0% 78%);
+}
+
+.admonition.quote {
+    background: hsl(0deg 0% 96%);
+    border-color: hsl(0deg 0% 78%);
+}
+
+.admonition.success > .admonition-title {
+    background: hsl(123deg 40% 70%);
+}
+
+.admonition.success {
+    background: hsl(123deg 62% 95%);
+    border-color: hsl(123deg 40% 70%);
+}
+
+.admonition.question > .admonition-title {
+    background: hsl(288deg 42% 74%);
+}
+
+.admonition.question {
+    background: hsl(288deg 40% 92%);
+    border-color: hsl(288deg 42% 74%);
+}
+
+.admonition.note {
+    background: hsl(204deg 66% 94%);
+    border-color: hsl(204deg 63% 64%);
+}
+
+.admonition.note > .admonition-title {
+    background: hsl(204deg 63% 64%);
+}
+
+.admonition.info > .admonition-title {
+    background: hsl(188deg 64% 70%);
+}
+
+.admonition.info {
+    background: hsl(188deg 66% 94%);
+    border-color: hsl(188deg 64% 70%);
+}
+
+.admonition.tip > .admonition-title {
+    background: hsl(60deg 70% 70%);
+}
+
+.admonition.tip {
+    background: hsl(60deg 40% 92%);
+    border-color: hsl(60deg 64% 64%);
+}
+
+.admonition.bug > .admonition-title {
+    background: #d76e65;
+}
+
+.admonition.bug {
+    background: #fdf3f2;
+    border-color: #d76e65;
+}
+
+.admonition.warning > .admonition-title {
+    background: #f0b37e;
+}
+
+.admonition.warning {
+    background: #fceccf;
+    border-color: #f0b37e;
+}
+
+/*------------------------------------------------
+		ETC
+------------------------------------------------*/
+
+pre {
+    backdrop-filter: invert(var(--inversion));
+    border: 1px solid var(--color-overlay-gray);
+    font-family: "Fira Code";
+    margin-left: 0px;
+    padding: 0.5em; /* match .hljs (highlighted code) */
+    white-space: pre-wrap;
+}
+
+code {
+    font-size: 0.8rem;
+    font-family: "Fira Code", monospace;
+}
+
+@supports (font-variation-settings: normal) {
+    code {
+        font-family: "Fira Code VF", monospace;
+    }
+}
+
+*:not(pre) > code {
+    color: var(--black);
+    background: #ddd;
+    padding: 1px 4px;
+    border-radius: 5px;
+    margin: 0px;
+}
