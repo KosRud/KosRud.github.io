@@ -200,6 +200,7 @@ nav li.active > div {
     background: var(--color-white);
     padding-left: 10px;
     color: var(--color-black);
+    padding-right: 50px;
 }
 
 nav li.active > div::after {
