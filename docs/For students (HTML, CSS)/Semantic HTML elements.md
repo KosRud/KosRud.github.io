@@ -15,10 +15,13 @@ By examining the semantic elements on your page, a program can automatically det
 
 <style>
     .semantic-example-container {
-        width: 500px;
+        width:500px;
+        max-width: calc(100vw - 300px - var(--paper-padding) * 2);
         --semantic-example-margin: 12px;
-		margin-left:50%;
-        margin-right:-50%;
+        margin-left:calc(50% - var(--semantic-example-margin) - 2px);
+        margin-right:calc(-50% - var(--semantic-example-margin) - 2px);
+        padding-left: var(--semantic-example-margin);
+        padding-right: var(--semantic-example-margin);
         transform:translateX(-50%);
     }
     .semantic-example {
