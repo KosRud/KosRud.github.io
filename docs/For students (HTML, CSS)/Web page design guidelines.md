@@ -1,4 +1,4 @@
-# Web page design
+# Web page design guidelines
 
 Some advice for making a clean, functional and aesthetically pleasing web-page.
 
