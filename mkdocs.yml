@@ -8,8 +8,8 @@ theme:
 extra_javascript:
     - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     - js/configMathjax.js
-    - js/image-row.js
     - js/menuPictures/menuPictures.js
+    - js/image-row.js
 plugins:
     - search
     - mkdocs-nav-enhancements
