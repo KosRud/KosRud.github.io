@@ -609,3 +609,31 @@ code {
     border-radius: 5px;
     margin: 0px;
 }
+
+/*------------------------------------------------
+		Adaptive
+------------------------------------------------*/
+
+@media only screen and (max-width: 1100px) {
+    #body-container {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .paper-container {
+        overflow-y: unset;
+    }
+
+    aside {
+        padding-bottom: var(--margin-vertical);
+        padding-left: var(--margin-vertical);
+        padding-right: var(--margin-vertical);
+    }
+
+    nav {
+        margin-left: 50%;
+        margin-right: -50%;
+        transform: translateX(-50%);
+        max-width: 400px;
+    }
+}
