@@ -18,8 +18,12 @@ Software developer at Risa Tech, inc.
 
 ## Projects
 
-[DQ skinning](https://github.com/KosRud/DQ-skinning-for-Unity)
+[DQ skinning for Unity](https://github.com/KosRud/DQ-skinning-for-Unity)
 :	GPU dual quaternion skinning for Unity engine with an original bulging compensation method.
 
-[Collection of shaders](https://github.com/KosRud/Shaders)
-:	Various shaders.
+[ProTeGe v2](https://github.com/KosRud/ProTeGe_v2)
+:	Graph-based procedural texture generator in Unity engine with real-time preview.
+
+[ProTeGe v1](https://github.com/KosRud/ProTeGe-v1)
+:	Procedural Texture Generator in C++<br>
+	Multi-threaded CPU computations, wxWidgets GUI
