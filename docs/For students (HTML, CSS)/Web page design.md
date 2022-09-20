@@ -24,29 +24,29 @@ Animations and `:hover` style can hint towards which elements are interactive. D
     }
 
     .demo-button:hover {
-        transition-duration: 0.2s;
-        transition-timing-function: cubic-bezier(.19,1,.22,1);
-        transform: translateY(-1px);
+        transition-duration: 0.1s;
+        transition-timing-function: ease-out;
+        transform: translateY(-2px);
         box-shadow: 1.5px 2.5px 2px rgba(0,0,0,0.6);
     }
 
     .demo-button:hover > div{
-        transition-duration: 0.4s;
-        transition-timing-function: cubic-bezier(.19,1,.22,1);
+        transition-duration: 0.1s;
+        transition-timing-function: ease-out;
         background: rgba(255,255,255,0.3);
         box-shadow: 0px 0px 5px rgba(255,255,255,0.75);
     }
 
     .demo-button:active{
-        transition-duration: 0.2s;
+        transition-duration: 0.1s;
         transition-timing-function: cubic-bezier(.19,1,.22,1);
         box-shadow: 0px 0px 0px black;
-        transform: translateY(1px);
+        transform: translateY(2px);
         
     }
 
     .demo-button:active>div{
-        transition-duration: 0.2s;
+        transition-duration: 0.1s;
         transition-timing-function: cubic-bezier(.19,1,.22,1);
         box-shadow: 0px 0px 4px rgba(255,255,255,0.5);
         background: rgba(255,255,255,0.2);
@@ -54,7 +54,9 @@ Animations and `:hover` style can hint towards which elements are interactive. D
 </style>
 
 <p>
+<center>
 <div class="demo-button" onclick="alert('thanks!')"><div>I'm a button. Press me!</div></div>
+</center>
 </p>
 
 ### Center of the page
