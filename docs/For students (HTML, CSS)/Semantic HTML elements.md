@@ -14,21 +14,12 @@ By examining the semantic elements on your page, a program can automatically det
 ## Example layout
 
 <style>
+    
     .semantic-example-container {
-        width:500px;
-        max-width: calc(100vw - 300px - var(--paper-padding) * 2);
-        --semantic-example-margin: 12px;
-        margin-left:calc(50% - var(--semantic-example-margin) - 2px);
-        margin-right:calc(-50% - var(--semantic-example-margin) - 2px);
-        padding-left: var(--semantic-example-margin);
-        padding-right: var(--semantic-example-margin);
-        transform:translateX(-50%);
-    }
-
-	@media only screen and (max-width: 800px) {
-        .semantic-example-container {
-			max-width: calc(100vw - var(--paper-padding) * 2);
-		}
+        width:100%;
+        max-width: 500px;
+        min-width: 400px;
+        --semantic-example-margin: 10px;
     }
 
     .semantic-example {
@@ -51,7 +42,7 @@ By examining the semantic elements on your page, a program can automatically det
     }
 
     .semantic-example-nav,
-	.semantic-example .semantic-example-nav {
+    .semantic-example .semantic-example-nav {
         background: #FFFFAA;
     }
 
@@ -76,13 +67,12 @@ By examining the semantic elements on your page, a program can automatically det
 
     .semantic-example-flex > div:nth-child(1) {
         width: 100px;
-    }
-    
+    }    
 </style>
 
 ### Horizontal menu
 
-<p>
+<div class="hor-scroll-wrapper">
     <div class="semantic-example-container">
         <div class="semantic-example">
             header
@@ -124,10 +114,11 @@ By examining the semantic elements on your page, a program can automatically det
         </div>
     </div>
 </p>
+</div>
 
 ### Vertical menu
 
-<p>
+<div class="hor-scroll-wrapper">
     <div class="semantic-example-container">
         <div class="semantic-example">
             header
@@ -168,4 +159,4 @@ By examining the semantic elements on your page, a program can automatically det
             footer
         </div>
     </div>
-</p>
+</div>
