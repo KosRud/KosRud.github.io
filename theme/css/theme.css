@@ -481,6 +481,7 @@ dt {
     margin-left: 10px;
     margin-right: 10px;
     padding: 0px 12px 12px 12px;
+    margin-bottom: var(--margin-vertical);
 }
 
 .admonition-title {
