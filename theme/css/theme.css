@@ -62,7 +62,7 @@ aside {
 }
 
 .paper-container {
-    overflow-y: auto;
+    overflow-y: scroll;
     flex: 1;
     display: flex;
     justify-content: center;
