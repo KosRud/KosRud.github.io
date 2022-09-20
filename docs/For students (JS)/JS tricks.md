@@ -143,36 +143,45 @@ sayTimes(
 
 ## Static methods and attributes
 
-Static methods and attributes are shared by all instances of the class. A static method can be called directly from the class, without having an instance.
+Static methods and attributes are attached to the class itself, not a particular instance of the class.
 
 ### Example
 
 ```js
-class Player {
-    constructor(name){
-        this.name = name;
-        Player.onlinePlayers.push(this);
-    }
+class Student {
+	constructor (name) {
+		this.name = name;
+		Student.all.push(this);
+	}
 
-    static getNumOnlinePlayers(){   // static method
-        return Player.onlinePlayers.length;
-    }
+	static GreetAll() {
+		Student.all.forEach((student) => {
+			console.log(`Hello, ${student.name}`);
+		})
+	}
+
+	// static initialization
+	static {
+		Student.all = [];
+		console.log("static initialization called");
+	}
 }
-Player.onlinePlayers = new Array(); // static attribute
 
-let Archibald   = new Player("Archibald");
-let Peter       = new Player("Pater");
-let Jane        = new Player("Jane");
-let Eva         = new Player("Eva");
+const ann = new Student("Ann");
+const jack = new Student("Jack");
+const bob = new Student("Bob");
+const eve = new Student("Eve");
 
-// note: we don't need an instance of Player to call getNumOnlinePlayers()
-console.log(
-    Player.getNumOnlinePlayers()    // 4
-); 
+Student.GreetAll();
+
+/*
+	"static initialization called"
+	"Hello, Ann"
+	"Hello, Jack"
+	"Hello, Bob"
+	"Hello, Eve"
+*/
 ```
-
-!!! note "Note"
-    We could use a function defined outside the class instead. But a static method clearly implies the connection between the function, and the class.
 
 !!! note "Links"
     Mozilla Developer Network - [static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
@@ -220,9 +229,15 @@ for (let petOwner of petOwners) {
 !!! note "Links"
     Mozilla Developer Network - [Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 
-## Console.table
+## Console output
 
-Useful tool for debugging - display objects and their properties in console, formatted as a table.
+
+Console.table
+:	Display objects and their properties in console, formatted as a table.
+
+
+Console.dir
+:	Display an interactive list of properties of a JavaScript object.
 
 ### Example
 
@@ -251,7 +266,7 @@ console.table(arr);
 |1|Dilan|42|Object { name: "Whiskers", age: 3 }|
 
 !!! note "Links"
-    Mozilla Developer Network - [console.table()](https://developer.mozilla.org/en-US/docs/Web/API/Console/table)
+    Mozilla Developer Network - [console.table( )](https://developer.mozilla.org/en-US/docs/Web/API/Console/table), [console.dir( )](https://developer.mozilla.org/en-US/docs/Web/API/console/dir)
 
 
 ## Spread syntax (...)
