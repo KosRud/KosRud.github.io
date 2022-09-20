@@ -1,4 +1,5 @@
 @import url("reset.css");
+@import url("div-wrappers.css");
 @import url("/fonts/FiraCode/fira_code.css");
 @import url("/fonts/Lato/Lato.css");
 
@@ -423,12 +424,10 @@ main img {
 }
 
 p > img {
-    height: auto;
     margin-left: 50%;
+    transform: translateX(-50%);
     max-height: 400px;
     max-width: 100%;
-    transform: translateX(-50%);
-    width: auto;
 }
 
 .img-folder {
@@ -447,6 +446,12 @@ p > img {
 
 .img-folder > img {
     height: 150px;
+}
+
+figcaption {
+    text-align: right;
+    font-style: italic;
+    font-size: 0.9rem;
 }
 
 /*------------------------------------------------
@@ -642,13 +647,4 @@ code {
     main {
         max-width: calc(100vw - var(--paper-padding) * 2);
     }
-}
-
-.hor-scroll-wrapper {
-    overflow-x: auto;
-}
-
-.hor-scroll-wrapper > * {
-    margin-left: auto;
-    margin-right: auto;
 }

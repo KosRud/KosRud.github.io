@@ -1,0 +1,15 @@
+.hor-scroll-wrapper {
+    overflow-x: auto;
+}
+
+.hor-scroll-wrapper > * {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figure div {
+    display: inline-block;
+    margin-left: 50%;
+    margin-right: -50%;
+    transform: translateX(-50%);
+}
