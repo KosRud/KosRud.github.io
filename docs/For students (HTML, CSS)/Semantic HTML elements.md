@@ -24,6 +24,13 @@ By examining the semantic elements on your page, a program can automatically det
         padding-right: var(--semantic-example-margin);
         transform:translateX(-50%);
     }
+
+	@media only screen and (max-width: 800px) {
+        .semantic-example-container {
+			max-width: calc(100vw - var(--paper-padding) * 2);
+		}
+    }
+
     .semantic-example {
         border: 2px solid black;
         box-sizing: border-box;

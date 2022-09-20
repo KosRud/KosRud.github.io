@@ -615,7 +615,7 @@ code {
 		Adaptive
 ------------------------------------------------*/
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     #body-container {
         flex-direction: column;
         justify-content: flex-start;
