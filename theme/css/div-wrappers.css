@@ -2,6 +2,14 @@
     overflow-x: auto;
 }
 
+.hor-scroll-wrapper > *:first-child {
+    margin-top: 0px;
+}
+
+.hor-scroll-wrapper > *:last-child {
+    margin-bottom: 0px;
+}
+
 .hor-scroll-wrapper > * {
     margin-left: auto;
     margin-right: auto;

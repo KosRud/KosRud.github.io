@@ -35,5 +35,7 @@
 
 ## Further reading
 
-* [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
-* [w3school](https://www.w3schools.com/cssref/css_selectors.asp)
+|||
+|----|----|
+|MDN|[CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)|
+|w3school|[CSS Selector Reference](https://www.w3schools.com/cssref/css_selectors.asp)|
