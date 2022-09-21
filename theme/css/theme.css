@@ -592,6 +592,10 @@ dt {
 		ETC
 ------------------------------------------------*/
 
+strong {
+    font-weight: bold;
+}
+
 pre {
     background-color: var(--color-lighter-gray);
     border: 1px solid var(--color-gray);
