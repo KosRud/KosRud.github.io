@@ -27,7 +27,6 @@ body {
     --color-lighter-gray: #ececec;
     --color-muddy-blue: #164e74;
 
-    --inversion: 0.075;
     background-color: var(--color-white);
 
     --margin-vertical: 1.3em;
@@ -466,7 +465,7 @@ dd {
     padding: 12px;
     margin-left: 20px;
     margin-bottom: var(--margin-vertical);
-    backdrop-filter: invert(var(--inversion));
+    background-color: var(--color-lighter-gray);
 }
 
 dt {
