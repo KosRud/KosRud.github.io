@@ -20,9 +20,11 @@ html {
 
 body {
     --color-white: white;
-    --color-light-gray: #ddd;
+    --color-gray: #ddd;
     --color-black: #333;
-    --color-overlay-gray: #8886;
+    --color-gray: #8886;
+    --color-light-gray: #ddd;
+    --color-lighter-gray: #ececec;
     --color-muddy-blue: #164e74;
 
     --inversion: 0.075;
@@ -39,7 +41,7 @@ body {
         var(--shadow-color-strong);
 
     font-family: Lato;
-    background-color: var(--color-light-gray);
+    background-color: var(--color-gray);
 
     --footer-height: 4rem;
 }
@@ -400,19 +402,19 @@ th {
     color: var(--color-white);
 }
 
-tr:nth-child(even) > td {
-    backdrop-filter: invert(var(--inversion));
+tr:nth-child(2n) > td {
+    background-color: var(--color-lighter-gray);
 }
 
 th,
 td,
 table {
-    border-left: 1px solid var(--color-overlay-gray);
-    border-right: 1px solid var(--color-overlay-gray);
+    border-left: 1px solid var(--color-gray);
+    border-right: 1px solid var(--color-gray);
 }
 
 table {
-    border: 1px solid var(--color-overlay-gray);
+    border: 1px solid var(--color-gray);
     width: 100%;
 }
 
@@ -460,7 +462,7 @@ figcaption {
 ------------------------------------------------*/
 
 dd {
-    border: 1px solid var(--color-overlay-gray);
+    border: 1px solid var(--color-gray);
     padding: 12px;
     margin-left: 20px;
     margin-bottom: var(--margin-vertical);
@@ -592,8 +594,8 @@ dt {
 ------------------------------------------------*/
 
 pre {
-    backdrop-filter: invert(var(--inversion));
-    border: 1px solid var(--color-overlay-gray);
+    background-color: var(--color-lighter-gray);
+    border: 1px solid var(--color-gray);
     font-family: "Fira Code";
     margin-left: 0px;
     padding: 0.5em; /* match .hljs (highlighted code) */
