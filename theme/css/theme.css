@@ -3,17 +3,6 @@
 @import url("/fonts/FiraCode/fira_code.css");
 @import url("/fonts/Lato/Lato.css");
 
-/* latin-ext */
-@font-face {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjxAwXiWtFCfQ7A.woff2)
-        format("woff2");
-    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
-        U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
 html {
     font-size: 12pt;
 }
@@ -153,11 +142,14 @@ nav li div {
 }
 
 nav a,
+nav a:visited,
+nav a:hover,
 nav div {
     display: block;
     padding-top: 3px;
     padding-bottom: 3px;
     color: var(--color-white);
+    text-decoration: none;
     text-decoration: none;
 }
 
@@ -340,16 +332,16 @@ h3 {
 h1 {
     background: var(--color-black);
     color: var(--color-white);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: normal;
-    padding-bottom: 10px;
-    padding-top: 14px;
+    padding-bottom: 8px;
+    padding-top: 10px;
     text-align: center;
 }
 
 h2,
 h3 {
-    border-radius: var(--border-radius-med) var(--border-radius-med) 0px 0px;
+    /*border-radius: var(--border-radius-med) var(--border-radius-med) 0px 0px;*/
 }
 
 h2,
@@ -357,6 +349,7 @@ h3,
 h4 {
     display: block;
     width: fit-content;
+    font-size: 1.1rem;
 }
 
 h2 {
@@ -377,7 +370,7 @@ h2 {
 h3 {
     background: var(--color-black);
     color: var(--color-white);
-    padding: 4px 8px;
+    padding: 4px 10px;
 }
 
 h4 {
@@ -484,13 +477,13 @@ dt {
 ------------------------------------------------*/
 
 .admonition {
+    display: inline-block;
     border-radius: var(--border-radius-med) var(--border-radius-med);
     border-width: 0px 3px 0px 3px;
     border-style: solid;
     margin-left: 10px;
     margin-right: 10px;
     padding: 0px 12px 12px 12px;
-    margin-bottom: var(--margin-vertical);
 }
 
 .admonition-title {
@@ -596,7 +589,21 @@ dt {
 }
 
 /*------------------------------------------------
-		ETC
+		Links
+------------------------------------------------*/
+
+a,
+a:visited {
+    color: #1818cb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*------------------------------------------------
+		Emphasis
 ------------------------------------------------*/
 
 strong {
@@ -606,6 +613,10 @@ strong {
 em {
     font-style: italic;
 }
+
+/*------------------------------------------------
+		ETC
+------------------------------------------------*/
 
 pre {
     background-color: var(--color-lighter-gray);
