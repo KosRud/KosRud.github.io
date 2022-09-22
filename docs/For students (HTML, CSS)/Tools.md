@@ -8,11 +8,11 @@ Validators check your HTML and CSS files for errors. The browser will often atte
 
 ### HTML
 
-* [validator.w3.org](https://validator.w3.org/)
+[validator.w3.org](https://validator.w3.org/)
 
 ### CSS
 
-* [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/)
+[jigsaw.w3.org](https://jigsaw.w3.org/css-validator/)
 
 ## Code editor
 
@@ -23,7 +23,25 @@ Validators check your HTML and CSS files for errors. The browser will often atte
 
 ### VS Code extensions
 
-will be added...
+#### Highly recommended
+
+* [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) (improves code readability)
+* [Live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+* [HTML CSS Support](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css)
+
+#### Validators
+
+* [W3C Web Validator](https://marketplace.visualstudio.com/items?itemName=CelianRiboulet.webvalidator) (requires internet connection)
+* [W3C Validation](https://marketplace.visualstudio.com/items?itemName=Umoxfo.vscode-w3cvalidation) (requires java)
+
+#### Convenience
+
+* [CSS Flexbox Cheatsheet](https://marketplace.visualstudio.com/items?itemName=dzhavat.css-flexbox-cheatsheet)
+* [Lorem Text Generator](https://marketplace.visualstudio.com/items?itemName=oguzhanyildiz.lorem-text-generator) (generate fake text)
+!!! warning
+	Final project should contain actual text, not lorem ipsum.
+* [vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons) (gives icons to folders and different file extensions)
+* [Workspace Explorer](https://marketplace.visualstudio.com/items?itemName=tomsaunders-code.workspace-explorer) (conveniently switch between several projects)
 
 ## Wireframe
 
