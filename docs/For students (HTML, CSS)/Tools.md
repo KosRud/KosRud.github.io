@@ -4,7 +4,7 @@ This page lists some tools you can use when developing the website for the cours
 
 ## Validators
 
-Validators check your HTML and CSS files for errors. The browser will often attempt to make sense of the code, that contains mistakes, and guess the intention behind it. Sometimes it works, sometimes it doesn't. This behavior is unpredictable between different browsers and can result in the page being completely broken in one browser, while appearing perfectly functional in the other.
+Validators check your HTML and CSS files for errors. The browser will often attempt to make sense of the code, that contains mistakes, and guess the intention behind it. Sometimes it works, sometimes it doesn't. This behavior is unpredictable between different browsers, and can result in the page being completely broken in one browser, while appearing perfectly functional in the other.
 
 ### HTML
 
