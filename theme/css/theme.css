@@ -302,10 +302,17 @@ li > ol {
     margin-left: 1.7em;
 }
 
+*:not(li) > ul,
+*:not(li) > ol {
+    margin-left: 0px;
+}
+
+/*
 p + ul,
 p + ol {
     margin-top: calc(0px - var(--margin-vertical));
 }
+*/
 
 ol {
     list-style: decimal;
@@ -594,6 +601,10 @@ dt {
 
 strong {
     font-weight: bold;
+}
+
+em {
+    font-style: italic;
 }
 
 pre {
