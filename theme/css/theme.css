@@ -2,7 +2,6 @@
 @import url("div-wrappers.css");
 @import url("/fonts/FiraCode/fira_code.css");
 @import url("/fonts/Lato/Lato.css");
-@import url("/fonts/NotoColorEmoji/NotoColorEmoji.css");
 
 html {
     font-size: 12pt;
@@ -201,9 +200,8 @@ nav li.active > div::after {
     content: "\01F441";
     position: absolute;
     right: 18px;
-    top: -0.35rem;
-    font-size: 1.6rem;
-    font-family: "NotoColorEmoji";
+    top: -0.6rem;
+    font-size: 1.8rem;
 }
 
 nav li.active {
