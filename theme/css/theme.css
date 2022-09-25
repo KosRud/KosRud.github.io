@@ -9,8 +9,7 @@ html {
 
 body {
     --color-white: white;
-    --color-gray: #ddd;
-    --color-black: #333;
+    --color-dark: #333;
     --color-gray: #8886;
     --color-light-gray: #ddd;
     --color-lighter-gray: #ececec;
@@ -47,7 +46,7 @@ body {
 }
 
 aside {
-    background-color: var(--color-black);
+    background-color: var(--color-dark);
     flex: 0;
     flex-basis: var(--aside-width);
 }
@@ -192,7 +191,7 @@ nav li.active > div {
     box-shadow: var(--shadow-strong);
     background: var(--color-white);
     padding-left: 10px;
-    color: var(--color-black);
+    color: var(--color-dark);
     padding-right: 50px;
 }
 
@@ -215,7 +214,7 @@ nav li.active {
 #mkdocs-search-results h3 {
     min-width: unset;
     background: unset;
-    color: var(--color-black);
+    color: var(--color-dark);
     font-weight: bold;
     padding: 2px 4px;
     text-decoration: underline;
@@ -241,7 +240,7 @@ nav .toc a:hover {
 }
 
 ul.toc > li > a {
-    color: var(--color-black);
+    color: var(--color-dark);
 }
 
 /*------------------------------------------------
@@ -331,7 +330,7 @@ h3 {
 }
 
 h1 {
-    background: var(--color-black);
+    background: var(--color-dark);
     color: var(--color-white);
     font-size: 1.5rem;
     font-weight: normal;
@@ -369,7 +368,7 @@ h2 {
 }
 
 h3 {
-    background: var(--color-black);
+    background: var(--color-dark);
     color: var(--color-white);
     padding: 4px 10px;
 }
