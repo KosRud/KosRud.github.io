@@ -2,7 +2,7 @@
 
 ## Repl.it
 
-!!! note "Fork repl"
+!!! note
 	To create your own editable copy in **Repl.it**, press `Fork repl` button (top right).
 
 -   <a href="https://replit.com/@KostiantynRuden/Input-handling-demo" target="_blank">keyboard input handling demo</a>

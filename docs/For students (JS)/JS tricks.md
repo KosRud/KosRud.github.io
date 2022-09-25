@@ -55,7 +55,7 @@ arr.forEach(
 );
 ```
 
-!!! note "Links"
+!!! note
     * Mozilla Developer Network - [for..of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
     * Mozilla Developer Network - [for..in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
     * Mozilla Developer Network - [Array.prototype.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
@@ -93,7 +93,7 @@ console.log(`${human.name} is ${human.age} years old`);
 // Jack is 13 years old
 ```
 
-!!! note "Links"
+!!! note
     Mozilla Developer Network - [Template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
 ## Destructuring assignment
@@ -138,7 +138,7 @@ sayTimes(
 );
 ```
 
-!!! note "Links"
+!!! note
     Mozilla Developer Network - [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 ## Static methods and attributes
@@ -183,7 +183,7 @@ Student.GreetAll();
 */
 ```
 
-!!! note "Links"
+!!! note
     Mozilla Developer Network - [static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
 
 ## Optional chaining
@@ -226,7 +226,7 @@ for (let petOwner of petOwners) {
 }
 ```
 
-!!! note "Links"
+!!! note
     Mozilla Developer Network - [Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 
 ## Console output
@@ -265,7 +265,7 @@ console.table(arr);
 |0|Ivy|29| |
 |1|Dilan|42|Object { name: "Whiskers", age: 3 }|
 
-!!! note "Links"
+!!! note
     Mozilla Developer Network - [console.table( )](https://developer.mozilla.org/en-US/docs/Web/API/Console/table), [console.dir( )](https://developer.mozilla.org/en-US/docs/Web/API/console/dir)
 
 
@@ -364,7 +364,7 @@ console.log(arr);
 // [1,2,3,4,5]
 ```
 
-!!! note "Links"
+!!! note
     Mozilla Developer Network - [Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
 ## Array.map

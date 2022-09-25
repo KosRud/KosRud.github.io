@@ -166,7 +166,7 @@ class Player {
 }
 ```
 
-!!! note "Note"
+!!! note
     * Second variant is shorter, because there is no need to update `this.isDead` every time health changes.
     * In the second variant it is impossible for the value to be incorrect, as long as the function `isDead( )` is correct. In the first variant forgetting to update `this.isDead` (or updating it incorrectly) will introduce a bug, which can be difficult to find.
 
@@ -326,7 +326,7 @@ function castHeal() {
     console.log("you summon healing energies, which make you feel better");
 }
 ```
-!!! note "Note"
+!!! note
     In the first version you could modify one of the functions, and forget to modify the other - introducing an inconsistency.
 
     The second version protects you from this.
@@ -406,7 +406,7 @@ class Circle {
 }
 ```
 
-!!! note "Note"
+!!! note
     In the first variant different precision was used for $\pi$ in different places. This can create confusion.
     
     Creating a constant ensures the value is always the same throughout the code.
