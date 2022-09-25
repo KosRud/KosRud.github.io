@@ -27,7 +27,7 @@ body {
     --shadow-strong: 0px var(--shadow-offset-strong) var(--shadow-blur-strong)
         var(--shadow-color-strong);
 
-    font-family: Lato;
+    font-family: Lato, sans-serif;
     background-color: var(--color-gray);
 
     --footer-height: 4rem;
