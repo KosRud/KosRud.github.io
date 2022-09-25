@@ -130,6 +130,11 @@ Text must be easy to read (size, color, contrast, font).
 <style>
 	.text-shadow-demo {
 		color: #000;
+		width: fit-content;
+		display: grid;
+		grid-template-columns: 1fr;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
     .text-shadow-demo > div {
@@ -144,7 +149,7 @@ Text must be easy to read (size, color, contrast, font).
 
 <div class="text-shadow-demo">
 	<div style="text-shadow: 1px 2px 5px #5c5;">This is OK</div>
-	<div style="width: fit-content; background: #666; color: #8f8; text-shadow: 2px 3px 0px #000e;">This is also OK</div>
+	<div style="background: #666; color: #8f8; text-shadow: 2px 3px 0px #000e;">This is also OK</div>
 	<div style="text-shadow: 3px 3px 4px rgba(0,0,0,1)">This is bad</div>
 	<div style="text-shadow: 4px 3px 0px rgba(0,0,0,0.8)">This is also bad</div>
 </div>
