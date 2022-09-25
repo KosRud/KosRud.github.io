@@ -36,7 +36,7 @@ Animations and `:hover` style can hint towards which elements are interactive. D
 
 <p>
 <center>
-<div class="demo-button" onclick="alert('thanks!')">I'm a button. Press me!</div>
+<div class="demo-button" onclick="alert('Thank you!')">I'm a button. Press me!</div>
 </center>
 </p>
 
