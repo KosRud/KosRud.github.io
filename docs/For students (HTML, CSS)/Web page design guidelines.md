@@ -11,51 +11,33 @@ Animations and `:hover` style can hint towards which elements are interactive. D
     .demo-button {
         color: white;
         padding: 4px;
-        background: rgb(16,16,70);
+        background: #55b;
         display: inline-block;
+        user-select: none;
         border-radius: 8px;
-        box-shadow: 1.5px 1.5px 2px rgba(0,0,0,0.6);
-		user-select: none;
-    }
-
-    .demo-button > div {
-        padding : 4px;
-        box-shadow: 0px 0px 4px rgba(255,255,255,0.2);
-        background: rgba(255,255,255,0.2);
+        box-shadow: 0px 5px 0px #336, 2px 8px 3px #0008;
+        border: 2px solid #fff2;
+        padding: 6px 12px;
     }
 
     .demo-button:hover {
-        transition-duration: 0.1s;
-        transition-timing-function: linear;
         transform: scale(1.02);
-        box-shadow: 1.5px 2.5px 2px rgba(0,0,0,0.6);
-    }
-
-    .demo-button:hover > div{
-        transition-duration: 0.1s;
-        transition-timing-function: ease-out;
-        background: rgba(255,255,255,0.3);
-        box-shadow: 0px 0px 4px rgba(255,255,255,0.3);
+        box-shadow: 0px 6px 0px #336, 3px 10px 5px #0008;
+        border-color: #fff3;
+        background: #66c;
     }
 
     .demo-button:active{
-        transition-duration: 0.1s;
-        transition-timing-function: cubic-bezier(.19,1,.22,1);
-        box-shadow: 0px 0px 0px black;
-        transform: translateY(2px);        
+        transform: translateY(2px);
+        box-shadow: 0px 5px 0px #336, 1px 8px 2px #000b;
+		background: #55b;
     }
 
-    .demo-button:active>div{
-        transition-duration: 0.1s;
-        transition-timing-function: cubic-bezier(.19,1,.22,1);
-        box-shadow: 0px 0px 4px rgba(255,255,255,0.5);
-        background: rgba(255,255,255,0.2);
-    }
 </style>
 
 <p>
 <center>
-<div class="demo-button" onclick="alert('thanks!')"><div>I'm a button. Press me!</div></div>
+<div class="demo-button" onclick="alert('thanks!')">I'm a button. Press me!</div>
 </center>
 </p>
 
