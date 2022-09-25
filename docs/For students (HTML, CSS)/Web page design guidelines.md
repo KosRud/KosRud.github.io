@@ -2,7 +2,6 @@
 
 Some advice for making a clean, functional and aesthetically pleasing web-page.
 
-
 ### Animation and hovering
 
 Animations and `:hover` style can hint towards which elements are interactive. Don't use `:hover` on non-interactive elements to avoid confusion.
@@ -78,9 +77,8 @@ Use vivid colors sparingly. The "main" color should be easy on the eyes (desatur
 </style>
 
 !!! note "Color scheme tools"
-    * [Paletton](https://paletton.com)
-    * [Material design color palette generator](https://www.materialpalette.com)
-    * [ColourCode](https://www.toptal.com/designers/colourcode)
+_ [Paletton](https://paletton.com)
+_ [Material design color palette generator](https://www.materialpalette.com) \* [ColourCode](https://www.toptal.com/designers/colourcode)
 
 ### Consistency
 
@@ -104,10 +102,10 @@ li.menu-item {
 
 #### Further reading
 
-|||
-|----|----|
-|MDN|[Using CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)|
-|w3school|[CSS Variables - The var( ) Function](https://www.w3schools.com/css/css3_variables.asp)|
+|          |                                                                                                                         |
+| -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| MDN      | [Using CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) |
+| w3school | [CSS Variables - The var( ) Function](https://www.w3schools.com/css/css3_variables.asp)                                 |
 
 ### Get straight to the point
 
@@ -130,19 +128,26 @@ For the page layout use `display: grid` or `display: flex` in CSS.
 Text must be easy to read (size, color, contrast, font).
 
 <style>
+	.text-shadow-demo {
+		color: #000;
+	}
+
     .text-shadow-demo > div {
         margin-bottom: 16px;
-        font-size: 200%
+        font-size: 2rem;
+		font-weight: bold;
+        padding: 0px 12px;
     }
 </style>
 
-!!! warning "Be careful with shadows"
-    <div class="text-shadow-demo">
-        <div style="text-shadow: 3px 3px 4px rgba(0,0,0,1)">This is bad</div>
-        <div style="text-shadow: 3px 3px 0px rgba(0,0,0,0.8)">This is also bad</div>
-        <div style="text-shadow: 1px 2px 0px rgba(0,0,0,0.8);">This is OK</div>
-        <div style="font-size: 200%; margin-bottom: 8px"">This is no shadow</div>
-    </div>
+#### Shadows
+
+<div class="text-shadow-demo">
+	<div style="text-shadow: 3px 3px 4px rgba(0,0,0,1)">This is bad</div>
+	<div style="text-shadow: 4px 3px 0px rgba(0,0,0,0.8)">This is also bad</div>
+	<div style="text-shadow: 1px 2px 5px #5c5;">This is OK</div>
+	<div style="width: fit-content; background: #666; color: #8f8; text-shadow: 2px 3px 0px #000e;">This is also OK</div>
+</div>
 
 #### Width
 
