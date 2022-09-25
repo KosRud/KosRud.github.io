@@ -379,37 +379,38 @@ h4 {
 ------------------------------------------------*/
 
 table,
-th,
-td {
+table th,
+table td {
     border-collapse: collapse;
-    border: 0px solid transparent;
+    border: 1px solid var(--color-light-gray);
 }
 
-th,
-td {
+table th {
+    border-color: var(--color-muddy-blue);
+}
+
+table th:not(:first-child) {
+    border-left-color: var(--color-gray);
+}
+
+table th:not(:last-child) {
+    border-collapse: collapse;
+    border-right-color: var(--color-gray);
+}
+
+table th,
+table td {
     padding: 2px 8px;
 }
 
-th {
+table th {
     font-weight: bold;
     background-color: var(--color-muddy-blue);
     color: var(--color-white);
 }
 
-tr:nth-child(2n) > td {
+table tr:nth-child(2n) > td {
     background-color: var(--color-lighter-gray);
-}
-
-th,
-td,
-table {
-    border-left: 1px solid var(--color-gray);
-    border-right: 1px solid var(--color-gray);
-}
-
-table {
-    border: 1px solid var(--color-gray);
-    width: 100%;
 }
 
 /*------------------------------------------------
@@ -456,9 +457,9 @@ figcaption {
 ------------------------------------------------*/
 
 dd {
-    /*border: 1px solid var(--color-gray);*/
+    border: 1px solid var(--color-gray);
     padding: 12px;
-    margin-left: 20px;
+    margin-left: 40px;
     margin-bottom: var(--margin-vertical);
     background-color: var(--color-lighter-gray);
 }
