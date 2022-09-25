@@ -2,7 +2,7 @@
 
 Some advice for making a clean, functional and aesthetically pleasing web-page.
 
-### Animation and hovering
+## Animation and hovering
 
 Animations and `:hover` style can hint towards which elements are interactive. Don't use `:hover` on non-interactive elements to avoid confusion.
 
@@ -34,19 +34,15 @@ Animations and `:hover` style can hint towards which elements are interactive. D
 
 </style>
 
-<p>
-<center>
 <div class="demo-button" onclick="alert('Thank you!')">I'm a button. Press me!</div>
-</center>
-</p>
 
-### Center of the page
+## Center of the page
 
 Keep the main content towards the center of the page, where it is most comfortable to read.
 
 Keep the left and right edges of the screen empty, or reserve them for the content, which the user looks at only occasionally (suggested links, tags, FAQ, menu, recent posts, etc.)
 
-### Colors
+## Colors
 
 Don't use too many colors (2-4 is optimal).
 
@@ -78,7 +74,7 @@ Use vivid colors sparingly. The "main" color should be easy on the eyes (desatur
 
 See color palette [tools](../Tools/#color-palette).
 
-### Consistency
+## Consistency
 
 Have consistency in your style - for example, have a list of preset colors instead of selecting a "roughly similar" color by hand every time. Same with border styles, rounded corners, etc.
 
@@ -98,30 +94,30 @@ li.menu-item {
 }
 ```
 
-#### Further reading
+### Further reading
 
 |          |                                                                                                                         |
 | -------- | ----------------------------------------------------------------------------------------------------------------------- |
 | MDN      | [Using CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) |
 | w3school | [CSS Variables - The var( ) Function](https://www.w3schools.com/css/css3_variables.asp)                                 |
 
-### Get straight to the point
+## Get straight to the point
 
 When the user opens your website, they should immediately see the content they came for - not the full page logo (no matter how much you like it).
 
-### Menu
+## Menu
 
 If the menu is on the top and [sticky](https://www.w3schools.com/howto/howto_css_sticky_element.asp), it should be very thin - to maximize the amount of useful content that fits on the screen.
 
 With a non-sticky menu you can afford a bit more vertical space.
 
-### Tables
+## Tables
 
 Do not use tables for layout! Element `<table>` and style `display: table` should only be used for tabular data.
 
 For the page layout use `display: grid` or `display: flex` in CSS.
 
-### Text
+## Text
 
 Text must be easy to read (size, color, contrast, font).
 
@@ -143,7 +139,7 @@ Text must be easy to read (size, color, contrast, font).
     }
 </style>
 
-#### Shadows
+### Shadows
 
 <div class="text-shadow-demo">
 	<div style="text-shadow: 1px 2px 5px #5c5;">This is OK</div>
@@ -152,6 +148,6 @@ Text must be easy to read (size, color, contrast, font).
 	<div style="text-shadow: 4px 3px 0px rgba(0,0,0,0.8)">This is also bad</div>
 </div>
 
-#### Width
+### Width
 
 Text is easier to read, when it doesn't span the entire width of the screen. If you have a lot of text, consider multiple columns.
