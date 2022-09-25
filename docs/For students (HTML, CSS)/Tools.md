@@ -8,54 +8,54 @@ Validators check your HTML and CSS files for errors. The browser will often atte
 
 ### HTML
 
-[validator.w3.org](https://validator.w3.org/)
+<a href="https://validator.w3.org/" target="_blank">validator.w3.org</a>
 
 ### CSS
 
-[jigsaw.w3.org](https://jigsaw.w3.org/css-validator/)
+<a href="https://jigsaw.w3.org/css-validator/" target="_blank">jigsaw.w3.org</a>
 
 ## Code editor
 
-[VS Code](https://code.visualstudio.com/)
+<a href="https://code.visualstudio.com/" target="_blank">VS Code</a>
 
 !!! warning
-	You can use any code editor of your choice, with the exception of [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) html editors. Using WYSIWYG editors is strictly forbidden.
+	You can use any code editor of your choice, with the exception of <a href="https://en.wikipedia.org/wiki/WYSIWYG" target="_blank">WYSIWYG</a> html editors. Using WYSIWYG editors is strictly forbidden.
 
 ### VS Code extensions
 
 #### Highly recommended
 
-* [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) (improves code readability)
-* [Live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-* [HTML CSS Support](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css)
+* <a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" target="_blank">Prettier</a> (improves code readability)
+* <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank">Live server</a>
+* <a href="https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css" target="_blank">HTML CSS Support</a>
 
 #### Validators
 
-* [W3C Web Validator](https://marketplace.visualstudio.com/items?itemName=CelianRiboulet.webvalidator) (requires internet connection)
-* [W3C Validation](https://marketplace.visualstudio.com/items?itemName=Umoxfo.vscode-w3cvalidation) (requires java)
+* <a href="https://marketplace.visualstudio.com/items?itemName=CelianRiboulet.webvalidator" target="_blank">W3C Web Validator</a> (requires internet connection)
+* <a href="https://marketplace.visualstudio.com/items?itemName=Umoxfo.vscode-w3cvalidation" target="_blank">W3C Validation</a> (requires java)
 
 #### Convenience
 
-* [CSS Flexbox Cheatsheet](https://marketplace.visualstudio.com/items?itemName=dzhavat.css-flexbox-cheatsheet)
-* [Lorem Text Generator](https://marketplace.visualstudio.com/items?itemName=oguzhanyildiz.lorem-text-generator) (generate fake text)
+* <a href="https://marketplace.visualstudio.com/items?itemName=dzhavat.css-flexbox-cheatsheet" target="_blank">CSS Flexbox Cheatsheet</a>
+* <a href="https://marketplace.visualstudio.com/items?itemName=oguzhanyildiz.lorem-text-generator" target="_blank">Lorem Text Generator</a> (generate fake text)
 !!! warning
 	Final project should contain actual text, not lorem ipsum.
-* [vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons) (gives icons to folders and different file extensions)
-* [Workspace Explorer](https://marketplace.visualstudio.com/items?itemName=tomsaunders-code.workspace-explorer) (conveniently switch between several projects)
+* <a href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons" target="_blank">vscode-icons</a> (gives icons to folders and different file extensions)
+* <a href="https://marketplace.visualstudio.com/items?itemName=tomsaunders-code.workspace-explorer" target="_blank">Workspace Explorer</a> (conveniently switch between several projects)
 
 ## Wireframe
 
-* [Excalidraw](https://excalidraw.com/)
-* [Figma](https://www.figma.com)
+* <a href="https://excalidraw.com/" target="_blank">Excalidraw</a>
+* <a href="https://www.figma.com" target="_blank">Figma</a>
 
 ## Color palette
 
-* [Paletton](https://paletton.com)
-* [Colourcode](https://www.toptal.com/designers/colourcode)
+* <a href="https://paletton.com" target="_blank">Paletton</a>
+* <a href="https://www.toptal.com/designers/colourcode" target="_blank">Colourcode</a>
 
 ## Beautifier / Minifier
 
-* [Beautifytools](https://beautifytools.com/)
+* <a href="https://beautifytools.com/" target="_blank">Beautifytools</a>
 
 Minifier
 :	Minifier compresses your code by removing line breaks and whitespaces. This way it will take up less pages in the report.
