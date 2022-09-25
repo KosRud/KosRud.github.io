@@ -56,9 +56,9 @@ arr.forEach(
 ```
 
 !!! note
-    * Mozilla Developer Network - [for..of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
-    * Mozilla Developer Network - [for..in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
-    * Mozilla Developer Network - [Array.prototype.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+    * Mozilla Developer Network &mdash; [for..of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+    * Mozilla Developer Network &mdash; [for..in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
+    * Mozilla Developer Network &mdash; [Array.prototype.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
 
 ## Template strings
@@ -94,7 +94,7 @@ console.log(`${human.name} is ${human.age} years old`);
 ```
 
 !!! note
-    Mozilla Developer Network - [Template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+    Mozilla Developer Network &mdash; [Template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
 ## Destructuring assignment
 
@@ -139,7 +139,7 @@ sayTimes(
 ```
 
 !!! note
-    Mozilla Developer Network - [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+    Mozilla Developer Network &mdash; [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 ## Static methods and attributes
 
@@ -184,7 +184,7 @@ Student.GreetAll();
 ```
 
 !!! note
-    Mozilla Developer Network - [static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
+    Mozilla Developer Network &mdash; [static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
 
 ## Optional chaining
 
@@ -227,7 +227,7 @@ for (let petOwner of petOwners) {
 ```
 
 !!! note
-    Mozilla Developer Network - [Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+    Mozilla Developer Network &mdash; [Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 
 ## Console output
 
@@ -266,7 +266,7 @@ console.table(arr);
 |1|Dilan|42|Object { name: "Whiskers", age: 3 }|
 
 !!! note
-    Mozilla Developer Network - [console.table( )](https://developer.mozilla.org/en-US/docs/Web/API/Console/table), [console.dir( )](https://developer.mozilla.org/en-US/docs/Web/API/console/dir)
+    Mozilla Developer Network &mdash; [console.table( )](https://developer.mozilla.org/en-US/docs/Web/API/Console/table), [console.dir( )](https://developer.mozilla.org/en-US/docs/Web/API/console/dir)
 
 
 ## Spread syntax (...)
@@ -365,7 +365,7 @@ console.log(arr);
 ```
 
 !!! note
-    Mozilla Developer Network - [Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+    Mozilla Developer Network &mdash; [Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
 ## Array.map
 
