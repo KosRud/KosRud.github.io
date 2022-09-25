@@ -50,7 +50,7 @@ Keep the left and right edges of the screen empty, or reserve them for the conte
 
 Don't use too many colors (2-4 is optimal).
 
-Pick one "main" color which you will use the most, and use the other "secondary" colors for accents (buttons, headings, etc.). The accent colors usually should be more saturated and vivid to attract attention.
+Pick one "main" color which you will use the most, and use the other "secondary" colors for accents (buttons, headings, etc.). The accent colors are usually more saturated and vivid to attract attention.
 
 Use vivid colors sparingly. The "main" color should be easy on the eyes (desaturated).
 
@@ -76,9 +76,7 @@ Use vivid colors sparingly. The "main" color should be easy on the eyes (desatur
     }
 </style>
 
-!!! note "Color scheme tools"
-_ [Paletton](https://paletton.com)
-_ [Material design color palette generator](https://www.materialpalette.com) \* [ColourCode](https://www.toptal.com/designers/colourcode)
+See color palette [tools](../Tools/#color-palette).
 
 ### Consistency
 
