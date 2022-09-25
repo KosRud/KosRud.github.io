@@ -61,11 +61,11 @@ aside {
 }
 
 .paper {
-    --paper-padding: 40px;
+    --paper-padding: 55px;
     background-color: var(--color-white);
     flex-grow: 0;
     flex-shrink: 1;
-    flex-basis: 800px;
+    flex-basis: 700px;
     padding: 10px var(--paper-padding);
     min-height: 100vh;
     position: relative;

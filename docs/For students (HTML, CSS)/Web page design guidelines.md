@@ -17,6 +17,7 @@ Animations and `:hover` style can hint towards which elements are interactive. D
         box-shadow: 0px 5px 0px #336, 2px 8px 3px #0008;
         border: 2px solid #fff2;
         padding: 6px 12px;
+		font-size: 0.8rem;
     }
 
     .demo-button:hover {
