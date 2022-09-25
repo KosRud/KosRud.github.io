@@ -1,3 +1,7 @@
+/*------------------------------------------------
+		hor-scroll-wrapper
+------------------------------------------------*/
+
 .hor-scroll-wrapper {
     overflow-x: auto;
 }
@@ -15,9 +19,22 @@
     margin-right: auto;
 }
 
+/*------------------------------------------------
+		Figure wrapper
+------------------------------------------------*/
+
 figure div {
     display: inline-block;
     margin-left: 50%;
     margin-right: -50%;
     transform: translateX(-50%);
+}
+
+/*------------------------------------------------
+		Admonition wrapper
+------------------------------------------------*/
+
+.admonition-wrapper {
+    margin-top: var(--margin-vertical);
+    margin-bottom: var(--margin-vertical);
 }
