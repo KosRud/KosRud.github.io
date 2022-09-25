@@ -2,7 +2,7 @@
 
 ## Most common selectors
 
-|Selector|<div style="width:300px;">Description</div>|Comment|
+|Selector|Description</div>|Comment|
 |:---|:---|:---|
 |*|Any element (universal selector).|
 |#elementID|Any element with `id="elementID"`.|A page should only have one element with a given `id`.|
