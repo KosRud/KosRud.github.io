@@ -259,7 +259,7 @@ footer {
 ------------------------------------------------*/
 
 #content {
-    background-color: 0004;
+    background-color: white;
     margin-left: 50%;
     max-width: 1000px;
     transform: translateX(-50%);
@@ -284,27 +284,15 @@ h4 {
 
 ul,
 ol {
-    margin-left: 1.7em;
+    margin-left: 40px;
     margin-right: 0px;
-}
-
-li > ul,
-li > ol {
-    margin: 0px;
-    margin-left: 1.7em;
+    list-style-position: outside;
 }
 
 *:not(li) > ul,
 *:not(li) > ol {
-    margin-left: 0px;
+    margin-left: 20px;
 }
-
-/*
-p + ul,
-p + ol {
-    margin-top: calc(0px - var(--margin-vertical));
-}
-*/
 
 ol {
     list-style: decimal;
@@ -486,6 +474,7 @@ dt {
     margin: 0px;
     margin-bottom: -12px;
     font-weight: bold;
+    box-shadow: var(--shadow-strong);
 }
 
 .admonition-title + * {
