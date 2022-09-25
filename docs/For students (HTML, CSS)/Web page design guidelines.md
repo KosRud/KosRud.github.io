@@ -151,4 +151,4 @@ Text must be easy to read (size, color, contrast, font).
 
 ### Width
 
-Text is easier to read, when it doesn't span the entire width of the screen. If you have a lot of text, consider multiple columns.
+Aim to have between [60 and 90](https://visualdesignfordh.files.wordpress.com/2014/06/type-readability.pdf) characters per line of text for comfortable reading.
