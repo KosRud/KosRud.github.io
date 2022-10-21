@@ -337,16 +337,19 @@ h2,
 h3,
 h4 {
     display: block;
-    width: fit-content;
     font-size: 1.1rem;
+}
+
+h3,
+h4 {
+    width: fit-content;
 }
 
 h2 {
     background: var(--color-white);
     color: black;
-    margin-left: 50%;
-    margin-right: -50%;
-    transform: translateX(-50%);
+    margin-left: 100px;
+    margin-right: 100px;
     font-weight: bold;
     padding-bottom: 3px;
     padding-top: 3px;
@@ -619,6 +622,10 @@ em {
 		ETC
 ------------------------------------------------*/
 
+p {
+    text-align: justify;
+}
+
 pre {
     background-color: var(--color-lighter-gray);
     border: 1px solid var(--color-gray);
@@ -676,5 +683,16 @@ code {
 
     main {
         max-width: calc(100vw - var(--paper-padding) * 2);
+    }
+
+    h2 {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    h1,
+    h2,
+    h3 {
+        min-width: 120px;
     }
 }
