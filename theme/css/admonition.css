@@ -1,0 +1,116 @@
+/*------------------------------------------------
+		Admonition
+------------------------------------------------*/
+
+.admonition {
+    display: inline-block;
+    border-radius: var(--border-radius-med) var(--border-radius-med);
+    border-width: 0px 3px 0px 3px;
+    border-style: solid;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0px 12px 12px 12px;
+}
+
+.admonition-title {
+    margin: 0px;
+    margin-bottom: -12px;
+    font-weight: bold;
+    box-shadow: var(--shadow-strong);
+}
+
+.admonition-title + * {
+    margin-top: 24px;
+}
+
+.admonition > *:last-child:not(.admonition-title) {
+    margin-bottom: 0px;
+}
+
+.admonition .admonition-title {
+    border-radius: var(--border-radius-med) var(--border-radius-med);
+    margin-left: -22px;
+    margin-right: -22px;
+    color: black;
+    padding: 8px 18px 5px 18px;
+}
+
+.admonition.headless > .admonition-title {
+    display: none;
+}
+
+/*------------------------------------------------
+		Admonition types
+------------------------------------------------*/
+
+.admonition.quote > .admonition-title {
+    background: hsl(0deg 0% 78%);
+}
+
+.admonition.quote {
+    background: hsl(0deg 0% 96%);
+    border-color: hsl(0deg 0% 78%);
+}
+
+.admonition.success > .admonition-title {
+    background: hsl(123deg 40% 70%);
+}
+
+.admonition.success {
+    background: hsl(123deg 62% 95%);
+    border-color: hsl(123deg 40% 70%);
+}
+
+.admonition.question > .admonition-title {
+    background: hsl(288deg 42% 74%);
+}
+
+.admonition.question {
+    background: hsl(288deg 40% 92%);
+    border-color: hsl(288deg 42% 74%);
+}
+
+.admonition.note {
+    background: hsl(204deg 66% 94%);
+    border-color: hsl(204deg 80% 70%);
+}
+
+.admonition.note > .admonition-title {
+    background: hsl(204deg 80% 70%);
+}
+
+.admonition.info > .admonition-title {
+    background: hsl(188deg 64% 70%);
+}
+
+.admonition.info {
+    background: hsl(188deg 66% 94%);
+    border-color: hsl(188deg 64% 70%);
+}
+
+.admonition.tip > .admonition-title {
+    background: hsl(60deg 70% 70%);
+}
+
+.admonition.tip {
+    background: hsl(60deg 40% 92%);
+    border-color: hsl(60deg 64% 64%);
+}
+
+.admonition.bug > .admonition-title {
+    background: #d76e65;
+}
+
+.admonition.bug {
+    background: #fdf3f2;
+    border-color: #d76e65;
+}
+
+.admonition.warning > .admonition-title {
+    background: #f0b37e;
+}
+
+.admonition.warning {
+    background: #fceccf;
+    border-color: #f0b37e;
+}
