@@ -84,3 +84,7 @@ Make the inspector panel vertical, and change its width to make your website vie
 
 !!! warning
 	Some browsers offer "responsive design mode" in the inspector, promising to simulate how your website would look on a smartphone. Last time I tried this, simply changing the width of the page provided more accurate representation of how your website would look on a smartphone, than any of these tools. I do not recommend using them.
+
+## CSS animations
+
+In order to get full points for CSS animations, use both [@keyframes](https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp) and [transitions](https://www.w3schools.com/css/css3_transitions.asp) (separately).  
