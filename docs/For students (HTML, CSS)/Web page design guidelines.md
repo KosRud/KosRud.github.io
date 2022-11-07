@@ -1,8 +1,8 @@
-# Web page design guidelines
+# Web Page Design Guidelines
 
 Some advice for making a clean, functional and aesthetically pleasing web-page.
 
-## Animation and hovering
+## Animation and Hovering
 
 Animations and `:hover` style can hint towards which elements are interactive. Don't use `:hover` on non-interactive elements to avoid confusion.
 
@@ -37,7 +37,7 @@ Animations and `:hover` style can hint towards which elements are interactive. D
 
 <div class="demo-button" onclick="alert('Thank you!')">I'm a button. Press me!</div>
 
-## Center of the page
+## Center of the Page
 
 Keep the main content towards the center of the page, where it is most comfortable to read.
 
