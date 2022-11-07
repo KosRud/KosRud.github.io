@@ -95,14 +95,14 @@ li.menu-item {
 }
 ```
 
-### Further reading
+### Further Reading
 
 |          |                                                                                                                         |
 | -------- | ----------------------------------------------------------------------------------------------------------------------- |
 | MDN      | [Using CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) |
-| w3school | [CSS Variables &mdash; The var( ) Function](https://www.w3schools.com/css/css3_variables.asp)                                 |
+| w3school | [CSS Variables &mdash; The var( ) Function](https://www.w3schools.com/css/css3_variables.asp)                           |
 
-## Get straight to the point
+## Get Straight to the Point
 
 When the user opens your website, they should immediately see the content they came for &mdash; not the full page logo (no matter how much you like it).
 

@@ -1,6 +1,6 @@
 # Requirements
 
-## URL format
+## URL Format
 
 Make sure to familiarize yourself with the URL format.
 
@@ -27,7 +27,7 @@ In the checkpoints 3 and 4 you must use either *relative*, or *"implicit domain 
 
 	[file URI scheme &mdash; Wikipedia](https://en.wikipedia.org/wiki/File_URI_scheme)
 
-## Code in the report
+## Code in the Report
 
 Minifier
 :	A *"minifier"* is a tool, which can compress your HTML and CSS code by removing spaces and line breaks. This does not prevent the code from working, but makes it difficult to read for humans. On the positive side, it becomes more compact.
@@ -65,17 +65,6 @@ For examples of creating the page layout, look [here](https://kosrud.github.io/F
 
 [Grid](https://www.w3schools.com/css/css_grid.asp) and [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) serve a similar function, and in most cases you could use either. I recommend starting with flexbox, as it is somewhat simpler.
 
-## Responsive page
-
-Checkpoint 3 requires your website to be responsive. This can be achieved in multiple ways, but for this project you MUST use [@media](https://www.w3schools.com/cssref/css3_pr_mediaquery.asp) rules.
-
-The LAYOUT of your website must change SIGNIFICANTLY between different screen widths. Simply changing font size, or some colors, is NOT sufficient.
-
-Look at "Grid layout example" in [repl](https://replit.com/@KostiantynRuden/CSS-demo).
-
-Use [viewport meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag#background): `<meta name="viewport" content="width=device-width">`
-
-
 ### Inspector
 
 In order to simulate smaller screen width, you can use the inspector panel ([firefox](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/open_the_inspector/index.html), [chrome](https://www.browserstack.com/guide/inspect-element-in-chrome), [edge](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/overview), [safari](https://www.browserstack.com/guide/how-to-inspect-element-on-mac)). Usually you can open the inspector with F12 key, or with "right click &mdash; inspect element". Depending on how your PC is configured, you might need to press Fn key together with F12.
@@ -87,16 +76,40 @@ Make the inspector panel vertical, and change its width to make your website vie
 !!! warning
 	Some browsers offer "responsive design mode" in the inspector, promising to simulate how your website would look on a smartphone. Last time I tried this, simply changing the width of the page provided more accurate representation of how your website would look on a smartphone, than any of these tools. I do not recommend using them.
 
-## CSS animations
+## CSS Animations
 
 In order to get full points for CSS animations, use both [@keyframes](https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp) and [transitions](https://www.w3schools.com/css/css3_transitions.asp) (separately).
 
 ## Box-sizing
 
-Use [box-sizing] set to `border-box` for all elements:
+Use [box-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing) set to `border-box` for all elements:
 
 ```
 * {
 	box-sizing: border-box;
 }
 ```
+## Layout
+
+Use [flexbox](https://www.w3schools.com/css/css3_flexbox.asp) or [grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid) for layout. Look at [Examples and snippets](../Examples and Snippets/).
+
+!!! warning
+	Using `<table>` for layour is NOT allowed. It should only be used for actual tables.
+
+### Responsive Page
+
+Checkpoint 3 requires your website to be responsive. This can be achieved in multiple ways, but for this project you MUST use [@media](https://www.w3schools.com/cssref/css3_pr_mediaquery.asp) rules.
+
+The LAYOUT of your website must change SIGNIFICANTLY between different screen widths. Simply changing font size, or some colors, is NOT sufficient.
+
+Look at "Grid layout example" in [repl](https://replit.com/@KostiantynRuden/CSS-demo).
+
+Use [viewport meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag#background): `<meta name="viewport" content="width=device-width">`
+
+### Semantic Elements
+
+Use [semantic elements](../Semantic HTML Elements/) when appropriate. At the very least you should have:
+
+* `<nav>`
+* `<main>`
+* `<article>` or `<section>` (one is sufficient, because the distinction between the two is not always clear)
