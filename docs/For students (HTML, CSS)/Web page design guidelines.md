@@ -77,7 +77,7 @@ See color palette [tools](../Tools/#color-palette).
 
 ## Consistency
 
-Have consistency in your style - for example, have a list of preset colors instead of selecting a "roughly similar" color by hand every time. Same with border styles, rounded corners, etc.
+Have consistency in your style &mdash; for example, have a list of preset colors instead of selecting a "roughly similar" color by hand every time. Same with border styles, rounded corners, etc.
 
 Use CSS variables:
 
@@ -100,15 +100,15 @@ li.menu-item {
 |          |                                                                                                                         |
 | -------- | ----------------------------------------------------------------------------------------------------------------------- |
 | MDN      | [Using CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) |
-| w3school | [CSS Variables - The var( ) Function](https://www.w3schools.com/css/css3_variables.asp)                                 |
+| w3school | [CSS Variables &mdash; The var( ) Function](https://www.w3schools.com/css/css3_variables.asp)                                 |
 
 ## Get straight to the point
 
-When the user opens your website, they should immediately see the content they came for - not the full page logo (no matter how much you like it).
+When the user opens your website, they should immediately see the content they came for &mdash; not the full page logo (no matter how much you like it).
 
 ## Menu
 
-If the menu is on the top and [sticky](https://www.w3schools.com/howto/howto_css_sticky_element.asp), it should be very thin - to maximize the amount of useful content that fits on the screen.
+If the menu is on the top and [sticky](https://www.w3schools.com/howto/howto_css_sticky_element.asp), it should be very thin to maximize the amount of useful content that fits on the screen.
 
 With a non-sticky menu you can afford a bit more vertical space.
 
