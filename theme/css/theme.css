@@ -13,7 +13,7 @@ body {
     --color-dark: #333;
     --color-gray: #8886;
     --color-light-gray: #ddd;
-    --color-lighter-gray: #ececec;
+    --color-lighter-gray: #f7f7f7;
     --color-muddy-blue: #164e74;
 
     background-color: var(--color-white);

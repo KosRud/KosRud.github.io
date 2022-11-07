@@ -14,16 +14,16 @@ Validators check your HTML and CSS files for errors. The browser will often atte
 
 <a href="https://jigsaw.w3.org/css-validator/" target="_blank">jigsaw.w3.org</a>
 
-## Code editor
+## Code Editor
 
 <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>
 
 !!! warning
 	You can use any code editor of your choice, with the exception of <a href="https://en.wikipedia.org/wiki/WYSIWYG" target="_blank">WYSIWYG</a> html editors. Using WYSIWYG editors is strictly forbidden.
 
-### VS Code extensions
+### VS Code Extensions
 
-#### Highly recommended
+#### Highly Recommended
 
 * <a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" target="_blank">Prettier</a> (improves code readability)
 * <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank">Live server</a>
@@ -48,7 +48,7 @@ Validators check your HTML and CSS files for errors. The browser will often atte
 * <a href="https://excalidraw.com/" target="_blank">Excalidraw</a>
 * <a href="https://www.figma.com" target="_blank">Figma</a>
 
-## Color palette
+## Color Palette
 
 * <a href="https://paletton.com" target="_blank">Paletton</a>
 * <a href="https://www.toptal.com/designers/colourcode" target="_blank">Colourcode</a>
