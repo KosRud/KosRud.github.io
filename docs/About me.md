@@ -10,7 +10,7 @@
 
 ## Work experience
 
-### Nov 2017 - Nov 2018
+### Nov 2017 &mdash; Nov 2018
 Software developer at Risa Tech, inc.
 :   * Converting inherited C/C++ code to .Net platform (C#, C++/CLI)
     * developing UI with WPF, Telerik UI and Windows Forms

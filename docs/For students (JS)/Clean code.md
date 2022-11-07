@@ -327,13 +327,13 @@ function castHeal() {
 }
 ```
 !!! note
-    In the first version you could modify one of the functions, and forget to modify the other - introducing an inconsistency.
+    In the first version you could modify one of the functions and forget to modify the other, introducing an inconsistency.
 
     The second version protects you from this.
 
 ## Panic early
 
-If you have a feeling, that something might go wrong in your code - implement a sanity check to receive an immediate warning. Javascript is particularly notorious for pretending like everything is fine and continuing the execution with corrupt data (undefined, etc).
+If you have a feeling that something might go wrong in your code, implement a sanity check to receive an immediate warning. Javascript is particularly notorious for pretending like everything is fine and continuing the execution with corrupt data (undefined, etc).
 
 MDN link: [throw statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw).
 
