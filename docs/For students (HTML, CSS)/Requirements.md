@@ -89,4 +89,14 @@ Make the inspector panel vertical, and change its width to make your website vie
 
 ## CSS animations
 
-In order to get full points for CSS animations, use both [@keyframes](https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp) and [transitions](https://www.w3schools.com/css/css3_transitions.asp) (separately).  
+In order to get full points for CSS animations, use both [@keyframes](https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp) and [transitions](https://www.w3schools.com/css/css3_transitions.asp) (separately).
+
+## Box-sizing
+
+Use [box-sizing] set to `border-box` for all elements:
+
+```
+* {
+	box-sizing: border-box;
+}
+```
