@@ -73,6 +73,8 @@ The LAYOUT of your website must change SIGNIFICANTLY between different screen wi
 
 Look at "Grid layout example" in [repl](https://replit.com/@KostiantynRuden/CSS-demo).
 
+Use [viewport meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag#background): `<meta name="viewport" content="width=device-width">`
+
 
 ### Inspector
 
