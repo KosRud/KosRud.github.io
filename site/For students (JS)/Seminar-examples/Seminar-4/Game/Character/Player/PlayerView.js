@@ -1,0 +1,3 @@
+class PlayerView extends View {
+
+}

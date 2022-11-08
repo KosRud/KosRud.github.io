@@ -1,0 +1,701 @@
+<!--
+  This Basic theme serves as an example for how to create other
+  themes by demonstrating the features with minimal HTML and CSS.
+  Comments like this will be through the code to explain briefly
+  what each feature is and point you to the MkDocs documentation
+  to find out more.
+-->
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="/js/div-wrappers.js" async></script>
+	<script>var base_url = '../..';</script>
+
+	<!--
+    The page_title contains the title for a page as shown in the navigation.
+    Site name contains the name as defined in the mkdocs.yml
+  -->
+	<title>JS tricks - Constantine Rudenko</title>
+
+	<!--
+    Just add a favicon.ico image to the docs.
+  -->
+	<link rel="shortcut icon" href="img/favicon.ico">
+
+
+	<link rel="stylesheet" href="/css/theme.css">
+
+	
+
+
+	
+	
+
+	<!--
+    extra_javascript contains paths to JavaScript files in the
+    users documentation directory or a list of JavaScript files
+    defined in their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_javascript
+  -->
+	
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	
+	<script src="../../js/configMathjax.js"></script>
+	
+	<script src="../../js/menuPictures/menuPictures.js"></script>
+	
+	<script src="../../js/image-row.js"></script>
+	
+	<script src="../../search/main.js"></script>
+	
+
+</head>
+
+<body>
+
+	<div id="body-container">
+		<aside>
+			<div id="site-name-container">
+				<div id="site-name">Constantine Rudenko</div>
+				<div id="site-subname">personal website</div>
+			</div>
+
+			
+			<div id="search" role="search">
+				<form action="/search.html" method="get">
+					<input type="search" name="q" placeholder="search" />
+				</form>
+			</div>
+			
+
+			<nav>
+				
+<ul>
+	
+	
+	<li class="">
+		
+		<a href="../..">Home</a>
+		
+	</li>
+	
+	
+	
+	<li class="">
+		
+		<a href="../../About%20me/">About me</a>
+		
+	</li>
+	
+	
+	
+	<li>
+		<div class="nav-folder">For students (HTML, CSS)</div>
+		<ul>
+			
+			<li class="">
+				
+				<a href="../../For%20students%20%28HTML%2C%20CSS%29/Additional%20Resources/">Additional Resources</a>
+				
+			</li>
+			
+			<li class="">
+				
+				<a href="../../For%20students%20%28HTML%2C%20CSS%29/CSS%20Selectors/">CSS Selectors</a>
+				
+			</li>
+			
+			<li class="">
+				
+				<a href="../../For%20students%20%28HTML%2C%20CSS%29/Examples%20and%20Snippets/">Examples and Snippets</a>
+				
+			</li>
+			
+			<li class="">
+				
+				<a href="../../For%20students%20%28HTML%2C%20CSS%29/Requirements/">Requirements</a>
+				
+			</li>
+			
+			<li class="">
+				
+				<a href="../../For%20students%20%28HTML%2C%20CSS%29/Semantic%20HTML%20Elements/">Semantic HTML Elements</a>
+				
+			</li>
+			
+			<li class="">
+				
+				<a href="../../For%20students%20%28HTML%2C%20CSS%29/Tools/">Tools</a>
+				
+			</li>
+			
+			<li class="">
+				
+				<a href="../../For%20students%20%28HTML%2C%20CSS%29/Web%20Page%20Design%20Guidelines/">Web Page Design Guidelines</a>
+				
+			</li>
+			
+		</ul>
+	</li>
+	
+	
+	
+	<li>
+		<div class="nav-folder">For students (JS)</div>
+		<ul>
+			
+			<li class="">
+				
+				<a href="../Clean%20code/">Clean code</a>
+				
+			</li>
+			
+			<li class="">
+				
+				<a href="../Examples%20and%20snippets/">Examples and snippets</a>
+				
+			</li>
+			
+			<li class="active">
+				
+				<div>JS tricks</div>
+				<ul class="toc">
+					
+					<li>
+						<a href="#for-loops">For loops</a>
+					</li>
+					
+					<li>
+						<a href="#template-strings">Template strings</a>
+					</li>
+					
+					<li>
+						<a href="#destructuring-assignment">Destructuring assignment</a>
+					</li>
+					
+					<li>
+						<a href="#static-methods-and-attributes">Static methods and attributes</a>
+					</li>
+					
+					<li>
+						<a href="#optional-chaining">Optional chaining</a>
+					</li>
+					
+					<li>
+						<a href="#console-output">Console output</a>
+					</li>
+					
+					<li>
+						<a href="#spread-syntax">Spread syntax (...)</a>
+					</li>
+					
+					<li>
+						<a href="#arraymap">Array.map</a>
+					</li>
+					
+				</ul>
+				
+			</li>
+			
+		</ul>
+	</li>
+	
+	
+</ul>
+
+			</nav>
+		</aside>
+		<div class="paper-container">
+			<div class="paper">
+				<main>
+
+					<!--
+				
+				<div>
+					
+					<a href="../Examples%20and%20snippets/" title="Examples and snippets">&#8592; Previous
+						Page</a>
+					
+					-
+					
+					Next Page &#8594;
+					
+				</div>
+				
+				-->
+
+					
+					<h1 id="js-tricks">JS tricks</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The same result could be achieved without using these constructs, albeit the code would be longer and messier.</p>
+</div>
+<h2 id="for-loops">For loops</h2>
+<h3 id="for-of">For of</h3>
+<p>Iterates over values.</p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>arr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #666666">10</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">20</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">30</span>];<span style="color: #bbbbbb"></span>
+
+<span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>value<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">of</span><span style="color: #bbbbbb"> </span>arr)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">   </span>console.log(value);<span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
+</code></pre></div>
+<h3 id="for-in">For in</h3>
+<p>Iterates over indices.</p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>arr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #666666">10</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">20</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">30</span>];<span style="color: #bbbbbb"></span>
+
+<span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">in</span><span style="color: #bbbbbb"> </span>arr)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>console.log(arr[i]);<span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
+</code></pre></div>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>dict<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>red<span style="color: #666666">:</span><span style="color: #bbbbbb">    </span><span style="color: #BA2121">&quot;rgb(255,0,0)&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>green<span style="color: #666666">:</span><span style="color: #bbbbbb">  </span><span style="color: #BA2121">&quot;rgb(0,255,0)&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>blue<span style="color: #666666">:</span><span style="color: #bbbbbb">   </span><span style="color: #BA2121">&quot;rgb(0,0,255)&quot;</span><span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
+
+<span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">in</span><span style="color: #bbbbbb"> </span>dict)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>console.log(dict[i]);<span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
+</code></pre></div>
+<h3 id="for-each">For each</h3>
+<p>Runs the given function on every value.</p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>arr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #666666">10</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">20</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">30</span>];<span style="color: #bbbbbb"></span>
+
+arr.forEach(<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>(val)<span style="color: #bbbbbb"> </span>=&gt;<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>console.log(val);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+);<span style="color: #bbbbbb"></span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>Mozilla Developer Network &mdash; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of">for..of</a></li>
+<li>Mozilla Developer Network &mdash; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in">for..in</a></li>
+<li>Mozilla Developer Network &mdash; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">Array.prototype.forEach()</a></li>
+</ul>
+</div>
+<h2 id="template-strings">Template strings</h2>
+<p>Conveniently insert variables into your strings.</p>
+<h3 id="example">Example</h3>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>foo<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">5</span>;<span style="color: #bbbbbb"></span>
+
+console.log(<span style="color: #BA2121">`the value of foo is: </span><span style="color: #A45A77; font-weight: bold">${</span>foo<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">`</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">// &quot;the value of foo is: 5&quot;</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+<p>You can also do this:</p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>foo<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">5</span>;<span style="color: #bbbbbb"></span>
+
+console.log(<span style="color: #BA2121">`foo to the power of 3 is: </span><span style="color: #A45A77; font-weight: bold">${</span>foo<span style="color: #bbbbbb"> </span><span style="color: #666666">**</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">`</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">// foo to the power of 3 is: 125</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>human<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>name<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;Jack&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>age<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #666666">13</span><span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
+
+console.log(<span style="color: #BA2121">`</span><span style="color: #A45A77; font-weight: bold">${</span>human.name<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121"> is </span><span style="color: #A45A77; font-weight: bold">${</span>human.age<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121"> years old`</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">// Jack is 13 years old</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mozilla Developer Network &mdash; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">Template strings</a></p>
+</div>
+<h2 id="destructuring-assignment">Destructuring assignment</h2>
+<p>Destructuring assignment syntax allows unpacking values from arrays, and properties from objects.</p>
+<p>This has several convenient applications, such as swapping variables without creating a temporary variable, or creating functions with named arguments.</p>
+<h3 id="swap-variables">Swap variables</h3>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>b<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>;<span style="color: #bbbbbb"></span>
+
+[a,b]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[b,a];<span style="color: #bbbbbb"></span>
+
+<span style="color: #3D7B7B; font-style: italic">// a = 2</span><span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">// b = 1</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+<h3 id="named-function-arguments">Named function arguments</h3>
+<p>With named function arguments you don't have to remember the order of arguments, when calling a function.</p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">function</span><span style="color: #bbbbbb"> </span>sayTimes(<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>phrase,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>times<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+){<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span>(<span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>times;<span style="color: #bbbbbb"> </span>i<span style="color: #666666">++</span>){<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>console.log(phrase);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
+
+sayTimes(<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>times<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #666666">5</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>phrase<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;Repetition is the mother of all learning&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+);<span style="color: #bbbbbb"></span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mozilla Developer Network &mdash; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">Destructuring assignment</a></p>
+</div>
+<h2 id="static-methods-and-attributes">Static methods and attributes</h2>
+<p>Static methods and attributes are attached to the class itself, not a particular instance of the class.</p>
+<h3 id="example_1">Example</h3>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span>Student<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">constructor</span><span style="color: #bbbbbb"> </span>(name)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">this</span>.name<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>name;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>Student.all.push(<span style="color: #008000; font-weight: bold">this</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">static</span><span style="color: #bbbbbb"> </span>GreetAll()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>Student.all.forEach((student)<span style="color: #bbbbbb"> </span>=&gt;<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>console.log(<span style="color: #BA2121">`Hello, </span><span style="color: #A45A77; font-weight: bold">${</span>student.name<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">`</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>})<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// static initialization</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">static</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>Student.all<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>console.log(<span style="color: #BA2121">&quot;static initialization called&quot;</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
+
+<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>ann<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>Student(<span style="color: #BA2121">&quot;Ann&quot;</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>jack<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>Student(<span style="color: #BA2121">&quot;Jack&quot;</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>bob<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>Student(<span style="color: #BA2121">&quot;Bob&quot;</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>eve<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>Student(<span style="color: #BA2121">&quot;Eve&quot;</span>);<span style="color: #bbbbbb"></span>
+
+Student.GreetAll();<span style="color: #bbbbbb"></span>
+
+<span style="color: #3D7B7B; font-style: italic">/*</span>
+<span style="color: #3D7B7B; font-style: italic">    &quot;static initialization called&quot;</span>
+<span style="color: #3D7B7B; font-style: italic">    &quot;Hello, Ann&quot;</span>
+<span style="color: #3D7B7B; font-style: italic">    &quot;Hello, Jack&quot;</span>
+<span style="color: #3D7B7B; font-style: italic">    &quot;Hello, Bob&quot;</span>
+<span style="color: #3D7B7B; font-style: italic">    &quot;Hello, Eve&quot;</span>
+<span style="color: #3D7B7B; font-style: italic">*/</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mozilla Developer Network &mdash; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static">static</a></p>
+</div>
+<h2 id="optional-chaining">Optional chaining</h2>
+<p>Normally, if you try to call a method, or read an attribute, which does not exist, you'd raise an error.</p>
+<p>With optional chaining you can call a method, or receive an attribute (if it exists), and move on without raising an error, if it doesn't.</p>
+<p>This is useful, when iterating over an array, where some objects might be <code>null</code>, or lack the relevant method/attribute.</p>
+<h3 id="example_2">Example</h3>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span>Pet<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">constructor</span>(name){<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">this</span>.name<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>name;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb">    </span>call(){<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>console.log(<span style="color: #BA2121">`Come here, </span><span style="color: #A45A77; font-weight: bold">${</span><span style="color: #008000; font-weight: bold">this</span>.name<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">!`</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
+
+<span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>petOwners<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>name<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;Steve&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>cat<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>Pet(<span style="color: #BA2121">&quot;couch&quot;</span>)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>},<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>name<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;Glen&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>dog<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>Pet(<span style="color: #BA2121">&quot;Woofer&quot;</span>)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>},<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">null</span><span style="color: #bbbbbb"></span>
+]<span style="color: #bbbbbb"></span>
+
+<span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>petOwner<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">of</span><span style="color: #bbbbbb"> </span>petOwners)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>petOwner<span style="color: #666666">?</span>.dog<span style="color: #666666">?</span>.call();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// if petOwner == null, do nothing</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// if petOwner doesn&#39;t have a dog, do nothing</span><span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mozilla Developer Network &mdash; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">Optional chaining</a></p>
+</div>
+<h2 id="console-output">Console output</h2>
+<dl>
+<dt>Console.table</dt>
+<dd>Display objects and their properties in console, formatted as a table.</dd>
+<dt>Console.dir</dt>
+<dd>Display an interactive list of properties of a JavaScript object.</dd>
+</dl>
+<h3 id="example_3">Example</h3>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>arr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>name<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;Ivy&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>age<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #666666">29</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>},<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">   </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>name<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;Dilan&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>age<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #666666">42</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>cat<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>name<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;Whiskers&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>age<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">   </span>}<span style="color: #bbbbbb"></span>
+];<span style="color: #bbbbbb"></span>
+
+console.table(arr);<span style="color: #bbbbbb"></span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>(index)</th>
+<th>name</th>
+<th>age</th>
+<th>cat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Ivy</td>
+<td>29</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Dilan</td>
+<td>42</td>
+<td>Object { name: "Whiskers", age: 3 }</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mozilla Developer Network &mdash; <a href="https://developer.mozilla.org/en-US/docs/Web/API/Console/table">console.table( )</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/console/dir">console.dir( )</a></p>
+</div>
+<h2 id="spread-syntax">Spread syntax (...)</h2>
+<h3 id="array-unpacking">Array unpacking</h3>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">function</span><span style="color: #bbbbbb"> </span>sum(x,<span style="color: #bbbbbb"> </span>y,<span style="color: #bbbbbb"> </span>z)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>x<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>y<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>z;<span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
+
+<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>numbers<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>];<span style="color: #bbbbbb"></span>
+
+console.log(<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>sum(...numbers)<span style="color: #bbbbbb"></span>
+);<span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">// 6</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+<h3 id="merging-arrays">Merging arrays</h3>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>arr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>];<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>newNumber<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">12</span>;<span style="color: #bbbbbb"></span>
+arr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[...arr,<span style="color: #bbbbbb"> </span>newNumber];<span style="color: #bbbbbb"></span>
+</code></pre></div>
+<h3 id="assigning-variable-number-of-elements">Assigning variable number of elements</h3>
+<p>Using <a href="#destructuring-assignment">Destructuring assignment</a></p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>[a,<span style="color: #bbbbbb"> </span>...b]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>];<span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">// a = 1</span><span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">// b = [2, 3]</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>[a,<span style="color: #bbbbbb"> </span>...b]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">4</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">5</span>];<span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">// a = 1</span><span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">// b = [2, 3, 4, 5]</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+<h3 id="shallow-copy">Shallow copy</h3>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>obj<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>attr_1<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;a&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>attr_2<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;b&quot;</span>,<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
+
+<span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>copy<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>...obj,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>newAttr<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #BA2121">&quot;c&quot;</span><span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
+
+console.log(obj);<span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">/*</span>
+<span style="color: #3D7B7B; font-style: italic">    attr_1: &quot;a&quot;,</span>
+<span style="color: #3D7B7B; font-style: italic">    attr_2: &quot;b&quot;</span>
+<span style="color: #3D7B7B; font-style: italic">*/</span><span style="color: #bbbbbb"></span>
+console.log(copy);<span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">/*</span>
+<span style="color: #3D7B7B; font-style: italic">    attr_1:  &quot;a&quot;,</span>
+<span style="color: #3D7B7B; font-style: italic">    attr_2:  &quot;b&quot;,</span>
+<span style="color: #3D7B7B; font-style: italic">    newAttr: &quot;c&quot;</span>
+<span style="color: #3D7B7B; font-style: italic">*/</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Shallow copy sets attributes of the target object identical to the source object.</p>
+<p>This means, that if the source object had a reference (non-<a href="https://developer.mozilla.org/en-US/docs/Glossary/Primitive">primitive</a>) attribute, the target object will be referencing the same thing!</p>
+<p>There are 7 primitive data types: string, number, bigint, boolean, undefined, symbol, and null.</p>
+<p><img src="../images.JS tricks.md/shallow copy.png"></p>
+</div>
+<h3 id="removing-duplicates">Removing duplicates</h3>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>arr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #666666">1</span>,<span style="color: #666666">1</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #666666">2</span>,<span style="color: #666666">2</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #666666">3</span>,<span style="color: #666666">3</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #666666">4</span>,<span style="color: #666666">4</span>,<span style="color: #666666">4</span>,<span style="color: #666666">4</span>,<span style="color: #666666">4</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #666666">5</span>,<span style="color: #666666">5</span>,<span style="color: #666666">5</span>,<span style="color: #666666">5</span>,<span style="color: #666666">5</span><span style="color: #bbbbbb"></span>
+];<span style="color: #bbbbbb"></span>
+
+arr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[...<span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #008000">Set</span>(arr)];<span style="color: #bbbbbb"></span>
+
+console.log(arr);<span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">// [1,2,3,4,5]</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mozilla Developer Network &mdash; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">Spread syntax (...)</a></p>
+</div>
+<h2 id="arraymap">Array.map</h2>
+<p>Applies the given function to every element of an array, then returns results as a new array.</p>
+<h3 id="example_4">Example</h3>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>arr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>];<span style="color: #bbbbbb"></span>
+
+editedArr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>arr.map(<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>(x)<span style="color: #bbbbbb"> </span>=&gt;<span style="color: #bbbbbb"> </span>x<span style="color: #666666">+1</span><span style="color: #bbbbbb"></span>
+);<span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">// editedArr = [2,3,4]</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+<p>You can nest <code>array.map</code> calls for more complex scenarios:</p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>grid<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>[<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>[<span style="color: #666666">4</span>,<span style="color: #666666">5</span>,<span style="color: #666666">6</span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>[<span style="color: #666666">7</span>,<span style="color: #666666">8</span>,<span style="color: #666666">9</span>]<span style="color: #bbbbbb"></span>
+];<span style="color: #bbbbbb"></span>
+
+<span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>editedGrid<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>grid.map(<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>(row)<span style="color: #bbbbbb"> </span>=&gt;<span style="color: #bbbbbb"> </span>row.map(<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>(item)<span style="color: #bbbbbb"> </span>=&gt;<span style="color: #bbbbbb"> </span>item<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>)<span style="color: #bbbbbb"></span>
+)<span style="color: #bbbbbb"></span>
+
+console.table(editedGrid);<span style="color: #bbbbbb"></span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>Combined with <a href="#spread-syntax">spread syntax</a>:</p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>grid<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>[<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>[<span style="color: #666666">4</span>,<span style="color: #666666">5</span>,<span style="color: #666666">6</span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>[<span style="color: #666666">7</span>,<span style="color: #666666">8</span>,<span style="color: #666666">9</span>]<span style="color: #bbbbbb"></span>
+];<span style="color: #bbbbbb"></span>
+
+<span style="color: #008000; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>editedGrid<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>grid.map(<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>(row)<span style="color: #bbbbbb"> </span>=&gt;<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>...row.map(<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>(item)<span style="color: #bbbbbb"> </span>=&gt;<span style="color: #bbbbbb"> </span>item<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>),<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #666666">0</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>]<span style="color: #bbbbbb"></span>
+)<span style="color: #bbbbbb"></span>
+
+console.table(editedGrid);<span style="color: #bbbbbb"></span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>0</td>
+</tr>
+<tr>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+					
+
+					<hr />
+
+					<!--
+						<h2>Link to the source</h2>
+
+						
+
+						<hr />
+
+						<h2>Show the table of contents for the current page</h2>
+						<ul>
+							
+							<li><a href="#js-tricks">JS tricks</a></li>
+							
+							<li><a href="#for-loops">For loops</a></li>
+							
+							<li><a href="#template-strings">Template strings</a></li>
+							
+							<li><a href="#destructuring-assignment">Destructuring assignment</a></li>
+							
+							<li><a href="#static-methods-and-attributes">Static methods and attributes</a></li>
+							
+							<li><a href="#optional-chaining">Optional chaining</a></li>
+							
+							<li><a href="#console-output">Console output</a></li>
+							
+							<li><a href="#spread-syntax">Spread syntax (...)</a></li>
+							
+							<li><a href="#arraymap">Array.map</a></li>
+							
+							
+						</ul>
+
+						<hr />
+					-->
+				</main>
+				<footer>
+					Built with <a href="https://www.mkdocs.org">MkDocs</a>
+					<!--
+						MkDocs version      : 1.4.2
+						Docs Build Date UTC : 2022-11-08 00:01:33.329398+00:00
+					-->
+				</footer>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
