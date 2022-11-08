@@ -91,7 +91,7 @@ Use [box-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing) se
 ```
 ## Layout
 
-Use [flexbox](https://www.w3schools.com/css/css3_flexbox.asp) or [grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid) for layout. Look at [Examples and snippets](../Examples and snippets/).
+Use [flexbox](https://www.w3schools.com/css/css3_flexbox.asp) or [grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid) for layout. Look at [Examples and Snippets](../Examples and Snippets/).
 
 !!! warning
 	Using `<table>` for layour is NOT allowed. It should only be used for actual tables.
