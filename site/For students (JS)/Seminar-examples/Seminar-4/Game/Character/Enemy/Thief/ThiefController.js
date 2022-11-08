@@ -1,0 +1,3 @@
+class ThiefController extends EnemyController {
+
+}

@@ -1,0 +1,3 @@
+class EnemyView extends CharacterView {
+
+}

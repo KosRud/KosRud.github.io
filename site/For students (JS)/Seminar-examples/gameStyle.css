@@ -1,0 +1,114 @@
+body {
+    margin: 8px max(20px, calc((100vw - 1000px) * 0.5));
+    background-color: rgb(180, 180, 180);
+    --border-thickness: 2px;
+    --canvas-width: 600px;
+    --canvas-height: 400px;
+
+    min-width: 1008px;
+
+    font-size: 10pt;
+}
+
+#game-log {
+    display: inline-block;
+    width: 400px;
+    /* match the canvas hight, including border */
+    height: calc(var(--canvas-height) + var(--border-thickness) * 2);
+    overflow-y: auto;
+    padding: 4px 8px;
+    background-color: rgb(29, 29, 29);
+    color: white;
+}
+
+#game-log > p {
+    margin-bottom: 1px;
+}
+
+#container {
+    display: inline-block;
+    position: relative;
+}
+
+#game-log > p::before {
+    content: '- ';
+}
+
+#game-log > p.important {
+    color: red;
+}
+
+#game-log > p.indent {
+    padding-left: 30px;
+}
+
+#game-log > p.important:not(:first-child) {
+    color: red;
+    padding-top: 16px;
+}
+
+.progress-bar {
+    width: 200px;
+    height: 20px;
+    display: inline-block;
+}
+
+.progress-bar-filler {
+    background: red;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: relative;
+}
+
+#hp-bar {
+    --width: 200px;
+    margin-left: calc(
+        var(--canvas-width) - var(--width) + var(--border-thickness)
+    );
+    width: var(--width);
+    position: relative;
+}
+
+#hp-bar > * {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+#hp-text {
+    padding-left: 4px;
+}
+
+.shadow {
+    box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.centered {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.game-end {
+    font-size: 20pt;
+    text-align: center;
+    background-color: #7794a5ee;
+    position: absolute;
+    width: var(--canvas-width);
+    height: var(--canvas-height);
+    left: var(--border-thickness);
+    top: var(--border-thickness);
+}
+
+#game-over > p {
+    margin-bottom: 8px;
+}
+
+.play-button {
+    width: 200px;
+    padding: 4px;
+}

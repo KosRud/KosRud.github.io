@@ -1,0 +1,3 @@
+class SlimeView extends EnemyView {
+
+}
