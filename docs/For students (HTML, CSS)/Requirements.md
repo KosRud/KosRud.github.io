@@ -91,7 +91,7 @@ Use [box-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing) se
 ```
 ## Layout
 
-Use [flexbox](https://www.w3schools.com/css/css3_flexbox.asp) or [grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid) for layout. Look at [Examples and snippets](../Examples and Snippets/).
+Use [flexbox](https://www.w3schools.com/css/css3_flexbox.asp) or [grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid) for layout. Look at [Examples and snippets](../Examples and snippets/).
 
 !!! warning
 	Using `<table>` for layour is NOT allowed. It should only be used for actual tables.
@@ -108,7 +108,7 @@ Use [viewport meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewpo
 
 ### Semantic Elements
 
-Use [semantic elements](../Semantic HTML Elements/) when appropriate. At the very least you should have:
+Use [semantic elements](../Semantic HTML elements/) when appropriate. At the very least you should have:
 
 * `<nav>`
 * `<main>`
