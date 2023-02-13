@@ -2,7 +2,7 @@
 
 Some advice for making a clean, functional and aesthetically pleasing web-page.
 
-## Animation and Hovering
+## Animation and hovering
 
 Animations and `:hover` style can hint towards which elements are interactive. Don't use `:hover` on non-interactive elements to avoid confusion.
 
@@ -37,7 +37,7 @@ Animations and `:hover` style can hint towards which elements are interactive. D
 
 <div class="demo-button" onclick="alert('Thank you!')">I'm a button. Press me!</div>
 
-## Center of the Page
+## Center of the page
 
 Keep the main content towards the center of the page, where it is most comfortable to read.
 
@@ -95,14 +95,14 @@ li.menu-item {
 }
 ```
 
-### Further Reading
+### Further reading
 
 |          |                                                                                                                         |
 | -------- | ----------------------------------------------------------------------------------------------------------------------- |
 | MDN      | [Using CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) |
 | w3school | [CSS Variables &mdash; The var( ) Function](https://www.w3schools.com/css/css3_variables.asp)                           |
 
-## Get Straight to the Point
+## Get straight to the point
 
 When the user opens your website, they should immediately see the content they came for &mdash; not the full page logo (no matter how much you like it).
 

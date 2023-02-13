@@ -1,6 +1,6 @@
 # CSS Selectors
 
-## Most Common Selectors
+## Most common selectors
 
 |Selector|Description</div>|Comment|
 |:---|:---|:---|
@@ -26,14 +26,14 @@
 |a:link|Unvisited link.|
 |a:visited|Visited link.|
 
-## Hover and Click
+## Hover and click
 
 |Selector|Description|
 |:---|:---|
 |.button:active|Any element with `class="button"`,<br>which is currently being clicked.|
 |.button:hover|Any element with `class="button"`,<br>which has the cursor hovering above it.|
 
-## Further Reading
+## Further reading
 
 |||
 |----|----|

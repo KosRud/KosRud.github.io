@@ -1,6 +1,6 @@
 # Requirements
 
-## URL Format
+## URL format
 
 Make sure to familiarize yourself with the URL format.
 
@@ -27,7 +27,7 @@ In the checkpoints 3 and 4 you must use either *relative*, or *"implicit domain 
 
 	[file URI scheme &mdash; Wikipedia](https://en.wikipedia.org/wiki/File_URI_scheme)
 
-## Code in the Report
+## Code in the report
 
 Minifier
 :	A *"minifier"* is a tool, which can compress your HTML and CSS code by removing spaces and line breaks. This does not prevent the code from working, but makes it difficult to read for humans. On the positive side, it becomes more compact.
@@ -76,7 +76,7 @@ Make the inspector panel vertical, and change its width to make your website vie
 !!! warning
 	Some browsers offer "responsive design mode" in the inspector, promising to simulate how your website would look on a smartphone. Last time I tried this, simply changing the width of the page provided more accurate representation of how your website would look on a smartphone, than any of these tools. I do not recommend using them.
 
-## CSS Animations
+## CSS animations
 
 In order to get full points for CSS animations, use both [@keyframes](https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp) and [transitions](https://www.w3schools.com/css/css3_transitions.asp) (separately).
 
@@ -96,7 +96,7 @@ Use [flexbox](https://www.w3schools.com/css/css3_flexbox.asp) or [grid](https://
 !!! warning
 	Using `<table>` for layour is NOT allowed. It should only be used for actual tables.
 
-### Responsive Page
+### Responsive page
 
 Checkpoint 3 requires your website to be responsive. This can be achieved in multiple ways, but for this project you MUST use [@media](https://www.w3schools.com/cssref/css3_pr_mediaquery.asp) rules.
 
@@ -106,7 +106,7 @@ Look at "Grid layout example" in [repl](https://replit.com/@KostiantynRuden/CSS-
 
 Use [viewport meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag#background): `<meta name="viewport" content="width=device-width">`
 
-### Semantic Elements
+### Semantic elements
 
 Use [semantic elements](../Semantic HTML elements/) when appropriate. At the very least you should have:
 

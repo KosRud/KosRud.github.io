@@ -2,7 +2,7 @@
 
 Some advice about keeping your code clean and manageable
 
-## Long Functions
+## Long functions
 
 When a function becomes too long, extract parts of it into separate functions.
 
@@ -26,11 +26,11 @@ function DrawEverything(canvas) {
 }
 ```
 
-## Big Classes
+## Big classes
 
 Same as with the big functions, try to break them up.
 
-## Too Many Arguments
+## Too many arguments
 
 If you have functions with 6+ arguments, create a class to group up related values.
 
@@ -103,13 +103,13 @@ function printDocument(printParameters, textDocument) {
 }
 ```
 
-## Too Many Attributes
+## Too many attributes
 
 Similar to the previous issue, but instead of having too many function arguments, you have too many attributes in a class.
 
 When a class has too many attributes, group them into new classes.
 
-## Data Duplication
+## Data duplication
 
 Avoid having multiple variables holding copies of the same value. Also, if certain value can be trivially computed from existing variables, it's usually better to provide a function for computing it, instead of storing it in a variable.
 
@@ -170,7 +170,7 @@ class Player {
     * Second variant is shorter, because there is no need to update `this.isDead` every time health changes.
     * In the second variant it is impossible for the value to be incorrect, as long as the function `isDead( )` is correct. In the first variant forgetting to update `this.isDead` (or updating it incorrectly) will introduce a bug, which can be difficult to find.
 
-## Code Duplication in Classes
+## Code duplication in classes
 
 If you have multiple classes with similar methods and/or attributes, consider extracting the common part into a base class and using inheritance.
 
@@ -290,7 +290,7 @@ class Slime extends Character {
 }
 ```
 
-## Code Duplication in Functions
+## Code duplication in functions
 
 If you have multiple functions with similar code, consider extracting the common part into a separate function.
 
@@ -331,7 +331,7 @@ function castHeal() {
 
     The second version protects you from this.
 
-## Panic Early
+## Panic early
 
 If you have a feeling that something might go wrong in your code, implement a sanity check to receive an immediate warning. Javascript is particularly notorious for pretending like everything is fine and continuing the execution with corrupt data (undefined, etc).
 
@@ -366,7 +366,7 @@ class Player {
 }
 ```
 
-## Magic Numbers
+## Magic numbers
 
 When using numeric constants (for example, pi), create named constants instead of writing the values directly in your code.
 
