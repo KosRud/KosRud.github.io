@@ -35,7 +35,7 @@ for (i = 0; i < matrix.length; i++) {
 }
 ```
 
-Counter variables (`i`, `j` in the example above) should in most cases be avoided in favor of "for of", "for in" loops, and functions like `Array.filter()`, `Array.map()`, `Array.reduce()`, `Array.forEach()`:
+Counter variables (`i`, `j` in the example above) should be avoided (when possible) in favor of "for of", "for in" loops, and functions like `Array.filter()`, `Array.map()`, `Array.reduce()`, `Array.forEach()`:
 
 ```js
 const matrix = [
