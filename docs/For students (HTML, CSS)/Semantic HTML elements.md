@@ -33,14 +33,14 @@ main
 :	Main content of the page.
 
 
-## Further Reading
+## Further reading
 
 |||
 |----|----|
 |MDN|[Semantics in HTML](https://developer.mozilla.org/en-US/docs/Glossary/semantics#semantics_in_html)|
 |w3school|[HTML Semantic Elements](https://www.w3schools.com/html/html5_semantic_elements.asp)|
 
-## Example Layout
+## Example layout
 
 <style>
     
@@ -99,7 +99,7 @@ main
     }    
 </style>
 
-### Horizontal Menu
+### Horizontal menu
 
 <div class="hor-scroll-wrapper">
     <div class="semantic-example-container">
@@ -145,7 +145,7 @@ main
 </p>
 </div>
 
-### Vertical Menu
+### Vertical menu
 
 <div class="hor-scroll-wrapper">
     <div class="semantic-example-container">

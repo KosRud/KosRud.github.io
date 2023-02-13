@@ -3,9 +3,9 @@
 !!! note
     The same result could be achieved without using these constructs, albeit the code would be longer and messier.
 
-## For Loops
+## For loops
 
-### For Of
+### For of
 
 Iterates over values.
 
@@ -17,7 +17,7 @@ for (const value of arr) {
 }
 ```
 
-### For In
+### For in
 
 Iterates over indices.
 
@@ -41,7 +41,7 @@ for (const i in dict) {
 }
 ```
 
-### For Each
+### For each
 
 Runs the given function on every value.
 
@@ -61,7 +61,7 @@ arr.forEach(
     * Mozilla Developer Network &mdash; [Array.prototype.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
 
-## Template Strings
+## Template strings
 
 Conveniently insert variables into your strings.
 
@@ -96,13 +96,13 @@ console.log(`${human.name} is ${human.age} years old`);
 !!! note
     Mozilla Developer Network &mdash; [Template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
-## Destructuring Assignment
+## Destructuring assignment
 
 Destructuring assignment syntax allows unpacking values from arrays, and properties from objects.
 
 This has several convenient applications, such as swapping variables without creating a temporary variable, or creating functions with named arguments.
 
-### Swap Variables
+### Swap variables
 
 ```js
 let a = 1,
@@ -114,7 +114,7 @@ let a = 1,
 // b = 1
 ```
 
-### Named Function Arguments
+### Named function arguments
 
 With named function arguments you don't have to remember the order of arguments, when calling a function.
 
@@ -141,7 +141,7 @@ sayTimes(
 !!! note
     Mozilla Developer Network &mdash; [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
-## Static Methods and Attributes
+## Static methods and attributes
 
 Static methods and attributes are attached to the class itself, not a particular instance of the class.
 
@@ -186,7 +186,7 @@ Student.GreetAll();
 !!! note
     Mozilla Developer Network &mdash; [static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
 
-## Optional Chaining
+## Optional chaining
 
 Normally, if you try to call a method, or read an attribute, which does not exist, you'd raise an error.
 
@@ -229,7 +229,7 @@ for (let petOwner of petOwners) {
 !!! note
     Mozilla Developer Network &mdash; [Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 
-## Console Output
+## Console output
 
 
 Console.table
@@ -269,9 +269,9 @@ console.table(arr);
     Mozilla Developer Network &mdash; [console.table( )](https://developer.mozilla.org/en-US/docs/Web/API/Console/table), [console.dir( )](https://developer.mozilla.org/en-US/docs/Web/API/console/dir)
 
 
-## Spread Syntax (...)
+## Spread syntax (...)
 
-### Array Unpacking
+### Array unpacking
 
 ```js
 function sum(x, y, z) {
@@ -286,7 +286,7 @@ console.log(
 // 6
 ```
 
-### Merging Arrays
+### Merging arrays
 
 ```js
 let arr = [0, 1, 2];
@@ -294,7 +294,7 @@ let newNumber = 12;
 arr = [...arr, newNumber];
 ```
 
-### Assigning Variable Number of Elements
+### Assigning a variable number of elements
 
 
 Using [Destructuring assignment](#destructuring-assignment)
@@ -311,7 +311,7 @@ const [a, ...b] = [1, 2, 3, 4, 5];
 // b = [2, 3, 4, 5]
 ```
 
-### Shallow Copy
+### Shallow copy
 
 ```js
 let obj = {
@@ -347,7 +347,7 @@ console.log(copy);
 
     <img src="../images.JS tricks.md/shallow copy.png">
 
-### Removing Duplicates
+### Removing duplicates
 
 ```js
 let arr = [
@@ -367,7 +367,7 @@ console.log(arr);
 !!! note
     Mozilla Developer Network &mdash; [Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
-## Array.map
+## Array.map()
 
 Applies the given function to every element of an array, then returns results as a new array.
 

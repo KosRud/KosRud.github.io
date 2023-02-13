@@ -1,4 +1,4 @@
-# Examples and snippets
+# Examples and Snippets
 
 ## Repl.it
 

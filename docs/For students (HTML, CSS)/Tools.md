@@ -21,9 +21,9 @@ Validators check your HTML and CSS files for errors. The browser will often atte
 !!! warning
 	You can use any code editor of your choice, with the exception of <a href="https://en.wikipedia.org/wiki/WYSIWYG" target="_blank">WYSIWYG</a> html editors. Using WYSIWYG editors is strictly forbidden.
 
-### VS Code Extensions
+### VS Code extensions
 
-#### Highly Recommended
+#### Highly recommended
 
 * <a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" target="_blank">Prettier</a> (improves code readability)
 * <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank">Live server</a>
@@ -48,12 +48,12 @@ Validators check your HTML and CSS files for errors. The browser will often atte
 * <a href="https://excalidraw.com/" target="_blank">Excalidraw</a>
 * <a href="https://www.figma.com" target="_blank">Figma</a>
 
-## Color Palette
+## Color palette
 
 * <a href="https://paletton.com" target="_blank">Paletton</a>
 * <a href="https://www.toptal.com/designers/colourcode" target="_blank">Colourcode</a>
 
-## Beautifier / Minifier
+## Beautifier / minifier
 
 * <a href="https://beautifytools.com/" target="_blank">Beautifytools</a>
 

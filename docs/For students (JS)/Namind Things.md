@@ -2,22 +2,15 @@
 
 Following consistent guidelines when creating names for your functions, variables, and classes will make your code much easier to maintain. Different programming languages and different projects can have different conventions, but the most important thing is consistency. When working with libraries and existing projects, it is usually best to adopt the established conventions and keep the codebase uniform. Some general guidelines are provided below.
 
-## Variable Names
+## Variable mames
 
-### Single-Letter Names
+### Single-letter Names
 
-Names should be sufficiently informative, describing the purpose of the variable. Avoid single-letter names such as `let x = 5`. When you have many such variables, it is very hard to keep track of their meaning. Exceptions can be made for variables with a very short and clearly defined scope, where the purpose of the variable is obvious from the immediately adjacent code, e.g:
+Names should be sufficiently informative, describing the purpose of the variable. Avoid single-letter names such as `let x = 5`. When you have many such variables, it is very hard to keep track of their meaning.
 
-```js
-const sum = [1,2,3,4].reduce(
-	(a,b) => a + b
-);
-```
-Even then, one must be careful to not overuse them.
+### Visually similar letters
 
-### Visually Similar Letters
-
-Variable names must be sufficiently different visually, as to not create an opportunity for accidentally confusing them. Keep in mind, that even if the font in your IDE makes `i` and `j` sufficiently distinct, other developers might be using a different font.
+Variable names must be sufficiently different visually, as to not create an opportunity for accidentally confusing them. Keep in mind that even if the font in your IDE makes `i` and `j` sufficiently distinct, other developers might be using a different font.
 
 ```js
 const matrix = [
@@ -42,7 +35,7 @@ for (i = 0; i < matrix.length; i++) {
 }
 ```
 
-In general, counter variables (`i`, `j` in the example above) should in most cases be avoided in favor of "for of", "for in" loops, and functions like `Array.reduce()`, `Array.map()`, `Array.forEach()`:
+Counter variables (`i`, `j` in the example above) should in most cases be avoided in favor of "for of", "for in" loops, and functions like `Array.filter()`, `Array.map()`, `Array.reduce()`, `Array.forEach()`:
 
 ```js
 const matrix = [
@@ -67,7 +60,7 @@ for (row of matrix) {
 }
 ```
 
-## Function Names
+## Function names
 
 Function name should be a verb describing what the function does:
 
