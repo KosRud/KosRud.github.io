@@ -5,8 +5,8 @@
 |From|To|Organization|Qualification|
 |---|---|---|---|
 |2020|**ongoing**|Slovak University of Technology in Bratislava|PhD. in<br>applied informatics|
-|2018|2020|National Technical University of Ukraine<br>"Igor Sikorsky Kyiv Polytechnic Institute"|Master degree in<br>software engineering|
-|2014|2018|National Technical University of Ukraine<br>"Igor Sikorsky Kyiv Polytechnic Institute"|Bachelor degree in<br>software engineering|
+|2018|2020|National Technical University of Ukraine<br>"Igor Sikorsky Kyiv Polytechnic Institute"|Master's degree in<br>software engineering|
+|2014|2018|National Technical University of Ukraine<br>"Igor Sikorsky Kyiv Polytechnic Institute"|Bachelor's degree in<br>software engineering|
 
 ## Work experience
 
