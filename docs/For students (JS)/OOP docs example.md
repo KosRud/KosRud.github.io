@@ -55,7 +55,7 @@ speed: [Vector2](#class-vector2)
 :	Distance traveled by the ball per second.
 
 !!! note
-	The ball does not need a dedicated position attribute, because it inherited one from [CollidableRectangle](#class-collidablerectangle).
+	The ball does not need a dedicated position attribute because it inherited one from [CollidableRectangle](#class-collidablerectangle).
 
 ### Methods
 
