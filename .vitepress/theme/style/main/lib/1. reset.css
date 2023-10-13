@@ -20,9 +20,14 @@ body {
     line-height: 1.5;
 }
 
-ul,
-ol {
-    list-style: inside;
+li {
+    display: flex;
+    align-items: center;
+    align-items: flex-start;
+}
+li::before {
+    content: "•";
+    margin-right: 0.5em;
 }
 
 table,
@@ -31,7 +36,8 @@ td {
     border-collapse: collapse;
 }
 
-a {
+a,
+a:link {
     color: #0000ee;
 }
 
