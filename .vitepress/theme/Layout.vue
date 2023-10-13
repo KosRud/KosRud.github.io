@@ -111,7 +111,7 @@ const { site, frontmatter, theme } = useData();
         content: "";
     }
     display: grid;
-    place-items: center center;
+    place-content: center center;
 }
 
 .Header_navLink {
@@ -120,6 +120,15 @@ const { site, frontmatter, theme } = useData();
         color: white;
         text-decoration: none;
     }
+    background: green;
+    background-clip: border-box;
+    border: 2rem solid #fff4;
+    border-radius: @gap*0.5;
+    line-height: 1;
+    padding: @gap*0.25;
+    min-width: @gap*4;
+    display: grid;
+    place-content: center center;
 }
 
 .MainContainer {
