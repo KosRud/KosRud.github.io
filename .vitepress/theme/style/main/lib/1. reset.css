@@ -1,0 +1,40 @@
+* {
+    padding: 0px;
+    margin: 0px;
+
+    box-sizing: border-box;
+
+    border-radius: 0px;
+    border: 0px solid black;
+
+    min-width: 0px;
+    min-height: 0px;
+    max-width: unset;
+    max-height: unset;
+
+    font: inherit;
+    font-size: 100%;
+}
+
+body {
+    line-height: 1.5;
+}
+
+ul,
+ol {
+    list-style: inside;
+}
+
+table,
+th,
+td {
+    border-collapse: collapse;
+}
+
+a {
+    color: #0000ee;
+}
+
+a:visited {
+    color: #551a8b;
+}
