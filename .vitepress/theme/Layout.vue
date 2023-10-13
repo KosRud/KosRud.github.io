@@ -45,7 +45,7 @@ const { site, frontmatter, theme } = useData();
         <div :class="$style.MainContainer">
             <aside :class="$style.SideNav"></aside>
             <main :class="$style.Main">
-                <section :class="$style.Page"></section>
+                <section :class="$style.Page"><Content /></section>
                 <aside :class="$style.Toc"></aside>
             </main>
         </div>
@@ -102,7 +102,10 @@ const { site, frontmatter, theme } = useData();
 }
 
 .Header_navLink {
-    @color-primary: #1f6450;
+    // @color-primary: #166446;
+    @color-primary: #3c3e6e;
+    @color-primary: #3a562c;
+    @Header_navLink-border-width: 2rem;
 
     &:link,
     &:visited {
@@ -111,20 +114,24 @@ const { site, frontmatter, theme } = useData();
     }
     background: @color-primary;
     background-clip: border-box;
-    border: 2rem solid #fff2;
-    border-radius: @gap*0.5;
+    border: @Header_navLink-border-width solid #ffffff18;
+    border-radius: @gap;
     line-height: 1;
-    padding: @gap*0.5;
-    min-width: @gap*10;
+    padding: @gap - @Header_navLink-border-width;
+    min-width: @gap*14;
     display: grid;
     place-content: center center;
     box-shadow: @shadow;
     transition: background-color 0.2s;
-    transition: border-color 0.4s;
+    transition: border-color 0.5s;
 
     &:hover {
-        background-color: screen(@color-primary, #333);
-        border-color: #fff6;
+        background-color: screen(@color-primary, #242424);
+        border-color: #fff4;
+    }
+
+    &:active {
+        transform: translateY(2rem);
     }
 }
 
