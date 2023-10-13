@@ -15,42 +15,28 @@ const { site, frontmatter, theme } = useData();
                         <a
                             :class="$style.Header_navLink"
                             href="#"
-                            >test</a
+                            >About me</a
                         >
                     </li>
                     <li :class="$style.Header_navItem">
                         <a
                             :class="$style.Header_navLink"
                             href="#"
-                            >test</a
+                            >My projects</a
                         >
                     </li>
                     <li :class="$style.Header_navItem">
                         <a
                             :class="$style.Header_navLink"
                             href="#"
-                            >test</a
+                            >For students</a
                         >
                     </li>
                     <li :class="$style.Header_navItem">
                         <a
                             :class="$style.Header_navLink"
                             href="#"
-                            >test</a
-                        >
-                    </li>
-                    <li :class="$style.Header_navItem">
-                        <a
-                            :class="$style.Header_navLink"
-                            href="#"
-                            >test</a
-                        >
-                    </li>
-                    <li :class="$style.Header_navItem">
-                        <a
-                            :class="$style.Header_navLink"
-                            href="#"
-                            >test</a
+                            >Blog</a
                         >
                     </li>
                 </ul>
@@ -91,7 +77,6 @@ const { site, frontmatter, theme } = useData();
 }
 
 .Header {
-    height: 40rem;
     align-self: stretch;
     background-color: @color-dark;
     display: flex;
@@ -104,6 +89,8 @@ const { site, frontmatter, theme } = useData();
     flex-direction: row;
     height: 100%;
     gap: @gap;
+    padding-top: @gap;
+    padding-bottom: @gap;
 }
 
 .Header_navItem {
@@ -115,20 +102,30 @@ const { site, frontmatter, theme } = useData();
 }
 
 .Header_navLink {
+    @color-primary: #1f6450;
+
     &:link,
     &:visited {
         color: white;
         text-decoration: none;
     }
-    background: green;
+    background: @color-primary;
     background-clip: border-box;
-    border: 2rem solid #fff4;
+    border: 2rem solid #fff2;
     border-radius: @gap*0.5;
     line-height: 1;
-    padding: @gap*0.25;
-    min-width: @gap*4;
+    padding: @gap*0.5;
+    min-width: @gap*10;
     display: grid;
     place-content: center center;
+    box-shadow: @shadow;
+    transition: background-color 0.2s;
+    transition: border-color 0.4s;
+
+    &:hover {
+        background-color: screen(@color-primary, #333);
+        border-color: #fff6;
+    }
 }
 
 .MainContainer {
