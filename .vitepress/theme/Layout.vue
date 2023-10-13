@@ -9,6 +9,52 @@ const { site, frontmatter, theme } = useData();
     <div :class="$style.PageContainer">
         <header :class="$style.Header">
             <span :class="$style.SiteTitle"> {{ site.title }}</span>
+            <nav :class="$style.Header_nav">
+                <ul>
+                    <li :class="$style.Header_navItem">
+                        <a
+                            :class="$style.Header_navLink"
+                            href="#"
+                            >test</a
+                        >
+                    </li>
+                    <li :class="$style.Header_navItem">
+                        <a
+                            :class="$style.Header_navLink"
+                            href="#"
+                            >test</a
+                        >
+                    </li>
+                    <li :class="$style.Header_navItem">
+                        <a
+                            :class="$style.Header_navLink"
+                            href="#"
+                            >test</a
+                        >
+                    </li>
+                    <li :class="$style.Header_navItem">
+                        <a
+                            :class="$style.Header_navLink"
+                            href="#"
+                            >test</a
+                        >
+                    </li>
+                    <li :class="$style.Header_navItem">
+                        <a
+                            :class="$style.Header_navLink"
+                            href="#"
+                            >test</a
+                        >
+                    </li>
+                    <li :class="$style.Header_navItem">
+                        <a
+                            :class="$style.Header_navLink"
+                            href="#"
+                            >test</a
+                        >
+                    </li>
+                </ul>
+            </nav>
         </header>
         <div :class="$style.MainContainer">
             <aside :class="$style.SideNav"></aside>
@@ -50,6 +96,30 @@ const { site, frontmatter, theme } = useData();
     background-color: @color-dark;
     display: flex;
     overflow: visible;
+    gap: @gap;
+}
+
+.Header_nav > ul {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    gap: @gap;
+}
+
+.Header_navItem {
+    &::before {
+        content: "";
+    }
+    display: grid;
+    place-items: center center;
+}
+
+.Header_navLink {
+    &:link,
+    &:visited {
+        color: white;
+        text-decoration: none;
+    }
 }
 
 .MainContainer {
