@@ -417,7 +417,7 @@ const { site, frontmatter, theme } = useData();
     background-color: @color-gray-light;
     align-self: flex-start;
     min-height: 300rem;
-    border-radius: @gap;
+    border-radius: @gap*0.5;
     position: sticky;
     top: 0rem;
 }
