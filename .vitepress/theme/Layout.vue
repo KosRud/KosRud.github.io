@@ -252,9 +252,9 @@ const { site, frontmatter, theme } = useData();
     background: @color-primary;
     background-clip: border-box;
     border: @Header_navLink-border-width solid #fff1;
-    border-radius: @gap;
+    border-radius: @gap*0.5;
     line-height: 1;
-    padding: @gap - @Header_navLink-border-width;
+    padding: @gap*0.5;
     min-width: @gap*12;
     display: grid;
     place-content: center center;
@@ -298,7 +298,6 @@ const { site, frontmatter, theme } = useData();
 
     color: white;
     font-size: @size-l;
-    line-height: 1.5;
 
     & > ul {
         flex: 1 0 auto;
@@ -306,7 +305,7 @@ const { site, frontmatter, theme } = useData();
         padding-left: @gap*2;
         padding-top: @gap * 2;
         background-color: @color-dark;
-        padding-right: @gap;
+        // padding-right: @gap;
     }
 
     // &::-webkit-scrollbar-thumb {
@@ -344,8 +343,12 @@ const { site, frontmatter, theme } = useData();
     padding-left: @gap;
 }
 
+.SideNav_itemTitle___level2 {
+    color: black;
+}
+
 .SideNav_item___level1 {
-    border-radius: @gap 0rem 0rem @gap;
+    // border-radius: @gap 0rem 0rem @gap;
     overflow: hidden;
 
     > ul {
@@ -354,10 +357,6 @@ const { site, frontmatter, theme } = useData();
         padding-bottom: @gap*0.5;
         background-color: @color-gray-light;
     }
-}
-
-.SideNav_itemTitle___level2 {
-    color: black;
 }
 
 .SideNav_item___level1.active {
@@ -373,6 +372,8 @@ const { site, frontmatter, theme } = useData();
         background-color: white;
         color: black;
         position: relative;
+        padding-top: @gap*0.25;
+        padding-bottom: @gap*0.25;
         padding-right: 40rem;
         &::after {
             content: "\01F441";
@@ -385,7 +386,6 @@ const { site, frontmatter, theme } = useData();
             right: 0px;
             top: 50%;
             transform: translateY(-50%);
-            line-height: 1;
         }
     }
 }
@@ -464,6 +464,20 @@ const { site, frontmatter, theme } = useData();
 	UI shadows
 \*----------------------------------*/
 
+.Header {
+    z-index: 1;
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% calc(100% + 100vh),
+        @SideNav-width calc(100% + 100vh),
+        @SideNav-width 100%,
+        0% 100%
+    );
+}
+
+.Header,
+.SideNav,
 .Toc,
 .Page {
     box-shadow: @shadow;
