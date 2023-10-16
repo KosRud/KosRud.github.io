@@ -465,14 +465,10 @@ const { site, frontmatter, theme } = useData();
 
 .Header {
     z-index: 1;
-    clip-path: polygon(
-        0% 0%,
-        100% 0%,
-        100% calc(100% + 100vh),
-        @SideNav-width calc(100% + 100vh),
-        @SideNav-width 100%,
-        0% 100%
-    );
+}
+
+.SideNav {
+    z-index: 2;
 }
 
 .Header,
