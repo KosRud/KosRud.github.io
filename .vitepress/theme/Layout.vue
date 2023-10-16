@@ -184,18 +184,25 @@ const { site, frontmatter, theme } = useData();
 @SideNav-width: 250rem;
 @Toc-width: 200rem;
 
+/*
+	When SideNav scrollbar appears, it forces clipping of overflow on the right side. This is the amount of space reserved for showing overflow. The margin is adjusted with negative value to prevent this reserved space from affecting layout.
+
+	Setting to 0 lets the clipping happen.
+*/
+@SideNav-extra-width: 0vw;
+
 .PageContainer {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .Header {
     align-self: stretch;
     background-color: @color-dark;
     display: flex;
-    overflow: visible;
     gap: @gap;
 }
 
@@ -254,8 +261,8 @@ const { site, frontmatter, theme } = useData();
 }
 
 .SideNav_container {
-    width: @SideNav-width;
-    background-color: @color-dark;
+    width: calc(@SideNav-width + @SideNav-extra-width);
+    margin-right: calc(0rem - @SideNav-extra-width);
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -263,19 +270,24 @@ const { site, frontmatter, theme } = useData();
 }
 
 .SideNav {
-    padding-top: @gap * 2;
-
     flex: 1 0 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
     transform: scaleX(-1);
-    overflow-y: scroll;
+    overflow-y: auto;
+    padding-left: @SideNav-extra-width;
 
     color: white;
     font-size: @size-l;
     line-height: 1.5;
 
     & > ul {
+        flex: 1 0 auto;
         transform: scaleX(-1);
         padding-left: @gap*2;
+        padding-top: @gap * 2;
+        background-color: @color-dark;
     }
 
     // &::-webkit-scrollbar-thumb {
@@ -325,6 +337,21 @@ const { site, frontmatter, theme } = useData();
 .SideNav_item___level1.active .SideNav_itemTitle___level1 {
     background-color: white;
     color: black;
+    position: relative;
+    padding-right: 40rem;
+    &::after {
+        content: "\01F441";
+        display: grid;
+        place-items: center center;
+        font-size: 30rem;
+        padding-bottom: 6rem;
+        padding-right: @gap*0.5;
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        line-height: 1;
+    }
 }
 
 .Main {
@@ -408,12 +435,12 @@ const { site, frontmatter, theme } = useData();
 
 .SideNav_item___level1.active .SideNav_itemTitle___level1 {
     box-shadow: @shadow;
-    // clip-path: polygon(
-    //     0% 0%,
-    //     100% 0%,
-    //     100% calc(100% + 100vh),
-    //     0% calc(100% + 100vh)
-    // );
+    clip-path: polygon(
+        0% 0%,
+        calc(100% + 100vw) 0%,
+        calc(100% + 100vw) calc(100% + 100vh),
+        0% calc(100% + 100vh)
+    );
     z-index: 1;
 }
 
@@ -427,12 +454,6 @@ const { site, frontmatter, theme } = useData();
 
 .PageContainer {
     font-family: @font-family-Lato;
-}
-
-/////
-
-.SideNav > ul {
-    height: 4000px;
 }
 </style>
 
