@@ -401,52 +401,20 @@ const { site, frontmatter, theme } = useData();
 	UI shadows
 \*----------------------------------*/
 
-.Header {
-    z-index: 1;
-}
-
-.Header,
-.SideNav,
 .Toc,
 .Page {
     box-shadow: @shadow;
 }
-.Header {
-    clip-path: polygon(
-        0% 0%,
-        100% 0%,
-        100% calc(100% + 100vh),
-        @SideNav-width calc(100% + 100vh),
-        @SideNav-width 100%,
-        0% 100%
-    );
-}
-
-.SideNav_item {
-    overflow: hidden;
-}
 
 .SideNav_item___level1.active .SideNav_itemTitle___level1 {
     box-shadow: @shadow;
-    clip-path: polygon(
-        0% 0%,
-        100% 0%,
-        100% calc(100% + 100vh),
-        0% calc(100% + 100vh)
-    );
+    // clip-path: polygon(
+    //     0% 0%,
+    //     100% 0%,
+    //     100% calc(100% + 100vh),
+    //     0% calc(100% + 100vh)
+    // );
     z-index: 1;
-}
-.SideNav_item___level2 {
-    position: relative;
-    &::after {
-        position: absolute;
-        content: "";
-        left: 100%;
-        right: -100vw;
-        top: 0rem;
-        bottom: 0rem;
-        background-color: red;
-    }
 }
 
 /*
