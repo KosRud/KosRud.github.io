@@ -297,7 +297,6 @@ const { site, frontmatter, theme } = useData();
     padding-left: @SideNav-extra-width;
 
     color: white;
-    font-size: @size-l;
 
     & > ul {
         flex: 1 0 auto;
@@ -499,11 +498,15 @@ const { site, frontmatter, theme } = useData();
 \*----------------------------------*/
 
 .Header {
-    font-family: @font-family-Roboto;
+    font-family: @font-family-Montserrat;
 }
 
 .PageContainer {
-    font-family: @font-family-Lato;
+    font-family: @font-family-Montserrat;
+}
+
+.Header_siteTitleContainer {
+    font-family: @font-family-Roboto;
 }
 </style>
 
