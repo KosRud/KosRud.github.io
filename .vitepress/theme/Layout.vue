@@ -227,7 +227,6 @@ const { site, frontmatter, theme } = useData();
     background: @color-primary;
     background-clip: border-box;
     border: @Header_navLink-border-width solid #fff1;
-    // border: @Header_navLink-border-width solid transparent;
     border-radius: @gap;
     line-height: 1;
     padding: @gap - @Header_navLink-border-width;
@@ -279,17 +278,25 @@ const { site, frontmatter, theme } = useData();
         padding-left: @gap*2;
     }
 
-    &::-webkit-scrollbar-thumb {
-        border: @gap*0.25 solid transparent;
-        background-clip: padding-box;
-        border-radius: 10000rem;
-        background-color: @color-gray-light;
-    }
-    &::-webkit-scrollbar {
-        width: @gap;
-        border-radius: 10000rem;
-        background-color: #fff4;
-    }
+    // &::-webkit-scrollbar-thumb {
+    //     border: @gap*0.25 solid transparent;
+    //     background-clip: padding-box;
+    //     border-radius: 10000rem;
+    //     background-color: @color-gray-light;
+    // }
+    // &::-webkit-scrollbar {
+    //     width: @gap*1.5;
+    //     border-radius: 10000rem;
+    //     background-color: #fff4;
+    // }
+
+    // &::-webkit-scrollbar-button:single-button {
+    //     background-color: @color-gray;
+    //     border-radius: 10000rem 10000rem 0rem 0rem;
+    //     display: block;
+    //     height: 13px;
+    //     width: 16px;
+    // }
 }
 
 .SideNav_item {
