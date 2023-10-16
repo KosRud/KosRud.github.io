@@ -261,29 +261,35 @@ const { site, frontmatter, theme } = useData();
     display: flex;
     flex-direction: column;
     justify-content: stretch;
-    color: white;
-    font-size: @size-l;
-    line-height: 1.5;
-    transform: scaleX(-1);
-    overflow-y: scroll;
-
-    &::-webkit-scrollbar-thumb {
-        border-radius: 100vw;
-        background-color: @color-primary;
-    }
-    &::-webkit-scrollbar {
-        width: @gap;
-        background-color: red;
-    }
 }
 
 .SideNav {
-    & > ul {
-        //
-    }
     padding-top: @gap * 2;
+
+    flex: 1 0 0px;
     transform: scaleX(-1);
-    padding-left: @gap*2;
+    overflow-y: scroll;
+
+    color: white;
+    font-size: @size-l;
+    line-height: 1.5;
+
+    & > ul {
+        transform: scaleX(-1);
+        padding-left: @gap*2;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border: @gap*0.25 solid transparent;
+        background-clip: padding-box;
+        border-radius: 10000rem;
+        background-color: @color-gray-light;
+    }
+    &::-webkit-scrollbar {
+        width: @gap;
+        border-radius: 10000rem;
+        background-color: #fff4;
+    }
 }
 
 .SideNav_item {
@@ -438,7 +444,7 @@ const { site, frontmatter, theme } = useData();
 
 /////
 
-.SideNav {
+.SideNav > ul {
     height: 4000px;
 }
 </style>
