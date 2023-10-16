@@ -52,9 +52,111 @@ const { site, frontmatter, theme } = useData();
             </nav>
         </header>
         <div :class="$style.MainContainer">
-            <aside :class="$style.SideNav">
-                <nav :class="$style.SideNav_recess">
-                    <ul></ul>
+            <aside :class="$style.SideNav_container">
+                <nav :class="$style.SideNav">
+                    <ul>
+                        <li
+                            :class="[
+                                $style.SideNav_item,
+                                $style.SideNav_item___level1,
+                            ]"
+                        >
+                            <span
+                                :class="[
+                                    $style.SideNav_itemTitle,
+                                    $style.SideNav_itemTitle___level1,
+                                ]"
+                                >Some page name</span
+                            >
+                        </li>
+                        <li
+                            :class="[
+                                $style.SideNav_item,
+                                $style.SideNav_item___level1,
+                                $style.active,
+                            ]"
+                        >
+                            <span
+                                :class="[
+                                    $style.SideNav_itemTitle,
+                                    $style.SideNav_itemTitle___level1,
+                                ]"
+                                >Some page name</span
+                            >
+                            <ul>
+                                <li
+                                    :class="[
+                                        $style.SideNav_item,
+                                        $style.SideNav_item___level2,
+                                    ]"
+                                >
+                                    <span
+                                        :class="[
+                                            $style.SideNav_itemTitle,
+                                            $style.SideNav_itemTitle___level2,
+                                        ]"
+                                        >Some page name</span
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li
+                            :class="[
+                                $style.SideNav_item,
+                                $style.SideNav_item___level1,
+                            ]"
+                        >
+                            <span
+                                :class="[
+                                    $style.SideNav_itemTitle,
+                                    $style.SideNav_itemTitle___level1,
+                                ]"
+                                >Some page name</span
+                            >
+                        </li>
+                        <li
+                            :class="[
+                                $style.SideNav_item,
+                                $style.SideNav_item___level1,
+                            ]"
+                        >
+                            <span
+                                :class="[
+                                    $style.SideNav_itemTitle,
+                                    $style.SideNav_itemTitle___level1,
+                                ]"
+                                >Some page name</span
+                            >
+                        </li>
+                        <li
+                            :class="[
+                                $style.SideNav_item,
+                                $style.SideNav_item___level1,
+                            ]"
+                        >
+                            <span
+                                :class="[
+                                    $style.SideNav_itemTitle,
+                                    $style.SideNav_itemTitle___level1,
+                                ]"
+                                >Some page name</span
+                            >
+                        </li>
+                        <li
+                            :class="[
+                                $style.SideNav_item,
+                                $style.SideNav_item___level1,
+                            ]"
+                        >
+                            <span
+                                :class="[
+                                    $style.SideNav_itemTitle,
+                                    $style.SideNav_itemTitle___level1,
+                                ]"
+                                >Some page name</span
+                            >
+                        </li>
+                    </ul>
                 </nav>
             </aside>
             <main :class="$style.Main">
@@ -108,7 +210,7 @@ const { site, frontmatter, theme } = useData();
 
 .Header_navItem {
     &::before {
-        content: "";
+        content: none;
     }
     display: grid;
     place-content: center center;
@@ -152,17 +254,64 @@ const { site, frontmatter, theme } = useData();
     background-color: @color-gray;
 }
 
-.SideNav {
+.SideNav_container {
     width: @SideNav-width;
     background-color: @color-dark;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
+    color: white;
+    font-size: @size-l;
+    line-height: 1.5;
+    transform: scaleX(-1);
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 100vw;
+        background-color: @color-primary;
+    }
+    &::-webkit-scrollbar {
+        width: @gap;
+        background-color: red;
+    }
 }
 
-.SideNav_recess {
-    //
+.SideNav {
+    & > ul {
+        //
+    }
+    padding-top: @gap * 2;
+    transform: scaleX(-1);
+    padding-left: @gap*2;
+}
+
+.SideNav_item {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    &::before {
+        content: none;
+    }
+
+    ul {
+        padding-left: @gap*2;
+        background-color: @color-gray;
+    }
+}
+
+.SideNav_itemTitle {
+    padding-left: @gap;
+}
+
+.SideNav_itemTitle___level2 {
+    color: black;
+}
+
+.SideNav_item___level1.active .SideNav_itemTitle___level1 {
+    background-color: white;
+    color: black;
 }
 
 .Main {
@@ -181,7 +330,7 @@ const { site, frontmatter, theme } = useData();
 
 .Page {
     flex-grow: 1;
-    max-width: 900rem;
+    max-width: 800rem;
     min-height: 100%;
     background-color: white;
     margin-bottom: 200rem;
@@ -260,6 +409,21 @@ const { site, frontmatter, theme } = useData();
     );
 }
 
+.SideNav_item {
+    overflow: hidden;
+}
+
+.SideNav_item___level1.active .SideNav_itemTitle___level1 {
+    box-shadow: @shadow;
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% calc(100% + 100vh),
+        0% calc(100% + 100vh)
+    );
+    z-index: 1;
+}
+
 /*
 	Fonts
 \*----------------------------------*/
@@ -271,19 +435,16 @@ const { site, frontmatter, theme } = useData();
 .PageContainer {
     font-family: @font-family-Lato;
 }
+
+/////
+
+.SideNav {
+    height: 4000px;
+}
 </style>
 
 <style scoped lang="less">
 * {
     /* outline: 1px solid red; */
 }
-
-// &::-webkit-scrollbar-thumb {
-//     border-radius: 100vw;
-//     background-color: @color-primary;
-// }
-// &::-webkit-scrollbar {
-//     width: @gap;
-//     background-color: @color-dark;
-// }
 </style>
