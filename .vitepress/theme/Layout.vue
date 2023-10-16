@@ -96,6 +96,24 @@ const { site, frontmatter, theme } = useData();
                                             $style.SideNav_itemTitle___level2,
                                         ]"
                                         >Some page name</span
+                                    ><span
+                                        :class="[
+                                            $style.SideNav_itemTitle,
+                                            $style.SideNav_itemTitle___level2,
+                                        ]"
+                                        >Some page name</span
+                                    ><span
+                                        :class="[
+                                            $style.SideNav_itemTitle,
+                                            $style.SideNav_itemTitle___level2,
+                                        ]"
+                                        >Some page name</span
+                                    ><span
+                                        :class="[
+                                            $style.SideNav_itemTitle,
+                                            $style.SideNav_itemTitle___level2,
+                                        ]"
+                                        >Some page name</span
                                     >
                                 </li>
                             </ul>
@@ -288,6 +306,7 @@ const { site, frontmatter, theme } = useData();
         padding-left: @gap*2;
         padding-top: @gap * 2;
         background-color: @color-dark;
+        padding-right: @gap;
     }
 
     // &::-webkit-scrollbar-thumb {
@@ -319,38 +338,55 @@ const { site, frontmatter, theme } = useData();
     &::before {
         content: none;
     }
-
-    ul {
-        padding-left: @gap*2;
-        background-color: @color-gray;
-    }
 }
 
 .SideNav_itemTitle {
     padding-left: @gap;
 }
 
+.SideNav_item___level1 {
+    border-radius: @gap 0rem 0rem @gap;
+    overflow: hidden;
+
+    > ul {
+        padding-left: @gap*2;
+        padding-top: @gap*0.5;
+        padding-bottom: @gap*0.5;
+        background-color: @color-gray-light;
+    }
+}
+
 .SideNav_itemTitle___level2 {
     color: black;
 }
 
-.SideNav_item___level1.active .SideNav_itemTitle___level1 {
-    background-color: white;
-    color: black;
-    position: relative;
-    padding-right: 40rem;
-    &::after {
-        content: "\01F441";
-        display: grid;
-        place-items: center center;
-        font-size: 30rem;
-        padding-bottom: 6rem;
-        padding-right: @gap*0.5;
-        position: absolute;
-        right: 0px;
-        top: 50%;
-        transform: translateY(-50%);
-        line-height: 1;
+.SideNav_item___level1.active {
+    &:not(:first-child) {
+        margin-top: @gap * 0.5;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: @gap * 0.5;
+    }
+
+    & .SideNav_itemTitle___level1 {
+        background-color: white;
+        color: black;
+        position: relative;
+        padding-right: 40rem;
+        &::after {
+            content: "\01F441";
+            display: grid;
+            place-items: center center;
+            font-size: 30rem;
+            padding-bottom: 6rem;
+            padding-right: @gap*0.5;
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+            line-height: 1;
+        }
     }
 }
 
