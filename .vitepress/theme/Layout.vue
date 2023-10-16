@@ -436,6 +436,18 @@ const { site, frontmatter, theme } = useData();
     );
     z-index: 1;
 }
+.SideNav_item___level2 {
+    position: relative;
+    &::after {
+        position: absolute;
+        content: "";
+        left: 100%;
+        right: -100vw;
+        top: 0rem;
+        bottom: 0rem;
+        background-color: red;
+    }
+}
 
 /*
 	Fonts
