@@ -8,7 +8,16 @@ const { site, frontmatter, theme } = useData();
 <template>
     <div :class="$style.PageContainer">
         <header :class="$style.Header">
-            <span :class="$style.SiteTitle"> {{ site.title }}</span>
+            <div :class="$style.Header_siteTitleContainer">
+                <div>
+                    <span :class="$style.Header_siteTitle">
+                        {{ site.title }}</span
+                    >
+                    <span :class="$style.Header_siteDescription">
+                        {{ site.description }}</span
+                    >
+                </div>
+            </div>
             <nav :class="$style.Header_nav">
                 <ul>
                     <li :class="$style.Header_navItem">
@@ -43,7 +52,11 @@ const { site, frontmatter, theme } = useData();
             </nav>
         </header>
         <div :class="$style.MainContainer">
-            <aside :class="$style.SideNav"></aside>
+            <aside :class="$style.SideNav">
+                <nav :class="$style.SideNav_recess">
+                    <ul></ul>
+                </nav>
+            </aside>
             <main :class="$style.Main">
                 <section :class="$style.Page"><Content /></section>
                 <aside :class="$style.Toc"></aside>
@@ -102,9 +115,6 @@ const { site, frontmatter, theme } = useData();
 }
 
 .Header_navLink {
-    @color-primary: #16643d;
-    // @color-primary: #3c3e6e;
-    // @color-primary: #3a562c;
     @Header_navLink-border-width: 2rem;
 
     &:link,
@@ -146,6 +156,13 @@ const { site, frontmatter, theme } = useData();
     width: @SideNav-width;
     background-color: @color-dark;
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.SideNav_recess {
+    //
 }
 
 .Main {
@@ -160,7 +177,7 @@ const { site, frontmatter, theme } = useData();
     padding-right: calc(@SideNav-width - @Toc-width - @Main-gap);
     gap: @Main-gap;
 }
-// @shadow: 0px 0px 2px 1px #0003, 0px 3px 3px #0004;
+// @shadow: 0rem 0rem 2px 1px #0003, 0rem 3px 3px #0004;
 
 .Page {
     flex-grow: 1;
@@ -180,11 +197,42 @@ const { site, frontmatter, theme } = useData();
     top: 0rem;
 }
 
-.SiteTitle {
+.Header_siteTitleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: white;
-    display: grid;
-    place-items: center center;
     width: @SideNav-width;
+    line-height: 1;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: @gap*2;
+        right: @gap*2;
+        top: 0rem;
+        bottom: 0rem;
+        border-bottom: 1px solid white;
+    }
+
+    > div {
+        width: max-content;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+.Header_siteTitle {
+    font-size: @size-xl;
+    text-align: center;
+}
+
+.Header_siteDescription {
+    font-size: @size-s;
+    text-align: right;
 }
 
 /*
@@ -225,8 +273,17 @@ const { site, frontmatter, theme } = useData();
 }
 </style>
 
-<style scoped>
+<style scoped lang="less">
 * {
     /* outline: 1px solid red; */
 }
+
+// &::-webkit-scrollbar-thumb {
+//     border-radius: 100vw;
+//     background-color: @color-primary;
+// }
+// &::-webkit-scrollbar {
+//     width: @gap;
+//     background-color: @color-dark;
+// }
 </style>
