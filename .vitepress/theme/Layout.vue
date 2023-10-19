@@ -17,8 +17,7 @@ const urlMatch = (url: string) => {
     const extensionRegex = /\.[^.]+$/;
 
     url = encodeURI(url.replace(extensionRegex, ""));
-
-    let path = route.path.replace(extensionRegex, "");
+    const path = route.path.replace(extensionRegex, "");
 
     if (path == url) {
         return UrlMatch.full;
@@ -35,13 +34,25 @@ const urlActive = (url) => {
     return urlMatch(url) != UrlMatch.no;
 };
 
-const sideNav = computed(() => {
+const getSideNav = () => {
     const navItems =
         site.value.themeConfig.nav.find((navItem) => {
             const match = urlMatch(navItem.url);
             return [UrlMatch.inside, UrlMatch.full].includes(match);
         })?.children ?? [];
     return navItems;
+};
+
+const sideNav = computed(getSideNav);
+
+const debugOut = computed(() => {
+    const extensionRegex = /\.[^.]+$/;
+    const curPath = route.path.replace(extensionRegex, "");
+
+    const themeNav = site.value.themeConfig.nav;
+    const sideNav = getSideNav();
+
+    return JSON.stringify({ curPath, themeNav, sideNav }, null, 2);
 });
 </script>
 
@@ -197,9 +208,9 @@ const sideNav = computed(() => {
                 </nav>
             </aside>
             <main :class="$style.Main">
-                <section :class="$style.Page">
+                <section :class="$style.Paper">
                     <br />
-                    <pre>{{ JSON.stringify(route, null, 2) }}</pre>
+                    <pre>{{ debugOut }}</pre>
                     <br /><Content />
                 </section>
                 <aside :class="$style.Toc"></aside>
@@ -245,6 +256,7 @@ const sideNav = computed(() => {
     background-color: @color-dark;
     display: flex;
     gap: @gap;
+    flex-shrink: 0;
 }
 
 .Header_nav > ul {
@@ -472,17 +484,19 @@ const sideNav = computed(() => {
     justify-content: center;
     overflow-y: auto;
     padding-top: @gap*2;
+    padding-bottom: @gap*2;
     padding-right: calc(@SideNav-width - @Toc-width - @Main-gap);
     gap: @Main-gap;
 }
 // @shadow: 0rem 0rem 2px 1px #0003, 0rem 3px 3px #0004;
 
-.Page {
+.Paper {
     flex-grow: 1;
     max-width: 800rem;
+    height: min-content;
     min-height: 100%;
     background-color: @color-white;
-    margin-bottom: 200rem;
+    // margin-bottom: @gap*2;
 }
 
 .Toc {
@@ -551,7 +565,7 @@ const sideNav = computed(() => {
 .Header,
 .SideNav,
 .Toc,
-.Page {
+.Paper {
     box-shadow: @shadow;
 }
 
