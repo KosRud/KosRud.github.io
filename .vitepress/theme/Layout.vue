@@ -31,7 +31,10 @@ const sideNav = computed(
 <template>
     <div :class="$style.PageContainer">
         <header :class="$style.Header">
-            <div :class="$style.Header_siteTitleContainer">
+            <a
+                :class="$style.Header_siteTitleContainer"
+                href="/"
+            >
                 <div>
                     <span :class="$style.Header_siteTitle">
                         {{ site.title }}</span
@@ -40,7 +43,7 @@ const sideNav = computed(
                         {{ site.description }}</span
                     >
                 </div>
-            </div>
+            </a>
             <nav :class="$style.Header_nav">
                 <ul>
                     <li
@@ -431,7 +434,9 @@ const sideNav = computed(
     top: 0rem;
 }
 
-.Header_siteTitleContainer {
+.Header_siteTitleContainer,
+.Header_siteTitleContainer:link,
+.Header_siteTitleContainer:visited {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -440,6 +445,7 @@ const sideNav = computed(
     width: @SideNav-width;
     line-height: 1;
     position: relative;
+    text-decoration-line: none;
 
     &::after {
         content: "";
