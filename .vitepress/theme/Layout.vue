@@ -69,7 +69,7 @@ const sideNav = computed(() => {
                     >
                         <a
                             :class="$style.Header_navLink"
-                            href="#"
+                            :href="navItem.url"
                             >{{ navItem.title }}</a
                         >
                     </li>
@@ -88,12 +88,13 @@ const sideNav = computed(() => {
                                 urlActive(navItem.url) ? [$style.active] : '',
                             ]"
                         >
-                            <span
+                            <a
+                                :href="navItem.url"
                                 :class="[
                                     $style.SideNav_itemTitle,
                                     $style.SideNav_itemTitle___level1,
                                 ]"
-                                >{{ navItem.title }}</span
+                                >{{ navItem.title }}</a
                             >
                             <ul v-if="urlActive(navItem.url)">
                                 <li
@@ -129,76 +130,6 @@ const sideNav = computed(() => {
                                     >
                                 </li>
                             </ul>
-                        </li>
-                        <li
-                            :class="[
-                                $style.SideNav_item,
-                                $style.SideNav_item___level1,
-                            ]"
-                        >
-                            <span
-                                :class="[
-                                    $style.SideNav_itemTitle,
-                                    $style.SideNav_itemTitle___level1,
-                                ]"
-                                >Some page name</span
-                            >
-                        </li>
-                        <li
-                            :class="[
-                                $style.SideNav_item,
-                                $style.SideNav_item___level1,
-                            ]"
-                        >
-                            <span
-                                :class="[
-                                    $style.SideNav_itemTitle,
-                                    $style.SideNav_itemTitle___level1,
-                                ]"
-                                >Some page name</span
-                            >
-                        </li>
-                        <li
-                            :class="[
-                                $style.SideNav_item,
-                                $style.SideNav_item___level1,
-                            ]"
-                        >
-                            <span
-                                :class="[
-                                    $style.SideNav_itemTitle,
-                                    $style.SideNav_itemTitle___level1,
-                                ]"
-                                >Some page name</span
-                            >
-                        </li>
-                        <li
-                            :class="[
-                                $style.SideNav_item,
-                                $style.SideNav_item___level1,
-                            ]"
-                        >
-                            <span
-                                :class="[
-                                    $style.SideNav_itemTitle,
-                                    $style.SideNav_itemTitle___level1,
-                                ]"
-                                >Some page name</span
-                            >
-                        </li>
-                        <li
-                            :class="[
-                                $style.SideNav_item,
-                                $style.SideNav_item___level1,
-                            ]"
-                        >
-                            <span
-                                :class="[
-                                    $style.SideNav_itemTitle,
-                                    $style.SideNav_itemTitle___level1,
-                                ]"
-                                >Some page name</span
-                            >
                         </li>
                     </ul>
                 </nav>
@@ -277,7 +208,7 @@ const sideNav = computed(() => {
     &:link,
     &:visited {
         color: white;
-        text-decoration: none;
+        text-decoration: inherit;
     }
     background: @color-primary;
     background-clip: border-box;
@@ -368,8 +299,12 @@ const sideNav = computed(() => {
     }
 }
 
-.SideNav_itemTitle {
+.SideNav_itemTitle,
+.SideNav_itemTitle:link,
+.SideNav_itemTitle:visited {
     padding-left: @gap;
+    color: white;
+    text-decoration: inherit;
 }
 
 .SideNav_itemTitle___level2 {
@@ -462,7 +397,7 @@ const sideNav = computed(() => {
     width: @SideNav-width;
     line-height: 1;
     position: relative;
-    text-decoration-line: none;
+    text-decoration-line: inherit;
 
     &::after {
         content: "";
