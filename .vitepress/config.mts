@@ -8,8 +8,8 @@ export default defineConfigWithTheme<ThemeConfig>({
     srcDir: "./pages",
     themeConfig: {
         nav: [
-            { title: "About me", url: "/about" },
-            { title: "My Projects", url: "/projects" },
+            { title: "About me", url: "/about/" },
+            { title: "My Projects", url: "/projects/" },
             {
                 title: "For Students",
                 url: "/students",
