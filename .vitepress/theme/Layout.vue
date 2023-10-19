@@ -394,7 +394,9 @@ const sideNav = computed(() => {
     overflow: hidden;
 
     > ul {
-        padding: @gap;
+        padding: @gap*0.5;
+        padding-top: @gap;
+        padding-bottom: @gap;
         background-color: @color-gray-light;
     }
 
