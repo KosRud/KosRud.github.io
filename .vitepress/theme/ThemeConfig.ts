@@ -1,3 +1,9 @@
+interface NavItem {
+    title: string;
+    url: string;
+    children?: NavItem[];
+}
+
 export default interface themeConfig {
-    AAA: string;
+    nav: NavItem[];
 }

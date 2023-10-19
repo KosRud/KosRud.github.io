@@ -1,11 +1,31 @@
 <script setup lang="ts">
-import { useData } from "vitepress";
+import { useData, useRoute } from "vitepress";
 import ThemeConfig from "./ThemeConfig";
+import { computed } from "vue";
 
 // https://vitepress.dev/reference/runtime-api#usedata
-const { site, frontmatter, theme } = useData<ThemeConfig>();
+const { site, frontmatter } = useData<ThemeConfig>();
+const route = useRoute();
 
-const themeConfig = site.value.themeConfig;
+const sideNav = computed(
+    () =>
+        site.value.themeConfig.nav.find((navItem) => {
+            const extensionRegex = /\.[^.]+$/;
+
+            let url = navItem.url;
+            url = encodeURI(url.replace(extensionRegex, ""));
+
+            let path = route.path.replace(extensionRegex, "");
+
+            if (path.length < url.length) {
+                return false;
+            }
+
+            if (url == path.slice(0, url.length)) {
+                return true;
+            }
+        })?.children ?? []
+);
 </script>
 
 <template>
@@ -23,32 +43,14 @@ const themeConfig = site.value.themeConfig;
             </div>
             <nav :class="$style.Header_nav">
                 <ul>
-                    <li :class="$style.Header_navItem">
+                    <li
+                        v-for="navItem in site.themeConfig.nav"
+                        :class="$style.Header_navItem"
+                    >
                         <a
                             :class="$style.Header_navLink"
                             href="#"
-                            >About me</a
-                        >
-                    </li>
-                    <li :class="$style.Header_navItem">
-                        <a
-                            :class="$style.Header_navLink"
-                            href="#"
-                            >My projects</a
-                        >
-                    </li>
-                    <li :class="$style.Header_navItem">
-                        <a
-                            :class="$style.Header_navLink"
-                            href="#"
-                            >For students</a
-                        >
-                    </li>
-                    <li :class="$style.Header_navItem">
-                        <a
-                            :class="$style.Header_navLink"
-                            href="#"
-                            >Blog</a
+                            >{{ navItem.title }}</a
                         >
                     </li>
                 </ul>
@@ -59,6 +61,7 @@ const themeConfig = site.value.themeConfig;
                 <nav :class="$style.SideNav">
                     <ul>
                         <li
+                            v-for="navItem in sideNav"
                             :class="[
                                 $style.SideNav_item,
                                 $style.SideNav_item___level1,
@@ -69,7 +72,7 @@ const themeConfig = site.value.themeConfig;
                                     $style.SideNav_itemTitle,
                                     $style.SideNav_itemTitle___level1,
                                 ]"
-                                >Some page name</span
+                                >{{ navItem.title }}</span
                             >
                         </li>
                         <li
@@ -181,7 +184,11 @@ const themeConfig = site.value.themeConfig;
                 </nav>
             </aside>
             <main :class="$style.Main">
-                <section :class="$style.Page"><Content /></section>
+                <section :class="$style.Page">
+                    <br />
+                    <pre>{{ JSON.stringify(route, null, 2) }}</pre>
+                    <br /><Content />
+                </section>
                 <aside :class="$style.Toc"></aside>
             </main>
         </div>
