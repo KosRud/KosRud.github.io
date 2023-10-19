@@ -113,19 +113,43 @@ const sideNav = computed(() => {
                                             $style.SideNav_itemTitle___level2,
                                         ]"
                                         >Some page name</span
-                                    ><span
+                                    >
+                                </li>
+                                <li
+                                    :class="[
+                                        $style.SideNav_item,
+                                        $style.SideNav_item___level2,
+                                    ]"
+                                >
+                                    <span
                                         :class="[
                                             $style.SideNav_itemTitle,
                                             $style.SideNav_itemTitle___level2,
                                         ]"
                                         >Some page name</span
-                                    ><span
+                                    >
+                                </li>
+                                <li
+                                    :class="[
+                                        $style.SideNav_item,
+                                        $style.SideNav_item___level2,
+                                    ]"
+                                >
+                                    <span
                                         :class="[
                                             $style.SideNav_itemTitle,
                                             $style.SideNav_itemTitle___level2,
                                         ]"
                                         >Some page name</span
-                                    ><span
+                                    >
+                                </li>
+                                <li
+                                    :class="[
+                                        $style.SideNav_item,
+                                        $style.SideNav_item___level2,
+                                    ]"
+                                >
+                                    <span
                                         :class="[
                                             $style.SideNav_itemTitle,
                                             $style.SideNav_itemTitle___level2,
@@ -211,7 +235,7 @@ const sideNav = computed(() => {
 
     &:link,
     &:visited {
-        color: white;
+        color: @color-white;
         text-decoration: inherit;
     }
     background: @color-primary;
@@ -228,7 +252,7 @@ const sideNav = computed(() => {
     transition: border-color 0.5s;
 
     &:hover {
-        background-color: screen(@color-primary, @color-lighten-screen);
+        background-color: @color-primary-lighter;
         border-color: #fff4;
     }
 
@@ -261,7 +285,7 @@ const sideNav = computed(() => {
     overflow-y: auto;
     padding-left: @SideNav-extra-width;
 
-    color: white;
+    color: @color-white;
 
     & > ul {
         flex: 1 0 auto;
@@ -307,12 +331,12 @@ const sideNav = computed(() => {
 .SideNav_itemTitle:link,
 .SideNav_itemTitle:visited {
     padding-left: @gap;
-    color: white;
+    color: @color-white;
     text-decoration: inherit;
 }
 
 .SideNav_itemTitle___level2 {
-    color: black;
+    color: @color-black;
 }
 
 .SideNav_item___level1 {
@@ -320,15 +344,12 @@ const sideNav = computed(() => {
     overflow: hidden;
 
     > ul {
-        padding-left: @gap*2;
-        padding-top: @gap*0.5;
-        padding-bottom: @gap*0.5;
+        padding: @gap;
         background-color: @color-gray-light;
     }
 
     &:not(.active):hover {
-        background-color: screen(@color-primary, @color-lighten-screen);
-        // background-color: screen(@color-dark, @color-lighten-screen);
+        background-color: @color-primary-lighter;
     }
 
     &.active {
@@ -341,8 +362,8 @@ const sideNav = computed(() => {
         }
 
         & .SideNav_itemTitle___level1 {
-            background-color: white;
-            color: black;
+            background-color: @color-white;
+            color: @color-black;
             position: relative;
             padding-top: @gap*0.25;
             padding-bottom: @gap*0.25;
@@ -363,6 +384,15 @@ const sideNav = computed(() => {
     }
 }
 
+.SideNav_item___level2 {
+    &:hover:not(.active) {
+        background-color: @color-primary-lighter;
+        border-radius: @gap*0.5;
+        .SideNav_itemTitle___level2 {
+            color: @color-white;
+        }
+    }
+}
 .Main {
     @Main-gap: @gap*2;
 
@@ -381,7 +411,7 @@ const sideNav = computed(() => {
     flex-grow: 1;
     max-width: 800rem;
     min-height: 100%;
-    background-color: white;
+    background-color: @color-white;
     margin-bottom: 200rem;
 }
 
@@ -402,7 +432,7 @@ const sideNav = computed(() => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: @color-white;
     width: @SideNav-width;
     line-height: 1;
     position: relative;
@@ -415,7 +445,7 @@ const sideNav = computed(() => {
         right: @gap*2;
         top: 0rem;
         bottom: 0rem;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid @color-white;
     }
 
     > div {
