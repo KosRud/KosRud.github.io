@@ -377,6 +377,7 @@ const sideNav = computed(() => {
     display: flex;
     flex-direction: row;
     align-items: center;
+    position: relative;
 
     &::before {
         content: "";
@@ -386,6 +387,20 @@ const sideNav = computed(() => {
         background-size: cover;
         margin-right: @gap*0.5;
         margin-left: @gap*0.25;
+    }
+
+    &::after {
+        content: "\01F441";
+        display: grid;
+        place-items: center center;
+        font-size: 30rem;
+        padding-bottom: 2rem;
+        padding-right: 0rem;
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        visibility: hidden;
     }
 }
 
@@ -565,6 +580,12 @@ const sideNav = computed(() => {
 
 .Header_siteTitleContainer {
     font-family: @font-family-Roboto;
+}
+
+//////
+
+li:nth-child(3) .SideNav_itemTitle___level2::after {
+    visibility: visible;
 }
 </style>
 
