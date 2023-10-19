@@ -601,6 +601,28 @@ const debugOut = computed(() => {
 li:nth-child(3) .SideNav_itemTitle___level2::after {
     visibility: visible;
 }
+
+.Header li:nth-child(3) {
+    position: relative;
+    &::after {
+        position: absolute;
+        content: "";
+        left: @gap*0.25;
+        bottom: calc(0rem - @gap);
+        top: calc(0rem - @gap);
+        right: @gap*0.25;
+        border-top: @gap*0.25 solid white;
+        // border-bottom: @gap*0.25 solid white;
+        pointer-events: none;
+        // box-shadow: 0px 0px @gap*0.25 @gap*0.5 #0002;
+        // clip-path: polygon(
+        //     0% calc(100% - @gap*0.25),
+        //     100% calc(100% - @gap*0.25),
+        //     100% calc(100% + 100vh),
+        //     0% calc(100% + 100vh)
+        // );
+    }
+}
 </style>
 
 <style scoped lang="less">
