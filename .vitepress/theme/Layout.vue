@@ -373,6 +373,20 @@ const sideNav = computed(() => {
 .SideNav_itemTitle___level2:link,
 .SideNav_itemTitle___level2:visited {
     color: @color-black;
+    padding-left: 0rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &::before {
+        content: "";
+        height: 1em;
+        width: 1em;
+        background-image: url("/assets/icons/chevron-right.svg");
+        background-size: cover;
+        margin-right: @gap*0.5;
+        margin-left: @gap*0.25;
+    }
 }
 
 .SideNav_item___level1 {
@@ -426,6 +440,9 @@ const sideNav = computed(() => {
         border-radius: @gap*0.5;
         .SideNav_itemTitle___level2 {
             color: @color-white;
+            &::before {
+                filter: invert();
+            }
         }
     }
 }
