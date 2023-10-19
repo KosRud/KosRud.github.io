@@ -107,12 +107,13 @@ const sideNav = computed(() => {
                                         $style.SideNav_item___level2,
                                     ]"
                                 >
-                                    <span
+                                    <a
+                                        href="#"
                                         :class="[
                                             $style.SideNav_itemTitle,
                                             $style.SideNav_itemTitle___level2,
                                         ]"
-                                        >Some page name</span
+                                        >Some page name</a
                                     >
                                 </li>
                                 <li
@@ -121,12 +122,13 @@ const sideNav = computed(() => {
                                         $style.SideNav_item___level2,
                                     ]"
                                 >
-                                    <span
+                                    <a
+                                        href="#"
                                         :class="[
                                             $style.SideNav_itemTitle,
                                             $style.SideNav_itemTitle___level2,
                                         ]"
-                                        >Some page name</span
+                                        >Some page name</a
                                     >
                                 </li>
                                 <li
@@ -135,12 +137,13 @@ const sideNav = computed(() => {
                                         $style.SideNav_item___level2,
                                     ]"
                                 >
-                                    <span
+                                    <a
+                                        href="#"
                                         :class="[
                                             $style.SideNav_itemTitle,
                                             $style.SideNav_itemTitle___level2,
                                         ]"
-                                        >Some page name</span
+                                        >Some page name</a
                                     >
                                 </li>
                                 <li
@@ -149,12 +152,43 @@ const sideNav = computed(() => {
                                         $style.SideNav_item___level2,
                                     ]"
                                 >
-                                    <span
+                                    <a
+                                        href="#"
                                         :class="[
                                             $style.SideNav_itemTitle,
                                             $style.SideNav_itemTitle___level2,
                                         ]"
-                                        >Some page name</span
+                                        >Some page name</a
+                                    >
+                                </li>
+                                <li
+                                    :class="[
+                                        $style.SideNav_item,
+                                        $style.SideNav_item___level2,
+                                    ]"
+                                >
+                                    <a
+                                        href="#"
+                                        :class="[
+                                            $style.SideNav_itemTitle,
+                                            $style.SideNav_itemTitle___level2,
+                                        ]"
+                                        >Some page name</a
+                                    >
+                                </li>
+                                <li
+                                    :class="[
+                                        $style.SideNav_item,
+                                        $style.SideNav_item___level2,
+                                    ]"
+                                >
+                                    <a
+                                        href="#"
+                                        :class="[
+                                            $style.SideNav_itemTitle,
+                                            $style.SideNav_itemTitle___level2,
+                                        ]"
+                                        >Some page name</a
                                     >
                                 </li>
                             </ul>
@@ -335,7 +369,9 @@ const sideNav = computed(() => {
     text-decoration: inherit;
 }
 
-.SideNav_itemTitle___level2 {
+.SideNav_itemTitle___level2,
+.SideNav_itemTitle___level2:link,
+.SideNav_itemTitle___level2:visited {
     color: @color-black;
 }
 
