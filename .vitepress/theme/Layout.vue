@@ -89,7 +89,11 @@ const sideNav = computed(() => {
                             ]"
                         >
                             <a
-                                :href="navItem.url"
+                                :href="
+                                    urlActive(navItem.url)
+                                        ? undefined
+                                        : navItem.url
+                                "
                                 :class="[
                                     $style.SideNav_itemTitle,
                                     $style.SideNav_itemTitle___level1,
@@ -224,7 +228,7 @@ const sideNav = computed(() => {
     transition: border-color 0.5s;
 
     &:hover {
-        background-color: screen(@color-primary, #242424);
+        background-color: screen(@color-primary, @color-lighten-screen);
         border-color: #fff4;
     }
 
@@ -321,35 +325,40 @@ const sideNav = computed(() => {
         padding-bottom: @gap*0.5;
         background-color: @color-gray-light;
     }
-}
 
-.SideNav_item___level1.active {
-    &:not(:first-child) {
-        margin-top: @gap * 0.5;
+    &:not(.active):hover {
+        background-color: screen(@color-primary, @color-lighten-screen);
+        // background-color: screen(@color-dark, @color-lighten-screen);
     }
 
-    &:not(:last-child) {
-        margin-bottom: @gap * 0.5;
-    }
+    &.active {
+        &:not(:first-child) {
+            margin-top: @gap * 0.5;
+        }
 
-    & .SideNav_itemTitle___level1 {
-        background-color: white;
-        color: black;
-        position: relative;
-        padding-top: @gap*0.25;
-        padding-bottom: @gap*0.25;
-        padding-right: 40rem;
-        &::after {
-            content: "\01F441";
-            display: grid;
-            place-items: center center;
-            font-size: 30rem;
-            padding-bottom: 6rem;
-            padding-right: @gap*0.5;
-            position: absolute;
-            right: 0px;
-            top: 50%;
-            transform: translateY(-50%);
+        &:not(:last-child) {
+            margin-bottom: @gap * 0.5;
+        }
+
+        & .SideNav_itemTitle___level1 {
+            background-color: white;
+            color: black;
+            position: relative;
+            padding-top: @gap*0.25;
+            padding-bottom: @gap*0.25;
+            padding-right: 40rem;
+            &::after {
+                content: "\01F441";
+                display: grid;
+                place-items: center center;
+                font-size: 30rem;
+                padding-bottom: 6rem;
+                padding-right: @gap*0.5;
+                position: absolute;
+                right: 0px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
         }
     }
 }
