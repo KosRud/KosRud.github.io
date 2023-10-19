@@ -7,25 +7,42 @@ import { computed } from "vue";
 const { site, frontmatter } = useData<ThemeConfig>();
 const route = useRoute();
 
-const sideNav = computed(
-    () =>
+enum UrlMatch {
+    full,
+    inside,
+    no,
+}
+
+const urlMatch = (url: string) => {
+    const extensionRegex = /\.[^.]+$/;
+
+    url = encodeURI(url.replace(extensionRegex, ""));
+
+    let path = route.path.replace(extensionRegex, "");
+
+    if (path == url) {
+        return UrlMatch.full;
+    }
+
+    if (url == path.slice(0, url.length)) {
+        return UrlMatch.inside;
+    }
+
+    return UrlMatch.no;
+};
+
+const urlActive = (url) => {
+    return urlMatch(url) != UrlMatch.no;
+};
+
+const sideNav = computed(() => {
+    const navItems =
         site.value.themeConfig.nav.find((navItem) => {
-            const extensionRegex = /\.[^.]+$/;
-
-            let url = navItem.url;
-            url = encodeURI(url.replace(extensionRegex, ""));
-
-            let path = route.path.replace(extensionRegex, "");
-
-            if (path.length < url.length) {
-                return false;
-            }
-
-            if (url == path.slice(0, url.length)) {
-                return true;
-            }
-        })?.children ?? []
-);
+            const match = urlMatch(navItem.url);
+            return [UrlMatch.inside, UrlMatch.full].includes(match);
+        })?.children ?? [];
+    return navItems;
+});
 </script>
 
 <template>
@@ -68,6 +85,7 @@ const sideNav = computed(
                             :class="[
                                 $style.SideNav_item,
                                 $style.SideNav_item___level1,
+                                urlActive(navItem.url) ? [$style.active] : '',
                             ]"
                         >
                             <span
@@ -77,22 +95,7 @@ const sideNav = computed(
                                 ]"
                                 >{{ navItem.title }}</span
                             >
-                        </li>
-                        <li
-                            :class="[
-                                $style.SideNav_item,
-                                $style.SideNav_item___level1,
-                                $style.active,
-                            ]"
-                        >
-                            <span
-                                :class="[
-                                    $style.SideNav_itemTitle,
-                                    $style.SideNav_itemTitle___level1,
-                                ]"
-                                >Some page name</span
-                            >
-                            <ul>
+                            <ul v-if="urlActive(navItem.url)">
                                 <li
                                     :class="[
                                         $style.SideNav_item,
@@ -126,6 +129,20 @@ const sideNav = computed(
                                     >
                                 </li>
                             </ul>
+                        </li>
+                        <li
+                            :class="[
+                                $style.SideNav_item,
+                                $style.SideNav_item___level1,
+                            ]"
+                        >
+                            <span
+                                :class="[
+                                    $style.SideNav_itemTitle,
+                                    $style.SideNav_itemTitle___level1,
+                                ]"
+                                >Some page name</span
+                            >
                         </li>
                         <li
                             :class="[
