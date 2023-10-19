@@ -483,9 +483,8 @@ const debugOut = computed(() => {
     flex-direction: row;
     justify-content: center;
     overflow-y: auto;
-    padding-top: @gap*2;
-    padding-bottom: @gap*2;
-    padding-right: calc(@SideNav-width - @Toc-width - @Main-gap);
+    padding: @Main-gap;
+    padding-right: calc(@SideNav-width - @Toc-width - @Main-gap + @Main-gap);
     gap: @Main-gap;
 }
 // @shadow: 0rem 0rem 2px 1px #0003, 0rem 3px 3px #0004;
@@ -501,6 +500,7 @@ const debugOut = computed(() => {
 
 .Toc {
     width: @Toc-width;
+    flex-shrink: 0;
     background-color: @color-gray-light;
     align-self: flex-start;
     min-height: 300rem;
