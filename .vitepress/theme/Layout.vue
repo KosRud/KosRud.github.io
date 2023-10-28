@@ -339,6 +339,9 @@ const debugOut = computed(() => {
         padding-left: @gap*2;
         padding-top: @gap * 2;
         background-color: @color-dark;
+        // display: flex;
+        // flex-direction: column;
+        // gap: @gap*0.5;
         // padding-right: @gap;
     }
 
@@ -367,6 +370,8 @@ const debugOut = computed(() => {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    padding-top: @gap*0.25;
+    padding-bottom: @gap*0.25;
 
     &::before {
         content: none;

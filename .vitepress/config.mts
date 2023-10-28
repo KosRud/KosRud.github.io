@@ -9,7 +9,30 @@ export default defineConfigWithTheme<ThemeConfig>({
     themeConfig: {
         nav: [
             { title: "About me", url: "/about/" },
-            { title: "My Projects", url: "/projects/" },
+            {
+                title: "My Projects",
+                url: "/projects/",
+                children: [
+                    {
+                        title: "ProTeGe",
+                        url: "/students/html",
+                        children: [{ title: "Unity version", url: "/" }],
+                    },
+                    {
+                        title: "DQ Skinning for Unity",
+                        url: "/students/html",
+                    },
+                    {
+                        title: "Dice-pool-calc",
+                        url: "/students/html",
+                    },
+                    {
+                        title: "Material clustering",
+                        url: "/students/html",
+                    },
+                ],
+            },
+
             {
                 title: "For Students",
                 url: "/students",
