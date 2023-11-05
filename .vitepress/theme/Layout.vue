@@ -381,9 +381,20 @@ const debugOut = computed(() => {
 .SideNav_itemTitle,
 .SideNav_itemTitle:link,
 .SideNav_itemTitle:visited {
-    padding-left: @gap;
+    // padding-left: @gap;
     color: @color-white;
     text-decoration: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &::before {
+        content: "";
+        display: block;
+        margin-right: @gap*0.5;
+        margin-left: @gap*0.5;
+        color: inherit;
+    }
 }
 
 .SideNav_itemTitle___level2,
