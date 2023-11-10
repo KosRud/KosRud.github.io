@@ -213,7 +213,10 @@ const debugOut = computed(() => {
                     <pre>{{ debugOut }}</pre>
                     <br /><Content />
                 </section>
-                <aside :class="$style.Toc"></aside>
+                <aside :class="$style.Toc">
+                    <h2 :class="$style.Toc_title">On this page</h2>
+                    <section :class="$style.Toc_content"></section>
+                </aside>
             </main>
         </div>
     </div>
@@ -235,6 +238,7 @@ const debugOut = computed(() => {
 @import "./style/variables/index.less";
 @SideNav-width: 250rem;
 @Toc-width: 200rem;
+@Toc-separator-width: @gap*0.25;
 
 /*
 	When SideNav scrollbar appears, it forces clipping of overflow on the right side. This is the amount of space reserved for showing overflow. The margin is adjusted with negative value to prevent this reserved space from affecting layout.
@@ -310,7 +314,6 @@ const debugOut = computed(() => {
 .MainContainer {
     flex-grow: 1;
     display: flex;
-    background-color: @color-gray;
 }
 
 .SideNav_container {
@@ -320,6 +323,7 @@ const debugOut = computed(() => {
     display: flex;
     flex-direction: column;
     justify-content: stretch;
+    // visibility: hidden;
 }
 
 .SideNav {
@@ -364,6 +368,8 @@ const debugOut = computed(() => {
     //     height: 13px;
     //     width: 16px;
     // }
+
+    visibility: v-bind("sideNav.length == 0 ? 'hidden' : 'visible'");
 }
 
 .SideNav_item {
@@ -521,14 +527,43 @@ const debugOut = computed(() => {
 }
 
 .Toc {
+    padding-left: @gap*0.5;
     width: @Toc-width;
+    height: 100%;
     flex-shrink: 0;
-    background-color: @color-gray-light;
+    // background-color: @color-gray-light;
     align-self: flex-start;
     min-height: 300rem;
-    border-radius: @gap*0.5;
     position: sticky;
     top: 0rem;
+    // border-left: @gap*0.25 solid @color-gray;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+    gap: @gap*0.5;
+}
+
+.Toc_title {
+    flex-grow: 0;
+    font-size: @size-l;
+    font-family: @font-family-main;
+}
+
+.Toc_content {
+    margin-left: @Toc-separator-width;
+    flex-grow: 1;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        background-color: @color-gray;
+        width: @Toc-separator-width;
+        top: 0rem;
+        bottom: 0rem;
+        left: @Toc-separator-width*-1;
+        border-radius: @inf;
+    }
 }
 
 .Header_siteTitleContainer,
@@ -552,6 +587,7 @@ const debugOut = computed(() => {
         top: 0rem;
         bottom: 0rem;
         border-bottom: 1px solid @color-white;
+        visibility: v-bind("sideNav.length == 0 ? 'hidden' : 'visible'");
     }
 
     > div {
@@ -585,9 +621,7 @@ const debugOut = computed(() => {
 }
 
 .Header,
-.SideNav,
-.Toc,
-.Paper {
+.SideNav {
     box-shadow: @shadow;
 }
 
@@ -607,15 +641,15 @@ const debugOut = computed(() => {
 \*----------------------------------*/
 
 .Header {
-    font-family: @font-family-Montserrat;
+    font-family: @font-family-main;
 }
 
 .PageContainer {
-    font-family: @font-family-Montserrat;
+    font-family: @font-family-main;
 }
 
 .Header_siteTitleContainer {
-    font-family: @font-family-Roboto;
+    font-family: @font-family-compact;
 }
 
 //////
@@ -660,6 +694,6 @@ li:nth-child(3) .SideNav_itemTitle___level2 {
 
 <style scoped lang="less">
 * {
-    /* outline: 1px solid red; */
+    // outline: 1px solid red;
 }
 </style>
