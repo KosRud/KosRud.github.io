@@ -202,14 +202,14 @@ const debugOut = computed(() => {
                 </ul>
             </nav>
             <main :class="$style.Main">
-                <section :class="$style.Paper">
+                <section :class="$style.Main_content">
                     <br />
                     <pre>{{ debugOut }}</pre>
                     <br /><Content />
                 </section>
                 <aside :class="$style.Toc">
                     <h2 :class="$style.Toc_title">On this page</h2>
-                    <section :class="$style.Toc_content"></section>
+                    <nav :class="$style.Toc_content"></nav>
                 </aside>
             </main>
         </div>
@@ -416,15 +416,13 @@ const debugOut = computed(() => {
     padding-right: calc(@SideNav-width - @Toc-width - @Main-gap + @Main-gap);
     gap: @Main-gap;
 }
-// @shadow: 0rem 0rem 2px 1px #0003, 0rem 3px 3px #0004;
 
-.Paper {
+.Main_content {
     flex-grow: 1;
     max-width: 800rem;
     height: min-content;
     min-height: 100%;
     background-color: @color-white;
-    // margin-bottom: @gap*2;
 }
 
 .Toc {
@@ -433,11 +431,9 @@ const debugOut = computed(() => {
     min-height: 300rem;
     max-height: 100%;
     flex-shrink: 0;
-    // background-color: @color-gray-light;
     align-self: flex-start;
     position: sticky;
     top: 0rem;
-    // border-left: @gap*0.25 solid @color-gray;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -547,15 +543,7 @@ li:nth-child(3) .SideNav_itemTitle___level2 {
         top: calc(0rem - @gap);
         right: @gap*0.25;
         border-top: @gap*0.25 solid white;
-        // border-bottom: @gap*0.25 solid white;
         pointer-events: none;
-        // box-shadow: 0px 0px @gap*0.25 @gap*0.5 #0002;
-        // clip-path: polygon(
-        //     0% calc(100% - @gap*0.25),
-        //     100% calc(100% - @gap*0.25),
-        //     100% calc(100% + 100vh),
-        //     0% calc(100% + 100vh)
-        // );
     }
 }
 </style>
