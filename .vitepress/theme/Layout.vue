@@ -88,125 +88,119 @@ const debugOut = computed(() => {
             </nav>
         </header>
         <div :class="$style.MainContainer">
-            <aside :class="$style.SideNav_container">
-                <nav :class="$style.SideNav">
-                    <ul>
-                        <li
-                            v-for="navItem in sideNav"
+            <nav :class="$style.SideNav">
+                <ul>
+                    <li
+                        v-for="navItem in sideNav"
+                        :class="[
+                            $style.SideNav_item,
+                            $style.SideNav_item___level1,
+                            urlActive(navItem.url) ? [$style.active] : '',
+                        ]"
+                    >
+                        <a
+                            :href="navItem.url"
                             :class="[
-                                $style.SideNav_item,
-                                $style.SideNav_item___level1,
-                                urlActive(navItem.url) ? [$style.active] : '',
+                                $style.SideNav_itemTitle,
+                                $style.SideNav_itemTitle___level1,
                             ]"
+                            >{{ navItem.title }}</a
                         >
-                            <a
-                                :href="
-                                    urlActive(navItem.url)
-                                        ? undefined
-                                        : navItem.url
-                                "
+                        <ul v-if="urlActive(navItem.url)">
+                            <li
                                 :class="[
-                                    $style.SideNav_itemTitle,
-                                    $style.SideNav_itemTitle___level1,
+                                    $style.SideNav_item,
+                                    $style.SideNav_item___level2,
                                 ]"
-                                >{{ navItem.title }}</a
                             >
-                            <ul v-if="urlActive(navItem.url)">
-                                <li
+                                <a
+                                    href="#"
                                     :class="[
-                                        $style.SideNav_item,
-                                        $style.SideNav_item___level2,
+                                        $style.SideNav_itemTitle,
+                                        $style.SideNav_itemTitle___level2,
                                     ]"
+                                    >Some page name</a
                                 >
-                                    <a
-                                        href="#"
-                                        :class="[
-                                            $style.SideNav_itemTitle,
-                                            $style.SideNav_itemTitle___level2,
-                                        ]"
-                                        >Some page name</a
-                                    >
-                                </li>
-                                <li
+                            </li>
+                            <li
+                                :class="[
+                                    $style.SideNav_item,
+                                    $style.SideNav_item___level2,
+                                ]"
+                            >
+                                <a
+                                    href="#"
                                     :class="[
-                                        $style.SideNav_item,
-                                        $style.SideNav_item___level2,
+                                        $style.SideNav_itemTitle,
+                                        $style.SideNav_itemTitle___level2,
                                     ]"
+                                    >Some page name</a
                                 >
-                                    <a
-                                        href="#"
-                                        :class="[
-                                            $style.SideNav_itemTitle,
-                                            $style.SideNav_itemTitle___level2,
-                                        ]"
-                                        >Some page name</a
-                                    >
-                                </li>
-                                <li
+                            </li>
+                            <li
+                                :class="[
+                                    $style.SideNav_item,
+                                    $style.SideNav_item___level2,
+                                ]"
+                            >
+                                <a
+                                    href="#"
                                     :class="[
-                                        $style.SideNav_item,
-                                        $style.SideNav_item___level2,
+                                        $style.SideNav_itemTitle,
+                                        $style.SideNav_itemTitle___level2,
                                     ]"
+                                    >Some page name</a
                                 >
-                                    <a
-                                        href="#"
-                                        :class="[
-                                            $style.SideNav_itemTitle,
-                                            $style.SideNav_itemTitle___level2,
-                                        ]"
-                                        >Some page name</a
-                                    >
-                                </li>
-                                <li
+                            </li>
+                            <li
+                                :class="[
+                                    $style.SideNav_item,
+                                    $style.SideNav_item___level2,
+                                ]"
+                            >
+                                <a
+                                    href="#"
                                     :class="[
-                                        $style.SideNav_item,
-                                        $style.SideNav_item___level2,
+                                        $style.SideNav_itemTitle,
+                                        $style.SideNav_itemTitle___level2,
                                     ]"
+                                    >Some page name</a
                                 >
-                                    <a
-                                        href="#"
-                                        :class="[
-                                            $style.SideNav_itemTitle,
-                                            $style.SideNav_itemTitle___level2,
-                                        ]"
-                                        >Some page name</a
-                                    >
-                                </li>
-                                <li
+                            </li>
+                            <li
+                                :class="[
+                                    $style.SideNav_item,
+                                    $style.SideNav_item___level2,
+                                ]"
+                            >
+                                <a
+                                    href="#"
                                     :class="[
-                                        $style.SideNav_item,
-                                        $style.SideNav_item___level2,
+                                        $style.SideNav_itemTitle,
+                                        $style.SideNav_itemTitle___level2,
                                     ]"
+                                    >Some page name</a
                                 >
-                                    <a
-                                        href="#"
-                                        :class="[
-                                            $style.SideNav_itemTitle,
-                                            $style.SideNav_itemTitle___level2,
-                                        ]"
-                                        >Some page name</a
-                                    >
-                                </li>
-                                <li
+                            </li>
+                            <li
+                                :class="[
+                                    $style.SideNav_item,
+                                    $style.SideNav_item___level2,
+                                ]"
+                            >
+                                <a
+                                    href="#"
                                     :class="[
-                                        $style.SideNav_item,
-                                        $style.SideNav_item___level2,
+                                        $style.SideNav_itemTitle,
+                                        $style.SideNav_itemTitle___level2,
                                     ]"
+                                    >Some page name</a
                                 >
-                                    <a
-                                        href="#"
-                                        :class="[
-                                            $style.SideNav_itemTitle,
-                                            $style.SideNav_itemTitle___level2,
-                                        ]"
-                                        >Some page name</a
-                                    >
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
             <main :class="$style.Main">
                 <section :class="$style.Paper">
                     <br />
@@ -238,14 +232,7 @@ const debugOut = computed(() => {
 @import "./style/variables/index.less";
 @SideNav-width: 250rem;
 @Toc-width: 200rem;
-@Toc-separator-width: @gap*0.25;
-
-/*
-	When SideNav scrollbar appears, it forces clipping of overflow on the right side. This is the amount of space reserved for showing overflow. The margin is adjusted with negative value to prevent this reserved space from affecting layout.
-
-	Setting to 0 lets the clipping happen.
-*/
-@SideNav-extra-width: 0vw;
+@Toc-separator-width: @gap*0.125;
 
 .PageContainer {
     width: 100%;
@@ -316,58 +303,20 @@ const debugOut = computed(() => {
     display: flex;
 }
 
-.SideNav_container {
-    width: calc(@SideNav-width + @SideNav-extra-width);
-    margin-right: calc(0rem - @SideNav-extra-width);
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    // visibility: hidden;
-}
-
 .SideNav {
-    flex: 1 0 0px;
+    width: @SideNav-width;
+    flex-shrink: 0;
+
     display: flex;
     flex-direction: column;
     justify-content: stretch;
-    transform: scaleX(-1);
-    overflow-y: auto;
-    padding-left: @SideNav-extra-width;
-
-    color: @color-white;
+    overflow-y: scroll;
 
     & > ul {
         flex: 1 0 auto;
-        transform: scaleX(-1);
         padding-left: @gap*2;
         padding-top: @gap * 2;
-        background-color: @color-dark;
-        // display: flex;
-        // flex-direction: column;
-        // gap: @gap*0.5;
-        // padding-right: @gap;
     }
-
-    // &::-webkit-scrollbar-thumb {
-    //     border: @gap*0.25 solid transparent;
-    //     background-clip: padding-box;
-    //     border-radius: 10000rem;
-    //     background-color: @color-gray-light;
-    // }
-    // &::-webkit-scrollbar {
-    //     width: @gap*1.5;
-    //     border-radius: 10000rem;
-    //     background-color: #fff4;
-    // }
-
-    // &::-webkit-scrollbar-button:single-button {
-    //     background-color: @color-gray;
-    //     border-radius: 10000rem 10000rem 0rem 0rem;
-    //     display: block;
-    //     height: 13px;
-    //     width: 16px;
-    // }
 
     visibility: v-bind("sideNav.length == 0 ? 'hidden' : 'visible'");
 }
@@ -388,7 +337,7 @@ const debugOut = computed(() => {
 .SideNav_itemTitle:link,
 .SideNav_itemTitle:visited {
     // padding-left: @gap;
-    color: @color-white;
+    color: @color-black;
     text-decoration: inherit;
     display: flex;
     flex-direction: row;
@@ -425,36 +374,15 @@ const debugOut = computed(() => {
         margin-left: @gap*0.25;
         visibility: hidden;
     }
-
-    // &::after {
-    //     content: "";
-    //     background-image: url("/assets/icons/eye/1.svg");
-    //     background-size: contain;
-    //     background-repeat: no-repeat;
-    //     background-position: center;
-    //     height: 1.5em;
-    //     aspect-ratio: 1;
-    //     position: absolute;
-    //     right: 0px;
-    //     top: 50%;
-    //     transform: translateY(-50%);
-    //     visibility: hidden;
-    // }
 }
 
 .SideNav_item___level1 {
-    // border-radius: @gap 0rem 0rem @gap;
     overflow: hidden;
 
     > ul {
         padding: @gap*0.5;
         padding-top: @gap;
         padding-bottom: @gap;
-        background-color: @color-gray-light;
-    }
-
-    &:not(.active):hover {
-        background-color: @color-primary-lighter;
     }
 
     &.active {
@@ -467,42 +395,15 @@ const debugOut = computed(() => {
         }
 
         & .SideNav_itemTitle___level1 {
-            background-color: @color-white;
             color: @color-black;
             position: relative;
             padding-top: @gap*0.25;
             padding-bottom: @gap*0.25;
             padding-right: 40rem;
-            // &::after {
-            //     content: "";
-            //     background-image: url("/assets/icons/eye/1.svg");
-            //     background-size: contain;
-            //     background-repeat: no-repeat;
-            //     background-position: center;
-            //     height: 1.5em;
-            //     aspect-ratio: 1;
-            //     position: absolute;
-            //     right: 0px;
-            //     top: 50%;
-            //     transform: translateY(-50%);
-            //     margin-right: @gap*0.5;
-            // }
         }
     }
 }
 
-.SideNav_item___level2 {
-    &:hover:not(.active) {
-        background-color: @color-primary-lighter;
-        border-radius: @gap*0.5;
-        .SideNav_itemTitle___level2 {
-            color: @color-white;
-            &::before {
-                filter: invert();
-            }
-        }
-    }
-}
 .Main {
     @Main-gap: @gap*2;
 
@@ -529,11 +430,11 @@ const debugOut = computed(() => {
 .Toc {
     padding-left: @gap*0.5;
     width: @Toc-width;
-    height: 100%;
+    min-height: 300rem;
+    max-height: 100%;
     flex-shrink: 0;
     // background-color: @color-gray-light;
     align-self: flex-start;
-    min-height: 300rem;
     position: sticky;
     top: 0rem;
     // border-left: @gap*0.25 solid @color-gray;
@@ -557,12 +458,11 @@ const debugOut = computed(() => {
     &::before {
         content: "";
         position: absolute;
-        background-color: @color-gray;
+        background-color: @color-gray-light;
         width: @Toc-separator-width;
         top: 0rem;
         bottom: 0rem;
         left: @Toc-separator-width*-1;
-        border-radius: @inf;
     }
 }
 
@@ -578,17 +478,6 @@ const debugOut = computed(() => {
     line-height: 1;
     position: relative;
     text-decoration-line: inherit;
-
-    &::after {
-        content: "";
-        position: absolute;
-        left: @gap*2;
-        right: @gap*2;
-        top: 0rem;
-        bottom: 0rem;
-        border-bottom: 1px solid @color-white;
-        visibility: v-bind("sideNav.length == 0 ? 'hidden' : 'visible'");
-    }
 
     > div {
         width: max-content;
@@ -620,20 +509,8 @@ const debugOut = computed(() => {
     z-index: 2;
 }
 
-.Header,
-.SideNav {
+.Header {
     box-shadow: @shadow;
-}
-
-.SideNav_item___level1.active .SideNav_itemTitle___level1 {
-    box-shadow: @shadow;
-    clip-path: polygon(
-        0% 0%,
-        calc(100% + 100vw) 0%,
-        calc(100% + 100vw) calc(100% + 100vh),
-        0% calc(100% + 100vh)
-    );
-    z-index: 1;
 }
 
 /*
@@ -655,15 +532,6 @@ const debugOut = computed(() => {
 //////
 
 li:nth-child(3) .SideNav_itemTitle___level2 {
-    // text-decoration: underline;
-    // font-weight: bold;
-
-    pointer-events: none;
-
-    &::after {
-        visibility: visible;
-    }
-
     &::before {
         visibility: visible;
     }
