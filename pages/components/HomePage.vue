@@ -60,6 +60,8 @@ const highlights = [
 
     color: white;
     font-family: @font-family-compact;
+
+    box-shadow: 0rem 0rem 100rem inset #0004;
 }
 
 .SiteNameContainer {
