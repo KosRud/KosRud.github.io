@@ -245,6 +245,7 @@ const debugOut = computed(() => {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    justify-content: stretch;
 }
 
 .Header {
@@ -252,7 +253,7 @@ const debugOut = computed(() => {
     background-color: @color-dark;
     display: flex;
     gap: @gap;
-    flex-shrink: 0;
+    flex: 0 0 min-content;
 }
 
 .Header_nav > ul {
@@ -473,7 +474,7 @@ const debugOut = computed(() => {
 .Header_siteTitleContainer:link,
 .Header_siteTitleContainer:visited {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     color: @color-white;
@@ -487,6 +488,18 @@ const debugOut = computed(() => {
         display: flex;
         justify-content: center;
         flex-direction: column;
+    }
+
+    &::before {
+        content: "";
+        height: 1.5em;
+        width: 1.5em;
+        background-image: url("/assets/icons/home/icon.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-right: @gap;
+        margin-left: 0rem;
     }
 }
 
