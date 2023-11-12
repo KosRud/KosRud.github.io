@@ -112,9 +112,13 @@ const highlights = [
     min-width: 200rem;
     flex: 1 0 0rem;
     box-shadow: @shadow;
+    border: 1rem solid @color-gray;
+    padding: @gap;
 }
 
 .CardGallery_card___dummy {
     min-height: 0rem;
+    border: none;
+    padding: 0rem;
 }
 </style>
