@@ -87,7 +87,10 @@ const debugOut = computed(() => {
                 </ul>
             </nav>
         </header>
-        <div :class="$style.MainContainer">
+        <div
+            :class="$style.MainContainer"
+            v-if="!frontmatter.hero"
+        >
             <nav :class="$style.SideNav">
                 <ul>
                     <li
@@ -203,9 +206,10 @@ const debugOut = computed(() => {
             </nav>
             <main :class="$style.Main">
                 <section :class="$style.Main_content">
-                    <br />
+                    <!-- <br />
                     <pre>{{ debugOut }}</pre>
-                    <br /><Content />
+                    <br /> -->
+                    <Content />
                 </section>
                 <aside :class="$style.Toc">
                     <h2 :class="$style.Toc_title">On this page</h2>
@@ -213,6 +217,7 @@ const debugOut = computed(() => {
                 </aside>
             </main>
         </div>
+        <Content v-else />
     </div>
     <!-- <div v-if="frontmatter.home">
         <h1>{{ site.title }}</h1>
@@ -306,6 +311,8 @@ const debugOut = computed(() => {
 .SideNav {
     width: @SideNav-width;
     flex-shrink: 0;
+
+    // background-color: @color-gray-light;
 
     display: flex;
     flex-direction: column;
