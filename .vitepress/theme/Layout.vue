@@ -217,7 +217,12 @@ const debugOut = computed(() => {
                 </aside>
             </main>
         </div>
-        <Content v-else />
+        <main
+            v-else
+            :class="$style.HeroMain"
+        >
+            <Content />
+        </main>
     </div>
     <!-- <div v-if="frontmatter.home">
         <h1>{{ site.title }}</h1>
@@ -412,6 +417,16 @@ const debugOut = computed(() => {
     }
 }
 
+.HeroMain {
+    flex-grow: 1;
+    > div {
+        height: 100%;
+        > div {
+            height: 100%;
+        }
+    }
+}
+
 .Main {
     @Main-gap: @gap*2;
 
@@ -539,13 +554,6 @@ const debugOut = computed(() => {
 
 .PageContainer {
     font-family: @font-family-main;
-
-    > div {
-        flex-grow: 1;
-        > div {
-            height: 100%;
-        }
-    }
 }
 
 .Header_siteTitleContainer {
