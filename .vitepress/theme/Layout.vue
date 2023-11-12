@@ -539,6 +539,13 @@ const debugOut = computed(() => {
 
 .PageContainer {
     font-family: @font-family-main;
+
+    > div {
+        flex-grow: 1;
+        > div {
+            height: 100%;
+        }
+    }
 }
 
 .Header_siteTitleContainer {

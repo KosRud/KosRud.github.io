@@ -45,9 +45,13 @@ const highlights = [
 
 .HomePage {
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .Hero {
+    flex-grow: 0;
+
     background-color: @color-primary-muted;
     display: flex;
     flex-direction: column;
@@ -79,6 +83,8 @@ const highlights = [
 }
 
 .ContentWrapper {
+    flex-grow: 1;
+
     padding: @gap*2;
     display: flex;
     flex-direction: column;
