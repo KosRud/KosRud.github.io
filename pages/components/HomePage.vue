@@ -1,5 +1,12 @@
 <script setup>
 import HomePageFeatures from "./HomePageFeatures.vue";
+
+const features = [
+    { name: "Programming languages" },
+    { name: "Technologies" },
+    { name: "Communication" },
+    { name: "Projects" },
+];
 </script>
 
 <template>
@@ -16,7 +23,23 @@ import HomePageFeatures from "./HomePageFeatures.vue";
         </section>
         <div :class="$style.ContentWrapper">
             <section :class="$style.ContentWrapper_content">
-                <HomePageFeatures />
+                <HomePageFeatures :items="features">
+                    <template #default="feature">
+                        <h2 :class="$style.Feature_title">
+                            {{ feature.name }}
+                        </h2>
+                        <div :class="$style.Feature_content">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Ukrainian</td>
+                                        <td>native</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </template>
+                </HomePageFeatures>
             </section>
         </div>
     </div>
@@ -79,5 +102,24 @@ import HomePageFeatures from "./HomePageFeatures.vue";
 
 .ContentWrapper_content {
     max-width: 1200rem;
+}
+
+.Feature_title {
+    font-size: @size-l;
+    // font-family: @font-compact;
+    font-weight: @weight-bold;
+    text-align: center;
+
+    margin-bottom: @gap;
+}
+
+.Feature_content {
+    flex-grow: 1;
+
+    // background-color: red;
+
+    table {
+        width: 100%;
+    }
 }
 </style>

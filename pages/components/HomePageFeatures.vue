@@ -1,34 +1,18 @@
-<script setup>
-const features = [
-    { name: "Programming languages" },
-    { name: "Communication" },
-    { name: "Technologies" },
-];
+<script setup lang="ts">
+import { defineProps } from "vue";
+
+const props = defineProps<{
+    items: object[];
+}>();
 </script>
 
 <template>
     <section :class="$style.CardGallery">
         <article
             :class="$style.Card"
-            v-for="feature in features"
+            v-for="item in items"
         >
-            <h2 :class="$style.Card_title">{{ feature.name }}</h2>
-            <div :class="$style.Card_content">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Language</th>
-                            <th>Level</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Ukrainian</td>
-                            <td>native</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <slot v-bind="item" />
         </article>
         <article
             :class="[$style.Card, $style.CardGallery_card___dummy]"
@@ -46,14 +30,13 @@ const features = [
     flex-wrap: wrap;
     gap: @gap*4;
     justify-content: stretch;
-    align-items: start;
+    align-items: stretch;
     width: 100%;
 }
 
 .Card {
-    flex: 1 0 0rem;
-    min-height: 200rem;
-    min-width: 300rem;
+    flex: 1 0 300rem;
+    min-height: 160rem;
 
     display: flex;
     flex-direction: column;
@@ -63,29 +46,14 @@ const features = [
     background: @color-gray-light;
     box-shadow: @shadow;
     border: 1rem solid @color-gray;
-    padding: @gap;
-}
-
-.Card_title {
-    font-size: @size-l;
-    // font-family: @font-compact;
-    text-align: center;
-}
-
-.Card_content {
-    flex-grow: 1;
-
-    // background-color: red;
-
-    table {
-        width: 100%;
-    }
+    padding: @gap @gap*2;
 }
 
 .CardGallery_card___dummy {
+    height: 0rem;
     min-height: 0rem;
 
     border: none;
-    padding: 0rem;
+    padding: 0rem 0rem;
 }
 </style>
