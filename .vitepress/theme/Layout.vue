@@ -467,7 +467,7 @@ const debugOut = computed(() => {
 .Toc_title {
     flex-grow: 0;
     font-size: @size-l;
-    font-family: @font-family-main;
+    font-family: @font-main;
 }
 
 .Toc_content {
@@ -549,15 +549,15 @@ const debugOut = computed(() => {
 \*----------------------------------*/
 
 .Header {
-    font-family: @font-family-main;
+    font-family: @font-main;
 }
 
 .PageContainer {
-    font-family: @font-family-main;
+    font-family: @font-main;
 }
 
 .Header_siteTitleContainer {
-    font-family: @font-family-compact;
+    font-family: @font-compact;
 }
 
 //////
