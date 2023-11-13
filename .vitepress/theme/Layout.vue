@@ -242,7 +242,6 @@ const debugOut = computed(() => {
 @import "./style/variables/index.less";
 @SideNav-width: 250rem;
 @Toc-width: 200rem;
-@Toc-separator-width: @gap*0.125;
 
 .PageContainer {
     width: 100%;
@@ -261,13 +260,15 @@ const debugOut = computed(() => {
     flex: 0 0 min-content;
 }
 
-.Header_nav > ul {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    gap: @gap;
-    padding-top: @gap;
-    padding-bottom: @gap;
+.Header_nav {
+    > ul {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        gap: @gap;
+        padding-top: @gap;
+        padding-bottom: @gap;
+    }
 }
 
 .Header_navItem {
@@ -428,16 +429,13 @@ const debugOut = computed(() => {
 }
 
 .Main {
-    @Main-gap: @gap*2;
-
     flex-grow: 1;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
     overflow-y: scroll;
-    padding: @Main-gap;
-    padding-right: calc(@SideNav-width - @Toc-width - @Main-gap + @Main-gap);
-    gap: @Main-gap;
+    padding: @gap*2;
+    gap: @gap*4;
 }
 
 .Main_content {
@@ -468,22 +466,12 @@ const debugOut = computed(() => {
     flex-grow: 0;
     font-size: @size-l;
     font-family: @font-main;
-    font-weight: @weight-bold;
 }
 
 .Toc_content {
-    margin-left: @Toc-separator-width;
     flex-grow: 1;
     position: relative;
-    &::before {
-        content: "";
-        position: absolute;
-        background-color: @color-gray-light;
-        width: @Toc-separator-width;
-        top: 0rem;
-        bottom: 0rem;
-        left: @Toc-separator-width*-1;
-    }
+    border-left: @gap*0.25 solid @color-gray-light;
 }
 
 .Header_siteTitleContainer,
