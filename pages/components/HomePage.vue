@@ -1,9 +1,5 @@
 <script setup>
-const highlights = [
-    { name: "Programming languages" },
-    { name: "Communication" },
-    { name: "Technologies" },
-];
+import HomePageFeatures from "./HomePageFeatures.vue";
 </script>
 
 <template>
@@ -20,21 +16,7 @@ const highlights = [
         </section>
         <div :class="$style.ContentWrapper">
             <section :class="$style.ContentWrapper_content">
-                <section :class="$style.CardGallery">
-                    <article
-                        :class="$style.CardGallery_card"
-                        v-for="highlight in highlights"
-                    >
-                        {{ highlight.name }}
-                    </article>
-                    <article
-                        :class="[
-                            $style.CardGallery_card,
-                            $style.CardGallery_card___dummy,
-                        ]"
-                        v-for="_ in Array.from({ length: 16 })"
-                    ></article>
-                </section>
+                <HomePageFeatures />
             </section>
         </div>
     </div>
@@ -59,7 +41,7 @@ const highlights = [
     justify-content: center;
 
     color: white;
-    font-family: @font-family-compact;
+    font-family: @font-compact;
 
     box-shadow: 0rem 0rem 100rem inset #0004;
 }
@@ -97,30 +79,5 @@ const highlights = [
 
 .ContentWrapper_content {
     max-width: 1200rem;
-}
-.CardGallery {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: @gap*4;
-    justify-content: stretch;
-    align-items: start;
-    width: 100%;
-}
-
-.CardGallery_card {
-    background: @color-gray-light;
-    min-height: 200rem;
-    min-width: 200rem;
-    flex: 1 0 0rem;
-    box-shadow: @shadow;
-    border: 1rem solid @color-gray;
-    padding: @gap;
-}
-
-.CardGallery_card___dummy {
-    min-height: 0rem;
-    border: none;
-    padding: 0rem;
 }
 </style>
