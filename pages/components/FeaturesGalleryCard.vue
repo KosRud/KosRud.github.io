@@ -34,7 +34,8 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
 <style module lang="less">
 @import "../../.vitepress/theme/style/main/index.less";
 
-@icon-size: 1em * 1.3;
+@icon-size: 1.5em;
+// @icon-size: 1.8em;
 
 .Card {
     flex: 1 0 340rem;
@@ -85,7 +86,13 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
 
     background-image: v-bind(iconUrl);
     background-size: cover;
+    background-origin: content-box;
     background-repeat: no-repeat;
     background-position: center;
+
+    // border-radius: 1000rem;
+    // box-shadow: -2rem -2rem 2rem 0rem inset #0004,
+    //     2rem 2rem 2rem 0rem inset #fff9;
+    // padding: @gap*0.5;
 }
 </style>
