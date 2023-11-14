@@ -34,8 +34,10 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
 <style module lang="less">
 @import "../../.vitepress/theme/style/main/index.less";
 
+@icon-size: 1em * 1.3;
+
 .Card {
-    flex: 1 0 300rem;
+    flex: 1 0 340rem;
     min-height: 160rem;
 
     display: flex;
@@ -60,11 +62,12 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
 }
 
 .Feature_title {
+    margin-bottom: @gap;
+
+    padding-left: calc(@icon-size + @gap);
     font-size: @size-xl;
     font-weight: @weight-bold;
     text-align: center;
-
-    margin-bottom: @gap;
 
     position: relative;
 }
@@ -75,7 +78,7 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
     top: 50%;
     transform: translateY(-50%);
 
-    width: 1em * 1.3;
+    width: @icon-size;
     aspect-ratio: 1;
 
     background-image: v-bind(iconUrl);

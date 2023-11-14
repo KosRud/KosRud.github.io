@@ -4,7 +4,10 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
 </script>
 
 <template>
-    <FeaturesGallery :dummies="8">
+    <FeaturesGallery
+        :dummies="8"
+        :card-min-width="'300rem'"
+    >
         <FeaturesGalleryCard
             name="Programming languages"
             :icon-url="'/assets/icons/programming/icon.svg'"
@@ -42,7 +45,7 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
         </FeaturesGalleryCard>
         <FeaturesGalleryCard
             name="Technologies"
-            :icon-url="'/assets/icons/software/icon.svg'"
+            :icon-url="'/assets/icons/gears/icon.svg'"
         >
             <div :class="$style.Feature_content">
                 <table>
@@ -67,7 +70,10 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
                 </table>
             </div>
         </FeaturesGalleryCard>
-        <FeaturesGalleryCard name="Projects">
+        <FeaturesGalleryCard
+            name="Projects"
+            :icon-url="'/assets/icons/project/icon.svg'"
+        >
             <div :class="$style.Feature_content">
                 <table>
                     <tbody>
@@ -79,7 +85,10 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
                 </table>
             </div>
         </FeaturesGalleryCard>
-        <FeaturesGalleryCard name="Education">
+        <FeaturesGalleryCard
+            name="Education"
+            :icon-url="'/assets/icons/education/icon.svg'"
+        >
             <div :class="$style.Feature_content">
                 <table>
                     <tbody>
