@@ -5,19 +5,18 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
 
 <template>
     <FeaturesGallery :dummies="8">
-        <FeaturesGalleryCard name="Programming languages">
+        <FeaturesGalleryCard
+            name="Programming languages"
+            :icon-url="'/assets/icons/programming/icon.svg'"
+        >
             <div :class="$style.Feature_content">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Ukrainian</td>
-                            <td>native</td>
-                        </tr>
-                    </tbody>
-                </table>
+                C#, HLSL, TypeScript, Python, Cython, C++
             </div>
         </FeaturesGalleryCard>
-        <FeaturesGalleryCard name="Communication">
+        <FeaturesGalleryCard
+            name="Communication"
+            :icon-url="'/assets/icons/communication/icon.svg'"
+        >
             <div :class="$style.Feature_content">
                 <table>
                     <tbody>
@@ -41,13 +40,28 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
                 </table>
             </div>
         </FeaturesGalleryCard>
-        <FeaturesGalleryCard name="Technologies">
+        <FeaturesGalleryCard
+            name="Technologies"
+            :icon-url="'/assets/icons/software/icon.svg'"
+        >
             <div :class="$style.Feature_content">
                 <table>
                     <tbody>
                         <tr>
-                            <td>Ukrainian</td>
-                            <td>native</td>
+                            <td>Game engine</td>
+                            <td>Unity</td>
+                        </tr>
+                        <tr>
+                            <td>Frontend</td>
+                            <td>React, Vue</td>
+                        </tr>
+                        <tr>
+                            <td>Backend</td>
+                            <td>Node, Fastify</td>
+                        </tr>
+                        <tr>
+                            <td>Documentation</td>
+                            <td>Doxygen, TypeDoc</td>
                         </tr>
                     </tbody>
                 </table>
@@ -105,16 +119,11 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
         td {
             &:nth-child(1) {
                 font-weight: @weight-bold;
+                text-align: right;
             }
 
             &:not(:last-child) {
                 border-right: @gap*2 solid transparent;
-            }
-        }
-
-        tr {
-            &:not(:last-child) {
-                border-bottom: @gap*0.125 solid transparent;
             }
         }
     }

@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
+import { computed } from "vue";
 
 const props = defineProps<{
     dummy?: boolean;
     name: string;
+    iconUrl?: string;
 }>();
+
+const iconUrl = computed(() => `url(${props.iconUrl})`);
 </script>
 
 <template>
@@ -15,7 +19,13 @@ const props = defineProps<{
         ]"
     >
         <template v-if="!props.dummy">
-            <h2 :class="$style.Feature_title">{{ props.name }}</h2>
+            <h2 :class="$style.Feature_title">
+                <div
+                    v-if="props.iconUrl"
+                    :class="$style.Feature_icon"
+                ></div>
+                {{ props.name }}
+            </h2>
             <slot />
         </template>
     </article>
@@ -55,5 +65,22 @@ const props = defineProps<{
     text-align: center;
 
     margin-bottom: @gap;
+
+    position: relative;
+}
+
+.Feature_icon {
+    position: absolute;
+    left: 0rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 1em * 1.3;
+    aspect-ratio: 1;
+
+    background-image: v-bind(iconUrl);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 </style>
