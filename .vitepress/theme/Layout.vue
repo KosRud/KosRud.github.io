@@ -496,7 +496,7 @@ const debugOut = computed(() => {
 \*----------------------------------*/
 
 .PageContainer {
-    font-family: @font-content;
+    font-family: @font-compact;
 }
 
 .SideNav_itemTitle,
