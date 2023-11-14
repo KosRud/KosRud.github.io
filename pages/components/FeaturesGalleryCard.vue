@@ -39,6 +39,8 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
 .Card {
     flex: 1 0 340rem;
     min-height: 160rem;
+    // width: max-content;
+    flex-grow: 1;
 
     display: flex;
     flex-direction: column;

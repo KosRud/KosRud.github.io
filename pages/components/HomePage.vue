@@ -29,10 +29,12 @@ import HomePageFeatures from "./HomePageFeatures.vue";
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    overflow-y: auto;
 }
 
 .Hero {
-    flex-grow: 0;
+    flex: 0 0 auto;
 
     background-color: @color-primary-muted;
     display: flex;
