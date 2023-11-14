@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
+
+import { defineProps } from "vue";
+
+const props = defineProps<{
+    dummies?: number;
+}>();
 </script>
 
 <template>
@@ -9,7 +15,7 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
         <FeaturesGalleryCard
             dummy
             name=""
-            v-for="_ in Array.from({ length: 16 })"
+            v-for="_ in Array.from({ length: props.dummies ?? 0 })"
         ></FeaturesGalleryCard>
     </section>
 </template>
@@ -21,7 +27,7 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: @gap*4;
+    gap: @gap*2;
     justify-content: stretch;
     align-items: stretch;
     width: 100%;
