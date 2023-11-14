@@ -206,9 +206,6 @@ const debugOut = computed(() => {
             </nav>
             <main :class="$style.Main">
                 <section :class="$style.Main_content">
-                    <!-- <br />
-                    <pre>{{ debugOut }}</pre>
-                    <br /> -->
                     <Content />
                 </section>
                 <aside :class="$style.Toc">
@@ -224,18 +221,6 @@ const debugOut = computed(() => {
             <Content />
         </main>
     </div>
-    <!-- <div v-if="frontmatter.home">
-        <h1>{{ site.title }}</h1>
-        <p>{{ site.description }}</p>
-        <ul>
-            <li><a href="/markdown-examples.html">Markdown Examples</a></li>
-            <li><a href="/api-examples.html">API Examples</a></li>
-        </ul>
-    </div>
-    <div v-else>
-        <a href="/">Home</a>
-        <Content />
-    </div> -->
 </template>
 
 <style lang="less" module>
