@@ -227,6 +227,7 @@ const debugOut = computed(() => {
 @import "./style/variables/index.less";
 @SideNav-width: 250rem;
 @Toc-width: 200rem;
+@Main-gap: @gap*2;
 
 .PageContainer {
     width: 100%;
@@ -278,7 +279,7 @@ const debugOut = computed(() => {
     border-radius: @gap*0.5;
     line-height: 1;
     padding: @gap*0.5;
-    min-width: @gap*12;
+    min-width: @gap*11;
     display: grid;
     place-content: center center;
     box-shadow: @shadow;
@@ -313,8 +314,8 @@ const debugOut = computed(() => {
 
     & > ul {
         flex: 1 0 auto;
-        padding-left: @gap*2;
-        padding-top: @gap * 2;
+        padding-left: @gap;
+        padding-top: @Main-gap;
     }
 
     visibility: v-bind("sideNav.length == 0 ? 'hidden' : 'visible'");
@@ -419,7 +420,7 @@ const debugOut = computed(() => {
     flex-direction: row;
     justify-content: start;
     overflow-y: scroll;
-    padding: @gap*2;
+    padding: @Main-gap;
     gap: @gap*4;
 }
 
@@ -450,13 +451,12 @@ const debugOut = computed(() => {
 .Toc_title {
     flex-grow: 0;
     font-size: @size-l;
-    font-family: @font-main;
 }
 
 .Toc_content {
     flex-grow: 1;
     position: relative;
-    border-left: @gap*0.25 solid @color-gray-light;
+    border-left: 1rem solid @color-gray;
 }
 
 .Header_siteTitleContainer,
@@ -523,15 +523,15 @@ const debugOut = computed(() => {
 \*----------------------------------*/
 
 .Header {
-    font-family: @font-main;
+    font-family: @font-compact;
 }
 
 .PageContainer {
-    font-family: @font-main;
+    font-family: @font-content;
 }
 
 .Header_siteTitleContainer {
-    font-family: @font-compact;
+    font-family: @font-title;
 }
 
 //////

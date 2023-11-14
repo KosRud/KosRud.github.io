@@ -37,6 +37,8 @@ const props = defineProps<{
     box-shadow: @shadow;
     border: 1rem solid @color-gray;
     padding: @gap @gap*2;
+
+    font-family: @font-compact;
 }
 
 .CardGallery_card___dummy {
@@ -48,8 +50,7 @@ const props = defineProps<{
 }
 
 .Feature_title {
-    font-size: @size-l;
-    // font-family: @font-compact;
+    font-size: @size-xl;
     font-weight: @weight-bold;
     text-align: center;
 
