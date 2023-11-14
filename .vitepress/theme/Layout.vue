@@ -204,7 +204,12 @@ const debugOut = computed(() => {
                     </li>
                 </ul>
             </nav>
-            <main :class="$style.Main">
+            <main
+                :class="[
+                    $style.Main,
+                    sideNav.length == 0 ? $style.Main___noSideNav : '',
+                ]"
+            >
                 <section :class="$style.Main_content">
                     <Content />
                 </section>
@@ -310,11 +315,10 @@ const debugOut = computed(() => {
     display: flex;
     flex-direction: column;
     justify-content: stretch;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     & > ul {
         flex: 1 0 auto;
-        padding-left: @gap;
         padding-top: @Main-gap;
     }
 
@@ -331,6 +335,10 @@ const debugOut = computed(() => {
     &::before {
         content: none;
     }
+
+    & > ul {
+        margin-left: @gap;
+    }
 }
 
 .SideNav_itemTitle,
@@ -338,29 +346,11 @@ const debugOut = computed(() => {
 .SideNav_itemTitle:visited {
     // padding-left: @gap;
     color: @color-black;
+    color: #444;
     text-decoration: inherit;
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    &::before {
-        content: "";
-        display: block;
-        margin-right: @gap*0.5;
-        margin-left: @gap*0.5;
-        color: inherit;
-    }
-}
-
-.SideNav_itemTitle___level2,
-.SideNav_itemTitle___level2:link,
-.SideNav_itemTitle___level2:visited {
-    color: @color-black;
-    padding-left: 0rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
 
     &::before {
         content: "";
@@ -374,33 +364,9 @@ const debugOut = computed(() => {
         margin-left: @gap*0.25;
         visibility: hidden;
     }
-}
 
-.SideNav_item___level1 {
-    overflow: hidden;
-
-    > ul {
-        padding: @gap*0.5;
-        padding-top: @gap;
-        padding-bottom: @gap;
-    }
-
-    &.active {
-        &:not(:first-child) {
-            margin-top: @gap * 0.5;
-        }
-
-        &:not(:last-child) {
-            margin-bottom: @gap * 0.5;
-        }
-
-        & .SideNav_itemTitle___level1 {
-            color: @color-black;
-            position: relative;
-            padding-top: @gap*0.25;
-            padding-bottom: @gap*0.25;
-            padding-right: 40rem;
-        }
+    &:hover {
+        text-decoration: underline;
     }
 }
 
@@ -416,12 +382,19 @@ const debugOut = computed(() => {
 
 .Main {
     flex-grow: 1;
+
     display: flex;
     flex-direction: row;
     justify-content: start;
     overflow-y: scroll;
-    padding: @Main-gap;
     gap: @gap*4;
+    padding: @Main-gap;
+
+    border-left: 1rem solid @color-gray;
+}
+
+.Main___noSideNav {
+    border: none;
 }
 
 .Main_content {
@@ -433,14 +406,16 @@ const debugOut = computed(() => {
 }
 
 .Toc {
-    padding-left: @gap*0.5;
+    position: sticky;
+    top: 0rem;
+    flex-shrink: 0;
     width: @Toc-width;
     min-height: 300rem;
     max-height: 100%;
-    flex-shrink: 0;
+
+    padding-left: @gap*0.5;
+
     align-self: flex-start;
-    position: sticky;
-    top: 0rem;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -522,19 +497,25 @@ const debugOut = computed(() => {
 	Fonts
 \*----------------------------------*/
 
-.Header {
-    font-family: @font-compact;
-}
-
 .PageContainer {
     font-family: @font-content;
 }
 
-.Header_siteTitleContainer {
-    font-family: @font-title;
+.SideNav_itemTitle,
+.SideNav_itemTitle:link,
+.SideNav_itemTitle:visited,
+.Header .Header_siteTitleContainer,
+.Toc_title {
+    font-family: @font-compact;
 }
 
 //////
+
+li:nth-child(1) .SideNav_itemTitle___level1 {
+    &::before {
+        visibility: visible;
+    }
+}
 
 li:nth-child(3) .SideNav_itemTitle___level2 {
     &::before {
