@@ -122,6 +122,18 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
                 </table>
             </div>
         </FeaturesGalleryCard>
+        <FeaturesGalleryCard name="Published papers">
+            <div :class="$style.Feature_content">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Ukrainian</td>
+                            <td>native</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </FeaturesGalleryCard>
     </FeaturesGallery>
 </template>
 
