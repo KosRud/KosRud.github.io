@@ -207,7 +207,7 @@ const debugOut = computed(() => {
             <main
                 :class="[
                     $style.Main,
-                    sideNav.length == 0 ? $style.Main___noSideNav : '',
+                    sideNav.length == 0 ? '' : $style.Main___sideNav,
                 ]"
             >
                 <section :class="$style.Main_content">
@@ -389,12 +389,11 @@ const debugOut = computed(() => {
     overflow-y: scroll;
     gap: @gap*4;
     padding: @Main-gap;
-
-    border-left: 1rem solid @color-gray;
 }
 
-.Main___noSideNav {
-    border: none;
+.Main___sideNav {
+    border-left: 1rem solid @color-gray;
+    margin-left: -1rem;
 }
 
 .Main_content {
