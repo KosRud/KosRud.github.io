@@ -55,6 +55,10 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
                             <td>Unity</td>
                         </tr>
                         <tr>
+                            <td>3D modeling</td>
+                            <td>Blender</td>
+                        </tr>
+                        <tr>
                             <td>Frontend</td>
                             <td>React, Vue</td>
                         </tr>
