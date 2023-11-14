@@ -5,6 +5,7 @@ import { defineProps } from "vue";
 
 const props = defineProps<{
     dummies?: number;
+    cardMinWidth?: string;
 }>();
 </script>
 
