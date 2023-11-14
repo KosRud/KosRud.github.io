@@ -425,7 +425,6 @@ const debugOut = computed(() => {
 
 .Toc_title {
     flex-grow: 0;
-    font-size: @size-l;
 }
 
 .Toc_content {
