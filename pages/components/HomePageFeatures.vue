@@ -104,13 +104,19 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
                 </table>
             </div>
         </FeaturesGalleryCard>
-        <FeaturesGalleryCard name="Experience">
+        <FeaturesGalleryCard
+            name="Experience"
+            :icon-url="'/assets/icons/job/icon.svg'"
+        >
             <div :class="$style.Feature_content">
                 <table>
                     <tbody>
                         <tr>
-                            <td>Ukrainian</td>
-                            <td>native</td>
+                            <td>
+                                .NET (C#, C++) developer<br />for
+                                <a href="https://risa.com/">RISA Tech, Inc.</a>
+                            </td>
+                            <td>1 year</td>
                         </tr>
                     </tbody>
                 </table>
