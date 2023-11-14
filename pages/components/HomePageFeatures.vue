@@ -122,7 +122,10 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
                 </table>
             </div>
         </FeaturesGalleryCard>
-        <FeaturesGalleryCard name="Published papers">
+        <FeaturesGalleryCard
+            name="Published papers"
+            :icon-url="'/assets/icons/paper/icon.svg'"
+        >
             <div :class="$style.Feature_content">
                 <table>
                     <tbody>
