@@ -60,7 +60,7 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
                         </tr>
                         <tr>
                             <td>Frontend</td>
-                            <td>React, Vue</td>
+                            <td>Vue, React</td>
                         </tr>
                         <tr>
                             <td>Backend</td>
