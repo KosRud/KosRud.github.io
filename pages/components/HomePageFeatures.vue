@@ -64,7 +64,7 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
                         </tr>
                         <tr>
                             <td>Backend</td>
-                            <td>Node, Fastify</td>
+                            <td>Fastify (Node.js)</td>
                         </tr>
                         <tr>
                             <td>Documentation</td>
