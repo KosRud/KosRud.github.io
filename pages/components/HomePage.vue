@@ -111,6 +111,8 @@ import HomePageFeatures from "./HomePageFeatures.vue";
     background-color: #bbe;
     padding: @gap*2;
 
+    border-radius: @gap*0.5;
+
     // margin-left: auto;
     // margin-right: auto;
 }
