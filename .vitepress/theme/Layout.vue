@@ -471,12 +471,20 @@ const debugOut = computed(() => {
 }
 
 /*
-	UI shadows
+	Z-index
 \*----------------------------------*/
 
 .Header {
     z-index: 1;
 }
+
+.Main {
+    z-index: 0;
+}
+
+/*
+	UI shadows
+\*----------------------------------*/
 
 .Header {
     box-shadow: @shadow;

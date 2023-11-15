@@ -61,6 +61,8 @@ import HomePageFeatures from "./HomePageFeatures.vue";
 
 .Hero {
     flex: 0 0 auto;
+    position: sticky;
+    top: 0rem;
 
     display: flex;
     flex-direction: row;
@@ -92,7 +94,7 @@ import HomePageFeatures from "./HomePageFeatures.vue";
 
     text-shadow: 2px 2px 0px black, 4px 4px 12px #000a;
     line-height: 1.2;
-    margin: @gap*4;
+    margin: @gap*6;
 }
 
 .SiteNameContainer_title {
@@ -144,6 +146,7 @@ import HomePageFeatures from "./HomePageFeatures.vue";
     align-items: center;
 
     box-shadow: @shadow-inverted;
+    background-color: @color-white;
 
     text-align: justify;
 
@@ -162,5 +165,13 @@ import HomePageFeatures from "./HomePageFeatures.vue";
     p {
         margin-bottom: @gap*2;
     }
+}
+
+/*
+	Z-index
+\*----------------------------------*/
+
+.ContentWrapper {
+    z-index: 1;
 }
 </style>
