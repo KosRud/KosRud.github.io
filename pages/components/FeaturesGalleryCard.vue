@@ -52,8 +52,6 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
     box-shadow: @shadow;
     border: 1rem solid @color-gray;
     padding: @gap @gap*2;
-
-    font-family: @font-compact;
 }
 
 .CardGallery_card___dummy {

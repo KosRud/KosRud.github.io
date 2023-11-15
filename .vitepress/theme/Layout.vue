@@ -496,15 +496,17 @@ const debugOut = computed(() => {
 \*----------------------------------*/
 
 .PageContainer {
-    font-family: @font-compact;
+    font-family: @font-main;
 }
 
 .SideNav_itemTitle,
-.SideNav_itemTitle:link,
-.SideNav_itemTitle:visited,
-.Header .Header_siteTitleContainer,
+.Header,
 .Toc_title {
-    font-family: @font-compact;
+    font-family: @font-alt;
+}
+
+.Header_siteTitleContainer {
+    font-family: @font-title;
 }
 
 //////
