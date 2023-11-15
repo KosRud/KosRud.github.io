@@ -15,7 +15,29 @@ import HomePageFeatures from "./HomePageFeatures.vue";
             </div>
         </section>
         <div :class="$style.ContentWrapper">
-            <section :class="$style.ContentWrapper_content">
+            <section :class="$style.Bio">
+                <img
+                    :class="$style.Bio_photo"
+                    src="/assets/icons/photo/icon.svg"
+                />
+                <div :class="$style.Bio_text">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nam vulputate in dui nec pellentesque. Nullam efficitur
+                        tellus turpis, ac sagittis lorem eleifend sit amet. In
+                        rutrum eros metus, non egestas tortor sollicitudin
+                        vitae.
+                    </p>
+                    <p>
+                        Pellentesque auctor nisi vitae ligula luctus, vitae
+                        placerat quam mollis. Ut in pellentesque massa. Orci
+                        varius natoque penatibus et magnis dis parturient
+                        montes, nascetur ridiculus mus. Nunc ultrices imperdiet
+                        molestie.
+                    </p>
+                </div>
+            </section>
+            <section>
                 <HomePageFeatures />
             </section>
         </div>
@@ -56,7 +78,7 @@ import HomePageFeatures from "./HomePageFeatures.vue";
 
     text-shadow: 2px 2px 0px black, 4px 4px 12px #000a;
     line-height: 1.2;
-    margin: @gap*6;
+    margin: @gap*4;
 }
 
 .SiteNameContainer_title {
@@ -68,8 +90,34 @@ import HomePageFeatures from "./HomePageFeatures.vue";
     font-size: @size-hero-s;
 }
 
+.Bio {
+    display: flex;
+    flex-direction: row;
+    gap: @gap*2;
+    align-items: start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.Bio_text {
+    flex: 1 0 300rem;
+}
+
+.Bio_photo {
+    height: 200rem;
+    width: 160rem;
+    aspect-ratio: 1;
+    flex-shrink: 0;
+
+    background-color: #bbe;
+    padding: @gap*2;
+
+    // margin-left: auto;
+    // margin-right: auto;
+}
+
 .ContentWrapper {
     flex-grow: 1;
+    min-height: max-content;
 
     padding: @gap*4;
     display: flex;
@@ -77,9 +125,23 @@ import HomePageFeatures from "./HomePageFeatures.vue";
     align-items: center;
 
     box-shadow: @shadow-inverted;
-}
 
-.ContentWrapper_content {
-    max-width: 1200rem;
+    text-align: justify;
+
+    > section {
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 1200rem;
+        height: max-content;
+    }
+
+    p {
+        max-width: @content-width;
+    }
+
+    section,
+    p {
+        margin-bottom: @gap*2;
+    }
 }
 </style>

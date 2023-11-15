@@ -398,7 +398,7 @@ const debugOut = computed(() => {
 
 .Main_content {
     flex-grow: 1;
-    max-width: 800rem;
+    max-width: @content-width;
     height: min-content;
     min-height: 100%;
     background-color: @color-white;
