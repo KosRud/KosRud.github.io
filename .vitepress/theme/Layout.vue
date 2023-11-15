@@ -241,6 +241,7 @@ const debugOut = computed(() => {
     flex-direction: column;
     overflow: hidden;
     justify-content: stretch;
+    background-color: @color-gray-lighter;
 }
 
 .Header {
@@ -292,7 +293,7 @@ const debugOut = computed(() => {
     transition: border-color 0.5s;
 
     &:hover {
-        background-color: @color-primary-lighter;
+        background-color: @color-primary-light;
         border-color: #fff4;
     }
 
@@ -309,8 +310,6 @@ const debugOut = computed(() => {
 .SideNav {
     width: @SideNav-width;
     flex-shrink: 0;
-
-    // background-color: @color-gray-light;
 
     display: flex;
     flex-direction: column;
@@ -388,12 +387,6 @@ const debugOut = computed(() => {
     justify-content: start;
     overflow-y: scroll;
     gap: @gap*4;
-    padding: @Main-gap;
-}
-
-.Main___sideNav {
-    border-left: 1rem solid @color-gray;
-    margin-left: -1rem;
 }
 
 .Main_content {
@@ -401,7 +394,11 @@ const debugOut = computed(() => {
     max-width: @content-width;
     height: min-content;
     min-height: 100%;
+
+    padding: @Main-gap;
     background-color: @color-white;
+    border-right: 1rem solid @color-gray;
+    border-left: 1rem solid @color-gray;
 }
 
 .Toc {
@@ -411,15 +408,14 @@ const debugOut = computed(() => {
     width: @Toc-width;
     min-height: 300rem;
     max-height: 100%;
-
-    padding-left: @gap*0.5;
-
     align-self: flex-start;
+
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: stretch;
     gap: @gap*0.5;
+    padding-top: @Main-gap;
 }
 
 .Toc_title {
@@ -429,7 +425,6 @@ const debugOut = computed(() => {
 .Toc_content {
     flex-grow: 1;
     position: relative;
-    border-left: 1rem solid @color-gray;
 }
 
 .Header_siteTitleContainer,
@@ -481,10 +476,6 @@ const debugOut = computed(() => {
 
 .Header {
     z-index: 1;
-}
-
-.SideNav {
-    z-index: 2;
 }
 
 .Header {
