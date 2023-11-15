@@ -5,6 +5,10 @@ import HomePageFeatures from "./HomePageFeatures.vue";
 <template>
     <div :class="$style.HomePage">
         <section :class="$style.Hero">
+            <img
+                :class="$style.Hero_photo"
+                src="/assets/icons/photo/icon.svg"
+            />
             <div :class="$style.SiteNameContainer">
                 <h2 :class="$style.SiteNameContainer_title">
                     Kostiantyn Rudenko
@@ -58,16 +62,26 @@ import HomePageFeatures from "./HomePageFeatures.vue";
 .Hero {
     flex: 0 0 auto;
 
-    background-color: @color-primary-muted;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 
     color: white;
     font-family: @font-title;
 
+    background-color: @color-primary-muted;
     box-shadow: 0rem 0rem 100rem inset #0004;
+}
+
+.Hero_photo {
+    height: @gap*10;
+
+    background-color: #bbe;
+    border-radius: @gap*0.5;
+    box-shadow: @shadow-l;
+
+    padding: @gap*2;
 }
 
 .SiteNameContainer {
@@ -115,6 +129,9 @@ import HomePageFeatures from "./HomePageFeatures.vue";
 
     // margin-left: auto;
     // margin-right: auto;
+
+    // visibility: hidden;
+    display: none;
 }
 
 .ContentWrapper {
