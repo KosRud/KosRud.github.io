@@ -3,6 +3,8 @@ import { useData, useRoute } from "vitepress";
 import ThemeConfig from "./ThemeConfig";
 import { computed } from "vue";
 
+import LayoutContent from "./LayoutContent.vue";
+
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site, frontmatter } = useData<ThemeConfig>();
 const route = useRoute();
@@ -210,9 +212,7 @@ const debugOut = computed(() => {
                     sideNav.length == 0 ? '' : $style.Main___sideNav,
                 ]"
             >
-                <section :class="$style.Main_content">
-                    <Content />
-                </section>
+                <LayoutContent />
                 <aside :class="$style.Toc">
                     <h2 :class="$style.Toc_title">On this page</h2>
                     <nav :class="$style.Toc_content"></nav>
@@ -246,7 +246,7 @@ const debugOut = computed(() => {
 
 .Header {
     align-self: stretch;
-    background-color: @color-dark;
+    background-color: @color-gray-dark;
     display: flex;
     gap: @gap;
     flex: 0 0 min-content;
@@ -387,18 +387,6 @@ const debugOut = computed(() => {
     justify-content: start;
     overflow-y: scroll;
     gap: @gap*4;
-}
-
-.Main_content {
-    flex-grow: 1;
-    max-width: @content-width;
-    height: min-content;
-    min-height: 100%;
-
-    padding: @Main-gap;
-    background-color: @color-white;
-    border-right: 1rem solid @color-gray;
-    border-left: 1rem solid @color-gray;
 }
 
 .Toc {

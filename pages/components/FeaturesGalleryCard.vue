@@ -71,7 +71,7 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
 
     padding-left: calc(@icon-size + @gap);
     font-size: @size-xl;
-    font-weight: @weight-bold;
+    font-weight: bold;
     text-align: center;
 
     position: relative;
