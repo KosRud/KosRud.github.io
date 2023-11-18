@@ -4,6 +4,7 @@ import { computed } from "vue";
 
 const props = defineProps<{
     dummy?: boolean;
+    class?: string;
     name: string;
     iconUrl?: string;
 }>();
@@ -16,6 +17,7 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
         :class="[
             $style.Card,
             props.dummy ? $style.CardGallery_card___dummy : '',
+            props.class,
         ]"
     >
         <template v-if="!props.dummy">

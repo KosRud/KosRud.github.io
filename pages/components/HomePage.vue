@@ -41,9 +41,7 @@ import HomePageFeatures from "./HomePageFeatures.vue";
                     </p>
                 </div>
             </section>
-            <section>
-                <HomePageFeatures />
-            </section>
+            <HomePageFeatures />
         </div>
     </div>
 </template>
@@ -150,7 +148,7 @@ import HomePageFeatures from "./HomePageFeatures.vue";
 
     text-align: justify;
 
-    & > section {
+    & > * {
         flex-shrink: 0;
         width: 100%;
         max-width: 1200rem;
