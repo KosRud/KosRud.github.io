@@ -92,6 +92,7 @@
     display: flex;
     gap: @gap*2;
     align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
