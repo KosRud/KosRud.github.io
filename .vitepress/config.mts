@@ -32,7 +32,7 @@ export default defineConfigWithTheme<ThemeConfig>({
                     },
                 ],
             },
-
+            { title: "Papers", url: "/Papers" },
             {
                 title: "For Students",
                 url: "/students",

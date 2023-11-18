@@ -108,115 +108,7 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
                 </table>
             </div>
         </FeaturesGalleryCard>
-        <FeaturesGalleryCard
-            name="Published papers"
-            :icon-url="'/assets/icons/paper/icon.svg'"
-        >
-            <div :class="$style.Feature_content">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Ukrainian</td>
-                            <td>native</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </FeaturesGalleryCard>
     </FeaturesGallery>
-
-    <h2 style="text-align: center; font-weight: bold; font-size: 200%">
-        Projects
-    </h2>
-
-    <section :class="$style.Feature_content">
-        <article :class="$style.Project">
-            <h2 :class="$style.Project_title">
-                <div :style="$style.Project_titleText">ProTeGe v1</div>
-                <section :class="$style.Project_devIcons">
-                    <img
-                        src="/assets/icons/dev/cpp/icon.svg"
-                        alt="c++"
-                        title="c++"
-                        :class="$style.DevIcon"
-                    />
-                    <img
-                        src="/assets/icons/dev/wxWidgets/icon.svg"
-                        alt="wxWidgets"
-                        title="wxWidgets"
-                        :class="$style.DevIcon"
-                    />
-                </section>
-            </h2>
-            <p>Procedural texture generator.</p>
-        </article>
-        <article :class="$style.Project">
-            <h2 :class="$style.Project_title">
-                <div :style="$style.Project_titleText">ProTeGe v2</div>
-                <section :class="$style.Project_devIcons">
-                    <img
-                        src="/assets/icons/dev/unity/icon.svg"
-                        alt="unity"
-                        title="unity"
-                        :class="$style.DevIcon"
-                        style="transform: scale(1.2)"
-                    />
-                    <img
-                        src="/assets/icons/dev/csharp/icon.svg"
-                        alt="csharp"
-                        title="csharp"
-                        :class="$style.DevIcon"
-                    /><img
-                        src="/assets/icons/dev/hlsl/icon.svg"
-                        alt="csharp"
-                        title="csharp"
-                        :class="$style.DevIcon"
-                    />
-                </section>
-            </h2>
-            <p>
-                Procedural texture generator with graph-based UI and real-time
-                preview.<br />
-            </p>
-        </article>
-        <article :class="$style.Project">
-            <h2 :class="$style.Project_title">
-                <div :style="$style.Project_titleText">
-                    DQ Skinning for Unity
-                </div>
-                <section :class="$style.Project_devIcons">
-                    <img
-                        src="/assets/icons/dev/unity/icon.svg"
-                        alt="unity"
-                        title="unity"
-                        :class="$style.DevIcon"
-                        style="transform: scale(1.2)"
-                    />
-                    <img
-                        src="/assets/icons/dev/csharp/icon.svg"
-                        alt="csharp"
-                        title="csharp"
-                        :class="$style.DevIcon"
-                    /><img
-                        src="/assets/icons/dev/hlsl/icon.svg"
-                        alt="csharp"
-                        title="csharp"
-                        :class="$style.DevIcon"
-                    />
-                </section>
-            </h2>
-            <p>
-                Implementation of GPU dual quaternion skinning for Unity with a
-                novel bulging compensation algorithm and blend shape support.<br />
-            </p>
-        </article>
-
-        <h2>dice&#8209;pool&#8209;calc</h2>
-        <p>Calculate probabilities of arbitrary dice pools efficiently</p>
-
-        <h2>Material clustering benchmark</h2>
-        <p>...</p>
-    </section>
 </template>
 
 <style module lang="less">
@@ -231,7 +123,7 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
 
         td {
             &:nth-child(1) {
-                font-weight: @weight-bold;
+                font-weight: bold;
                 text-align: right;
             }
 
@@ -244,25 +136,5 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
     h2 {
         font-weight: bold;
     }
-}
-
-.Project {
-    .Project_title {
-        display: flex;
-        gap: @gap*2;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    .Project_devIcons {
-        display: flex;
-        gap: @gap*0.5;
-    }
-}
-
-.DevIcon {
-    width: @size*2;
-    aspect-ratio: 1;
-    vertical-align: bottom;
 }
 </style>
