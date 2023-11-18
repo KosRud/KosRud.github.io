@@ -38,7 +38,7 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
 // @icon-size: 1.8em;
 
 .Card {
-    flex: 1 0 340rem;
+    flex: 1 0 380rem;
     min-height: 160rem;
     // width: max-content;
     flex-grow: 1;
@@ -51,7 +51,9 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
     background: @color-gray-light;
     box-shadow: @shadow;
     border: 1rem solid @color-gray;
-    padding: @gap @gap*2;
+    padding: @gap @gap @gap*2 @gap;
+
+    text-align: left;
 }
 
 .CardGallery_card___dummy {

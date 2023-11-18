@@ -150,19 +150,16 @@ import HomePageFeatures from "./HomePageFeatures.vue";
 
     text-align: justify;
 
-    > section {
+    & > section {
         flex-shrink: 0;
         width: 100%;
         max-width: 1200rem;
         height: max-content;
+        margin-bottom: @gap*2;
     }
 
     p {
         max-width: @content-width;
-    }
-
-    section,
-    p {
         margin-bottom: @gap*2;
     }
 }
