@@ -48,7 +48,7 @@
     </p>
 
     <h3 :class="$style.Project_title">
-        <div :style="$style.Project_titleText">DQ Skinning for Unity</div>
+        <div :style="$style.Project_titleText">DQ skinning for Unity</div>
         <section :class="$style.Project_devIcons">
             <img
                 src="/assets/icons/dev/unity/icon.svg"
