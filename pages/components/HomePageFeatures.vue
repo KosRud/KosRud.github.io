@@ -79,14 +79,67 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
             :icon-url="'/assets/icons/project/icon.svg'"
         >
             <div :class="$style.Feature_content">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Ukrainian</td>
-                            <td>native</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <section :class="$style.Project">
+                    <h2 :class="$style.Project_title">
+                        <div :style="$style.Project_titleText">
+                            ProTeGe&nbsp;v1
+                        </div>
+                        <section :class="$style.Project_devIcons">
+                            <img
+                                src="/assets/icons/dev/cpp/icon.svg"
+                                alt="c++"
+                                title="c++"
+                                :class="$style.DevIcon"
+                            />
+                            <img
+                                src="/assets/icons/dev/wxWidgets/icon.svg"
+                                alt="wxWidgets"
+                                title="wxWidgets"
+                                :class="$style.DevIcon"
+                            />
+                        </section>
+                    </h2>
+                    <p>Procedural texture generator.</p>
+                </section>
+                <section :class="$style.Project">
+                    <h2 :class="$style.Project_title">
+                        <div :style="$style.Project_titleText">
+                            ProTeGe&nbsp;v2
+                        </div>
+                        <section :class="$style.Project_devIcons">
+                            <img
+                                src="/assets/icons/dev/unity/icon.svg"
+                                alt="unity"
+                                title="unity"
+                                :class="$style.DevIcon"
+                                style="transform: scale(1.2)"
+                            />
+                            <img
+                                src="/assets/icons/dev/csharp/icon.svg"
+                                alt="csharp"
+                                title="csharp"
+                                :class="$style.DevIcon"
+                            /><img
+                                src="/assets/icons/dev/hlsl/icon.svg"
+                                alt="csharp"
+                                title="csharp"
+                                :class="$style.DevIcon"
+                            />
+                        </section>
+                    </h2>
+                    <p>
+                        Procedural texture generator with graph-based UI and
+                        real-time preview.<br />
+                    </p>
+                </section>
+
+                <h2>dice&#8209;pool&#8209;calc</h2>
+                <p>
+                    Calculate probabilities of arbitrary dice pools efficiently
+                </p>
+
+                <h2>Material clustering benchmark</h2>
+                <p>...</p>
             </div>
         </FeaturesGalleryCard>
         <FeaturesGalleryCard
@@ -161,5 +214,29 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
             }
         }
     }
+
+    h2 {
+        font-weight: bold;
+    }
+}
+
+.Project {
+    .Project_title {
+        display: flex;
+        gap: @gap*2;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .Project_devIcons {
+        display: flex;
+        gap: @gap*0.5;
+    }
+}
+
+.DevIcon {
+    width: @size*2;
+    aspect-ratio: 1;
+    vertical-align: bottom;
 }
 </style>
