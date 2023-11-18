@@ -107,6 +107,6 @@
     background-color: @color-gray-light;
     border-radius: @inf;
 
-    box-shadow: -4px -4px 4px 0px inset #0002, 4px 4px 4px 0px inset #fff3;
+    box-shadow: -4px -4px 4px 0px inset #0002, 4px 4px 4px 0px inset #ffff;
 }
 </style>
