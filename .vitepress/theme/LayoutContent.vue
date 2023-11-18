@@ -108,8 +108,9 @@ const route = useRoute();
         margin-bottom: @gap*2;
     }
 
-    * + h2 {
-        margin-top: @gap*2;
+    * + h2,
+    * + h3 {
+        margin-top: @gap*4;
     }
 
     /*
