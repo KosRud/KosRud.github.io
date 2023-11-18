@@ -45,8 +45,8 @@
             </section>
         </h3>
         <p>
-            Procedural texture generator with graph-based UI (GPU,
-            real-time).<br />
+            Procedural texture generator with graph-based UI and real-time
+            preview (GPU).<br />
         </p>
     </article>
     <article :class="$style.Project">
@@ -79,7 +79,11 @@
     </article>
 
     <h3>dice-pool-calc</h3>
-    <p>Calculate probabilities of arbitrary dice pools efficiently</p>
+    <p>
+        A library for efficitly calculating probabilities of arbitrary dice
+        pools and dice rolling mechanics. Enumerates all possible outcomes and
+        provides an exact result.
+    </p>
 
     <h3>Material clustering benchmark</h3>
     <p>...</p>
@@ -106,7 +110,9 @@
     width: @size*2;
     aspect-ratio: 1;
     vertical-align: bottom;
-    background-color: @color-white;
+    background-color: @color-gray-light;
     border-radius: @inf;
+
+    box-shadow: -4px -4px 4px 0px inset #0002, 4px 4px 4px 0px inset #fff3;
 }
 </style>
