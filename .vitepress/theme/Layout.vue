@@ -6,42 +6,20 @@ import MarkdownWrapper from "./MarkdownWrapper.vue";
 import YouAreHere from "./YouAreHere.vue";
 
 import ThemeConfig from "./ThemeConfig";
+import { urlMatch, UrlMatch } from "./UrlMatch.js";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site, frontmatter } = useData<ThemeConfig>();
 const route = useRoute();
 
-enum UrlMatch {
-    full,
-    inside,
-    no,
-}
-
-const urlMatch = (url: string) => {
-    const extensionRegex = /\.[^.]+$/;
-
-    url = encodeURI(url.replace(extensionRegex, ""));
-    const path = route.path.replace(extensionRegex, "");
-
-    if (path == url) {
-        return UrlMatch.full;
-    }
-
-    if (url == path.slice(0, url.length)) {
-        return UrlMatch.inside;
-    }
-
-    return UrlMatch.no;
-};
-
 const urlActive = (url) => {
-    return urlMatch(url) != UrlMatch.no;
+    return urlMatch(route.path, url) != UrlMatch.no;
 };
 
 const getSideNav = () => {
     const navItems =
         site.value.themeConfig.nav.find((navItem) => {
-            const match = urlMatch(navItem.url);
+            const match = urlMatch(route.path, navItem.url);
             return [UrlMatch.inside, UrlMatch.full].includes(match);
         })?.children ?? [];
     return navItems;
@@ -514,10 +492,6 @@ const debugOut = computed(() => {
 
 .Header_siteTitleContainer {
     font-family: @font-hero;
-}
-
-.CurrentLocation {
-    font-family: @font-strict;
 }
 
 //////
