@@ -15,6 +15,7 @@ const route = useRoute();
     width: 100%;
 
     text-align: justify;
+    font-family: @font-readable;
 
     h1,
     h2,
@@ -37,7 +38,7 @@ const route = useRoute();
     h2,
     h3,
     h4 {
-        font-family: @font-alt;
+        font-family: @font-ui;
     }
 
     h1 {
@@ -107,10 +108,6 @@ const route = useRoute();
             color: @color-white;
             text-align: center;
             padding: @gap*0.5 @gap;
-            // font-weight: bold;
-            // background-color: @color-primary;
-            // text-shadow: 2rem 0rem 0rem @color-black;
-            // font-family: @font-alt;
         }
 
         td {
@@ -124,7 +121,6 @@ const route = useRoute();
     }
 
     a {
-        font-family: @font-alt;
         font-weight: bold;
         text-decoration: underline;
     }

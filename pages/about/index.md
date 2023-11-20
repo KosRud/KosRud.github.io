@@ -18,17 +18,6 @@ Software developer at Risa Tech, inc.
 * developing UI with WPF, Telerik UI and Windows Forms
 * developing a report generation system with Telerik Reporting
 
-## Projects
-
-[DQ skinning for Unity](https://github.com/KosRud/DQ-skinning-for-Unity). GPU dual quaternion skinning for Unity engine with an original bulging compensation method.
-
-[ProTeGe v2](https://github.com/KosRud/ProTeGe_v2)
-:	Graph-based procedural texture generator in Unity engine with real-time preview.
-
-[ProTeGe v1](https://github.com/KosRud/ProTeGe-v1)
-:	Procedural Texture Generator in C++<br>
-	Multi-threaded CPU computations, wxWidgets GUI
-
 ## Lorem Ipsum
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mattis tortor metus, non mattis odio auctor ac. Quisque ac ipsum mi. Proin luctus vulputate sem vel elementum. Suspendisse a accumsan diam. Aenean vitae ante et ligula sollicitudin tempor sed vitae risus. Integer dignissim nec velit id facilisis. Proin justo lectus, mollis in semper ac, aliquet eget lectus.
