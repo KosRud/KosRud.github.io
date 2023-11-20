@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { useData, useRoute } from "vitepress";
-import ThemeConfig from "./ThemeConfig";
 import { computed } from "vue";
 
-import LayoutContent from "./LayoutContent.vue";
+import MarkdownWrapper from "./MarkdownWrapper.vue";
+
+import ThemeConfig from "./ThemeConfig";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site, frontmatter } = useData<ThemeConfig>();
@@ -212,7 +213,12 @@ const debugOut = computed(() => {
                     sideNav.length == 0 ? '' : $style.Main___sideNav,
                 ]"
             >
-                <LayoutContent />
+                <section :class="$style.Main_content">
+                    <header :class="$style.CurrentLocation">
+                        <strong>You are here:</strong> {{ route.path }}
+                    </header>
+                    <MarkdownWrapper> <Content /></MarkdownWrapper>
+                </section>
                 <aside :class="$style.Toc">
                     <h2 :class="$style.Toc_title">On this page</h2>
                     <nav :class="$style.Toc_content"></nav>
@@ -233,6 +239,11 @@ const debugOut = computed(() => {
 @SideNav-width: 250rem;
 @Toc-width: 200rem;
 @Main-gap: @gap*2;
+
+.CurrentLocation {
+    margin-bottom: @gap*2;
+    text-transform: capitalize;
+}
 
 .PageContainer {
     width: 100%;
@@ -369,16 +380,6 @@ const debugOut = computed(() => {
     }
 }
 
-.HeroMain {
-    flex-grow: 1;
-    > div {
-        height: 100%;
-        > div {
-            height: 100%;
-        }
-    }
-}
-
 .Main {
     flex-grow: 1;
 
@@ -387,6 +388,28 @@ const debugOut = computed(() => {
     justify-content: start;
     overflow-y: scroll;
     gap: @gap*4;
+}
+
+.Main_content {
+    flex-grow: 1;
+    max-width: @content-width + @Main-gap*2; // account for padding
+    height: min-content;
+    min-height: 100%;
+
+    padding: @Main-gap;
+    background-color: @color-white;
+    border-right: 1rem solid @color-gray;
+    border-left: 1rem solid @color-gray;
+}
+
+.HeroMain {
+    flex-grow: 1;
+    > div {
+        height: 100%;
+        > div {
+            height: 100%;
+        }
+    }
 }
 
 .Toc {

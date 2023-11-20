@@ -8,6 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
+    <!-- surrounding div is necessary to ensure negative margins work properly -->
     <div>
         <section :class="$style.CardGallery">
             <slot />
