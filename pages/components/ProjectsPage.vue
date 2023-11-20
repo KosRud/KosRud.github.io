@@ -1,88 +1,63 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ProjectsPageProject from "./ProjectsPageProject.vue";
+</script>
 
 <template>
-    <h3 :class="$style.Project_title">
-        <div :style="$style.Project_titleText">ProTeGe v1</div>
-        <section :class="$style.Project_devIcons">
-            <img
-                src="/assets/icons/dev/cpp/icon.svg"
-                alt="c++"
-                title="c++"
-                :class="$style.DevIcon"
-            />
-            <img
-                src="/assets/icons/dev/wxWidgets/icon.svg"
-                alt="wxWidgets"
-                title="wxWidgets"
-                :class="$style.DevIcon"
-            />
-        </section>
-    </h3>
-    <p>Procedural texture generator (CPU, multi-threaded).</p>
+    <ProjectsPageProject
+        :title="'ProTeGe v1'"
+        :icons="[
+            { title: 'c++', url: '/assets/icons/dev/cpp/icon.svg' },
+            { title: 'wxWidgets', url: '/assets/icons/dev/wxWidgets/icon.svg' },
+        ]"
+    >
+        <p>Procedural texture generator (CPU, multi-threaded).</p>
+    </ProjectsPageProject>
 
-    <h3 :class="$style.Project_title">
-        <div :style="$style.Project_titleText">ProTeGe v2</div>
-        <section :class="$style.Project_devIcons">
-            <img
-                src="/assets/icons/dev/unity/icon.svg"
-                alt="unity"
-                title="unity"
-                :class="$style.DevIcon"
-            />
-            <img
-                src="/assets/icons/dev/csharp/icon.svg"
-                alt="csharp"
-                title="csharp"
-                :class="$style.DevIcon"
-            /><img
-                src="/assets/icons/dev/hlsl/icon.svg"
-                alt="csharp"
-                title="csharp"
-                :class="$style.DevIcon"
-            />
-        </section>
-    </h3>
-    <p>
-        Procedural texture generator with graph-based UI and real-time preview
-        (GPU).<br />
-    </p>
+    <ProjectsPageProject
+        :title="'ProTeGe v2'"
+        :icons="[
+            { title: 'unity', url: '/assets/icons/dev/unity/icon.svg' },
+            { title: 'csharp', url: '/assets/icons/dev/csharp/icon.svg' },
+            { title: 'hlsl', url: '/assets/icons/dev/hlsl/icon.svg' },
+        ]"
+    >
+        <p>
+            Procedural texture generator with graph-based UI and real-time
+            preview (GPU).
+        </p>
+    </ProjectsPageProject>
 
-    <h3 :class="$style.Project_title">
-        <div :style="$style.Project_titleText">DQ skinning for Unity</div>
-        <section :class="$style.Project_devIcons">
-            <img
-                src="/assets/icons/dev/unity/icon.svg"
-                alt="unity"
-                title="unity"
-                :class="$style.DevIcon"
-            />
-            <img
-                src="/assets/icons/dev/csharp/icon.svg"
-                alt="csharp"
-                title="csharp"
-                :class="$style.DevIcon"
-            /><img
-                src="/assets/icons/dev/hlsl/icon.svg"
-                alt="csharp"
-                title="csharp"
-                :class="$style.DevIcon"
-            />
-        </section>
-    </h3>
-    <p>
-        Implementation of GPU dual quaternion skinning for Unity with a novel
-        bulging compensation algorithm and blend shape support.<br />
-    </p>
+    <ProjectsPageProject
+        :title="'DQ skinning for Unity'"
+        :icons="[
+            { title: 'unity', url: '/assets/icons/dev/unity/icon.svg' },
+            { title: 'csharp', url: '/assets/icons/dev/csharp/icon.svg' },
+            { title: 'hlsl', url: '/assets/icons/dev/hlsl/icon.svg' },
+        ]"
+    >
+        <p>
+            Implementation of GPU dual quaternion skinning for Unity with a
+            novel bulging compensation algorithm and blend shape support.
+        </p>
+    </ProjectsPageProject>
 
-    <h3>dice-pool-calc</h3>
-    <p>
-        A library for efficitly calculating probabilities of arbitrary dice
-        pools and dice rolling mechanics. Enumerates all possible outcomes and
-        provides an exact result.
-    </p>
+    <ProjectsPageProject
+        :title="'dice-pool-calc'"
+        :icons="[]"
+    >
+        <p>
+            A library for efficitly calculating probabilities of arbitrary dice
+            pools and dice rolling mechanics. Enumerates all possible outcomes
+            and provides an exact result.
+        </p>
+    </ProjectsPageProject>
 
-    <h3>Material clustering benchmark</h3>
-    <p>...</p>
+    <ProjectsPageProject
+        :title="'Material clustering benchmark'"
+        :icons="[]"
+    >
+        <p>...</p>
+    </ProjectsPageProject>
 </template>
 
 <style module lang="less">

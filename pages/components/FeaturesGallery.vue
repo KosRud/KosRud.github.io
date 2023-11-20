@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
+import FeaturesGallery_Card from "./FeaturesGallery_Card.vue";
 
 import { defineProps } from "vue";
 
@@ -13,12 +13,12 @@ const props = defineProps<{
     <div>
         <section :class="$style.CardGallery">
             <slot />
-            <FeaturesGalleryCard
+            <FeaturesGallery_Card
                 dummy
                 name=""
                 :class="$style.CardGallery_dummy"
                 v-for="_ in Array.from({ length: props.dummies ?? 0 })"
-            ></FeaturesGalleryCard>
+            ></FeaturesGallery_Card>
         </section>
     </div>
 </template>
