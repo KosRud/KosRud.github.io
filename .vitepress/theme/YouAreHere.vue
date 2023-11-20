@@ -6,7 +6,7 @@ import ThemeConfig from "./ThemeConfig";
 import { urlMatch, UrlMatch } from "./UrlMatch.js";
 
 const route = useRoute();
-const { site, frontmatter } = useData<ThemeConfig>();
+const { site } = useData<ThemeConfig>();
 
 const navItem = computed(() => {
     const navItem = site.value.themeConfig.nav.find((navItem) => {
