@@ -28,16 +28,16 @@ import FeaturesGallery_Card from "./FeaturesGallery_Card.vue";
                             <td>C1 (Advanced)</td>
                         </tr>
                         <tr>
+                            <td>Slovak</td>
+                            <td>basic</td>
+                        </tr>
+                        <tr>
                             <td>Ukrainian</td>
-                            <td>native</td>
+                            <td>native speaker</td>
                         </tr>
                         <tr>
                             <td>Russian</td>
-                            <td>native</td>
-                        </tr>
-                        <tr>
-                            <td>Slovak</td>
-                            <td>basic</td>
+                            <td>native speaker</td>
                         </tr>
                     </tbody>
                 </table>
@@ -83,8 +83,8 @@ import FeaturesGallery_Card from "./FeaturesGallery_Card.vue";
                 <table>
                     <tbody>
                         <tr>
-                            <td>Ukrainian</td>
-                            <td>native</td>
+                            <td>Software Engineering</td>
+                            <td>master's degree</td>
                         </tr>
                     </tbody>
                 </table>
@@ -116,6 +116,8 @@ import FeaturesGallery_Card from "./FeaturesGallery_Card.vue";
 
 .Feature_content {
     flex-grow: 1;
+
+    font-family: @font-compact;
 
     table {
         margin-left: auto;

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import HomePageFeatures from "./HomePageFeatures.vue";
+import MarkdownWrapperVue from "../../.vitepress/theme/MarkdownWrapper.vue";
 </script>
 
 <template>
@@ -19,28 +20,12 @@ import HomePageFeatures from "./HomePageFeatures.vue";
             </div>
         </section>
         <div :class="$style.ContentWrapper">
-            <section :class="$style.Bio">
-                <img
-                    :class="$style.Bio_photo"
-                    src="/assets/icons/photo/icon.svg"
-                />
-                <div :class="$style.Bio_text">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nam vulputate in dui nec pellentesque. Nullam efficitur
-                        tellus turpis, ac sagittis lorem eleifend sit amet. In
-                        rutrum eros metus, non egestas tortor sollicitudin
-                        vitae.
-                    </p>
-                    <p>
-                        Pellentesque auctor nisi vitae ligula luctus, vitae
-                        placerat quam mollis. Ut in pellentesque massa. Orci
-                        varius natoque penatibus et magnis dis parturient
-                        montes, nascetur ridiculus mus. Nunc ultrices imperdiet
-                        molestie.
-                    </p>
-                </div>
+            <section>
+                <MarkdownWrapperVue>
+                    <slot name="bio" />
+                </MarkdownWrapperVue>
             </section>
+
             <HomePageFeatures />
         </div>
     </div>
@@ -104,36 +89,6 @@ import HomePageFeatures from "./HomePageFeatures.vue";
     font-size: @size-hero-s;
 }
 
-.Bio {
-    display: flex;
-    flex-direction: row;
-    gap: @gap*2;
-    align-items: start;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.Bio_text {
-    flex: 1 0 300rem;
-}
-
-.Bio_photo {
-    height: 200rem;
-    width: 160rem;
-    aspect-ratio: 1;
-    flex-shrink: 0;
-
-    background-color: #bbe;
-    padding: @gap*2;
-
-    border-radius: @gap*0.5;
-
-    // margin-left: auto;
-    // margin-right: auto;
-
-    // visibility: hidden;
-    display: none;
-}
-
 .ContentWrapper {
     flex-grow: 1;
     min-height: max-content;
@@ -153,12 +108,7 @@ import HomePageFeatures from "./HomePageFeatures.vue";
         width: 100%;
         max-width: 1200rem;
         height: max-content;
-        margin-bottom: @gap*2;
-    }
-
-    p {
-        max-width: @content-width;
-        margin-bottom: @gap*2;
+        margin-bottom: @gap*4;
     }
 }
 

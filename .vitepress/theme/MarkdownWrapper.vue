@@ -4,32 +4,17 @@ const route = useRoute();
 </script>
 
 <template>
-    <section :class="$style.Main_content">
-        <header :class="$style.CurrentLocation">
-            <strong>You are here:</strong> {{ route.path }}
-        </header>
-        <Content />
-    </section>
+    <div :class="$style.Markdown"><slot /></div>
 </template>
 
 <style lang="less" module>
 @import "./style/variables/index.less";
 
-.CurrentLocation {
-    margin-bottom: @gap*2;
-    text-transform: capitalize;
-}
-
-.Main_content {
-    flex-grow: 1;
+.Markdown {
     max-width: @content-width;
-    height: min-content;
-    min-height: 100%;
+    width: 100%;
 
-    padding: @Main-gap;
-    background-color: @color-white;
-    border-right: 1rem solid @color-gray;
-    border-left: 1rem solid @color-gray;
+    text-align: justify;
 
     h1,
     h2,
@@ -40,12 +25,8 @@ const route = useRoute();
         margin-bottom: @gap;
     }
 
-    /*
-		Bold, Italics
-	\*----------------------------------*/
-
-    strong {
-        font-weight: bold;
+    > *:last-child {
+        margin-bottom: 0rem;
     }
 
     /*
