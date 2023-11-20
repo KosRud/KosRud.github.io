@@ -515,6 +515,10 @@ const debugOut = computed(() => {
     font-family: @font-hero;
 }
 
+.CurrentLocation {
+    font-family: @font-strict;
+}
+
 //////
 
 li:nth-child(1) .SideNav_itemTitle___level1 {
