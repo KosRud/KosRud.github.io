@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import FeaturesGallery from "./FeaturesGallery.vue";
-import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
+import FeaturesGallery_Card from "./FeaturesGallery_Card.vue";
 </script>
 
 <template>
@@ -8,15 +8,15 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
         :dummies="8"
         :card-min-width="'300rem'"
     >
-        <FeaturesGalleryCard
+        <FeaturesGallery_Card
             name="Programming languages"
             :icon-url="'/assets/icons/programming/icon.svg'"
         >
             <div :class="$style.Feature_content">
                 C#, HLSL, TypeScript, Python, Cython, C++
             </div>
-        </FeaturesGalleryCard>
-        <FeaturesGalleryCard
+        </FeaturesGallery_Card>
+        <FeaturesGallery_Card
             name="Communication"
             :icon-url="'/assets/icons/communication/icon.svg'"
         >
@@ -42,8 +42,8 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
                     </tbody>
                 </table>
             </div>
-        </FeaturesGalleryCard>
-        <FeaturesGalleryCard
+        </FeaturesGallery_Card>
+        <FeaturesGallery_Card
             name="Technologies"
             :icon-url="'/assets/icons/gears/icon.svg'"
         >
@@ -73,9 +73,9 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
                     </tbody>
                 </table>
             </div>
-        </FeaturesGalleryCard>
+        </FeaturesGallery_Card>
 
-        <FeaturesGalleryCard
+        <FeaturesGallery_Card
             name="Education"
             :icon-url="'/assets/icons/education/icon.svg'"
         >
@@ -89,8 +89,8 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
                     </tbody>
                 </table>
             </div>
-        </FeaturesGalleryCard>
-        <FeaturesGalleryCard
+        </FeaturesGallery_Card>
+        <FeaturesGallery_Card
             name="Experience"
             :icon-url="'/assets/icons/job/icon.svg'"
         >
@@ -107,7 +107,7 @@ import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
                     </tbody>
                 </table>
             </div>
-        </FeaturesGalleryCard>
+        </FeaturesGallery_Card>
     </FeaturesGallery>
 </template>
 
