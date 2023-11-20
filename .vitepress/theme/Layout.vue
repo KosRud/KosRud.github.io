@@ -505,18 +505,14 @@ const debugOut = computed(() => {
 	Fonts
 \*----------------------------------*/
 
-.PageContainer {
-    font-family: @font-main;
-}
-
 .SideNav_itemTitle,
 .Header,
 .Toc_title {
-    font-family: @font-alt;
+    font-family: @font-ui;
 }
 
 .Header_siteTitleContainer {
-    font-family: @font-title;
+    font-family: @font-hero;
 }
 
 //////

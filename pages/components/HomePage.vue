@@ -53,7 +53,7 @@ import MarkdownWrapperVue from "../../.vitepress/theme/MarkdownWrapper.vue";
     justify-content: center;
 
     color: white;
-    font-family: @font-title;
+    font-family: @font-hero;
 
     background-color: @color-primary-muted;
     box-shadow: 0rem 0rem 100rem inset #0004;
