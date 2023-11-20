@@ -47,7 +47,7 @@ import HomePageFeatures from "./HomePageFeatures.vue";
 </template>
 
 <style module lang="less">
-@import "../../.vitepress/theme/style/main/index.less";
+@import "../../.vitepress/theme/style/variables/index.less";
 
 .HomePage {
     height: 100%;

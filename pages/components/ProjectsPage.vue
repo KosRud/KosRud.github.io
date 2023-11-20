@@ -9,6 +9,7 @@ import ProjectsPageProject from "./ProjectsPageProject.vue";
             { title: 'c++', url: '/assets/icons/dev/cpp/icon.svg' },
             { title: 'wxWidgets', url: '/assets/icons/dev/wxWidgets/icon.svg' },
         ]"
+        :links="{ github: '#', docs: '#' }"
     >
         <p>Procedural texture generator (CPU, multi-threaded).</p>
     </ProjectsPageProject>
@@ -61,7 +62,7 @@ import ProjectsPageProject from "./ProjectsPageProject.vue";
 </template>
 
 <style module lang="less">
-@import "../../.vitepress/theme/style/main/index.less";
+@import "../../.vitepress/theme/style/variables/index.less";
 
 .Project_title {
     display: flex;

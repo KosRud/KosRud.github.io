@@ -132,10 +132,6 @@ const route = useRoute();
             // font-family: @font-alt;
         }
 
-        tr:nth-child(2n) {
-            // background-color: @color-gray-lighter;
-        }
-
         td {
             border: 1px solid @color-gray;
             padding: @gap*0.5 @gap;
@@ -148,6 +144,8 @@ const route = useRoute();
 
     a {
         font-family: @font-alt;
+        font-weight: bold;
+        text-decoration: underline;
     }
 }
 </style>

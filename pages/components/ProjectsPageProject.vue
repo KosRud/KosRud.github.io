@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
-
 const props = defineProps<{
     icons: { title: string; url: string }[];
     title: string;
+    links?: { github?: string; docs?: string };
 }>();
 </script>
 
@@ -21,10 +20,20 @@ const props = defineProps<{
         </section>
     </h3>
     <slot />
+    <p v-if="links">
+        <template v-for="(url, name, index) in links">
+            <a :href="url">{{ name }}</a>
+            <span :class="$style.Project_linkSeparator"> | </span>
+        </template>
+    </p>
 </template>
 
 <style module lang="less">
-@import "../../.vitepress/theme/style/main/index.less";
+@import "../../.vitepress/theme/style/variables/index.less";
+
+.Project_linkSeparator:last-child {
+    display: none;
+}
 
 .Project_title {
     display: flex;
