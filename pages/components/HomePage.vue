@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import HomePageFeatures from "./HomePageFeatures.vue";
 import MarkdownWrapperVue from "../../.vitepress/theme/MarkdownWrapper.vue";
+import FeaturesGallery from "./FeaturesGallery.vue";
+
+const props = defineProps<{ dummyFeatures?: number }>();
 </script>
 
 <template>
@@ -23,12 +25,16 @@ import MarkdownWrapperVue from "../../.vitepress/theme/MarkdownWrapper.vue";
             <section>
                 <MarkdownWrapperVue>
                     <div :class="$style.Strict">
-                        <slot name="bio" />
+                        <slot name="Bio" />
                     </div>
                 </MarkdownWrapperVue>
             </section>
-
-            <HomePageFeatures />
+            <FeaturesGallery
+                :dummies="props.dummyFeatures"
+                :card-min-width="'300rem'"
+            >
+                <slot name="Features"
+            /></FeaturesGallery>
         </div>
     </div>
 </template>
