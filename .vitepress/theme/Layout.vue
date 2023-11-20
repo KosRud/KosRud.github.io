@@ -221,7 +221,6 @@ const debugOut = computed(() => {
 
 .CurrentLocation {
     margin-bottom: @gap*2;
-    text-transform: capitalize;
 }
 
 .PageContainer {
