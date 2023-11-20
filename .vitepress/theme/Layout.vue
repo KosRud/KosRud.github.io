@@ -3,6 +3,7 @@ import { useData, useRoute } from "vitepress";
 import { computed } from "vue";
 
 import MarkdownWrapper from "./MarkdownWrapper.vue";
+import YouAreHere from "./YouAreHere.vue";
 
 import ThemeConfig from "./ThemeConfig";
 
@@ -215,7 +216,7 @@ const debugOut = computed(() => {
             >
                 <section :class="$style.Main_content">
                     <header :class="$style.CurrentLocation">
-                        <strong>You are here:</strong> {{ route.path }}
+                        <YouAreHere />
                     </header>
                     <MarkdownWrapper> <Content /></MarkdownWrapper>
                 </section>
