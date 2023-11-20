@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
 import { computed } from "vue";
 
 const props = defineProps<{
@@ -34,7 +33,7 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
 </template>
 
 <style module lang="less">
-@import "../../.vitepress/theme/style/main/index.less";
+@import "../../.vitepress/theme/style/variables/index.less";
 
 @icon-size: 1.5em;
 // @icon-size: 1.8em;
