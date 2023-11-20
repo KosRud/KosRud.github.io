@@ -3,19 +3,18 @@ hero: true
 ---
 
 <script setup>
-	import HomePage from "./components/HomePage.vue";
+import HomePage from "./components/HomePage.vue";
+import HomePage_Bio from "./components/HomePage_Bio.vue"
+import HomePage_Features from "./components/HomePage_Features.vue"
 </script>
 
-<HomePage>
-	<template v-slot:bio>
-	<p>
-        Greetings!
-    </p>
-	<p>
-		Name's Kostiantyn, I'm a programmer from Ukraine currently residing in Bratislava, Slovakia. 
-	</p>
-	<p>
-		This website contains an overview of my work (<a href="/projects/">projects</a>, <a href="/papers/">papers</a>), as well as an assortment of condensed <a href="#">highlights</a> from the web development seminars I've been teaching at <a href="https://www.fiit.stuba.sk/en.html">FIIT STU</a>.
-	</p>
+<HomePage :dummyFeatures="8">
+	<template #Bio>
+		<HomePage_Bio/>
+	</template>
+	<template #Features>
+		<HomePage_Features/>
 	</template>
 </HomePage>
+
+
