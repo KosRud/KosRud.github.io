@@ -22,7 +22,9 @@ import MarkdownWrapperVue from "../../.vitepress/theme/MarkdownWrapper.vue";
         <div :class="$style.ContentWrapper">
             <section>
                 <MarkdownWrapperVue>
-                    <slot name="bio" />
+                    <div :class="$style.Strict">
+                        <slot name="bio" />
+                    </div>
                 </MarkdownWrapperVue>
             </section>
 
@@ -33,6 +35,10 @@ import MarkdownWrapperVue from "../../.vitepress/theme/MarkdownWrapper.vue";
 
 <style module lang="less">
 @import "../../.vitepress/theme/style/variables/index.less";
+
+.Strict {
+    font-family: @font-strict;
+}
 
 .HomePage {
     height: 100%;
