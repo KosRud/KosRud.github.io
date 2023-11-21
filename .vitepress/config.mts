@@ -1,5 +1,5 @@
 import { defineConfigWithTheme } from "vitepress";
-import ThemeConfig from "./theme/ThemeConfig";
+import { ThemeConfig } from "./theme/ThemeConfig";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfigWithTheme<ThemeConfig>({

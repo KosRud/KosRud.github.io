@@ -1,9 +1,9 @@
-interface NavItem {
+export interface NavItem {
     title: string;
     url: string;
     children?: NavItem[];
 }
 
-export default interface themeConfig {
+export interface ThemeConfig {
     nav: NavItem[];
 }
