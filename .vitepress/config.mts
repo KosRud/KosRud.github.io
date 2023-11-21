@@ -10,7 +10,7 @@ export default defineConfigWithTheme<ThemeConfig>({
         nav: [
             { title: "About me", url: "/about/" },
             {
-                title: "My Projects",
+                title: "My projects",
                 url: "/projects/",
                 children: [
                     {
@@ -19,11 +19,11 @@ export default defineConfigWithTheme<ThemeConfig>({
                         children: [{ title: "Unity version", url: "/" }],
                     },
                     {
-                        title: "DQ Skinning for Unity",
+                        title: "DQ skinning for Unity",
                         url: "/students/html",
                     },
                     {
-                        title: "Dice-pool-calc",
+                        title: "dice-pool-calc",
                         url: "/students/html",
                     },
                     {
@@ -34,7 +34,7 @@ export default defineConfigWithTheme<ThemeConfig>({
             },
             { title: "Papers", url: "/Papers" },
             {
-                title: "For Students",
+                title: "For students",
                 url: "/students",
                 children: [
                     { title: "HTML", url: "/students/html" },
