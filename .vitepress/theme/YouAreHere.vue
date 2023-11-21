@@ -6,9 +6,34 @@ import ThemeConfig from "./ThemeConfig";
 import { urlMatch, UrlMatch } from "./UrlMatch.js";
 
 const route = useRoute();
-const { site } = useData<ThemeConfig>();
+const { site, frontmatter } = useData<ThemeConfig>();
 
 const navItem = computed(() => {
+    function tracePath(nav: ThemeConfig["nav"]): ThemeConfig["nav"][number][] {
+        for (const navItem of nav) {
+            const match = urlMatch(route.path, navItem.url);
+            switch (match) {
+                case UrlMatch.full:
+                    return [navItem];
+                case UrlMatch.inside:
+                    return [navItem];
+                case UrlMatch.no:
+                    break;
+                default:
+                    throw new Error(`Unexpected url match type: ${match}`);
+            }
+        }
+
+        // navItem was not found
+
+        const improvisedNavitem = {
+            title: frontmatter.value.title,
+            url: route.path,
+        };
+
+        return [improvisedNavitem];
+    }
+
     const navItem = site.value.themeConfig.nav.find((navItem) => {
         const match = urlMatch(route.path, navItem.url);
         return [UrlMatch.inside, UrlMatch.full].includes(match);
