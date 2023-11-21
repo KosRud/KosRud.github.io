@@ -8,7 +8,26 @@ import { urlMatch, UrlMatch } from "./UrlMatch.js";
 const route = useRoute();
 const { site, frontmatter } = useData<ThemeConfig>();
 
+function improviseNavTitle() {
+    if (frontmatter.value.title) {
+        return frontmatter.value.title;
+    }
+
+    const match = route.path.match(/[^\/]+$/); // last portion of url
+
+    if (match) {
+        const fileName = match[0].replace(/\.[^.]+$/, ""); // remove extension
+        return fileName.charAt(0).toUpperCase() + fileName.slice(1);
+    }
+
+    return "Unknown page";
+}
+
 const navTrace = computed((): NavItem[] => {
+    if (!frontmatter.value.title) {
+        console.trace(`Page has no title: ${route.path}`);
+    }
+
     function tracePath(nav: ThemeConfig["nav"]): NavItem[] {
         for (const navItem of nav) {
             const match = urlMatch(route.path, navItem.url);
@@ -23,14 +42,14 @@ const navTrace = computed((): NavItem[] => {
                 case UrlMatch.no:
                     break;
                 default:
-                    throw new Error(`Unexpected url match type: ${match}`);
+                    console.trace(`Unexpected url match type: ${match}`);
             }
         }
 
         // navItem was not found
 
         const improvisedNavitem = {
-            title: frontmatter.value.title ?? "Unnamed page",
+            title: improviseNavTitle(),
             url: route.path,
         };
 
