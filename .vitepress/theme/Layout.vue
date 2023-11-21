@@ -5,7 +5,7 @@ import { computed } from "vue";
 import MarkdownWrapper from "./MarkdownWrapper.vue";
 import YouAreHere from "./YouAreHere.vue";
 
-import ThemeConfig from "./ThemeConfig";
+import { ThemeConfig } from "./ThemeConfig";
 import { urlMatch, UrlMatch } from "./UrlMatch.js";
 
 // https://vitepress.dev/reference/runtime-api#usedata
