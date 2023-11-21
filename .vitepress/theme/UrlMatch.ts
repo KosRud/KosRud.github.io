@@ -4,17 +4,23 @@ export enum UrlMatch {
     no,
 }
 
-export const urlMatch = (path: string, url: string) => {
+/**
+ * Checks if current url is same or inside matched url.
+ * @param current
+ * @param matched
+ * @returns
+ */
+export const urlMatch = (current: string, matched: string) => {
     const extensionRegex = /\.[^.]+$/;
 
-    url = encodeURI(url.replace(extensionRegex, ""));
-    path = path.replace(extensionRegex, "");
+    matched = encodeURI(matched.replace(extensionRegex, ""));
+    current = current.replace(extensionRegex, "");
 
-    if (path == url) {
+    if (current == matched) {
         return UrlMatch.full;
     }
 
-    if (url == path.slice(0, url.length)) {
+    if (matched == current.slice(0, matched.length)) {
         return UrlMatch.inside;
     }
 

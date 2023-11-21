@@ -16,25 +16,13 @@ const urlActive = (url) => {
     return urlMatch(route.path, url) != UrlMatch.no;
 };
 
-const getSideNav = () => {
+const sideNav = computed(() => {
     const navItems =
         site.value.themeConfig.nav.find((navItem) => {
             const match = urlMatch(route.path, navItem.url);
             return [UrlMatch.inside, UrlMatch.full].includes(match);
         })?.children ?? [];
     return navItems;
-};
-
-const sideNav = computed(getSideNav);
-
-const debugOut = computed(() => {
-    const extensionRegex = /\.[^.]+$/;
-    const curPath = route.path.replace(extensionRegex, "");
-
-    const themeNav = site.value.themeConfig.nav;
-    const sideNav = getSideNav();
-
-    return JSON.stringify({ curPath, themeNav, sideNav }, null, 2);
 });
 </script>
 
@@ -61,7 +49,14 @@ const debugOut = computed(() => {
                         :class="$style.Header_navItem"
                     >
                         <a
-                            :class="$style.Header_navLink"
+                            :class="[
+                                $style.Header_navLink,
+                                [UrlMatch.full, UrlMatch.inside].includes(
+                                    urlMatch(route.path, navItem.url)
+                                )
+                                    ? $style.Header_navLink___active
+                                    : '',
+                            ]"
                             :href="navItem.url"
                             >{{ navItem.title }}</a
                         >
@@ -291,6 +286,20 @@ const debugOut = computed(() => {
     }
 }
 
+.Header_navLink___active:link {
+    position: relative;
+    &::after {
+        position: absolute;
+        content: "";
+        left: @gap*0.0;
+        right: @gap*0.0;
+        bottom: calc(0rem - @gap);
+        top: calc(0rem - @gap);
+        border-top: @gap*0.25 solid @color-gray-lighter;
+        pointer-events: none;
+    }
+}
+
 .MainContainer {
     flex-grow: 1;
     display: flex;
@@ -504,20 +513,6 @@ li:nth-child(1) .SideNav_itemTitle___level1 {
 li:nth-child(3) .SideNav_itemTitle___level2 {
     &::before {
         visibility: visible;
-    }
-}
-
-.Header li:nth-child(3) {
-    position: relative;
-    &::after {
-        position: absolute;
-        content: "";
-        left: @gap*0.25;
-        bottom: calc(0rem - @gap);
-        top: calc(0rem - @gap);
-        right: @gap*0.25;
-        border-top: @gap*0.25 solid white;
-        pointer-events: none;
     }
 }
 </style>
