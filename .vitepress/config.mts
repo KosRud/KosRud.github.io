@@ -15,20 +15,20 @@ export default defineConfigWithTheme<ThemeConfig>({
                 children: [
                     {
                         title: "ProTeGe",
-                        url: "/students/html",
+                        url: "#",
                         children: [{ title: "Unity version", url: "/" }],
                     },
                     {
                         title: "DQ skinning for Unity",
-                        url: "/students/html",
+                        url: "#",
                     },
                     {
                         title: "dice-pool-calc",
-                        url: "/students/html",
+                        url: "#",
                     },
                     {
                         title: "Material clustering",
-                        url: "/students/html",
+                        url: "#",
                     },
                 ],
             },
@@ -37,8 +37,8 @@ export default defineConfigWithTheme<ThemeConfig>({
                 title: "For students",
                 url: "/students",
                 children: [
-                    { title: "HTML", url: "/students/html" },
-                    { title: "CSS", url: "/students/css" },
+                    { title: "HTML", url: "/students/HTML" },
+                    { title: "CSS", url: "/students/CSS" },
                 ],
             },
             { title: "Blog", url: "/blog" },
