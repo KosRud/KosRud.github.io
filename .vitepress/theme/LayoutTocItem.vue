@@ -45,10 +45,19 @@ const level = props.level ?? 1;
     padding-bottom: @gap*0.125;
     padding-right: @gap;
 
-    &:hover {
-        border-color: @color-primary-light;
-        background-color: #0002;
-        // color: @color-white;
+    &:link,
+    &:visited {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            border-color: @color-primary;
+            // background-color: #0002;
+            color: @color-primary;
+            // font-weight: bold;
+            // text-decoration: underline;
+            // color: @color-white;
+        }
     }
 }
 </style>
