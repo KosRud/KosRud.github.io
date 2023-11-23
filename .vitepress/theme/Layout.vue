@@ -230,7 +230,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 
 .PageContainer {
     width: 100%;
-    height: 100%;
+    height: 100%; // this prevents #id links from working
     display: flex;
     flex-direction: column;
     overflow: hidden;
