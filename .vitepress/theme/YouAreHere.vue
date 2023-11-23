@@ -25,7 +25,7 @@ function improviseNavTitle() {
 
 const navTrace = computed((): NavItem[] => {
     if (!frontmatter.value.title) {
-        console.trace(`Page has no title: ${route.path}`);
+        console.warn(`Page has no title: ${route.path}`);
     }
 
     function tracePath(nav: ThemeConfig["nav"]): NavItem[] {
@@ -42,7 +42,7 @@ const navTrace = computed((): NavItem[] => {
                 case UrlMatch.no:
                     break;
                 default:
-                    console.trace(`Unexpected url match type: ${match}`);
+                    console.error(`Unexpected url match type: ${match}`);
             }
         }
 
