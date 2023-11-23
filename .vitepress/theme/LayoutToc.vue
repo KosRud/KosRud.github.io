@@ -53,7 +53,7 @@ const tocContent = computed(() => {
     let index = 0;
 
     while (true) {
-        const { heading, index: nextIndex } = parseHeading(headings, index, 0);
+        const { heading, index: nextIndex } = parseHeading(headings, index, 1);
         if (heading) {
             toc.push(heading);
             index = nextIndex;
@@ -69,7 +69,7 @@ const tocContent = computed(() => {
     ): { heading: Heading | null; index: number } {
         const heading = headings[index];
 
-        if (!heading || heading.level <= level) {
+        if (!heading || heading.level < level) {
             return { heading: null, index: index };
         } else {
             index++;
@@ -79,7 +79,7 @@ const tocContent = computed(() => {
             const { heading: child, index: nextIndex } = parseHeading(
                 headings,
                 index,
-                level + 1
+                heading.level + 1
             );
             if (child) {
                 heading.children.push(child);
