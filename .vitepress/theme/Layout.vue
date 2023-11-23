@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { useData, useRoute } from "vitepress";
-import { computed } from "vue";
+import { computed, ComponentPublicInstance, ref, Ref } from "vue";
 
 import MarkdownWrapper from "./MarkdownWrapper.vue";
 import YouAreHere from "./YouAreHere.vue";
+import LayoutToc from "./LayoutToc.vue";
 
 import { ThemeConfig } from "./ThemeConfig";
 import { urlMatch, UrlMatch } from "./UrlMatch.js";
@@ -24,6 +25,8 @@ const sideNav = computed(() => {
         })?.children ?? [];
     return navItems;
 });
+
+const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 </script>
 
 <template>
@@ -191,11 +194,19 @@ const sideNav = computed(() => {
                     <header :class="$style.CurrentLocation">
                         <YouAreHere />
                     </header>
-                    <MarkdownWrapper> <Content /></MarkdownWrapper>
+                    <MarkdownWrapper>
+                        <Content
+                            :ref="
+                                (component : ComponentPublicInstance) => {
+									pageContent = component;
+                                }
+                            "
+                        />
+                        <!-- <Content /> -->
+                    </MarkdownWrapper>
                 </section>
                 <aside :class="$style.Toc">
-                    <h2 :class="$style.Toc_title">On this page</h2>
-                    <nav :class="$style.Toc_content"></nav>
+                    <LayoutToc :page-content="pageContent" />
                 </aside>
             </main>
         </div>
@@ -367,6 +378,20 @@ const sideNav = computed(() => {
     }
 }
 
+.Toc {
+    position: sticky;
+    top: 0rem;
+    flex-shrink: 0;
+    width: @Toc-width;
+    min-height: min(300rem, 100%);
+    max-height: 90%;
+    align-self: flex-start;
+
+    padding-top: @Main-gap;
+    display: flex;
+    flex-direction: column;
+}
+
 .Main {
     flex-grow: 1;
 
@@ -397,32 +422,6 @@ const sideNav = computed(() => {
             height: 100%;
         }
     }
-}
-
-.Toc {
-    position: sticky;
-    top: 0rem;
-    flex-shrink: 0;
-    width: @Toc-width;
-    min-height: 300rem;
-    max-height: 100%;
-    align-self: flex-start;
-
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: stretch;
-    gap: @gap*0.5;
-    padding-top: @Main-gap;
-}
-
-.Toc_title {
-    flex-grow: 0;
-}
-
-.Toc_content {
-    flex-grow: 1;
-    position: relative;
 }
 
 .Header_siteTitleContainer,
