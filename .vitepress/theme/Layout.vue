@@ -221,8 +221,8 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 <style lang="less" module>
 @import "./style/variables/index.less";
 @SideNav-width: 250rem;
-@Toc-width: 200rem;
-@Main-gap: @gap*2;
+@Main-padding: @gap*2;
+@Main-gap: @gap*4;
 
 .CurrentLocation {
     margin-bottom: @gap*2;
@@ -326,7 +326,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 
     & > ul {
         flex: 1 0 auto;
-        padding-top: @Main-gap;
+        padding-top: @Main-padding;
     }
 
     visibility: v-bind("sideNav.length == 0 ? 'hidden' : 'visible'");
@@ -380,15 +380,18 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 .Toc {
     position: sticky;
     top: 0rem;
-    flex-shrink: 0;
-    width: @Toc-width;
-    min-height: min(300rem, 100%);
+    flex: 1 0 200rem;
+    max-width: max-content;
+    min-height: min(200rem, 100%);
     max-height: 90%;
     align-self: flex-start;
 
-    padding-top: @Main-gap;
+    padding: @Main-padding;
+    padding-left: 0rem;
     display: flex;
     flex-direction: column;
+
+    margin-right: @Main-gap;
 }
 
 .Main {
@@ -398,16 +401,16 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     flex-direction: row;
     justify-content: start;
     overflow-y: scroll;
-    gap: @gap*4;
+    gap: @Main-gap;
 }
 
 .Main_content {
     flex-grow: 1;
-    max-width: @content-width + @Main-gap*2; // account for padding
+    max-width: @content-width + @Main-padding*2; // account for padding
     height: min-content;
     min-height: 100%;
 
-    padding: @Main-gap;
+    padding: @Main-padding;
     background-color: @color-white;
     border-right: 1rem solid @color-gray;
     border-left: 1rem solid @color-gray;
