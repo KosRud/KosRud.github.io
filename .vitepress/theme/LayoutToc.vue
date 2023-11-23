@@ -20,10 +20,24 @@ const tocContent = computed(() => {
     if (!content) {
         return "";
     }
-    return (
-        Array.from(content.querySelectorAll("h1, h2, h3, h4"))
-            .map((element) => element.textContent)
-            .reduce((a, b) => `${a} <br> ${b}`, "") ?? ""
+
+    function tagToTitleLevel(tag: string) {
+        const level = ["H1", "H2", "H3", "H4", "H5", "H6"].findIndex(
+            (x) => x == tag
+        );
+        if (level != -1) {
+            return level + 1;
+        }
+
+        console.error(`Invalid heading tag: ${tag}`);
+        return 7;
+    }
+
+    return Array.from(content.querySelectorAll("h1, h2, h3, h4")).map(
+        (element) => ({
+            level: tagToTitleLevel(element.tagName),
+            text: element.textContent,
+        })
     );
 });
 
@@ -80,7 +94,7 @@ onContentUpdated(() => {
             sem a rutrum tincidunt. Nam cursus dapibus ex at blandit. Curabitur
             eu tincidunt mauris. Nulla facilisi. Nulla non mollis nunc. Vivamus
             nec dolor felis. Etiam et pellentesque sapien, at sagittis odio. -->
-            <div v-html="tocContent"></div>
+            <pre>{{ JSON.stringify(tocContent, null, 2) }}</pre>
         </nav>
     </div>
 </template>
