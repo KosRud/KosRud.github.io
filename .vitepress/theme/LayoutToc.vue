@@ -139,7 +139,7 @@ onContentUpdated(() => {
     align-items: stretch;
     justify-content: stretch;
     gap: @gap;
-    color: #000d;
+    color: @color-black-faded;
 }
 
 .Toc_title {

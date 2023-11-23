@@ -30,7 +30,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 </script>
 
 <template>
-    <div :class="$style.PageContainer">
+    <div :class="$style.Layout">
         <header :class="$style.Header">
             <a
                 :class="$style.Header_siteTitleContainer"
@@ -228,7 +228,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     margin-bottom: @gap*2;
 }
 
-.PageContainer {
+.Layout {
     width: 100%;
     height: 100%; // this prevents #id links from working
     display: flex;
@@ -288,7 +288,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 
     &:hover {
         background-color: @color-primary-light;
-        border-color: #fff4;
+        border-color: @color-highlight;
     }
 
     &:active {
