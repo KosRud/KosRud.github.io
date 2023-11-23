@@ -52,7 +52,7 @@ const props = defineProps<{
     width: @size*2;
     aspect-ratio: 1;
     vertical-align: bottom;
-    background-color: @color-gray-light;
+    background-color: @color-background-card;
     border-radius: @inf;
 
     box-shadow: -4px -4px 4px 0px inset #0002, 4px 4px 4px 0px inset #ffff;

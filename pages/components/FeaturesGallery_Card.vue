@@ -49,9 +49,9 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
     justify-content: stretch;
     align-items: stretch;
 
-    background: @color-gray-light;
+    background: @color-background-card;
     box-shadow: @shadow;
-    border: 1rem solid @color-gray;
+    border: 1rem solid @color-border;
     padding: @gap @gap @gap*2 @gap;
 
     text-align: left;
