@@ -261,8 +261,9 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     &::before {
         content: none;
     }
-    display: grid;
-    place-content: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Header_navLink {
@@ -280,8 +281,9 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     line-height: 1;
     padding: @gap*0.5;
     min-width: @gap*11;
-    display: grid;
-    place-content: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: @shadow;
     transition: background-color 0.2s;
     transition: border-color 0.5s;
