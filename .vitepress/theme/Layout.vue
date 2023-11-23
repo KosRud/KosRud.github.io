@@ -222,7 +222,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 @import "./style/variables/index.less";
 @SideNav-width: 250rem;
 @Main-padding: @gap*2;
-@Main-gap: @gap*4;
+@Main-gap: @gap*2;
 
 .CurrentLocation {
     margin-bottom: @gap*2;
@@ -235,12 +235,12 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     flex-direction: column;
     overflow: hidden;
     justify-content: stretch;
-    background-color: @color-gray-lighter;
+    background-color: @color-background;
 }
 
 .Header {
     align-self: stretch;
-    background-color: @color-gray-dark;
+    background-color: @color-background-dark;
     display: flex;
     gap: @gap;
     flex: 0 0 min-content;
@@ -305,7 +305,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
         right: @gap*0.0;
         bottom: calc(0rem - @gap);
         top: calc(0rem - @gap);
-        border-top: @gap*0.25 solid @color-gray-lighter;
+        border-top: @gap*0.25 solid @color-background;
         pointer-events: none;
     }
 }
@@ -386,8 +386,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     max-height: 90%;
     align-self: flex-start;
 
-    padding: @Main-padding;
-    padding-left: 0rem;
+    padding: @Main-padding @gap;
     display: flex;
     flex-direction: column;
 
@@ -412,8 +411,8 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 
     padding: @Main-padding;
     background-color: @color-white;
-    border-right: 1rem solid @color-gray;
-    border-left: 1rem solid @color-gray;
+    border-right: 1rem solid @color-border;
+    border-left: 1rem solid @color-border;
 }
 
 .HeroMain {

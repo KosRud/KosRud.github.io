@@ -47,7 +47,7 @@ const route = useRoute();
         color: @color-white;
         text-align: center;
 
-        background-color: @color-gray-dark;
+        background-color: @color-background-dark;
         padding: @gap*0.75;
     }
 
@@ -57,7 +57,7 @@ const route = useRoute();
         margin-left: auto;
         margin-right: auto;
 
-        border: @gap*0.25 solid @color-gray-dark;
+        border: @gap*0.25 solid @color-background-dark;
         border-radius: @gap;
 
         font-size: @size-l;
@@ -70,7 +70,7 @@ const route = useRoute();
         min-width: 220rem;
 
         padding: @gap*0.5;
-        background-color: @color-gray-dark;
+        background-color: @color-background-dark;
 
         color: @color-white;
     }
@@ -104,19 +104,19 @@ const route = useRoute();
         border-collapse: collapse;
 
         th {
-            background-color: @color-gray-dark;
+            background-color: @color-background-dark;
             color: @color-white;
             text-align: center;
             padding: @gap*0.5 @gap;
         }
 
         td {
-            border: 1px solid @color-gray;
+            border: 1px solid @color-border;
             padding: @gap*0.5 @gap;
         }
 
         th:not(:last-child) {
-            border-right: 1px solid @color-gray;
+            border-right: 1px solid @color-border;
         }
     }
 

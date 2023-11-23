@@ -7,6 +7,7 @@ import LayoutTocItem from "./LayoutTocItem.vue";
 export interface Heading {
     level: number;
     title: string;
+    id: string;
     children: Heading[];
 }
 
@@ -46,6 +47,7 @@ const tocContent = computed(() => {
         level: tagToTitleLevel(element.tagName),
         title: element.textContent ?? "???", // ToDo handle error
         children: [],
+        id: element.id,
     }));
 
     const toc: Heading[] = [];
@@ -148,24 +150,5 @@ onContentUpdated(() => {
 .Toc_content {
     flex-grow: 1;
     overflow-y: auto;
-
-    li {
-        &::before {
-            display: none;
-        }
-
-        span {
-            border-left: @gap*0.25 solid @color-gray;
-            padding-left: @gap;
-
-            &:hover {
-                border-color: @color-primary-light;
-            }
-        }
-    }
-
-    ul li ul li span {
-        padding-left: @gap*2;
-    }
 }
 </style>
