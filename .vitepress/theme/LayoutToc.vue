@@ -1,17 +1,34 @@
 <script lang="ts" setup>
-import { computed, ComponentPublicInstance } from "vue";
+import { ComponentPublicInstance, computed, ref } from "vue";
+
+import { onContentUpdated, useRoute } from "vitepress";
+
+const route = useRoute();
 
 const props = defineProps<{ pageContent: ComponentPublicInstance | null }>();
 
+const tocContentUpdateTrigger = ref(false);
 const tocContent = computed(() => {
+    {
+        // force recalculation when these variables change
+        tocContentUpdateTrigger;
+        route.path;
+    }
+
     const content: HTMLElement = props.pageContent?.$el;
 
     if (!content) {
         return "";
     }
-    return Array.from(content.querySelectorAll("h1, h2, h3, h4"))
-        .map((element) => element.textContent)
-        .reduce((a, b) => `${a} <br> ${b}`);
+    return (
+        Array.from(content.querySelectorAll("h1, h2, h3, h4"))
+            .map((element) => element.textContent)
+            .reduce((a, b) => `${a} <br> ${b}`, "") ?? ""
+    );
+});
+
+onContentUpdated(() => {
+    tocContentUpdateTrigger.value = !tocContentUpdateTrigger.value;
 });
 </script>
 
