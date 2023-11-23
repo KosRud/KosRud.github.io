@@ -95,6 +95,15 @@ const tocContent = computed(() => {
         };
     }
 
+    /*
+		If there's only one heading of level 1
+		assume it's the page title
+		and return its children
+	*/
+    if (toc.length == 1 && toc[0].level == 1) {
+        return toc[0].children;
+    }
+
     return toc;
 });
 
@@ -122,10 +131,6 @@ onContentUpdated(() => {
 <style lang="less" module>
 @import "./style/variables/index.less";
 
-.PageContent {
-    background-color: red;
-}
-
 .Toc {
     display: flex;
     flex-direction: column;
@@ -148,16 +153,19 @@ onContentUpdated(() => {
         &::before {
             display: none;
         }
-        padding-top: @gap*0.25;
-        padding-bottom: @gap*0.25;
-        padding-left: @gap;
-        border-left: 1rem solid @color-gray;
+
+        span {
+            border-left: @gap*0.25 solid @color-gray;
+            padding-left: @gap;
+
+            &:hover {
+                border-color: @color-primary-light;
+            }
+        }
     }
 
-    ul {
-        ul {
-            padding-left: @gap*2;
-        }
+    ul li ul li span {
+        padding-left: @gap*2;
     }
 }
 </style>
