@@ -16,6 +16,7 @@ export function trackActiveHeadingId(tocItems: Ref<TocItem[]>) {
 
         if (activeTocItem) {
             activeHeadingId.value = activeTocItem.element.id;
+            return;
         }
 
         if (tocItems.value.length == 0) {

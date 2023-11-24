@@ -2,7 +2,7 @@
 import { ComponentPublicInstance, computed, ref } from "vue";
 
 import trackTocItems from "./trackTocItems";
-import { trackActiveHeadingId as provideActiveHeadingId } from "./trackActiveHeadingId";
+import { trackActiveHeadingId as provideActiveHeadingId } from "./provideActiveHeadingId";
 
 import LayoutTocItem from "./LayoutTocItem.vue";
 
