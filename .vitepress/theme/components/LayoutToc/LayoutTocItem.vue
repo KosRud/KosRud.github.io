@@ -40,6 +40,7 @@ const activeHeadingId = inject(activeHeadingIdSymbol);
 @import "../../style/variables/index.less";
 
 .TocItem {
+    font-size: @size-s;
     display: flex;
     flex-direction: column;
 
@@ -71,7 +72,7 @@ const activeHeadingId = inject(activeHeadingIdSymbol);
 }
 
 .TocItem_title___active {
-    background-color: #00000019;
+    background-color: #00000016;
     border-color: @color-primary;
 }
 </style>
