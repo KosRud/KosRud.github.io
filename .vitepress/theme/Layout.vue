@@ -473,6 +473,20 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 }
 
 /*
+	Pointer-events
+\*----------------------------------*/
+
+.Overlay {
+    pointer-events: none;
+}
+
+.Toc,
+.SideNav,
+.Header {
+    pointer-events: auto;
+}
+
+/*
 	UI shadows
 \*----------------------------------*/
 
@@ -485,8 +499,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 \*----------------------------------*/
 
 .SideNav_itemTitle,
-.Header,
-.Toc_title {
+.Header {
     font-family: @font-ui;
 }
 
