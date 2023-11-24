@@ -223,10 +223,6 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 
 <style lang="less" module>
 @import "./style/variables/index.less";
-@SideNav-width: 250rem;
-@Toc-to-Main-gap: @gap*2;
-@TopNav-gap-vertical: @gap*0.75;
-@Header-height: @size*2 + @TopNav-gap-vertical*2;
 
 .Overlay {
     position: fixed;
