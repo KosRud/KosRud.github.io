@@ -1,5 +1,3 @@
-import type { Ref } from "vue";
-
 import { ComponentPublicInstance, computed, ref } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";
 import TocItem from "./TocItem";
@@ -16,7 +14,7 @@ export default (getPageContent: () => ComponentPublicInstance | null) => {
         {
             // force recalculation when these variables change
             tocContentUpdateTrigger;
-            route.path;
+            route.path; // onContentUpdated fails if we land on 404
         }
 
         const content: HTMLElement = getPageContent()?.$el;

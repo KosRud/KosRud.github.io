@@ -14,7 +14,7 @@ provideActiveHeadingId(tocItems);
 
 <template>
     <div :class="$style.Toc">
-        <h2 :class="$style.Toc_title">On this page</h2>
+        <h2 :class="$style.Toc_title">On this page:</h2>
         <nav :class="$style.Toc_content">
             <ul>
                 <LayoutTocItem
