@@ -63,7 +63,13 @@ function findActiveHeading(headings: TocItem[]): TocItem | undefined {
             return inChildren;
         }
 
-        if (heading.element.getBoundingClientRect().top < 0) {
+        const rect = heading.element.getBoundingClientRect();
+
+        if (
+            rect.top <
+            48 + // ToDo determine top edge of visible space (depends on header height)
+                parseInt(window.getComputedStyle(heading.element).marginTop, 10)
+        ) {
             return heading;
         }
     }

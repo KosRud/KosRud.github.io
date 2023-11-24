@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MarkdownWrapperVue from "../../.vitepress/theme/MarkdownWrapper.vue";
+import MarkdownWrapperVue from "../../.vitepress/theme/components/MarkdownWrapper.vue";
 import FeaturesGallery from "./FeaturesGallery.vue";
 
 const props = defineProps<{ dummyFeatures?: number }>();
