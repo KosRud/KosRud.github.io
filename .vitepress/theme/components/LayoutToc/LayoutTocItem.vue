@@ -24,7 +24,7 @@ const activeHeadingId = inject(activeHeadingIdSymbol);
                     : '',
             ]"
             :href="`#${props.heading.element.id}`"
-            >{{ props.heading.element.textContent }}</a
+            >{{ props.heading.element.textContent }} + {{ activeHeadingId }}</a
         >
         <ul v-if="props.heading.children.length != 0">
             <LayoutTocItem

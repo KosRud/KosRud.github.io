@@ -10,10 +10,12 @@ export function trackActiveHeadingId(tocItems: Ref<TocItem[]>) {
     provide(activeHeadingIdSymbol, activeHeadingId);
 
     function onScroll() {
-        const activeHeading = findActiveHeading(tocItems.value);
+        const activeTocItem = findActiveHeading(tocItems.value);
 
-        if (activeHeading) {
-            return activeHeading;
+        console.log(activeTocItem?.element.id);
+
+        if (activeTocItem) {
+            activeHeadingId.value = activeTocItem.element.id;
         }
 
         if (tocItems.value.length == 0) {
@@ -34,7 +36,7 @@ export function trackActiveHeadingId(tocItems: Ref<TocItem[]>) {
     return activeHeadingId;
 }
 
-function findActiveHeading(headings: TocItem[]) {
+function findActiveHeading(headings: TocItem[]): TocItem | undefined {
     // search from bottom of the page to top
     // return first heading that is above top screen edge
 
