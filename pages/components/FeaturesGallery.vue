@@ -10,12 +10,12 @@ const props = defineProps<{
 <template>
     <!-- surrounding div is necessary to ensure negative margins work properly -->
     <div>
-        <section :class="$style.CardGallery">
+        <section :class="$style.FeaturesGallery">
             <slot />
             <FeaturesGallery_Card
                 dummy
                 name=""
-                :class="$style.CardGallery_dummy"
+                :class="$style.FeaturesGallery_dummy"
                 v-for="_ in Array.from({ length: props.dummies ?? 0 })"
             ></FeaturesGallery_Card>
         </section>
@@ -27,7 +27,7 @@ const props = defineProps<{
 
 @CardGalleryGap: @gap*2;
 
-.CardGallery {
+.FeaturesGallery {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -42,7 +42,7 @@ const props = defineProps<{
     margin: @CardGalleryGap*-0.5;
 }
 
-.CardGallery_dummy {
+.FeaturesGallery_dummy {
     margin-top: @CardGalleryGap*-0.5;
 }
 </style>

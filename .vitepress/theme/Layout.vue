@@ -95,7 +95,10 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
                     </ul>
                 </nav>
             </header>
-            <div :class="$style.NavContainer">
+            <div
+                :class="$style.NavContainer"
+                v-if="!frontmatter.hero"
+            >
                 <nav :class="$style.SideNav">
                     <ul>
                         <li
@@ -221,9 +224,9 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 <style lang="less" module>
 @import "./style/variables/index.less";
 @SideNav-width: 250rem;
-@Main-padding: @gap*2;
-@Main-gap: @gap*2;
-@Header-height: @gap*4;
+@Toc-to-Main-gap: @gap*2;
+@TopNav-gap-vertical: @gap*0.75;
+@Header-height: @size*2 + @TopNav-gap-vertical*2;
 
 .Overlay {
     position: fixed;
@@ -238,7 +241,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 }
 
 .NavContainer_spacer {
-    width: @content-width + @Main-padding*2 + @Main-gap;
+    width: @content-width + @Toc-to-Main-gap*3;
 }
 
 .CurrentLocation {
@@ -268,8 +271,8 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
         flex-direction: row;
         height: 100%;
         gap: @gap;
-        padding-top: @gap;
-        padding-bottom: @gap;
+        padding-top: @TopNav-gap-vertical;
+        padding-bottom: @TopNav-gap-vertical;
     }
 }
 
@@ -278,12 +281,15 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
         content: none;
     }
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: stretch;
     align-items: center;
 }
 
 .Header_navLink {
-    @Header_navLink-border-width: 2rem;
+    @navlink-pad: @gap*0.5;
+
+    flex: 1 1 calc(@navlink-pad*2 + 1em);
 
     &:link,
     &:visited {
@@ -292,10 +298,10 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     }
     background: @color-primary;
     background-clip: border-box;
-    border: @Header_navLink-border-width solid #fff1;
+    border: @width solid #fff1;
     border-radius: @gap*0.5;
     line-height: 1;
-    padding: @gap*0.5;
+    padding: @navlink-pad;
     min-width: @gap*11;
     display: flex;
     align-items: center;
@@ -310,7 +316,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     }
 
     &:active {
-        transform: translateY(2rem);
+        transform: translateY(@click-offset);
     }
 }
 
@@ -322,8 +328,8 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
         left: @gap*0.0;
         right: @gap*0.0;
         bottom: calc(0rem - @gap);
-        top: calc(0rem - @gap);
-        border-top: @gap*0.25 solid @color-background;
+        top: calc(0rem - @TopNav-gap-vertical);
+        border-top: @width solid @color-background;
         pointer-events: none;
     }
 }
@@ -339,7 +345,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 
     & > ul {
         flex: 1 0 auto;
-        padding-top: @Main-padding;
+        padding-top: @Toc-to-Main-gap;
     }
 
     visibility: v-bind("sideNav.length == 0 ? 'hidden' : 'visible'");
@@ -399,11 +405,9 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     max-height: 90%;
     align-self: flex-start;
 
-    padding: @Main-padding @gap;
+    padding: @Toc-to-Main-gap @gap;
     display: flex;
     flex-direction: column;
-
-    margin-right: @Main-gap;
 }
 
 .Main {
@@ -411,9 +415,9 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     margin-top: @Header-height;
     margin-left: @SideNav-width;
 
-    max-width: @content-width + @Main-padding*2; // account for padding
+    max-width: @content-width + @Toc-to-Main-gap*2; // account for padding
 
-    padding: @Main-padding;
+    padding: @Toc-to-Main-gap;
     background-color: @color-white;
     border-right: 1rem solid @color-border;
     border-left: 1rem solid @color-border;
@@ -421,11 +425,18 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 
 .HeroMain {
     flex-grow: 1;
-    > div {
-        height: 100%;
-        > div {
-            height: 100%;
-        }
+    margin-top: @Header-height;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+
+    // vitepress <Content> creates 2 divs
+    > div,
+    > div > div {
+        flex-grow: 1;
+        display: flex;
+        justify-content: stretch;
     }
 }
 
