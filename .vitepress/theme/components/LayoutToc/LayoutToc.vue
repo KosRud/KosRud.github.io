@@ -42,7 +42,7 @@ provideActiveHeadingId(tocItems);
     padding: @gap;
     border: @width-s solid @color-border;
     border-radius: @gap;
-    box-shadow: @shadow;
+    box-shadow: @shadow-s;
 }
 
 .Toc_title {
