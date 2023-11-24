@@ -31,184 +31,186 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 
 <template>
     <div :class="$style.Layout">
-        <header :class="$style.Header">
-            <a
-                :class="$style.Header_siteTitleContainer"
-                href="/"
-            >
-                <div>
-                    <span :class="$style.Header_siteTitle">
-                        {{ site.title }}</span
-                    >
-                    <span :class="$style.Header_siteDescription">
-                        {{ site.description }}</span
-                    >
-                </div>
-            </a>
-            <nav :class="$style.Header_nav">
-                <ul>
-                    <li
-                        v-for="navItem in site.themeConfig.nav"
-                        :class="$style.Header_navItem"
-                    >
-                        <a
-                            :class="[
-                                $style.Header_navLink,
-                                [UrlMatch.full, UrlMatch.inside].includes(
-                                    urlMatch(route.path, navItem.url)
-                                )
-                                    ? $style.Header_navLink___active
-                                    : '',
-                            ]"
-                            :href="navItem.url"
-                            >{{ navItem.title }}</a
+        <div :class="$style.Overlay">
+            <header :class="$style.Header">
+                <a
+                    :class="$style.Header_siteTitleContainer"
+                    href="/"
+                >
+                    <div>
+                        <span :class="$style.Header_siteTitle">
+                            {{ site.title }}</span
                         >
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <div
-            :class="$style.MainContainer"
+                        <span :class="$style.Header_siteDescription">
+                            {{ site.description }}</span
+                        >
+                    </div>
+                </a>
+                <nav :class="$style.Header_nav">
+                    <ul>
+                        <li
+                            v-for="navItem in site.themeConfig.nav"
+                            :class="$style.Header_navItem"
+                        >
+                            <a
+                                :class="[
+                                    $style.Header_navLink,
+                                    [UrlMatch.full, UrlMatch.inside].includes(
+                                        urlMatch(route.path, navItem.url)
+                                    )
+                                        ? $style.Header_navLink___active
+                                        : '',
+                                ]"
+                                :href="navItem.url"
+                                >{{ navItem.title }}</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <div :class="$style.NavContainer">
+                <nav :class="$style.SideNav">
+                    <ul>
+                        <li
+                            v-for="navItem in sideNav"
+                            :class="[
+                                $style.SideNav_item,
+                                $style.SideNav_item___level1,
+                                urlActive(navItem.url) ? [$style.active] : '',
+                            ]"
+                        >
+                            <a
+                                :href="navItem.url"
+                                :class="[
+                                    $style.SideNav_itemTitle,
+                                    $style.SideNav_itemTitle___level1,
+                                ]"
+                                >{{ navItem.title }}</a
+                            >
+                            <ul v-if="urlActive(navItem.url)">
+                                <li
+                                    :class="[
+                                        $style.SideNav_item,
+                                        $style.SideNav_item___level2,
+                                    ]"
+                                >
+                                    <a
+                                        href="#"
+                                        :class="[
+                                            $style.SideNav_itemTitle,
+                                            $style.SideNav_itemTitle___level2,
+                                        ]"
+                                        >Some page name</a
+                                    >
+                                </li>
+                                <li
+                                    :class="[
+                                        $style.SideNav_item,
+                                        $style.SideNav_item___level2,
+                                    ]"
+                                >
+                                    <a
+                                        href="#"
+                                        :class="[
+                                            $style.SideNav_itemTitle,
+                                            $style.SideNav_itemTitle___level2,
+                                        ]"
+                                        >Some page name</a
+                                    >
+                                </li>
+                                <li
+                                    :class="[
+                                        $style.SideNav_item,
+                                        $style.SideNav_item___level2,
+                                    ]"
+                                >
+                                    <a
+                                        href="#"
+                                        :class="[
+                                            $style.SideNav_itemTitle,
+                                            $style.SideNav_itemTitle___level2,
+                                        ]"
+                                        >Some page name</a
+                                    >
+                                </li>
+                                <li
+                                    :class="[
+                                        $style.SideNav_item,
+                                        $style.SideNav_item___level2,
+                                    ]"
+                                >
+                                    <a
+                                        href="#"
+                                        :class="[
+                                            $style.SideNav_itemTitle,
+                                            $style.SideNav_itemTitle___level2,
+                                        ]"
+                                        >Some page name</a
+                                    >
+                                </li>
+                                <li
+                                    :class="[
+                                        $style.SideNav_item,
+                                        $style.SideNav_item___level2,
+                                    ]"
+                                >
+                                    <a
+                                        href="#"
+                                        :class="[
+                                            $style.SideNav_itemTitle,
+                                            $style.SideNav_itemTitle___level2,
+                                        ]"
+                                        >Some page name</a
+                                    >
+                                </li>
+                                <li
+                                    :class="[
+                                        $style.SideNav_item,
+                                        $style.SideNav_item___level2,
+                                    ]"
+                                >
+                                    <a
+                                        href="#"
+                                        :class="[
+                                            $style.SideNav_itemTitle,
+                                            $style.SideNav_itemTitle___level2,
+                                        ]"
+                                        >Some page name</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div :class="$style.NavContainer_spacer"></div>
+                <nav :class="$style.Toc">
+                    <LayoutToc :page-content="pageContent" />
+                </nav>
+            </div>
+        </div>
+
+        <main
+            :class="[
+                $style.Main,
+                sideNav.length == 0 ? '' : $style.Main___sideNav,
+            ]"
             v-if="!frontmatter.hero"
         >
-            <nav :class="$style.SideNav">
-                <ul>
-                    <li
-                        v-for="navItem in sideNav"
-                        :class="[
-                            $style.SideNav_item,
-                            $style.SideNav_item___level1,
-                            urlActive(navItem.url) ? [$style.active] : '',
-                        ]"
-                    >
-                        <a
-                            :href="navItem.url"
-                            :class="[
-                                $style.SideNav_itemTitle,
-                                $style.SideNav_itemTitle___level1,
-                            ]"
-                            >{{ navItem.title }}</a
-                        >
-                        <ul v-if="urlActive(navItem.url)">
-                            <li
-                                :class="[
-                                    $style.SideNav_item,
-                                    $style.SideNav_item___level2,
-                                ]"
-                            >
-                                <a
-                                    href="#"
-                                    :class="[
-                                        $style.SideNav_itemTitle,
-                                        $style.SideNav_itemTitle___level2,
-                                    ]"
-                                    >Some page name</a
-                                >
-                            </li>
-                            <li
-                                :class="[
-                                    $style.SideNav_item,
-                                    $style.SideNav_item___level2,
-                                ]"
-                            >
-                                <a
-                                    href="#"
-                                    :class="[
-                                        $style.SideNav_itemTitle,
-                                        $style.SideNav_itemTitle___level2,
-                                    ]"
-                                    >Some page name</a
-                                >
-                            </li>
-                            <li
-                                :class="[
-                                    $style.SideNav_item,
-                                    $style.SideNav_item___level2,
-                                ]"
-                            >
-                                <a
-                                    href="#"
-                                    :class="[
-                                        $style.SideNav_itemTitle,
-                                        $style.SideNav_itemTitle___level2,
-                                    ]"
-                                    >Some page name</a
-                                >
-                            </li>
-                            <li
-                                :class="[
-                                    $style.SideNav_item,
-                                    $style.SideNav_item___level2,
-                                ]"
-                            >
-                                <a
-                                    href="#"
-                                    :class="[
-                                        $style.SideNav_itemTitle,
-                                        $style.SideNav_itemTitle___level2,
-                                    ]"
-                                    >Some page name</a
-                                >
-                            </li>
-                            <li
-                                :class="[
-                                    $style.SideNav_item,
-                                    $style.SideNav_item___level2,
-                                ]"
-                            >
-                                <a
-                                    href="#"
-                                    :class="[
-                                        $style.SideNav_itemTitle,
-                                        $style.SideNav_itemTitle___level2,
-                                    ]"
-                                    >Some page name</a
-                                >
-                            </li>
-                            <li
-                                :class="[
-                                    $style.SideNav_item,
-                                    $style.SideNav_item___level2,
-                                ]"
-                            >
-                                <a
-                                    href="#"
-                                    :class="[
-                                        $style.SideNav_itemTitle,
-                                        $style.SideNav_itemTitle___level2,
-                                    ]"
-                                    >Some page name</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-            <main
-                :class="[
-                    $style.Main,
-                    sideNav.length == 0 ? '' : $style.Main___sideNav,
-                ]"
-            >
-                <section :class="$style.Main_content">
-                    <header :class="$style.CurrentLocation">
-                        <YouAreHere />
-                    </header>
-                    <MarkdownWrapper>
-                        <Content
-                            :ref="
+            <section :class="$style.Main_content">
+                <header :class="$style.CurrentLocation">
+                    <YouAreHere />
+                </header>
+                <MarkdownWrapper>
+                    <Content
+                        :ref="
                                 (component : ComponentPublicInstance) => {
 									pageContent = component;
                                 }
                             "
-                        />
-                    </MarkdownWrapper>
-                </section>
-                <aside :class="$style.Toc">
-                    <LayoutToc :page-content="pageContent" />
-                </aside>
-            </main>
-        </div>
+                    />
+                </MarkdownWrapper>
+            </section>
+        </main>
         <main
             v-else
             :class="$style.HeroMain"
@@ -223,6 +225,23 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 @SideNav-width: 250rem;
 @Main-padding: @gap*2;
 @Main-gap: @gap*2;
+@Header-height: @gap*4;
+
+.Overlay {
+    position: fixed;
+    top: 0rem;
+    bottom: 0rem;
+    left: 0rem;
+    right: 0rem;
+}
+
+.NavContainer {
+    display: flex;
+}
+
+.NavContainer_spacer {
+    width: @content-width + @Main-padding*2 + @Main-gap;
+}
 
 .CurrentLocation {
     margin-bottom: @gap*2;
@@ -230,20 +249,16 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 
 .Layout {
     width: 100%;
-    height: 100%; // this prevents #id links from working
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
     justify-content: stretch;
     background-color: @color-background;
 }
 
 .Header {
-    align-self: stretch;
     background-color: @color-background-dark;
     display: flex;
     gap: @gap;
-    flex: 0 0 min-content;
+
+    height: @Header-height;
 }
 
 .Header_nav {
@@ -310,11 +325,6 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
         border-top: @gap*0.25 solid @color-background;
         pointer-events: none;
     }
-}
-
-.MainContainer {
-    flex-grow: 1;
-    display: flex;
 }
 
 .SideNav {
@@ -396,13 +406,12 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 }
 
 .Main {
-    flex-grow: 1;
+    margin-top: @Header-height;
+    margin-left: @SideNav-width;
 
     display: flex;
     flex-direction: row;
     justify-content: start;
-    overflow-y: scroll;
-    gap: @Main-gap;
 }
 
 .Main_content {
@@ -474,12 +483,12 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 	Z-index
 \*----------------------------------*/
 
-.Header {
-    z-index: 1;
-}
-
 .Main {
     z-index: 0;
+}
+
+.Overlay {
+    z-index: 1;
 }
 
 /*
