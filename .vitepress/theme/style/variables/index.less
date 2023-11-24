@@ -2,7 +2,37 @@
 
 @inf: max(1000000rem, 1000vmax);
 
+/*
+	Distances, gaps, font sizes
+\*----------------------------------*/
+
 @gap: 12rem;
+
+@size-s: 14rem;
+@size: 16rem;
+@size-l: 18rem;
+@size-xl: 20rem;
+@size-hero: 48rem;
+@size-hero-s: 24rem;
+
+@width-min: 1rem;
+@width: 2rem;
+
+@click-offset: 2rem;
+
+/*
+	Layout-specific distances
+\*----------------------------------*/
+
+@content-width: 700rem;
+@SideNav-width: 250rem;
+@Toc-to-Main-gap: @gap*2;
+@TopNav-gap-vertical: @gap*0.75;
+@Header-height: @size*2 + @TopNav-gap-vertical*2;
+
+/*
+	Shadows
+\*----------------------------------*/
 
 @shadow: 0rem 0rem 4rem 0rem #0003, 0rem 4rem 5rem 0rem #0003;
 @shadow-l: 0rem 0rem 8rem 0rem #00000028, 0rem 8rem 10rem 0rem #00000028;
@@ -12,6 +42,10 @@
     0rem -8rem 10rem 0rem #00000028;
 @shadow-xl-inverted: 0rem 0rem 16rem 0rem #0003,
     0rem -16rem 20rem 0rem #00000021;
+
+/*
+	Colors
+\*----------------------------------*/
 
 @color-border: #c0c0c0;
 @color-background-dark: #282828;
@@ -28,24 +62,11 @@
 
 @color-highlight: #fff4;
 
-@size-s: 14rem;
-@size: 16rem;
-@size-l: 18rem;
-@size-xl: 20rem;
-@size-hero: 48rem;
-@size-hero-s: 24rem;
-
-@width-min: 1rem;
-@width: 2rem;
-
-@click-offset: 2rem;
+/*
+	Fonts
+\*----------------------------------*/
 
 @font-ui: @font-IosevkaAileWeb;
 @font-readable: @font-HubotSans;
 @font-strict: @font-Inter;
 @font-hero: @font-Lato;
-
-@content-width: 700rem;
-@SideNav-width: 250rem;
-@Toc-width: 200rem;
-@Main-gap: @gap*2;
