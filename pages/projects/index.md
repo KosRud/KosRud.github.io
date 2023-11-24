@@ -7,6 +7,8 @@ title: My projects
 	import ProjectsPage_Projects from "../components/ProjectPage_Projects.vue"
 </script>
 
+# My projects
+
 <ProjectsPage>
 	<template #Projects>
 		<ProjectsPage_Projects/>
