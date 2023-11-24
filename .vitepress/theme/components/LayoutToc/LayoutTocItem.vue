@@ -72,9 +72,12 @@ const activeHeadingId = inject(activeHeadingIdSymbol);
 }
 
 .TocItem_title___active {
-    background-color: #00000016;
+    // background-color: #00000010;
     border-color: @color-primary;
+    font-weight: bold;
 
     transition: background-color 0.1s;
+    transition: border-color 0.1s;
+    transition: font-weight 0.1s;
 }
 </style>

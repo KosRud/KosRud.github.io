@@ -417,7 +417,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     border-right: @width-s solid @color-border;
     border-left: @width-s solid @color-border;
 
-    box-shadow: @shadow-s;
+    // box-shadow: @shadow-s;
 }
 
 .HeroMain {
