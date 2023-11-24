@@ -31,6 +31,33 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 
 <template>
     <div :class="$style.Layout">
+        <main
+            :class="[
+                $style.Main,
+                sideNav.length == 0 ? '' : $style.Main___sideNav,
+            ]"
+            v-if="!frontmatter.hero"
+        >
+            <header :class="$style.CurrentLocation">
+                <YouAreHere />
+            </header>
+            <MarkdownWrapper>
+                <Content
+                    :ref="
+						(component : ComponentPublicInstance) => {
+							pageContent = component;
+						}
+					"
+                />
+            </MarkdownWrapper>
+        </main>
+        <main
+            v-else
+            :class="$style.HeroMain"
+        >
+            <Content />
+        </main>
+
         <div :class="$style.Overlay">
             <header :class="$style.Header">
                 <a
@@ -188,33 +215,6 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
                 </nav>
             </div>
         </div>
-
-        <main
-            :class="[
-                $style.Main,
-                sideNav.length == 0 ? '' : $style.Main___sideNav,
-            ]"
-            v-if="!frontmatter.hero"
-        >
-            <header :class="$style.CurrentLocation">
-                <YouAreHere />
-            </header>
-            <MarkdownWrapper>
-                <Content
-                    :ref="
-						(component : ComponentPublicInstance) => {
-							pageContent = component;
-						}
-					"
-                />
-            </MarkdownWrapper>
-        </main>
-        <main
-            v-else
-            :class="$style.HeroMain"
-        >
-            <Content />
-        </main>
     </div>
 </template>
 
@@ -470,14 +470,6 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 .Header_siteDescription {
     font-size: @size-s;
     text-align: right;
-}
-
-/*
-	Z-index
-\*----------------------------------*/
-
-.Overlay {
-    z-index: 1;
 }
 
 /*
