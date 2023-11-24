@@ -4,10 +4,17 @@ const props = defineProps<{
     title: string;
     links?: { github?: string; docs?: string };
 }>();
+
+function makeHeadingId(title: string) {
+    return title.replace(/[&<"]/, "").replace(/\s/g, "-"); // ToDo this is just a placeholder
+}
 </script>
 
 <template>
-    <h3 :class="$style.Project_title">
+    <h3
+        :class="$style.Project_title"
+        :id="makeHeadingId(props.title)"
+    >
         <div :style="$style.Project_titleText">{{ props.title }}</div>
         <section :class="$style.Project_devIcons">
             <img
