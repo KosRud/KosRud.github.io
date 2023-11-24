@@ -17,6 +17,7 @@ function createUpdateTrigger() {
     onUnmounted(() => {
         window.removeEventListener("scroll", triggerUpdate);
     });
+    return updateTrigger;
 }
 
 export function trackActiveHeadingId(tocItems: Ref<TocItem[]>) {
@@ -42,8 +43,8 @@ export function trackActiveHeadingId(tocItems: Ref<TocItem[]>) {
         {
             // force recalculation when these variables change
             route.path; // onContentUpdated fails if we land on 404
-            tocItems;
-            updateTrigger;
+            tocItems.value;
+            updateTrigger.value;
         }
 
         return getActiveHeadingId();
