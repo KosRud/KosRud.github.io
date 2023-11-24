@@ -24,8 +24,8 @@ const activeHeadingId = inject(activeHeadingIdSymbol);
                     : '',
             ]"
             :href="`#${props.heading.element.id}`"
-            >{{ props.heading.element.textContent }} + {{ activeHeadingId }}</a
-        >
+            >{{ props.heading.element.textContent }}
+        </a>
         <ul v-if="props.heading.children.length != 0">
             <LayoutTocItem
                 v-for="child in props.heading.children"
@@ -65,11 +65,7 @@ const activeHeadingId = inject(activeHeadingIdSymbol);
 
         &:hover {
             border-color: @color-primary;
-            // background-color: #0002;
             color: @color-primary;
-            // font-weight: bold;
-            // text-decoration: underline;
-            // color: @color-white;
         }
     }
 }
