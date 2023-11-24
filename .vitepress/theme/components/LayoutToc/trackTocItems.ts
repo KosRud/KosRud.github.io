@@ -4,7 +4,7 @@ import { ComponentPublicInstance, computed, ref } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";
 import TocItem from "./TocItem";
 
-export default (pageContent: ComponentPublicInstance | null) => {
+export default (getPageContent: () => ComponentPublicInstance | null) => {
     const route = useRoute();
 
     const tocContentUpdateTrigger = ref(false);
@@ -19,7 +19,7 @@ export default (pageContent: ComponentPublicInstance | null) => {
             route.path;
         }
 
-        const content: HTMLElement = pageContent?.$el;
+        const content: HTMLElement = getPageContent()?.$el;
 
         if (!content) {
             return [];

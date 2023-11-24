@@ -2,18 +2,17 @@
 import { ComponentPublicInstance, computed, ref } from "vue";
 
 import trackTocItems from "./trackTocItems";
-import { trackActiveHeadingId } from "./trackActiveHeadingId";
+import { trackActiveHeadingId as provideActiveHeadingId } from "./trackActiveHeadingId";
 
 import LayoutTocItem from "./LayoutTocItem.vue";
 
 const props = defineProps<{ pageContent: ComponentPublicInstance | null }>();
 
-const tocItems = trackTocItems(props.pageContent);
-const activeHeadingId = trackActiveHeadingId(tocItems);
+const tocItems = trackTocItems(() => props.pageContent);
+provideActiveHeadingId(tocItems);
 </script>
 
 <template>
-    {{ tocItems }}
     <div :class="$style.Toc">
         <h2 :class="$style.Toc_title">On this page</h2>
         <nav :class="$style.Toc_content">
@@ -22,10 +21,8 @@ const activeHeadingId = trackActiveHeadingId(tocItems);
                     v-for="tocItem in tocItems"
                     :key="tocItem.element.id"
                     :heading="tocItem"
-                    :active="activeHeadingId == tocItem.element.id"
                 />
             </ul>
-            <!-- <pre>{{ JSON.stringify(tocContent, null, 2) }}</pre> -->
         </nav>
     </div>
 </template>
