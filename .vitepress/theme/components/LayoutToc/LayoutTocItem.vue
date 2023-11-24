@@ -74,5 +74,7 @@ const activeHeadingId = inject(activeHeadingIdSymbol);
 .TocItem_title___active {
     background-color: #00000016;
     border-color: @color-primary;
+
+    transition: background-color 0.1s;
 }
 </style>

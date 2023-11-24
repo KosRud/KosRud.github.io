@@ -414,8 +414,10 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 
     padding: @Toc-to-Main-gap;
     background-color: @color-white;
-    border-right: 1rem solid @color-border;
-    border-left: 1rem solid @color-border;
+    border-right: @width-s solid @color-border;
+    border-left: @width-s solid @color-border;
+
+    box-shadow: @shadow;
 }
 
 .HeroMain {
