@@ -32,10 +32,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 <template>
     <div :class="$style.Layout">
         <main
-            :class="[
-                $style.Main,
-                sideNav.length == 0 ? '' : $style.Main___sideNav,
-            ]"
+            :class="$style.Main"
             v-if="!frontmatter.hero"
         >
             <header :class="$style.CurrentLocation">
@@ -344,6 +341,8 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
         padding-top: @Toc-to-Main-gap;
     }
 
+    // font-size: @size-s;
+
     visibility: v-bind("sideNav.length == 0 ? 'hidden' : 'visible'");
 }
 
@@ -351,8 +350,8 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding-top: @gap*0.25;
-    padding-bottom: @gap*0.25;
+    padding-top: @gap*0.125;
+    padding-bottom: @gap*0.125;
 
     &::before {
         content: none;
@@ -366,13 +365,13 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 .SideNav_itemTitle,
 .SideNav_itemTitle:link,
 .SideNav_itemTitle:visited {
-    // padding-left: @gap;
     color: @color-black;
-    color: #444;
     text-decoration: inherit;
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    color: @color-black-faded;
 
     &::before {
         content: "";
@@ -518,6 +517,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 //////
 
 li:nth-child(1) .SideNav_itemTitle___level1 {
+    font-weight: bold;
     &::before {
         visibility: visible;
     }
