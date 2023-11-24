@@ -6,44 +6,50 @@ import { onContentUpdated, useRoute } from "vitepress";
 import { activeHeadingIdSymbol } from "./activeHeadingIdSymbol";
 import TocItem from "./TocItem";
 
+function createUpdateTrigger() {
+    const updateTrigger = ref(false);
+    const triggerUpdate = () => {
+        updateTrigger.value = !updateTrigger.value;
+    };
+    onMounted(() => {
+        window.addEventListener("scroll", triggerUpdate);
+    });
+    onUnmounted(() => {
+        window.removeEventListener("scroll", triggerUpdate);
+    });
+}
+
 export function trackActiveHeadingId(tocItems: Ref<TocItem[]>) {
-    const route = useRoute();
+    const updateTrigger = createUpdateTrigger();
 
-    const activeHeadingId = ref("");
-    provide(activeHeadingIdSymbol, activeHeadingId);
-
-    function updateActiveHeading() {
+    function getActiveHeadingId() {
         const activeTocItem = findActiveHeading(tocItems.value);
 
-        console.log(activeTocItem?.element.id);
-
         if (activeTocItem) {
-            activeHeadingId.value = activeTocItem.element.id;
-            return;
+            return activeTocItem.element.id;
         }
 
         if (tocItems.value.length == 0) {
-            activeHeadingId.value = "";
-            return;
+            return "";
         }
 
-        activeHeadingId.value = tocItems.value[0].element.id;
+        return tocItems.value[0].element.id;
     }
 
-    onMounted(() => {
-        window.addEventListener("scroll", updateActiveHeading);
-        window.addEventListener("load", updateActiveHeading);
-    });
-    onUnmounted(() => {
-        window.removeEventListener("scroll", updateActiveHeading);
-        window.removeEventListener("load", updateActiveHeading);
-    });
-    onContentUpdated(updateActiveHeading);
+    const route = useRoute();
 
-    return computed(() => {
-        route.path; // onContentUpdated fails if we land on 404
-        return activeHeadingId;
+    const activeHeadingId = computed(() => {
+        {
+            // force recalculation when these variables change
+            route.path; // onContentUpdated fails if we land on 404
+            tocItems;
+            updateTrigger;
+        }
+
+        return getActiveHeadingId();
     });
+
+    provide(activeHeadingIdSymbol, activeHeadingId);
 }
 
 function findActiveHeading(headings: TocItem[]): TocItem | undefined {
