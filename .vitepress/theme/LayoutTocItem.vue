@@ -38,7 +38,7 @@ const level = props.level ?? 1;
 .TocItem_title {
     width: 100%;
 
-    border-left: @gap*0.25 solid @color-border;
+    border-left: @width solid @color-border;
     padding-left: calc(@gap * v-bind(level));
 
     padding-top: @gap*0.125;

@@ -15,7 +15,7 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
     <article
         :class="[
             $style.Card,
-            props.dummy ? $style.CardGallery_card___dummy : '',
+            props.dummy ? $style.FeaturesGallery_card___dummy : '',
             props.class,
         ]"
     >
@@ -57,7 +57,7 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
     text-align: left;
 }
 
-.CardGallery_card___dummy {
+.FeaturesGallery_card___dummy {
     height: 0rem;
     min-height: 0rem;
 
