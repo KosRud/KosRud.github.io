@@ -2,12 +2,12 @@
 import { useData, useRoute } from "vitepress";
 import { computed, ComponentPublicInstance, ref, Ref } from "vue";
 
-import MarkdownWrapper from "./MarkdownWrapper.vue";
-import YouAreHere from "./YouAreHere.vue";
-import LayoutToc from "./LayoutToc.vue";
+import MarkdownWrapper from "./components/MarkdownWrapper.vue";
+import YouAreHere from "./components/YouAreHere.vue";
+import LayoutToc from "./components/LayoutToc/LayoutToc.vue";
 
 import { ThemeConfig } from "./ThemeConfig";
-import { urlMatch, UrlMatch } from "./UrlMatch.js";
+import { urlMatch, UrlMatch } from "./components/UrlMatch.js";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site, frontmatter } = useData<ThemeConfig>();

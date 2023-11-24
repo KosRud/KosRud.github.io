@@ -8,7 +8,7 @@ const route = useRoute();
 </template>
 
 <style lang="less" module>
-@import "./style/variables/index.less";
+@import "../style/variables/index.less";
 
 .Markdown {
     max-width: @content-width;

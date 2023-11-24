@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import { useData, useRoute } from "vitepress";
 
-import { ThemeConfig, NavItem } from "./ThemeConfig";
+import { ThemeConfig, NavItem } from "../ThemeConfig";
 import { urlMatch, UrlMatch } from "./UrlMatch.js";
 
 const route = useRoute();
@@ -74,7 +74,7 @@ const navTrace = computed((): NavItem[] => {
 </template>
 
 <style module lang="less">
-@import "./style/variables/index.less";
+@import "../style/variables/index.less";
 
 .YouAreHere {
     display: flex;

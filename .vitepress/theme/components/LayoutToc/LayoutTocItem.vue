@@ -1,17 +1,30 @@
 <script setup lang="ts">
-import { Heading } from "./LayoutToc.vue";
+import { inject } from "vue";
+import tocItem from "./TocItem";
+import { activeHeadingIdSymbol } from "./activeHeadingIdSymbol";
 
-const props = defineProps<{ heading: Heading; level?: number }>();
+const props = defineProps<{
+    heading: tocItem;
+    level?: number;
+    active?: boolean;
+}>();
 
 const level = props.level ?? 1;
+
+const activeHeadingId = inject(activeHeadingIdSymbol);
 </script>
 
 <template>
     <li :class="$style.TocItem">
         <a
-            :class="$style.TocItem_title"
-            :href="`#${props.heading.id}`"
-            >{{ props.heading.title }}</a
+            :class="[
+                $style.TocItem_title,
+                activeHeadingId == heading.element.id
+                    ? $style.TocItem_title___active
+                    : '',
+            ]"
+            :href="`#${props.heading.element.id}`"
+            >{{ props.heading.element.textContent }}</a
         >
         <ul v-if="props.heading.children.length != 0">
             <LayoutTocItem
@@ -24,7 +37,7 @@ const level = props.level ?? 1;
 </template>
 
 <style module lang="less">
-@import "./style/variables/index.less";
+@import "../../style/variables/index.less";
 
 .TocItem {
     display: flex;
@@ -59,5 +72,9 @@ const level = props.level ?? 1;
             // color: @color-white;
         }
     }
+}
+
+.TocItem_title___active {
+    background-color: red;
 }
 </style>
