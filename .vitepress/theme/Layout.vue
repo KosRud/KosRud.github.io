@@ -196,20 +196,18 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
             ]"
             v-if="!frontmatter.hero"
         >
-            <section :class="$style.Main_content">
-                <header :class="$style.CurrentLocation">
-                    <YouAreHere />
-                </header>
-                <MarkdownWrapper>
-                    <Content
-                        :ref="
-                                (component : ComponentPublicInstance) => {
-									pageContent = component;
-                                }
-                            "
-                    />
-                </MarkdownWrapper>
-            </section>
+            <header :class="$style.CurrentLocation">
+                <YouAreHere />
+            </header>
+            <MarkdownWrapper>
+                <Content
+                    :ref="
+						(component : ComponentPublicInstance) => {
+							pageContent = component;
+						}
+					"
+                />
+            </MarkdownWrapper>
         </main>
         <main
             v-else
@@ -249,8 +247,11 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 
 .Layout {
     width: 100%;
-    justify-content: stretch;
+    min-height: 100%;
     background-color: @color-background;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
 }
 
 .Header {
@@ -406,19 +407,11 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 }
 
 .Main {
+    flex-grow: 1;
     margin-top: @Header-height;
     margin-left: @SideNav-width;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-}
-
-.Main_content {
-    flex-grow: 1;
     max-width: @content-width + @Main-padding*2; // account for padding
-    height: min-content;
-    min-height: 100%;
 
     padding: @Main-padding;
     background-color: @color-white;
@@ -482,10 +475,6 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 /*
 	Z-index
 \*----------------------------------*/
-
-.Main {
-    z-index: 0;
-}
 
 .Overlay {
     z-index: 1;
