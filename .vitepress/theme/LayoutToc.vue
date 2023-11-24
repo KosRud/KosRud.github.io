@@ -30,11 +30,11 @@ const tocContent = computed(() => {
     }
 
     function tagToTitleLevel(tag: string) {
-        const level = ["H1", "H2", "H3", "H4", "H5", "H6"].findIndex(
+        const index = ["H1", "H2", "H3", "H4", "H5", "H6"].findIndex(
             (x) => x == tag
         );
-        if (level != -1) {
-            return level + 1;
+        if (index != -1) {
+            return index + 1;
         }
 
         console.error(`Invalid heading tag: ${tag}`);
@@ -43,12 +43,24 @@ const tocContent = computed(() => {
 
     const headings: Heading[] = Array.from(
         content.querySelectorAll("h1, h2, h3, h4")
-    ).map((element) => ({
-        level: tagToTitleLevel(element.tagName),
-        title: element.textContent ?? "???", // ToDo handle error
-        children: [],
-        id: element.id,
-    }));
+    ).flatMap((element) => {
+        if (element.textContent) {
+            return [
+                {
+                    level: tagToTitleLevel(element.tagName),
+                    title: element.textContent,
+                    children: [],
+                    id: element.id,
+                },
+            ];
+        } else {
+            console.error(
+                `Error while trying to build TOC from headings. Heading is missing a title`,
+                element
+            );
+            return [];
+        }
+    });
 
     const toc: Heading[] = [];
 
