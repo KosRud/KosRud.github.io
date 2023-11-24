@@ -38,11 +38,11 @@ provideActiveHeadingId(tocItems);
     gap: @gap;
     color: @color-black-faded;
 
-    background-color: @color-white;
-    padding: @gap;
-    border: @width-s solid @color-border;
-    border-radius: @gap;
-    box-shadow: @shadow-s;
+    // background-color: @color-white;
+    // padding: @gap*2;
+    // border: @width-s solid @color-border;
+    // border-radius: @gap;
+    // box-shadow: @shadow-s;
 }
 
 .Toc_title {
