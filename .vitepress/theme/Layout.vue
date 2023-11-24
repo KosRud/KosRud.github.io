@@ -397,7 +397,6 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     top: 0rem;
     flex: 1 0 200rem;
     max-width: max-content;
-    min-height: min(200rem, 100%);
     max-height: 90%;
     align-self: flex-start;
 

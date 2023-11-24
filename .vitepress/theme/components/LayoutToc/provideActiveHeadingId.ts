@@ -1,15 +1,18 @@
 import type { Ref } from "vue";
 
 import { ref, onMounted, onUnmounted, provide, computed } from "vue";
+import { onContentUpdated, useRoute } from "vitepress";
 
 import { activeHeadingIdSymbol } from "./activeHeadingIdSymbol";
 import TocItem from "./TocItem";
 
 export function trackActiveHeadingId(tocItems: Ref<TocItem[]>) {
+    const route = useRoute();
+
     const activeHeadingId = ref("");
     provide(activeHeadingIdSymbol, activeHeadingId);
 
-    function onScroll() {
+    function updateActiveHeading() {
         const activeTocItem = findActiveHeading(tocItems.value);
 
         console.log(activeTocItem?.element.id);
@@ -28,13 +31,19 @@ export function trackActiveHeadingId(tocItems: Ref<TocItem[]>) {
     }
 
     onMounted(() => {
-        window.addEventListener("scroll", onScroll);
+        window.addEventListener("scroll", updateActiveHeading);
+        window.addEventListener("load", updateActiveHeading);
     });
     onUnmounted(() => {
-        window.removeEventListener("scroll", onScroll);
+        window.removeEventListener("scroll", updateActiveHeading);
+        window.removeEventListener("load", updateActiveHeading);
     });
+    onContentUpdated(updateActiveHeading);
 
-    return activeHeadingId;
+    return computed(() => {
+        route.path; // onContentUpdated fails if we land on 404
+        return activeHeadingId;
+    });
 }
 
 function findActiveHeading(headings: TocItem[]): TocItem | undefined {

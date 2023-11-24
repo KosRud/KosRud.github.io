@@ -64,13 +64,14 @@ const activeHeadingId = inject(activeHeadingIdSymbol);
         text-decoration: none;
 
         &:hover {
-            border-color: @color-primary;
+            // border-color: @color-primary;
             color: @color-primary;
         }
     }
 }
 
 .TocItem_title___active {
-    background-color: red;
+    background-color: #00000019;
+    border-color: @color-primary;
 }
 </style>
