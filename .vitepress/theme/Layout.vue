@@ -27,6 +27,15 @@ const sideNav = computed(() => {
 });
 
 const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
+
+const topLevelNavTitle = computed(() => {
+    return (
+        site.value.themeConfig.nav.find((navItem) => {
+            const match = urlMatch(route.path, navItem.url);
+            return [UrlMatch.inside, UrlMatch.full].includes(match);
+        })?.title ?? ""
+    );
+});
 </script>
 
 <template>
@@ -97,6 +106,9 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
                 v-if="!frontmatter.hero"
             >
                 <nav :class="$style.SideNav">
+                    <h2 :class="$style.SideNav_title">
+                        {{ topLevelNavTitle }}/
+                    </h2>
                     <ul>
                         <li
                             v-for="navItem in sideNav"
@@ -335,15 +347,20 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     flex-direction: column;
     justify-content: stretch;
     overflow-y: auto;
+    padding-top: @Toc-to-Main-gap;
+    gap: @gap;
 
     & > ul {
         flex: 1 0 auto;
-        padding-top: @Toc-to-Main-gap;
     }
 
-    // font-size: @size-s;
-
     visibility: v-bind("sideNav.length == 0 ? 'hidden' : 'visible'");
+}
+
+.SideNav_title {
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .SideNav_item {
@@ -370,8 +387,6 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    color: @color-black-faded;
 
     &::before {
         content: "";
@@ -470,12 +485,10 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 }
 
 .Header_siteTitle {
-    font-size: @size-xl;
     text-align: center;
 }
 
 .Header_siteDescription {
-    font-size: @size-s;
     text-align: right;
 }
 
@@ -502,10 +515,26 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 }
 
 /*
-	Fonts
+	Font-size
 \*----------------------------------*/
 
-.SideNav_itemTitle,
+.Header_siteTitle {
+    font-size: @size-xl;
+}
+
+.SideNav_title {
+    font-size: @size-l;
+}
+
+.Header_siteDescription {
+    font-size: @size-s;
+}
+
+/*
+	Font-family
+\*----------------------------------*/
+
+.SideNav_title,
 .Header {
     font-family: @font-ui;
 }
