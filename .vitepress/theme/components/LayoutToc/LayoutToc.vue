@@ -13,7 +13,10 @@ provideActiveHeadingId(tocItems);
 </script>
 
 <template>
-    <div :class="$style.Toc">
+    <div
+        :class="$style.Toc"
+        v-if="tocItems.length > 0"
+    >
         <h2 :class="$style.Toc_title">On this page:</h2>
         <nav :class="$style.Toc_content">
             <ul>
