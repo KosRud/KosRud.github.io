@@ -65,8 +65,8 @@ const activeHeadingId = inject(activeHeadingIdSymbol);
         text-decoration: none;
 
         &:hover {
-            // border-color: @color-primary;
             color: @color-primary;
+            font-weight: bold;
         }
     }
 }

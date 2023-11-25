@@ -402,7 +402,8 @@ const topLevelNavTitle = computed(() => {
     }
 
     &:hover {
-        text-decoration: underline;
+        color: @color-primary;
+        font-weight: bold;
     }
 }
 
