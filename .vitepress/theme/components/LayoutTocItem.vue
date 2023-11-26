@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type TocItem from "./util/Toc/TocItem";
+import type { TocItem } from "./composables/Toc/tocItems";
 
 import { inject } from "vue";
-import activeHeadingIdSymbol from "./util/Toc/symbolActiveHeadingId";
+import { activeHeadingIdSymbol } from "./composables/Toc/activeHeadingId";
 
 const props = defineProps<{
 	heading: TocItem;
@@ -48,8 +48,8 @@ const activeHeadingId = inject(activeHeadingIdSymbol);
 	border-left: @width solid @color-border;
 	padding-left: calc(@gap * v-bind(level));
 
-	padding-top: @gap*0.125;
-	padding-bottom: @gap*0.125;
+	padding-top: @NavItem-padding-vertical;
+	padding-bottom: @NavItem-padding-vertical;
 	padding-right: @gap;
 
 	&:link,

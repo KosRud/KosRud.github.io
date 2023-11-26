@@ -5,7 +5,7 @@ import type { ThemeConfig, NavItem } from "../ThemeConfig";
 import { computed } from "vue";
 import { useData, useRoute } from "vitepress";
 
-import { urlMatch, UrlMatch } from "./util/UrlMatch.js";
+import { urlMatch, UrlMatch } from "./composables/urlMatch.js";
 
 const route = useRoute();
 const { site, frontmatter } = useData<ThemeConfig>();

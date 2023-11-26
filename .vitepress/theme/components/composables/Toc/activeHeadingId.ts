@@ -1,13 +1,14 @@
-import type { Ref } from "vue";
+import type { InjectionKey, Ref } from "vue";
 
 import { ref, onMounted, onUnmounted, provide, computed, inject } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";
 
-import activeHeadingIdSymbol from "./symbolActiveHeadingId";
-import TocItem from "./TocItem";
-import visibleRectSymbol from "../symbolVisibleRect.js";
+import { TocItem } from "./tocItems.js";
+import { symbolVisibleRect } from "../visibleRect.js";
 
-export function trackActiveHeadingId(tocItems: Ref<TocItem[]>) {
+export const activeHeadingIdSymbol = Symbol() as InjectionKey<Ref<string>>;
+
+export function useActiveHeadingIdProvider(tocItems: Ref<TocItem[]>) {
     const updateTrigger = createUpdateTrigger();
 
     function getActiveHeadingId() {
@@ -54,14 +55,13 @@ function createUpdateTrigger() {
     });
 
     onContentUpdated(() => {
-        // onContentUpdated() adds callback removal to onUnmounted() automatically
         window.addEventListener("scroll", triggerUpdate);
     });
     return updateTrigger;
 }
 
 function getVisibleRectStart() {
-    const visibleRect = inject(visibleRectSymbol);
+    const visibleRect = inject(symbolVisibleRect);
 
     if (!visibleRect) {
         console.error("visibleRect not provided");

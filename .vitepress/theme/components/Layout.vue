@@ -9,7 +9,7 @@ import MarkdownWrapper from "./MarkdownWrapper.vue";
 import YouAreHere from "./YouAreHere.vue";
 import LayoutOverlay from "./LayoutOverlay.vue";
 
-import visibleRectSymbol from "./util/symbolVisibleRect";
+import { symbolVisibleRect } from "./composables/visibleRect";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { frontmatter } = useData<ThemeConfig>();
@@ -17,7 +17,7 @@ const { frontmatter } = useData<ThemeConfig>();
 const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 
 const visibleRect: Ref<Element | null> = ref(null);
-provide(visibleRectSymbol, visibleRect);
+provide(symbolVisibleRect, visibleRect);
 </script>
 
 <template>
