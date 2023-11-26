@@ -6,9 +6,11 @@ import { trackActiveHeadingId as provideActiveHeadingId } from "./provideActiveH
 
 import LayoutTocItem from "./LayoutTocItem.vue";
 
-const props = defineProps<{ pageContent: ComponentPublicInstance | null }>();
+const props = defineProps<{
+    pageContent: ComponentPublicInstance | null;
+}>();
 
-const tocItems = trackTocItems(() => props.pageContent);
+const tocItems = trackTocItems(() => props.pageContent?.$el ?? null);
 provideActiveHeadingId(tocItems);
 </script>
 

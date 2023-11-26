@@ -2,13 +2,13 @@ import { ComponentPublicInstance, computed, ref } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";
 import TocItem from "./TocItem";
 
-export default (getPageContent: () => ComponentPublicInstance | null) => {
+export default (getPageContent: () => Element | null) => {
     const route = useRoute();
 
     const tocContentUpdateTrigger = ref(false);
     onContentUpdated(() => {
         tocContentUpdateTrigger.value = !tocContentUpdateTrigger.value;
-    });
+    }); // onContentUpdated() adds callback removal to onUnmounted() automatically
 
     const tocItems = computed(() => {
         {
@@ -17,14 +17,13 @@ export default (getPageContent: () => ComponentPublicInstance | null) => {
             route.path; // onContentUpdated fails if we land on 404
         }
 
-        const content: HTMLElement = getPageContent()?.$el;
-
-        if (!content) {
+        const contentSource = getPageContent();
+        if (!contentSource) {
             return [];
         }
 
         const headings: TocItem[] = Array.from(
-            content.querySelectorAll("h1, h2, h3, h4")
+            contentSource.querySelectorAll("h1, h2, h3, h4")
         ).flatMap((element) => {
             if (element.textContent) {
                 return [

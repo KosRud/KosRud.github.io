@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useData, useRoute } from "vitepress";
-import { computed, ComponentPublicInstance, ref, Ref } from "vue";
+import { computed, ComponentPublicInstance, ref, Ref, provide } from "vue";
 
 import MarkdownWrapper from "./components/MarkdownWrapper.vue";
 import YouAreHere from "./components/YouAreHere.vue";
@@ -8,6 +8,7 @@ import LayoutToc from "./components/LayoutToc/LayoutToc.vue";
 
 import { ThemeConfig } from "./ThemeConfig";
 import { urlMatch, UrlMatch } from "./components/UrlMatch.js";
+import visibleRectSymbol from "./components/visibleRectSymbol.js";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site, frontmatter } = useData<ThemeConfig>();
@@ -36,6 +37,9 @@ const topLevelNavTitle = computed(() => {
         })?.title ?? ""
     );
 });
+
+const visibleRect: Ref<Element | null> = ref(null);
+provide(visibleRectSymbol, visibleRect);
 </script>
 
 <template>
@@ -50,10 +54,10 @@ const topLevelNavTitle = computed(() => {
             <MarkdownWrapper>
                 <Content
                     :ref="
-						(component : ComponentPublicInstance) => {
-							pageContent = component;
-						}
-					"
+                        (component: ComponentPublicInstance | null) => {
+                            pageContent = component;
+                        }
+                    "
                 />
             </MarkdownWrapper>
         </main>
@@ -227,11 +231,29 @@ const topLevelNavTitle = computed(() => {
                 </nav>
             </div>
         </div>
+
+        <div
+            :class="$style.VisibleRectMarker"
+            :ref="
+                (element : Element | ComponentPublicInstance | null) => {
+                    visibleRect = element as Element;
+                }
+            "
+        ></div>
     </div>
 </template>
 
 <style lang="less" module>
 @import "./style/variables/index.less";
+
+.VisibleRectMarker {
+    pointer-events: none;
+    position: fixed;
+    left: 0rem;
+    right: 0rem;
+    bottom: 0rem;
+    top: @Header-height;
+}
 
 .Overlay {
     position: fixed;
