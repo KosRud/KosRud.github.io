@@ -1,13 +1,41 @@
 <script setup lang="ts">
+import type { Ref, ComponentPublicInstance } from "vue";
+
+import { computed, onMounted, onUnmounted, ref } from "vue";
+
 import MarkdownWrapperVue from "../../.vitepress/theme/components/MarkdownWrapper.vue";
 import FeaturesGallery from "./FeaturesGallery.vue";
 
 const props = defineProps<{ dummyFeatures?: number }>();
+
+const hero: Ref<Element | null> = ref(null);
+
+const scrollY = ref(0);
+const heroBrightness = computed(() => {
+	if (!hero.value) {
+		return 1;
+	}
+
+	return Math.max(1 - scrollY.value / hero.value.clientHeight * 0.5, 0);
+})
+
+function onScroll() {
+	scrollY.value = window.scrollY;
+}
+
+onMounted(() => {
+	document.addEventListener('scroll', onScroll, { passive: true })
+})
+onUnmounted(() => {
+	document.removeEventListener('scroll', onScroll);
+})
 </script>
 
 <template>
 	<div :class="$style.HomePage">
-		<section :class="$style.Hero">
+		<section :ref="(element: Element | ComponentPublicInstance | null) => {
+			hero = element as Element;
+		}" :class="$style.Hero">
 			<img :class="$style.Hero_photo" src="/assets/icons/photo/icon.svg" />
 			<div :class="$style.SiteNameContainer">
 				<h2 :class="$style.SiteNameContainer_title">
@@ -69,6 +97,8 @@ const props = defineProps<{ dummyFeatures?: number }>();
 
 	background-color: @color-primary-muted;
 	box-shadow: 0rem 0rem 100rem inset #0004;
+
+	filter: brightness(v-bind(heroBrightness));
 }
 
 .Hero_photo {
