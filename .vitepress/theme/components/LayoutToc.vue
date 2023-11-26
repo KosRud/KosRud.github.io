@@ -52,4 +52,12 @@ provideActiveHeadingId(tocItems);
 	flex-grow: 1;
 	overflow-y: auto;
 }
+
+/*
+	Font-size
+\*----------------------------------*/
+
+.Toc_title {
+	font-size: @size-l;
+}
 </style>
