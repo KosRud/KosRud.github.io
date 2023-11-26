@@ -22,7 +22,7 @@ provide(symbolVisibleRect, visibleRect);
 
 <template>
 	<div :class="$style.Layout">
-		<main :class="$style.Main" v-if="!frontmatter.hero">
+		<main :class="[$style.Main, $style.Main___doc]" v-if="!frontmatter.hero">
 			<header :class="$style.CurrentLocation">
 				<YouAreHere />
 			</header>
@@ -33,7 +33,7 @@ provide(symbolVisibleRect, visibleRect);
 					" />
 			</MarkdownWrapper>
 		</main>
-		<main v-else :class="$style.HeroMain">
+		<main v-else :class="[$style.Main, $style.Main___hero]">
 			<Content />
 		</main>
 
@@ -74,6 +74,11 @@ provide(symbolVisibleRect, visibleRect);
 }
 
 .Main {
+	position: relative;
+	z-index: 0; // establish a stacking context
+}
+
+.Main___doc {
 	flex-grow: 1;
 	margin-top: @Header-height;
 	margin-left: @SideNav-width;
@@ -88,7 +93,7 @@ provide(symbolVisibleRect, visibleRect);
 	// box-shadow: @shadow-s;
 }
 
-.HeroMain {
+.Main___hero {
 	flex-grow: 1;
 	margin-top: @Header-height;
 
