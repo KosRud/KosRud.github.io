@@ -5,7 +5,7 @@ import type { ComponentPublicInstance } from "vue";
 import { useData, useRoute } from "vitepress";
 import { computed } from "vue";
 
-import LayoutToc from "./LayoutToc/LayoutToc.vue";
+import LayoutToc from "./LayoutToc.vue";
 
 import type { ThemeConfig } from "../ThemeConfig";
 import { urlMatch, UrlMatch } from "./util/UrlMatch";
