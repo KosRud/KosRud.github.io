@@ -1,24 +1,11 @@
 import type { Ref } from "vue";
 
-import { ref, onMounted, onUnmounted, provide, computed } from "vue";
+import { ref, onMounted, onUnmounted, provide, computed, inject } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";
 
-import { activeHeadingIdSymbol } from "./activeHeadingIdSymbol";
+import activeHeadingIdSymbol from "./activeHeadingIdSymbol";
 import TocItem from "./TocItem";
-
-function createUpdateTrigger() {
-    const updateTrigger = ref(false);
-    const triggerUpdate = () => {
-        updateTrigger.value = !updateTrigger.value;
-    };
-    onMounted(() => {
-        window.addEventListener("scroll", triggerUpdate);
-    });
-    onUnmounted(() => {
-        window.removeEventListener("scroll", triggerUpdate);
-    });
-    return updateTrigger;
-}
+import visibleRectSymbol from "../visibleRectSymbol.js";
 
 export function trackActiveHeadingId(tocItems: Ref<TocItem[]>) {
     const updateTrigger = createUpdateTrigger();
@@ -53,6 +40,42 @@ export function trackActiveHeadingId(tocItems: Ref<TocItem[]>) {
     provide(activeHeadingIdSymbol, activeHeadingId);
 }
 
+function createUpdateTrigger() {
+    const updateTrigger = ref(false);
+    const triggerUpdate = () => {
+        updateTrigger.value = !updateTrigger.value;
+    };
+
+    onMounted(() => {
+        window.addEventListener("scroll", triggerUpdate);
+    });
+    onUnmounted(() => {
+        window.removeEventListener("scroll", triggerUpdate);
+    });
+
+    onContentUpdated(() => {
+        // onContentUpdated() adds callback removal to onUnmounted() automatically
+        window.addEventListener("scroll", triggerUpdate);
+    });
+    return updateTrigger;
+}
+
+function getVisibleRectStart() {
+    const visibleRect = inject(visibleRectSymbol);
+
+    if (!visibleRect) {
+        console.error("visibleRect not provided");
+        return 0;
+    }
+
+    if (!visibleRect.value) {
+        console.error("visibleRect value is nullish");
+        return 0;
+    }
+
+    return visibleRect.value.getBoundingClientRect().top;
+}
+
 function findActiveHeading(headings: TocItem[]): TocItem | undefined {
     // search from bottom of the page to top
     // return first heading that is above top screen edge
@@ -63,13 +86,14 @@ function findActiveHeading(headings: TocItem[]): TocItem | undefined {
             return inChildren;
         }
 
-        const rect = heading.element.getBoundingClientRect();
+        const headingRect = heading.element.getBoundingClientRect();
 
-        if (
-            rect.top <
-            48 + // ToDo determine top edge of visible space (depends on header height)
-                parseInt(window.getComputedStyle(heading.element).marginTop, 10)
-        ) {
+        const headingTopMargin = parseInt(
+            window.getComputedStyle(heading.element).marginTop,
+            10
+        );
+
+        if (headingRect.top < getVisibleRectStart() + headingTopMargin) {
             return heading;
         }
     }

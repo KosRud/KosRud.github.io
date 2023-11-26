@@ -1,3 +1,4 @@
 import type { InjectionKey, Ref } from "vue";
 
-export const activeHeadingIdSymbol = Symbol() as InjectionKey<Ref<string>>;
+const activeHeadingIdSymbol = Symbol() as InjectionKey<Ref<string>>;
+export default activeHeadingIdSymbol;
