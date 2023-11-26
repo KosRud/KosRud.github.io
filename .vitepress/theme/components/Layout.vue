@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import type { ComponentPublicInstance, Ref } from "vue";
-import type { ThemeConfig } from "./ThemeConfig";
+import type { ThemeConfig } from "../ThemeConfig";
 
 import { ref, provide } from "vue";
 import { useData } from "vitepress";
 
-import MarkdownWrapper from "./components/MarkdownWrapper.vue";
-import YouAreHere from "./components/YouAreHere.vue";
-import LayoutOverlay from "./components/LayoutOverlay.vue";
+import MarkdownWrapper from "./MarkdownWrapper.vue";
+import YouAreHere from "./YouAreHere.vue";
+import LayoutOverlay from "./LayoutOverlay.vue";
 
-import visibleRectSymbol from "./components/visibleRectSymbol.js";
+import visibleRectSymbol from "./visibleRectSymbol.js";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { frontmatter } = useData<ThemeConfig>();
@@ -47,7 +47,7 @@ provide(visibleRectSymbol, visibleRect);
 </template>
 
 <style lang="less" module>
-@import "./style/variables/index.less";
+@import "../style/variables/index.less";
 
 .VisibleRectMarker {
 	pointer-events: none;
