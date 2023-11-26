@@ -35,6 +35,13 @@ const props = defineProps<{ dummyFeatures?: number }>();
             >
                 <slot name="Features"
             /></FeaturesGallery>
+            <section>
+                <MarkdownWrapperVue>
+                    <div :class="$style.Strict">
+                        <slot name="Banners" />
+                    </div>
+                </MarkdownWrapperVue>
+            </section>
         </div>
     </div>
 </template>
@@ -51,14 +58,12 @@ const props = defineProps<{ dummyFeatures?: number }>();
 
     display: flex;
     flex-direction: column;
-
-    overflow-y: auto;
 }
 
 .Hero {
     flex: 0 0 auto;
     position: sticky;
-    top: 0rem;
+    top: @Header-height;
 
     display: flex;
     flex-direction: row;
@@ -104,7 +109,6 @@ const props = defineProps<{ dummyFeatures?: number }>();
 
 .ContentWrapper {
     flex-grow: 1;
-    min-height: max-content;
 
     padding: @gap*4;
     display: flex;
@@ -130,6 +134,11 @@ const props = defineProps<{ dummyFeatures?: number }>();
 \*----------------------------------*/
 
 .ContentWrapper {
+    position: relative;
     z-index: 1;
+}
+
+.Hero {
+    z-index: 0;
 }
 </style>
