@@ -26,7 +26,7 @@ provideActiveHeadingId(tocItems);
 </template>
 
 <style lang="less" module>
-@import "../../style/variables/index.less";
+@import "../style/variables/index.less";
 
 .Toc {
 	display: flex;

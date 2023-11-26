@@ -31,7 +31,7 @@ const activeHeadingId = inject(activeHeadingIdSymbol);
 </template>
 
 <style module lang="less">
-@import "../../style/variables/index.less";
+@import "../style/variables/index.less";
 
 .TocItem {
 	font-size: @size-s;
