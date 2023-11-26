@@ -3,9 +3,9 @@ import type { Ref } from "vue";
 import { ref, onMounted, onUnmounted, provide, computed, inject } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";
 
-import activeHeadingIdSymbol from "./activeHeadingIdSymbol";
+import activeHeadingIdSymbol from "./symbolActiveHeadingId";
 import TocItem from "./TocItem";
-import visibleRectSymbol from "../visibleRectSymbol.js";
+import visibleRectSymbol from "../symbolVisibleRect.js";
 
 export function trackActiveHeadingId(tocItems: Ref<TocItem[]>) {
     const updateTrigger = createUpdateTrigger();

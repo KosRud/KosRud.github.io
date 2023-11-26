@@ -9,7 +9,7 @@ import MarkdownWrapper from "./MarkdownWrapper.vue";
 import YouAreHere from "./YouAreHere.vue";
 import LayoutOverlay from "./LayoutOverlay.vue";
 
-import visibleRectSymbol from "./visibleRectSymbol.js";
+import visibleRectSymbol from "./util/symbolVisibleRect";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { frontmatter } = useData<ThemeConfig>();

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import type { ComponentPublicInstance } from "vue";
 
-import trackTocItems from "./trackTocItems";
-import { trackActiveHeadingId as provideActiveHeadingId } from "./provideActiveHeadingId";
+import trackTocItems from "./util/Toc/TrackTocItems";
+import { trackActiveHeadingId as provideActiveHeadingId } from "./util/Toc/provideActiveHeadingId";
 
 import LayoutTocItem from "./LayoutTocItem.vue";
 

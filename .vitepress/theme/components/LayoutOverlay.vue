@@ -8,7 +8,7 @@ import { computed } from "vue";
 import LayoutToc from "./LayoutToc/LayoutToc.vue";
 
 import type { ThemeConfig } from "../ThemeConfig";
-import { urlMatch, UrlMatch } from "./UrlMatch";
+import { urlMatch, UrlMatch } from "./util/UrlMatch";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site, frontmatter } = useData<ThemeConfig>();
