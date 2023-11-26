@@ -8,7 +8,7 @@ import { computed } from "vue";
 import LayoutToc from "./LayoutToc.vue";
 
 import type { ThemeConfig } from "../ThemeConfig";
-import { urlMatch, UrlMatch } from "./util/UrlMatch";
+import { urlMatch, UrlMatch } from "./composables/urlMatch";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site, frontmatter } = useData<ThemeConfig>();
@@ -397,8 +397,8 @@ const props = defineProps<{
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
-	padding-top: @gap*0.125;
-	padding-bottom: @gap*0.125;
+	padding-top: @NavItem-padding-vertical;
+	padding-bottom: @NavItem-padding-vertical;
 
 	&::before {
 		content: none;

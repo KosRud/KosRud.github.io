@@ -1,14 +1,19 @@
 import { computed, ref } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";
-import TocItem from "./TocItem";
 
-export default (getPageContent: () => Element | null) => {
+export interface TocItem {
+    level: number;
+    element: Element;
+    children: TocItem[];
+}
+
+export function useTocItems(getPageContent: () => Element | null) {
     const route = useRoute();
 
     const tocContentUpdateTrigger = ref(false);
     onContentUpdated(() => {
         tocContentUpdateTrigger.value = !tocContentUpdateTrigger.value;
-    }); // onContentUpdated() adds callback removal to onUnmounted() automatically
+    });
 
     const tocItems = computed(() => {
         {
@@ -73,7 +78,7 @@ export default (getPageContent: () => Element | null) => {
     });
 
     return tocItems;
-};
+}
 
 function tagToTitleLevel(tag: string) {
     const index = ["H1", "H2", "H3", "H4", "H5", "H6"].findIndex(
