@@ -48,14 +48,14 @@ function createUpdateTrigger() {
     };
 
     onMounted(() => {
-        window.addEventListener("scroll", triggerUpdate);
+        window.addEventListener("scroll", triggerUpdate, { passive: true });
     });
     onUnmounted(() => {
         window.removeEventListener("scroll", triggerUpdate);
     });
 
     onContentUpdated(() => {
-        window.addEventListener("scroll", triggerUpdate);
+        triggerUpdate();
     });
     return updateTrigger;
 }
