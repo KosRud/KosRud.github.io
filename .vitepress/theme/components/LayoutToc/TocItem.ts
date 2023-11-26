@@ -1,5 +1,5 @@
-export default interface Heading {
+export default interface TocItem {
     level: number;
     element: Element;
-    children: Heading[];
+    children: TocItem[];
 }
