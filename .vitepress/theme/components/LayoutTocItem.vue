@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type TocItem from "./TocItem";
+import type TocItem from "./util/Toc/TocItem";
 
 import { inject } from "vue";
-import activeHeadingIdSymbol from "./activeHeadingIdSymbol";
+import activeHeadingIdSymbol from "./util/Toc/symbolActiveHeadingId";
 
 const props = defineProps<{
 	heading: TocItem;
