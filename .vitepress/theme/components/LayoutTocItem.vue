@@ -34,7 +34,6 @@ const activeHeadingId = inject(activeHeadingIdSymbol);
 @import "../style/variables/index.less";
 
 .TocItem {
-	font-size: @size-s;
 	display: flex;
 	flex-direction: column;
 
