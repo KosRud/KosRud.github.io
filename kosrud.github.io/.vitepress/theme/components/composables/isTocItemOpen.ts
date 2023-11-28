@@ -11,9 +11,6 @@ export function useIsTocItemOpen(url: string): Ref<boolean> {
 
     function update() {
         isOpen.value = urlMatch(route.path, url).inside;
-        if (isOpen) {
-            console.log(url);
-        }
     }
     onContentUpdated(update);
     watchEffect(update);
