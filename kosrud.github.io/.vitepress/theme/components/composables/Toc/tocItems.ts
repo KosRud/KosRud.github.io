@@ -22,13 +22,6 @@ export function useTocItems(getPageContent: () => Element | null) {
         tocItems.value = getTocItems(getPageContent);
     });
 
-    watch(
-        () => route.path,
-        () => {
-            tocItems.value = getTocItems(getPageContent);
-        }
-    );
-
     return tocItems;
 }
 
