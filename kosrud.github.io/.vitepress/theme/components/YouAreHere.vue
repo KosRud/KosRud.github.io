@@ -34,8 +34,6 @@ const navTrace = computed((): NavItem[] => {
 		for (const navItem of nav) {
 			const match = urlMatch(route.path, navItem.url);
 
-			console.log(navItem.url);
-
 			if (match.exact) {
 				return [navItem];
 			}

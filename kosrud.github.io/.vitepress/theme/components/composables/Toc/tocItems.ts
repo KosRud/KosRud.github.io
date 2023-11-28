@@ -1,4 +1,6 @@
-import { computed, ref } from "vue";
+import type { Ref } from "vue";
+
+import { computed, onMounted, ref, watch, watchEffect } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";
 
 export interface TocItem {
@@ -10,74 +12,77 @@ export interface TocItem {
 export function useTocItems(getPageContent: () => Element | null) {
     const route = useRoute();
 
-    const tocContentUpdateTrigger = ref(false);
+    const tocItems: Ref<TocItem[]> = ref([]);
+
     onContentUpdated(() => {
-        tocContentUpdateTrigger.value = !tocContentUpdateTrigger.value;
+        tocItems.value = getTocItems(getPageContent);
     });
 
-    const tocItems = computed(() => {
-        {
-            // force recalculation when these variables change
-            tocContentUpdateTrigger;
-            route.path; // onContentUpdated fails if we land on 404
-        }
+    watchEffect(() => {
+        tocItems.value = getTocItems(getPageContent);
+    });
 
-        const contentSource = getPageContent();
-        if (!contentSource) {
+    watch(
+        () => route.path,
+        () => {
+            tocItems.value = getTocItems(getPageContent);
+        }
+    );
+
+    return tocItems;
+}
+
+function getTocItems(getPageContent: () => Element | null) {
+    const contentSource = getPageContent();
+
+    if (!contentSource) {
+        return [];
+    }
+
+    const headings: TocItem[] = Array.from(
+        contentSource.querySelectorAll("h1, h2, h3, h4")
+    ).flatMap((element) => {
+        if (element.textContent) {
+            return [
+                {
+                    level: tagToTitleLevel(element.tagName),
+                    children: [],
+                    element: element,
+                },
+            ];
+        } else {
+            console.error(
+                `Error while trying to build TOC from headings. Heading is missing a title`,
+                element
+            );
             return [];
         }
+    });
 
-        const headings: TocItem[] = Array.from(
-            contentSource.querySelectorAll("h1, h2, h3, h4")
-        ).flatMap((element) => {
-            if (element.textContent) {
-                return [
-                    {
-                        level: tagToTitleLevel(element.tagName),
-                        children: [],
-                        element: element,
-                    },
-                ];
-            } else {
-                console.error(
-                    `Error while trying to build TOC from headings. Heading is missing a title`,
-                    element
-                );
-                return [];
-            }
-        });
+    const toc: TocItem[] = [];
 
-        const toc: TocItem[] = [];
+    let index = 0;
 
-        let index = 0;
-
-        while (true) {
-            const { heading, index: nextIndex } = parseHeading(
-                headings,
-                index,
-                1
-            );
-            if (heading) {
-                toc.push(heading);
-                index = nextIndex;
-            } else {
-                break;
-            }
+    while (true) {
+        const { heading, index: nextIndex } = parseHeading(headings, index, 1);
+        if (heading) {
+            toc.push(heading);
+            index = nextIndex;
+        } else {
+            break;
         }
+    }
 
-        /*
+    /*
 			If there's only one heading of level 1
 			assume it's the page title
 			and return its children
 		*/
-        if (toc.length == 1 && toc[0].level == 1) {
-            return toc[0].children;
-        }
+    if (toc.length == 1 && toc[0].level == 1) {
+        return toc[0].children;
+    }
 
-        return toc;
-    });
-
-    return tocItems;
+    return toc;
 }
 
 function tagToTitleLevel(tag: string) {
