@@ -8,11 +8,11 @@ title: SPA and SSR trade-offs
 	import Stars from "../components/Stars.vue";
 </script>
 
-# SPA and SSR trade-offs
+# MPA, SPA, SSR
 
 More stars is better.
 
-| |Traditional|SPA|SSR|
+| |MPA|SPA|SSR|
 |---:|:---:|:---:|:---:|
 |Server load|<Stars :full="2" :max="3" />|<Stars :full="3" :max="3" />|<Stars :full="1" :max="3" />|
 |Initial load|<Stars :full="3" :max="3" />|<Stars :full="1" :max="3" />|<Stars :full="2" :max="3" />|
