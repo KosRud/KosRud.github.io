@@ -15,7 +15,7 @@ export default defineConfigWithTheme<ThemeConfig>({
                 children: [
                     {
                         title: "ProTeGe",
-                        url: "#",
+                        url: "/projects/ProTeGe",
                         children: [{ title: "Unity version", url: "/" }],
                     },
                     {
