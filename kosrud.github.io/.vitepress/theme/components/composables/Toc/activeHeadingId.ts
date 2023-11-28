@@ -1,6 +1,6 @@
 import type { InjectionKey, Ref } from "vue";
 
-import { ref, onMounted, onUnmounted, provide, inject, computed } from "vue";
+import { ref, onMounted, onUnmounted, provide, inject, watchEffect } from "vue";
 import { onContentUpdated } from "vitepress";
 
 import { TocItem } from "./tocItems.js";
@@ -9,21 +9,45 @@ import { symbolVisibleRect } from "../visibleRect.js";
 export const activeHeadingIdSymbol = Symbol() as InjectionKey<Ref<string>>;
 
 export function useActiveHeadingIdProvider(tocItems: Ref<TocItem[]>) {
-    const trigger = ref(true);
-    setTriggers(() => {
-        trigger.value = !trigger.value;
-    });
+    const visibleRect = inject(symbolVisibleRect);
 
-    const activeHeadingId = computed(() => {
-        trigger.value;
-        return getActiveHeadingId(tocItems);
-    });
+    if (visibleRect == undefined) {
+        console.error("visibleRect was not provided");
+        return;
+    }
+
+    const activeHeadingId: Ref<string> = ref("");
+
+    function update() {
+        if (!visibleRect) {
+            console.error("visibleRect was not provided");
+            return;
+        }
+        activeHeadingId.value = getActiveHeadingId(tocItems, visibleRect);
+    }
+    setTriggers(update);
 
     provide(activeHeadingIdSymbol, activeHeadingId);
 }
 
-function getActiveHeadingId(tocItems: Ref<TocItem[]>) {
-    const activeTocItem = findActiveHeading(tocItems.value);
+function setTriggers(update: () => void) {
+    onMounted(() => {
+        window.addEventListener("scroll", update, { passive: true });
+    });
+    onUnmounted(() => {
+        window.removeEventListener("scroll", update);
+    });
+    onContentUpdated(() => {
+        update();
+    });
+    watchEffect(update);
+}
+
+function getActiveHeadingId(
+    tocItems: Ref<TocItem[]>,
+    visibleRect: Ref<Element | null>
+) {
+    const activeTocItem = findActiveHeading(tocItems.value, visibleRect);
 
     if (activeTocItem) {
         return activeTocItem.element.id;
@@ -38,40 +62,15 @@ function getActiveHeadingId(tocItems: Ref<TocItem[]>) {
     return "";
 }
 
-function setTriggers(update: () => void) {
-    onMounted(() => {
-        window.addEventListener("scroll", update, { passive: true });
-    });
-    onUnmounted(() => {
-        window.removeEventListener("scroll", update);
-    });
-    onContentUpdated(() => {
-        update();
-    });
-}
-
-function getVisibleRectStart() {
-    const visibleRect = inject(symbolVisibleRect);
-
-    if (!visibleRect) {
-        console.error("visibleRect not provided");
-        return 0;
-    }
-
-    if (!visibleRect.value) {
-        console.error("visibleRect value is nullish");
-        return 0;
-    }
-
-    return visibleRect.value.getBoundingClientRect().top;
-}
-
-function findActiveHeading(headings: TocItem[]): TocItem | undefined {
+function findActiveHeading(
+    headings: TocItem[],
+    visibleRect: Ref<Element | null>
+): TocItem | undefined {
     // search from bottom of the page to top
     // return first heading that is above top screen edge
 
     for (const heading of headings.slice().reverse()) {
-        const inChildren = findActiveHeading(heading.children);
+        const inChildren = findActiveHeading(heading.children, visibleRect);
         if (inChildren) {
             return inChildren;
         }
@@ -83,10 +82,27 @@ function findActiveHeading(headings: TocItem[]): TocItem | undefined {
             10
         );
 
-        if (headingRect.top < getVisibleRectStart() + headingTopMargin) {
+        if (
+            headingRect.top <
+            getVisibleRectStart(visibleRect) + headingTopMargin
+        ) {
             return heading;
         }
     }
 
     return undefined;
+}
+
+function getVisibleRectStart(visibleRect: Ref<Element | null>) {
+    if (!visibleRect) {
+        console.error("visibleRect not provided");
+        return 0;
+    }
+
+    if (!visibleRect.value) {
+        console.error("visibleRect value is nullish");
+        return 0;
+    }
+
+    return visibleRect.value.getBoundingClientRect().top;
 }
