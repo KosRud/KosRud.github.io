@@ -41,68 +41,17 @@ const topLevelNavTitle = computed(() => {
 		</h2>
 		<ul>
 			<li v-for="navItem in sideNav" :class="[
-				$style.SideNav_item,
-				$style.SideNav_item___level1,
+				$style.NavItem,
 				urlActive(navItem.url) ? [$style.active] : '',
 			]">
 				<a :href="navItem.url" :class="[
 					$style.SideNav_itemTitle,
-					$style.SideNav_itemTitle___level1,
 				]">{{ navItem.title }}</a>
 				<ul v-if="urlActive(navItem.url)">
-					<li :class="[
-						$style.SideNav_item,
-						$style.SideNav_item___level2,
-					]">
-						<a href="#" :class="[
-							$style.SideNav_itemTitle,
-							$style.SideNav_itemTitle___level2,
-						]">Some page name</a>
-					</li>
-					<li :class="[
-						$style.SideNav_item,
-						$style.SideNav_item___level2,
-					]">
-						<a href="#" :class="[
-							$style.SideNav_itemTitle,
-							$style.SideNav_itemTitle___level2,
-						]">Some page name</a>
-					</li>
-					<li :class="[
-						$style.SideNav_item,
-						$style.SideNav_item___level2,
-					]">
-						<a href="#" :class="[
-							$style.SideNav_itemTitle,
-							$style.SideNav_itemTitle___level2,
-						]">Some page name</a>
-					</li>
-					<li :class="[
-						$style.SideNav_item,
-						$style.SideNav_item___level2,
-					]">
-						<a href="#" :class="[
-							$style.SideNav_itemTitle,
-							$style.SideNav_itemTitle___level2,
-						]">Some page name</a>
-					</li>
-					<li :class="[
-						$style.SideNav_item,
-						$style.SideNav_item___level2,
-					]">
-						<a href="#" :class="[
-							$style.SideNav_itemTitle,
-							$style.SideNav_itemTitle___level2,
-						]">Some page name</a>
-					</li>
-					<li :class="[
-						$style.SideNav_item,
-						$style.SideNav_item___level2,
-					]">
-						<a href="#" :class="[
-							$style.SideNav_itemTitle,
-							$style.SideNav_itemTitle___level2,
-						]">Some page name</a>
+					<li :class="$style.NavItem">
+						<a href="#" :class="$style.SideNav_itemTitle" v-for="_ in 5">
+							Some page name
+						</a>
 					</li>
 				</ul>
 			</li>
@@ -137,7 +86,7 @@ const topLevelNavTitle = computed(() => {
 	margin-right: auto;
 }
 
-.SideNav_item {
+.NavItem {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
@@ -145,6 +94,7 @@ const topLevelNavTitle = computed(() => {
 	padding-bottom: @NavItem-padding-vertical;
 
 	&::before {
+		// remove marker from <li>
 		content: none;
 	}
 
@@ -172,7 +122,7 @@ const topLevelNavTitle = computed(() => {
 		background-position: center;
 		margin-right: @gap*0.5;
 		margin-left: @gap*0.25;
-		visibility: hidden;
+		// visibility: hidden;
 	}
 
 	&:hover {
@@ -208,22 +158,5 @@ const topLevelNavTitle = computed(() => {
 
 .SideNav_title {
 	font-family: @font-ui;
-}
-
-
-///////
-
-li:nth-child(1) .SideNav_itemTitle___level1 {
-	font-weight: bold;
-
-	&::before {
-		visibility: visible;
-	}
-}
-
-li:nth-child(3) .SideNav_itemTitle___level2 {
-	&::before {
-		visibility: visible;
-	}
 }
 </style>

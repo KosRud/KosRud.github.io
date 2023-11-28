@@ -15,19 +15,19 @@ const route = useRoute();
 
 <template>
 	<header :class="$style.Header">
-		<a :class="$style.Header_siteTitleContainer" href="/">
+		<a :class="$style.SiteTitleContainer" href="/">
 			<div>
-				<span :class="$style.Header_siteTitle">
+				<span :class="$style.SiteTitle">
 					{{ site.title }}</span>
-				<span :class="$style.Header_siteDescription">
+				<span :class="$style.SiteDescription">
 					{{ site.description }}</span>
 			</div>
 		</a>
-		<nav :class="$style.Header_nav">
+		<nav :class="$style.TopNav">
 			<ul>
-				<li v-for="navItem in site.themeConfig.nav" :class="$style.Header_navItem">
+				<li v-for="navItem in site.themeConfig.nav" :class="$style.NavItem">
 					<a :class="[
-						$style.Header_navLink,
+						$style.NavItem_link,
 						[UrlMatch.full, UrlMatch.inside].includes(
 							urlMatch(route.path, navItem.url)
 						)
@@ -52,7 +52,7 @@ const route = useRoute();
 	height: @Header-height;
 }
 
-.Header_nav {
+.TopNav {
 	>ul {
 		display: flex;
 		flex-direction: row;
@@ -63,7 +63,7 @@ const route = useRoute();
 	}
 }
 
-.Header_navItem {
+.NavItem {
 	&::before {
 		content: none;
 	}
@@ -98,8 +98,8 @@ const route = useRoute();
 }
 
 .Header_siteTitleContainer,
-.Header_siteTitleContainer:link,
-.Header_siteTitleContainer:visited {
+.SiteTitleContainer:link,
+.SiteTitleContainer:visited {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -130,15 +130,15 @@ const route = useRoute();
 	}
 }
 
-.Header_siteTitle {
+.SiteTitle {
 	text-align: center;
 }
 
-.Header_siteDescription {
+.SiteDescription {
 	text-align: right;
 }
 
-.Header_nav {
+.TopNav {
 	>ul {
 		display: flex;
 		flex-direction: row;
@@ -149,7 +149,7 @@ const route = useRoute();
 	}
 }
 
-.Header_navLink {
+.NavItem_link {
 	@navlink-pad: @gap*0.5;
 
 	flex: 1 1 calc(@navlink-pad*2 + 1em);
@@ -188,11 +188,11 @@ const route = useRoute();
 	Font-size
 \*----------------------------------*/
 
-.Header_siteTitle {
+.SiteTitle {
 	font-size: @size-xl;
 }
 
-.Header_siteDescription {
+.SiteDescription {
 	font-size: @size-s;
 }
 
@@ -204,7 +204,7 @@ const route = useRoute();
 	font-family: @font-ui;
 }
 
-.Header_siteTitleContainer {
+.SiteTitleContainer {
 	font-family: @font-hero;
 }
 
