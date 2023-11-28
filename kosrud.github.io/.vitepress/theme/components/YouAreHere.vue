@@ -5,7 +5,7 @@ import type { ThemeConfig, NavItem } from "../ThemeConfig";
 import { computed } from "vue";
 import { useData, useRoute } from "vitepress";
 
-import { urlMatch, UrlMatch } from "./composables/urlMatch.js";
+import { urlMatch } from "./composables/urlMatch.js";
 
 const route = useRoute();
 const { site, frontmatter } = useData<ThemeConfig>();
@@ -33,19 +33,14 @@ const navTrace = computed((): NavItem[] => {
 	function tracePath(nav: ThemeConfig["nav"]): NavItem[] {
 		for (const navItem of nav) {
 			const match = urlMatch(route.path, navItem.url);
-			switch (match) {
-				case UrlMatch.full:
-					return [navItem];
-				case UrlMatch.inside:
-					if (navItem.children) {
-						return [navItem, ...tracePath(navItem.children)];
-					}
-					break;
-				case UrlMatch.no:
-					break;
-				default:
-					console.error(`Unexpected url match type: ${match}`);
+
+			if (match.exact) {
+				return [navItem];
 			}
+			if (match.soft && navItem.children) {
+				return [navItem, ...tracePath(navItem.children)];
+			}
+			break;
 		}
 
 		// navItem was not found

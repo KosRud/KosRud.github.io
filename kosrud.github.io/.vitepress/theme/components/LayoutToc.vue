@@ -44,12 +44,12 @@ useActiveHeadingIdProvider(tocItems);
 }
 
 .Toc_title {
-	flex-grow: 0;
+	flex: 0 0 max-content;
 	font-weight: bold;
 }
 
 .Toc_content {
-	flex-grow: 1;
+	flex: 1 1;
 	overflow-y: auto;
 }
 

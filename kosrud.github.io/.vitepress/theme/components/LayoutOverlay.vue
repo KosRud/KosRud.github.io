@@ -34,6 +34,10 @@ const props = defineProps<{
 <style module lang="less">
 @import "../style/variables/index.less";
 
+.Header {
+	flex: 0 0 @Header-height;
+}
+
 .SideNav {
 	flex-shrink: 0;
 }
@@ -44,9 +48,13 @@ const props = defineProps<{
 	bottom: 0rem;
 	left: 0rem;
 	right: 0rem;
+
+	display: flex;
+	flex-direction: column;
 }
 
 .NavContainer {
+	flex-grow: 1;
 	display: flex;
 }
 
@@ -59,10 +67,9 @@ const props = defineProps<{
 	top: 0rem;
 	flex: 1 0 200rem;
 	max-width: max-content;
-	max-height: 90%;
-	align-self: flex-start;
 
 	padding: @Toc-to-Main-gap @gap;
+	padding-bottom: 0rem;
 	display: flex;
 	flex-direction: column;
 }

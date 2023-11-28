@@ -1,7 +1,6 @@
-export enum UrlMatch {
-    full,
-    inside,
-    no,
+export interface UrlMatch {
+    soft: boolean;
+    exact: boolean;
 }
 
 /**
@@ -10,19 +9,21 @@ export enum UrlMatch {
  * @param matched
  * @returns
  */
-export const urlMatch = (current: string, matched: string) => {
+export const urlMatch = (current: string, matched: string): UrlMatch => {
     const extensionRegex = /\.[^.]+$/;
 
     matched = encodeURI(matched.replace(extensionRegex, ""));
     current = current.replace(extensionRegex, "");
 
+    const result: UrlMatch = { soft: false, exact: false };
+
     if (current == matched) {
-        return UrlMatch.full;
+        result.exact = true;
     }
 
     if (matched == current.slice(0, matched.length)) {
-        return UrlMatch.inside;
+        result.soft = true;
     }
 
-    return UrlMatch.no;
+    return result;
 };
