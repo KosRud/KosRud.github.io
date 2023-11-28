@@ -1,7 +1,7 @@
 import type { InjectionKey, Ref } from "vue";
 
-import { ref, onMounted, onUnmounted, provide, computed, inject } from "vue";
-import { onContentUpdated, useRoute } from "vitepress";
+import { ref, onMounted, onUnmounted, provide, inject, watchEffect } from "vue";
+import { onContentUpdated } from "vitepress";
 
 import { TocItem } from "./tocItems.js";
 import { symbolVisibleRect } from "../visibleRect.js";
@@ -9,55 +9,44 @@ import { symbolVisibleRect } from "../visibleRect.js";
 export const activeHeadingIdSymbol = Symbol() as InjectionKey<Ref<string>>;
 
 export function useActiveHeadingIdProvider(tocItems: Ref<TocItem[]>) {
-    const updateTrigger = createUpdateTrigger();
-
-    function getActiveHeadingId() {
-        const activeTocItem = findActiveHeading(tocItems.value);
-
-        if (activeTocItem) {
-            return activeTocItem.element.id;
-        }
-
-        if (tocItems.value.length == 0) {
-            return "";
-        }
-
-        return tocItems.value[0].element.id;
+    const activeHeadingId = ref("");
+    function update() {
+        activeHeadingId.value = getActiveTocItemId(tocItems);
     }
-
-    const route = useRoute();
-
-    const activeHeadingId = computed(() => {
-        {
-            // force recalculation when these variables change
-            route.path; // onContentUpdated fails if we land on 404
-            tocItems.value;
-            updateTrigger.value;
-        }
-
-        return getActiveHeadingId();
-    });
+    setTriggers(update);
 
     provide(activeHeadingIdSymbol, activeHeadingId);
 }
 
-function createUpdateTrigger() {
-    const updateTrigger = ref(false);
-    const triggerUpdate = () => {
-        updateTrigger.value = !updateTrigger.value;
-    };
+function getActiveTocItemId(tocItems: Ref<TocItem[]>) {
+    const activeTocItem = findActiveHeading(tocItems.value);
 
+    if (activeTocItem) {
+        return activeTocItem.element.id;
+    }
+
+    // fallback if active item not found
+
+    if (tocItems.value[0]) {
+        return tocItems.value[0].element.id;
+    }
+
+    return "";
+}
+
+function setTriggers(update: () => void) {
     onMounted(() => {
-        window.addEventListener("scroll", triggerUpdate, { passive: true });
+        window.addEventListener("scroll", update, { passive: true });
     });
     onUnmounted(() => {
-        window.removeEventListener("scroll", triggerUpdate);
+        window.removeEventListener("scroll", update);
     });
 
     onContentUpdated(() => {
-        triggerUpdate();
+        update();
     });
-    return updateTrigger;
+
+    watchEffect(update);
 }
 
 function getVisibleRectStart() {
