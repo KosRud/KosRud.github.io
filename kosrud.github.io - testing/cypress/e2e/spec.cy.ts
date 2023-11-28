@@ -1,20 +1,22 @@
-function findSideNav() {
+function findSideNavTitle() {
     return cy.get("h2").contains("My projects/");
 }
 
-function findToctitle() {
+function findTocTitle() {
     return cy.get("h2").contains("On this page:");
 }
 
-describe("SideNav title and Toc title are on the same height.", () => {
-    it("passes", () => {
+describe("SideNav and Toc style parity", () => {
+    beforeEach(() => {
         cy.visit("http://localhost:5173/projects/");
+    });
 
-        const sideNavTitle = findSideNav();
-        const toctitle = findToctitle();
+    it("Titles aligned", () => {
+        const sideNavTitle = findSideNavTitle();
+        const tocTitle = findTocTitle();
 
         sideNavTitle.then((sideNavTitleElements) => {
-            toctitle.should((tocTitleElements) => {
+            tocTitle.should((tocTitleElements) => {
                 const sideNavTitleTop =
                     sideNavTitleElements[0].getBoundingClientRect().top;
 
@@ -22,29 +24,32 @@ describe("SideNav title and Toc title are on the same height.", () => {
                     tocTitleElements[0].getBoundingClientRect().top;
 
                 expect(sideNavTitleTop).to.equal(tocTitleTop);
+                expect(sideNavTitleTop).to.be.ok;
             });
         });
+
+        sideNavTitle.then((elements) => {
+            elements[0].innerHTML = "";
+        });
     });
-});
 
-describe("SideNav title and Toc title have same font size.", () => {
-    it("passes", () => {
-        cy.visit("http://localhost:5173/projects/");
-
-        const sideNavTitle = cy.get("h2").contains("My projects/");
-        const toctitle = cy.get("h2").contains("On this page:");
+    it("Titles have same font size", () => {
+        const sideNavTitle = findSideNavTitle();
+        const tocTitle = findTocTitle();
 
         sideNavTitle.then((sideNavTitleElements) => {
-            toctitle.then((tocTitleElements) => {
+            tocTitle.then((tocTitleElements) => {
                 cy.window().should((win) => {
                     const sideNavTitleSize = win.getComputedStyle(
                         sideNavTitleElements[0]
                     ).fontSize;
+
                     const TocTitleSize = win.getComputedStyle(
                         tocTitleElements[0]
                     ).fontSize;
 
                     expect(sideNavTitleSize).to.equal(TocTitleSize);
+                    expect(sideNavTitleSize).to.be.ok;
                 });
             });
         });
