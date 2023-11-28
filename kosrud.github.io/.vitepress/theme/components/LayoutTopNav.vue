@@ -1,10 +1,8 @@
 <script lang="ts" setup>
-
-
 import { useData, useRoute } from "vitepress";
 
 import type { ThemeConfig } from "../ThemeConfig";
-import { urlMatch, UrlMatch } from "./composables/urlMatch";
+import { urlMatch } from "./composables/urlMatch";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site, } = useData<ThemeConfig>();
@@ -19,9 +17,7 @@ const route = useRoute();
 			<li v-for="navItem in site.themeConfig.nav" :class="$style.NavItem">
 				<a :class="[
 					$style.NavItem_link,
-					[UrlMatch.full, UrlMatch.inside].includes(
-						urlMatch(route.path, navItem.url)
-					)
+					urlMatch(route.path, navItem.url).soft
 						? $style.NavItem_link___active
 						: '',
 				]" :href="navItem.url">{{ navItem.title }}</a>

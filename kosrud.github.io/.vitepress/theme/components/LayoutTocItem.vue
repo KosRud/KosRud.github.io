@@ -1,26 +1,40 @@
 <script setup lang="ts">
+import type { Ref } from "vue";
 import type { TocItem } from "./composables/Toc/tocItems";
 
-import { inject } from "vue";
+import { ref, computed, inject, onUpdated } from "vue";
 import { activeHeadingIdSymbol } from "./composables/Toc/activeHeadingId";
+import scrollIntoViewIfNeeded from "./composables/scrollIntoViewIfNeeded";
 
 const props = defineProps<{
 	heading: TocItem;
 	level?: number;
-	active?: boolean;
 }>();
 
 const level = props.level ?? 1;
 
 const activeHeadingId = inject(activeHeadingIdSymbol);
+const isActive = computed(() => { return activeHeadingId?.value == props.heading.element.id });
+
+const tocItem: Ref<HTMLElement | null> = ref(null);
+
+onUpdated(() => {
+	if (isActive.value) {
+		const element = tocItem.value;
+		if (!element) {
+			return;
+		}
+		scrollIntoViewIfNeeded(element);
+	}
+});
+
 </script>
 
 <template>
-	<li :class="$style.TocItem">
+	<li :class="$style.TocItem" :ref="(element) => { tocItem = element as HTMLElement }">
 		<a :class="[
 			$style.TocItem_title,
-			activeHeadingId == heading.element.id
-				? $style.TocItem_title___active
+			isActive ? $style.TocItem_title___active
 				: '',
 		]" :href="`#${props.heading.element.id}`">{{ props.heading.element.textContent }}
 		</a>
