@@ -3,9 +3,9 @@
 import type { ComponentPublicInstance } from "vue";
 
 import { useData, useRoute } from "vitepress";
-import { computed } from "vue";
 
 import LayoutToc from "./LayoutToc.vue";
+import LayoutOverlaySideNav from "./LayoutOverlaySideNav.vue";
 
 import type { ThemeConfig } from "../ThemeConfig";
 import { urlMatch, UrlMatch } from "./composables/urlMatch";
@@ -13,28 +13,6 @@ import { urlMatch, UrlMatch } from "./composables/urlMatch";
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site, frontmatter } = useData<ThemeConfig>();
 const route = useRoute();
-
-const urlActive = (url: string) => {
-	return urlMatch(route.path, url) != UrlMatch.no;
-};
-
-const sideNav = computed(() => {
-	const navItems =
-		site.value.themeConfig.nav.find((navItem) => {
-			const match = urlMatch(route.path, navItem.url);
-			return [UrlMatch.inside, UrlMatch.full].includes(match);
-		})?.children ?? [];
-	return navItems;
-});
-
-const topLevelNavTitle = computed(() => {
-	return (
-		site.value.themeConfig.nav.find((navItem) => {
-			const match = urlMatch(route.path, navItem.url);
-			return [UrlMatch.inside, UrlMatch.full].includes(match);
-		})?.title ?? ""
-	);
-});
 
 const props = defineProps<{
 	pageContent: ComponentPublicInstance | null;
@@ -68,89 +46,19 @@ const props = defineProps<{
 			</nav>
 		</header>
 		<div :class="$style.NavContainer" v-if="!frontmatter.hero">
-			<nav :class="$style.SideNav">
-				<h2 :class="$style.SideNav_title">
-					{{ topLevelNavTitle }}/
-				</h2>
-				<ul>
-					<li v-for="navItem in sideNav" :class="[
-						$style.SideNav_item,
-						$style.SideNav_item___level1,
-						urlActive(navItem.url) ? [$style.active] : '',
-					]">
-						<a :href="navItem.url" :class="[
-							$style.SideNav_itemTitle,
-							$style.SideNav_itemTitle___level1,
-						]">{{ navItem.title }}</a>
-						<ul v-if="urlActive(navItem.url)">
-							<li :class="[
-								$style.SideNav_item,
-								$style.SideNav_item___level2,
-							]">
-								<a href="#" :class="[
-									$style.SideNav_itemTitle,
-									$style.SideNav_itemTitle___level2,
-								]">Some page name</a>
-							</li>
-							<li :class="[
-								$style.SideNav_item,
-								$style.SideNav_item___level2,
-							]">
-								<a href="#" :class="[
-									$style.SideNav_itemTitle,
-									$style.SideNav_itemTitle___level2,
-								]">Some page name</a>
-							</li>
-							<li :class="[
-								$style.SideNav_item,
-								$style.SideNav_item___level2,
-							]">
-								<a href="#" :class="[
-									$style.SideNav_itemTitle,
-									$style.SideNav_itemTitle___level2,
-								]">Some page name</a>
-							</li>
-							<li :class="[
-								$style.SideNav_item,
-								$style.SideNav_item___level2,
-							]">
-								<a href="#" :class="[
-									$style.SideNav_itemTitle,
-									$style.SideNav_itemTitle___level2,
-								]">Some page name</a>
-							</li>
-							<li :class="[
-								$style.SideNav_item,
-								$style.SideNav_item___level2,
-							]">
-								<a href="#" :class="[
-									$style.SideNav_itemTitle,
-									$style.SideNav_itemTitle___level2,
-								]">Some page name</a>
-							</li>
-							<li :class="[
-								$style.SideNav_item,
-								$style.SideNav_item___level2,
-							]">
-								<a href="#" :class="[
-									$style.SideNav_itemTitle,
-									$style.SideNav_itemTitle___level2,
-								]">Some page name</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</nav>
+			<LayoutOverlaySideNav :class="$style.SideNav" />
 			<div :class="$style.NavContainer_spacer"></div>
-			<nav :class="$style.Toc">
-				<LayoutToc :page-content="props.pageContent" />
-			</nav>
+			<LayoutToc :class="$style.Toc" :page-content="props.pageContent" />
 		</div>
 	</div>
 </template>
 
 <style module lang="less">
 @import "../style/variables/index.less";
+
+.SideNav {
+	flex-shrink: 0;
+}
 
 .Overlay {
 	position: fixed;
@@ -369,74 +277,6 @@ const props = defineProps<{
 	}
 }
 
-.SideNav {
-	width: @SideNav-width;
-	flex-shrink: 0;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: stretch;
-	overflow-y: auto;
-	padding-top: @Toc-to-Main-gap;
-	gap: @gap;
-
-	&>ul {
-		flex: 1 0 auto;
-	}
-
-	visibility: v-bind("sideNav.length == 0 ? 'hidden' : 'visible'");
-}
-
-.SideNav_title {
-	font-weight: bold;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.SideNav_item {
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
-	padding-top: @NavItem-padding-vertical;
-	padding-bottom: @NavItem-padding-vertical;
-
-	&::before {
-		content: none;
-	}
-
-	&>ul {
-		margin-left: @gap;
-	}
-}
-
-.SideNav_itemTitle,
-.SideNav_itemTitle:link,
-.SideNav_itemTitle:visited {
-	color: @color-black;
-	text-decoration: inherit;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-
-	&::before {
-		content: "";
-		height: 1em;
-		width: 1em;
-		background-image: url("/assets/icons/chevron-right.svg");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-		margin-right: @gap*0.5;
-		margin-left: @gap*0.25;
-		visibility: hidden;
-	}
-
-	&:hover {
-		color: @color-primary;
-		font-weight: bold;
-	}
-}
-
 .Toc {
 	position: sticky;
 	top: 0rem;
@@ -472,10 +312,6 @@ const props = defineProps<{
 	font-size: @size-xl;
 }
 
-.SideNav_title {
-	font-size: @size-l;
-}
-
 .Header_siteDescription {
 	font-size: @size-s;
 }
@@ -484,7 +320,6 @@ const props = defineProps<{
 	Font-family
 \*----------------------------------*/
 
-.SideNav_title,
 .Header {
 	font-family: @font-ui;
 }
@@ -499,21 +334,5 @@ const props = defineProps<{
 
 .Header {
 	box-shadow: @shadow;
-}
-
-///
-
-li:nth-child(1) .SideNav_itemTitle___level1 {
-	font-weight: bold;
-
-	&::before {
-		visibility: visible;
-	}
-}
-
-li:nth-child(3) .SideNav_itemTitle___level2 {
-	&::before {
-		visibility: visible;
-	}
 }
 </style>

@@ -15,14 +15,14 @@ useActiveHeadingIdProvider(tocItems);
 </script>
 
 <template>
-	<div :class="$style.Toc" v-if="tocItems.length > 0">
+	<nav :class="$style.Toc" v-if="tocItems.length > 0">
 		<h2 :class="$style.Toc_title">On this page:</h2>
 		<nav :class="$style.Toc_content">
 			<ul>
 				<LayoutTocItem v-for="tocItem in tocItems" :key="tocItem.element.id" :heading="tocItem" />
 			</ul>
 		</nav>
-	</div>
+	</nav>
 </template>
 
 <style lang="less" module>
