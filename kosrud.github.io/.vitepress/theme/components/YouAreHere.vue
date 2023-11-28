@@ -34,13 +34,15 @@ const navTrace = computed((): NavItem[] => {
 		for (const navItem of nav) {
 			const match = urlMatch(route.path, navItem.url);
 
+			console.log(navItem.url);
+
 			if (match.exact) {
 				return [navItem];
 			}
-			if (match.soft && navItem.children) {
+
+			if (match.inside && navItem.children) {
 				return [navItem, ...tracePath(navItem.children)];
 			}
-			break;
 		}
 
 		// navItem was not found

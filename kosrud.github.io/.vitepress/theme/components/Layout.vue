@@ -8,11 +8,12 @@ import { useData } from "vitepress";
 import MarkdownWrapper from "./MarkdownWrapper.vue";
 import YouAreHere from "./YouAreHere.vue";
 import LayoutOverlay from "./LayoutOverlay.vue";
+import LayoutError404 from "./LayoutError404.vue";
 
 import { symbolVisibleRect } from "./composables/visibleRect";
 
 // https://vitepress.dev/reference/runtime-api#usedata
-const { frontmatter } = useData<ThemeConfig>();
+const { page, frontmatter } = useData<ThemeConfig>();
 
 const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 
@@ -22,7 +23,10 @@ provide(symbolVisibleRect, visibleRect);
 
 <template>
 	<div :class="$style.Layout">
-		<main :class="[$style.Main, $style.Main___doc]" v-if="!frontmatter.hero">
+		<main :class="[$style.Main, $style.Main___doc]" v-if="page.isNotFound">
+			<LayoutError404 />
+		</main>
+		<main :class="[$style.Main, $style.Main___doc]" v-else-if="!frontmatter.hero">
 			<header :class="$style.CurrentLocation">
 				<YouAreHere />
 			</header>
