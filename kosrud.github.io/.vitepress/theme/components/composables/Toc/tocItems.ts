@@ -1,7 +1,7 @@
 import type { Ref } from "vue";
 
-import { ref, watch, watchEffect } from "vue";
-import { onContentUpdated, useRoute } from "vitepress";
+import { ref, watchEffect } from "vue";
+import { onContentUpdated } from "vitepress";
 
 export interface TocItem {
     level: number;
@@ -10,8 +10,6 @@ export interface TocItem {
 }
 
 export function useTocItems(getPageContent: () => Element | null) {
-    const route = useRoute();
-
     const tocItems: Ref<TocItem[]> = ref([]);
 
     onContentUpdated(() => {
