@@ -29,7 +29,6 @@ function isObscured(element: HTMLElement, by?: HTMLElement) {
         less(rect.top, byRect.top) ||
         greater(rect.bottom, byRect.bottom)
     ) {
-        console.log("obscured", by, { rect, byRect });
         return true;
     }
 

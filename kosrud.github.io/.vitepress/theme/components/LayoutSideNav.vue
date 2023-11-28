@@ -15,7 +15,7 @@ const route = useRoute();
 const sideNav = computed(() => {
 	const navItems =
 		site.value.themeConfig.nav.find((navItem) => {
-			return urlMatch(route.path, navItem.url).soft;
+			return urlMatch(route.path, navItem.url).inside;
 		})?.children ?? [];
 	return navItems;
 });
@@ -24,7 +24,7 @@ const topLevelNavTitle = computed(() => {
 	return (
 		site.value.themeConfig.nav.find((navItem) => {
 			const match = urlMatch(route.path, navItem.url);
-			return match.soft;
+			return match.inside;
 		})?.title ?? ""
 	);
 });

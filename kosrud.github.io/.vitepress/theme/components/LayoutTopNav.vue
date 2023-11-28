@@ -17,7 +17,7 @@ const route = useRoute();
 			<li v-for="navItem in site.themeConfig.nav" :class="$style.NavItem">
 				<a :class="[
 					$style.NavItem_link,
-					urlMatch(route.path, navItem.url).soft
+					urlMatch(route.path, navItem.url).inside
 						? $style.NavItem_link___active
 						: '',
 				]" :href="navItem.url">{{ navItem.title }}</a>

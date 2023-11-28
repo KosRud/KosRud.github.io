@@ -1,12 +1,13 @@
 <script lang="ts" setup>
-import { computed, ref } from "vue";
+import { computed } from "vue";
 
 import type { NavItem } from "../ThemeConfig";
+import { useIsTocItemOpen } from "./composables/isTocItemOpen";
 
 const props = defineProps<{ navItem: NavItem, level?: number }>();
 
-const isOpen = ref(true);
 const level = computed(() => props.level ?? 0);
+const isOpen = useIsTocItemOpen(props.navItem.url);
 
 </script>
 

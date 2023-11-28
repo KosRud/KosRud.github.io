@@ -1,28 +1,28 @@
 export interface UrlMatch {
-    soft: boolean;
+    inside: boolean;
     exact: boolean;
 }
 
 /**
  * Checks if current url is same or inside matched url.
- * @param current
- * @param matched
+ * @param target
+ * @param url
  * @returns
  */
-export const urlMatch = (current: string, matched: string): UrlMatch => {
+export const urlMatch = (url: string, target: string): UrlMatch => {
     const extensionRegex = /\.[^.]+$/;
 
-    matched = encodeURI(matched.replace(extensionRegex, ""));
-    current = current.replace(extensionRegex, "");
+    url = encodeURI(url.replace(extensionRegex, ""));
+    target = target.replace(extensionRegex, "");
 
-    const result: UrlMatch = { soft: false, exact: false };
+    const result: UrlMatch = { inside: false, exact: false };
 
-    if (current == matched) {
+    if (target == url) {
         result.exact = true;
     }
 
-    if (matched == current.slice(0, matched.length)) {
-        result.soft = true;
+    if (url.slice(0, target.length) == target) {
+        result.inside = true;
     }
 
     return result;
