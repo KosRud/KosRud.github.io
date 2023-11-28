@@ -1,6 +1,6 @@
 import type { Ref } from "vue";
 
-import { ref, onBeforeMount } from "vue";
+import { isProxy, ref, watchEffect } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";
 import { urlMatch } from "./urlMatch";
 
@@ -9,12 +9,14 @@ export function useIsTocItemOpen(url: string): Ref<boolean> {
 
     const isOpen = ref(false);
 
-    function updateIsOpen() {
+    function update() {
         isOpen.value = urlMatch(route.path, url).inside;
+        if (isOpen) {
+            console.log(url);
+        }
     }
-
-    onContentUpdated(updateIsOpen);
-    onBeforeMount(updateIsOpen);
+    onContentUpdated(update);
+    watchEffect(update);
 
     return isOpen;
 }
