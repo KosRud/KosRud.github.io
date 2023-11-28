@@ -5,7 +5,7 @@ import type { ComponentPublicInstance } from "vue";
 import { useData, useRoute } from "vitepress";
 
 import LayoutToc from "./LayoutToc.vue";
-import LayoutOverlaySideNav from "./LayoutOverlaySideNav.vue";
+import LayoutSideNav from "./LayoutSideNav.vue";
 
 import type { ThemeConfig } from "../ThemeConfig";
 import { urlMatch, UrlMatch } from "./composables/urlMatch";
@@ -46,7 +46,7 @@ const props = defineProps<{
 			</nav>
 		</header>
 		<div :class="$style.NavContainer" v-if="!frontmatter.hero">
-			<LayoutOverlaySideNav :class="$style.SideNav" />
+			<LayoutSideNav :class="$style.SideNav" />
 			<div :class="$style.NavContainer_spacer"></div>
 			<LayoutToc :class="$style.Toc" :page-content="props.pageContent" />
 		</div>
