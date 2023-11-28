@@ -1,6 +1,6 @@
 import type { Ref } from "vue";
 
-import { computed, onMounted, ref, watch, watchEffect } from "vue";
+import { ref, watch, watchEffect } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";
 
 export interface TocItem {
