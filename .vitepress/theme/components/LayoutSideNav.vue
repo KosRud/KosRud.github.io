@@ -195,14 +195,6 @@ const topLevelNavTitle = computed(() => {
 }
 
 /*
-	Pointer-events
-\*----------------------------------*/
-
-.SideNav {
-	pointer-events: auto;
-}
-
-/*
 	Font-size
 \*----------------------------------*/
 
