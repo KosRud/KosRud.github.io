@@ -103,13 +103,13 @@ useViewportSizeProvider();
 .Main {
     position: relative;
     z-index: 0; // establish a stacking context
-    margin-right: @Toc-to-Main-gap + @Toc-width;
 }
 
 .Main___doc {
     flex-grow: 1;
     margin-top: @Header-height;
     margin-left: @SideNav-width;
+    margin-right: @Toc-to-Main-gap + @Toc-width;
 
     max-width: @content-width + @Toc-to-Main-gap*2; // account for padding
 
