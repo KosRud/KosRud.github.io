@@ -68,7 +68,7 @@ const props = defineProps<{
 .Toc {
     position: sticky;
     top: 0rem;
-    flex: 1 0 200rem;
+    flex: 1 0 @Toc-width;
     max-width: max-content;
 
     padding: @Toc-to-Main-gap @gap;

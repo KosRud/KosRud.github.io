@@ -41,6 +41,7 @@ useActiveHeadingIdProvider(tocItems);
     align-items: stretch;
     justify-content: stretch;
     gap: @gap;
+
     color: @color-black-faded;
 
     // background-color: @color-white;

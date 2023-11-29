@@ -40,6 +40,7 @@ const isOpen = useIsTocItemOpen(props.navItem.url);
 
 <style module lang="less">
 @import "../style/variables/index.less";
+@import "../style/mixins/index.less";
 
 .NavItem {
     display: flex;
@@ -78,8 +79,7 @@ const isOpen = useIsTocItemOpen(props.navItem.url);
     }
 
     &:hover {
-        color: @color-primary;
-        font-weight: bold;
+        .NavItem___hover();
     }
 }
 </style>
