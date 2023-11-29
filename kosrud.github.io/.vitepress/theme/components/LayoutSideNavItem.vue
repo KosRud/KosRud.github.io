@@ -3,7 +3,6 @@ import { computed } from "vue";
 
 import type { NavItem } from "../ThemeConfig";
 import { useIsTocItemOpen } from "./composables/isTocItemOpen";
-import NoBoldReflow from "./NoBoldReflow.vue";
 
 const props = defineProps<{ navItem: NavItem; level?: number }>();
 
@@ -17,7 +16,7 @@ const isOpen = useIsTocItemOpen(props.navItem.url);
             :href="props.navItem.url"
             :class="$style.NavItem_title"
         >
-            <NoBoldReflow>{{ props.navItem.title }}</NoBoldReflow>
+            {{ props.navItem.title }}
         </a>
         <ul v-if="isOpen">
             <LayoutSideNavItem

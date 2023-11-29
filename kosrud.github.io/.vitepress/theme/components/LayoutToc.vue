@@ -21,7 +21,7 @@ useActiveHeadingIdProvider(tocItems);
     >
         <h2 :class="$style.Toc_title">On this page:</h2>
         <nav :class="$style.Toc_content">
-            <ul>
+            <ul :class="$style.Toc_itemList">
                 <LayoutTocItem
                     v-for="tocItem in tocItems"
                     :key="tocItem.element.id"
