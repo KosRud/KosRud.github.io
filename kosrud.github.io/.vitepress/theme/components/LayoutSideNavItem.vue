@@ -16,9 +16,9 @@ const isOpen = useIsTocItemOpen(props.navItem.url);
             :href="props.navItem.url"
             :class="$style.NavItem_link"
         >
-            <span :class="$style.NavItem_linkText">
+            <div :class="$style.NavItem_linkText">
                 {{ props.navItem.title }}
-            </span>
+            </div>
         </a>
         <ul v-if="isOpen">
             <LayoutSideNavItem
