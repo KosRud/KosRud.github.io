@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-
 import { useData, useRoute } from "vitepress";
 import { computed } from "vue";
 
@@ -9,68 +8,67 @@ import type { ThemeConfig } from "../ThemeConfig";
 import { urlMatch } from "./composables/urlMatch";
 
 // https://vitepress.dev/reference/runtime-api#usedata
-const { site, } = useData<ThemeConfig>();
+const { site } = useData<ThemeConfig>();
 const route = useRoute();
 
 const sideNav = computed(() => {
-	const navItems =
-		site.value.themeConfig.nav.find((navItem) => {
-			return urlMatch(route.path, navItem.url).inside;
-		})?.children ?? [];
-	return navItems;
+    const navItems =
+        site.value.themeConfig.nav.find((navItem) => {
+            return urlMatch(route.path, navItem.url).inside;
+        })?.children ?? [];
+    return navItems;
 });
 
 const topLevelNavTitle = computed(() => {
-	return (
-		site.value.themeConfig.nav.find((navItem) => {
-			const match = urlMatch(route.path, navItem.url);
-			return match.inside;
-		})?.title ?? ""
-	);
+    return (
+        site.value.themeConfig.nav.find((navItem) => {
+            const match = urlMatch(route.path, navItem.url);
+            return match.inside;
+        })?.title ?? ""
+    );
 });
-
 </script>
 
 <template>
-	<nav :class="$style.SideNav">
-		<h2 :class="$style.SideNav_title">
-			{{ topLevelNavTitle }}/
-		</h2>
-		<ul :class="$style.SideNav_itemList">
-			<LayoutSideNavItem :nav-item="navItem" v-for="navItem in sideNav" />
-		</ul>
-	</nav>
+    <nav :class="$style.SideNav">
+        <h2 :class="$style.SideNav_title">{{ topLevelNavTitle }}/</h2>
+        <ul :class="$style.SideNav_itemList">
+            <LayoutSideNavItem
+                :nav-item="navItem"
+                v-for="navItem in sideNav"
+            />
+        </ul>
+    </nav>
 </template>
 
 <style module lang="less">
 @import "../style/variables/index.less";
 
-
 .SideNav {
-	width: @SideNav-width;
+    width: @SideNav-width;
 
-	display: flex;
-	flex-direction: column;
-	justify-content: stretch;
-	overflow-y: auto;
-	padding-top: @Toc-to-Main-gap;
-	gap: @gap;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    overflow-y: auto;
+    padding-top: @Toc-to-Main-gap;
+    gap: @gap;
 
-	visibility: v-bind("sideNav.length == 0 ? 'hidden' : 'visible'");
+    visibility: v-bind("sideNav.length == 0 ? 'hidden' : 'visible'");
 }
 
 .SideNav_title {
-	flex: 0 0 max-content;
+    flex: 0 0 max-content;
 
-	font-weight: bold;
-	margin-left: auto;
-	margin-right: auto;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .SideNav_itemList {
-	flex: 1 1;
+    flex: 1 1;
 
-	padding-left: @gap;
+    padding-left: @gap;
 }
 
 /*
@@ -78,7 +76,7 @@ const topLevelNavTitle = computed(() => {
 \*----------------------------------*/
 
 .SideNav_title {
-	font-size: @size-l;
+    font-size: @size-l;
 }
 
 /*
@@ -86,6 +84,6 @@ const topLevelNavTitle = computed(() => {
 \*----------------------------------*/
 
 .SideNav_title {
-	font-family: @font-ui;
+    font-family: @font-ui;
 }
 </style>

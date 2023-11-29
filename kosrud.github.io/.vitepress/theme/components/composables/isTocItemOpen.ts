@@ -1,6 +1,6 @@
 import type { Ref } from "vue";
 
-import { isProxy, ref, watchEffect } from "vue";
+import { ref, watchEffect } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";
 import { urlMatch } from "./urlMatch";
 

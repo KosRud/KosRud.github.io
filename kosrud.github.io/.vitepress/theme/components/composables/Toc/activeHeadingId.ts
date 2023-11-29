@@ -1,12 +1,19 @@
 import type { InjectionKey, Ref } from "vue";
 
-import { ref, onMounted, onUnmounted, provide, inject, watchEffect } from "vue";
+import {
+    ref,
+    onUnmounted,
+    provide,
+    inject,
+    watchEffect,
+    onBeforeMount,
+} from "vue";
 import { onContentUpdated } from "vitepress";
 
 import { TocItem } from "./tocItems.js";
 import { symbolVisibleRect } from "../visibleRect.js";
 
-export const activeHeadingIdSymbol = Symbol() as InjectionKey<Ref<string>>;
+export const activeHeadingIdSymbol: InjectionKey<Ref<string>> = Symbol();
 
 export function useActiveHeadingIdProvider(tocItems: Ref<TocItem[]>) {
     const visibleRect = inject(symbolVisibleRect);
@@ -24,10 +31,12 @@ export function useActiveHeadingIdProvider(tocItems: Ref<TocItem[]>) {
     setTriggers(() => update(visibleRect));
 
     provide(activeHeadingIdSymbol, activeHeadingId);
+
+    return activeHeadingId;
 }
 
 function setTriggers(update: () => void) {
-    onMounted(() => {
+    onBeforeMount(() => {
         window.addEventListener("scroll", update, { passive: true });
     });
     onUnmounted(() => {
