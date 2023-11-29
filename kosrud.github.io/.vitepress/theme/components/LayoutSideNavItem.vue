@@ -14,9 +14,11 @@ const isOpen = useIsTocItemOpen(props.navItem.url);
     <li :class="$style.NavItem">
         <a
             :href="props.navItem.url"
-            :class="$style.NavItem_title"
+            :class="$style.NavItem_link"
         >
-            {{ props.navItem.title }}
+            <span :class="$style.NavItem_linkText">
+                {{ props.navItem.title }}
+            </span>
         </a>
         <ul v-if="isOpen">
             <LayoutSideNavItem
@@ -57,8 +59,8 @@ const isOpen = useIsTocItemOpen(props.navItem.url);
 }
 
 .NavItem_title,
-.NavItem_title:link,
-.NavItem_title:visited {
+.NavItem_link:link,
+.NavItem_link:visited {
     color: @color-black;
     text-decoration: inherit;
     display: flex;
@@ -82,5 +84,9 @@ const isOpen = useIsTocItemOpen(props.navItem.url);
     &:hover {
         .NavItem___hover();
     }
+}
+
+.NavItem_linkText {
+    .NavItem_linkText();
 }
 </style>
