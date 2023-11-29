@@ -2,6 +2,8 @@
 import type { Ref } from "vue";
 import type { TocItem } from "./composables/Toc/tocItems";
 
+import NoBoldReflow from "./NoBoldReflow.vue";
+
 import { ref, computed, inject, onUpdated } from "vue";
 import { activeHeadingIdSymbol } from "./composables/Toc/activeHeadingId";
 import scrollIntoViewIfNeeded from "./composables/scrollIntoViewIfNeeded";
@@ -38,11 +40,13 @@ onUpdated(() => {
     >
         <a
             :class="[
-                $style.TocItem_title,
-                isActive ? $style.TocItem_title___active : '',
+                $style.TocItem_link,
+                isActive ? $style.TocItem_link___active : '',
             ]"
             :href="`#${props.heading.element.id}`"
-            >{{ props.heading.element.textContent }}
+            ><NoBoldReflow>{{
+                props.heading.element.textContent
+            }}</NoBoldReflow>
         </a>
         <ul v-if="props.heading.children.length != 0">
             <LayoutTocItem
@@ -67,7 +71,7 @@ onUpdated(() => {
     }
 }
 
-.TocItem_title {
+.TocItem_link {
     width: 100%;
 
     border-left: @width solid @color-border;
@@ -88,7 +92,7 @@ onUpdated(() => {
     }
 }
 
-.TocItem_title___active {
+.TocItem_link___active {
     // background-color: #00000010;
     border-color: @color-primary;
     font-weight: bold;
