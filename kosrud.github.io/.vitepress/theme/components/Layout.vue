@@ -21,7 +21,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 const visibleRect: Ref<Element | null> = ref(null);
 provide(symbolVisibleRect, visibleRect);
 
-const viewportSize = useViewportSizeProvider();
+useViewportSizeProvider();
 </script>
 
 <template>
