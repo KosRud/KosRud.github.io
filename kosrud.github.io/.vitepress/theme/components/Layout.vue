@@ -21,7 +21,7 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 const visibleRect: Ref<Element | null> = ref(null);
 provide(symbolVisibleRect, visibleRect);
 
-useViewportSizeProvider();
+const viewportSize = useViewportSizeProvider();
 </script>
 
 <template>
@@ -70,6 +70,14 @@ useViewportSizeProvider();
 <style lang="less" module>
 @import "../style/variables/index.less";
 
+.VARS {
+    // this class exists to let js code access @variables from LESS
+
+    --toc-breakpoint: @SideNav-width +
+        (@Toc-to-Main-gap + @content-width + @Toc-to-Main-gap) +
+        @Toc-to-Main-gap +;
+}
+
 .VisibleRectMarker {
     pointer-events: none;
     position: fixed;
@@ -95,6 +103,7 @@ useViewportSizeProvider();
 .Main {
     position: relative;
     z-index: 0; // establish a stacking context
+    margin-right: @Toc-to-Main-gap + @Toc-width;
 }
 
 .Main___doc {

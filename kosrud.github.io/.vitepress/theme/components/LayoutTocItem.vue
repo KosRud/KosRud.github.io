@@ -56,6 +56,7 @@ onUpdated(() => {
 
 <style module lang="less">
 @import "../style/variables/index.less";
+@import "../style/mixins/index.less";
 
 .TocItem {
     display: flex;
@@ -82,8 +83,7 @@ onUpdated(() => {
         text-decoration: none;
 
         &:hover {
-            color: @color-primary;
-            font-weight: bold;
+            .NavItem___hover();
         }
     }
 }
