@@ -18,14 +18,10 @@ export function useActiveHeadingIdProvider(tocItems: Ref<TocItem[]>) {
 
     const activeHeadingId: Ref<string> = ref("");
 
-    function update() {
-        if (!visibleRect) {
-            console.error("visibleRect was not provided");
-            return;
-        }
+    function update(visibleRect: Ref<Element | null>) {
         activeHeadingId.value = getActiveHeadingId(tocItems, visibleRect);
     }
-    setTriggers(update);
+    setTriggers(() => update(visibleRect));
 
     provide(activeHeadingIdSymbol, activeHeadingId);
 }
@@ -47,13 +43,13 @@ function getActiveHeadingId(
     tocItems: Ref<TocItem[]>,
     visibleRect: Ref<Element | null>
 ) {
-    const activeTocItem = findActiveHeading(tocItems.value, visibleRect);
+    const activeTocItem = findActiveTocItem(tocItems.value, visibleRect);
 
     if (activeTocItem) {
         return activeTocItem.element.id;
     }
 
-    // fallback if active item not found
+    // fallback if active TOC item not found
 
     if (tocItems.value[0]) {
         return tocItems.value[0].element.id;
@@ -62,7 +58,7 @@ function getActiveHeadingId(
     return "";
 }
 
-function findActiveHeading(
+function findActiveTocItem(
     headings: TocItem[],
     visibleRect: Ref<Element | null>
 ): TocItem | undefined {
@@ -70,7 +66,7 @@ function findActiveHeading(
     // return first heading that is above top screen edge
 
     for (const heading of headings.slice().reverse()) {
-        const inChildren = findActiveHeading(heading.children, visibleRect);
+        const inChildren = findActiveTocItem(heading.children, visibleRect);
         if (inChildren) {
             return inChildren;
         }
@@ -78,8 +74,7 @@ function findActiveHeading(
         const headingRect = heading.element.getBoundingClientRect();
 
         const headingTopMargin = parseInt(
-            window.getComputedStyle(heading.element).marginTop,
-            10
+            window.getComputedStyle(heading.element).marginTop
         );
 
         if (
@@ -94,11 +89,6 @@ function findActiveHeading(
 }
 
 function getVisibleRectStart(visibleRect: Ref<Element | null>) {
-    if (!visibleRect) {
-        console.error("visibleRect not provided");
-        return 0;
-    }
-
     if (!visibleRect.value) {
         console.error("visibleRect value is nullish");
         return 0;
