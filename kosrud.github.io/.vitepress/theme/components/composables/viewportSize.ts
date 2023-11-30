@@ -43,6 +43,5 @@ function getRemSize() {
         return 1;
     }
     const str = window.getComputedStyle(html).fontSize;
-    console.log(parseFloat(str));
     return parseFloat(str);
 }

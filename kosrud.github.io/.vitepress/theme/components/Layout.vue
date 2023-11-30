@@ -12,6 +12,7 @@ import LayoutError404 from "./LayoutError404.vue";
 
 import { symbolVisibleRect } from "./composables/visibleRect";
 import { useViewportSizeProvider } from "./composables/viewportSize";
+import { getLessVars } from "./composables/getLessVars";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { page, frontmatter } = useData<ThemeConfig>();
@@ -21,7 +22,11 @@ const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
 const visibleRect: Ref<Element | null> = ref(null);
 provide(symbolVisibleRect, visibleRect);
 
-useViewportSizeProvider();
+const viewPortSize = useViewportSizeProvider();
+
+const lessVars = getLessVars();
+
+console.log(lessVars);
 </script>
 
 <template>
@@ -69,14 +74,6 @@ useViewportSizeProvider();
 
 <style lang="less" module>
 @import "../style/variables/index.less";
-
-.VARS {
-    // this class exists to let js code access @variables from LESS
-
-    --toc-breakpoint: @SideNav-width +
-        (@Toc-to-Main-gap + @content-width + @Toc-to-Main-gap) +
-        @Toc-to-Main-gap +;
-}
 
 .VisibleRectMarker {
     pointer-events: none;

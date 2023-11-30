@@ -25,3 +25,15 @@ a:visited {
 strong {
     font-weight: bold;
 }
+
+/*
+	Variables to pick from JS
+\*----------------------------------*/
+
+html {
+    @breakpoint-toc: @SideNav-width +
+        (@Toc-to-Main-gap + @content-width-threshold + @Toc-to-Main-gap) +
+        @Toc-to-Main-gap + @Toc-width;
+
+    --breakpoint-toc: @breakpoint-toc;
+}
