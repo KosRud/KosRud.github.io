@@ -12,7 +12,7 @@ import LayoutError404 from "./LayoutError404.vue";
 
 import { symbolVisibleRect } from "./composables/visibleRect";
 import { useViewportSizeProvider } from "./composables/viewportSize";
-import { useLessVarsProvider } from "./composables/getLessVars";
+import { useCssVarsProvider } from "./composables/getCssVars";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { page, frontmatter } = useData<ThemeConfig>();
@@ -24,7 +24,7 @@ provide(symbolVisibleRect, visibleRect);
 
 const viewPortSize = useViewportSizeProvider();
 
-const lessVars = useLessVarsProvider();
+const cssVars = useCssVarsProvider();
 </script>
 
 <template>
