@@ -52,6 +52,7 @@
     flex: 0 0 15%;
     border-radius: @inf;
     background-color: @color-background;
+    box-shadow: @shadow-s;
 }
 
 /*
