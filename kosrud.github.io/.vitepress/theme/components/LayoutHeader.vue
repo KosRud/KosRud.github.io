@@ -1,33 +1,29 @@
 <script lang="ts" setup>
-import { useData } from "vitepress";
-
 import LayoutTopNav from "./LayoutTopNav.vue";
-
-import type { ThemeConfig } from "../ThemeConfig";
-
-// https://vitepress.dev/reference/runtime-api#usedata
-const { site } = useData<ThemeConfig>();
+import ButtonBurger from "./ButtonBurger.vue";
+import SiteTitle from "./SiteTitle.vue";
 </script>
 
 <template>
     <header :class="$style.Header">
-        <a
-            :class="$style.SiteTitleContainer"
-            href="/"
-        >
-            <div>
-                <span :class="$style.SiteTitle"> {{ site.title }}</span>
-                <span :class="$style.SiteDescription">
-                    {{ site.description }}</span
-                >
-            </div>
-        </a>
-        <LayoutTopNav />
+        <div :class="$style.SiteTitleContainer">
+            <SiteTitle />
+        </div>
+        <LayoutTopNav :class="$style.TopNav" />
+        <ButtonBurger />
     </header>
 </template>
 
 <style module lang="less">
 @import "../style/variables/index.less";
+
+.SiteTitleContainer {
+    width: @SideNav-width;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+}
 
 .Header {
     background-color: @color-background-dark;
@@ -52,58 +48,8 @@ const { site } = useData<ThemeConfig>();
     }
 }
 
-.SiteTitleContainer,
-.SiteTitleContainer:link,
-.SiteTitleContainer:visited {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    color: @color-white;
-    width: @SideNav-width;
-    line-height: 1;
-    position: relative;
-    text-decoration-line: inherit;
-
-    &::before {
-        content: "";
-        height: 1.5em;
-        width: 1.5em;
-        background-image: url("/assets/icons/home/icon.svg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        margin-right: @gap;
-        margin-left: 0rem;
-    }
-}
-
-.SiteTitle {
-    width: max-content;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-}
-
-.SiteDescription {
-    width: max-content;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: right;
-}
-
-/*
-	Font-size
-\*----------------------------------*/
-
-.SiteTitle {
-    font-size: @size-xl;
-}
-
-.SiteDescription {
-    font-size: @size-s;
+.TopNav {
+    flex: 1 0;
 }
 
 /*
@@ -112,10 +58,6 @@ const { site } = useData<ThemeConfig>();
 
 .Header {
     font-family: @font-ui;
-}
-
-.SiteTitleContainer {
-    font-family: @font-hero;
 }
 
 /*
