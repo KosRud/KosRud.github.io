@@ -21,7 +21,7 @@ import SiteTitle from "./SiteTitle.vue";
     width: @SideNav-width;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     justify-content: start;
 }
 

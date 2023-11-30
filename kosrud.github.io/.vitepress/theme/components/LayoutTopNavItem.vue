@@ -60,8 +60,8 @@ const props = defineProps<{ navItem: NavItem }>();
     align-items: center;
     justify-content: center;
     box-shadow: @shadow;
-    transition: background-color 0.2s;
-    transition: border-color 0.5s;
+    transition: background-color @duration;
+    transition: border-color @duration-l;
 
     &:hover {
         background-color: @color-primary-light;
