@@ -45,10 +45,18 @@ const { site } = useData<ThemeConfig>();
         background-position: center;
         margin-right: @gap;
         margin-left: 0rem;
+
+        transition: transform @duration-s ease-in;
     }
 
     &:hover::before {
-        transform: scale(1.3);
+        transform: scale(1.2);
+        transition: transform @duration-s ease-out;
+    }
+
+    &:active::before {
+        transform: scale(1.2) translateY(@click-offset);
+        // transition: transform 0s;
     }
 }
 
