@@ -1,3 +1,5 @@
+import { InjectionKey, provide } from "vue";
+
 type Dig<T, K extends string | number | symbol> = T extends Record<K, infer U>
     ? U
     : never;
@@ -17,23 +19,40 @@ type LessVar =
           type: LessVarType.string;
       };
 
-export function getLessVars() {
+type LessVarDescriptions = { [key: string]: LessVar };
+
+const lessVarDescriptions: LessVarDescriptions = {
+    breakpointToc: {
+        value: 800,
+        type: LessVarType.length,
+    },
+};
+
+type LessVars = {
+    [K in keyof typeof lessVarDescriptions]: Dig<
+        (typeof lessVarDescriptions)[K],
+        "value"
+    >;
+};
+
+export const symbolLessVars: InjectionKey<LessVars> = Symbol();
+
+export function useLessVarsProvider() {
+    const vars = getLessVars();
+    provide(symbolLessVars, vars);
+    return vars;
+}
+
+function getLessVars() {
     const html = document.querySelector("html");
 
-    const lessVars: { [key: string]: LessVar } = {
-        breakpointToc: {
-            value: 800,
-            type: LessVarType.length,
-        },
-    };
-
     if (!html) {
-        return produceResult(lessVars);
+        return produceResult(lessVarDescriptions);
     }
 
     const style = window.getComputedStyle(html);
 
-    for (const key in lessVars) {
+    for (const key in lessVarDescriptions) {
         const varName = "--".concat(
             key.replaceAll(/[A-Z]/g, (match: string) => {
                 return "-".concat(match.toLocaleLowerCase());
@@ -45,24 +64,24 @@ export function getLessVars() {
         if (varValue === "") {
             console.error(`Missing css variable "${varName}"`);
         } else {
-            const k = key as keyof typeof lessVars;
-            switch (lessVars[k].type) {
+            const k = key as keyof typeof lessVarDescriptions;
+            switch (lessVarDescriptions[k].type) {
                 case LessVarType.length:
-                    lessVars[k].value = parseInt(varValue);
+                    lessVarDescriptions[k].value = parseInt(varValue);
                     break;
                 case LessVarType.string:
-                    lessVars[k].value = varValue;
+                    lessVarDescriptions[k].value = varValue;
                     break;
                 default:
                     console.error(
-                        `unknown LESS variable type "${lessVars[k].type}"`
+                        `unknown LESS variable type "${lessVarDescriptions[k].type}"`
                     );
                     break;
             }
         }
     }
 
-    return produceResult(lessVars);
+    return produceResult(lessVarDescriptions);
 }
 
 function produceResult<T extends { [K: string]: { value: any } }>(
