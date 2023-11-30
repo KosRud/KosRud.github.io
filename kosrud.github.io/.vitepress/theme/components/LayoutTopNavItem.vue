@@ -87,4 +87,12 @@ const props = defineProps<{ navItem: NavItem }>();
         pointer-events: none;
     }
 }
+
+/*
+	Transitions
+\*----------------------------------*/
+
+// .NavItem_link {
+//     transition: transform @duration-s ease-out;
+// }
 </style>
