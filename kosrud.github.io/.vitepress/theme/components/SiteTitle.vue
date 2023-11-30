@@ -95,4 +95,20 @@ const { site } = useData<ThemeConfig>();
 .SiteTitleContainer {
     font-family: @font-hero;
 }
+
+/*
+	Transitions
+\*----------------------------------*/
+
+.SiteTitleContainer,
+.SiteTitleContainer:link,
+.SiteTitleContainer:visited {
+    &::before {
+        transition: transform @duration-s ease-in;
+    }
+
+    &:hover::before {
+        transition: transform @duration-s ease-out;
+    }
+}
 </style>

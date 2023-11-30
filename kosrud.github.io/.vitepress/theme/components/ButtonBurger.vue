@@ -27,6 +27,14 @@
     &:hover {
         background-color: @color-highlight;
     }
+
+    &:active {
+        background-color: transparent;
+
+        .Burger_line {
+            transform: translateY(@click-offset);
+        }
+    }
 }
 
 .Burger {
@@ -44,5 +52,17 @@
     flex: 0 0 15%;
     border-radius: @inf;
     background-color: @color-background;
+}
+
+/*
+	Transitions
+\*----------------------------------*/
+
+.BurgerWrapper {
+    transition: background-color @duration-s;
+}
+
+.Burger_line {
+    transition: transform @duration-s ease-out;
 }
 </style>
