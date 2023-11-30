@@ -50,6 +50,8 @@ function getCssVars() {
     const style = window.getComputedStyle(html);
 
     for (const key in cssVarDescriptions) {
+        const k = key as keyof CssVarDescriptions;
+
         const varName = "--".concat(
             key.replaceAll(/[A-Z]/g, (match: string) => {
                 return "-".concat(match.toLocaleLowerCase());
@@ -59,11 +61,28 @@ function getCssVars() {
         const varValue = style.getPropertyValue(varName);
 
         if (varValue === "") {
-            console.error(`Missing css variable "${varName}"`);
+            console.error(
+                `Missing css variable: "${varName}"`,
+                "\n",
+                "Fallback to default:",
+                cssVarDescriptions[k].value
+            );
         } else {
-            const k = key as keyof CssVarDescriptions;
             switch (cssVarDescriptions[k].type) {
                 case CssVarType.length:
+                    if (!varValue.match(/^[\d]+rem$/)) {
+                        console.error(
+                            `Invalid CSS variable value:`,
+                            {
+                                name: varName,
+                                value: varValue,
+                            },
+                            "\n",
+                            "Fallback to default:",
+                            cssVarDescriptions[k].value
+                        );
+                        break;
+                    }
                     cssVarDescriptions[k].value = parseInt(varValue);
                     break;
                 case CssVarType.string:
