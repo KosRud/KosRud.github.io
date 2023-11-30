@@ -1,38 +1,31 @@
 <script lang="ts" setup>
-import { useData } from "vitepress";
+import { useRoute } from "vitepress";
 
-import type { ThemeConfig } from "../ThemeConfig";
+import type { NavItem } from "../ThemeConfig";
+import { urlMatch } from "./composables/urlMatch";
 
-// https://vitepress.dev/reference/runtime-api#usedata
-const { site } = useData<ThemeConfig>();
+const route = useRoute();
 
-import LayoutTopNavItem from "./LayoutTopNavItem.vue";
+const props = defineProps<{ navItem: NavItem }>();
 </script>
 
 <template>
-    <nav :class="$style.TopNav">
-        <ul>
-            <LayoutTopNavItem
-                :nav-item="navItem"
-                v-for="navItem in site.themeConfig.nav"
-            />
-        </ul>
-    </nav>
+    <li :class="$style.NavItem">
+        <a
+            :class="[
+                $style.NavItem_link,
+                urlMatch(route.path, props.navItem.url).inside
+                    ? $style.NavItem_link___active
+                    : '',
+            ]"
+            :href="props.navItem.url"
+            >{{ props.navItem.title }}</a
+        >
+    </li>
 </template>
 
 <style module lang="less">
 @import "../style/variables/index.less";
-
-.TopNav {
-    > ul {
-        display: flex;
-        flex-direction: row;
-        height: 100%;
-        gap: @gap;
-        padding-top: @TopNav-gap-vertical;
-        padding-bottom: @TopNav-gap-vertical;
-    }
-}
 
 .NavItem {
     &::before {
