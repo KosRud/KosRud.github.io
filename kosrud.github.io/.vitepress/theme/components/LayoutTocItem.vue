@@ -18,7 +18,7 @@ const isActive = computed(() => {
     return activeHeadingId?.value == props.heading.element.id;
 });
 
-const tocItem: Ref<HTMLElement | null> = ref(null);
+const tocItem: Ref<Element | null> = ref(null);
 
 onUpdated(() => {
     if (isActive.value) {
@@ -34,7 +34,7 @@ onUpdated(() => {
 <template>
     <li
         :class="$style.TocItem"
-        :ref="(element) => { tocItem = element as HTMLElement }"
+        :ref="(element) => { tocItem = element as Element }"
     >
         <a
             :class="[

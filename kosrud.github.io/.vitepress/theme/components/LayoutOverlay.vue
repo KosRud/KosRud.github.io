@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { inject, type ComponentPublicInstance } from "vue";
-
 import LayoutToc from "./LayoutToc.vue";
 import LayoutNavSide from "./LayoutNavSide.vue";
 import LayoutHeader from "./LayoutHeader.vue";
@@ -8,19 +6,12 @@ import LayoutHeader from "./LayoutHeader.vue";
 import { useData } from "vitepress";
 
 import type { ThemeConfig } from "../ThemeConfig";
-import {
-    AdaptiveStage,
-    symbolAdaptiveStage,
-} from "./composables/adaptiveStages";
+import { useAdaptiveStage, AdaptiveStage } from "./composables/adaptiveStages";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const frontmatter = useData<ThemeConfig>().frontmatter;
 
-const props = defineProps<{
-    pageContent: ComponentPublicInstance | null;
-}>();
-
-const adaptiveStage = inject(symbolAdaptiveStage);
+const adaptiveStage = useAdaptiveStage();
 </script>
 
 <template>
@@ -32,10 +23,7 @@ const adaptiveStage = inject(symbolAdaptiveStage);
         >
             <LayoutNavSide :class="$style.NavSide" />
             <div :class="$style.NavContainer_spacer"></div>
-            <LayoutToc
-                :class="$style.Toc"
-                :page-content="props.pageContent"
-            />
+            <LayoutToc :class="$style.Toc" />
         </div>
     </div>
 </template>

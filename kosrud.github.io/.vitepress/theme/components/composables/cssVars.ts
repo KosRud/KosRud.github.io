@@ -30,7 +30,7 @@ cssVarDescriptions as { [key: string]: CssVarDescription };
 
 type CssVarDescriptions = typeof cssVarDescriptions;
 
-type CssVars = {
+export type CssVars = {
     [K in keyof typeof cssVarDescriptions]: Dig<
         (typeof cssVarDescriptions)[K],
         "value"

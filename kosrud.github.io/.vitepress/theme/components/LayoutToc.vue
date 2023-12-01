@@ -1,16 +1,14 @@
 <script lang="ts" setup>
-import type { ComponentPublicInstance } from "vue";
+import { useStore } from "./pinia/store";
 
 import { useTocItems } from "./composables/Toc/tocItems";
 import { useActiveHeadingIdProvider } from "./composables/Toc/activeHeadingId";
 
 import LayoutTocItem from "./LayoutTocItem.vue";
 
-const props = defineProps<{
-    pageContent: ComponentPublicInstance | null;
-}>();
+const store = useStore();
 
-const tocItems = useTocItems(() => props.pageContent?.$el ?? null);
+const tocItems = useTocItems(() => store.pageContent?.$el ?? null);
 useActiveHeadingIdProvider(tocItems);
 </script>
 

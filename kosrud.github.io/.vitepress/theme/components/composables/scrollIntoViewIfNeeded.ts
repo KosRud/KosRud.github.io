@@ -1,4 +1,4 @@
-export default function scrollIntoViewIfNeeded(element: HTMLElement) {
+export default function scrollIntoViewIfNeeded(element: Element) {
     if (isObscured(element)) {
         element.scrollIntoView({ block: "nearest" });
     }
@@ -12,7 +12,7 @@ function greater(a: number, b: number) {
     return a - b > epsilon;
 }
 
-function isObscured(element: HTMLElement, by?: HTMLElement) {
+function isObscured(element: Element, by?: Element) {
     if (!by) {
         if (!element.parentElement) {
             return false;

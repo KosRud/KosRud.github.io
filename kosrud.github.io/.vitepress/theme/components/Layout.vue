@@ -1,47 +1,28 @@
 <script setup lang="ts">
-import type { ComponentPublicInstance, Ref } from "vue";
+import { ComponentPublicInstance, getCurrentInstance } from "vue";
 import type { ThemeConfig } from "../ThemeConfig";
 
-import { ref, provide, computed } from "vue";
+import { useStore } from "./pinia/store";
 import { useData } from "vitepress";
 
-import MarkdownWrapper from "./MarkdownWrapper.vue";
-import YouAreHere from "./YouAreHere.vue";
 import LayoutOverlay from "./LayoutOverlay.vue";
 import LayoutError404 from "./LayoutError404.vue";
+import LayoutMainDoc from "./LayoutMainDoc.vue";
 
-import {
-    AdaptiveStage,
-    symbolAdaptiveStage,
-} from "./composables/adaptiveStages";
-import { symbolVisibleRect } from "./composables/visibleRect";
+import { useAdaptivePreferenceStoreProvider } from "./composables/adaptiveStages";
 import { useViewportSizeProvider } from "./composables/viewportSize";
 import { useCssVarsProvider } from "./composables/cssVars";
+import { createPinia } from "pinia";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { page, frontmatter } = useData<ThemeConfig>();
 
-const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
-
-const visibleRect: Ref<Element | null> = ref(null);
-provide(symbolVisibleRect, visibleRect);
+getCurrentInstance()?.appContext.app.use(createPinia());
+const store = useStore();
 
 const viewPortSize = useViewportSizeProvider();
-
 const cssVars = useCssVarsProvider();
-
-provide(
-    symbolAdaptiveStage,
-    computed(() => {
-        const vw = viewPortSize.value.width;
-
-        if (vw < cssVars.breakpointToc) {
-            return AdaptiveStage.foldToc;
-        }
-
-        return AdaptiveStage.full;
-    })
-);
+useAdaptivePreferenceStoreProvider(cssVars, viewPortSize);
 </script>
 
 <template>
@@ -52,22 +33,10 @@ provide(
         >
             <LayoutError404 />
         </main>
-        <main
+        <LayoutMainDoc
             :class="[$style.Main, $style.Main___doc]"
             v-else-if="!frontmatter.hero"
-        >
-            <header :class="$style.CurrentLocation">
-                <YouAreHere />
-            </header>
-            <MarkdownWrapper>
-                <Content
-                    :ref="(component: ComponentPublicInstance | null) => {
-					pageContent = component;
-				}
-					"
-                />
-            </MarkdownWrapper>
-        </main>
+        />
         <main
             v-else
             :class="[$style.Main, $style.Main___hero]"
@@ -75,12 +44,12 @@ provide(
             <Content />
         </main>
 
-        <LayoutOverlay :page-content="pageContent" />
+        <LayoutOverlay />
 
         <div
             :class="$style.VisibleRectMarker"
             :ref="(element: Element | ComponentPublicInstance | null) => {
-			visibleRect = element as Element;
+			store.visibleRect = element as Element;
 		}
 			"
         ></div>
@@ -97,10 +66,6 @@ provide(
     right: 0rem;
     bottom: 0rem;
     top: @Header-height;
-}
-
-.CurrentLocation {
-    margin-bottom: @gap*2;
 }
 
 .Layout {

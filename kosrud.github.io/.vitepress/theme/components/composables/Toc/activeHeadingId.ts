@@ -1,34 +1,27 @@
+import { useStore } from "../../pinia/store";
 import type { InjectionKey, Ref } from "vue";
 
 import {
     ref,
     onUnmounted,
     provide,
-    inject,
     watchEffect,
     onBeforeMount,
+    onMounted,
 } from "vue";
 import { onContentUpdated } from "vitepress";
 
 import { TocItem } from "./tocItems.js";
-import { symbolVisibleRect } from "../visibleRect.js";
 
 export const activeHeadingIdSymbol: InjectionKey<Ref<string>> = Symbol();
 
 export function useActiveHeadingIdProvider(tocItems: Ref<TocItem[]>) {
-    const visibleRect = inject(symbolVisibleRect);
-
-    if (visibleRect == undefined) {
-        console.error("visibleRect was not provided");
-        return;
-    }
-
     const activeHeadingId: Ref<string> = ref("");
 
-    function update(visibleRect: Ref<Element | null>) {
-        activeHeadingId.value = getActiveHeadingId(tocItems, visibleRect);
+    function update() {
+        activeHeadingId.value = getActiveHeadingId(tocItems);
     }
-    setTriggers(() => update(visibleRect));
+    setTriggers(() => update());
 
     provide(activeHeadingIdSymbol, activeHeadingId);
 
@@ -45,14 +38,15 @@ function setTriggers(update: () => void) {
     onContentUpdated(() => {
         update();
     });
-    watchEffect(update);
+    onMounted(() => {
+        // wait until mounted
+        // to make sure pinia store is ready
+        watchEffect(update);
+    });
 }
 
-function getActiveHeadingId(
-    tocItems: Ref<TocItem[]>,
-    visibleRect: Ref<Element | null>
-) {
-    const activeTocItem = findActiveTocItem(tocItems.value, visibleRect);
+function getActiveHeadingId(tocItems: Ref<TocItem[]>) {
+    const activeTocItem = findActiveTocItem(tocItems.value);
 
     if (activeTocItem) {
         return activeTocItem.element.id;
@@ -67,15 +61,12 @@ function getActiveHeadingId(
     return "";
 }
 
-function findActiveTocItem(
-    headings: TocItem[],
-    visibleRect: Ref<Element | null>
-): TocItem | undefined {
+function findActiveTocItem(headings: TocItem[]): TocItem | undefined {
     // search from bottom of the page to top
     // return first heading that is above top screen edge
 
     for (const heading of headings.slice().reverse()) {
-        const inChildren = findActiveTocItem(heading.children, visibleRect);
+        const inChildren = findActiveTocItem(heading.children);
         if (inChildren) {
             return inChildren;
         }
@@ -86,10 +77,7 @@ function findActiveTocItem(
             window.getComputedStyle(heading.element).marginTop
         );
 
-        if (
-            headingRect.top <
-            getVisibleRectStart(visibleRect) + headingTopMargin
-        ) {
+        if (headingRect.top < getVisibleRectStart() + headingTopMargin) {
             return heading;
         }
     }
@@ -97,11 +85,13 @@ function findActiveTocItem(
     return undefined;
 }
 
-function getVisibleRectStart(visibleRect: Ref<Element | null>) {
-    if (!visibleRect.value) {
+function getVisibleRectStart() {
+    const store = useStore();
+
+    if (!store.visibleRect) {
         console.error("visibleRect value is nullish");
         return 0;
     }
 
-    return visibleRect.value.getBoundingClientRect().top;
+    return store.visibleRect.getBoundingClientRect().top;
 }
