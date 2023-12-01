@@ -11,7 +11,7 @@ import { urlMatch } from "./composables/urlMatch";
 const { site } = useData<ThemeConfig>();
 const route = useRoute();
 
-const sideNav = computed(() => {
+const NavSide = computed(() => {
     const navItems =
         site.value.themeConfig.nav.find((navItem) => {
             return urlMatch(route.path, navItem.url).inside;
@@ -30,12 +30,12 @@ const topLevelNavTitle = computed(() => {
 </script>
 
 <template>
-    <nav :class="$style.SideNav">
-        <h2 :class="$style.SideNav_title">{{ topLevelNavTitle }}/</h2>
-        <ul :class="$style.SideNav_itemList">
+    <nav :class="$style.NavSide">
+        <h2 :class="$style.NavSide_title">{{ topLevelNavTitle }}/</h2>
+        <ul :class="$style.NavSide_itemList">
             <LayoutNavSideItem
                 :nav-item="navItem"
-                v-for="navItem in sideNav"
+                v-for="navItem in NavSide"
             />
         </ul>
     </nav>
@@ -44,8 +44,8 @@ const topLevelNavTitle = computed(() => {
 <style module lang="less">
 @import "../style/variables/index.less";
 
-.SideNav {
-    width: @SideNav-width;
+.NavSide {
+    width: @NavSide-width;
 
     display: flex;
     flex-direction: column;
@@ -54,10 +54,10 @@ const topLevelNavTitle = computed(() => {
     padding-top: @Toc-to-Main-gap;
     gap: @gap;
 
-    visibility: v-bind("sideNav.length == 0 ? 'hidden' : 'visible'");
+    visibility: v-bind("NavSide.length == 0 ? 'hidden' : 'visible'");
 }
 
-.SideNav_title {
+.NavSide_title {
     flex: 0 0 max-content;
 
     font-weight: bold;
@@ -65,7 +65,7 @@ const topLevelNavTitle = computed(() => {
     margin-right: auto;
 }
 
-.SideNav_itemList {
+.NavSide_itemList {
     flex: 1 1;
 
     padding-left: @gap;
@@ -75,7 +75,7 @@ const topLevelNavTitle = computed(() => {
 	Font-size
 \*----------------------------------*/
 
-.SideNav_title {
+.NavSide_title {
     font-size: @size-l;
 }
 
@@ -83,7 +83,7 @@ const topLevelNavTitle = computed(() => {
 	Font-family
 \*----------------------------------*/
 
-.SideNav_title {
+.NavSide_title {
     font-family: @font-ui;
 }
 </style>

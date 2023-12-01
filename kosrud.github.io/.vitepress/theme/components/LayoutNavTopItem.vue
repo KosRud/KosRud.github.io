@@ -33,9 +33,12 @@ const props = defineProps<{ navItem: NavItem }>();
     }
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: stretch;
-    align-items: center;
+    align-items: stretch;
+
+    min-width: @gap*11;
+    flex: 0 1 auto;
 }
 
 .NavItem_link {
@@ -55,7 +58,6 @@ const props = defineProps<{ navItem: NavItem }>();
     border-radius: @gap*0.5;
     line-height: 1;
     padding: @navlink-pad;
-    min-width: @gap*11;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,7 +84,7 @@ const props = defineProps<{ navItem: NavItem }>();
         left: @gap*0.0;
         right: @gap*0.0;
         bottom: calc(0rem - @gap);
-        top: calc(0rem - @TopNav-gap-vertical);
+        top: calc(0rem - @NavTop-gap-vertical);
         border-top: @width solid @color-background;
         pointer-events: none;
     }

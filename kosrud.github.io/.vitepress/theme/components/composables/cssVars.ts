@@ -9,30 +9,35 @@ enum CssVarType {
     string,
 }
 
-type CssVarDescription =
-    | {
-          value: number;
-          type: CssVarType.length;
-      }
-    | {
-          value: string;
-          type: CssVarType.string;
-      };
+type CssVarDescription = {
+    value: number;
+    type: CssVarType.length;
+};
+// | {
+//       value: string;
+//       type: CssVarType.string;
+//   };
 
-type CssVarDescriptions = { [key: string]: CssVarDescription };
-
-const cssVarDescriptions: CssVarDescriptions = {
+const cssVarDescriptions = {
     breakpointToc: {
         value: 800,
         type: CssVarType.length,
     },
 };
 
-type cssVars = {
-    [K in keyof CssVarDescriptions]: Dig<CssVarDescriptions[K], "value">;
+// assert type compatibility
+cssVarDescriptions as { [key: string]: CssVarDescription };
+
+type CssVarDescriptions = typeof cssVarDescriptions;
+
+type CssVars = {
+    [K in keyof typeof cssVarDescriptions]: Dig<
+        (typeof cssVarDescriptions)[K],
+        "value"
+    >;
 };
 
-export const symbolCssVars: InjectionKey<cssVars> = Symbol();
+export const symbolCssVars: InjectionKey<CssVars> = Symbol();
 
 export function useCssVarsProvider() {
     const vars = getCssVars();
@@ -85,9 +90,9 @@ function getCssVars() {
                     }
                     cssVarDescriptions[k].value = parseInt(varValue);
                     break;
-                case CssVarType.string:
-                    cssVarDescriptions[k].value = varValue;
-                    break;
+                // case CssVarType.string:
+                //     cssVarDescriptions[k].value = varValue;
+                //     break;
                 default:
                     console.error(
                         `unknown CSS variable type "${cssVarDescriptions[k].type}"`

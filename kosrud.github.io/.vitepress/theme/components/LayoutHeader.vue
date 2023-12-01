@@ -9,7 +9,7 @@ import SiteTitle from "./SiteTitle.vue";
         <div :class="$style.SiteTitleContainer">
             <SiteTitle />
         </div>
-        <LayoutNavTop :class="$style.TopNav" />
+        <LayoutNavTop :class="$style.NavTop" />
         <ButtonBurger />
     </header>
 </template>
@@ -18,7 +18,7 @@ import SiteTitle from "./SiteTitle.vue";
 @import "../style/variables/index.less";
 
 .SiteTitleContainer {
-    width: @SideNav-width;
+    width: @NavSide-width;
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -42,13 +42,13 @@ import SiteTitle from "./SiteTitle.vue";
         left: @gap*0.0;
         right: @gap*0.0;
         bottom: calc(0rem - @gap);
-        top: calc(0rem - @TopNav-gap-vertical);
+        top: calc(0rem - @NavTop-gap-vertical);
         border-top: @width solid @color-background;
         pointer-events: none;
     }
 }
 
-.TopNav {
+.NavTop {
     flex: 1 0;
 }
 
