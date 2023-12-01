@@ -2,7 +2,7 @@
 import { useData, useRoute } from "vitepress";
 import { computed } from "vue";
 
-import LayoutSideNavItem from "./LayoutSideNavItem.vue";
+import LayoutNavSideItem from "./LayoutNavSideItem.vue";
 
 import type { ThemeConfig } from "../ThemeConfig";
 import { urlMatch } from "./composables/urlMatch";
@@ -33,7 +33,7 @@ const topLevelNavTitle = computed(() => {
     <nav :class="$style.SideNav">
         <h2 :class="$style.SideNav_title">{{ topLevelNavTitle }}/</h2>
         <ul :class="$style.SideNav_itemList">
-            <LayoutSideNavItem
+            <LayoutNavSideItem
                 :nav-item="navItem"
                 v-for="navItem in sideNav"
             />

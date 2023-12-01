@@ -2,7 +2,7 @@
 import type { ComponentPublicInstance } from "vue";
 
 import LayoutToc from "./LayoutToc.vue";
-import LayoutSideNav from "./LayoutSideNav.vue";
+import LayoutNavSide from "./LayoutNavSide.vue";
 import LayoutHeader from "./LayoutHeader.vue";
 
 import { useData } from "vitepress";
@@ -24,7 +24,7 @@ const props = defineProps<{
             :class="$style.NavContainer"
             v-if="!frontmatter.hero"
         >
-            <LayoutSideNav :class="$style.SideNav" />
+            <LayoutNavSide :class="$style.SideNav" />
             <div :class="$style.NavContainer_spacer"></div>
             <LayoutToc
                 :class="$style.Toc"
