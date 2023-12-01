@@ -1,4 +1,4 @@
-import type { ComputedRef, InjectionKey, Ref } from "vue";
+import type { InjectionKey, Ref } from "vue";
 import type { CssVars } from "./cssVars";
 
 import {
@@ -9,7 +9,6 @@ import {
     provide,
     ref,
     watchEffect,
-    watch,
 } from "vue";
 
 import { ViewPortSize } from "./viewportSize";
