@@ -1,6 +1,7 @@
 {
     "dependencies": {
         "less": "^4.2.0",
+        "pinia": "^2.1.7",
         "vitepress": "1.0.0-rc.21",
         "vue": "^3.3.4"
     },

@@ -2,7 +2,12 @@ import type { Ref } from "vue";
 
 import { ref, onUnmounted, onBeforeMount, provide, InjectionKey } from "vue";
 
-export function useViewportSizeProvider() {
+export interface ViewPortSize {
+    height: number;
+    width: number;
+}
+
+export function useViewportSizeProvider(): Ref<ViewPortSize> {
     const viewPortSize = ref({ width: 0, height: 0 });
 
     function update() {
