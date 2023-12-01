@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { ComponentPublicInstance } from "vue";
+import { inject, type ComponentPublicInstance } from "vue";
 
 import LayoutToc from "./LayoutToc.vue";
 import LayoutNavSide from "./LayoutNavSide.vue";
@@ -8,6 +8,10 @@ import LayoutHeader from "./LayoutHeader.vue";
 import { useData } from "vitepress";
 
 import type { ThemeConfig } from "../ThemeConfig";
+import {
+    AdaptiveStage,
+    symbolAdaptiveStage,
+} from "./composables/adaptiveStages";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const frontmatter = useData<ThemeConfig>().frontmatter;
@@ -15,6 +19,8 @@ const frontmatter = useData<ThemeConfig>().frontmatter;
 const props = defineProps<{
     pageContent: ComponentPublicInstance | null;
 }>();
+
+const adaptiveStage = inject(symbolAdaptiveStage);
 </script>
 
 <template>
@@ -22,9 +28,9 @@ const props = defineProps<{
         <LayoutHeader :class="$style.Header" />
         <div
             :class="$style.NavContainer"
-            v-if="!frontmatter.hero"
+            v-if="!frontmatter.hero && adaptiveStage == AdaptiveStage.full"
         >
-            <LayoutNavSide :class="$style.SideNav" />
+            <LayoutNavSide :class="$style.NavSide" />
             <div :class="$style.NavContainer_spacer"></div>
             <LayoutToc
                 :class="$style.Toc"
@@ -41,7 +47,7 @@ const props = defineProps<{
     flex: 0 0 @Header-height;
 }
 
-.SideNav {
+.NavSide {
     flex-shrink: 0;
 }
 
@@ -86,7 +92,7 @@ const props = defineProps<{
 }
 
 .Toc,
-.SideNav,
+.NavSide,
 .Header {
     pointer-events: auto;
 }

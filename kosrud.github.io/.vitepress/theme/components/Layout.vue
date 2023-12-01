@@ -2,7 +2,7 @@
 import type { ComponentPublicInstance, Ref } from "vue";
 import type { ThemeConfig } from "../ThemeConfig";
 
-import { ref, provide } from "vue";
+import { ref, provide, computed } from "vue";
 import { useData } from "vitepress";
 
 import MarkdownWrapper from "./MarkdownWrapper.vue";
@@ -10,6 +10,10 @@ import YouAreHere from "./YouAreHere.vue";
 import LayoutOverlay from "./LayoutOverlay.vue";
 import LayoutError404 from "./LayoutError404.vue";
 
+import {
+    AdaptiveStage,
+    symbolAdaptiveStage,
+} from "./composables/adaptiveStages";
 import { symbolVisibleRect } from "./composables/visibleRect";
 import { useViewportSizeProvider } from "./composables/viewportSize";
 import { useCssVarsProvider } from "./composables/cssVars";
@@ -25,6 +29,19 @@ provide(symbolVisibleRect, visibleRect);
 const viewPortSize = useViewportSizeProvider();
 
 const cssVars = useCssVarsProvider();
+
+provide(
+    symbolAdaptiveStage,
+    computed(() => {
+        const vw = viewPortSize.value.width;
+
+        if (vw < cssVars.breakpointToc) {
+            return AdaptiveStage.foldToc;
+        }
+
+        return AdaptiveStage.full;
+    })
+);
 </script>
 
 <template>
@@ -103,7 +120,7 @@ const cssVars = useCssVarsProvider();
 .Main___doc {
     flex-grow: 1;
     margin-top: @Header-height;
-    margin-left: @SideNav-width;
+    margin-left: @NavSide-width;
     margin-right: @Toc-to-Main-gap + @Toc-width;
 
     max-width: @content-width + @Toc-to-Main-gap*2; // account for padding
