@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import LayoutTopNav from "./LayoutTopNav.vue";
+import LayoutNavTop from "./LayoutNavTop.vue";
 import ButtonBurger from "./ButtonBurger.vue";
 import SiteTitle from "./SiteTitle.vue";
 </script>
@@ -9,7 +9,7 @@ import SiteTitle from "./SiteTitle.vue";
         <div :class="$style.SiteTitleContainer">
             <SiteTitle />
         </div>
-        <LayoutTopNav :class="$style.TopNav" />
+        <LayoutNavTop :class="$style.TopNav" />
         <ButtonBurger />
     </header>
 </template>

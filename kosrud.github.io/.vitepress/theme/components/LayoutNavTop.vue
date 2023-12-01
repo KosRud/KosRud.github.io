@@ -6,13 +6,13 @@ import type { ThemeConfig } from "../ThemeConfig";
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site } = useData<ThemeConfig>();
 
-import LayoutTopNavItem from "./LayoutTopNavItem.vue";
+import LayoutNavTopItem from "./LayoutNavTopItem.vue";
 </script>
 
 <template>
     <nav :class="$style.TopNav">
         <ul>
-            <LayoutTopNavItem
+            <LayoutNavTopItem
                 :nav-item="navItem"
                 v-for="navItem in site.themeConfig.nav"
             />
