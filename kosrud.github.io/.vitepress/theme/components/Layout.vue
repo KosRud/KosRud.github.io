@@ -9,9 +9,6 @@ import LayoutOverlay from "./LayoutOverlay.vue";
 import LayoutError404 from "./LayoutError404.vue";
 import LayoutMainDoc from "./LayoutMainDoc.vue";
 
-import { useAdaptivePreferenceStoreProvider } from "./composables/adaptiveStages";
-import { useViewportSizeProvider } from "./composables/viewportSize";
-import { useCssVarsProvider } from "./composables/cssVars";
 import { createPinia } from "pinia";
 
 // https://vitepress.dev/reference/runtime-api#usedata
@@ -19,10 +16,7 @@ const { page, frontmatter } = useData<ThemeConfig>();
 
 getCurrentInstance()?.appContext.app.use(createPinia());
 const store = useStore();
-
-const viewPortSize = useViewportSizeProvider();
-const cssVars = useCssVarsProvider();
-useAdaptivePreferenceStoreProvider(cssVars, viewPortSize);
+store.init();
 </script>
 
 <template>

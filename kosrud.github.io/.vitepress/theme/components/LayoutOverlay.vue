@@ -4,14 +4,15 @@ import LayoutNavSide from "./LayoutNavSide.vue";
 import LayoutHeader from "./LayoutHeader.vue";
 
 import { useData } from "vitepress";
+import { useStore } from "./pinia/store";
 
 import type { ThemeConfig } from "../ThemeConfig";
-import { useAdaptiveStage, AdaptiveStage } from "./composables/adaptiveStages";
+import { AdaptiveStage } from "./composables/adaptiveStages";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const frontmatter = useData<ThemeConfig>().frontmatter;
 
-const adaptiveStage = useAdaptiveStage();
+const store = useStore();
 </script>
 
 <template>
@@ -19,7 +20,9 @@ const adaptiveStage = useAdaptiveStage();
         <LayoutHeader :class="$style.Header" />
         <div
             :class="$style.NavContainer"
-            v-if="!frontmatter.hero && adaptiveStage == AdaptiveStage.full"
+            v-if="
+                !frontmatter.hero && store.adaptiveStage == AdaptiveStage.full
+            "
         >
             <LayoutNavSide :class="$style.NavSide" />
             <div :class="$style.NavContainer_spacer"></div>

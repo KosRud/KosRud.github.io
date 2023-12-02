@@ -1,5 +1,3 @@
-import { InjectionKey, provide } from "vue";
-
 type Dig<T, K extends string | number | symbol> = T extends Record<K, infer U>
     ? U
     : never;
@@ -37,15 +35,9 @@ export type CssVars = {
     >;
 };
 
-export const symbolCssVars: InjectionKey<CssVars> = Symbol();
+export const cssVarsFallback = produceResult(cssVarDescriptions);
 
-export function useCssVarsProvider() {
-    const vars = getCssVars();
-    provide(symbolCssVars, vars);
-    return vars;
-}
-
-function getCssVars() {
+export function getCssVars() {
     const html = document.querySelector("html");
 
     if (!html) {
