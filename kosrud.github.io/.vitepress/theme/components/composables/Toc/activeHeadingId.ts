@@ -1,31 +1,18 @@
 import { useStore } from "../../pinia/store";
 import type { InjectionKey, Ref } from "vue";
 
-import {
-    ref,
-    onUnmounted,
-    provide,
-    watchEffect,
-    onBeforeMount,
-    onMounted,
-} from "vue";
+import { onUnmounted, watchEffect, onBeforeMount, onMounted } from "vue";
 import { onContentUpdated } from "vitepress";
 
 import { TocItem } from "./tocItems.js";
 
 export const activeHeadingIdSymbol: InjectionKey<Ref<string>> = Symbol();
 
-export function useActiveHeadingIdProvider(tocItems: Ref<TocItem[]>) {
-    const activeHeadingId: Ref<string> = ref("");
-
-    function update() {
-        activeHeadingId.value = getActiveHeadingId(tocItems);
-    }
-    setTriggers(() => update());
-
-    provide(activeHeadingIdSymbol, activeHeadingId);
-
-    return activeHeadingId;
+export function useTrackActiveHeadingId() {
+    setTriggers(() => {
+        const store = useStore();
+        store.activeHeadingId = getActiveHeadingId();
+    });
 }
 
 function setTriggers(update: () => void) {
@@ -45,8 +32,10 @@ function setTriggers(update: () => void) {
     });
 }
 
-function getActiveHeadingId(tocItems: Ref<TocItem[]>) {
-    const activeTocItem = findActiveTocItem(tocItems.value);
+function getActiveHeadingId() {
+    const store = useStore();
+
+    const activeTocItem = findActiveTocItem(store.tocItems);
 
     if (activeTocItem) {
         return activeTocItem.element.id;
@@ -54,8 +43,8 @@ function getActiveHeadingId(tocItems: Ref<TocItem[]>) {
 
     // fallback if active TOC item not found
 
-    if (tocItems.value[0]) {
-        return tocItems.value[0].element.id;
+    if (store.tocItems[0]) {
+        return store.tocItems[0].element.id;
     }
 
     return "";

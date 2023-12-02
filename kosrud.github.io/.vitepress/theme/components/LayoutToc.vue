@@ -1,27 +1,21 @@
 <script lang="ts" setup>
 import { useStore } from "./pinia/store";
 
-import { useTocItems } from "./composables/Toc/tocItems";
-import { useActiveHeadingIdProvider } from "./composables/Toc/activeHeadingId";
-
 import LayoutTocItem from "./LayoutTocItem.vue";
 
 const store = useStore();
-
-const tocItems = useTocItems(() => store.pageContent?.$el ?? null);
-useActiveHeadingIdProvider(tocItems);
 </script>
 
 <template>
     <nav
         :class="$style.Toc"
-        v-if="tocItems.length > 0"
+        v-if="store.tocItems.length > 0"
     >
         <h2 :class="$style.Toc_title">On this page:</h2>
         <nav :class="$style.Toc_content">
             <ul :class="$style.Toc_itemList">
                 <LayoutTocItem
-                    v-for="tocItem in tocItems"
+                    v-for="tocItem in store.tocItems"
                     :key="tocItem.element.id"
                     :heading="tocItem"
                 />

@@ -2,8 +2,9 @@
 import type { Ref } from "vue";
 import type { TocItem } from "./composables/Toc/tocItems";
 
-import { ref, computed, inject, onUpdated } from "vue";
-import { activeHeadingIdSymbol } from "./composables/Toc/activeHeadingId";
+import { ref, computed, onUpdated } from "vue";
+import { useStore } from "./pinia/store";
+
 import scrollIntoViewIfNeeded from "./composables/scrollIntoViewIfNeeded";
 
 const props = defineProps<{
@@ -13,9 +14,9 @@ const props = defineProps<{
 
 const level = props.level ?? 1;
 
-const activeHeadingId = inject(activeHeadingIdSymbol);
 const isActive = computed(() => {
-    return activeHeadingId?.value == props.heading.element.id;
+    const store = useStore();
+    return store.activeHeadingId == props.heading.element.id;
 });
 
 const tocItem: Ref<Element | null> = ref(null);
