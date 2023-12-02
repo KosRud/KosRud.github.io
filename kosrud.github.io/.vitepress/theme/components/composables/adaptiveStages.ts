@@ -21,19 +21,17 @@ export type AdaptivePreference = {
     requestedStage: EnumValues<typeof AdaptiveStage>;
 };
 
-export function setupCssBasedAdaptivePreference(
-    preferences: Ref<AdaptivePreference>[]
-) {
+export function setupCssBasedAdaptivePreference() {
     onMounted(
         watchEffect(() => {
             const store = useStore();
 
             const width = store.viewportSize.width;
 
-            const preference = useAdaptivePreference(preferences);
+            const preference = useAdaptivePreference();
 
             switch (true) {
-                case width < store.cssVars.breakpointToc:
+                case width < store.cssVarsValidated.breakpointToc:
                     preference.value.requestedStage = AdaptiveStage.collapsed;
                     break;
                 default:
@@ -60,22 +58,24 @@ export function useTrackAdaptiveStage(preferences: Ref<AdaptivePreference>[]) {
     });
 }
 
-export function useAdaptivePreference(preferences: Ref<AdaptivePreference>[]) {
+export function useAdaptivePreference() {
     const preference: Ref<AdaptivePreference> = ref({
         requestedStage: AdaptiveStage.full,
     });
 
     onMounted(() => {
-        preferences.push(preference);
+        const store = useStore();
+        store.adaptivePreferences.push(preference);
     });
 
     onUnmounted(() => {
-        const id = preferences.findIndex(
+        const store = useStore();
+        const id = store.adaptivePreferences.findIndex(
             (storedPreference) => storedPreference == preference
         );
 
         if (id) {
-            preferences.splice(id, 1);
+            store.adaptivePreferences.splice(id, 1);
         }
     });
 

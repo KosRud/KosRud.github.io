@@ -1,7 +1,7 @@
 import type { Ref, ComponentPublicInstance } from "vue";
 
 import { defineStore } from "pinia";
-import { computed, reactive, ref } from "vue";
+import { ref } from "vue";
 import {
     CssVars,
     cssVarsFallback,
@@ -21,48 +21,55 @@ import {
     viewportSizeFallback,
 } from "../composables/viewportSize";
 
-export const useStore = defineStore("counter", () => {
-    const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
-    const visibleRect: Ref<Element | null> = ref(null);
-    let cssVars: Ref<CssVars | null> = ref(null);
-    const viewportSize: Ref<ViewPortSize> = ref(viewportSizeFallback);
+export const useStore = defineStore("counter", {
+    state: () => {
+        const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
+        const VisibleAreaMarker: Ref<Element | null> = ref(null);
+        let cssVars: Ref<CssVars | null> = ref(null);
+        const viewportSize: Ref<ViewPortSize> = ref(viewportSizeFallback);
 
-    const adaptiveStagePreferences: Ref<AdaptivePreference>[] = reactive([]);
-    const adaptiveStage = useTrackAdaptiveStage(adaptiveStagePreferences);
+        const adaptiveStagePreferences: Ref<Ref<AdaptivePreference>[]> = ref(
+            []
+        );
+        const adaptiveStage = useTrackAdaptiveStage(
+            adaptiveStagePreferences.value
+        );
 
-    function init() {
-        cssVars.value = loadCssVars();
-        useTrackViewportSize();
-        setupCssBasedAdaptivePreference(adaptiveStagePreferences);
-    }
+        return {
+            pageContent,
+            VisibleAreaMarker,
+            cssVars,
+            viewportSize,
+            adaptiveStage,
+            adaptivePreferences: adaptiveStagePreferences,
+        };
+    },
 
-    function checkInitialized<T>(
-        obj: Ref<T | null>,
-        name: string,
-        fallback: T
-    ) {
-        return computed(() => {
-            if (obj.value === null) {
-                console.log(
-                    `Following variable was not initialized in pinia store: "${name}".`,
-                    `Using fallback value:`,
-                    fallback
-                );
-                return fallback;
+    getters: {
+        cssVarsValidated: (state) => {
+            if (!state.cssVars) {
+                console.error("CSS variables were not initialized");
+                return cssVarsFallback;
             }
-            return obj.value;
-        });
-    }
-
-    return {
-        pageContent,
-        visibleRect,
-        cssVars: checkInitialized(cssVars, "css variables", cssVarsFallback),
-        viewportSize,
-        adaptiveStage,
-        useAdaptivePreference: () => {
-            return useAdaptivePreference(adaptiveStagePreferences);
+            return state.cssVars;
         },
-        init,
-    };
+        visibleAreaRectTop: (state) => {
+            if (!state.VisibleAreaMarker) {
+                console.log("Visible area marker was not initialized");
+                return 0;
+            }
+            return state.VisibleAreaMarker.getBoundingClientRect().top;
+        },
+    },
+
+    actions: {
+        init() {
+            this.cssVars = loadCssVars();
+            useTrackViewportSize();
+            setupCssBasedAdaptivePreference();
+        },
+        useAdaptivePreference() {
+            return useAdaptivePreference();
+        },
+    },
 });

@@ -62,6 +62,8 @@ function getActiveHeadingId(tocItems: Ref<TocItem[]>) {
 }
 
 function findActiveTocItem(headings: TocItem[]): TocItem | undefined {
+    const store = useStore();
+
     // search from bottom of the page to top
     // return first heading that is above top screen edge
 
@@ -77,21 +79,10 @@ function findActiveTocItem(headings: TocItem[]): TocItem | undefined {
             window.getComputedStyle(heading.element).marginTop
         );
 
-        if (headingRect.top < getVisibleRectStart() + headingTopMargin) {
+        if (headingRect.top < store.visibleAreaRectTop + headingTopMargin) {
             return heading;
         }
     }
 
     return undefined;
-}
-
-function getVisibleRectStart() {
-    const store = useStore();
-
-    if (!store.visibleRect) {
-        console.error("visibleRect value is nullish");
-        return 0;
-    }
-
-    return store.visibleRect.getBoundingClientRect().top;
 }
