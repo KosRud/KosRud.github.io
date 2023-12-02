@@ -43,7 +43,7 @@ store.init();
         <div
             :class="$style.VisibleRectMarker"
             :ref="(element: Element | ComponentPublicInstance | null) => {
-			store.visibleRect = element as Element;
+			store.VisibleAreaMarker = element as Element;
 		}
 			"
         ></div>
