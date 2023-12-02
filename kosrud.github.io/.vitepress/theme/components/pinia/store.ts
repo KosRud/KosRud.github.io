@@ -28,7 +28,7 @@ export const useStore = defineStore("counter", {
         const contentContainer: Ref<ComponentPublicInstance | null> = ref(null);
         const VisibleAreaMarker: Ref<Element | null> = ref(null);
 
-        let cssVars: Ref<CssVars | null> = ref(null);
+        const cssVars: Ref<CssVars | null> = ref(null);
         const viewportSize: Ref<ViewPortSize> = ref(viewportSizeFallback);
 
         const tocItems: Ref<TocItem[]> = ref([]);
