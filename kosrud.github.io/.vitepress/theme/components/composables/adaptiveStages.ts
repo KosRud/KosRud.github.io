@@ -21,7 +21,7 @@ export type AdaptivePreference = {
     requestedStage: EnumValues<typeof AdaptiveStage>;
 };
 
-export function setupCssBasedAdaptivePreference() {
+export function useCssBasedAdaptivePreference() {
     onMounted(
         watchEffect(() => {
             const store = useStore();

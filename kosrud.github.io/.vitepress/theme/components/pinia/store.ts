@@ -13,20 +13,26 @@ import {
 } from "../composables/adaptiveStages";
 import {
     AdaptivePreference,
-    setupCssBasedAdaptivePreference,
+    useCssBasedAdaptivePreference,
 } from "../composables/adaptiveStages";
 import {
     ViewPortSize,
     useTrackViewportSize,
     viewportSizeFallback,
 } from "../composables/viewportSize";
+import { useTrackActiveHeadingId } from "../composables/Toc/activeHeadingId";
+import { TocItem, useTrackTocItems } from "../composables/Toc/tocItems";
 
 export const useStore = defineStore("counter", {
     state: () => {
-        const pageContent: Ref<ComponentPublicInstance | null> = ref(null);
+        const contentContainer: Ref<ComponentPublicInstance | null> = ref(null);
         const VisibleAreaMarker: Ref<Element | null> = ref(null);
+
         let cssVars: Ref<CssVars | null> = ref(null);
         const viewportSize: Ref<ViewPortSize> = ref(viewportSizeFallback);
+
+        const tocItems: Ref<TocItem[]> = ref([]);
+        const activeHeadingId = ref("");
 
         const adaptiveStagePreferences: Ref<Ref<AdaptivePreference>[]> = ref(
             []
@@ -36,10 +42,15 @@ export const useStore = defineStore("counter", {
         );
 
         return {
-            pageContent,
+            pageContent: contentContainer,
             VisibleAreaMarker,
+
             cssVars,
             viewportSize,
+
+            tocItems,
+            activeHeadingId,
+
             adaptiveStage,
             adaptivePreferences: adaptiveStagePreferences,
         };
@@ -65,8 +76,12 @@ export const useStore = defineStore("counter", {
     actions: {
         init() {
             this.cssVars = loadCssVars();
+
             useTrackViewportSize();
-            setupCssBasedAdaptivePreference();
+            useCssBasedAdaptivePreference();
+
+            useTrackActiveHeadingId();
+            useTrackTocItems();
         },
         useAdaptivePreference() {
             return useAdaptivePreference();

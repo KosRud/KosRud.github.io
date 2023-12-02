@@ -1,7 +1,6 @@
-import type { Ref } from "vue";
-
-import { ref, watchEffect } from "vue";
+import { onMounted, watchEffect } from "vue";
 import { onContentUpdated } from "vitepress";
+import { useStore } from "../../pinia/store";
 
 export interface TocItem {
     level: number;
@@ -9,26 +8,29 @@ export interface TocItem {
     children: TocItem[];
 }
 
-export function useTocItems(getPageContent: () => Element | null) {
-    const tocItems: Ref<TocItem[]> = ref([]);
-
+export function useTrackTocItems() {
     onContentUpdated(() => {
-        tocItems.value = getTocItems(getPageContent);
+        const store = useStore();
+        store.tocItems = getTocItems();
     });
 
-    watchEffect(() => {
-        tocItems.value = getTocItems(getPageContent);
-    });
-
-    return tocItems;
+    onMounted(
+        watchEffect(() => {
+            const store = useStore();
+            store.tocItems = getTocItems();
+        })
+    );
 }
 
-function getTocItems(getPageContent: () => Element | null) {
-    const contentSource = getPageContent();
+function getTocItems() {
+    const store = useStore();
 
-    if (!contentSource) {
+    if (!store.pageContent) {
+        console.error("Content container reference was not initialized");
         return [];
     }
+
+    const contentSource = store.pageContent.$el as Element;
 
     const headings: TocItem[] = Array.from(
         contentSource.querySelectorAll("h1, h2, h3, h4")
