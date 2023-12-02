@@ -26,9 +26,18 @@ function makeHeadingId(title: string) {
             />
         </section>
     </h3>
+    <p>
+        <strong :class="$style.Uses_title">uses:</strong>
+        <span
+            :class="$style.Uses_item"
+            v-for="icon in props.icons"
+        >
+            {{ icon.title }}
+        </span>
+    </p>
     <slot />
     <p v-if="links">
-        <template v-for="(url, name, index) in links">
+        <template v-for="(url, name) in props.links">
             <a :href="url">{{ name }}</a>
             <span :class="$style.Project_linkSeparator"> | </span>
         </template>
@@ -63,5 +72,21 @@ function makeHeadingId(title: string) {
     border-radius: @inf;
 
     box-shadow: -4px -4px 4px 0px inset #0002, 4px 4px 4px 0px inset #ffff;
+}
+
+.Uses_title {
+    &::after {
+        content: " ";
+    }
+}
+
+.Uses_item {
+    &::after {
+        content: ", ";
+    }
+
+    &:last-child::after {
+        content: ".";
+    }
 }
 </style>
