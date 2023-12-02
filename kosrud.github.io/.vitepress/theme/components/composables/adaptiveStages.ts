@@ -1,17 +1,8 @@
-import type { InjectionKey, Ref } from "vue";
-import type { CssVars } from "./cssVars";
+import type { Ref } from "vue";
 
-import {
-    computed,
-    inject,
-    onBeforeMount,
-    onUnmounted,
-    provide,
-    ref,
-    watchEffect,
-} from "vue";
+import { computed, onMounted, onUnmounted, ref, watchEffect } from "vue";
 
-import { ViewPortSize } from "./viewportSize";
+import { useStore } from "../pinia/store";
 
 export const AdaptiveStage = {
     // typescript enums get awkward when you need to iterate over possible values
@@ -29,94 +20,31 @@ type EnumValues<T extends Enum> = T[keyof T];
 export type AdaptivePreference = {
     requestedStage: EnumValues<typeof AdaptiveStage>;
 };
-type AdaptivePreferenceStore = Ref<AdaptivePreference>[];
 
-function injectStoreOrComplain() {
-    const store = inject(symbolAdaptivePreferenceStore);
-
-    if (!store) {
-        console.error("Adaptive preference store was not provided");
-        return null;
-    }
-
-    if (!store.value) {
-        console.error("Adaptive preference store is nullish");
-        return null;
-    }
-
-    return store;
-}
-
-const symbolAdaptivePreferenceStore: InjectionKey<
-    Ref<AdaptivePreferenceStore>
-> = Symbol();
-
-export function useAdaptivePreferenceStoreProvider(
-    cssVars: CssVars,
-    viewportSize: Ref<ViewPortSize>
+export function setupCssBasedAdaptivePreference(
+    preferences: Ref<AdaptivePreference>[]
 ) {
-    const store: Ref<AdaptivePreferenceStore> = ref([]);
-    provide(symbolAdaptivePreferenceStore, store);
+    onMounted(
+        watchEffect(() => {
+            const store = useStore();
 
-    setupCssVarsBasedPreference(cssVars, viewportSize, store);
+            const width = store.viewportSize.width;
 
-    const preference = useAdaptivePreference(store);
-    return preference;
+            const preference = useAdaptivePreference(preferences);
+
+            switch (true) {
+                case width < store.cssVars.breakpointToc:
+                    preference.value.requestedStage = AdaptiveStage.collapsed;
+                    break;
+                default:
+                    preference.value.requestedStage = AdaptiveStage.full;
+            }
+        })
+    );
 }
 
-function setupCssVarsBasedPreference(
-    cssVars: CssVars,
-    viewportSize: Ref<ViewPortSize>,
-    store: Ref<AdaptivePreferenceStore>
-) {
-    const preference = useAdaptivePreference(store);
-
-    watchEffect(() => {
-        const width = viewportSize.value.width;
-
-        switch (true) {
-            case width < cssVars.breakpointToc:
-                preference.value.requestedStage = AdaptiveStage.collapsed;
-                break;
-            default:
-                preference.value.requestedStage = AdaptiveStage.full;
-        }
-    });
-}
-
-export function useAdaptivePreference(store?: Ref<AdaptivePreferenceStore>) {
-    const preference: Ref<AdaptivePreference> = ref({
-        requestedStage: AdaptiveStage.full,
-    });
-
-    const injectedStore = store ?? injectStoreOrComplain();
-    if (!injectedStore) {
-        return preference;
-    }
-
-    onBeforeMount(() => {
-        injectedStore.value.push(preference);
-    });
-
-    onUnmounted(() => {
-        injectedStore.value = injectedStore.value.filter(
-            (storedPreference) => storedPreference != preference
-        );
-    });
-
-    return preference;
-}
-
-export function useAdaptiveStage() {
-    const store = injectStoreOrComplain();
-    if (!store) {
-        // fallback
-        return computed(() => AdaptiveStage.full);
-    }
-
-    return computed((): EnumValues<typeof AdaptiveStage> => {
-        const preferences = store.value;
-
+export function useTrackAdaptiveStage(preferences: Ref<AdaptivePreference>[]) {
+    return computed(() => {
         const stages = Object.values(AdaptiveStage).sort();
         for (const stage of stages) {
             if (
@@ -130,4 +58,26 @@ export function useAdaptiveStage() {
 
         return stages[stages.length - 1];
     });
+}
+
+export function useAdaptivePreference(preferences: Ref<AdaptivePreference>[]) {
+    const preference: Ref<AdaptivePreference> = ref({
+        requestedStage: AdaptiveStage.full,
+    });
+
+    onMounted(() => {
+        preferences.push(preference);
+    });
+
+    onUnmounted(() => {
+        const id = preferences.findIndex(
+            (storedPreference) => storedPreference == preference
+        );
+
+        if (id) {
+            preferences.splice(id, 1);
+        }
+    });
+
+    return preference;
 }

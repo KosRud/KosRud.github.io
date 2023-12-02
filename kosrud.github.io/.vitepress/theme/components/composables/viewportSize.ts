@@ -1,41 +1,34 @@
-import type { Ref } from "vue";
-
-import { ref, onUnmounted, onBeforeMount, provide, InjectionKey } from "vue";
+import { onUnmounted, onMounted } from "vue";
+import { useStore } from "../pinia/store";
 
 export interface ViewPortSize {
     height: number;
     width: number;
 }
 
-export function useViewportSizeProvider(): Ref<ViewPortSize> {
-    const viewPortSize = ref({ width: 0, height: 0 });
+export const viewportSizeFallback = { height: 480, width: 720 };
 
+export function useTrackViewportSize() {
     function update() {
         const remSize = getRemSize();
 
-        viewPortSize.value = {
-            width: document.documentElement.clientWidth / remSize,
-            height: document.documentElement.clientHeight / remSize,
-        };
+        const store = useStore();
+
+        store.viewportSize.width =
+            document.documentElement.clientWidth / remSize;
+        store.viewportSize.height =
+            document.documentElement.clientHeight / remSize;
     }
 
     setupHooks(update);
-
-    provide(symbolViewportSize, viewPortSize);
-
-    return viewPortSize;
 }
 
-export const symbolViewportSize: InjectionKey<
-    Ref<{ width: number; height: number }>
-> = Symbol();
-
 function setupHooks(update: () => void) {
-    onBeforeMount(update);
-
-    onBeforeMount(() => {
+    onMounted(() => {
+        update();
         window.addEventListener("resize", update, { passive: true });
     });
+
     onUnmounted(() => {
         window.removeEventListener("resize", update);
     });

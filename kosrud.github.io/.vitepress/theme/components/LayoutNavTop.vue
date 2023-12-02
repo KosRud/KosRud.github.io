@@ -1,46 +1,38 @@
 <script lang="ts" setup>
 import type { Ref } from "vue";
 
-import { watch, inject, ref, onMounted, computed } from "vue";
+import { watch, ref, onMounted, computed } from "vue";
 import { useData } from "vitepress";
+import { useStore } from "./pinia/store";
 
 import {
-    useAdaptivePreference,
     AdaptivePreference,
     AdaptiveStage,
-    useAdaptiveStage,
 } from "./composables/adaptiveStages";
-
-import { symbolViewportSize } from "./composables/viewportSize";
 
 import type { ThemeConfig } from "../ThemeConfig";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site } = useData<ThemeConfig>();
 
+const store = useStore();
+
 import LayoutNavTopItem from "./LayoutNavTopItem.vue";
 
 const itemList: Ref<Element | null> = ref(null);
-const adaptivePreference = useAdaptivePreference();
+const adaptivePreference = store.useAdaptivePreference();
 setupAdaptivePreference(adaptivePreference);
 
-const adaptiveStage = useAdaptiveStage();
 const visibility = computed(() => {
-    return adaptiveStage.value == AdaptiveStage.full ? "visible" : "hidden";
+    return store.adaptiveStage == AdaptiveStage.full ? "visible" : "hidden";
 });
 
 function setupAdaptivePreference(adaptivePreference: Ref<AdaptivePreference>) {
-    const viewportSize = inject(symbolViewportSize);
-    if (!viewportSize) {
-        console.error("ViewportSize is nullish");
-        return;
-    }
-
     function updateAdaptivePreference() {
         adaptivePreference.value.requestedStage = getAdaptivePreference();
     }
 
-    watch(viewportSize, updateAdaptivePreference);
+    watch(store.viewportSize, updateAdaptivePreference);
     onMounted(updateAdaptivePreference);
 }
 
