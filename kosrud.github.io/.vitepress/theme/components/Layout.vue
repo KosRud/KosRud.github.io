@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import LayoutOverlay from "./LayoutOverlay.vue";
-import LayoutError404 from "./LayoutError404.vue";
 import LayoutMainDoc from "./LayoutMainDoc.vue";
 
 import { useStore } from "./pinia/store";
@@ -12,7 +11,7 @@ import type { ThemeConfig } from "../ThemeConfig";
 import { useDarkModeEnforce } from "./composables/darkMode";
 
 // https://vitepress.dev/reference/runtime-api#usedata
-const { page, frontmatter } = useData<ThemeConfig>();
+const { frontmatter } = useData<ThemeConfig>();
 
 getCurrentInstance()?.appContext.app.use(createPinia());
 const store = useStore();
@@ -23,15 +22,9 @@ useDarkModeEnforce(false);
 
 <template>
     <div :class="$style.Layout">
-        <main
-            :class="[$style.Main, $style.Main___doc]"
-            v-if="page.isNotFound"
-        >
-            <LayoutError404 />
-        </main>
         <LayoutMainDoc
             :class="[$style.Main, $style.Main___doc]"
-            v-else-if="!frontmatter.hero"
+            v-if="!frontmatter.hero"
         />
         <main
             v-else
