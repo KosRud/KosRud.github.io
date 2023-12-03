@@ -4,11 +4,7 @@ import LayoutNavSide from "./LayoutNavSide.vue";
 
 import { useStore } from "./pinia/store";
 
-import { useDarkModeEnforce } from "./composables/darkMode";
-
 const store = useStore();
-
-useDarkModeEnforce(true);
 </script>
 
 <template>
@@ -24,7 +20,7 @@ useDarkModeEnforce(true);
             :class="[$style.NavFull]"
             v-if="store.isNavFullOpen"
         >
-            <YouAreHere dark-mode />
+            <YouAreHere />
             <br />
             <a href="#">On this page (collapsed)</a>
             <LayoutNavSide top-level />
@@ -40,12 +36,16 @@ useDarkModeEnforce(true);
     max-width: 400rem;
 
     padding: @gap*2;
-    color: @color-white;
+    // color: @color-white;
 
     font-family: @font-ui;
 
-    .FrostedGlass();
-    .DarkMode();
+    // .FrostedGlass();
+    // .DarkMode();
+
+    background-color: @color-background;
+
+    border-left: @border-width-s solid @color-border;
 }
 
 /*
