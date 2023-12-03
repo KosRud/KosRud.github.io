@@ -24,6 +24,8 @@ import {
 import { useTrackActiveHeadingId } from "../composables/Toc/activeHeadingId";
 import { TocItem, useTrackTocItems } from "../composables/Toc/tocItems";
 import { EnumValues } from "../composables/tsUtil";
+import { onContentUpdated } from "vitepress";
+import { useServiceNavFull } from "../composables/navFull";
 
 export const useStore = defineStore("counter", {
     state: () => {
@@ -90,6 +92,8 @@ export const useStore = defineStore("counter", {
             useTrackTocItems();
 
             useTrackAdaptiveStage();
+
+            useServiceNavFull();
         },
         useAdaptivePreference() {
             return useAdaptivePreference();
