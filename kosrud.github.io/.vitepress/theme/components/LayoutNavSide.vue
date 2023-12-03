@@ -5,6 +5,7 @@ import LayoutNavSideItem from "./LayoutNavSideItem.vue";
 
 import type { ThemeConfig } from "../ThemeConfig";
 import { urlMatch } from "./composables/urlMatch";
+import { computed } from "vue";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site } = useData<ThemeConfig>();
@@ -14,27 +15,27 @@ const navFull = site.value.themeConfig.nav;
 
 const props = defineProps<{ topLevel?: boolean }>();
 
-const navSide = (() => {
-    const navItems =
+const navSide = computed(
+    () =>
         site.value.themeConfig.nav.find((navItem) => {
             return urlMatch(route.path, navItem.url).inside;
-        })?.children ?? [];
-    return navItems;
-})();
+        })?.children ?? []
+);
 
-const topLevelNavTitle = (() => {
-    return (
+const topLevelNavTitle = computed(
+    () =>
         site.value.themeConfig.nav.find((navItem) => {
             const match = urlMatch(route.path, navItem.url);
             return match.inside;
         })?.title ?? ""
-    );
-})();
+);
 </script>
 
 <template>
     <nav :class="$style.NavSide">
-        <h2 :class="$style.NavSide_title">{{ topLevelNavTitle }}/</h2>
+        <h2 :class="$style.NavSide_title">
+            {{ topLevel ? "Home" : topLevelNavTitle }}/
+        </h2>
         <ul :class="$style.NavSide_itemList">
             <LayoutNavSideItem
                 :nav-item="navItem"
