@@ -36,20 +36,19 @@
 @NavTop-padding-vertical: @gap*0.75;
 
 /*
-	Derived helper distances
-	(do not modify directly)
-\*----------------------------------*/
-
-@Main-width: @content-width-threshold + @Main-padding-horizontal +
-    @Toc-to-Main-gap;
-
-@Header-height: @Header-content-height + @NavTop-padding-vertical*2;
-
-/*
 	Layout-specific distances: thresholds
 \*----------------------------------*/
 
 @content-width-threshold: 500rem;
+
+/*
+	Derived helper distances
+	(do not modify directly)
+\*----------------------------------*/
+
+@Main-max-width: @content-width + @Main-padding-horizontal*2;
+
+@Header-height: @Header-content-height + @NavTop-padding-vertical*2;
 
 /*
 	Shadows

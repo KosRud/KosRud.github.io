@@ -85,11 +85,11 @@ const store = useStore();
 }
 
 .NavSide {
-    flex-shrink: 0;
+    flex: 0 0 @NavSide-width;
 }
 
 .NavContainer_spacer {
-    width: @content-width + @Main-width + @Toc-to-Main-gap;
+    flex: 0 1 @Main-max-width;
 }
 
 .Toc {
