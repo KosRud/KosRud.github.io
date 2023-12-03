@@ -33,21 +33,23 @@ const topLevelNavTitle = computed(
 
 <template>
     <nav :class="$style.NavSide">
-        <h2 :class="$style.NavSide_title">
-            {{ topLevel ? "Home" : topLevelNavTitle }}/
-        </h2>
-        <ul :class="$style.NavSide_itemList">
-            <LayoutNavSideItem
-                :nav-item="navItem"
-                v-for="navItem in navFull"
-                v-if="props.topLevel"
-            />
-            <LayoutNavSideItem
-                :nav-item="navItem"
-                v-for="navItem in navSide"
-                v-else
-            />
-        </ul>
+        <template v-if="navSide.length > 0 || topLevel">
+            <h2 :class="$style.NavSide_title">
+                {{ topLevel ? "Home" : topLevelNavTitle }}/
+            </h2>
+            <ul :class="$style.NavSide_itemList">
+                <LayoutNavSideItem
+                    :nav-item="navItem"
+                    v-for="navItem in navFull"
+                    v-if="props.topLevel"
+                />
+                <LayoutNavSideItem
+                    :nav-item="navItem"
+                    v-for="navItem in navSide"
+                    v-else
+                />
+            </ul>
+        </template>
     </nav>
 </template>
 
@@ -61,8 +63,6 @@ const topLevelNavTitle = computed(
     overflow-y: auto;
     padding-top: @Toc-to-Main-gap;
     gap: @gap;
-
-    visibility: v-bind("navSide.length == 0 ? 'hidden' : 'visible'");
 }
 
 .NavSide_title {
