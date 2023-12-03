@@ -19,7 +19,6 @@
 .BurgerWrapper {
     aspect-ratio: 1;
 
-    margin-right: @gap;
     display: flex;
     justify-content: stretch;
     align-items: stretch;

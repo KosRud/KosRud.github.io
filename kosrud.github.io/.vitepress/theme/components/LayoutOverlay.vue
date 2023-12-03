@@ -17,7 +17,12 @@ const store = useStore();
 </script>
 
 <template>
-    <div :class="$style.Overlay">
+    <div
+        :class="[
+            $style.Overlay,
+            store.isNavFullOpen ? $style.Overlay___shaded : '',
+        ]"
+    >
         <LayoutHeader :class="$style.Header" />
         <div
             :class="$style.NavContainer"
@@ -72,6 +77,11 @@ const store = useStore();
     flex-direction: column;
 }
 
+.Overlay___shaded {
+    background-color: mix(@color-black, transparent, 70%);
+    // backdrop-filter: blur(2px);
+}
+
 .NavContainer {
     flex-grow: 1;
     display: flex;
@@ -106,6 +116,14 @@ const store = useStore();
     bottom: 0rem;
     right: 0rem;
     width: 100%;
+}
+
+/*
+	Transitions
+\*----------------------------------*/
+
+.Overlay {
+    transition: background-color @duration-s;
 }
 
 /*

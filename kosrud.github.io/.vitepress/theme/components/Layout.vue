@@ -23,12 +23,20 @@ useDarkModeEnforce(false);
 <template>
     <div :class="$style.Layout">
         <LayoutMainDoc
-            :class="[$style.Main, $style.Main___doc]"
+            :class="[
+                $style.Main,
+                $style.Main___doc,
+                store.isNavFullOpen ? $style.Main___nonInteractive : '',
+            ]"
             v-if="!frontmatter.hero"
         />
         <main
             v-else
-            :class="[$style.Main, $style.Main___hero]"
+            :class="[
+                $style.Main,
+                $style.Main___hero,
+                store.isNavFullOpen ? $style.Main___nonInteractive : '',
+            ]"
         >
             <Content />
         </main>
@@ -93,5 +101,13 @@ useDarkModeEnforce(false);
         display: flex;
         justify-content: stretch;
     }
+}
+
+/*
+	Pointer behavior
+\*----------------------------------*/
+
+.Main___nonInteractive {
+    pointer-events: none;
 }
 </style>

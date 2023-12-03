@@ -4,6 +4,7 @@ import { useStore } from "./pinia/store";
 import LayoutNavTop from "./LayoutNavTop.vue";
 import ButtonBurger from "./ButtonBurger.vue";
 import SiteTitle from "./SiteTitle.vue";
+import { AdaptiveStage } from "./composables/adaptiveStages";
 
 const store = useStore();
 </script>
@@ -14,7 +15,11 @@ const store = useStore();
             <SiteTitle />
         </div>
         <LayoutNavTop :class="$style.NavTop" />
-        <ButtonBurger @click="store.toggleSideNavOpen" />
+        <ButtonBurger
+            :class="$style.Burger"
+            v-if="store.adaptiveStage == AdaptiveStage.collapsed"
+            @click="store.toggleSideNavOpen"
+        />
     </header>
 </template>
 
@@ -33,8 +38,11 @@ const store = useStore();
     background-color: @color-background-dark;
     display: flex;
     gap: @gap;
+    padding-right: @gap;
 
     height: @Header-height;
+
+    position: relative; // for  burger's absolute
 }
 
 .Header_navLink___active,
@@ -56,6 +64,13 @@ const store = useStore();
 
 .NavTop {
     flex: 1 0;
+}
+
+.Burger {
+    position: absolute;
+    top: 0px;
+    right: @gap*2;
+    height: 100%;
 }
 
 /*
