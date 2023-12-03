@@ -31,9 +31,7 @@ strong {
 \*----------------------------------*/
 
 html {
-    @breakpoint-toc: @NavSide-width +
-        (@Toc-to-Main-gap + @content-width-threshold + @Toc-to-Main-gap) +
-        @Toc-to-Main-gap + @Toc-width;
+    @breakpoint-toc: @NavSide-width + @Main-padding-horizontal + @Toc-width;
 
     --breakpoint-toc: @breakpoint-toc;
     --breakpoint-toc: 0rem;

@@ -85,8 +85,8 @@ function getAdaptivePreference() {
         flex-direction: row;
         height: 100%;
         gap: @gap;
-        padding-top: @NavTop-gap-vertical;
-        padding-bottom: @NavTop-gap-vertical;
+        padding-top: @NavTop-padding-vertical;
+        padding-bottom: @NavTop-padding-vertical;
     }
     visibility: v-bind(visibility);
 }
