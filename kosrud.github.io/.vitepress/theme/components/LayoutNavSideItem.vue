@@ -26,17 +26,6 @@ const isOpen = useIsTocItemOpen(props.navItem.url);
                 :nav-item="child"
                 v-for="child in props.navItem.children"
             />
-            <template v-if="level < 2">
-                <LayoutNavSideItem
-                    :level="level + 1"
-                    :nav-item="{
-                        title: 'Some page',
-                        url: '#',
-                        children: [],
-                    }"
-                    v-for="_ in 5"
-                />
-            </template>
         </ul>
     </li>
 </template>

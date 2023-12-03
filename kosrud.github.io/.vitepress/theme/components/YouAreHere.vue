@@ -5,9 +5,12 @@ import { computed } from "vue";
 import { useData, useRoute } from "vitepress";
 
 import { urlMatch } from "./composables/urlMatch.js";
+import { useDarkModeDetect } from "./composables/darkMode";
 
 const route = useRoute();
 const { site, frontmatter } = useData<ThemeConfig>();
+
+const darkMode = useDarkModeDetect();
 
 function improviseNavTitle() {
     if (frontmatter.value.title) {
@@ -60,7 +63,7 @@ const navTrace = computed((): NavItem[] => {
 </script>
 
 <template>
-    <div :class="$style.YouAreHere">
+    <div :class="[$style.YouAreHere, darkMode ? $style.YouAreHere___dark : '']">
         <span :class="$style.YouAreHere_title">You are here:</span>
         <template v-for="navItem in navTrace">
             <a :href="navItem?.url">{{ navItem?.title }}</a>
@@ -71,12 +74,19 @@ const navTrace = computed((): NavItem[] => {
 
 <style module lang="less">
 @import "../style/variables/index.less";
+@import "../style/mixins/index.less";
 
 .YouAreHere {
     display: flex;
     flex-wrap: wrap;
 
     font-weight: bold;
+}
+
+.YouAreHere___dark {
+    font-weight: normal;
+
+    .DarkMode();
 }
 
 .YouAreHere_title {
