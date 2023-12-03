@@ -74,27 +74,18 @@ store.init();
 .Main {
     position: relative;
     z-index: 0; // establish a stacking context
+
+    margin-top: @Header-height;
 }
 
 .Main___doc {
     flex-grow: 1;
-    margin-top: @Header-height;
-    margin-left: @NavSide-width;
-    margin-right: @Toc-to-Main-gap + @Toc-width;
-
-    max-width: @content-width + @Toc-to-Main-gap*2; // account for padding
-
-    padding: @Toc-to-Main-gap;
-    background-color: @color-white;
-    border-right: @width-s solid @color-border;
-    border-left: @width-s solid @color-border;
 
     // box-shadow: @shadow-s;
 }
 
 .Main___hero {
     flex-grow: 1;
-    margin-top: @Header-height;
 
     display: flex;
     flex-direction: column;

@@ -59,7 +59,7 @@ const store = useStore();
 }
 
 .NavContainer_spacer {
-    width: @content-width + @Toc-to-Main-gap*3;
+    width: @content-width + @Main-width + @Toc-to-Main-gap;
 }
 
 .Toc {

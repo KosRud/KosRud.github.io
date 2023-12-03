@@ -42,7 +42,7 @@ import SiteTitle from "./SiteTitle.vue";
         left: @gap*0.0;
         right: @gap*0.0;
         bottom: calc(0rem - @gap);
-        top: calc(0rem - @NavTop-gap-vertical);
+        top: calc(0rem - @NavTop-padding-vertical);
         border-top: @width solid @color-background;
         pointer-events: none;
     }

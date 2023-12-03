@@ -25,10 +25,25 @@
 @content-width: 700rem;
 @NavSide-width: 250rem;
 @Toc-width: 250rem;
-@NavItem-padding-vertical: @gap*0.125;
 @Toc-to-Main-gap: @gap*2;
-@NavTop-gap-vertical: @gap*0.75;
-@Header-height: @size*2 + @NavTop-gap-vertical*2;
+
+@Main-padding-vertical: @Toc-to-Main-gap;
+@Main-padding-horizontal: @gap*4;
+
+@NavItem-padding-vertical: @gap*0.125;
+
+@Header-content-height: @size*2;
+@NavTop-padding-vertical: @gap*0.75;
+
+/*
+	Derived helper distances
+	(do not modify directly)
+\*----------------------------------*/
+
+@Main-width: @content-width-threshold + @Main-padding-horizontal +
+    @Toc-to-Main-gap;
+
+@Header-height: @Header-content-height + @NavTop-padding-vertical*2;
 
 /*
 	Layout-specific distances: thresholds
