@@ -6,6 +6,7 @@ import { useData, useRoute } from "vitepress";
 
 import { urlMatch } from "./composables/urlMatch.js";
 import { useDarkModeDetect } from "./composables/darkMode";
+import { findFirstChildPage } from "./composables/nav";
 
 const route = useRoute();
 const { site, frontmatter } = useData<ThemeConfig>();
@@ -56,7 +57,7 @@ const navTrace = computed((): NavItem[] => {
     }
 
     return [
-        { title: "Home", url: "/" },
+        { title: "Home", url: "/", children: site.value.themeConfig.nav },
         ...tracePath(site.value.themeConfig.nav),
     ];
 });
@@ -66,7 +67,7 @@ const navTrace = computed((): NavItem[] => {
     <div :class="[$style.YouAreHere, darkMode ? $style.YouAreHere___dark : '']">
         <span :class="$style.YouAreHere_title">You are here:</span>
         <template v-for="navItem in navTrace">
-            <a :href="navItem?.url">{{ navItem?.title }}</a>
+            <a :href="findFirstChildPage(navItem).url">{{ navItem?.title }}</a>
             <span :class="$style.NavTrace_separator">/</span>
         </template>
     </div>
@@ -80,7 +81,11 @@ const navTrace = computed((): NavItem[] => {
     display: flex;
     flex-wrap: wrap;
 
-    font-weight: bold;
+    a,
+    a:link,
+    a:visited {
+        font-weight: bold;
+    }
 }
 
 .YouAreHere___dark {
@@ -91,6 +96,8 @@ const navTrace = computed((): NavItem[] => {
 
 .YouAreHere_title {
     margin-right: @gap*0.5;
+
+    font-weight: bold;
 }
 
 .NavTrace_separator {

@@ -11,7 +11,7 @@ export default defineConfigWithTheme<ThemeConfig>({
             { title: "About me", url: "/about/" },
             {
                 title: "My projects",
-                url: "/projects/",
+                url: "/projects",
             },
             { title: "Papers", url: "/Papers" },
             {

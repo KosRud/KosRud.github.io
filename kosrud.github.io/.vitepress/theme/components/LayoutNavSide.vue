@@ -55,8 +55,6 @@ const topLevelNavTitle = computed(
 @import "../style/variables/index.less";
 
 .NavSide {
-    width: @NavSide-width;
-
     display: flex;
     flex-direction: column;
     justify-content: stretch;

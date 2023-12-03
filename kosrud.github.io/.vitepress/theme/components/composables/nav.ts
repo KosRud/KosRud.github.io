@@ -1,6 +1,10 @@
 import { NavItem } from "theme/ThemeConfig";
 
 export function findFirstChildPage(navItem: NavItem) {
+    if (navItem.url == "/") {
+        return navItem;
+    }
+
     if (!navItem.children) {
         return navItem;
     }
