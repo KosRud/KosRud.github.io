@@ -2,9 +2,39 @@
 import YouAreHere from "./YouAreHere.vue";
 import LayoutNavSide from "./LayoutNavSide.vue";
 
+import type { Ref } from "vue";
+
 import { useStore } from "./pinia/store";
+import { watchEffect, ref, onMounted } from "vue";
 
 const store = useStore();
+
+const elMenu: Ref<Element | null> = ref(null);
+
+onMounted(() => {
+    function onClick(ev: MouseEvent) {
+        if (!elMenu.value) {
+            return;
+        }
+
+        if (
+            !elMenu.value.contains(ev.target as Element) &&
+            elMenu.value != ev.target
+        ) {
+            store.isNavFullOpen = false;
+        }
+    }
+
+    watchEffect(() => {
+        if (store.isNavFullOpen) {
+            window.requestAnimationFrame(() =>
+                window.addEventListener("click", onClick)
+            );
+        } else {
+            window.removeEventListener("click", onClick);
+        }
+    });
+});
 </script>
 
 <template>
@@ -19,6 +49,7 @@ const store = useStore();
         <div
             :class="[$style.NavFull]"
             v-if="store.isNavFullOpen"
+            :ref="(element) => {elMenu = element as Element;}"
         >
             <YouAreHere />
             <br />
