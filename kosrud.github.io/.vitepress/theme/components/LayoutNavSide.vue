@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useData, useRoute } from "vitepress";
-import { computed } from "vue";
 
 import LayoutNavSideItem from "./LayoutNavSideItem.vue";
 
@@ -11,22 +10,26 @@ import { urlMatch } from "./composables/urlMatch";
 const { site } = useData<ThemeConfig>();
 const route = useRoute();
 
-const NavSide = computed(() => {
+const navFull = site.value.themeConfig.nav;
+
+const props = defineProps<{ topLevel?: boolean }>();
+
+const navSide = (() => {
     const navItems =
         site.value.themeConfig.nav.find((navItem) => {
             return urlMatch(route.path, navItem.url).inside;
         })?.children ?? [];
     return navItems;
-});
+})();
 
-const topLevelNavTitle = computed(() => {
+const topLevelNavTitle = (() => {
     return (
         site.value.themeConfig.nav.find((navItem) => {
             const match = urlMatch(route.path, navItem.url);
             return match.inside;
         })?.title ?? ""
     );
-});
+})();
 </script>
 
 <template>
@@ -35,7 +38,13 @@ const topLevelNavTitle = computed(() => {
         <ul :class="$style.NavSide_itemList">
             <LayoutNavSideItem
                 :nav-item="navItem"
-                v-for="navItem in NavSide"
+                v-for="navItem in navFull"
+                v-if="props.topLevel"
+            />
+            <LayoutNavSideItem
+                :nav-item="navItem"
+                v-for="navItem in navSide"
+                v-else
             />
         </ul>
     </nav>
@@ -54,7 +63,7 @@ const topLevelNavTitle = computed(() => {
     padding-top: @Toc-to-Main-gap;
     gap: @gap;
 
-    visibility: v-bind("NavSide.length == 0 ? 'hidden' : 'visible'");
+    visibility: v-bind("navSide.length == 0 ? 'hidden' : 'visible'");
 }
 
 .NavSide_title {

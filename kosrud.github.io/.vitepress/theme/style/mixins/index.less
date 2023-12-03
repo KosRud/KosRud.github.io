@@ -13,6 +13,22 @@
 }
 
 .FrostedGlass {
-    background-color: mix(@color-background-dark, transparent, 97%);
-    backdrop-filter: blur(5px);
+    background-color: mix(@color-background-dark, transparent, 95%);
+    backdrop-filter: blur(6px);
+}
+
+.DarkMode {
+    a:link,
+    a:visited {
+        @color-link: saturate(lighten(@color-primary, 27%), 16%);
+        color: @color-link;
+        text-decoration: none;
+
+        &:hover {
+            color: saturate(lighten(@color-link, 27%), 16%);
+            text-decoration: underline;
+            // font-weight: bold;
+        }
+        // font-weight: bold;
+    }
 }

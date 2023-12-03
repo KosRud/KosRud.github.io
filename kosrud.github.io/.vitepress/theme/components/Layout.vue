@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { ComponentPublicInstance, getCurrentInstance } from "vue";
-import type { ThemeConfig } from "../ThemeConfig";
-
-import { useStore } from "./pinia/store";
-import { useData } from "vitepress";
-
 import LayoutOverlay from "./LayoutOverlay.vue";
 import LayoutError404 from "./LayoutError404.vue";
 import LayoutMainDoc from "./LayoutMainDoc.vue";
 
+import { useStore } from "./pinia/store";
+import { ComponentPublicInstance, getCurrentInstance } from "vue";
+import { useData } from "vitepress";
 import { createPinia } from "pinia";
+
+import type { ThemeConfig } from "../ThemeConfig";
+import { useDarkModeEnforce } from "./composables/darkMode";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { page, frontmatter } = useData<ThemeConfig>();
@@ -17,6 +17,8 @@ const { page, frontmatter } = useData<ThemeConfig>();
 getCurrentInstance()?.appContext.app.use(createPinia());
 const store = useStore();
 store.init();
+
+useDarkModeEnforce(false);
 </script>
 
 <template>
