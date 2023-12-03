@@ -2,6 +2,7 @@
 import LayoutToc from "./LayoutToc.vue";
 import LayoutNavSide from "./LayoutNavSide.vue";
 import LayoutHeader from "./LayoutHeader.vue";
+import LayoutNavFull from "./LayoutNavFull.vue";
 
 import { useData } from "vitepress";
 import { useStore } from "./pinia/store";
@@ -20,13 +21,18 @@ const store = useStore();
         <LayoutHeader :class="$style.Header" />
         <div
             :class="$style.NavContainer"
-            v-if="
-                !frontmatter.hero && store.adaptiveStage == AdaptiveStage.full
-            "
+            v-if="!frontmatter.hero"
         >
-            <LayoutNavSide :class="$style.NavSide" />
+            <LayoutNavSide
+                :class="$style.NavSide"
+                v-if="store.adaptiveStage == AdaptiveStage.full"
+            />
             <div :class="$style.NavContainer_spacer"></div>
-            <LayoutToc :class="$style.Toc" />
+            <LayoutToc
+                :class="$style.Toc"
+                v-if="store.adaptiveStage == AdaptiveStage.full"
+            />
+            <LayoutNavFull :class="$style.NavFull" />
         </div>
     </div>
 </template>
@@ -34,13 +40,27 @@ const store = useStore();
 <style module lang="less">
 @import "../style/variables/index.less";
 
-.Header {
-    flex: 0 0 @Header-height;
+/*
+	Z-index
+\*----------------------------------*/
+
+.Overlay {
+    // establish a stacking context
+    position: fixed;
+    z-index: 0;
 }
 
-.NavSide {
-    flex-shrink: 0;
+.Header {
+    z-index: 1;
 }
+
+.NavContainer {
+    z-index: 0;
+}
+
+/*
+	Main section
+\*----------------------------------*/
 
 .Overlay {
     position: fixed;
@@ -56,6 +76,16 @@ const store = useStore();
 .NavContainer {
     flex-grow: 1;
     display: flex;
+
+    position: relative; // for NavFull
+}
+
+.Header {
+    flex: 0 0 @Header-height;
+}
+
+.NavSide {
+    flex-shrink: 0;
 }
 
 .NavContainer_spacer {
@@ -74,6 +104,15 @@ const store = useStore();
     flex-direction: column;
 }
 
+.NavFull {
+    position: absolute;
+
+    top: 0rem;
+    bottom: 0rem;
+    right: 0rem;
+    width: 100%;
+}
+
 /*
 	Pointer-events
 \*----------------------------------*/
@@ -84,6 +123,7 @@ const store = useStore();
 
 .Toc,
 .NavSide,
+.NavFull,
 .Header {
     pointer-events: auto;
 }

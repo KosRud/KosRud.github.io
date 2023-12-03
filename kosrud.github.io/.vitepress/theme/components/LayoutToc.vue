@@ -38,7 +38,7 @@ const store = useStore();
 
     // background-color: @color-white;
     // padding: @gap*2;
-    // border: @width-s solid @color-border;
+    // border: @border-width-s solid @color-border;
     // border-radius: @gap;
     // box-shadow: @shadow-s;
 }

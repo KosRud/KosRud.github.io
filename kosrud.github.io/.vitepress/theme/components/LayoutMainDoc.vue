@@ -62,7 +62,7 @@ const store = useStore();
     margin-left: @NavSide-width;
     margin-right: @Toc-to-Main-gap + @Toc-width;
 
-    border-right: @width-s solid @color-border;
-    border-left: @width-s solid @color-border;
+    border-right: @border-width-s solid @color-border;
+    border-left: @border-width-s solid @color-border;
 }
 </style>

@@ -1,7 +1,11 @@
 <script lang="ts" setup>
+import { useStore } from "./pinia/store";
+
 import LayoutNavTop from "./LayoutNavTop.vue";
 import ButtonBurger from "./ButtonBurger.vue";
 import SiteTitle from "./SiteTitle.vue";
+
+const store = useStore();
 </script>
 
 <template>
@@ -10,7 +14,7 @@ import SiteTitle from "./SiteTitle.vue";
             <SiteTitle />
         </div>
         <LayoutNavTop :class="$style.NavTop" />
-        <ButtonBurger />
+        <ButtonBurger @click="store.toggleSideNavOpen" />
     </header>
 </template>
 
@@ -43,7 +47,7 @@ import SiteTitle from "./SiteTitle.vue";
         right: @gap*0.0;
         bottom: calc(0rem - @gap);
         top: calc(0rem - @NavTop-padding-vertical);
-        border-top: @width solid @color-background;
+        border-top: @border-width solid @color-background;
         pointer-events: none;
     }
 }
