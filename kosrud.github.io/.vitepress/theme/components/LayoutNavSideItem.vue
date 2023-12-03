@@ -2,12 +2,12 @@
 import { computed } from "vue";
 
 import type { NavItem } from "../ThemeConfig";
-import { useIsTocItemOpen } from "./composables/isTocItemOpen";
+import { useIsNavItemOpen } from "./composables/isNavItemOpen";
 
 const props = defineProps<{ navItem: NavItem; level?: number }>();
 
 const level = computed(() => props.level ?? 0);
-const isOpen = useIsTocItemOpen(props.navItem.url);
+const isOpen = useIsNavItemOpen(props.navItem.url);
 </script>
 
 <template>

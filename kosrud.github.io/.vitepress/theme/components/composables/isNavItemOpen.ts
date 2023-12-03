@@ -4,7 +4,7 @@ import { ref, watchEffect } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";
 import { urlMatch } from "./urlMatch";
 
-export function useIsTocItemOpen(url: string): Ref<boolean> {
+export function useIsNavItemOpen(url: string): Ref<boolean> {
     const route = useRoute();
 
     const isOpen = ref(false);
