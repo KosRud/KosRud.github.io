@@ -54,7 +54,7 @@ const props = defineProps<{ navItem: NavItem }>();
 
     background: @color-primary;
     background-clip: border-box;
-    border: @width solid #fff1;
+    border: @border-width solid #fff1;
     border-radius: @gap*0.5;
     line-height: 1;
     padding: @navlink-pad;
@@ -85,7 +85,7 @@ const props = defineProps<{ navItem: NavItem }>();
         right: @gap*0.0;
         bottom: calc(0rem - @gap);
         top: calc(0rem - @NavTop-padding-vertical);
-        border-top: @width solid @color-background;
+        border-top: @border-width solid @color-background;
         pointer-events: none;
     }
 }

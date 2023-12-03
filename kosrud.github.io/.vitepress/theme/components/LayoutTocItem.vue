@@ -74,7 +74,7 @@ onUpdated(() => {
 .TocItem_link {
     width: 100%;
 
-    border-left: @width solid @color-border;
+    border-left: @border-width solid @color-border;
     padding-left: calc(@gap * v-bind(level));
 
     padding-top: @NavItem-padding-vertical;

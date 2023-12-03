@@ -41,6 +41,8 @@ export const useStore = defineStore("counter", {
             adaptiveStagePreferences.value
         );
 
+        const isNavFullOpen = ref(false);
+
         return {
             pageContent: contentContainer,
             VisibleAreaMarker,
@@ -53,6 +55,8 @@ export const useStore = defineStore("counter", {
 
             adaptiveStage,
             adaptivePreferences: adaptiveStagePreferences,
+
+            isNavFullOpen,
         };
     },
 
@@ -85,6 +89,9 @@ export const useStore = defineStore("counter", {
         },
         useAdaptivePreference() {
             return useAdaptivePreference();
+        },
+        toggleSideNavOpen() {
+            this.isNavFullOpen = !this.isNavFullOpen;
         },
     },
 });
