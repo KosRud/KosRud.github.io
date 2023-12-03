@@ -3,6 +3,7 @@ import { useRoute } from "vitepress";
 
 import type { NavItem } from "../ThemeConfig";
 import { urlMatch } from "./composables/urlMatch";
+import { findFirstChildPage } from "./composables/nav";
 
 const route = useRoute();
 
@@ -18,7 +19,7 @@ const props = defineProps<{ navItem: NavItem }>();
                     ? $style.NavItem_link___active
                     : '',
             ]"
-            :href="props.navItem.url"
+            :href="findFirstChildPage(props.navItem).url"
             >{{ props.navItem.title }}</a
         >
     </li>
@@ -41,16 +42,15 @@ const props = defineProps<{ navItem: NavItem }>();
     flex: 0 1 auto;
 }
 
-.NavItem_link {
+.NavItem_link,
+.NavItem_link:link,
+.NavItem_link:visited {
     @navlink-pad: @gap*0.5;
 
     flex: 1 1 calc(@navlink-pad*2 + 1em);
 
-    &:link,
-    &:visited {
-        color: @color-white;
-        text-decoration: inherit;
-    }
+    color: @color-white;
+    text-decoration: inherit;
 
     background: @color-primary;
     background-clip: border-box;

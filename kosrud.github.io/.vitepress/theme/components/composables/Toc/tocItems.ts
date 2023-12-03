@@ -26,7 +26,11 @@ function getTocItems() {
     const store = useStore();
 
     if (!store.pageContent) {
-        console.error("Content container reference was not initialized");
+        // error commented because not every page needs a TOC
+        // and this not every page sets up pageContent element
+        //
+        // console.error("Content container reference was not initialized");
+
         return [];
     }
 

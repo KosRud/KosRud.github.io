@@ -3,18 +3,23 @@ import { computed } from "vue";
 
 import type { NavItem } from "../ThemeConfig";
 import { useIsNavItemOpen } from "./composables/isNavItemOpen";
+import { useDarkModeDetect } from "./composables/darkMode";
 
 const props = defineProps<{ navItem: NavItem; level?: number }>();
 
 const level = computed(() => props.level ?? 0);
 const isOpen = useIsNavItemOpen(props.navItem.url);
+const isDarkMode = useDarkModeDetect();
+
+const chevronVisibility = props.navItem.children ? "visible" : "hidden";
 </script>
 
 <template>
-    <li :class="$style.NavItem">
+    <li :class="[$style.NavItem, isDarkMode ? $style.Dark : '']">
         <a
-            :href="props.navItem.url"
+            :href="$props.navItem.children ? undefined : props.navItem.url"
             :class="$style.NavItem_link"
+            @click="isOpen = !isOpen"
         >
             <div :class="$style.NavItem_linkText">
                 {{ props.navItem.title }}
@@ -47,7 +52,7 @@ const isOpen = useIsNavItemOpen(props.navItem.url);
     }
 }
 
-.NavItem_title,
+.NavItem_link,
 .NavItem_link:link,
 .NavItem_link:visited {
     color: @color-black;
@@ -67,7 +72,7 @@ const isOpen = useIsNavItemOpen(props.navItem.url);
         background-repeat: no-repeat;
         background-position: center;
         margin-right: @gap*0.25;
-        // visibility: hidden;
+        visibility: v-bind(chevronVisibility);
     }
 
     &:hover {
@@ -77,5 +82,20 @@ const isOpen = useIsNavItemOpen(props.navItem.url);
 
 .NavItem_linkText {
     .NavItem_linkText();
+}
+
+/*
+	Dark Mode
+\*----------------------------------*/
+
+.Dark {
+    .NavItem_link,
+    .NavItem_link:link,
+    .NavItem_link:visited {
+        &::before {
+            filter: invert();
+            opacity: 0.7;
+        }
+    }
 }
 </style>

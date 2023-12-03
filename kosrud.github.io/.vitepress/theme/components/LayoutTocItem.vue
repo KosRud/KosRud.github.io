@@ -71,7 +71,9 @@ onUpdated(() => {
     }
 }
 
-.TocItem_link {
+.TocItem_link,
+.TocItem_link:link,
+.TocItem_link:visited {
     width: 100%;
 
     border-left: @border-width solid @color-border;
@@ -81,17 +83,14 @@ onUpdated(() => {
     padding-bottom: @NavItem-padding-vertical;
     padding-right: @gap;
 
-    &:link,
-    &:visited {
-        color: inherit;
-        text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 
-        &:hover {
-            color: @color-primary;
+    &:hover {
+        color: @color-primary;
 
-            &:not(.TocItem_link___active) {
-                .NavItem___hover();
-            }
+        &:not(.TocItem_link___active) {
+            .NavItem___hover();
         }
     }
 }

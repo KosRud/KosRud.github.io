@@ -37,7 +37,9 @@ const store = useStore();
     height: @Header-height;
 }
 
-.Header_navLink___active:link {
+.Header_navLink___active,
+.Header_navLink___active:link,
+.Header_navLink___active:visited {
     position: relative;
 
     &::after {
