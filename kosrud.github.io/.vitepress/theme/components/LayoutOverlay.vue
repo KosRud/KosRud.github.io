@@ -27,7 +27,6 @@ const store = useStore();
                 :class="$style.NavSide"
                 v-if="store.adaptiveStage == AdaptiveStage.full"
             />
-            <div :class="$style.NavContainer_spacer"></div>
             <LayoutToc
                 :class="$style.Toc"
                 v-if="store.adaptiveStage == AdaptiveStage.full"
@@ -76,6 +75,7 @@ const store = useStore();
 .NavContainer {
     flex-grow: 1;
     display: flex;
+    justify-content: space-between;
 
     position: relative; // for NavFull
 }
@@ -85,18 +85,13 @@ const store = useStore();
 }
 
 .NavSide {
-    flex: 0 0 @NavSide-width;
-}
-
-.NavContainer_spacer {
-    flex: 0 1 @Main-max-width;
+    width: @NavSide-width;
 }
 
 .Toc {
     position: sticky;
     top: 0rem;
-    flex: 1 0 @Toc-width;
-    max-width: max-content;
+    width: @Toc-width;
 
     padding: @Toc-to-Main-gap @gap;
     padding-bottom: 0rem;
