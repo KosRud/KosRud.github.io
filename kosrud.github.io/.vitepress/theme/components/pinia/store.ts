@@ -8,6 +8,7 @@ import {
     getCssVars as loadCssVars,
 } from "../composables/cssVars";
 import {
+    AdaptiveStage,
     useAdaptivePreference,
     useTrackAdaptiveStage,
 } from "../composables/adaptiveStages";
@@ -22,6 +23,7 @@ import {
 } from "../composables/viewportSize";
 import { useTrackActiveHeadingId } from "../composables/Toc/activeHeadingId";
 import { TocItem, useTrackTocItems } from "../composables/Toc/tocItems";
+import { EnumValues } from "../composables/tsUtil";
 
 export const useStore = defineStore("counter", {
     state: () => {
@@ -37,8 +39,8 @@ export const useStore = defineStore("counter", {
         const adaptiveStagePreferences: Ref<Ref<AdaptivePreference>[]> = ref(
             []
         );
-        const adaptiveStage = useTrackAdaptiveStage(
-            adaptiveStagePreferences.value
+        const adaptiveStage: Ref<EnumValues<typeof AdaptiveStage>> = ref(
+            AdaptiveStage.full
         );
 
         const isNavFullOpen = ref(false);
@@ -86,6 +88,8 @@ export const useStore = defineStore("counter", {
 
             useTrackActiveHeadingId();
             useTrackTocItems();
+
+            useTrackAdaptiveStage();
         },
         useAdaptivePreference() {
             return useAdaptivePreference();

@@ -114,11 +114,18 @@ const store = useStore();
 }
 
 /*
-	Pointer-events
+	Pointer behavior
 \*----------------------------------*/
 
 .Overlay {
     pointer-events: none;
+
+    a,
+    a:link,
+    a:visited {
+        user-select: none;
+        cursor: pointer;
+    }
 }
 
 .Toc,

@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import type { ComponentPublicInstance } from "vue";
-
-import { useStore } from "./pinia/store";
-
+import LayoutError404 from "./LayoutError404.vue";
 import MarkdownWrapper from "./MarkdownWrapper.vue";
 import YouAreHere from "./YouAreHere.vue";
+
+import type { ComponentPublicInstance } from "vue";
+import { useData } from "vitepress";
+
+import { useStore } from "./pinia/store";
 
 import { AdaptiveStage } from "./composables/adaptiveStages";
 
 const store = useStore();
+const { page } = useData();
 </script>
 
 <template>
@@ -23,7 +26,12 @@ const store = useStore();
         <header :class="$style.CurrentLocation">
             <YouAreHere />
         </header>
-        <MarkdownWrapper :class="$style.Markdown">
+        <LayoutError404 v-if="page.isNotFound" />
+
+        <MarkdownWrapper
+            :class="$style.Markdown"
+            v-else
+        >
             <Content
                 :ref="(component: ComponentPublicInstance | null) => {
 					store.pageContent = component;

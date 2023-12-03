@@ -12,37 +12,56 @@ export default defineConfigWithTheme<ThemeConfig>({
             {
                 title: "My projects",
                 url: "/projects/",
-                children: [
-                    {
-                        title: "Overview",
-                        url: "/projects/overview",
-                    },
-                    {
-                        title: "ProTeGe",
-                        url: "/projects/ProTeGe",
-                        children: [{ title: "Unity version", url: "/" }],
-                    },
-                    {
-                        title: "DQ skinning for Unity",
-                        url: "#",
-                    },
-                    {
-                        title: "dice-pool-calc",
-                        url: "#",
-                    },
-                    {
-                        title: "Material clustering",
-                        url: "#",
-                    },
-                ],
             },
             { title: "Papers", url: "/Papers" },
             {
                 title: "For students",
                 url: "/students",
                 children: [
-                    { title: "HTML", url: "/students/HTML" },
-                    { title: "CSS", url: "/students/CSS" },
+                    {
+                        title: "HTML",
+                        url: "/students/HTML",
+                        children: [
+                            {
+                                title: "dummy page 1",
+                                url: "/students/HTML/dummy1",
+                            },
+                            {
+                                title: "dummy page 2",
+                                url: "/students/HTML/dummy2",
+                            },
+                            {
+                                title: "dummy page 3",
+                                url: "/students/HTML/dummy3",
+                            },
+                            {
+                                title: "dummy page 4",
+                                url: "/students/HTML/dummy4",
+                            },
+                        ],
+                    },
+                    {
+                        title: "CSS",
+                        url: "/students/CSS",
+                        children: [
+                            {
+                                title: "dummy page 1",
+                                url: "/students/CSS/dummy1",
+                            },
+                            {
+                                title: "dummy page 2",
+                                url: "/students/CSS/dummy2",
+                            },
+                            {
+                                title: "dummy page 3",
+                                url: "/students/CSS/dummy3",
+                            },
+                            {
+                                title: "dummy page 4",
+                                url: "/students/CSS/dummy4",
+                            },
+                        ],
+                    },
                 ],
             },
             { title: "Blog", url: "/blog" },

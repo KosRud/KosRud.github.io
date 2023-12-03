@@ -1,6 +1,4 @@
-type Dig<T, K extends string | number | symbol> = T extends Record<K, infer U>
-    ? U
-    : never;
+import type { Dig } from "./tsUtil";
 
 enum CssVarType {
     length,

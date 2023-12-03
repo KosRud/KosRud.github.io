@@ -1,6 +1,6 @@
 import type { Ref } from "vue";
 
-import { computed, onMounted, onUnmounted, ref, watchEffect } from "vue";
+import { onMounted, onUnmounted, ref, watch, watchEffect } from "vue";
 
 import { useStore } from "../pinia/store";
 
@@ -14,8 +14,7 @@ export const AdaptiveStage = {
     full: 2,
 } as const;
 
-type Enum = { [key: string]: number };
-type EnumValues<T extends Enum> = T[keyof T];
+import type { EnumValues } from "./tsUtil";
 
 export type AdaptivePreference = {
     requestedStage: EnumValues<typeof AdaptiveStage>;
@@ -41,12 +40,14 @@ export function useCssBasedAdaptivePreference() {
     );
 }
 
-export function useTrackAdaptiveStage(preferences: Ref<AdaptivePreference>[]) {
-    return computed(() => {
+export function useTrackAdaptiveStage() {
+    function pickStage() {
+        const store = useStore();
+
         const stages = Object.values(AdaptiveStage).sort();
         for (const stage of stages) {
             if (
-                preferences.find(
+                store.adaptivePreferences.find(
                     (preference) => preference.value.requestedStage == stage
                 )
             ) {
@@ -55,6 +56,13 @@ export function useTrackAdaptiveStage(preferences: Ref<AdaptivePreference>[]) {
         }
 
         return stages[stages.length - 1];
+    }
+
+    onMounted(() => {
+        watchEffect(() => {
+            const store = useStore();
+            store.adaptiveStage = pickStage();
+        });
     });
 }
 
