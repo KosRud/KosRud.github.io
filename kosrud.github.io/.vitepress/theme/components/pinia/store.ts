@@ -24,8 +24,7 @@ import {
 import { useTrackActiveHeadingId } from "../composables/Toc/activeHeadingId";
 import { TocItem, useTrackTocItems } from "../composables/Toc/tocItems";
 import { EnumValues } from "../composables/tsUtil";
-import { onContentUpdated } from "vitepress";
-import { useServiceNavFull } from "../composables/navFull";
+import { useServiceNavMobile } from "../composables/navFull";
 
 export const useStore = defineStore("counter", {
     state: () => {
@@ -45,7 +44,7 @@ export const useStore = defineStore("counter", {
             AdaptiveStage.full
         );
 
-        const isNavFullOpen = ref(false);
+        const isNavMobileOpen = ref(false);
 
         return {
             pageContent: contentContainer,
@@ -60,7 +59,7 @@ export const useStore = defineStore("counter", {
             adaptiveStage,
             adaptivePreferences: adaptiveStagePreferences,
 
-            isNavFullOpen,
+            isNavMobileOpen: isNavMobileOpen,
         };
     },
 
@@ -93,13 +92,13 @@ export const useStore = defineStore("counter", {
 
             useTrackAdaptiveStage();
 
-            useServiceNavFull();
+            useServiceNavMobile();
         },
         useAdaptivePreference() {
             return useAdaptivePreference();
         },
         toggleSideNavOpen() {
-            this.isNavFullOpen = !this.isNavFullOpen;
+            this.isNavMobileOpen = !this.isNavMobileOpen;
         },
     },
 });

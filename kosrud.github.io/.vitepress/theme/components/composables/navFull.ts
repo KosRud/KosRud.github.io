@@ -2,7 +2,7 @@ import { onMounted, watchEffect } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";
 import { useStore } from "../pinia/store";
 
-export function useServiceNavFull() {
+export function useServiceNavMobile() {
     const route = useRoute();
     const store = useStore();
 
@@ -10,11 +10,11 @@ export function useServiceNavFull() {
         watchEffect(() => {
             route.path; // reactive trigger
 
-            store.isNavFullOpen = false;
+            store.isNavMobileOpen = false;
         });
     });
 
     onContentUpdated(() => {
-        store.isNavFullOpen = false;
+        store.isNavMobileOpen = false;
     });
 }

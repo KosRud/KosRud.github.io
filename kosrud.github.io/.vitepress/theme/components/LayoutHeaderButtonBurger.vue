@@ -3,6 +3,7 @@ const props = defineProps<{
     title: string;
     isOpen: boolean;
     toggleIsOpen: (value: boolean) => void;
+    numLines: 3 | 5;
 }>();
 </script>
 
@@ -15,7 +16,7 @@ const props = defineProps<{
         <div :class="$style.Burger">
             <div
                 :class="$style.Burger_line"
-                v-for="_ in 5"
+                v-for="_ in numLines"
             ></div>
         </div>
     </div>

@@ -21,12 +21,12 @@ onMounted(() => {
             !elMenu.value.contains(ev.target as Element) &&
             elMenu.value != ev.target
         ) {
-            store.isNavFullOpen = false;
+            store.isNavMobileOpen = false;
         }
     }
 
     watchEffect(() => {
-        if (store.isNavFullOpen) {
+        if (store.isNavMobileOpen) {
             window.requestAnimationFrame(() =>
                 window.addEventListener("click", onClick)
             );
@@ -39,16 +39,16 @@ onMounted(() => {
 
 <template>
     <Transition
-        :enter-from-class="$style.NavFull___enterFrom"
-        :enter-to-class="$style.NavFull___enterTo"
-        :enter-active-class="$style.NavFull___enterActive"
-        :leave-from-class="$style.NavFull___leaveFrom"
-        :leave-to-class="$style.NavFull___leaveTo"
-        :leave-active-class="$style.NavFull___leaveActive"
+        :enter-from-class="$style.NavMobile___enterFrom"
+        :enter-to-class="$style.NavMobile___enterTo"
+        :enter-active-class="$style.NavMobile___enterActive"
+        :leave-from-class="$style.NavMobile___leaveFrom"
+        :leave-to-class="$style.NavMobile___leaveTo"
+        :leave-active-class="$style.NavMobile___leaveActive"
     >
         <div
-            :class="[$style.NavFull]"
-            v-if="store.isNavFullOpen"
+            :class="[$style.NavMobile]"
+            v-if="store.isNavMobileOpen"
             :ref="(element) => {elMenu = element as Element;}"
         >
             <YouAreHere />
@@ -63,7 +63,7 @@ onMounted(() => {
 @import "../style/variables/index.less";
 @import "../style/mixins/index.less";
 
-.NavFull {
+.NavMobile {
     max-width: 400rem;
 
     padding: @gap*2;
@@ -83,27 +83,27 @@ onMounted(() => {
 	Transitions
 \*----------------------------------*/
 
-.NavFull___enterFrom {
+.NavMobile___enterFrom {
     transform: translateX(100%);
 }
 
-.NavFull___enterTo {
+.NavMobile___enterTo {
     transform: none;
 }
 
-.NavFull___enterActive {
+.NavMobile___enterActive {
     transition: transform @duration-s ease-in;
 }
 
-.NavFull___leaveFrom {
+.NavMobile___leaveFrom {
     transform: none;
 }
 
-.NavFull___leaveTo {
+.NavMobile___leaveTo {
     transform: translateX(100%);
 }
 
-.NavFull___leaveActive {
+.NavMobile___leaveActive {
     transition: transform @duration ease-out;
 }
 
@@ -111,7 +111,7 @@ onMounted(() => {
 	UI shadows
 \*----------------------------------*/
 
-.NavFull {
+.NavMobile {
     box-shadow: @shadow;
 }
 </style>

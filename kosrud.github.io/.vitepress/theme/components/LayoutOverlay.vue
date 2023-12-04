@@ -2,7 +2,7 @@
 import LayoutToc from "./LayoutToc.vue";
 import LayoutNavSide from "./LayoutNavSide.vue";
 import LayoutHeader from "./LayoutHeader.vue";
-import LayoutNavFull from "./LayoutNavFull.vue";
+import LayoutNavMobile from "./LayoutNavMobile.vue";
 
 import { useData } from "vitepress";
 import { useStore } from "./pinia/store";
@@ -20,7 +20,7 @@ const store = useStore();
     <div
         :class="[
             $style.Overlay,
-            store.isNavFullOpen ? $style.Overlay___shaded : '',
+            store.isNavMobileOpen ? $style.Overlay___shaded : '',
         ]"
     >
         <LayoutHeader :class="$style.Header" />
@@ -36,7 +36,7 @@ const store = useStore();
                 :class="$style.Toc"
                 v-if="store.adaptiveStage == AdaptiveStage.full"
             />
-            <LayoutNavFull :class="$style.NavFull" />
+            <LayoutNavMobile :class="$style.NavMobile" />
         </div>
     </div>
 </template>
@@ -87,7 +87,7 @@ const store = useStore();
     display: flex;
     justify-content: space-between;
 
-    position: relative; // for NavFull
+    position: relative; // for NavMobile
 }
 
 .Header {
@@ -109,7 +109,7 @@ const store = useStore();
     flex-direction: column;
 }
 
-.NavFull {
+.NavMobile {
     position: absolute;
 
     top: 0rem;
@@ -143,7 +143,7 @@ const store = useStore();
 
 .Toc,
 .NavSide,
-.NavFull,
+.NavMobile,
 .Header {
     pointer-events: auto;
 }

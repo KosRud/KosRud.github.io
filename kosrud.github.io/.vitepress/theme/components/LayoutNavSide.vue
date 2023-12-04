@@ -11,7 +11,7 @@ import { computed } from "vue";
 const { site } = useData<ThemeConfig>();
 const route = useRoute();
 
-const navFull = site.value.themeConfig.nav;
+const NavMobile = site.value.themeConfig.nav;
 
 const props = defineProps<{ topLevel?: boolean }>();
 
@@ -40,7 +40,7 @@ const topLevelNavTitle = computed(
             <ul :class="$style.NavSide_itemList">
                 <LayoutNavSideItem
                     :nav-item="navItem"
-                    v-for="navItem in navFull"
+                    v-for="navItem in NavMobile"
                     v-if="props.topLevel"
                 />
                 <LayoutNavSideItem
