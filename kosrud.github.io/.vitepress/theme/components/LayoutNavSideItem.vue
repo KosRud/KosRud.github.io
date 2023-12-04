@@ -12,7 +12,7 @@ const isOpen = useIsNavItemOpen(props.navItem.url);
 const isActive = useIsNavItemActive(props.navItem.url);
 const isDarkMode = useDarkModeDetect();
 
-const chevronVisibility = props.navItem.children ? "visible" : "hidden";
+const chevronDisplay = props.navItem.children ? "block" : "none";
 </script>
 
 <template>
@@ -50,8 +50,6 @@ const chevronVisibility = props.navItem.children ? "visible" : "hidden";
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding-top: @NavItem-padding-vertical;
-    padding-bottom: @NavItem-padding-vertical;
 
     &::before {
         // remove marker from <li>
@@ -60,7 +58,7 @@ const chevronVisibility = props.navItem.children ? "visible" : "hidden";
 }
 
 .NavItem {
-    &[level="0"] .NavItem_link {
+    &[level="0"] .NavItem_linkText {
         &,
         &:link,
         &:visited {
@@ -68,11 +66,19 @@ const chevronVisibility = props.navItem.children ? "visible" : "hidden";
         }
     }
 
-    &:not([level="0"]) .NavItem_link {
+    &[level="1"] .NavItem_linkText {
         &,
         &:link,
         &:visited {
             font-size: @size;
+        }
+    }
+
+    &[level="2"] .NavItem_linkText {
+        &,
+        &:link,
+        &:visited {
+            font-size: @size-s;
         }
     }
 }
@@ -89,18 +95,28 @@ const chevronVisibility = props.navItem.children ? "visible" : "hidden";
     flex-direction: row;
     align-items: center;
 
-    padding-left: calc(@gap * v-bind(level));
+    @chevron-size: @size * 0.7;
+    @chevron-height-multiplier: 0.57143;
+    @gap-after-chevron: @gap * 0.75;
+    @leveled-gap: @gap*0;
+
+    padding-left: calc(
+        calc(@chevron-size + @gap-after-chevron + @leveled-gap) * v-bind(level)
+    );
 
     &::before {
         content: "";
-        height: 1em;
-        width: 1em;
-        background-image: url("/assets/icons/chevron-right.svg");
-        background-size: cover;
+        height: @chevron-size;
+        width: @chevron-size;
+        margin-bottom: 0.1em; // align nicely with the font Iosevka Aile
+        background-image: url("/assets/icons/chevron/right.svg");
+        background-size: contain;
         background-repeat: no-repeat;
-        background-position: center;
-        margin-right: @gap*0.25;
-        visibility: v-bind(chevronVisibility);
+        background-position: contain;
+        margin-right: calc(@gap-after-chevron - 0.1em);
+        margin-left: 0.1em;
+        display: v-bind(chevronDisplay);
+        vertical-align: top;
     }
 
     &:hover {
