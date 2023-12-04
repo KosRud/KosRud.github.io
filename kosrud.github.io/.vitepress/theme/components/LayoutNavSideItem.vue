@@ -2,23 +2,30 @@
 import { computed } from "vue";
 
 import type { NavItem } from "../ThemeConfig";
-import { useIsNavItemOpen } from "./composables/isNavItemOpen";
+import { useIsNavItemOpen, useIsNavItemActive } from "./composables/navItem";
 import { useDarkModeDetect } from "./composables/darkMode";
 
 const props = defineProps<{ navItem: NavItem; level?: number }>();
 
 const level = computed(() => props.level ?? 0);
 const isOpen = useIsNavItemOpen(props.navItem.url);
+const isActive = useIsNavItemActive(props.navItem.url);
 const isDarkMode = useDarkModeDetect();
 
 const chevronVisibility = props.navItem.children ? "visible" : "hidden";
 </script>
 
 <template>
-    <li :class="[$style.NavItem, isDarkMode ? $style.Dark : '']">
+    <li
+        :level="level"
+        :class="[$style.NavItem, isDarkMode ? $style.Dark : '']"
+    >
         <a
             :href="$props.navItem.children ? undefined : props.navItem.url"
-            :class="$style.NavItem_link"
+            :class="[
+                $style.NavItem_link,
+                isActive ? $style.NavItem_link___active : '',
+            ]"
             @click="isOpen = !isOpen"
         >
             <div :class="$style.NavItem_linkText">
@@ -52,11 +59,32 @@ const chevronVisibility = props.navItem.children ? "visible" : "hidden";
     }
 }
 
-.NavItem_link,
-.NavItem_link:link,
-.NavItem_link:visited {
-    color: @color-black;
-    text-decoration: inherit;
+.NavItem {
+    &[level="0"] .NavItem_link {
+        &,
+        &:link,
+        &:visited {
+            font-size: @size-l;
+        }
+    }
+
+    &:not([level="0"]) .NavItem_link {
+        &,
+        &:link,
+        &:visited {
+            font-size: @size;
+        }
+    }
+}
+
+.NavItem_link {
+    &,
+    &:link,
+    &:visited {
+        color: @color-black-faded;
+        text-decoration: inherit;
+    }
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -80,6 +108,15 @@ const chevronVisibility = props.navItem.children ? "visible" : "hidden";
     }
 }
 
+.NavItem_link___active {
+    &,
+    &:link,
+    &:visited {
+        color: @color-black;
+    }
+    font-weight: bold;
+}
+
 .NavItem_linkText {
     .NavItem_linkText();
 }
@@ -89,9 +126,7 @@ const chevronVisibility = props.navItem.children ? "visible" : "hidden";
 \*----------------------------------*/
 
 .Dark {
-    .NavItem_link,
-    .NavItem_link:link,
-    .NavItem_link:visited {
+    .NavItem_link {
         &::before {
             filter: invert();
             opacity: 0.7;

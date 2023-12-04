@@ -55,9 +55,7 @@ const store = useStore();
     position: relative; // for  burger's absolute
 }
 
-.Header_navLink___active,
-.Header_navLink___active:link,
-.Header_navLink___active:visited {
+.Header_navLink___active {
     position: relative;
 
     &::after {

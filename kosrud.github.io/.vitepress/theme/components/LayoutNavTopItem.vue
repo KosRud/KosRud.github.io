@@ -42,15 +42,17 @@ const props = defineProps<{ navItem: NavItem }>();
     flex: 0 1 auto;
 }
 
-.NavItem_link,
-.NavItem_link:link,
-.NavItem_link:visited {
+.NavItem_link {
     @navlink-pad: @gap*0.5;
 
     flex: 1 1 calc(@navlink-pad*2 + 1em);
 
-    color: @color-white;
-    text-decoration: inherit;
+    &,
+    &:link,
+    &:visited {
+        color: @color-white;
+        text-decoration: inherit;
+    }
 
     background: @color-primary;
     background-clip: border-box;

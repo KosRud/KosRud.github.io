@@ -32,6 +32,7 @@ const store = useStore();
                 :class="$style.NavSide"
                 v-if="store.adaptiveStage == AdaptiveStage.full"
             />
+            <div :class="$style.Overlay_spacer"></div>
             <LayoutToc
                 :class="$style.Toc"
                 v-if="store.adaptiveStage == AdaptiveStage.full"
@@ -77,6 +78,10 @@ const store = useStore();
     flex-direction: column;
 }
 
+.Overlay_spacer {
+    flex: 0 1 @Main-padding-horizontal * 2 + @content-width + @Toc-to-Main-gap;
+}
+
 .Overlay___shaded {
     background-color: mix(@color-black, transparent, 70%);
     // backdrop-filter: blur(2px);
@@ -85,7 +90,7 @@ const store = useStore();
 .NavContainer {
     flex-grow: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: stretch;
 
     position: relative; // for NavMobile
 }
