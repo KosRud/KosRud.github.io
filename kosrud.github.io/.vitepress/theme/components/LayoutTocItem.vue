@@ -71,9 +71,7 @@ onUpdated(() => {
     }
 }
 
-.TocItem_link,
-.TocItem_link:link,
-.TocItem_link:visited {
+.TocItem_link {
     width: 100%;
 
     border-left: @border-width solid @color-border;
@@ -83,8 +81,12 @@ onUpdated(() => {
     padding-bottom: @NavItem-padding-vertical;
     padding-right: @gap;
 
-    color: inherit;
-    text-decoration: none;
+    &,
+    &:link,
+    &:visited {
+        color: @color-black-faded;
+        text-decoration: none;
+    }
 
     &:hover {
         color: @color-primary;
@@ -100,9 +102,14 @@ onUpdated(() => {
 }
 
 .TocItem_link___active {
-    // background-color: #00000010;
     border-color: @color-primary;
     font-weight: bold;
+
+    &,
+    &:link,
+    &:visited {
+        color: @color-black;
+    }
 
     transition: background-color 0.1s;
     transition: border-color 0.1s;

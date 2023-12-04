@@ -34,8 +34,6 @@ const store = useStore();
     justify-content: stretch;
     gap: @gap;
 
-    color: @color-black-faded;
-
     // background-color: @color-white;
     // padding: @gap*2;
     // border: @border-width-s solid @color-border;

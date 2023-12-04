@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import YouAreHere from "./YouAreHere.vue";
 import LayoutNavSide from "./LayoutNavSide.vue";
 
 import type { Ref } from "vue";
@@ -51,9 +50,6 @@ onMounted(() => {
             v-if="store.isNavMobileOpen"
             :ref="(element) => {elMenu = element as Element;}"
         >
-            <YouAreHere />
-            <br />
-            <a href="#">On this page (collapsed)</a>
             <LayoutNavSide top-level />
         </div>
     </Transition>

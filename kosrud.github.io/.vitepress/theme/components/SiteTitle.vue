@@ -22,41 +22,43 @@ const { site } = useData<ThemeConfig>();
 <style lang="less" module>
 @import "../style/variables/index.less";
 
-.SiteTitleContainer,
-.SiteTitleContainer:link,
-.SiteTitleContainer:visited {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    padding: 0rem @gap;
+.SiteTitleContainer {
+    &,
+    &:link,
+    &:visited {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        padding: 0rem @gap;
 
-    color: @color-white;
-    line-height: 1;
-    text-decoration-line: inherit;
+        color: @color-white;
+        line-height: 1;
+        text-decoration-line: inherit;
 
-    &::before {
-        content: "";
-        height: 1.5em;
-        width: 1.5em;
-        background-image: url("/assets/icons/home/icon.svg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        margin-right: @gap;
-        margin-left: 0rem;
+        &::before {
+            content: "";
+            height: 1.5em;
+            width: 1.5em;
+            background-image: url("/assets/icons/home/icon.svg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: @gap;
+            margin-left: 0rem;
 
-        transition: transform @duration-s ease-in;
-    }
+            transition: transform @duration-s ease-in;
+        }
 
-    &:hover::before {
-        transform: scale(1.2);
-        transition: transform @duration-s ease-out;
-    }
+        &:hover::before {
+            transform: scale(1.2);
+            transition: transform @duration-s ease-out;
+        }
 
-    &:active::before {
-        transform: scale(1.2) translateY(@click-offset);
-        // transition: transform 0s;
+        &:active::before {
+            transform: scale(1.2) translateY(@click-offset);
+            // transition: transform 0s;
+        }
     }
 }
 
@@ -100,15 +102,17 @@ const { site } = useData<ThemeConfig>();
 	Transitions
 \*----------------------------------*/
 
-.SiteTitleContainer,
-.SiteTitleContainer:link,
-.SiteTitleContainer:visited {
-    &::before {
-        transition: transform @duration-s ease-in;
-    }
+.SiteTitleContainer {
+    &,
+    &:link,
+    &:visited {
+        &::before {
+            transition: transform @duration-s ease-in;
+        }
 
-    &:hover::before {
-        transition: transform @duration-s ease-out;
+        &:hover::before {
+            transition: transform @duration-s ease-out;
+        }
     }
 }
 </style>
