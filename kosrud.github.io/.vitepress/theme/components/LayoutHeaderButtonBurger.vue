@@ -76,7 +76,7 @@ const props = defineProps<{
 
     transform-origin: 0% 50%;
     &:nth-child(2n + 1) {
-        transform: scaleX(82%);
+        transform: scaleX(90%);
     }
 }
 
@@ -86,7 +86,7 @@ const props = defineProps<{
             transform: scaleX(100%);
         }
         &:nth-child(2n) {
-            transform: scaleX(82%);
+            transform: scaleX(90%);
         }
     }
 }

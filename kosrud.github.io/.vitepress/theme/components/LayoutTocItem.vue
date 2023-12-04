@@ -77,8 +77,6 @@ onUpdated(() => {
     border-left: @border-width solid @color-border;
     padding-left: calc(@gap * v-bind(level));
 
-    padding-top: @NavItem-padding-vertical;
-    padding-bottom: @NavItem-padding-vertical;
     padding-right: @gap;
 
     &,
