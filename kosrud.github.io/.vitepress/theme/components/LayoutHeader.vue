@@ -2,7 +2,7 @@
 import { useStore } from "./pinia/store";
 
 import LayoutNavTop from "./LayoutNavTop.vue";
-import ButtonBurger from "./ButtonBurger.vue";
+import LayoutHeaderButtonBurger from "./LayoutHeaderButtonBurger.vue";
 import SiteTitle from "./SiteTitle.vue";
 import { AdaptiveStage } from "./composables/adaptiveStages";
 
@@ -15,7 +15,7 @@ const store = useStore();
             <SiteTitle />
         </div>
         <LayoutNavTop :class="$style.NavTop" />
-        <ButtonBurger
+        <LayoutHeaderButtonBurger
             :class="$style.Burger"
             v-if="store.adaptiveStage == AdaptiveStage.collapsed"
             @click="store.toggleSideNavOpen"
