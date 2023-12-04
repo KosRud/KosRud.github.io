@@ -38,7 +38,6 @@ const store = useStore();
     background-color: @color-background-dark;
     display: flex;
     gap: @gap;
-    padding-right: @gap;
 
     height: @Header-height;
 
@@ -64,12 +63,13 @@ const store = useStore();
 
 .NavTop {
     flex: 1 0;
+    margin-right: @gap;
 }
 
 .Burger {
     position: absolute;
-    top: 0px;
-    right: @gap*2;
+    top: 0rem;
+    right: 0rem;
     height: 100%;
 }
 
