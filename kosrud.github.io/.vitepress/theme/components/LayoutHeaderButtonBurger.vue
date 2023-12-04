@@ -112,6 +112,6 @@ const props = defineProps<{
 }
 
 .BurgerWrapper {
-    transition: background-color @duration-s;
+    transition: background-color @duration;
 }
 </style>
