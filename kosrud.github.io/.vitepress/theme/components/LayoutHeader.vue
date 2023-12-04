@@ -21,13 +21,15 @@ const store = useStore();
             :title="'On this page'"
             :is-open="false"
             :toggle-is-open="() => false"
+            :num-lines="3"
         />
         <LayoutHeaderButtonBurger
             :class="$style.BurgerMenu"
             v-if="store.adaptiveStage == AdaptiveStage.collapsed"
             :title="'Menu'"
-            :is-open="store.isNavFullOpen"
+            :is-open="store.isNavMobileOpen"
             :toggle-is-open="store.toggleSideNavOpen"
+            :num-lines="5"
         />
     </header>
 </template>
