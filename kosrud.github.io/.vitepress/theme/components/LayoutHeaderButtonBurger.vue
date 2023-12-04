@@ -1,9 +1,13 @@
 <script setup lang="ts">
-//
+import { useStore } from "./pinia/store";
+
+const store = useStore();
 </script>
 
 <template>
-    <div :class="$style.BurgerWrapper">
+    <div
+        :class="[$style.BurgerWrapper, store.isNavFullOpen ? $style.open : '']"
+    >
         <div :class="$style.Burger_title">Menu</div>
         <div :class="$style.Burger">
             <div
@@ -24,17 +28,15 @@
     flex-direction: row;
     color: @color-white;
 
-    padding-left: @gap;
-    padding-right: @gap;
+    padding: 0rem @gap*0.5;
 
-    &:hover {
+    &:hover,
+    &.open {
         background-color: @color-highlight;
     }
 
     &:active {
-        background-color: transparent;
-
-        .Burger_line {
+        > * {
             transform: translateY(@click-offset);
         }
     }
@@ -67,8 +69,21 @@
     border-radius: @inf;
     background-color: @color-background;
     box-shadow: @shadow-s;
+
+    transform-origin: 0% 50%;
     &:nth-child(2n + 1) {
-        margin-right: 15%;
+        transform: scaleX(82%);
+    }
+}
+
+.BurgerWrapper:hover {
+    .Burger_line {
+        &:nth-child(2n + 1) {
+            transform: scaleX(100%);
+        }
+        &:nth-child(2n) {
+            transform: scaleX(82%);
+        }
     }
 }
 
@@ -76,11 +91,24 @@
 	Transitions
 \*----------------------------------*/
 
-.BurgerWrapper {
-    transition: background-color @duration-s;
+.Burger_line&:nth-child(2n) {
+    transition: transform @duration ease-out;
+}
+.Burger_line&:nth-child(2n + 1) {
+    transition: transform @duration ease-in;
 }
 
-.Burger_line {
-    transition: transform @duration-s ease-out;
+.BurgerWrapper:hover {
+    .Burger_line&:nth-child(2n) {
+        transition: transform @duration ease-in;
+    }
+
+    .Burger_line&:nth-child(2n + 1) {
+        transition: transform @duration ease-out;
+    }
+}
+
+.BurgerWrapper {
+    transition: background-color @duration-s;
 }
 </style>
