@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import { useStore } from "./pinia/store";
-
-const store = useStore();
+const props = defineProps<{
+    title: string;
+    isOpen: boolean;
+    toggleIsOpen: (value: boolean) => void;
+}>();
 </script>
 
 <template>
     <div
-        :class="[$style.BurgerWrapper, store.isNavFullOpen ? $style.open : '']"
+        :class="[$style.BurgerWrapper, props.isOpen ? $style.open : '']"
+        @click="props.toggleIsOpen"
     >
-        <div :class="$style.Burger_title">Menu</div>
+        <div :class="$style.Burger_title">{{ props.title }}</div>
         <div :class="$style.Burger">
             <div
                 :class="$style.Burger_line"

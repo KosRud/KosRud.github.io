@@ -16,9 +16,18 @@ const store = useStore();
         </div>
         <LayoutNavTop :class="$style.NavTop" />
         <LayoutHeaderButtonBurger
-            :class="$style.Burger"
+            :class="$style.BurgerToc"
             v-if="store.adaptiveStage == AdaptiveStage.collapsed"
-            @click="store.toggleSideNavOpen"
+            :title="'On this page'"
+            :is-open="false"
+            :toggle-is-open="() => false"
+        />
+        <LayoutHeaderButtonBurger
+            :class="$style.BurgerMenu"
+            v-if="store.adaptiveStage == AdaptiveStage.collapsed"
+            :title="'Menu'"
+            :is-open="store.isNavFullOpen"
+            :toggle-is-open="store.toggleSideNavOpen"
         />
     </header>
 </template>
@@ -66,10 +75,17 @@ const store = useStore();
     margin-right: @gap;
 }
 
-.Burger {
+.BurgerMenu {
     position: absolute;
     top: 0rem;
     right: 0rem;
+    height: 100%;
+}
+
+.BurgerToc {
+    position: absolute;
+    top: 0rem;
+    right: 120rem;
     height: 100%;
 }
 
