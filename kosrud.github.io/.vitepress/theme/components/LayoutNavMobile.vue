@@ -63,14 +63,8 @@ onMounted(() => {
     max-width: 400rem;
 
     padding: @gap*2;
-    // color: @color-white;
 
-    font-family: @font-ui;
-
-    // .FrostedGlass();
-    // .DarkMode();
-
-    background-color: @color-background;
+    .FrostedGlass();
 
     border-left: @border-width-s solid @color-border;
 }

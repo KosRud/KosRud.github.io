@@ -71,6 +71,8 @@ const topLevelNavTitle = computed(
     font-weight: bold;
     margin-left: auto;
     margin-right: auto;
+
+    font-family: @font-ui;
 }
 
 .NavSide_itemList {
@@ -85,13 +87,5 @@ const topLevelNavTitle = computed(
 
 .NavSide_title {
     font-size: @size-l;
-}
-
-/*
-	Font-family
-\*----------------------------------*/
-
-.NavSide_title {
-    font-family: @font-ui;
 }
 </style>

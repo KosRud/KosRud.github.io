@@ -64,6 +64,8 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
         &:visited {
             font-size: @size-l;
         }
+        padding-top: 0.75em;
+        padding-bottom: 0.75em;
     }
 
     &[level="1"] .NavItem_linkText {
@@ -72,6 +74,8 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
         &:visited {
             font-size: @size;
         }
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
     }
 
     &[level="2"] .NavItem_linkText {
@@ -80,6 +84,8 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
         &:visited {
             font-size: @size-s;
         }
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
     }
 }
 
