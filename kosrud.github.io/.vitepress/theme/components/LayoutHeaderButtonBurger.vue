@@ -80,13 +80,17 @@ const props = defineProps<{
     }
 }
 
-.BurgerWrapper:hover {
-    .Burger_line {
-        &:nth-child(2n + 1) {
-            transform: scaleX(100%);
-        }
-        &:nth-child(2n) {
-            transform: scaleX(90%);
+.BurgerWrapper {
+    &:hover,
+    &:active,
+    &.open {
+        .Burger_line {
+            &:nth-child(2n + 1) {
+                transform: scaleX(100%);
+            }
+            &:nth-child(2n) {
+                transform: scaleX(90%);
+            }
         }
     }
 }
