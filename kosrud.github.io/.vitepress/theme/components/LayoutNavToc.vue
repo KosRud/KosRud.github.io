@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useStore } from "./pinia/store";
 
-import LayoutTocItem from "./LayoutTocItem.vue";
+import LayoutNavTocItem from "./LayoutNavTocItem.vue";
 
 const store = useStore();
 </script>
@@ -14,7 +14,7 @@ const store = useStore();
         <h2 :class="$style.Toc_title">On this page:</h2>
         <nav :class="$style.Toc_content">
             <ul :class="$style.Toc_itemList">
-                <LayoutTocItem
+                <LayoutNavTocItem
                     v-for="tocItem in store.tocItems"
                     :key="tocItem.element.id"
                     :heading="tocItem"

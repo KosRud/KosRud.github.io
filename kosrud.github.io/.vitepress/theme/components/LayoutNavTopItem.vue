@@ -47,11 +47,11 @@ const props = defineProps<{ navItem: NavItem }>();
 
     flex: 1 1 calc(@navlink-pad*2 + 1em);
 
+    text-decoration: inherit;
     &,
     &:link,
     &:visited {
         color: @color-white;
-        text-decoration: inherit;
     }
 
     background: @color-primary;

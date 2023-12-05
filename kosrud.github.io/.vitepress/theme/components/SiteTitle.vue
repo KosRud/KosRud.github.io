@@ -103,16 +103,12 @@ const { site } = useData<ThemeConfig>();
 \*----------------------------------*/
 
 .SiteTitleContainer {
-    &,
-    &:link,
-    &:visited {
-        &::before {
-            transition: transform @duration-s ease-in;
-        }
+    &::before {
+        transition: transform @duration-s ease-in;
+    }
 
-        &:hover::before {
-            transition: transform @duration-s ease-out;
-        }
+    &:hover::before {
+        transition: transform @duration-s ease-out;
     }
 }
 </style>

@@ -81,9 +81,7 @@ const navTrace = computed((): NavItem[] => {
     display: flex;
     flex-wrap: wrap;
 
-    a,
-    a:link,
-    a:visited {
+    a {
         font-weight: bold;
     }
 }

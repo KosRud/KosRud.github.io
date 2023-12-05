@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import LayoutNavItemText from "./LayoutNavItemText.vue";
+
 import { computed } from "vue";
 
 import type { NavItem } from "../ThemeConfig";
@@ -22,15 +24,16 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
     >
         <a
             :href="$props.navItem.children ? undefined : props.navItem.url"
-            :class="[
-                $style.NavItem_link,
-                isActive ? $style.NavItem_link___active : '',
-            ]"
+            :class="[$style.NavItem_link]"
             @click="isOpen = !isOpen"
         >
-            <div :class="$style.NavItem_linkText">
+            <LayoutNavItemText
+                :level="level"
+                :class="$style.NavItem_linkText"
+                :active="isActive"
+            >
                 {{ props.navItem.title }}
-            </div>
+            </LayoutNavItemText>
         </a>
         <ul v-if="isOpen">
             <LayoutNavSideItem
@@ -57,44 +60,12 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
     }
 }
 
-.NavItem {
-    &[level="0"] .NavItem_linkText {
-        &,
-        &:link,
-        &:visited {
-            font-size: @size-l;
-        }
-        padding-top: 0.75em;
-        padding-bottom: 0.75em;
-    }
-
-    &[level="1"] .NavItem_linkText {
-        &,
-        &:link,
-        &:visited {
-            font-size: @size;
-        }
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
-    }
-
-    &[level="2"] .NavItem_linkText {
-        &,
-        &:link,
-        &:visited {
-            font-size: @size-s;
-        }
-        padding-top: 0.25em;
-        padding-bottom: 0.25em;
-    }
-}
-
 .NavItem_link {
+    text-decoration: inherit;
     &,
     &:link,
     &:visited {
         color: @color-black-faded;
-        text-decoration: inherit;
     }
 
     display: flex;
@@ -124,23 +95,6 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
         display: v-bind(chevronDisplay);
         vertical-align: top;
     }
-
-    &:hover {
-        .NavItem___hover();
-    }
-}
-
-.NavItem_link___active {
-    &,
-    &:link,
-    &:visited {
-        color: @color-black;
-    }
-    font-weight: bold;
-}
-
-.NavItem_linkText {
-    .NavItem_linkText();
 }
 
 /*
