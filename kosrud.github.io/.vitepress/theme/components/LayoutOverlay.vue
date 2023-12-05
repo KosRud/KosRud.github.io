@@ -24,19 +24,18 @@ const store = useStore();
         ]"
     >
         <LayoutHeader :class="$style.Header" />
-        <div
-            :class="$style.NavContainer"
-            v-if="!frontmatter.hero"
-        >
-            <LayoutNavSide
-                :class="$style.NavSide"
-                v-if="store.adaptiveStage == AdaptiveStage.full"
-            />
-            <div :class="$style.Overlay_spacer"></div>
-            <LayoutNavToc
-                :class="$style.Toc"
-                v-if="store.adaptiveStage == AdaptiveStage.full"
-            />
+        <div :class="$style.NavContainer">
+            <template v-if="!frontmatter.hero">
+                <LayoutNavSide
+                    :class="$style.NavSide"
+                    v-if="store.adaptiveStage == AdaptiveStage.full"
+                />
+                <div :class="$style.Overlay_spacer"></div>
+                <LayoutNavToc
+                    :class="$style.Toc"
+                    v-if="store.adaptiveStage == AdaptiveStage.full"
+                />
+            </template>
             <LayoutNavMobile :class="$style.NavMobile" />
         </div>
     </div>
