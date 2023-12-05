@@ -38,7 +38,7 @@ const level = computed(() => {
     color: @color-black-faded;
     text-decoration: none;
     font-weight: normal;
-    font-family: @font-strict;
+    font-family: @font-main;
 
     &:hover {
         &:not(.TocItemText___active) {

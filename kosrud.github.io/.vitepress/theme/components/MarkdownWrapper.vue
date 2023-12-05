@@ -12,7 +12,7 @@
     width: 100%;
 
     text-align: justify;
-    font-family: @font-readable;
+    font-family: @font-main;
 
     h1,
     h2,
