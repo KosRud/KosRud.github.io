@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import LayoutToc from "./LayoutToc.vue";
+import LayoutNavToc from "./LayoutNavToc.vue";
 import LayoutNavSide from "./LayoutNavSide.vue";
 import LayoutHeader from "./LayoutHeader.vue";
 import LayoutNavMobile from "./LayoutNavMobile.vue";
@@ -33,7 +33,7 @@ const store = useStore();
                 v-if="store.adaptiveStage == AdaptiveStage.full"
             />
             <div :class="$style.Overlay_spacer"></div>
-            <LayoutToc
+            <LayoutNavToc
                 :class="$style.Toc"
                 v-if="store.adaptiveStage == AdaptiveStage.full"
             />
@@ -138,9 +138,7 @@ const store = useStore();
 .Overlay {
     pointer-events: none;
 
-    a,
-    a:link,
-    a:visited {
+    a {
         user-select: none;
         cursor: pointer;
     }

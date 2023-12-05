@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import LayoutNavItemText from "./LayoutNavItemText.vue";
+
 import type { Ref } from "vue";
 import type { TocItem } from "./composables/Toc/tocItems";
 
@@ -44,12 +46,17 @@ onUpdated(() => {
             ]"
             :href="`#${props.heading.element.id}`"
         >
-            <div :class="$style.TocItem_linkText">
+            <LayoutNavItemText
+                :level="1"
+                compact
+                :active="isActive"
+                :class="$style.TocItem_linkText"
+            >
                 {{ props.heading.element.textContent }}
-            </div>
+            </LayoutNavItemText>
         </a>
         <ul v-if="props.heading.children.length != 0">
-            <LayoutTocItem
+            <LayoutNavTocItem
                 v-for="child in props.heading.children"
                 :heading="child"
                 :level="level + 1"
@@ -76,41 +83,20 @@ onUpdated(() => {
 
     border-left: @border-width solid @color-border;
     padding-left: calc(@gap * v-bind(level));
-
     padding-right: @gap;
 
-    &,
-    &:link,
-    &:visited {
-        color: @color-black-faded;
-        text-decoration: none;
-    }
-
-    &:hover {
-        color: @color-primary;
-
-        &:not(.TocItem_link___active) {
-            .NavItem___hover();
-        }
-    }
-}
-
-.TocItem_linkText {
-    .NavItem_linkText();
+    text-decoration: none;
 }
 
 .TocItem_link___active {
     border-color: @color-primary;
-    font-weight: bold;
+}
 
-    &,
-    &:link,
-    &:visited {
-        color: @color-black;
-    }
+/*
+	Font-size
+\*----------------------------------*/
 
-    transition: background-color 0.1s;
-    transition: border-color 0.1s;
-    transition: font-weight 0.1s;
+.TocItem_link {
+    transition: border-color @duration;
 }
 </style>

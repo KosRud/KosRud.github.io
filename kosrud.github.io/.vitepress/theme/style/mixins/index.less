@@ -1,37 +1,23 @@
 @import "../variables/index.less";
 
-.NavItem___hover() {
-    color: @color-primary;
-    // text-shadow: 0rem 0.03em @color-primary, 0rem -0.03em @color-primary;
-    text-shadow: 0.02em 0rem @color-primary, -0.02em 0rem @color-primary;
-}
-
-.NavItem_linkText() {
-    line-height: 1.2;
-    padding: @gap*0.125 0rem;
-    display: block;
-    padding-top: @NavItem-padding-vertical;
-    padding-bottom: @NavItem-padding-vertical;
-}
-
 .FrostedGlass {
     background-color: mix(@color-white, transparent, 85%);
     backdrop-filter: blur(5px);
 }
 
 .DarkMode {
-    a,
-    a:link,
-    a:visited {
-        @color-link: saturate(lighten(@color-primary, 27%), 16%);
-        color: @color-link;
+    a {
         text-decoration: none;
 
-        &:hover {
-            color: saturate(lighten(@color-link, 27%), 16%);
-            text-decoration: underline;
-            // font-weight: bold;
+        &:link,
+        &:visited {
+            @color-link: saturate(lighten(@color-primary, 27%), 16%);
+            color: @color-link;
+
+            &:hover {
+                color: saturate(lighten(@color-link, 27%), 16%);
+                text-decoration: underline;
+            }
         }
-        // font-weight: bold;
     }
 }
