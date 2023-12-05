@@ -35,19 +35,34 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
                 {{ props.navItem.title }}
             </LayoutNavItemText>
         </a>
-        <ul v-if="isOpen">
-            <LayoutNavSideItem
-                :level="level + 1"
-                :nav-item="child"
-                v-for="child in props.navItem.children"
-            />
-        </ul>
+        <Transition
+            :enter-from-class="$style.NavItem_childrenContainer___enterFrom"
+            :enter-to-class="$style.NavItem_childrenContainer___enterTo"
+            :enter-active-class="$style.NavItem_childrenContainer___enterActive"
+            :leave-from-class="$style.NavItem_childrenContainer___leaveFrom"
+            :leave-to-class="$style.NavItem_childrenContainer___leaveTo"
+            :leave-active-class="$style.NavItem_childrenContainer___leaveActive"
+        >
+            <ul v-if="isOpen">
+                <LayoutNavSideItem
+                    :level="level + 1"
+                    :nav-item="child"
+                    v-for="child in props.navItem.children"
+                />
+            </ul>
+        </Transition>
     </li>
 </template>
 
 <style module lang="less">
 @import "../style/variables/index.less";
 @import "../style/mixins/index.less";
+
+@chevron-size: @size * 0.7;
+@chevron-height-multiplier: 0.57143;
+@gap-after-chevron: @gap * 0.75;
+
+@leveled-padding: @chevron-size + @gap-after-chevron;
 
 .NavItem {
     display: flex;
@@ -72,14 +87,12 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
     flex-direction: row;
     align-items: center;
 
+    padding-left: calc(@leveled-padding * v-bind(level));
+
     @chevron-size: @size * 0.7;
     @chevron-height-multiplier: 0.57143;
     @gap-after-chevron: @gap * 0.75;
     @leveled-gap: @gap*0;
-
-    padding-left: calc(
-        calc(@chevron-size + @gap-after-chevron + @leveled-gap) * v-bind(level)
-    );
 
     &::before {
         content: "";
@@ -108,5 +121,38 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
             opacity: 0.7;
         }
     }
+}
+
+/*
+	Transitions
+\*----------------------------------*/
+
+.NavItem_childrenContainer___enterFrom {
+    transform: translateX(@leveled-padding * -1);
+    opacity: 0%;
+}
+
+.NavItem_childrenContainer___enterTo {
+    transform: none;
+    opacity: 100%;
+}
+
+.NavItem_childrenContainer___enterActive {
+    transition: transform @duration,
+        opacity @duration-s (@duration - @duration-s);
+}
+
+.NavItem_childrenContainer___leaveFrom {
+    transform: none;
+    opacity: 100%;
+}
+
+.NavItem_childrenContainer___leaveTo {
+    transform: translateX(@leveled-padding * -1);
+    opacity: 0%;
+}
+
+.NavItem_childrenContainer___leaveActive {
+    transition: transform @duration, opacity @duration-s;
 }
 </style>
