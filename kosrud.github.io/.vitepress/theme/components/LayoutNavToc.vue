@@ -1,5 +1,8 @@
 <script lang="ts" setup>
+import { useData } from "vitepress";
 import { useStore } from "./pinia/store";
+
+const { page } = useData();
 
 import LayoutNavTocItem from "./LayoutNavTocItem.vue";
 
@@ -7,20 +10,19 @@ const store = useStore();
 </script>
 
 <template>
-    <nav
-        :class="$style.Toc"
-        v-if="store.tocItems.length > 0"
-    >
-        <h2 :class="$style.Toc_title">On this page:</h2>
-        <nav :class="$style.Toc_content">
-            <ul :class="$style.Toc_itemList">
-                <LayoutNavTocItem
-                    v-for="tocItem in store.tocItems"
-                    :key="tocItem.element.id"
-                    :heading="tocItem"
-                />
-            </ul>
-        </nav>
+    <nav :class="$style.Toc">
+        <template v-if="store.tocItems.length > 0 && !page.isNotFound">
+            <h2 :class="$style.Toc_title">On this page:</h2>
+            <nav :class="$style.Toc_content">
+                <ul :class="$style.Toc_itemList">
+                    <LayoutNavTocItem
+                        v-for="tocItem in store.tocItems"
+                        :key="tocItem.element.id"
+                        :heading="tocItem"
+                    />
+                </ul>
+            </nav>
+        </template>
     </nav>
 </template>
 
