@@ -106,7 +106,7 @@ const store = useStore();
 .Toc {
     position: sticky;
     top: 0rem;
-    width: @Toc-width;
+    flex: 0 0 @Toc-width;
 
     padding: @Toc-to-Main-gap @gap;
     padding-bottom: 0rem;

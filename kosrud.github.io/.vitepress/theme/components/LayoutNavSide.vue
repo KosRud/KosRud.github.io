@@ -42,10 +42,12 @@ const topLevelNavTitle = computed(
                     :nav-item="navItem"
                     v-for="navItem in NavMobile"
                     v-if="props.topLevel"
+                    :level="0"
                 />
                 <LayoutNavSideItem
                     :nav-item="navItem"
                     v-for="navItem in navSide"
+                    :level="1"
                     v-else
                 />
             </ul>
