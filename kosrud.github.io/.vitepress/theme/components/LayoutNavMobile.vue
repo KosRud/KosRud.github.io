@@ -64,7 +64,7 @@ onMounted(() => {
 
     padding: @gap*2;
 
-    .FrostedGlass();
+    background-color: @color-background;
 
     border-left: @border-width-s solid @color-border;
 

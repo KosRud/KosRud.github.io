@@ -52,7 +52,7 @@ const { page } = useData();
 .Main {
     max-width: @content-width + @Main-padding-horizontal*2; // account for padding
 
-    padding: @Toc-to-Main-gap @Main-padding-horizontal;
+    padding: @Header-to-Content-gap @Main-padding-horizontal;
     background-color: @color-white;
 
     > * {

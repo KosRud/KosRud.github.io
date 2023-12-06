@@ -63,7 +63,6 @@ const topLevelNavTitle = computed(
     flex-direction: column;
     justify-content: stretch;
     overflow-y: auto;
-    padding-top: @Toc-to-Main-gap;
     gap: @gap;
 }
 
