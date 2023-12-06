@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useData, useRoute } from "vitepress";
 
-import LayoutNavSideItem from "./LayoutNavSideItem.vue";
+import LayoutNavPagesItem from "./LayoutNavPagesItem.vue";
 
 import type { ThemeConfig } from "../ThemeConfig";
 import { urlMatch } from "./composables/urlMatch";
@@ -38,13 +38,13 @@ const topLevelNavTitle = computed(
                 {{ topLevel ? "Home" : topLevelNavTitle }}/
             </h2>
             <ul :class="$style.NavSide_itemList">
-                <LayoutNavSideItem
+                <LayoutNavPagesItem
                     :nav-item="navItem"
                     v-for="navItem in NavMobile"
                     v-if="props.topLevel"
                     :level="0"
                 />
-                <LayoutNavSideItem
+                <LayoutNavPagesItem
                     :nav-item="navItem"
                     v-for="navItem in navSide"
                     :level="1"
