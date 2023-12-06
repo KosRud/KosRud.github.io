@@ -67,6 +67,8 @@ onMounted(() => {
     .FrostedGlass();
 
     border-left: @border-width-s solid @color-border;
+
+    overflow: auto;
 }
 
 /*
