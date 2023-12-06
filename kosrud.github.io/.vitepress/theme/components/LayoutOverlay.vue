@@ -6,14 +6,25 @@ import LayoutNavMobile from "./LayoutNavMobile.vue";
 
 import { useData } from "vitepress";
 import { useStore } from "./pinia/store";
+import { useCssModule } from "vue";
 
 import type { ThemeConfig } from "../ThemeConfig";
 import { AdaptiveStage } from "./composables/adaptiveStages";
+import { watchEffect } from "vue";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const frontmatter = useData<ThemeConfig>().frontmatter;
 
 const store = useStore();
+const $style = useCssModule();
+
+watchEffect(() => {
+    if (store.isNavMobileOpen) {
+        document.querySelector("body")?.classList.add($style.noScroll);
+    } else {
+        document.querySelector("body")?.classList.remove($style.noScroll);
+    }
+});
 </script>
 
 <template>
@@ -47,6 +58,10 @@ const store = useStore();
 /*
 	Z-index
 \*----------------------------------*/
+
+.noScroll {
+    overflow: hidden !important;
+}
 
 .Overlay {
     // establish a stacking context
