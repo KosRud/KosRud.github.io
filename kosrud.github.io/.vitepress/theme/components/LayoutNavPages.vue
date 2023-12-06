@@ -34,10 +34,18 @@ const topLevelNavTitle = computed(
 <template>
     <nav :class="$style.NavSide">
         <template v-if="navSide.length > 0 || topLevel">
-            <h2 :class="$style.NavSide_title">
-                {{ topLevel ? "Home" : topLevelNavTitle }}/
+            <h2
+                :class="$style.NavSide_title"
+                v-if="!props.topLevel"
+            >
+                {{ topLevelNavTitle }}/
             </h2>
             <ul :class="$style.NavSide_itemList">
+                <LayoutNavPagesItem
+                    :nav-item="{ url: '/', title: 'Home' }"
+                    v-if="props.topLevel"
+                    :level="0"
+                />
                 <LayoutNavPagesItem
                     :nav-item="navItem"
                     v-for="navItem in NavMobile"
