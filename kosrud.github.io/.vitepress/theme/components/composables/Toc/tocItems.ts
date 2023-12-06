@@ -1,5 +1,5 @@
 import { onMounted, watchEffect } from "vue";
-import { onContentUpdated, useData } from "vitepress";
+import { onContentUpdated } from "vitepress";
 import { useStore } from "../../pinia/store";
 
 export interface TocItem {
