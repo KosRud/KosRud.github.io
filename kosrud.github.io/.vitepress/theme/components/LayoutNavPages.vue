@@ -34,10 +34,7 @@ const title = computed(
         })?.title ?? ""
 );
 
-const oneChildOpen = useOneChildOpen();
-
-if (!props.topLevel) {
-}
+const oneChildOpen = useOneChildOpen(navItems.value);
 </script>
 
 <template>
