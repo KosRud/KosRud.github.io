@@ -1,5 +1,5 @@
 import { onMounted, watchEffect } from "vue";
-import { onContentUpdated } from "vitepress";
+import { onContentUpdated, useData } from "vitepress";
 import { useStore } from "../../pinia/store";
 
 export interface TocItem {
@@ -9,17 +9,14 @@ export interface TocItem {
 }
 
 export function useTrackTocItems() {
-    onContentUpdated(() => {
-        const store = useStore();
-        store.tocItems = getTocItems();
-    });
+    const store = useStore();
 
-    onMounted(
-        watchEffect(() => {
-            const store = useStore();
-            store.tocItems = getTocItems();
-        })
-    );
+    function update() {
+        store.tocItems = getTocItems();
+    }
+
+    onMounted(() => watchEffect(update));
+    onContentUpdated(update);
 }
 
 function getTocItems() {
