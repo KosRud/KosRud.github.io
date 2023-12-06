@@ -1,19 +1,27 @@
 <script lang="ts" setup>
+import type LayoutNavPagesItem from "./LayoutNavPagesItem.vue";
 import LayoutNavItemText from "./LayoutNavItemText.vue";
 
 import { computed } from "vue";
 
 import type { NavItem } from "../ThemeConfig";
-import { useIsNavItemOpen, useIsNavItemActive } from "./composables/navItem";
+import { useIsNavItemActive } from "./composables/navItem";
 import { useDarkModeDetect } from "./composables/darkMode";
+import { useOneChildOpen } from "./composables/oneChildOpen";
 
-const props = defineProps<{ navItem: NavItem; level?: number }>();
+const emit = defineEmits(["navItemToggle"]);
+
+const oneChildOpen = useOneChildOpen();
+
+const props = defineProps<{
+    navItem: NavItem;
+    level?: number;
+    isOpen: boolean;
+}>();
 
 const level = computed(() => props.level ?? 0);
-const isOpen = useIsNavItemOpen(props.navItem.url);
 const isActive = useIsNavItemActive(props.navItem.url);
 const isDarkMode = useDarkModeDetect();
-
 const chevronDisplay = props.navItem.children ? "block" : "none";
 </script>
 
@@ -29,7 +37,7 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
         <a
             :href="$props.navItem.children ? undefined : props.navItem.url"
             :class="[$style.NavItem_link]"
-            @click="isOpen = !isOpen"
+            @click="emit('navItemToggle')"
         >
             <LayoutNavItemText
                 :level="level"
@@ -55,7 +63,9 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
                     <LayoutNavPagesItem
                         :level="level + 1"
                         :nav-item="child"
-                        v-for="child in props.navItem.children"
+                        v-for="(child, id) in props.navItem.children"
+                        @nav-item-toggle="oneChildOpen.toggleChild(id)"
+                        :is-open="oneChildOpen.isChildOpen(id)"
                     />
                 </ul>
             </Transition>
@@ -163,7 +173,7 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
 }
 
 .NavItem_childrenList___enterActive {
-    transition: transform @duration, opacity @duration-s;
+    transition: transform @duration-s, opacity @duration-s;
 }
 
 .NavItem_childrenList___leaveFrom {
@@ -177,6 +187,6 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
 }
 
 .NavItem_childrenList___leaveActive {
-    transition: transform @duration, opacity @duration-s;
+    transition: transform 0s, opacity 0s;
 }
 </style>

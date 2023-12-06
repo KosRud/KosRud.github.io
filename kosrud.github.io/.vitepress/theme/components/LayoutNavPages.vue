@@ -1,62 +1,61 @@
 <script lang="ts" setup>
-import { useData, useRoute } from "vitepress";
-
 import LayoutNavPagesItem from "./LayoutNavPagesItem.vue";
+
+import { computed } from "vue";
+import { useData, useRoute } from "vitepress";
 
 import type { ThemeConfig } from "../ThemeConfig";
 import { urlMatch } from "./composables/urlMatch";
-import { computed } from "vue";
+import { useOneChildOpen } from "./composables/oneChildOpen";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site } = useData<ThemeConfig>();
-const route = useRoute();
-
-const NavMobile = site.value.themeConfig.nav;
 
 const props = defineProps<{ topLevel?: boolean }>();
+const route = useRoute();
 
-const navSide = computed(
-    () =>
+const navItems = computed(() => {
+    if (props.topLevel) {
+        return [{ title: "Home", url: "/" }].concat(site.value.themeConfig.nav);
+    }
+
+    return (
         site.value.themeConfig.nav.find((navItem) => {
             return urlMatch(route.path, navItem.url).inside;
         })?.children ?? []
-);
+    );
+});
 
-const topLevelNavTitle = computed(
+const title = computed(
     () =>
         site.value.themeConfig.nav.find((navItem) => {
             const match = urlMatch(route.path, navItem.url);
             return match.inside;
         })?.title ?? ""
 );
+
+const oneChildOpen = useOneChildOpen();
+
+if (!props.topLevel) {
+}
 </script>
 
 <template>
     <nav :class="$style.NavSide">
-        <template v-if="navSide.length > 0 || topLevel">
+        <template v-if="navItems.length > 0">
             <h2
                 :class="$style.NavSide_title"
                 v-if="!props.topLevel"
             >
-                {{ topLevelNavTitle }}/
+                {{ title }}/
             </h2>
             <ul :class="$style.NavSide_itemList">
                 <LayoutNavPagesItem
-                    :nav-item="{ url: '/', title: 'Home' }"
-                    v-if="props.topLevel"
-                    :level="0"
-                />
-                <LayoutNavPagesItem
                     :nav-item="navItem"
-                    v-for="navItem in NavMobile"
-                    v-if="props.topLevel"
-                    :level="0"
-                />
-                <LayoutNavPagesItem
-                    :nav-item="navItem"
-                    v-for="navItem in navSide"
-                    :level="1"
-                    v-else
+                    v-for="(navItem, id) in navItems"
+                    :is-open="oneChildOpen.isChildOpen(id)"
+                    @nav-item-toggle="oneChildOpen.toggleChild(id)"
+                    :level="props.topLevel ? 0 : 1"
                 />
             </ul>
         </template>
