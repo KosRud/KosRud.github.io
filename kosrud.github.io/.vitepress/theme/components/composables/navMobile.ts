@@ -8,8 +8,7 @@ export function useServiceNavMobile() {
 
     onMounted(() => {
         watchEffect(() => {
-            route.path; // reactive trigger
-
+            route.path; // reactive trigger\
             store.isMobileNavPagesOpen = false;
         });
     });

@@ -9,6 +9,8 @@ import LayoutNavTocItem from "./LayoutNavTocItem.vue";
 const store = useStore();
 
 const props = defineProps<{ isMobile?: boolean }>();
+
+const emit = defineEmits(["jumpedToItem"]);
 </script>
 
 <template>
@@ -21,6 +23,7 @@ const props = defineProps<{ isMobile?: boolean }>();
                         v-for="tocItem in store.tocItems"
                         :key="tocItem.element.id"
                         :heading="tocItem"
+                        @jumpedToItem="emit('jumpedToItem')"
                     />
                 </ul>
             </nav>

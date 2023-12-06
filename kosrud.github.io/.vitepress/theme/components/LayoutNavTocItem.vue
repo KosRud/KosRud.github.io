@@ -7,12 +7,17 @@ import type { TocItem } from "./composables/Toc/tocItems";
 import { ref, computed, onUpdated } from "vue";
 import { useStore } from "./pinia/store";
 
-import scrollIntoViewIfNeeded from "./composables/scrollIntoViewIfNeeded";
+import {
+    scrollIntoViewIfNeeded,
+    useScrollIntoViewOnMount,
+} from "./composables/scrollIntoView";
 
 const props = defineProps<{
     heading: TocItem;
     level?: number;
 }>();
+
+const emit = defineEmits(["jumpedToItem"]);
 
 const level = props.level ?? 1;
 
@@ -21,23 +26,25 @@ const isActive = computed(() => {
     return store.activeHeadingId == props.heading.element.id;
 });
 
-const tocItem: Ref<Element | null> = ref(null);
+const myElement: Ref<Element | null> = ref(null);
 
 onUpdated(() => {
     if (isActive.value) {
-        const element = tocItem.value;
+        const element = myElement.value;
         if (!element) {
             return;
         }
         scrollIntoViewIfNeeded(element);
     }
 });
+
+useScrollIntoViewOnMount(myElement);
 </script>
 
 <template>
     <li
         :class="$style.TocItem"
-        :ref="(element) => { tocItem = element as Element }"
+        :ref="(element) => { myElement = element as Element }"
     >
         <a
             :class="[
@@ -45,6 +52,7 @@ onUpdated(() => {
                 isActive ? $style.TocItem_link___active : '',
             ]"
             :href="`#${props.heading.element.id}`"
+            @click="emit('jumpedToItem')"
         >
             <LayoutNavItemText
                 :level="1"
@@ -60,6 +68,7 @@ onUpdated(() => {
                 v-for="child in props.heading.children"
                 :heading="child"
                 :level="level + 1"
+                @jumped-to-item="emit('jumpedToItem')"
             />
         </ul>
     </li>
@@ -76,6 +85,8 @@ onUpdated(() => {
     &::before {
         display: none;
     }
+
+    padding-top: 100%;
 }
 
 .TocItem_link {

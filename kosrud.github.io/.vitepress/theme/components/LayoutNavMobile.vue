@@ -50,7 +50,7 @@ onMounted(() => {
             v-if="props.isOpen"
             :ref="(element) => {elMenu = element as Element;}"
         >
-            <slot />
+            <slot :close="() => props.setIsOpen(false)" />
         </div>
     </Transition>
 </template>
