@@ -1,17 +1,15 @@
 <script lang="ts" setup>
-import type LayoutNavPagesItem from "./LayoutNavPagesItem.vue";
 import LayoutNavItemText from "./LayoutNavItemText.vue";
 
-import { computed } from "vue";
+import { type Ref, ref, computed, onMounted } from "vue";
 
 import type { NavItem } from "../ThemeConfig";
 import { useIsNavItemActive } from "./composables/navItem";
 import { useDarkModeDetect } from "./composables/darkMode";
 import { useOneChildOpen } from "./composables/oneChildOpen";
+import scrollIntoViewIfNeeded from "./composables/scrollIntoViewIfNeeded";
 
 const emit = defineEmits(["navItemToggle"]);
-
-const oneChildOpen = useOneChildOpen();
 
 const props = defineProps<{
     navItem: NavItem;
@@ -19,10 +17,19 @@ const props = defineProps<{
     isOpen: boolean;
 }>();
 
+const oneChildOpen = useOneChildOpen(props.navItem.children ?? []);
+
 const level = computed(() => props.level ?? 0);
 const isActive = useIsNavItemActive(props.navItem.url);
 const isDarkMode = useDarkModeDetect();
 const chevronDisplay = props.navItem.children ? "block" : "none";
+const myElement: Ref<Element | null> = ref(null);
+
+onMounted(() => {
+    if (myElement.value) {
+        scrollIntoViewIfNeeded(myElement.value);
+    }
+});
 </script>
 
 <template>
@@ -33,6 +40,9 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
             isDarkMode ? $style.Dark : '',
             isOpen ? $style.NavItem___open : '',
         ]"
+        :ref="(element)=> {
+			myElement = element as Element;
+		}"
     >
         <a
             :href="$props.navItem.children ? undefined : props.navItem.url"
