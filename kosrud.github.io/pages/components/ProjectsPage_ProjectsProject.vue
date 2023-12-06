@@ -1,9 +1,16 @@
 <script setup lang="ts">
+import naturalSort from "javascript-natural-sort";
+import { computed } from "vue";
+
 const props = defineProps<{
     icons: { title: string; url: string }[];
     title: string;
     links?: { github?: string; docs?: string };
 }>();
+
+const sortedIcons = computed(() =>
+    [...props.icons].sort((a, b) => naturalSort(a.title, b.title))
+);
 
 function makeHeadingId(title: string) {
     return title.replace(/[&<"]/, "").replace(/\s/g, "-"); // ToDo this is just a placeholder
@@ -18,7 +25,7 @@ function makeHeadingId(title: string) {
         <div :style="$style.Project_titleText">{{ props.title }}</div>
         <section :class="$style.Project_devIcons">
             <img
-                v-for="icon in props.icons"
+                v-for="icon in sortedIcons"
                 :src="icon.url"
                 :alt="icon.title"
                 :title="icon.title"
@@ -30,7 +37,7 @@ function makeHeadingId(title: string) {
         <strong :class="$style.Uses_title">uses:</strong>
         <span
             :class="$style.Uses_item"
-            v-for="icon in props.icons"
+            v-for="icon in sortedIcons"
         >
             {{ icon.title }}
         </span>
