@@ -56,7 +56,7 @@ watchEffect(() => {
                         }
                     "
             >
-                <LayoutNavToc />
+                <LayoutNavToc is-mobile />
             </LayoutNavMobile>
             <LayoutNavMobile
                 :class="$style.NavMobile"
