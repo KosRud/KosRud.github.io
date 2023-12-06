@@ -19,16 +19,24 @@ const store = useStore();
             :class="$style.BurgerToc"
             v-if="store.adaptiveStage == AdaptiveStage.collapsed"
             :title="'On this page'"
-            :is-open="false"
-            :toggle-is-open="() => false"
+            :is-open="store.isMobileNavTocOpen"
+            :toggle-is-open="
+                () => {
+                    store.isMobileNavTocOpen = !store.isMobileNavTocOpen;
+                }
+            "
             :num-lines="3"
         />
         <LayoutHeaderButtonBurger
             :class="$style.BurgerMenu"
             v-if="store.adaptiveStage == AdaptiveStage.collapsed"
             :title="'Menu'"
-            :is-open="store.isMobileNavOpen"
-            :toggle-is-open="store.toggleSideNavOpen"
+            :is-open="store.isMobileNavPagesOpen"
+            :toggle-is-open="
+                () => {
+                    store.isMobileNavPagesOpen = !store.isMobileNavPagesOpen;
+                }
+            "
             :num-lines="5"
         />
     </header>

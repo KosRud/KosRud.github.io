@@ -10,11 +10,11 @@ export function useServiceNavMobile() {
         watchEffect(() => {
             route.path; // reactive trigger
 
-            store.isMobileNavOpen = false;
+            store.isMobileNavPagesOpen = false;
         });
     });
 
     onContentUpdated(() => {
-        store.isMobileNavOpen = false;
+        store.isMobileNavPagesOpen = false;
     });
 }

@@ -44,7 +44,8 @@ export const useStore = defineStore("counter", {
             AdaptiveStage.full
         );
 
-        const isMobileNavOpen = ref(false);
+        const isMobileNavPagesOpen = ref(false);
+        const isMobileNavTocOpen = ref(false);
 
         return {
             pageContent: contentContainer,
@@ -59,7 +60,8 @@ export const useStore = defineStore("counter", {
             adaptiveStage,
             adaptivePreferences: adaptiveStagePreferences,
 
-            isMobileNavOpen,
+            isMobileNavPagesOpen,
+            isMobileNavTocOpen,
         };
     },
 
@@ -77,6 +79,9 @@ export const useStore = defineStore("counter", {
                 return 0;
             }
             return state.VisibleAreaMarker.getBoundingClientRect().top;
+        },
+        isMobileNavAnythingOpen: (state) => {
+            return state.isMobileNavPagesOpen || state.isMobileNavTocOpen;
         },
     },
 
@@ -96,9 +101,6 @@ export const useStore = defineStore("counter", {
         },
         useAdaptivePreference() {
             return useAdaptivePreference();
-        },
-        toggleSideNavOpen() {
-            this.isMobileNavOpen = !this.isMobileNavOpen;
         },
     },
 });

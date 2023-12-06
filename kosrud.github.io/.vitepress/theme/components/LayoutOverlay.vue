@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import LayoutNavToc from "./LayoutNavToc.vue";
-import LayoutNavSide from "./LayoutNavSide.vue";
+import LayoutNavPages from "./LayoutNavPages.vue";
 import LayoutHeader from "./LayoutHeader.vue";
 import LayoutNavMobile from "./LayoutNavMobile.vue";
 
@@ -19,7 +19,7 @@ const store = useStore();
 const $style = useCssModule();
 
 watchEffect(() => {
-    if (store.isMobileNavOpen) {
+    if (store.isMobileNavAnythingOpen) {
         document.querySelector("body")?.classList.add($style.noScroll);
     } else {
         document.querySelector("body")?.classList.remove($style.noScroll);
@@ -31,13 +31,13 @@ watchEffect(() => {
     <div
         :class="[
             $style.Overlay,
-            store.isMobileNavOpen ? $style.Overlay___shaded : '',
+            store.isMobileNavAnythingOpen ? $style.Overlay___shaded : '',
         ]"
     >
         <LayoutHeader :class="$style.Header" />
         <div :class="$style.NavContainer">
             <template v-if="!frontmatter.hero">
-                <LayoutNavSide
+                <LayoutNavPages
                     :class="$style.NavSide"
                     v-if="store.adaptiveStage == AdaptiveStage.full"
                 />
@@ -48,15 +48,26 @@ watchEffect(() => {
                 />
             </template>
             <LayoutNavMobile
-                :isOpen="store.isMobileNavOpen"
+                :class="$style.NavMobile"
+                :isOpen="store.isMobileNavTocOpen"
                 :setIsOpen="
                         (isOpen: boolean) => {
-                            store.isMobileNavOpen = isOpen;
+                            store.isMobileNavTocOpen = isOpen;
                         }
                     "
-                :class="$style.NavMobile"
             >
-                <LayoutNavSide top-level />
+                <LayoutNavToc />
+            </LayoutNavMobile>
+            <LayoutNavMobile
+                :class="$style.NavMobile"
+                :isOpen="store.isMobileNavPagesOpen"
+                :setIsOpen="
+                        (isOpen: boolean) => {
+                            store.isMobileNavPagesOpen = isOpen;
+                        }
+                    "
+            >
+                <LayoutNavPages top-level />
             </LayoutNavMobile>
         </div>
     </div>
@@ -108,7 +119,6 @@ watchEffect(() => {
 
 .Overlay___shaded {
     background-color: mix(@color-black, transparent, 70%);
-    // backdrop-filter: blur(2px);
 }
 
 .NavContainer {
@@ -124,16 +134,17 @@ watchEffect(() => {
 }
 
 .NavSide {
-    width: @NavSide-width;
+    margin-top: @Header-to-Content-gap;
+    flex: 0 0 @NavSide-width;
 }
 
 .Toc {
     position: sticky;
     top: 0rem;
     flex: 0 0 @Toc-width;
+    margin-top: @Header-to-Content-gap;
 
-    padding: @Toc-to-Main-gap @gap;
-    padding-bottom: 0rem;
+    padding: 0rem @gap;
     display: flex;
     flex-direction: column;
 }
@@ -152,7 +163,7 @@ watchEffect(() => {
 \*----------------------------------*/
 
 .Overlay {
-    transition: background-color @duration-s;
+    transition: background-color @duration;
 }
 
 /*
