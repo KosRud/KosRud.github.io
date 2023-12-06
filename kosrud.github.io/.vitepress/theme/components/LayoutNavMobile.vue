@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import LayoutNavSide from "./LayoutNavSide.vue";
-
 import type { Ref } from "vue";
 
-import { useStore } from "./pinia/store";
 import { watchEffect, ref, onMounted } from "vue";
 
-const store = useStore();
+const props = defineProps<{
+    isOpen: boolean;
+    setIsOpen: (isOpen: boolean) => void;
+}>();
 
 const elMenu: Ref<Element | null> = ref(null);
 
@@ -20,12 +20,12 @@ onMounted(() => {
             !elMenu.value.contains(ev.target as Element) &&
             elMenu.value != ev.target
         ) {
-            store.isNavMobileOpen = false;
+            props.setIsOpen(false);
         }
     }
 
     watchEffect(() => {
-        if (store.isNavMobileOpen) {
+        if (props.isOpen) {
             window.requestAnimationFrame(() =>
                 window.addEventListener("click", onClick)
             );
@@ -47,10 +47,10 @@ onMounted(() => {
     >
         <div
             :class="[$style.NavMobile]"
-            v-if="store.isNavMobileOpen"
+            v-if="props.isOpen"
             :ref="(element) => {elMenu = element as Element;}"
         >
-            <LayoutNavSide top-level />
+            <slot />
         </div>
     </Transition>
 </template>

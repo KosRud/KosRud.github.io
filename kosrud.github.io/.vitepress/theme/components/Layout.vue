@@ -26,7 +26,7 @@ useDarkModeEnforce(false);
             :class="[
                 $style.Main,
                 $style.Main___doc,
-                store.isNavMobileOpen ? $style.Main___nonInteractive : '',
+                store.isMobileNavOpen ? $style.Main___nonInteractive : '',
             ]"
             v-if="!frontmatter.hero"
         />
@@ -35,7 +35,7 @@ useDarkModeEnforce(false);
             :class="[
                 $style.Main,
                 $style.Main___hero,
-                store.isNavMobileOpen ? $style.Main___nonInteractive : '',
+                store.isMobileNavOpen ? $style.Main___nonInteractive : '',
             ]"
         >
             <Content />
