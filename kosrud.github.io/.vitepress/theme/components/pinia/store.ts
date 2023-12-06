@@ -44,7 +44,7 @@ export const useStore = defineStore("counter", {
             AdaptiveStage.full
         );
 
-        const isNavMobileOpen = ref(false);
+        const isMobileNavOpen = ref(false);
 
         return {
             pageContent: contentContainer,
@@ -59,7 +59,7 @@ export const useStore = defineStore("counter", {
             adaptiveStage,
             adaptivePreferences: adaptiveStagePreferences,
 
-            isNavMobileOpen: isNavMobileOpen,
+            isMobileNavOpen,
         };
     },
 
@@ -98,7 +98,7 @@ export const useStore = defineStore("counter", {
             return useAdaptivePreference();
         },
         toggleSideNavOpen() {
-            this.isNavMobileOpen = !this.isNavMobileOpen;
+            this.isMobileNavOpen = !this.isMobileNavOpen;
         },
     },
 });

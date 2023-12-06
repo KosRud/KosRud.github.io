@@ -27,7 +27,7 @@ const store = useStore();
             :class="$style.BurgerMenu"
             v-if="store.adaptiveStage == AdaptiveStage.collapsed"
             :title="'Menu'"
-            :is-open="store.isNavMobileOpen"
+            :is-open="store.isMobileNavOpen"
             :toggle-is-open="store.toggleSideNavOpen"
             :num-lines="5"
         />

@@ -19,7 +19,7 @@ const store = useStore();
 const $style = useCssModule();
 
 watchEffect(() => {
-    if (store.isNavMobileOpen) {
+    if (store.isMobileNavOpen) {
         document.querySelector("body")?.classList.add($style.noScroll);
     } else {
         document.querySelector("body")?.classList.remove($style.noScroll);
@@ -31,7 +31,7 @@ watchEffect(() => {
     <div
         :class="[
             $style.Overlay,
-            store.isNavMobileOpen ? $style.Overlay___shaded : '',
+            store.isMobileNavOpen ? $style.Overlay___shaded : '',
         ]"
     >
         <LayoutHeader :class="$style.Header" />
@@ -47,7 +47,17 @@ watchEffect(() => {
                     v-if="store.adaptiveStage == AdaptiveStage.full"
                 />
             </template>
-            <LayoutNavMobile :class="$style.NavMobile" />
+            <LayoutNavMobile
+                :isOpen="store.isMobileNavOpen"
+                :setIsOpen="
+                        (isOpen: boolean) => {
+                            store.isMobileNavOpen = isOpen;
+                        }
+                    "
+                :class="$style.NavMobile"
+            >
+                <LayoutNavSide top-level />
+            </LayoutNavMobile>
         </div>
     </div>
 </template>
