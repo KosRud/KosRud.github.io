@@ -26,7 +26,7 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
 const myElement: Ref<Element | null> = ref(null);
 
 onMounted(() => {
-    if (myElement.value) {
+    if (myElement.value && isActive) {
         scrollIntoViewIfNeeded(myElement.value);
     }
 });
