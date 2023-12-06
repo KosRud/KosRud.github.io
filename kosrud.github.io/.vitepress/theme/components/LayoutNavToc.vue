@@ -7,10 +7,12 @@ const { page } = useData();
 import LayoutNavTocItem from "./LayoutNavTocItem.vue";
 
 const store = useStore();
+
+const props = defineProps<{ isMobile?: boolean }>();
 </script>
 
 <template>
-    <nav :class="$style.Toc">
+    <nav :class="[$style.Toc, props.isMobile ? $style.Toc___mobile : '']">
         <template v-if="store.tocItems.length > 0 && !page.isNotFound">
             <h2 :class="$style.Toc_title">On this page:</h2>
             <nav :class="$style.Toc_content">
@@ -28,6 +30,7 @@ const store = useStore();
 
 <style lang="less" module>
 @import "../style/variables/index.less";
+@import "../style/mixins/index.less";
 
 .Toc {
     display: flex;
@@ -48,11 +51,22 @@ const store = useStore();
     font-weight: bold;
 }
 
+.Toc___mobile .Toc_title {
+    text-align: center;
+}
+
 .Toc_content {
     flex: 1 1;
     overflow-y: auto;
 }
 
+.Toc_itemList {
+    // align the first item
+    // with the first item of navigation panel on the left
+
+    padding-top: .NavItem_text(1) [padding-top] - .NavItem_text___compact()
+        [padding-top];
+}
 /*
 	Font-size
 \*----------------------------------*/

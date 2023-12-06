@@ -17,12 +17,12 @@ const level = computed(() => {
 <template>
     <div
         :class="[
-            $style.TocItemText,
-            level == 0 ? $style.TocItemText___level0 : '',
-            level == 1 ? $style.TocItemText___level1 : '',
-            level == 2 ? $style.TocItemText___level2 : '',
-            props.active ? $style.TocItemText___active : '',
-            props.compact ? $style.TocItemText___compact : '',
+            $style.NavItem_text,
+            level == 0 ? $style.NavItem_text___level0 : '',
+            level == 1 ? $style.NavItem_text___level1 : '',
+            level == 2 ? $style.NavItem_text___level2 : '',
+            props.active ? $style.NavItem_text___active : '',
+            props.compact ? $style.NavItem_text___compact : '',
         ]"
     >
         <slot />
@@ -31,8 +31,9 @@ const level = computed(() => {
 
 <style module lang="less">
 @import "../style/variables/index.less";
+@import "../style/mixins/index.less";
 
-.TocItemText {
+.NavItem_text {
     line-height: 1.2;
     display: block;
     color: @color-black-faded;
@@ -41,32 +42,26 @@ const level = computed(() => {
     font-family: @font-main;
 
     &:hover {
-        &:not(.TocItemText___active) {
+        &:not(.NavItem_text___active) {
             color: @color-primary;
             text-shadow: 0.02em 0rem @color-primary, -0.02em 0rem @color-primary;
         }
     }
 }
 
-.TocItemText___level0 {
-    padding-top: @gap;
-    padding-bottom: @gap;
-    font-size: @size-l;
+.NavItem_text___level0 {
+    .NavItem_text(0);
 }
 
-.TocItemText___level1 {
-    padding-top: @gap*0.625;
-    padding-bottom: @gap*0.625;
-    font-size: @size;
+.NavItem_text___level1 {
+    .NavItem_text(1);
 }
 
-.TocItemText___level2 {
-    padding-top: @gap * (1/3);
-    padding-bottom: @gap * (1/3);
-    font-size: @size-s;
+.NavItem_text___level2 {
+    .NavItem_text(2);
 }
 
-.TocItemText___active {
+.NavItem_text___active {
     font-weight: bold;
     &,
     &:link,
@@ -75,16 +70,15 @@ const level = computed(() => {
     }
 }
 
-.TocItemText___compact {
-    padding-top: 0.25em;
-    padding-bottom: @gap*0.25;
+.NavItem_text___compact {
+    .NavItem_text___compact();
 }
 
 /*
 	Transitions
 \*----------------------------------*/
 
-.TocItemText {
+.NavItem_text {
     transition: font-weight @duration, color @duration, text-shadow @duration-s;
 }
 </style>
