@@ -44,7 +44,7 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
             :leave-active-class="$style.NavItem_childrenContainer___leaveActive"
         >
             <ul v-if="isOpen">
-                <LayoutNavSideItem
+                <LayoutNavPagesItem
                     :level="level + 1"
                     :nav-item="child"
                     v-for="child in props.navItem.children"
