@@ -163,7 +163,7 @@ watchEffect(() => {
 \*----------------------------------*/
 
 .Overlay {
-    transition: background-color @duration;
+    transition: background-color @duration-s;
 }
 
 /*
