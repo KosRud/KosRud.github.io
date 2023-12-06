@@ -20,7 +20,11 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
 <template>
     <li
         :level="level"
-        :class="[$style.NavItem, isDarkMode ? $style.Dark : '']"
+        :class="[
+            $style.NavItem,
+            isDarkMode ? $style.Dark : '',
+            isOpen ? $style.NavItem___open : '',
+        ]"
     >
         <a
             :href="$props.navItem.children ? undefined : props.navItem.url"
@@ -110,6 +114,14 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
     }
 }
 
+.NavItem___open .NavItem_link::before {
+    transform: rotate(90deg) translateX(25%);
+}
+
+.NavItem:not(.NavItem___open) .NavItem_link::before {
+    transform: none;
+}
+
 /*
 	Dark Mode
 \*----------------------------------*/
@@ -126,6 +138,10 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
 /*
 	Transitions
 \*----------------------------------*/
+
+.NavItem_link::before {
+    transition: transform @duration;
+}
 
 .NavItem_childrenContainer___enterFrom {
     transform: translateX(@leveled-padding * -1);
