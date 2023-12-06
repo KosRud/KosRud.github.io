@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import LayoutNavItemText from "./LayoutNavItemText.vue";
 
-import { type Ref, ref, computed, onMounted } from "vue";
+import { type Ref, ref, computed } from "vue";
 
 import type { NavItem } from "../ThemeConfig";
 import { useIsNavItemActive } from "./composables/navItem";
 import { useDarkModeDetect } from "./composables/darkMode";
 import { useOneChildOpen } from "./composables/oneChildOpen";
-import scrollIntoViewIfNeeded from "./composables/scrollIntoViewIfNeeded";
+import { useScrollIntoViewOnMount } from "./composables/scrollIntoView";
 
 const emit = defineEmits(["navItemToggle"]);
 
@@ -25,11 +25,7 @@ const isDarkMode = useDarkModeDetect();
 const chevronDisplay = props.navItem.children ? "block" : "none";
 const myElement: Ref<Element | null> = ref(null);
 
-onMounted(() => {
-    if (myElement.value && isActive) {
-        scrollIntoViewIfNeeded(myElement.value);
-    }
-});
+useScrollIntoViewOnMount(myElement);
 </script>
 
 <template>

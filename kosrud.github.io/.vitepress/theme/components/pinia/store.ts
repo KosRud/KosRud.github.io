@@ -24,7 +24,7 @@ import {
 import { useTrackActiveHeadingId } from "../composables/Toc/activeHeadingId";
 import { TocItem, useTrackTocItems } from "../composables/Toc/tocItems";
 import { EnumValues } from "../composables/tsUtil";
-import { useServiceNavMobile } from "../composables/navFull";
+import { useServiceNavMobile } from "../composables/navMobile";
 
 export const useStore = defineStore("counter", {
     state: () => {

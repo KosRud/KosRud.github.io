@@ -56,7 +56,12 @@ watchEffect(() => {
                         }
                     "
             >
-                <LayoutNavToc is-mobile />
+                <template #default="{ close }">
+                    <LayoutNavToc
+                        is-mobile
+                        @jumped-to-item="close"
+                    />
+                </template>
             </LayoutNavMobile>
             <LayoutNavMobile
                 :class="$style.NavMobile"
