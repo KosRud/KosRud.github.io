@@ -39,22 +39,27 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
                 {{ props.navItem.title }}
             </LayoutNavItemText>
         </a>
-        <Transition
-            :enter-from-class="$style.NavItem_childrenContainer___enterFrom"
-            :enter-to-class="$style.NavItem_childrenContainer___enterTo"
-            :enter-active-class="$style.NavItem_childrenContainer___enterActive"
-            :leave-from-class="$style.NavItem_childrenContainer___leaveFrom"
-            :leave-to-class="$style.NavItem_childrenContainer___leaveTo"
-            :leave-active-class="$style.NavItem_childrenContainer___leaveActive"
-        >
-            <ul v-if="isOpen">
-                <LayoutNavPagesItem
-                    :level="level + 1"
-                    :nav-item="child"
-                    v-for="child in props.navItem.children"
-                />
-            </ul>
-        </Transition>
+        <div :class="$style.NavItem_childrenListWrapper">
+            <Transition
+                :enter-from-class="$style.NavItem_childrenList___enterFrom"
+                :enter-to-class="$style.NavItem_childrenList___enterTo"
+                :enter-active-class="$style.NavItem_childrenList___enterActive"
+                :leave-from-class="$style.NavItem_childrenList___leaveFrom"
+                :leave-to-class="$style.NavItem_childrenList___leaveTo"
+                :leave-active-class="$style.NavItem_childrenList___leaveActive"
+            >
+                <ul
+                    v-if="isOpen"
+                    :class="$style.NavItem_childrenList"
+                >
+                    <LayoutNavPagesItem
+                        :level="level + 1"
+                        :nav-item="child"
+                        v-for="child in props.navItem.children"
+                    />
+                </ul>
+            </Transition>
+        </div>
     </li>
 </template>
 
@@ -122,6 +127,10 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
     transform: none;
 }
 
+.NavItem_childrenListWrapper {
+    overflow: hidden;
+}
+
 /*
 	Dark Mode
 \*----------------------------------*/
@@ -143,32 +152,31 @@ const chevronDisplay = props.navItem.children ? "block" : "none";
     transition: transform @duration;
 }
 
-.NavItem_childrenContainer___enterFrom {
-    transform: translateX(@leveled-padding * -1);
+.NavItem_childrenList___enterFrom {
+    transform: translateY(-100%);
     opacity: 0%;
 }
 
-.NavItem_childrenContainer___enterTo {
+.NavItem_childrenList___enterTo {
     transform: none;
     opacity: 100%;
 }
 
-.NavItem_childrenContainer___enterActive {
-    transition: transform @duration,
-        opacity @duration-s (@duration - @duration-s);
+.NavItem_childrenList___enterActive {
+    transition: transform @duration, opacity @duration-s;
 }
 
-.NavItem_childrenContainer___leaveFrom {
+.NavItem_childrenList___leaveFrom {
     transform: none;
     opacity: 100%;
 }
 
-.NavItem_childrenContainer___leaveTo {
-    transform: translateX(@leveled-padding * -1);
+.NavItem_childrenList___leaveTo {
+    transform: translateY(-100%);
     opacity: 0%;
 }
 
-.NavItem_childrenContainer___leaveActive {
+.NavItem_childrenList___leaveActive {
     transition: transform @duration, opacity @duration-s;
 }
 </style>
