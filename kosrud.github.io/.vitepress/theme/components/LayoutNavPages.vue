@@ -38,15 +38,15 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 </script>
 
 <template>
-    <nav :class="$style.NavSide">
+    <nav :class="$style.NavPages">
         <template v-if="navItems.length > 0">
             <h2
-                :class="$style.NavSide_title"
+                :class="$style.NavPages_title"
                 v-if="!props.topLevel"
             >
                 {{ title }}/
             </h2>
-            <ul :class="$style.NavSide_itemList">
+            <ul :class="$style.NavPages_itemList">
                 <LayoutNavPagesItem
                     :starting-level="props.topLevel ? 0 : 1"
                     :nav-item="navItem"
@@ -62,7 +62,7 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 <style module lang="less">
 @import "../style/variables/index.less";
 
-.NavSide {
+.NavPages {
     display: flex;
     flex-direction: column;
     justify-content: stretch;
@@ -70,7 +70,7 @@ const oneChildOpen = useOneChildOpen(navItems.value);
     gap: @gap;
 }
 
-.NavSide_title {
+.NavPages_title {
     flex: 0 0 max-content;
 
     font-weight: bold;
@@ -80,17 +80,18 @@ const oneChildOpen = useOneChildOpen(navItems.value);
     font-family: @font-ui;
 }
 
-.NavSide_itemList {
-    flex: 1 1;
+.NavPages_itemList {
+    flex: 1 0 max-content;
 
     padding-left: @gap;
+    padding-bottom: @NavVertical-padding-bottom;
 }
 
 /*
 	Font-size
 \*----------------------------------*/
 
-.NavSide_title {
+.NavPages_title {
     font-size: @size-l;
 }
 </style>

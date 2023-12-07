@@ -67,6 +67,8 @@ const { page } = useData();
 
     padding-top: .NavItem_text(1) [padding-top] - .NavItem_text___compact()
         [padding-top];
+
+    padding-bottom: @NavVertical-padding-bottom;
 }
 /*
 	Font-size

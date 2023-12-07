@@ -67,7 +67,7 @@ const { page } = useData();
 }
 
 .Main___full {
-    margin-left: @NavSide-width;
+    margin-left: @NavPages-width;
     margin-right: @Toc-to-Main-gap + @Toc-width;
 
     border-right: @border-width-s solid @color-border;
