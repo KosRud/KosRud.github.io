@@ -45,7 +45,7 @@ const props = defineProps<{
         }
     }
 
-    font-family: @font-ui;
+    font-family: @font-techy;
 }
 
 .Burger_title {

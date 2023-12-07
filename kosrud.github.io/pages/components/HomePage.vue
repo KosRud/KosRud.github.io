@@ -81,7 +81,7 @@ onUnmounted(() => {
 @import "../../.vitepress/theme/style/variables/index.less";
 
 .Strict {
-    font-family: @font-main;
+    font-family: @font-default;
 }
 
 .HomePage {

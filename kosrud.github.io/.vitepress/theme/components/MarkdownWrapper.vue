@@ -12,7 +12,7 @@
     width: 100%;
 
     text-align: justify;
-    font-family: @font-main;
+    font-family: @font-relaxed;
 
     h1,
     h2,
@@ -35,7 +35,7 @@
     h2,
     h3,
     h4 {
-        font-family: @font-ui;
+        font-family: @font-techy;
     }
 
     h1 {

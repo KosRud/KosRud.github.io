@@ -39,7 +39,7 @@ const level = computed(() => {
     color: @color-black-faded;
     text-decoration: none;
     font-weight: normal;
-    font-family: @font-main;
+    font-family: @font-default;
 
     &:hover {
         &:not(.NavItem_text___active) {
