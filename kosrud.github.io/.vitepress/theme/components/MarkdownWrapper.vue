@@ -102,7 +102,7 @@
         margin-right: auto;
         display: block;
         max-width: max-content;
-        overflow-x: scroll;
+        overflow-x: auto;
         border-collapse: collapse;
         text-align: left;
 
