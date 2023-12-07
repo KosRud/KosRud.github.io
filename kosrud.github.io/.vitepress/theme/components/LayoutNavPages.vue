@@ -52,7 +52,6 @@ const oneChildOpen = useOneChildOpen(navItems.value);
                     v-for="(navItem, id) in navItems"
                     :is-open="oneChildOpen.isChildOpen(id)"
                     @nav-item-toggle="oneChildOpen.toggleChild(id)"
-                    :level="props.topLevel ? 0 : 1"
                 />
             </ul>
         </template>

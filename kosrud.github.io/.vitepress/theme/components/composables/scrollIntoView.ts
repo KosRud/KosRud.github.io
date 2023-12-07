@@ -1,16 +1,8 @@
-import { type Ref, onMounted } from "vue";
+type Block = "start" | "center" | "end" | "nearest";
 
-export function useScrollIntoViewOnMount(element: Ref<Element | null>) {
-    onMounted(() => {
-        if (element.value) {
-            scrollIntoViewIfNeeded(element.value);
-        }
-    });
-}
-
-export function scrollIntoViewIfNeeded(element: Element) {
+export function scrollIntoViewIfNeeded(element: Element, block: Block) {
     if (isObscured(element)) {
-        element.scrollIntoView({ block: "nearest" });
+        element.scrollIntoView({ block });
     }
 }
 
