@@ -50,7 +50,11 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
     align-items: stretch;
 
     background: @color-background-card;
-    box-shadow: @shadow;
+    // box-shadow: @shadow;
+    @shadow-length: 8rem;
+    box-shadow: @shadow-ao,
+        0rem -@shadow-length @shadow-length -@shadow-length inset #0008,
+        0rem @shadow-length @shadow-length -@shadow-length inset #0005;
     border: 1rem solid @color-border;
     padding: @gap @gap @gap*2 @gap;
 
