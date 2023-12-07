@@ -39,7 +39,7 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
 // @icon-size: 1.8em;
 
 .Card {
-    flex: 1 0 380rem;
+    flex: 1 1 380rem;
     min-height: 160rem;
     // width: max-content;
     flex-grow: 1;

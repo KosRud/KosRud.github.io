@@ -49,7 +49,7 @@
     }
 
     h2 {
-        min-width: 350rem;
+        min-width: min(350rem, 100%);
         width: min-content;
         margin-left: auto;
         margin-right: auto;
