@@ -76,10 +76,6 @@ const linkElement: Ref<Element | null> = ref(null);
     &::before {
         display: none;
     }
-
-    // padding-top: 100%;
-    margin-top: 400px;
-    margin-bottom: 400px;
 }
 
 .TocItem_link {

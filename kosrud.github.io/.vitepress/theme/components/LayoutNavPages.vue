@@ -48,6 +48,7 @@ const oneChildOpen = useOneChildOpen(navItems.value);
             </h2>
             <ul :class="$style.NavSide_itemList">
                 <LayoutNavPagesItem
+                    :starting-level="props.topLevel ? 0 : 1"
                     :nav-item="navItem"
                     v-for="(navItem, id) in navItems"
                     :is-open="oneChildOpen.isChildOpen(id)"

@@ -13,13 +13,14 @@ const emit = defineEmits(["navItemToggle"]);
 
 const props = defineProps<{
     navItem: NavItem;
-    level?: number;
+    depth?: number;
+    startingLevel: number;
     isOpen: boolean;
 }>();
 
 const oneChildOpen = useOneChildOpen(props.navItem.children ?? []);
 
-const level = computed(() => props.level ?? 0);
+const depth = computed(() => props.depth ?? 0);
 const isActive = useIsNavItemActive(props.navItem.url);
 const isDarkMode = useDarkModeDetect();
 const chevronDisplay = props.navItem.children ? "block" : "none";
@@ -31,14 +32,14 @@ onMounted(() => {
     }
     scrollIntoViewIfNeeded(
         myElement.value,
-        level.value == 0 ? "center" : "nearest"
+        depth.value == 0 ? "center" : "nearest"
     );
 });
 </script>
 
 <template>
     <li
-        :level="level"
+        :level="depth"
         :class="[
             $style.NavItem,
             isDarkMode ? $style.Dark : '',
@@ -54,7 +55,7 @@ onMounted(() => {
             @click="emit('navItemToggle')"
         >
             <LayoutNavItemText
-                :level="level"
+                :level="depth + startingLevel"
                 :class="$style.NavItem_linkText"
                 :active="isActive"
             >
@@ -75,7 +76,8 @@ onMounted(() => {
                     :class="$style.NavItem_childrenList"
                 >
                     <LayoutNavPagesItem
-                        :level="level + 1"
+                        :depth="depth + 1"
+                        :starting-level="startingLevel"
                         :nav-item="child"
                         v-for="(child, id) in props.navItem.children"
                         @nav-item-toggle="oneChildOpen.toggleChild(id)"
@@ -120,7 +122,7 @@ onMounted(() => {
     flex-direction: row;
     align-items: center;
 
-    padding-left: calc(@leveled-padding * v-bind(level));
+    padding-left: calc(@leveled-padding * v-bind(depth));
 
     @chevron-size: @size * 0.7;
     @chevron-height-multiplier: 0.57143;
