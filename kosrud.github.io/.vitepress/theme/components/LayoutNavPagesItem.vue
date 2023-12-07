@@ -24,7 +24,7 @@ const oneChildOpen = useOneChildOpen(props.navItem.children ?? []);
 const depth = computed(() => props.depth ?? 0);
 const isActive = useIsNavItemActive(props.navItem.url);
 const isDarkMode = useDarkModeDetect();
-const chevronDisplay = props.navItem.children ? "block" : "none";
+const chevronDisplay = props.navItem.children ? "visible" : "hidden";
 const linkElement: Ref<Element | null> = ref(null);
 
 onMounted(() => {
@@ -98,10 +98,8 @@ onMounted(() => {
 @import "../style/mixins/index.less";
 
 @chevron-size: @size * 0.7;
-@chevron-height-multiplier: 0.57143;
-@gap-after-chevron: @gap * 0.75;
-
-@leveled-padding: @chevron-size + @gap-after-chevron;
+@chevron-margin-right: @gap*0.5;
+@font-builtin-padding: 0.1em; // compensate for "built-in" padding of the font
 
 .NavItem {
     display: flex;
@@ -126,31 +124,26 @@ onMounted(() => {
     flex-direction: row;
     align-items: center;
 
+    @leveled-padding: @chevron-size + @chevron-margin-right;
     padding-left: calc(@leveled-padding * v-bind(depth));
-
-    @chevron-size: @size * 0.7;
-    @chevron-height-multiplier: 0.57143;
-    @gap-after-chevron: @gap * 0.75;
-    @leveled-gap: @gap*0;
 
     &::before {
         content: "";
         height: @chevron-size;
         width: @chevron-size;
-        margin-bottom: 0.1em; // align nicely with the font Iosevka Aile
         background-image: url("/assets/icons/chevron/right.svg");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: contain;
-        margin-right: calc(@gap-after-chevron - 0.1em);
+        margin-right: calc(@chevron-margin-right - @font-builtin-padding);
         margin-left: 0.1em;
-        display: v-bind(chevronDisplay);
+        visibility: v-bind(chevronDisplay);
         vertical-align: top;
     }
 }
 
 .NavItem___open .NavItem_link::before {
-    transform: rotate(90deg) translateX(25%);
+    transform: rotate(90deg) translateX(0.1em);
 }
 
 .NavItem:not(.NavItem___open) .NavItem_link::before {

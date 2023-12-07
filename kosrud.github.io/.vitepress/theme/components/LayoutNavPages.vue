@@ -84,7 +84,7 @@ const oneChildOpen = useOneChildOpen(navItems.value);
     margin-left: auto;
     margin-right: auto;
 
-    font-family: @font-ui;
+    font-family: @font-techy;
 }
 
 .NavPages_itemList {

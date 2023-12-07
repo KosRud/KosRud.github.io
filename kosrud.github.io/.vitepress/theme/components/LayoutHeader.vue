@@ -104,7 +104,7 @@ const store = useStore();
 \*----------------------------------*/
 
 .Header {
-    font-family: @font-ui;
+    font-family: @font-techy;
 }
 
 /*
