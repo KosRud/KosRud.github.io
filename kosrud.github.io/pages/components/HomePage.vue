@@ -60,12 +60,14 @@ onUnmounted(() => {
                     </div>
                 </MarkdownWrapperVue>
             </section>
-            <FeaturesGallery
-                :dummies="props.dummyFeatures"
-                :card-min-width="'300rem'"
-            >
-                <slot name="Features" />
-            </FeaturesGallery>
+            <section>
+                <FeaturesGallery
+                    :dummies="props.dummyFeatures"
+                    :card-min-width="'300rem'"
+                >
+                    <slot name="Features" />
+                </FeaturesGallery>
+            </section>
             <section>
                 <MarkdownWrapperVue>
                     <div :class="$style.Strict">
