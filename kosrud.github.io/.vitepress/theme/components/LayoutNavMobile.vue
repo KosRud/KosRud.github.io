@@ -16,10 +16,7 @@ onMounted(() => {
             return;
         }
 
-        if (
-            !elMenu.value.contains(ev.target as Element) &&
-            elMenu.value != ev.target
-        ) {
+        if (!elMenu.value.contains(ev.target as Element)) {
             props.setIsOpen(false);
         }
     }
