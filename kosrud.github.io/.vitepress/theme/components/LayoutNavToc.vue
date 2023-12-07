@@ -2,15 +2,13 @@
 import { useData } from "vitepress";
 import { useStore } from "./pinia/store";
 
-const { page } = useData();
-
 import LayoutNavTocItem from "./LayoutNavTocItem.vue";
 
-const store = useStore();
-
 const props = defineProps<{ isMobile?: boolean }>();
-
 const emit = defineEmits(["jumpedToItem"]);
+
+const store = useStore();
+const { page } = useData();
 </script>
 
 <template>

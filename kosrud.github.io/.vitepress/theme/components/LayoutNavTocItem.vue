@@ -1,22 +1,17 @@
 <script setup lang="ts">
 import LayoutNavItemText from "./LayoutNavItemText.vue";
 
-import type { Ref } from "vue";
-import type { TocItem } from "./composables/Toc/tocItems";
-
-import { ref, computed, onUpdated } from "vue";
+import { ref, computed, watchEffect, onMounted } from "vue";
 import { useStore } from "./pinia/store";
 
-import {
-    scrollIntoViewIfNeeded,
-    useScrollIntoViewOnMount,
-} from "./composables/scrollIntoView";
+import type { Ref } from "vue";
+import type { TocItem } from "./composables/Toc/tocItems";
+import { scrollIntoViewIfNeeded } from "./composables/scrollIntoView";
 
 const props = defineProps<{
     heading: TocItem;
     level?: number;
 }>();
-
 const emit = defineEmits(["jumpedToItem"]);
 
 const level = props.level ?? 1;
@@ -26,26 +21,21 @@ const isActive = computed(() => {
     return store.activeHeadingId == props.heading.element.id;
 });
 
-const myElement: Ref<Element | null> = ref(null);
-
-onUpdated(() => {
-    if (isActive.value) {
-        const element = myElement.value;
-        if (!element) {
-            return;
+onMounted(() => {
+    watchEffect(() => {
+        if (isActive.value) {
+            if (linkElement.value) {
+                scrollIntoViewIfNeeded(linkElement.value, "center");
+            }
         }
-        scrollIntoViewIfNeeded(element);
-    }
+    });
 });
 
-useScrollIntoViewOnMount(myElement);
+const linkElement: Ref<Element | null> = ref(null);
 </script>
 
 <template>
-    <li
-        :class="$style.TocItem"
-        :ref="(element) => { myElement = element as Element }"
-    >
+    <li :class="$style.TocItem">
         <a
             :class="[
                 $style.TocItem_link,
@@ -53,6 +43,7 @@ useScrollIntoViewOnMount(myElement);
             ]"
             :href="`#${props.heading.element.id}`"
             @click="emit('jumpedToItem')"
+            :ref="(element) => { linkElement = element as Element }"
         >
             <LayoutNavItemText
                 :level="1"
@@ -86,7 +77,9 @@ useScrollIntoViewOnMount(myElement);
         display: none;
     }
 
-    padding-top: 100%;
+    // padding-top: 100%;
+    margin-top: 400px;
+    margin-bottom: 400px;
 }
 
 .TocItem_link {
