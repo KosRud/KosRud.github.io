@@ -64,6 +64,8 @@ const { page } = useData();
 
 .Main___compact {
     max-width: none;
+    padding-left: @gap;
+    padding-right: @gap;
 }
 
 .Main___full {

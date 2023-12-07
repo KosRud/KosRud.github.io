@@ -63,12 +63,13 @@
     }
 
     h3 {
-        width: max-content;
-        min-width: 220rem;
+        min-width: min(220rem, 100%);
+        width: fit-content;
 
         padding: @gap*0.5;
         background-color: @color-background-dark;
 
+        text-align: left;
         color: @color-white;
     }
 
@@ -87,8 +88,8 @@
         margin-bottom: @gap*2;
     }
 
-    * + h2,
-    * + h3 {
+    h2,
+    h3 {
         margin-top: @gap*4;
     }
 
@@ -97,15 +98,18 @@
 	\*----------------------------------*/
 
     table {
-        // width: 100%;
         margin-left: auto;
         margin-right: auto;
+        display: block;
+        max-width: max-content;
+        overflow-x: scroll;
         border-collapse: collapse;
+        text-align: left;
 
         th {
             background-color: @color-background-dark;
             color: @color-white;
-            text-align: center;
+            text-align: center !important; // override markdown
             padding: @gap*0.5 @gap;
         }
 
@@ -118,6 +122,18 @@
             border-right: 1px solid @color-border;
         }
     }
+
+    /*
+		Code
+	\*----------------------------------*/
+
+    pre {
+        white-space: pre-wrap;
+    }
+
+    /*
+		ETC
+	\*----------------------------------*/
 
     a {
         font-weight: bold;

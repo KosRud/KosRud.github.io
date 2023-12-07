@@ -18,37 +18,39 @@ function makeHeadingId(title: string) {
 </script>
 
 <template>
-    <h3
-        :class="$style.Project_title"
-        :id="makeHeadingId(props.title)"
-    >
-        <div :style="$style.Project_titleText">{{ props.title }}</div>
-        <section :class="$style.Project_devIcons">
-            <img
-                v-for="icon in sortedIcons"
-                :src="icon.url"
-                :alt="icon.title"
-                :title="icon.title"
-                :class="$style.DevIcon"
-            />
-        </section>
-    </h3>
-    <p>
-        <strong :class="$style.Uses_title">uses:</strong>
-        <span
-            :class="$style.Uses_item"
-            v-for="icon in sortedIcons"
+    <div :class="$style.Project">
+        <h3
+            :class="$style.Project_title"
+            :id="makeHeadingId(props.title)"
         >
-            {{ icon.title }}
-        </span>
-    </p>
-    <slot />
-    <p v-if="links">
-        <template v-for="(url, name) in props.links">
-            <a :href="url">{{ name }}</a>
-            <span :class="$style.Project_linkSeparator"> | </span>
-        </template>
-    </p>
+            <div :class="$style.Project_titleText">{{ props.title }}</div>
+            <div :class="$style.Project_devIcons">
+                <img
+                    v-for="icon in sortedIcons"
+                    :src="icon.url"
+                    :alt="icon.title"
+                    :title="icon.title"
+                    :class="$style.DevIcon"
+                />
+            </div>
+        </h3>
+        <p>
+            <strong :class="$style.Uses_title">uses:</strong>
+            <span
+                :class="$style.Uses_item"
+                v-for="icon in sortedIcons"
+            >
+                {{ icon.title }}
+            </span>
+        </p>
+        <slot />
+        <p v-if="links">
+            <template v-for="(url, name) in props.links">
+                <a :href="url">{{ name }}</a>
+                <span :class="$style.Project_linkSeparator"> | </span>
+            </template>
+        </p>
+    </div>
 </template>
 
 <style module lang="less">
@@ -58,17 +60,23 @@ function makeHeadingId(title: string) {
     display: none;
 }
 
-.Project_title {
+.Project .Project_title {
     display: flex;
-    gap: @gap*2;
+    gap: @gap*0.5 @gap*2;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    width: min-content;
+}
+
+.Project_titleText {
+    width: fit-content;
 }
 
 .Project_devIcons {
     display: flex;
     gap: @gap*0.5;
+    flex-wrap: wrap;
 }
 
 .DevIcon {
