@@ -10,7 +10,7 @@ const props = defineProps<{
 <template>
     <!-- surrounding div is necessary to ensure negative margins work properly -->
     <div>
-        <section :class="$style.FeaturesGallery">
+        <div :class="$style.FeaturesGallery">
             <slot />
             <FeaturesGallery_Card
                 dummy
@@ -18,7 +18,7 @@ const props = defineProps<{
                 :class="$style.FeaturesGallery_dummy"
                 v-for="_ in Array.from({ length: props.dummies ?? 0 })"
             ></FeaturesGallery_Card>
-        </section>
+        </div>
     </div>
 </template>
 
