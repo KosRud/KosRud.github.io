@@ -11,6 +11,7 @@ import { scrollIntoViewIfNeeded } from "./composables/scrollIntoView";
 const props = defineProps<{
     heading: TocItem;
     level?: number;
+    isTocLoaded: boolean;
 }>();
 const emit = defineEmits(["jumpedToItem"]);
 
@@ -23,10 +24,11 @@ const isActive = computed(() => {
 
 onMounted(() => {
     watchEffect(() => {
-        if (isActive.value) {
-            if (linkElement.value) {
-                scrollIntoViewIfNeeded(linkElement.value, "center");
-            }
+        if (!isActive.value || !linkElement.value || !props.isTocLoaded) {
+            return;
+        }
+        if (linkElement.value) {
+            scrollIntoViewIfNeeded(linkElement.value, "center");
         }
     });
 });
@@ -60,6 +62,7 @@ const linkElement: Ref<Element | null> = ref(null);
                 :heading="child"
                 :level="level + 1"
                 @jumped-to-item="emit('jumpedToItem')"
+                :is-toc-loaded="props.isTocLoaded"
             />
         </ul>
     </li>

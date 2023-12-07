@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useData } from "vitepress";
 import { useStore } from "./pinia/store";
+import { onMounted, ref } from "vue";
 
 import LayoutNavTocItem from "./LayoutNavTocItem.vue";
 
@@ -9,6 +10,12 @@ const emit = defineEmits(["jumpedToItem"]);
 
 const store = useStore();
 const { page } = useData();
+
+const isLoaded = ref(false);
+
+onMounted(() => {
+    isLoaded.value = true;
+});
 </script>
 
 <template>
@@ -22,6 +29,7 @@ const { page } = useData();
                         :key="tocItem.element.id"
                         :heading="tocItem"
                         @jumpedToItem="emit('jumpedToItem')"
+                        :isTocLoaded="isLoaded"
                     />
                 </ul>
             </nav>

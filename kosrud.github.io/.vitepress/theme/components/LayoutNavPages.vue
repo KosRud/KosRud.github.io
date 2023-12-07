@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import LayoutNavPagesItem from "./LayoutNavPagesItem.vue";
 
-import { computed } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useData, useRoute } from "vitepress";
 
 import type { ThemeConfig } from "../ThemeConfig";
@@ -13,6 +13,12 @@ const { site } = useData<ThemeConfig>();
 
 const props = defineProps<{ topLevel?: boolean }>();
 const route = useRoute();
+
+const isMounted = ref(false);
+
+onMounted(() => {
+    isMounted.value = true;
+});
 
 const navItems = computed(() => {
     if (props.topLevel) {
@@ -53,6 +59,7 @@ const oneChildOpen = useOneChildOpen(navItems.value);
                     v-for="(navItem, id) in navItems"
                     :is-open="oneChildOpen.isChildOpen(id)"
                     @nav-item-toggle="oneChildOpen.toggleChild(id)"
+                    :is-nav-pages-loaded="isMounted"
                 />
             </ul>
         </template>
