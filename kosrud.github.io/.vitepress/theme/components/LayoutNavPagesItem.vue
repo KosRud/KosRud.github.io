@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import LayoutNavItemText from "./LayoutNavItemText.vue";
 
-import { type Ref, ref, computed, onMounted } from "vue";
+import { type Ref, ref, computed, onMounted, watchEffect } from "vue";
 
 import type { NavItem } from "../ThemeConfig";
 import { useIsNavItemActive } from "./composables/navItem";
@@ -16,6 +16,7 @@ const props = defineProps<{
     depth?: number;
     startingLevel: number;
     isOpen: boolean;
+    isNavPagesLoaded: boolean;
 }>();
 
 const oneChildOpen = useOneChildOpen(props.navItem.children ?? []);
@@ -24,16 +25,18 @@ const depth = computed(() => props.depth ?? 0);
 const isActive = useIsNavItemActive(props.navItem.url);
 const isDarkMode = useDarkModeDetect();
 const chevronDisplay = props.navItem.children ? "block" : "none";
-const myElement: Ref<Element | null> = ref(null);
+const linkElement: Ref<Element | null> = ref(null);
 
 onMounted(() => {
-    if (!myElement.value) {
-        return;
-    }
-    scrollIntoViewIfNeeded(
-        myElement.value,
-        depth.value == 0 ? "center" : "nearest"
-    );
+    watchEffect(() => {
+        if (!linkElement.value || !props.isNavPagesLoaded) {
+            return;
+        }
+        scrollIntoViewIfNeeded(
+            linkElement.value,
+            depth.value == 0 ? "center" : "nearest"
+        );
+    });
 });
 </script>
 
@@ -45,14 +48,14 @@ onMounted(() => {
             isDarkMode ? $style.Dark : '',
             isOpen ? $style.NavItem___open : '',
         ]"
-        :ref="(element)=> {
-			myElement = element as Element;
-		}"
     >
         <a
             :href="$props.navItem.children ? undefined : props.navItem.url"
             :class="[$style.NavItem_link]"
             @click="emit('navItemToggle')"
+            :ref="(element)=> {
+				linkElement = element as Element;
+			}"
         >
             <LayoutNavItemText
                 :level="depth + startingLevel"
@@ -82,6 +85,7 @@ onMounted(() => {
                         v-for="(child, id) in props.navItem.children"
                         @nav-item-toggle="oneChildOpen.toggleChild(id)"
                         :is-open="oneChildOpen.isChildOpen(id)"
+                        :is-nav-pages-loaded="props.isNavPagesLoaded"
                     />
                 </ul>
             </Transition>
