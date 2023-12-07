@@ -3,7 +3,6 @@ import FeaturesGallery_Card from "./FeaturesGallery_Card.vue";
 
 const props = defineProps<{
     dummies?: number;
-    cardMinWidth?: string;
 }>();
 </script>
 
