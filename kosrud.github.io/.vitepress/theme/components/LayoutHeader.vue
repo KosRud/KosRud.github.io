@@ -48,7 +48,7 @@ const store = useStore();
 @import "../style/variables/index.less";
 
 .SiteTitleContainer {
-    width: @NavSide-width;
+    width: @NavPages-width;
     display: flex;
     flex-direction: row;
     align-items: stretch;

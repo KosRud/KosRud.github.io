@@ -38,7 +38,7 @@ watchEffect(() => {
         <div :class="$style.NavContainer">
             <template v-if="!frontmatter.hero">
                 <LayoutNavPages
-                    :class="$style.NavSide"
+                    :class="$style.NavPages"
                     v-if="store.adaptiveStage == AdaptiveStage.full"
                 />
                 <div :class="$style.Overlay_spacer"></div>
@@ -138,9 +138,9 @@ watchEffect(() => {
     flex: 0 0 @Header-height;
 }
 
-.NavSide {
+.NavPages {
     margin-top: @Header-to-Content-gap;
-    flex: 0 0 @NavSide-width;
+    flex: 0 0 @NavPages-width;
 }
 
 .Toc {
@@ -185,7 +185,7 @@ watchEffect(() => {
 }
 
 .Toc,
-.NavSide,
+.NavPages,
 .NavMobile,
 .Header {
     pointer-events: auto;
