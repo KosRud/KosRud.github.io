@@ -66,11 +66,6 @@ function makeHeadingId(title: string) {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: min-content;
-}
-
-.Project_titleText {
-    width: fit-content;
 }
 
 .Project_devIcons {
