@@ -4,12 +4,11 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import {
     CssVars,
+    useLoadCssVars,
     cssVarsFallback,
-    getCssVars as loadCssVars,
 } from "../composables/cssVars";
 import {
     AdaptiveStage,
-    useAdaptivePreference,
     useTrackAdaptiveStage,
 } from "../composables/adaptiveStages";
 import {
@@ -31,7 +30,7 @@ export const useStore = defineStore("counter", {
         const contentContainer: Ref<ComponentPublicInstance | null> = ref(null);
         const VisibleAreaMarker: Ref<Element | null> = ref(null);
 
-        const cssVars: Ref<CssVars | null> = ref(null);
+        const cssVars: Ref<CssVars> = ref(cssVarsFallback);
         const viewportSize: Ref<ViewPortSize> = ref(viewportSizeFallback);
 
         const tocItems: Ref<TocItem[]> = ref([]);
@@ -66,13 +65,6 @@ export const useStore = defineStore("counter", {
     },
 
     getters: {
-        cssVarsValidated: (state) => {
-            if (!state.cssVars) {
-                console.error("CSS variables were not initialized");
-                return cssVarsFallback;
-            }
-            return state.cssVars;
-        },
         visibleAreaRectTop: (state) => {
             if (!state.VisibleAreaMarker) {
                 console.log("Visible area marker was not initialized");
@@ -84,23 +76,22 @@ export const useStore = defineStore("counter", {
             return state.isMobileNavPagesOpen || state.isMobileNavTocOpen;
         },
     },
-
-    actions: {
-        init() {
-            this.cssVars = loadCssVars();
-
-            useTrackViewportSize();
-            useCssBasedAdaptivePreference();
-
-            useTrackActiveHeadingId();
-            useTrackTocItems();
-
-            useTrackAdaptiveStage();
-
-            useServiceNavMobile();
-        },
-        useAdaptivePreference() {
-            return useAdaptivePreference();
-        },
-    },
 });
+
+export function useStoreService() {
+    const store = useStore();
+
+    useLoadCssVars();
+
+    useTrackViewportSize();
+    useCssBasedAdaptivePreference();
+
+    useTrackActiveHeadingId();
+    useTrackTocItems();
+
+    useTrackAdaptiveStage();
+
+    useServiceNavMobile();
+
+    return store;
+}

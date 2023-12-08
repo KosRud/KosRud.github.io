@@ -30,7 +30,7 @@ export function useCssBasedAdaptivePreference() {
             const preference = useAdaptivePreference();
 
             switch (true) {
-                case width < store.cssVarsValidated.breakpointToc:
+                case width < store.cssVars.breakpointToc:
                     preference.value.requestedStage = AdaptiveStage.collapsed;
                     break;
                 default:
