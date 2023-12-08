@@ -54,11 +54,9 @@ onUnmounted(() => {
         </section>
         <div :class="$style.ContentWrapper">
             <section>
-                <MarkdownWrapperVue>
-                    <div :class="$style.Strict">
-                        <slot name="Bio" />
-                    </div>
-                </MarkdownWrapperVue>
+                <div :class="$style.Homepage_content">
+                    <slot name="Bio" />
+                </div>
             </section>
             <section>
                 <FeaturesGallery :dummies="props.dummyFeatures">
@@ -66,11 +64,9 @@ onUnmounted(() => {
                 </FeaturesGallery>
             </section>
             <section>
-                <MarkdownWrapperVue>
-                    <div :class="$style.Strict">
-                        <slot name="Banners" />
-                    </div>
-                </MarkdownWrapperVue>
+                <div :class="$style.Homepage_content">
+                    <slot name="Banners" />
+                </div>
             </section>
         </div>
     </div>
@@ -79,8 +75,26 @@ onUnmounted(() => {
 <style module lang="less">
 @import "../../.vitepress/theme/style/variables/index.less";
 
-.Strict {
-    font-family: @font-default;
+.Homepage_content {
+    max-width: @content-width;
+
+    font-size: @size-l;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+        margin-bottom: @content-gap*1.5;
+    }
+
+    h2 {
+        font-size: @size-xl;
+    }
+
+    a {
+        font-weight: bold;
+    }
 }
 
 .HomePage {

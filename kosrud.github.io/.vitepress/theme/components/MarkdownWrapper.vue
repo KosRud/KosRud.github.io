@@ -12,7 +12,6 @@
     width: 100%;
 
     text-align: justify;
-    font-family: @font-relaxed;
 
     h1,
     h2,
@@ -20,7 +19,7 @@
     h4,
     p,
     table {
-        margin-bottom: @gap;
+        margin-bottom: @content-gap;
     }
 
     > *:last-child {
@@ -54,7 +53,7 @@
         margin-left: auto;
         margin-right: auto;
 
-        border: @gap*0.25 solid @color-background-dark;
+        border: @border-width solid @color-background-dark;
         border-radius: @gap;
 
         font-size: @size-l;
@@ -85,12 +84,15 @@
 
     h1,
     h2 {
-        margin-bottom: @gap*2;
+        margin-bottom: @content-gap*2;
     }
 
-    h2,
-    h3 {
-        margin-top: @gap*4;
+    * + * {
+        &h1,
+        &h2,
+        &h3 {
+            margin-top: @content-gap*4;
+        }
     }
 
     /*

@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-    <p>Greetings!</p>
+    <h2>Greetings!</h2>
     <p>
         Name's Kostiantyn, I'm a programmer from Ukraine currently residing in
         Bratislava, Slovakia.
