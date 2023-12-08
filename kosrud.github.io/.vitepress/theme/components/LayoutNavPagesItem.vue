@@ -161,7 +161,7 @@ onMounted(() => {
 .Dark {
     .NavItem_link {
         &::before {
-            filter: invert();
+            filter: invert(1);
             opacity: 0.7;
         }
     }
