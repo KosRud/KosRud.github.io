@@ -142,7 +142,6 @@ main
             footer
         </div>
     </div>
-</p>
 </div>
 
 ### Vertical menu
