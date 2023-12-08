@@ -23,8 +23,8 @@ function makeHeadingId(title: string) {
             :class="$style.Project_title"
             :id="makeHeadingId(props.title)"
         >
-            <div :class="$style.Project_titleText">{{ props.title }}</div>
-            <div :class="$style.Project_devIcons">
+            <span :class="$style.Project_titleText">{{ props.title }}</span>
+            <span :class="$style.Project_devIcons">
                 <img
                     v-for="icon in sortedIcons"
                     :src="icon.url"
@@ -32,7 +32,7 @@ function makeHeadingId(title: string) {
                     :title="icon.title"
                     :class="$style.DevIcon"
                 />
-            </div>
+            </span>
         </h3>
         <p>
             <strong :class="$style.Uses_title">uses:</strong>
@@ -66,6 +66,10 @@ function makeHeadingId(title: string) {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.Project_titleText {
+    display: block;
 }
 
 .Project_devIcons {
