@@ -27,3 +27,9 @@ SPA has worse initial load time, but the navigation between pages is faster and 
 ## Why SSR?
 
 SSR tries to achieve the "best of both worlds" from the traditional websites and SPA at the expense of development complexity and server load. You can have smooth navigation from SPA combined with fast initial load and good SEO.
+
+## Comparison in detail
+
+### Complexity
+
+* SSR has additional security [gotchas](https://pinia.vuejs.org/ssr/#State-hydration).
