@@ -23,11 +23,11 @@ export type AdaptivePreference = {
 export function useCssBasedAdaptivePreference() {
     const store = useStore();
 
+    const preference = useAdaptivePreference();
+
     onMounted(
         watchEffect(() => {
             const width = store.viewportSize.width;
-
-            const preference = useAdaptivePreference();
 
             switch (true) {
                 case width < store.cssVars.breakpointToc:
