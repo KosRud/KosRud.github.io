@@ -27,6 +27,7 @@ export function useCssBasedAdaptivePreference() {
 
     onMounted(
         watchEffect(() => {
+            console.log("track");
             const width = store.viewportSize.width;
 
             switch (true) {
@@ -58,9 +59,10 @@ export function useTrackAdaptiveStage() {
         return stages[stages.length - 1];
     }
 
+    const store = useStore();
+
     onMounted(() => {
         watchEffect(() => {
-            const store = useStore();
             store.adaptiveStage = pickStage();
         });
     });

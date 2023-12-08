@@ -2,7 +2,7 @@ import { onMounted, watchEffect } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";
 import { useStore } from "../pinia/store";
 
-export function useServiceNavMobile() {
+export function useNavMobileService() {
     const route = useRoute();
     const store = useStore();
 

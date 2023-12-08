@@ -50,6 +50,7 @@ function getCssVars() {
     const html = document.querySelector("html");
 
     if (!html) {
+        console.error("html element not found");
         return produceResult(cssVarDescriptions);
     }
 

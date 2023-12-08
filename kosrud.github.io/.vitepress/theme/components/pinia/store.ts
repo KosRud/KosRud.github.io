@@ -1,7 +1,7 @@
 import type { Ref, ComponentPublicInstance } from "vue";
 
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 import {
     CssVars,
     useLoadCssVars,
@@ -23,7 +23,7 @@ import {
 import { useTrackActiveHeadingId } from "../composables/Toc/activeHeadingId";
 import { TocItem, useTrackTocItems } from "../composables/Toc/tocItems";
 import { EnumValues } from "../composables/tsUtil";
-import { useServiceNavMobile } from "../composables/navMobile";
+import { useNavMobileService } from "../composables/navMobile";
 
 export const useStore = defineStore("counter", {
     state: () => {
@@ -36,9 +36,7 @@ export const useStore = defineStore("counter", {
         const tocItems: Ref<TocItem[]> = ref([]);
         const activeHeadingId = ref("");
 
-        const adaptiveStagePreferences: Ref<Ref<AdaptivePreference>[]> = ref(
-            []
-        );
+        const adaptivePreferences: Ref<Ref<AdaptivePreference>[]> = ref([]);
         const adaptiveStage: Ref<EnumValues<typeof AdaptiveStage>> = ref(
             AdaptiveStage.full
         );
@@ -57,7 +55,7 @@ export const useStore = defineStore("counter", {
             activeHeadingId,
 
             adaptiveStage,
-            adaptivePreferences: adaptiveStagePreferences,
+            adaptivePreferences,
 
             isMobileNavPagesOpen,
             isMobileNavTocOpen,
@@ -91,7 +89,11 @@ export function useStoreService() {
 
     useTrackAdaptiveStage();
 
-    useServiceNavMobile();
+    useNavMobileService();
+
+    watchEffect(() => {
+        console.log(JSON.stringify(store.adaptivePreferences, null, 2));
+    });
 
     return store;
 }
