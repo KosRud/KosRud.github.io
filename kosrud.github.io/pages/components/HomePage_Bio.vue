@@ -11,6 +11,12 @@
             >projects</a
         >, <a href="/papers/">papers</a>), as well as an assortment of condensed
         <a href="#">highlights</a> from the web development seminars I've been
-        teaching at <a href="https://www.fiit.stuba.sk/en.html">FIIT STU</a>.
+        teaching at
+        <a href="https://www.fiit.stuba.sk/en.html"
+            ><span
+                title="Faculty of Informatics and Information Technologies, Slovak University of Technology"
+                >FIIT STU</span
+            ></a
+        >.
     </p>
 </template>
