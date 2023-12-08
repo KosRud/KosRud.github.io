@@ -42,3 +42,16 @@
     padding-top: @padding;
     padding-bottom: @padding;
 }
+
+.Content() {
+    width: 100%;
+    max-width: @content-width;
+
+    > *:last-child {
+        margin-bottom: 0rem;
+    }
+
+    a {
+        font-weight: bold;
+    }
+}

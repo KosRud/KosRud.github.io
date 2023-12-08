@@ -74,9 +74,10 @@ onUnmounted(() => {
 
 <style module lang="less">
 @import "../../.vitepress/theme/style/variables/index.less";
+@import "../../.vitepress/theme/style/mixins/index.less";
 
 .Homepage_content {
-    max-width: @content-width;
+    .Content();
 
     font-size: @size-l;
 
@@ -90,10 +91,6 @@ onUnmounted(() => {
 
     h2 {
         font-size: @size-xl;
-    }
-
-    a {
-        font-weight: bold;
     }
 }
 
