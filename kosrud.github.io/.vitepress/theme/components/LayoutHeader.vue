@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useStore } from "./pinia/store";
 
-import LayoutNavTop from "./LayoutNavTop.vue";
+import LayoutHeaderNav from "./LayoutHeaderNav.vue";
 import LayoutHeaderButtonBurger from "./LayoutHeaderButtonBurger.vue";
 import SiteTitle from "./SiteTitle.vue";
 import { AdaptiveStage } from "./composables/adaptiveStages";
@@ -14,7 +14,7 @@ const store = useStore();
         <div :class="$style.SiteTitleContainer">
             <SiteTitle />
         </div>
-        <LayoutNavTop :class="$style.NavTop" />
+        <LayoutHeaderNav :class="$style.NavTop" />
         <template v-if="store.adaptiveStage == AdaptiveStage.collapsed">
             <LayoutHeaderButtonBurger
                 :class="$style.BurgerToc"
