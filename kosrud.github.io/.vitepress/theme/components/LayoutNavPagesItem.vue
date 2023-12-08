@@ -134,7 +134,7 @@ onMounted(() => {
         background-image: url("/assets/icons/chevron/right.svg");
         background-size: contain;
         background-repeat: no-repeat;
-        background-position: contain;
+        background-position: left;
         margin-right: calc(@chevron-margin-right - @font-builtin-padding);
         margin-left: 0.1em;
         visibility: v-bind(chevronDisplay);
