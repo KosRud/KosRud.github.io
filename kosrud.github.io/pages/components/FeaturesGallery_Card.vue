@@ -21,10 +21,10 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
     >
         <template v-if="!props.dummy">
             <h2 :class="$style.Feature_title">
-                <div
+                <span
                     v-if="props.iconUrl"
                     :class="$style.Feature_icon"
-                ></div>
+                ></span>
                 {{ props.name }}
             </h2>
             <slot />
@@ -81,6 +81,8 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
 }
 
 .Feature_icon {
+    display: block;
+
     position: absolute;
     left: 0rem;
     top: 50%;
