@@ -91,9 +91,5 @@ export function useStoreService() {
 
     useNavMobileService();
 
-    watchEffect(() => {
-        console.log(JSON.stringify(store.adaptivePreferences, null, 2));
-    });
-
     return store;
 }
