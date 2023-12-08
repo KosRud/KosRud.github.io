@@ -39,10 +39,12 @@ onUnmounted(() => {
 		}"
             :class="$style.Hero"
         >
-            <img
-                :class="$style.Hero_photo"
-                src="/assets/icons/photo/icon.svg"
-            />
+            <div :class="$style.Hero_photoWrapper">
+                <img
+                    :class="$style.Hero_photo"
+                    src="/assets/icons/photo/icon.svg"
+                />
+            </div>
             <div :class="$style.SiteNameContainer">
                 <h2 :class="$style.SiteNameContainer_title">
                     Kostiantyn Rudenko
@@ -109,8 +111,16 @@ onUnmounted(() => {
     filter: brightness(v-bind(heroBrightness));
 }
 
+.Hero_photoWrapper {
+    height: @gap*12;
+    padding: @gap*0.75;
+    box-shadow: 4px 4px 4px inset #0004, -4px -4px 4px inset #fff2;
+    border: @border-width-s solid #fff1;
+    border-radius: @gap;
+}
+
 .Hero_photo {
-    height: @gap*10;
+    height: 100%;
 
     background-color: #bbe;
     border-radius: @gap*0.5;
