@@ -73,7 +73,7 @@ Use vivid colors sparingly. The "main" color should be easy on the eyes (desatur
     }
 </style>
 
-See color palette [tools](../Tools/#color-palette).
+See color palette [tools](./Tools#color-palette).
 
 ## Consistency
 
