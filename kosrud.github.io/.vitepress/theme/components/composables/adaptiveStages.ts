@@ -21,10 +21,10 @@ export type AdaptivePreference = {
 };
 
 export function useCssBasedAdaptivePreference() {
+    const store = useStore();
+
     onMounted(
         watchEffect(() => {
-            const store = useStore();
-
             const width = store.viewportSize.width;
 
             const preference = useAdaptivePreference();
