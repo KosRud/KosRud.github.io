@@ -21,13 +21,11 @@ export type AdaptivePreference = {
 };
 
 export function useCssBasedAdaptivePreference() {
+    const preference = useAdaptivePreference();
     const store = useStore();
 
-    const preference = useAdaptivePreference();
-
-    onMounted(
+    onMounted(() => {
         watchEffect(() => {
-            console.log("track");
             const width = store.viewportSize.width;
 
             switch (true) {
@@ -37,8 +35,8 @@ export function useCssBasedAdaptivePreference() {
                 default:
                     preference.value.requestedStage = AdaptiveStage.full;
             }
-        })
-    );
+        });
+    });
 }
 
 export function useTrackAdaptiveStage() {
