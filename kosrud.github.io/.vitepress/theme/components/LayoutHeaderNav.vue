@@ -17,7 +17,7 @@ const { site } = useData<ThemeConfig>();
 
 const store = useStore();
 
-import LayoutNavTopItem from "./LayoutNavTopItem.vue";
+import LayoutHeaderNavItem from "./LayoutHeaderNavItem.vue";
 
 const itemList: Ref<Element | null> = ref(null);
 const adaptivePreference = store.useAdaptivePreference();
@@ -68,7 +68,7 @@ function getAdaptivePreference() {
                 }
             "
         >
-            <LayoutNavTopItem
+            <LayoutHeaderNavItem
                 :nav-item="navItem"
                 v-for="navItem in site.themeConfig.nav"
             />
