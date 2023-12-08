@@ -4,7 +4,13 @@ import "./style/main/index.less";
 
 export default {
     Layout,
-    // enhanceApp({ app, router, siteData }) {
-    //     // ...
-    // },
+    enhanceApp(
+        {
+            // app,
+            // router,
+            // siteData,
+        }
+    ) {
+        // ...
+    },
 };

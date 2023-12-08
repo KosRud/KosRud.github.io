@@ -1,3 +1,6 @@
+import { onMounted } from "vue";
+import { useStore } from "../pinia/store";
+
 import type { Dig } from "./tsUtil";
 
 enum CssVarType {
@@ -35,7 +38,15 @@ export type CssVars = {
 
 export const cssVarsFallback = produceResult(cssVarDescriptions);
 
-export function getCssVars() {
+export function useLoadCssVars() {
+    const store = useStore();
+
+    onMounted(() => {
+        store.cssVars = getCssVars();
+    });
+}
+
+function getCssVars() {
     const html = document.querySelector("html");
 
     if (!html) {

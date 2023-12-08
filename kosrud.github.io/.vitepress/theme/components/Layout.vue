@@ -2,7 +2,7 @@
 import LayoutOverlay from "./LayoutOverlay.vue";
 import LayoutMainDoc from "./LayoutMainDoc.vue";
 
-import { useStore } from "./pinia/store";
+import { useStoreService } from "./pinia/store";
 import { ComponentPublicInstance, getCurrentInstance } from "vue";
 import { useData } from "vitepress";
 import { createPinia } from "pinia";
@@ -14,8 +14,7 @@ import { useDarkModeEnforce } from "./composables/darkMode";
 const { frontmatter } = useData<ThemeConfig>();
 
 getCurrentInstance()?.appContext.app.use(createPinia());
-const store = useStore();
-store.init();
+const store = useStoreService();
 
 useDarkModeEnforce(false);
 </script>

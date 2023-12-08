@@ -8,6 +8,7 @@ import { useStore } from "./pinia/store";
 import {
     AdaptivePreference,
     AdaptiveStage,
+    useAdaptivePreference,
 } from "./composables/adaptiveStages";
 
 import type { ThemeConfig } from "../ThemeConfig";
@@ -20,7 +21,7 @@ const store = useStore();
 import LayoutHeaderNavItem from "./LayoutHeaderNavItem.vue";
 
 const itemList: Ref<Element | null> = ref(null);
-const adaptivePreference = store.useAdaptivePreference();
+const adaptivePreference = useAdaptivePreference();
 setupAdaptivePreference(adaptivePreference);
 
 const visibility = computed(() => {
