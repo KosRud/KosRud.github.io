@@ -6,11 +6,9 @@
 
 <style lang="less" module>
 @import "../style/variables/index.less";
+@import "../style/mixins/index.less";
 
 .Markdown {
-    max-width: @content-width;
-    width: 100%;
-
     text-align: justify;
 
     h1,
@@ -22,9 +20,7 @@
         margin-bottom: @content-gap;
     }
 
-    > *:last-child {
-        margin-bottom: 0rem;
-    }
+    .Content();
 
     /*
 		Headings
@@ -136,10 +132,5 @@
     /*
 		ETC
 	\*----------------------------------*/
-
-    a {
-        font-weight: bold;
-        text-decoration: underline;
-    }
 }
 </style>
