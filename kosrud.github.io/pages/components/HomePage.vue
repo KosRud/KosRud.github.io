@@ -129,9 +129,9 @@ onUnmounted(() => {
 }
 
 .Hero_title {
-    // font-weight: bold;
+    font-weight: bold;
     font-size: @size-hero;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.03em;
 }
 
 .Hero_subtitle {
