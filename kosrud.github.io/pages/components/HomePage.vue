@@ -61,13 +61,7 @@ onUnmounted(() => {
         </section>
         <div :class="$style.ContentWrapper">
             <section>
-                <div :class="$style.Bio">
-                    <img
-                        :class="$style.Bio_photo"
-                        src="/assets/photo.png"
-                    />
-                    <slot name="Bio" />
-                </div>
+                <slot name="Bio" />
             </section>
             <section>
                 <FeaturesGallery :dummies="props.dummyFeatures">
@@ -88,9 +82,6 @@ onUnmounted(() => {
 <style module lang="less">
 @import "../../.vitepress/theme/style/variables/index.less";
 @import "../../.vitepress/theme/style/mixins/index.less";
-
-@Bio_photo-width: 130rem;
-@Bio_container-gap: @gap*4;
 
 .HomePage {
     flex-grow: 1;
@@ -149,25 +140,6 @@ onUnmounted(() => {
     display: none;
 }
 
-.Bio {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: @Bio_container-gap;
-    justify-content: center;
-    align-items: center;
-
-    margin-right: @Bio_photo-width + @Bio_container-gap;
-}
-
-.Bio_photo {
-    flex: 0 1 @Bio_photo-width;
-    border-radius: 50% @gap @gap 30% / 50% @gap @gap 50%;
-    box-shadow: @shadow;
-
-    object-fit: cover;
-}
-
 .ContentWrapper {
     flex-grow: 1;
 
@@ -195,19 +167,9 @@ onUnmounted(() => {
 \*----------------------------------*/
 
 .HomePage___compact {
-    .Bio {
-        gap: @gap*2 @gap*4;
-        margin-right: 0rem;
-    }
-
     .ContentWrapper {
         padding: @Main-padding-horizontal-compact;
         padding-top: @Main-padding-horizontal-compact* (3/2);
-    }
-
-    .Bio_photo {
-        order: 1;
-        border-radius: 50% / 20%;
     }
 
     .Hero {
