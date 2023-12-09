@@ -83,10 +83,26 @@
         margin-bottom: @content-gap*2;
     }
 
-    * + h1,
-    * + h2,
-    * + h3 {
-        margin-top: @content-gap*4;
+    h1,
+    h2,
+    h3 {
+        &:not(:first-child) {
+            margin-top: @content-gap*4;
+        }
+    }
+
+    /*
+		Blocks
+	\*----------------------------------*/
+
+    article {
+        margin-bottom: @content-gap*2;
+    }
+
+    article {
+        &:not(:first-child) {
+            margin-top: @content-gap*4;
+        }
     }
 
     /*
