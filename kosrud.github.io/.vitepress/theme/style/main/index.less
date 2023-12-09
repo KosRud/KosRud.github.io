@@ -32,7 +32,8 @@ strong {
 \*----------------------------------*/
 
 html {
-    @breakpoint-toc: @NavPages-width + @Main-padding-horizontal + @Toc-width;
+    @breakpoint-toc: @NavPages-width + @Main-padding-horizontal*2 +
+        @content-width-threshold + @Toc-width;
 
     --breakpoint-toc: @breakpoint-toc;
 }

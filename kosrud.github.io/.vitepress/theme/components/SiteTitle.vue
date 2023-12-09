@@ -42,7 +42,7 @@ const { site } = useData<ThemeConfig>();
 
         .SiteTitleContainer_homeIcon {
             height: @size*1.5;
-            width: @size*1.5;
+            aspect-ratio: 1;
             margin-right: @gap;
             margin-left: 0rem;
 
@@ -82,7 +82,7 @@ const { site } = useData<ThemeConfig>();
 \*----------------------------------*/
 
 .SiteTitle {
-    font-size: @size-xl;
+    font-size: @size-l;
 }
 
 .SiteDescription {

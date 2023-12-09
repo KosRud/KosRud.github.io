@@ -1,7 +1,19 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { AdaptiveStage } from "../../.vitepress/theme/components/composables/adaptiveStages";
+import { useStore } from "../../.vitepress/theme/components/pinia/store";
+
+const store = useStore();
+</script>
 
 <template>
-    <div :class="$style.Bio">
+    <div
+        :class="[
+            $style.Bio,
+            store.adaptiveStage == AdaptiveStage.collapsed
+                ? $style.Bio___compact
+                : '',
+        ]"
+    >
         <h2>Greetings!</h2>
         <p>
             Name's Kostiantyn, I'm a programmer from Ukraine currently residing
@@ -26,6 +38,7 @@
 
 .Bio {
     .Content();
+    flex: 1 1 400rem;
 
     font-size: @size-l;
 
@@ -39,6 +52,22 @@
 
     h2 {
         font-size: @size-xxl;
+    }
+}
+
+.Bio___compact {
+    font-size: @size;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+        margin-bottom: @content-gap;
+    }
+
+    h2 {
+        font-size: @size-xl;
     }
 }
 </style>
