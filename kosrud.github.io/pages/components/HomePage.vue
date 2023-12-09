@@ -54,17 +54,26 @@ onUnmounted(() => {
         </section>
         <div :class="$style.ContentWrapper">
             <section>
-                <div :class="$style.Homepage_content">
-                    <slot name="Bio" />
+                <div :class="$style.Bio_container">
+                    <div :class="$style.Bio">
+                        <slot name="Bio" />
+                    </div>
+
+                    <img
+                        :class="$style.Hero_photo"
+                        src="/assets/icons/photo/icon.svg"
+                    />
                 </div>
             </section>
             <section>
                 <FeaturesGallery :dummies="props.dummyFeatures">
-                    <slot name="Features" />
+                    <div>
+                        <slot name="Features" />
+                    </div>
                 </FeaturesGallery>
             </section>
             <section>
-                <div :class="$style.Homepage_content">
+                <div :class="$style.Bio">
                     <slot name="Banners" />
                 </div>
             </section>
@@ -76,7 +85,14 @@ onUnmounted(() => {
 @import "../../.vitepress/theme/style/variables/index.less";
 @import "../../.vitepress/theme/style/mixins/index.less";
 
-.Homepage_content {
+.Bio_container {
+    display: flex;
+    flex-direction: row;
+    gap: @gap*2;
+    justify-content: left;
+}
+
+.Bio {
     .Content();
 
     font-size: @size-l;
@@ -123,9 +139,10 @@ onUnmounted(() => {
 .Hero_photo {
     height: @gap*10;
 
-    background-color: #bbe;
+    background-color: #69c;
     border-radius: @gap*0.5;
-    box-shadow: @shadow-l;
+    border-radius: @inf;
+    box-shadow: @shadow;
 
     padding: @gap*2;
 }
@@ -158,7 +175,7 @@ onUnmounted(() => {
     flex-direction: column;
     align-items: center;
 
-    box-shadow: @shadow-inverted;
+    box-shadow: @shadow-l;
     background-color: @color-white;
 
     text-align: justify;

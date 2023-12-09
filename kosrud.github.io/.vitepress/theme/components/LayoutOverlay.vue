@@ -123,7 +123,7 @@ watchEffect(() => {
 }
 
 .Overlay___shaded {
-    background-color: mix(@color-black, transparent, 70%);
+    background-color: fade(@color-black, 70%);
 }
 
 .NavContainer {

@@ -12,6 +12,10 @@ const { site } = useData<ThemeConfig>();
         :class="$style.SiteTitleContainer"
         href="/"
     >
+        <img
+            src="/assets/icons/home/icon.svg"
+            :class="$style.SiteTitleContainer_homeIcon"
+        />
         <div>
             <span :class="$style.SiteTitle"> {{ site.title }}</span>
             <span :class="$style.SiteDescription"> {{ site.description }}</span>
@@ -36,26 +40,21 @@ const { site } = useData<ThemeConfig>();
         line-height: 1;
         text-decoration-line: inherit;
 
-        &::before {
-            content: "";
-            height: 1.5em;
-            width: 1.5em;
-            background-image: url("/assets/icons/home/icon.svg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
+        .SiteTitleContainer_homeIcon {
+            height: @size*1.5;
+            width: @size*1.5;
             margin-right: @gap;
             margin-left: 0rem;
 
             transition: transform @duration-s ease-in;
         }
 
-        &:hover::before {
+        &:hover .SiteTitleContainer_homeIcon {
             transform: scale(1.2);
             transition: transform @duration-s ease-out;
         }
 
-        &:active::before {
+        &:active .SiteTitleContainer_homeIcon {
             transform: scale(1.2) translateY(@click-offset);
             // transition: transform 0s;
         }
@@ -101,6 +100,10 @@ const { site } = useData<ThemeConfig>();
 /*
 	Transitions
 \*----------------------------------*/
+
+.SiteTitleContainer_homeIcon {
+    transition: transform @duration-s ease-in;
+}
 
 .SiteTitleContainer {
     &::before {
