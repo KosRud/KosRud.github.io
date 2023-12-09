@@ -3,6 +3,22 @@ import { AdaptiveStage } from "../../.vitepress/theme/components/composables/ada
 import { useStore } from "../../.vitepress/theme/components/pinia/store";
 
 const store = useStore();
+
+const devIcons = [
+    { url: "/assets/icons/dev/unity/icon.svg" },
+    { url: "/assets/icons/dev/csharp/icon.svg" },
+    { url: "/assets/icons/dev/hlsl/icon.svg" },
+    { url: "/assets/icons/dev/vue/icon.svg" },
+    { url: "/assets/icons/dev/pinia/icon.svg" },
+    { url: "/assets/icons/dev/node/icon.svg" },
+    { url: "/assets/icons/dev/typescript/icon.svg" },
+    { url: "/assets/icons/dev/immutable/icon.png" },
+    { url: "/assets/icons/dev/typedoc/icon.png" },
+    { url: "/assets/icons/dev/python/icon.svg" },
+    { url: "/assets/icons/dev/cpp/icon.svg" },
+    { url: "/assets/icons/dev/git/icon.svg" },
+    { url: "/assets/icons/dev/doxygen/icon.png" },
+];
 </script>
 
 <template>
@@ -29,12 +45,51 @@ const store = useStore();
                 ></a
             >.
         </p>
+        <table :class="$style.DeviconsTable">
+            <tr>
+                <td>I worked with:</td>
+                <td>
+                    <img
+                        :class="$style.devIcon"
+                        v-for="devIcon in devIcons"
+                        :src="devIcon.url"
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td>I am familiar with:</td>
+                <td>
+                    <img
+                        :class="$style.devIcon"
+                        :src="url"
+                        v-for="url in [
+                            '/assets/icons/dev/react/icon.svg',
+                            '/assets/icons/dev/fastify/icon.svg',
+                        ]"
+                    />
+                </td>
+            </tr>
+        </table>
     </div>
 </template>
 
 <style module lang="less">
 @import "../../.vitepress/theme/style/variables/index.less";
 @import "../../.vitepress/theme/style/mixins/index.less";
+
+.DeviconsTable {
+    td:first-child {
+        text-align: right;
+        padding-right: @gap*1.5;
+        vertical-align: top;
+        white-space: nowrap;
+    }
+    tr {
+        td {
+            padding-bottom: @gap;
+        }
+    }
+}
 
 .Bio {
     .Content();
@@ -70,5 +125,16 @@ const store = useStore();
     h2 {
         font-size: @size-xl;
     }
+}
+
+.devIcon {
+    height: @size*2;
+    vertical-align: middle;
+
+    &:first-child {
+        margin-left: @gap*0.5;
+    }
+    margin: @gap*0.25;
+    transform: translateY(-15%);
 }
 </style>
