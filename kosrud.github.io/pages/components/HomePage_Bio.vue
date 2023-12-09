@@ -51,7 +51,8 @@ const store = useStore();
     }
 
     h2 {
-        font-size: @size-xxl;
+        font-size: @size-xl;
+        font-weight: bold;
     }
 }
 

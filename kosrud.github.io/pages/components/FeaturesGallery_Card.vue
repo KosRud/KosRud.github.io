@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { useStore } from "../../.vitepress/theme/components/pinia/store";
+import { AdaptiveStage } from "../../.vitepress/theme/components/composables/adaptiveStages";
 
 const props = defineProps<{
     dummy?: boolean;
@@ -9,12 +11,17 @@ const props = defineProps<{
 }>();
 
 const iconUrl = computed(() => `url(${props.iconUrl})`);
+
+const store = useStore();
 </script>
 
 <template>
     <article
         :class="[
             $style.Card,
+            store.adaptiveStage == AdaptiveStage.collapsed
+                ? $style.Card___compact
+                : '',
             props.dummy ? $style.FeaturesGallery_card___dummy : '',
             props.class,
         ]"
@@ -59,6 +66,10 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
     padding: @gap @gap @gap*2 @gap;
 
     text-align: left;
+}
+
+.Card___compact {
+    min-height: 120rem;
 }
 
 .FeaturesGallery_card___dummy {
