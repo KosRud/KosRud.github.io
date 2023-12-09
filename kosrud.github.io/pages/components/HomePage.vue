@@ -186,7 +186,7 @@ onUnmounted(() => {
         width: 100%;
         max-width: 1200rem;
         height: max-content;
-        margin-bottom: @gap*6;
+        margin-bottom: @gap*2;
     }
 }
 
