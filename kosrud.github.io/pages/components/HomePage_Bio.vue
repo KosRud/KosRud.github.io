@@ -4,21 +4,28 @@ import { useStore } from "../../.vitepress/theme/components/pinia/store";
 
 const store = useStore();
 
-const devIcons = [
-    { url: "/assets/icons/dev/unity/icon.svg" },
-    { url: "/assets/icons/dev/csharp/icon.svg" },
-    { url: "/assets/icons/dev/hlsl/icon.svg" },
-    { url: "/assets/icons/dev/vue/icon.svg" },
-    { url: "/assets/icons/dev/pinia/icon.svg" },
-    { url: "/assets/icons/dev/node/icon.svg" },
-    { url: "/assets/icons/dev/typescript/icon.svg" },
-    { url: "/assets/icons/dev/immutable/icon.png" },
-    { url: "/assets/icons/dev/typedoc/icon.png" },
-    { url: "/assets/icons/dev/python/icon.svg" },
-    { url: "/assets/icons/dev/cpp/icon.svg" },
-    { url: "/assets/icons/dev/git/icon.svg" },
-    { url: "/assets/icons/dev/doxygen/icon.png" },
-];
+const devIcons = {
+    worked: [
+        { url: "/assets/icons/dev/unity/icon.svg" },
+        { url: "/assets/icons/dev/csharp/icon.svg" },
+        { url: "/assets/icons/dev/hlsl/icon.svg" },
+        { url: "/assets/icons/dev/vue/icon.svg" },
+        { url: "/assets/icons/dev/pinia/icon.svg" },
+        { url: "/assets/icons/dev/node/icon.svg" },
+        { url: "/assets/icons/dev/typescript/icon.svg" },
+        { url: "/assets/icons/dev/immutable/icon.png" },
+        { url: "/assets/icons/dev/typedoc/icon.png" },
+        { url: "/assets/icons/dev/python/icon.svg" },
+        { url: "/assets/icons/dev/cpp/icon.svg" },
+        { url: "/assets/icons/dev/git/icon.svg" },
+        { url: "/assets/icons/dev/doxygen/icon.png" },
+    ],
+    familiar: [
+        { url: "/assets/icons/dev/react/icon.svg" },
+        { url: "/assets/icons/dev/fastify/icon.svg" },
+        { url: "/assets/icons/dev/deno/icon.svg" },
+    ],
+};
 </script>
 
 <template>
@@ -51,7 +58,7 @@ const devIcons = [
                 <td>
                     <img
                         :class="$style.devIcon"
-                        v-for="devIcon in devIcons"
+                        v-for="devIcon in devIcons.worked"
                         :src="devIcon.url"
                     />
                 </td>
@@ -61,11 +68,8 @@ const devIcons = [
                 <td>
                     <img
                         :class="$style.devIcon"
-                        :src="url"
-                        v-for="url in [
-                            '/assets/icons/dev/react/icon.svg',
-                            '/assets/icons/dev/fastify/icon.svg',
-                        ]"
+                        :src="devIcon.url"
+                        v-for="devIcon in devIcons.familiar"
                     />
                 </td>
             </tr>
