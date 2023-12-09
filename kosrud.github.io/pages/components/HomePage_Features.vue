@@ -14,7 +14,7 @@ import HomePageFeatures_Content from "./HomePage_FeaturesContent.vue";
             :icon-url="'/assets/icons/programming/icon.svg'"
         >
             <HomePageFeatures_Content>
-                C#, HLSL, TypeScript, Python, Cython, C++
+                C#, HLSL, TypeScript, Javascript, Python, C++
             </HomePageFeatures_Content>
         </FeaturesGallery_Card>
         <FeaturesGallery_Card
