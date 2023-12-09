@@ -37,6 +37,7 @@ const devIcons = {
         { url: "/assets/icons/dev/deno/icon.svg" },
         { url: "/assets/icons/dev/cython/icon.svg" },
         { url: "/assets/icons/dev/lua/icon.svg" },
+        { url: "/assets/icons/dev/rust/icon.svg" },
     ],
 };
 </script>
