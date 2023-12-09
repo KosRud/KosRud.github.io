@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type { Ref, ComponentPublicInstance } from "vue";
+
 import FeaturesGallery from "./FeaturesGallery.vue";
 
-import type { Ref, ComponentPublicInstance } from "vue";
 import { useStore } from "../../.vitepress/theme/components/pinia/store";
 
 import { computed, onMounted, onUnmounted, ref } from "vue";
