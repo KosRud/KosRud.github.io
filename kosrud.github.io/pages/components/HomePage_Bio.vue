@@ -54,7 +54,7 @@ const devIcons = {
         </p>
         <table :class="$style.DeviconsTable">
             <tr>
-                <td>I worked with:</td>
+                <td>I have experience with:</td>
                 <td>
                     <img
                         :class="$style.devIcon"
