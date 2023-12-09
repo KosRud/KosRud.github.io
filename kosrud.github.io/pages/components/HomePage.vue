@@ -41,28 +41,23 @@ onUnmounted(() => {
         >
             <img
                 :class="$style.Hero_photo"
-                src="/assets/icons/photo/icon.svg"
+                src="/assets/photo.png"
             />
-            <div :class="$style.SiteNameContainer">
-                <h2 :class="$style.SiteNameContainer_title">
-                    Kostiantyn Rudenko
-                </h2>
-                <h3 :class="$style.SiteNameContainer_subtitle">
-                    personal website
-                </h3>
+            <div :class="$style.Hero_titleContainer">
+                <h2 :class="$style.Hero_title">Kostiantyn Rudenko</h2>
+                <h3 :class="$style.Hero_subtitle">software engineer</h3>
             </div>
         </section>
         <div :class="$style.ContentWrapper">
             <section>
                 <div :class="$style.Bio_container">
-                    <div :class="$style.Bio">
-                        <slot name="Bio" />
-                    </div>
-
-                    <img
-                        :class="$style.Hero_photo"
-                        src="/assets/icons/photo/icon.svg"
-                    />
+                    <picture :class="$style.Bio_photoWrapper">
+                        <img
+                            :class="$style.Bio_photo"
+                            src="/assets/photo.png"
+                        />
+                    </picture>
+                    <slot name="Bio" />
                 </div>
             </section>
             <section>
@@ -84,31 +79,6 @@ onUnmounted(() => {
 <style module lang="less">
 @import "../../.vitepress/theme/style/variables/index.less";
 @import "../../.vitepress/theme/style/mixins/index.less";
-
-.Bio_container {
-    display: flex;
-    flex-direction: row;
-    gap: @gap*2;
-    justify-content: left;
-}
-
-.Bio {
-    .Content();
-
-    font-size: @size-l;
-
-    h1,
-    h2,
-    h3,
-    h4,
-    p {
-        margin-bottom: @content-gap*1.5;
-    }
-
-    h2 {
-        font-size: @size-xl;
-    }
-}
 
 .HomePage {
     flex-grow: 1;
@@ -136,18 +106,7 @@ onUnmounted(() => {
     filter: brightness(v-bind(heroBrightness));
 }
 
-.Hero_photo {
-    height: @gap*10;
-
-    background-color: #69c;
-    border-radius: @gap*0.5;
-    border-radius: @inf;
-    box-shadow: @shadow;
-
-    padding: @gap*2;
-}
-
-.SiteNameContainer {
+.Hero_titleContainer {
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -155,16 +114,64 @@ onUnmounted(() => {
 
     text-shadow: 2px 2px 0px black, 4px 4px 12px #000a;
     line-height: 1.2;
-    margin: @gap*6;
+    margin: @gap*2;
 }
 
-.SiteNameContainer_title {
+.Hero_title {
     font-weight: bold;
     font-size: @size-hero;
 }
 
-.SiteNameContainer_subtitle {
+.Hero_subtitle {
     font-size: @size-hero-s;
+}
+
+.Hero_photo {
+    height: 150rem;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: 0% 30%;
+    box-shadow: @shadow-l;
+    border-radius: @inf;
+
+    display: none;
+}
+
+.Bio_container {
+    display: flex;
+    flex-direction: row;
+    gap: @gap*4;
+    justify-content: left;
+}
+
+.Bio_photoWrapper {
+    height: 200rem;
+
+    border-radius: @gap*0.5;
+    box-shadow: @shadow-s;
+
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+
+    overflow: hidden;
+}
+
+.Bio_photo {
+    flex: 1 0 0rem;
+    transform: scale(1.1) translateY(4%);
+
+    // background-color: #69c;
+    border-radius: @gap*0.5;
+    // border-radius: @inf;
+    box-shadow: @shadow;
+    // border: solid @border-width-s @color-border;
+
+    // padding: @gap*2;
+
+    // visibility: hidden;
+
+    object-fit: cover;
 }
 
 .ContentWrapper {
