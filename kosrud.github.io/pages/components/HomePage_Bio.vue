@@ -31,7 +31,7 @@ const devIcons = {
         { url: "/assets/icons/dev/doxygen/icon.png" },
         { url: "/assets/icons/dev/git/icon.svg" },
     ],
-    familiar: [
+    dabbled: [
         { url: "/assets/icons/dev/react/icon.svg" },
         { url: "/assets/icons/dev/fastify/icon.svg" },
         { url: "/assets/icons/dev/deno/icon.svg" },
@@ -50,7 +50,11 @@ const devIcons = {
                 : '',
         ]"
     >
-        <h2 :class="$style.Bio_title">Greetings!</h2>
+        <div :class="$style.Bio_titleContainer">
+            <div :class="$style.Bio_titleSpacer"></div>
+            <h2 :class="$style.Bio_title">Greetings!</h2>
+        </div>
+
         <div :class="$style.Bio_content">
             <img
                 :class="$style.Bio_photo"
@@ -83,12 +87,12 @@ const devIcons = {
                         </td>
                     </tr>
                     <tr>
-                        <td>I am familiar with:</td>
+                        <td>I have dabbled with:</td>
                         <td>
                             <img
                                 :class="$style.devIcon"
                                 :src="devIcon.url"
-                                v-for="devIcon in devIcons.familiar"
+                                v-for="devIcon in devIcons.dabbled"
                             />
                         </td>
                     </tr>
@@ -113,26 +117,26 @@ const devIcons = {
         vertical-align: top;
         white-space: nowrap;
     }
-    tr {
-        td {
-            padding-bottom: @gap;
-        }
+
+    td {
+        padding-bottom: @gap*0.5;
+        padding-top: @gap*0.5;
     }
 }
 
 .Bio_title {
+    flex: 1 1 400rem;
+
     font-size: @size-xl;
     font-weight: bold;
     max-width: @content-width;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: @Bio_content-gap;
 }
 
 .Bio_content {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     gap: @Bio_content-gap @Bio_photo-to-content-gap;
     justify-content: center;
     align-items: start;
@@ -155,6 +159,18 @@ const devIcons = {
     }
 }
 
+.Bio_titleContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: @Bio_photo-width + @Bio_photo-to-content-gap;
+}
+
+.Bio_titleSpacer {
+    flex: 0 0 @Bio_photo-width + @Bio_photo-to-content-gap;
+    height: 0rem;
+}
+
 .Bio_photo {
     flex: 0 1 @Bio_photo-width;
     border-radius: 50% @gap @gap 30% / 50% @gap @gap 50%;
@@ -163,6 +179,7 @@ const devIcons = {
     object-fit: cover;
 
     margin-top: @size-l*0.3;
+    margin-bottom: @gap;
 }
 
 .devIcon {
@@ -189,6 +206,10 @@ const devIcons = {
 
     .Bio_content {
         gap: @gap*2 @gap*4;
+        margin-right: 0rem;
+    }
+
+    .Bio_titleContainer {
         margin-right: 0rem;
     }
 
