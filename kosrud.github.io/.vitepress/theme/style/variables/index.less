@@ -32,6 +32,7 @@
 
 @Main-padding-vertical: @Toc-to-Main-gap;
 @Main-padding-horizontal: @gap*4;
+@Main-padding-horizontal-compact: @gap;
 
 @NavItem-padding-vertical: 0.25em;
 
@@ -58,17 +59,38 @@
 	Shadows
 \*----------------------------------*/
 
-@shadow-ao-s: 0rem 0rem 3rem 0rem #00000041;
-@shadow-ao: 0rem 0rem 6rem 0rem #0003;
-@shadow-ao-l: 0rem 0rem 12rem 0rem #00000028;
-@shadow-ao-xl: 0rem 0rem 24rem 0rem #00000021;
+.shadow-coef(@strength) {
+    @result: pow(2, @strength - 1) * 3;
+}
 
-@shadow-s: @shadow-ao-s, 0rem 2rem 3rem 0rem #00000041;
-@shadow: @shadow-ao, 0rem 4rem 6rem 0rem #0003;
-@shadow-l: @shadow-ao-l, 0rem 8rem 12rem 0rem #00000028;
-@shadow-xl: @shadow-ao-xl, 0rem 16rem 24rem 0rem #0003;
+.shadow-color(@strength) {
+    @result: fade(black, 30% * pow(0.9, @strength - 1));
+}
 
-@shadow-s-inverted: @shadow-ao-s, 0rem -2rem 3rem 0rem #00000041;
+.shadow-ao(@strength) {
+    @x: .shadow-coef(@strength) [ @result];
+    @color: .shadow-color(@strength) [ @result];
+    @result: 0rem 0rem 0.5rem * @x @color;
+}
+
+.shadow(@strength) {
+    @x: .shadow-coef(@strength) [ @result];
+    @color: .shadow-color(@strength) [ @result];
+    @result: .shadow-ao(@strength) [ @result],
+        0.3rem * @x 1rem * @x 1rem * @x fadeout(@color, 10%);
+}
+
+@shadow-ao-s: .shadow-ao(1) [ @result];
+@shadow-ao: .shadow-ao(1) [ @result];
+@shadow-ao-l: .shadow-ao(3) [ @result];
+@shadow-ao-xl: .shadow-ao(4) [ @result];
+
+@shadow-s: .shadow(1) [ @result];
+@shadow: .shadow(2) [ @result];
+@shadow-l: .shadow(3) [ @result];
+@shadow-xl: .shadow(4) [ @result];
+
+@shadow-s-inverted: @shadow-ao-s, 0rem -2rem 3rem 0rem #0003;
 @shadow-inverted: @shadow-ao, 0rem -4rem 6rem 0rem #0003;
 @shadow-l-inverted: @shadow-ao-l, 0rem -8rem 12rem 0rem #00000028;
 @shadow-xl-inverted: @shadow-ao-xl, 0rem -16rem 24rem 0rem #00000021;
@@ -98,7 +120,7 @@
 
 @font-main: @font-OpenSans;
 @font-techy: @font-IosevkaAileWeb;
-@font-hero: @font-Lato;
+@font-hero: @font-IosevkaAileWeb;
 
 /*
 	Animation-related

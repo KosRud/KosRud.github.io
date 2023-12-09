@@ -1,14 +1,17 @@
 <script setup lang="ts">
+import FeaturesGallery from "./FeaturesGallery.vue";
+
 import type { Ref, ComponentPublicInstance } from "vue";
+import { useStore } from "../../.vitepress/theme/components/pinia/store";
 
 import { computed, onMounted, onUnmounted, ref } from "vue";
-
-import MarkdownWrapperVue from "../../.vitepress/theme/components/MarkdownWrapper.vue";
-import FeaturesGallery from "./FeaturesGallery.vue";
+import { AdaptiveStage } from "../../.vitepress/theme/components/composables/adaptiveStages";
 
 const props = defineProps<{ dummyFeatures?: number }>();
 
 const hero: Ref<Element | null> = ref(null);
+
+const store = useStore();
 
 const scrollY = ref(0);
 const heroBrightness = computed(() => {
@@ -32,7 +35,14 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div :class="$style.HomePage">
+    <div
+        :class="[
+            $style.HomePage,
+            store.adaptiveStage == AdaptiveStage.collapsed
+                ? $style.HomePage___compact
+                : '',
+        ]"
+    >
         <section
             :ref="(element: Element | ComponentPublicInstance | null) => {
 			hero = element as Element;
@@ -51,12 +61,10 @@ onUnmounted(() => {
         <div :class="$style.ContentWrapper">
             <section>
                 <div :class="$style.Bio_container">
-                    <picture :class="$style.Bio_photoWrapper">
-                        <img
-                            :class="$style.Bio_photo"
-                            src="/assets/photo.png"
-                        />
-                    </picture>
+                    <img
+                        :class="$style.Bio_photo"
+                        src="/assets/photo.png"
+                    />
                     <slot name="Bio" />
                 </div>
             </section>
@@ -68,9 +76,9 @@ onUnmounted(() => {
                 </FeaturesGallery>
             </section>
             <section>
-                <div :class="$style.Bio">
+                <!-- <div :class="$style.Banners">
                     <slot name="Banners" />
-                </div>
+                </div> -->
             </section>
         </div>
     </div>
@@ -118,8 +126,9 @@ onUnmounted(() => {
 }
 
 .Hero_title {
-    font-weight: bold;
+    // font-weight: bold;
     font-size: @size-hero;
+    letter-spacing: -0.05em;
 }
 
 .Hero_subtitle {
@@ -127,7 +136,6 @@ onUnmounted(() => {
 }
 
 .Hero_photo {
-    height: 150rem;
     aspect-ratio: 1;
     object-fit: cover;
     object-position: 0% 30%;
@@ -140,36 +148,16 @@ onUnmounted(() => {
 .Bio_container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: @gap*4;
     justify-content: left;
-}
-
-.Bio_photoWrapper {
-    height: 200rem;
-
-    border-radius: @gap*0.5;
-    box-shadow: @shadow-s;
-
-    display: flex;
-    justify-content: stretch;
-    align-items: stretch;
-
-    overflow: hidden;
+    align-items: center;
 }
 
 .Bio_photo {
-    flex: 1 0 0rem;
-    transform: scale(1.1) translateY(4%);
-
-    // background-color: #69c;
-    border-radius: @gap*0.5;
-    // border-radius: @inf;
+    flex: 0 1 130rem;
+    border-radius: 50% @gap @gap 30% / 50% @gap @gap 50%;
     box-shadow: @shadow;
-    // border: solid @border-width-s @color-border;
-
-    // padding: @gap*2;
-
-    // visibility: hidden;
 
     object-fit: cover;
 }
@@ -193,6 +181,43 @@ onUnmounted(() => {
         max-width: 1200rem;
         height: max-content;
         margin-bottom: @gap*4;
+    }
+}
+
+/*
+	Responsive
+\*----------------------------------*/
+
+.HomePage___compact {
+    .Bio_container {
+        gap: @gap*2 @gap;
+    }
+
+    .ContentWrapper {
+        padding: @Main-padding-horizontal-compact;
+    }
+
+    .Bio_photo {
+        order: 1;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 50% / 20%;
+    }
+
+    .Hero_titleContainer {
+        text-shadow: 1px 1px 0px black, 2px 2px 6px #000a;
+    }
+
+    .Hero_title {
+        font-size: @size-xxl;
+    }
+
+    .Hero_subtitle {
+        font-size: @size-l;
+    }
+
+    .ContentWrapper > * {
+        margin-bottom: @gap*2;
     }
 }
 

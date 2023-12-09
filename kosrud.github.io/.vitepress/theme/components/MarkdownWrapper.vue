@@ -83,12 +83,10 @@
         margin-bottom: @content-gap*2;
     }
 
-    * + * {
-        &h1,
-        &h2,
-        &h3 {
-            margin-top: @content-gap*4;
-        }
+    * + h1,
+    * + h2,
+    * + h3 {
+        margin-top: @content-gap*4;
     }
 
     /*
@@ -119,14 +117,6 @@
         th:not(:last-child) {
             border-right: 1px solid @color-border;
         }
-    }
-
-    /*
-		Code
-	\*----------------------------------*/
-
-    pre {
-        white-space: pre-wrap;
     }
 
     /*
