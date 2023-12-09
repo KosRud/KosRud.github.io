@@ -60,7 +60,7 @@ onUnmounted(() => {
         </section>
         <div :class="$style.ContentWrapper">
             <section>
-                <div :class="$style.Bio_container">
+                <div :class="$style.Bio">
                     <img
                         :class="$style.Bio_photo"
                         src="/assets/photo.png"
@@ -88,6 +88,9 @@ onUnmounted(() => {
 @import "../../.vitepress/theme/style/variables/index.less";
 @import "../../.vitepress/theme/style/mixins/index.less";
 
+@Bio_photo-width: 130rem;
+@Bio_container-gap: @gap*4;
+
 .HomePage {
     flex-grow: 1;
 
@@ -109,7 +112,7 @@ onUnmounted(() => {
     font-family: @font-hero;
 
     background-color: @color-primary-muted;
-    box-shadow: 0rem 0rem 100rem inset #0004;
+    box-shadow: 0rem 0rem 100rem inset #0006;
 
     filter: brightness(v-bind(heroBrightness));
 }
@@ -145,17 +148,19 @@ onUnmounted(() => {
     display: none;
 }
 
-.Bio_container {
+.Bio {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: @gap*4;
-    justify-content: left;
+    gap: @Bio_container-gap;
+    justify-content: center;
     align-items: center;
+
+    margin-right: @Bio_photo-width + @Bio_container-gap;
 }
 
 .Bio_photo {
-    flex: 0 1 130rem;
+    flex: 0 1 @Bio_photo-width;
     border-radius: 50% @gap @gap 30% / 50% @gap @gap 50%;
     box-shadow: @shadow;
 
@@ -180,7 +185,7 @@ onUnmounted(() => {
         width: 100%;
         max-width: 1200rem;
         height: max-content;
-        margin-bottom: @gap*4;
+        margin-bottom: @gap*6;
     }
 }
 
@@ -189,19 +194,23 @@ onUnmounted(() => {
 \*----------------------------------*/
 
 .HomePage___compact {
-    .Bio_container {
-        gap: @gap*2 @gap;
+    .Bio {
+        gap: @gap*2 @gap*4;
+        margin-right: 0rem;
     }
 
     .ContentWrapper {
         padding: @Main-padding-horizontal-compact;
+        padding-top: @Main-padding-horizontal-compact* (3/2);
     }
 
     .Bio_photo {
         order: 1;
-        margin-left: auto;
-        margin-right: auto;
         border-radius: 50% / 20%;
+    }
+
+    .Hero {
+        display: none;
     }
 
     .Hero_titleContainer {
@@ -218,6 +227,7 @@ onUnmounted(() => {
 
     .ContentWrapper > * {
         margin-bottom: @gap*2;
+        text-align: left;
     }
 }
 
