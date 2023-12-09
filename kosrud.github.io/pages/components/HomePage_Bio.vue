@@ -73,7 +73,7 @@ const devIcons = {
                 </p>
                 <table :class="$style.DeviconsTable">
                     <tr>
-                        <td>I have experience with:</td>
+                        <td>I have experience working with:</td>
                         <td>
                             <img
                                 :class="$style.devIcon"
