@@ -18,7 +18,7 @@ function makeHeadingId(title: string) {
 </script>
 
 <template>
-    <div :class="$style.Project">
+    <article :class="$style.Project">
         <h3
             :class="$style.Project_title"
             :id="makeHeadingId(props.title)"
@@ -50,7 +50,7 @@ function makeHeadingId(title: string) {
                 <span :class="$style.Project_linkSeparator"> | </span>
             </template>
         </p>
-    </div>
+    </article>
 </template>
 
 <style module lang="less">
