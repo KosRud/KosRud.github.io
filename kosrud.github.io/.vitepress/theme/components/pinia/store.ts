@@ -1,7 +1,7 @@
 import type { Ref, ComponentPublicInstance } from "vue";
 
 import { defineStore } from "pinia";
-import { onMounted, ref, watchEffect } from "vue";
+import { ref, watchEffect } from "vue";
 import {
     CssVars,
     useLoadCssVars,
@@ -24,7 +24,6 @@ import { useTrackActiveHeadingId } from "../composables/Toc/activeHeadingId";
 import { TocItem, useTrackTocItems } from "../composables/Toc/tocItems";
 import { EnumValues } from "../composables/tsUtil";
 import { useNavMobileService } from "../composables/navMobile";
-import { useResizeObserverService } from "../composables/resizeObserver";
 
 export const useStore = defineStore("counter", {
     state: () => {
@@ -45,8 +44,6 @@ export const useStore = defineStore("counter", {
         const isMobileNavPagesOpen = ref(false);
         const isMobileNavTocOpen = ref(false);
 
-        const resizeObserver: Ref<ResizeObserver | null> = ref(null);
-
         return {
             pageContent: contentContainer,
             VisibleAreaMarker,
@@ -62,8 +59,6 @@ export const useStore = defineStore("counter", {
 
             isMobileNavPagesOpen,
             isMobileNavTocOpen,
-
-            resizeObserver,
         };
     },
 
@@ -95,8 +90,6 @@ export function useStoreService() {
     useTrackAdaptiveStage();
 
     useNavMobileService();
-
-    useResizeObserverService();
 
     return store;
 }
