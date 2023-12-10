@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useRoute } from "vitepress";
 
-import { NavItem } from "../ThemeConfig";
+import { type NavItem } from "../ThemeConfig";
 import { urlMatch } from "./composables/urlMatch";
 import { findFirstChildPage } from "./composables/nav";
 
