@@ -41,7 +41,7 @@ function handleAdaptivePeference() {
         () => {
             updateAdaptivePreference();
         },
-        () => [document.querySelector("html")]
+        () => document.querySelector("html")
     );
 
     onMounted(updateAdaptivePreference);
