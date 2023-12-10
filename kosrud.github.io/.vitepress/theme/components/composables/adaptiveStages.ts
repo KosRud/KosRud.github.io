@@ -10,7 +10,7 @@ export const AdaptiveStage = {
     //
     // ascending viewport width order
 
-    collapsed: 1,
+    compact: 1,
     full: 2,
 } as const;
 
@@ -19,25 +19,6 @@ import type { EnumValues } from "./tsUtil";
 export type AdaptivePreference = {
     requestedStage: EnumValues<typeof AdaptiveStage>;
 };
-
-export function useCssBasedAdaptivePreference() {
-    const preference = useAdaptivePreference();
-    const store = useStore();
-
-    onMounted(() => {
-        watchEffect(() => {
-            const width = store.viewportSize.width;
-
-            switch (true) {
-                case width < store.cssVars.breakpointToc:
-                    preference.value.requestedStage = AdaptiveStage.collapsed;
-                    break;
-                default:
-                    preference.value.requestedStage = AdaptiveStage.full;
-            }
-        });
-    });
-}
 
 export function useTrackAdaptiveStage() {
     function pickStage() {

@@ -15,7 +15,7 @@ const store = useStore();
             <SiteTitle />
         </div>
         <LayoutHeaderNav :class="$style.NavTop" />
-        <template v-if="store.adaptiveStage == AdaptiveStage.collapsed">
+        <template v-if="store.adaptiveStage == AdaptiveStage.compact">
             <LayoutHeaderButtonBurger
                 :class="$style.BurgerToc"
                 :title="'On this page'"

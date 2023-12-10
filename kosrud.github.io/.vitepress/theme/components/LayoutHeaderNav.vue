@@ -53,7 +53,7 @@ function getAdaptivePreference() {
         lastItem.getBoundingClientRect().right >
         itemList.value.getBoundingClientRect().right
     ) {
-        return AdaptiveStage.collapsed;
+        return AdaptiveStage.compact;
     }
 
     return AdaptiveStage.full;

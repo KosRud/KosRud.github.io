@@ -1,25 +1,17 @@
 import type { Ref, ComponentPublicInstance } from "vue";
 
 import { defineStore } from "pinia";
-import { ref, watchEffect } from "vue";
-import {
-    CssVars,
-    useLoadCssVars,
-    cssVarsFallback,
-} from "../composables/cssVars";
+import { ref } from "vue";
 import {
     AdaptiveStage,
     useTrackAdaptiveStage,
 } from "../composables/adaptiveStages";
-import {
-    AdaptivePreference,
-    useCssBasedAdaptivePreference,
-} from "../composables/adaptiveStages";
+import { AdaptivePreference } from "../composables/adaptiveStages";
 import {
     ViewPortSize,
     useTrackViewportSize,
     viewportSizeFallback,
-} from "../composables/viewportSize";
+} from "./services/viewportSize";
 import { useTrackActiveHeadingId } from "../composables/Toc/activeHeadingId";
 import { TocItem, useTrackTocItems } from "../composables/Toc/tocItems";
 import { EnumValues } from "../composables/tsUtil";
@@ -30,7 +22,6 @@ export const useStore = defineStore("counter", {
         const contentContainer: Ref<ComponentPublicInstance | null> = ref(null);
         const VisibleAreaMarker: Ref<Element | null> = ref(null);
 
-        const cssVars: Ref<CssVars> = ref(cssVarsFallback);
         const viewportSize: Ref<ViewPortSize> = ref(viewportSizeFallback);
 
         const tocItems: Ref<TocItem[]> = ref([]);
@@ -48,7 +39,6 @@ export const useStore = defineStore("counter", {
             pageContent: contentContainer,
             VisibleAreaMarker,
 
-            cssVars,
             viewportSize,
 
             tocItems,
@@ -79,10 +69,7 @@ export const useStore = defineStore("counter", {
 export function useStoreService() {
     const store = useStore();
 
-    useLoadCssVars();
-
     useTrackViewportSize();
-    useCssBasedAdaptivePreference();
 
     useTrackActiveHeadingId();
     useTrackTocItems();

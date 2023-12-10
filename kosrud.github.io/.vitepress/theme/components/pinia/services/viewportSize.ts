@@ -1,5 +1,5 @@
 import { onUnmounted, onMounted } from "vue";
-import { useStore } from "../pinia/store";
+import { useStore } from "../store";
 
 export interface ViewPortSize {
     height: number;
@@ -10,14 +10,10 @@ export const viewportSizeFallback = { height: 480, width: 720 };
 
 export function useTrackViewportSize() {
     function update() {
-        const remSize = getRemSize();
-
         const store = useStore();
 
-        store.viewportSize.width =
-            document.documentElement.clientWidth / remSize;
-        store.viewportSize.height =
-            document.documentElement.clientHeight / remSize;
+        store.viewportSize.width = document.documentElement.clientWidth;
+        store.viewportSize.height = document.documentElement.clientHeight;
     }
 
     setupHooks(update);
@@ -32,14 +28,4 @@ function setupHooks(update: () => void) {
     onUnmounted(() => {
         window.removeEventListener("resize", update);
     });
-}
-
-function getRemSize() {
-    const html = document.querySelector("html");
-    if (!html) {
-        console.error("html element not found");
-        return 1;
-    }
-    const str = window.getComputedStyle(html).fontSize;
-    return parseFloat(str);
 }
