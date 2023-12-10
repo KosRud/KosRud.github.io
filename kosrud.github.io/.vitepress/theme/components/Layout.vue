@@ -7,7 +7,6 @@ import {
     ComponentPublicInstance,
     getCurrentInstance,
     onMounted,
-    onUnmounted,
     ref,
     type Ref,
 } from "vue";
@@ -21,6 +20,7 @@ import {
     AdaptiveStage,
 } from "./composables/adaptiveStages";
 import { pxToRem } from "./composables/unitConverter";
+import { useResizeObserver } from "./composables/resizeObserver";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { frontmatter } = useData<ThemeConfig>();
@@ -43,6 +43,7 @@ function handleAdaptivePeference() {
             console.error("Layout container element ref not set");
             return;
         }
+
         const width = containerElement.value.clientWidth;
 
         adaptivePreference.value.requestedStage =
@@ -51,24 +52,23 @@ function handleAdaptivePeference() {
                 : AdaptiveStage.compact;
     }
 
-    const resizeObserver = new ResizeObserver((entries) => {
-        updateAdaptivePreference();
-    });
+    useResizeObserver(
+        () => {
+            updateAdaptivePreference();
+        },
+        () => {
+            const html = document.querySelector("html");
 
-    onMounted(() => {
-        if (!containerElement.value) {
-            console.error("Layout container element ref not set");
-            return;
+            if (!html) {
+                console.error("<html> element not found");
+                return [];
+            }
+
+            return [html];
         }
+    );
 
-        resizeObserver.observe(containerElement.value);
-
-        updateAdaptivePreference();
-    });
-
-    onUnmounted(() => {
-        resizeObserver.disconnect();
-    });
+    onMounted(updateAdaptivePreference);
 }
 </script>
 
