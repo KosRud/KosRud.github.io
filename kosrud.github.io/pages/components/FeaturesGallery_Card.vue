@@ -19,7 +19,7 @@ const store = useStore();
     <article
         :class="[
             $style.Card,
-            store.adaptiveStage == AdaptiveStage.collapsed
+            store.adaptiveStage == AdaptiveStage.compact
                 ? $style.Card___compact
                 : '',
             props.dummy ? $style.FeaturesGallery_card___dummy : '',

@@ -47,7 +47,7 @@ const devIcons = {
 <template>
     <div
         :class="[
-            store.adaptiveStage == AdaptiveStage.collapsed
+            store.adaptiveStage == AdaptiveStage.compact
                 ? $style.Bio___compact
                 : '',
         ]"

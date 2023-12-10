@@ -39,7 +39,7 @@ onUnmounted(() => {
     <div
         :class="[
             $style.HomePage,
-            store.adaptiveStage == AdaptiveStage.collapsed
+            store.adaptiveStage == AdaptiveStage.compact
                 ? $style.HomePage___compact
                 : '',
         ]"
