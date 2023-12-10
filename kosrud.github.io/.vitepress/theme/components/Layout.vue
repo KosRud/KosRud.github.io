@@ -3,12 +3,24 @@ import LayoutOverlay from "./LayoutOverlay.vue";
 import LayoutMainDoc from "./LayoutMainDoc.vue";
 
 import { useStoreService } from "./pinia/store";
-import { ComponentPublicInstance, getCurrentInstance } from "vue";
+import {
+    ComponentPublicInstance,
+    getCurrentInstance,
+    onMounted,
+    onUnmounted,
+    ref,
+    type Ref,
+} from "vue";
 import { useData } from "vitepress";
 import { createPinia } from "pinia";
 
 import type { ThemeConfig } from "../ThemeConfig";
 import { useDarkModeEnforce } from "./composables/darkMode";
+import {
+    useAdaptivePreference,
+    AdaptiveStage,
+} from "./composables/adaptiveStages";
+import { pxToRem } from "./composables/unitConverter";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { frontmatter } = useData<ThemeConfig>();
@@ -16,11 +28,55 @@ const { frontmatter } = useData<ThemeConfig>();
 getCurrentInstance()?.appContext.app.use(createPinia());
 const store = useStoreService();
 
+const containerElement: Ref<Element | null> = ref(null);
+
+handleAdaptivePeference();
 useDarkModeEnforce(false);
+
+const adaptiveThresholdRem = 1200;
+
+function handleAdaptivePeference() {
+    const adaptivePreference = useAdaptivePreference();
+
+    function updateAdaptivePreference() {
+        if (!containerElement.value) {
+            console.error("Layout container element ref not set");
+            return;
+        }
+        const width = containerElement.value.clientWidth;
+
+        adaptivePreference.value.requestedStage =
+            pxToRem(width) >= adaptiveThresholdRem
+                ? AdaptiveStage.full
+                : AdaptiveStage.compact;
+    }
+
+    const resizeObserver = new ResizeObserver((entries) => {
+        updateAdaptivePreference();
+    });
+
+    onMounted(() => {
+        if (!containerElement.value) {
+            console.error("Layout container element ref not set");
+            return;
+        }
+
+        resizeObserver.observe(containerElement.value);
+
+        updateAdaptivePreference();
+    });
+
+    onUnmounted(() => {
+        resizeObserver.disconnect();
+    });
+}
 </script>
 
 <template>
-    <div :class="$style.Layout">
+    <div
+        :class="$style.Layout"
+        :ref="(element) => {containerElement = element as HTMLElement}"
+    >
         <LayoutMainDoc
             :class="[
                 $style.Main,
