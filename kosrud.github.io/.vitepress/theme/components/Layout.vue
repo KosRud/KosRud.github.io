@@ -27,6 +27,7 @@ const { frontmatter } = useData<ThemeConfig>();
 
 getCurrentInstance()?.appContext.app.use(createPinia());
 const store = useStoreService();
+const adaptivePreference = useAdaptivePreference();
 
 const containerElement: Ref<Element | null> = ref(null);
 
@@ -36,39 +37,28 @@ useDarkModeEnforce(false);
 const adaptiveThresholdRem = 1200;
 
 function handleAdaptivePeference() {
-    const adaptivePreference = useAdaptivePreference();
-
-    function updateAdaptivePreference() {
-        if (!containerElement.value) {
-            console.error("Layout container element ref not set");
-            return;
-        }
-
-        const width = containerElement.value.clientWidth;
-
-        adaptivePreference.value.requestedStage =
-            pxToRem(width) >= adaptiveThresholdRem
-                ? AdaptiveStage.full
-                : AdaptiveStage.compact;
-    }
-
     useResizeObserver(
         () => {
             updateAdaptivePreference();
         },
-        () => {
-            const html = document.querySelector("html");
-
-            if (!html) {
-                console.error("<html> element not found");
-                return [];
-            }
-
-            return [html];
-        }
+        () => [document.querySelector("html")]
     );
 
     onMounted(updateAdaptivePreference);
+}
+
+function updateAdaptivePreference() {
+    if (!containerElement.value) {
+        console.error("Layout container element ref not set");
+        return;
+    }
+
+    const width = containerElement.value.clientWidth;
+
+    adaptivePreference.value.requestedStage =
+        pxToRem(width) >= adaptiveThresholdRem
+            ? AdaptiveStage.full
+            : AdaptiveStage.compact;
 }
 </script>
 
