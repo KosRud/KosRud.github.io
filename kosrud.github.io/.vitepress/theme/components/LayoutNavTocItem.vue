@@ -4,7 +4,7 @@ import LayoutNavItemText from "./LayoutNavItemText.vue";
 import { ref, Ref, computed, watchEffect, onMounted } from "vue";
 import { useStore } from "./pinia/store";
 
-import { TocItem } from "./composables/Toc/tocItems";
+import { type TocItem } from "./composables/Toc/tocItems";
 import { scrollIntoViewIfNeeded } from "./composables/scrollIntoView";
 
 const props = defineProps<{
