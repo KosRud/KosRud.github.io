@@ -1,6 +1,4 @@
-import type { Ref } from "vue";
-
-import { onMounted, onUnmounted, ref, watch, watchEffect } from "vue";
+import { onMounted, onUnmounted, ref, Ref, watchEffect } from "vue";
 
 import { useStore } from "../pinia/store";
 

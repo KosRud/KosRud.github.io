@@ -1,4 +1,4 @@
-import type { Ref } from "vue";
+import { Ref } from "vue";
 
 import { ref, watchEffect } from "vue";
 import { onContentUpdated, useRoute } from "vitepress";

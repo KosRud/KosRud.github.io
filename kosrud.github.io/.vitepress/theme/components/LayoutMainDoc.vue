@@ -3,7 +3,7 @@ import LayoutError404 from "./LayoutError404.vue";
 import MarkdownWrapper from "./MarkdownWrapper.vue";
 import YouAreHere from "./YouAreHere.vue";
 
-import type { ComponentPublicInstance } from "vue";
+import { ComponentPublicInstance } from "vue";
 import { useData } from "vitepress";
 
 import { useStore } from "./pinia/store";

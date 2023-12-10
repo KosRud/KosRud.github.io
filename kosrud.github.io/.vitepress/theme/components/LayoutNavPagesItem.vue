@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import LayoutNavItemText from "./LayoutNavItemText.vue";
 
-import { type Ref, ref, computed, onMounted, watchEffect } from "vue";
+import { Ref, ref, computed, onMounted, watchEffect } from "vue";
 
-import type { NavItem } from "../ThemeConfig";
+import { NavItem } from "../ThemeConfig";
 import { useIsNavItemActive } from "./composables/navItem";
 import { useDarkModeDetect } from "./composables/darkMode";
 import { useOneChildOpen } from "./composables/oneChildOpen";

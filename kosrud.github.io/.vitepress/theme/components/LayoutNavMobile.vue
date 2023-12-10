@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import type { Ref } from "vue";
-
-import { watchEffect, ref, onMounted } from "vue";
+import { watchEffect, ref, Ref, onMounted } from "vue";
 
 const props = defineProps<{
     isOpen: boolean;

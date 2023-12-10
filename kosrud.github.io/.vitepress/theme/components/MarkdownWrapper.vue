@@ -1,9 +1,14 @@
 <script setup lang="ts">
-//
+import { Ref, ref } from "vue";
+
+const containerElement: Ref<Element | null> = ref(null);
 </script>
 
 <template>
-    <div :class="$style.Markdown">
+    <div
+        :ref="(element) => {containerElement = element as Element}"
+        :class="$style.Markdown"
+    >
         <slot />
     </div>
 </template>

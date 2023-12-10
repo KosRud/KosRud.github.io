@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
 
-import type { ThemeConfig } from "../ThemeConfig";
+import { ThemeConfig } from "../ThemeConfig";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site } = useData<ThemeConfig>();

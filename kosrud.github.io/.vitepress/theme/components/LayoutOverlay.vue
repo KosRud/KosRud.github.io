@@ -8,7 +8,7 @@ import { useData } from "vitepress";
 import { useStore } from "./pinia/store";
 import { useCssModule } from "vue";
 
-import type { ThemeConfig } from "../ThemeConfig";
+import { ThemeConfig } from "../ThemeConfig";
 import { AdaptiveStage } from "./composables/adaptiveStages";
 import { watchEffect } from "vue";
 

@@ -1,8 +1,13 @@
-import { useStore } from "../../pinia/store";
-import type { InjectionKey, Ref } from "vue";
-
-import { onUnmounted, watchEffect, onBeforeMount, onMounted } from "vue";
+import {
+    onUnmounted,
+    watchEffect,
+    onBeforeMount,
+    onMounted,
+    InjectionKey,
+    Ref,
+} from "vue";
 import { onContentUpdated } from "vitepress";
+import { useStore } from "../../pinia/store";
 
 import { TocItem } from "./tocItems.js";
 
