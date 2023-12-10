@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-import type { Ref } from "vue";
-
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, Ref } from "vue";
 import { useData } from "vitepress";
 import { useStore } from "./pinia/store";
 
@@ -10,7 +8,7 @@ import {
     useAdaptivePreference,
 } from "./composables/adaptiveStages";
 
-import type { ThemeConfig } from "../ThemeConfig";
+import { ThemeConfig } from "../ThemeConfig";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site } = useData<ThemeConfig>();

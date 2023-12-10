@@ -1,7 +1,5 @@
-import type { Ref, ComponentPublicInstance } from "vue";
-
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { ref, Ref, ComponentPublicInstance } from "vue";
 import {
     AdaptiveStage,
     useTrackAdaptiveStage,

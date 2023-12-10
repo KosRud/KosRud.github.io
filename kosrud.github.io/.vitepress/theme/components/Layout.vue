@@ -8,12 +8,12 @@ import {
     getCurrentInstance,
     onMounted,
     ref,
-    type Ref,
+    Ref,
 } from "vue";
 import { useData } from "vitepress";
 import { createPinia } from "pinia";
 
-import type { ThemeConfig } from "../ThemeConfig";
+import { ThemeConfig } from "../ThemeConfig";
 import { useDarkModeEnforce } from "./composables/darkMode";
 import {
     useAdaptivePreference,

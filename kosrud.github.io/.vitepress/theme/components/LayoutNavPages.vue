@@ -4,7 +4,7 @@ import LayoutNavPagesItem from "./LayoutNavPagesItem.vue";
 import { computed, onMounted, ref } from "vue";
 import { useData, useRoute } from "vitepress";
 
-import type { ThemeConfig } from "../ThemeConfig";
+import { ThemeConfig } from "../ThemeConfig";
 import { urlMatch } from "./composables/urlMatch";
 import { useOneChildOpen } from "./composables/oneChildOpen";
 

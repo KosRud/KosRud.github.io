@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ThemeConfig, NavItem } from "../ThemeConfig";
+import { ThemeConfig, NavItem } from "../ThemeConfig";
 
 import { computed } from "vue";
 import { useData, useRoute } from "vitepress";

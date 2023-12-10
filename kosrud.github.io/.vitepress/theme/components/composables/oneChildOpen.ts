@@ -1,6 +1,4 @@
-import type { Ref } from "vue";
-
-import { ref } from "vue";
+import { ref, Ref } from "vue";
 
 import { NavItem } from "theme/ThemeConfig";
 import { urlMatch } from "./urlMatch";
