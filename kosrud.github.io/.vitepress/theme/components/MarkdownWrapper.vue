@@ -151,12 +151,12 @@ useResizeObserver(
         }
 
         td {
-            border: 1px solid @color-border;
+            border: 1rem solid @color-border;
             padding: @gap*0.5 @gap;
         }
 
         th:not(:last-child) {
-            border-right: 1px solid @color-border;
+            border-right: rem solid @color-border;
         }
     }
 
