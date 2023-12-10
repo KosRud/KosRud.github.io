@@ -215,10 +215,6 @@ const devIcons = {
         margin-right: 0rem;
     }
 
-    .Bio_photo {
-        // border-radius: 50% / 20%;
-    }
-
     .DeviconsTable {
         td {
             white-space: wrap;
