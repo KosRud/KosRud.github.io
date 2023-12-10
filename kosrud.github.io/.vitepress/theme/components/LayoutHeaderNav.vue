@@ -1,12 +1,11 @@
 <script lang="ts" setup>
 import type { Ref } from "vue";
 
-import { watch, ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useData } from "vitepress";
 import { useStore } from "./pinia/store";
 
 import {
-    AdaptivePreference,
     AdaptiveStage,
     useAdaptivePreference,
 } from "./composables/adaptiveStages";
@@ -19,22 +18,23 @@ const { site } = useData<ThemeConfig>();
 const store = useStore();
 
 import LayoutHeaderNavItem from "./LayoutHeaderNavItem.vue";
+import { useResizeObserver } from "./composables/resizeObserver";
 
 const itemList: Ref<Element | null> = ref(null);
 const adaptivePreference = useAdaptivePreference();
-setupAdaptivePreference(adaptivePreference);
+handleAdaptivePeference();
 
 const visibility = computed(() => {
     return store.adaptiveStage == AdaptiveStage.full ? "visible" : "hidden";
 });
 
-function setupAdaptivePreference(adaptivePreference: Ref<AdaptivePreference>) {
-    function updateAdaptivePreference() {
-        adaptivePreference.value.requestedStage = getAdaptivePreference();
-    }
-
-    watch(store.viewportSize, updateAdaptivePreference);
+function handleAdaptivePeference() {
+    useResizeObserver(updateAdaptivePreference, () => [itemList.value]);
     onMounted(updateAdaptivePreference);
+}
+
+function updateAdaptivePreference() {
+    adaptivePreference.value.requestedStage = getAdaptivePreference();
 }
 
 function getAdaptivePreference() {
