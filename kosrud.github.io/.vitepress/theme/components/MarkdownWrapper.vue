@@ -1,13 +1,29 @@
 <script setup lang="ts">
 import { Ref, ref } from "vue";
+import { useResizeObserver } from "./composables/resizeObserver";
 
 const containerElement: Ref<Element | null> = ref(null);
+const isNarrow = ref(false);
+const narrowThresholdRem = 500;
+
+useResizeObserver(
+    () => {
+        if (!containerElement.value) {
+            console.error("markdown container element ref not set");
+            return;
+        }
+
+        isNarrow.value =
+            containerElement.value.clientWidth < narrowThresholdRem;
+    },
+    () => containerElement.value
+);
 </script>
 
 <template>
     <div
         :ref="(element) => {containerElement = element as Element}"
-        :class="$style.Markdown"
+        :class="[$style.Markdown, isNarrow ? $style.Markdown___narrow : '']"
     >
         <slot />
     </div>
@@ -147,5 +163,9 @@ const containerElement: Ref<Element | null> = ref(null);
     /*
 		ETC
 	\*----------------------------------*/
+}
+
+.Markdown___narrow {
+    text-align: left;
 }
 </style>
