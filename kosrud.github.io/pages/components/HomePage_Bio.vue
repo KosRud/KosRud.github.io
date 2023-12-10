@@ -20,7 +20,7 @@ const devIcons = {
         { url: "/assets/icons/dev/css3/icon.svg" },
         { url: "/assets/icons/dev/less/icon.svg" },
 
-        { url: "/assets/icons/dev/immutable/icon.png" },
+        { url: "/assets/icons/dev/immutable/icon.svg" },
         { url: "/assets/icons/dev/typedoc/icon.png" },
         { url: "/assets/icons/dev/node/icon.svg" },
 
@@ -33,6 +33,8 @@ const devIcons = {
     ],
     dabbled: [
         { url: "/assets/icons/dev/react/icon.svg" },
+        { url: "/assets/icons/dev/redis/icon.svg" },
+        { url: "/assets/icons/dev/mongodb/icon.svg" },
         { url: "/assets/icons/dev/fastify/icon.svg" },
         { url: "/assets/icons/dev/deno/icon.svg" },
         { url: "/assets/icons/dev/cython/icon.svg" },

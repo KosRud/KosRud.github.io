@@ -80,12 +80,16 @@ function makeHeadingId(title: string) {
 
 .DevIcon {
     width: @size*2;
-    aspect-ratio: 1;
     vertical-align: bottom;
     background-color: @color-background-card;
     border-radius: @inf;
 
-    box-shadow: -4px -4px 4px 0px inset #0002, 4px 4px 4px 0px inset #ffff;
+    aspect-ratio: 1;
+    object-fit: contain;
+    padding: 4%;
+    overflow: visible;
+
+    box-shadow: 0rem -4rem 6rem 0px inset #0003, 0rem 4rem 6rem 0px inset #ffff;
 }
 
 .Uses_title {
