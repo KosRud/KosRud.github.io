@@ -4,7 +4,7 @@ import { useResizeObserver } from "../../.vitepress/theme/components/composables
 import { pxToRem } from "../../.vitepress/theme/components/composables/unitConverter";
 
 const adaptiveStage = ref(0);
-const isNarrowThresholdsRem = [1100, 900, 700, 500];
+const isNarrowThresholdsRem = [1100, 900, 700];
 const containerElement: Ref<Element | null> = ref(null);
 
 useResizeObserver(
@@ -73,7 +73,6 @@ const devIcons = {
             [$style.Bio___adaptive_0]: adaptiveStage >= 0,
             [$style.Bio___adaptive_1]: adaptiveStage >= 1,
             [$style.Bio___adaptive_2]: adaptiveStage >= 2,
-            [$style.Bio___adaptive_3]: adaptiveStage >= 3,
         }"
         :ref="(element) => {containerElement = element as Element}"
     >
@@ -260,16 +259,11 @@ const devIcons = {
 .Bio___adaptive_2 {
     .Bio_text {
         flex: 1 0 100%;
+        text-align: left;
     }
 
     .Bio_photo {
         border-radius: @gap @gap 30% 30% / @gap @gap 50% 50%;
-    }
-}
-
-.Bio___adaptive_3 {
-    .Bio_text {
-        text-align: left;
     }
 }
 
