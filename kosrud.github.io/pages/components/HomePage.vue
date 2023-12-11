@@ -164,8 +164,6 @@ function handleScrolling() {
     box-shadow: @shadow-l;
     background-color: @color-white;
 
-    text-align: justify;
-
     & > * {
         flex-shrink: 0;
         width: 100%;
@@ -183,27 +181,11 @@ function handleScrolling() {
     .ContentWrapper {
         padding: @Main-padding-horizontal-compact;
         padding-top: @Main-padding-horizontal-compact* (3/2);
+        margin-bottom: @gap*2;
     }
 
     .Hero {
         display: none;
-    }
-
-    .Hero_titleContainer {
-        text-shadow: 1px 1px 0px black, 2px 2px 6px #000a;
-    }
-
-    .Hero_title {
-        font-size: @size-xxl;
-    }
-
-    .Hero_subtitle {
-        font-size: @size-l;
-    }
-
-    .ContentWrapper > * {
-        margin-bottom: @gap*2;
-        text-align: left;
     }
 }
 
