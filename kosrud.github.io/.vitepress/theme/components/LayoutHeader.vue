@@ -1,21 +1,61 @@
 <script lang="ts" setup>
 import { useStore } from "./pinia/store";
+import { Ref, onUpdated, ref } from "vue";
 
 import LayoutHeaderNav from "./LayoutHeaderNav.vue";
 import LayoutHeaderButtonBurger from "./LayoutHeaderButtonBurger.vue";
 import SiteTitle from "./SiteTitle.vue";
 import { AdaptiveStage } from "./composables/adaptiveStages";
+import { useResizeObserver } from "./composables/resizeObserver";
 
 const store = useStore();
+
+const siteTitleContainer: Ref<Element | null> = ref(null);
+const header: Ref<Element | null> = ref(null);
+const siteTitleVisibility = ref("visible");
+
+useResizeObserver(updateSiteTitleVisibility, () => header.value, true);
+onUpdated(updateSiteTitleVisibility);
+
+function updateSiteTitleVisibility() {
+    if (!siteTitleContainer.value) {
+        console.error("site title container reference not set");
+        return;
+    }
+
+    const nextSibling = siteTitleContainer.value.nextElementSibling;
+
+    if (!nextSibling) {
+        return;
+    }
+
+    if (
+        siteTitleContainer.value.getBoundingClientRect().right >=
+        nextSibling.getBoundingClientRect().left
+    ) {
+        siteTitleVisibility.value = "hidden";
+    } else {
+        siteTitleVisibility.value = "visible";
+    }
+}
 </script>
 
 <template>
-    <header :class="$style.Header">
-        <div :class="$style.SiteTitleContainer">
+    <header
+        :class="$style.Header"
+        :ref="(element) => {header = element as Element}"
+    >
+        <div
+            :class="$style.SiteTitleContainer"
+            :ref="(element) => {siteTitleContainer = element as Element}"
+        >
             <SiteTitle />
         </div>
-        <LayoutHeaderNav :class="$style.NavTop" />
-        <template v-if="store.adaptiveStage == AdaptiveStage.compact">
+        <LayoutHeaderNav
+            :class="$style.NavTop"
+            v-if="store.adaptiveStage == AdaptiveStage.full"
+        />
+        <template v-else>
             <LayoutHeaderButtonBurger
                 :class="$style.BurgerToc"
                 :title="'On this page'"
@@ -53,6 +93,7 @@ const store = useStore();
     flex-direction: row;
     align-items: stretch;
     justify-content: start;
+    visibility: v-bind(siteTitleVisibility);
 }
 
 .Header {
