@@ -57,6 +57,7 @@ const devIcons = {
     dabbled: [
         { url: "/assets/icons/dev/react/icon.svg" },
         { url: "/assets/icons/dev/redis/icon.svg" },
+        { url: "/assets/icons/dev/postgresql/icon.svg" },
         { url: "/assets/icons/dev/mongodb/icon.svg" },
         { url: "/assets/icons/dev/fastify/icon.svg" },
         { url: "/assets/icons/dev/deno/icon.svg" },
