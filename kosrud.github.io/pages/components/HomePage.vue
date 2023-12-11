@@ -181,7 +181,6 @@ function handleScrolling() {
     .ContentWrapper {
         padding: @Main-padding-horizontal-compact;
         padding-top: @Main-padding-horizontal-compact* (3/2);
-        margin-bottom: @gap*2;
     }
 
     .Hero {
