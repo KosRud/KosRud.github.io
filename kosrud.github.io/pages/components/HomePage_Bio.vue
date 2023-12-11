@@ -239,6 +239,11 @@ const devIcons = {
     .DeviconsTable {
         td {
             white-space: wrap;
+
+            &:first-child {
+                width: 100%;
+                text-align: left;
+            }
         }
 
         tr {
