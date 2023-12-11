@@ -3,13 +3,7 @@ import LayoutOverlay from "./LayoutOverlay.vue";
 import LayoutMainDoc from "./LayoutMainDoc.vue";
 
 import { useStoreService } from "./pinia/store";
-import {
-    ComponentPublicInstance,
-    getCurrentInstance,
-    onMounted,
-    ref,
-    Ref,
-} from "vue";
+import { ComponentPublicInstance, getCurrentInstance, ref, Ref } from "vue";
 import { useData } from "vitepress";
 import { createPinia } from "pinia";
 
@@ -28,38 +22,29 @@ const { frontmatter } = useData<ThemeConfig>();
 getCurrentInstance()?.appContext.app.use(createPinia());
 const store = useStoreService();
 const adaptivePreference = useAdaptivePreference();
+const adaptiveThresholdRem = 1200;
 
 const containerElement: Ref<Element | null> = ref(null);
 
-handleAdaptivePeference();
 useDarkModeEnforce(false);
 
-const adaptiveThresholdRem = 1200;
+useResizeObserver(
+    () => {
+        if (!containerElement.value) {
+            console.error("Layout container element ref not set");
+            return;
+        }
 
-function handleAdaptivePeference() {
-    useResizeObserver(
-        () => {
-            updateAdaptivePreference();
-        },
-        () => document.querySelector("html")
-    );
+        const width = containerElement.value.clientWidth;
 
-    onMounted(updateAdaptivePreference);
-}
-
-function updateAdaptivePreference() {
-    if (!containerElement.value) {
-        console.error("Layout container element ref not set");
-        return;
-    }
-
-    const width = containerElement.value.clientWidth;
-
-    adaptivePreference.value.requestedStage =
-        pxToRem(width) >= adaptiveThresholdRem
-            ? AdaptiveStage.full
-            : AdaptiveStage.compact;
-}
+        adaptivePreference.value.requestedStage =
+            pxToRem(width) >= adaptiveThresholdRem
+                ? AdaptiveStage.full
+                : AdaptiveStage.compact;
+    },
+    () => document.querySelector("html"),
+    true
+);
 </script>
 
 <template>

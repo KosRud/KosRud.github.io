@@ -2,11 +2,16 @@ import { onMounted, onUnmounted } from "vue";
 
 export function useResizeObserver(
     callback: (entries: ResizeObserverEntry[]) => void,
-    getElements: () => (Element | null)[] | Element | null
+    getElements: () => (Element | null)[] | Element | null,
+    callOnMounted: boolean
 ) {
     const resizeObserver = new ResizeObserver(callback);
 
     onMounted(() => {
+        if (callOnMounted) {
+            callback([]);
+        }
+
         const elements = getElements();
 
         if (!elements) {

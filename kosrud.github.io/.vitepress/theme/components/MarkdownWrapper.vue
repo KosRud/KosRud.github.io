@@ -16,7 +16,8 @@ useResizeObserver(
         isNarrow.value =
             containerElement.value.clientWidth < narrowThresholdRem;
     },
-    () => containerElement.value
+    () => containerElement.value,
+    true
 );
 </script>
 
