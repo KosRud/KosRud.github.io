@@ -22,8 +22,6 @@ useResizeObserver(
                 adaptiveStage.value = id;
             }
         });
-
-        console.log(pxToRem(containerElement.value.clientWidth));
     },
     () => containerElement.value,
     true
