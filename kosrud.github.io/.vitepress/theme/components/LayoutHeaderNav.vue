@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, onMounted, computed, Ref } from "vue";
+import { ref, computed, Ref } from "vue";
 import { useData } from "vitepress";
 import { useStore } from "./pinia/store";
 
@@ -27,8 +27,7 @@ const visibility = computed(() => {
 });
 
 function handleAdaptivePeference() {
-    useResizeObserver(updateAdaptivePreference, () => [itemList.value]);
-    onMounted(updateAdaptivePreference);
+    useResizeObserver(updateAdaptivePreference, () => itemList.value, true);
 }
 
 function updateAdaptivePreference() {
