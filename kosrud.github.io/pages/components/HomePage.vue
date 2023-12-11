@@ -3,17 +3,13 @@ import type { Ref, ComponentPublicInstance } from "vue";
 
 import FeaturesGallery from "./FeaturesGallery.vue";
 
-import { useStore } from "../../.vitepress/theme/components/pinia/store";
-
 import { computed, onMounted, onUnmounted, ref } from "vue";
-import { AdaptiveStage } from "../../.vitepress/theme/components/composables/adaptiveStages";
+import { useResizeObserver } from "../../.vitepress/theme/components/composables/resizeObserver";
+import { pxToRem } from "../../.vitepress/theme/components/composables/unitConverter";
 
 const props = defineProps<{ dummyFeatures?: number }>();
 
 const hero: Ref<Element | null> = ref(null);
-
-const store = useStore();
-
 const scrollY = ref(0);
 const heroBrightness = computed(() => {
     if (!hero.value) {
@@ -22,27 +18,44 @@ const heroBrightness = computed(() => {
 
     return Math.max(1 - (scrollY.value / hero.value.clientHeight) * 0.5, 0);
 });
+const containerDiv: Ref<Element | null> = ref(null);
+handleScrolling();
 
-function onScroll() {
-    scrollY.value = window.scrollY;
+const compactThresholdRem = 700;
+const isCompact = ref(false);
+useResizeObserver(
+    () => {
+        if (!containerDiv.value) {
+            console.error("homepage container div reference not set");
+            return;
+        }
+
+        const width = pxToRem(containerDiv.value.clientWidth);
+
+        isCompact.value = width < compactThresholdRem;
+    },
+    () => containerDiv.value,
+    true
+);
+
+function handleScrolling() {
+    function onScroll() {
+        scrollY.value = window.scrollY;
+    }
+
+    onMounted(() => {
+        document.addEventListener("scroll", onScroll, { passive: true });
+    });
+    onUnmounted(() => {
+        document.removeEventListener("scroll", onScroll);
+    });
 }
-
-onMounted(() => {
-    document.addEventListener("scroll", onScroll, { passive: true });
-});
-onUnmounted(() => {
-    document.removeEventListener("scroll", onScroll);
-});
 </script>
 
 <template>
     <div
-        :class="[
-            $style.HomePage,
-            store.adaptiveStage == AdaptiveStage.compact
-                ? $style.HomePage___compact
-                : '',
-        ]"
+        :class="[$style.HomePage, isCompact ? $style.HomePage___compact : '']"
+        :ref="(element) => {containerDiv = element as Element}"
     >
         <section
             :ref="(element: Element | ComponentPublicInstance | null) => {
