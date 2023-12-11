@@ -9,7 +9,7 @@ const props = defineProps<{
 
 <template>
     <div
-        :class="[$style.BurgerWrapper, props.isOpen ? $style.open : '']"
+        :class="{ [$style.BurgerWrapper]: true, [$style.open]: props.isOpen }"
         @click="props.toggleIsOpen"
     >
         <div :class="$style.Burger_title">{{ props.title }}</div>

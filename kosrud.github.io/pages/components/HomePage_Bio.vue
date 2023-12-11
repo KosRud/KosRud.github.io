@@ -1,8 +1,33 @@
 <script setup lang="ts">
-import { AdaptiveStage } from "../../.vitepress/theme/components/composables/adaptiveStages";
-import { useStore } from "../../.vitepress/theme/components/pinia/store";
+import { Ref, ref } from "vue";
+import { useResizeObserver } from "../../.vitepress/theme/components/composables/resizeObserver";
+import { pxToRem } from "../../.vitepress/theme/components/composables/unitConverter";
 
-const store = useStore();
+const adaptiveStage = ref(0);
+const isNarrowThresholdsRem = [1000, 900, 600];
+const containerElement: Ref<Element | null> = ref(null);
+
+useResizeObserver(
+    () => {
+        if (!containerElement.value) {
+            console.error("Homepage bio container element not found");
+            return;
+        }
+
+        const width = pxToRem(containerElement.value.clientWidth);
+
+        adaptiveStage.value = -1;
+        isNarrowThresholdsRem.forEach((threshold, id) => {
+            if (width < threshold) {
+                adaptiveStage.value = id;
+            }
+        });
+
+        console.log(pxToRem(containerElement.value.clientWidth));
+    },
+    () => containerElement.value,
+    true
+);
 
 const devIcons = {
     worked: [
@@ -46,11 +71,12 @@ const devIcons = {
 
 <template>
     <div
-        :class="[
-            store.adaptiveStage == AdaptiveStage.compact
-                ? $style.Bio___compact
-                : '',
-        ]"
+        :class="{
+            [$style.Bio___adaptive_0]: adaptiveStage >= 0,
+            [$style.Bio___adaptive_1]: adaptiveStage >= 1,
+            [$style.Bio___adaptive_2]: adaptiveStage >= 2,
+        }"
+        :ref="(element) => {containerElement = element as Element}"
     >
         <div :class="$style.Bio_titleContainer">
             <div :class="$style.Bio_titleSpacer"></div>
@@ -151,6 +177,7 @@ const devIcons = {
     flex: 1 1 400rem;
 
     font-size: @size-l;
+    text-align: justify;
 
     h1,
     h2,
@@ -199,22 +226,22 @@ const devIcons = {
 	Responsive
 \*----------------------------------*/
 
-.Bio___compact {
-    font-size: @size;
-
-    h2 {
-        font-size: @size-xl;
-    }
-
-    .Bio_content {
-        gap: @gap*2 @gap*4;
-        margin-right: 0rem;
-    }
-
+.Bio___adaptive_0 {
+    .Bio_content,
     .Bio_titleContainer {
         margin-right: 0rem;
     }
 
+    .Bio_titleSpacer {
+        display: none;
+    }
+
+    .Bio_title {
+        text-align: center;
+    }
+}
+
+.Bio___adaptive_1 {
     .DeviconsTable {
         td {
             white-space: wrap;
@@ -225,6 +252,21 @@ const devIcons = {
             display: flex;
             flex-wrap: wrap;
         }
+    }
+}
+
+.Bio___adaptive_2 {
+    // background-color: blue;
+}
+
+.Bio___narrow {
+    .Bio_content {
+        gap: @gap*2 @gap*4;
+        margin-right: 0rem;
+    }
+
+    .Bio_titleContainer {
+        margin-right: 0rem;
     }
 }
 </style>
