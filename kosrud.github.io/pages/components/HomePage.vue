@@ -21,7 +21,7 @@ const heroBrightness = computed(() => {
 const containerDiv: Ref<Element | null> = ref(null);
 handleScrolling();
 
-const compactThresholdRem = 700;
+const compactThresholdRem = 800;
 const isCompact = ref(false);
 useResizeObserver(
     () => {
