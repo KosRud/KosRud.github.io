@@ -70,17 +70,10 @@ useResizeObserver(
     }
 
     h2 {
-        min-width: min(350rem, 100%);
-        width: min-content;
-        margin-left: auto;
-        margin-right: auto;
-
-        border: @border-width solid @color-background-dark;
-        border-radius: @gap;
+        .h2_bordered();
 
         font-size: @size-l;
         text-align: center;
-        font-weight: bold;
     }
 
     h3 {

@@ -74,9 +74,9 @@ function handleScrolling() {
         </section>
         <div :class="$style.ContentWrapper">
             <section>
-                <slot name="Bio" />
-            </section>
-            <section>
+                <div :class="$style.Bio">
+                    <slot name="Bio" />
+                </div>
                 <FeaturesGallery :dummies="props.dummyFeatures">
                     <div>
                         <slot name="Features" />
@@ -84,9 +84,13 @@ function handleScrolling() {
                 </FeaturesGallery>
             </section>
             <section>
-                <!-- <div :class="$style.Banners">
-                    <slot name="Banners" />
-                </div> -->
+                <h2 :class="$style.Projects_heading">Project highlights</h2>
+                <div :class="$style.Projects_container">
+                    <div
+                        :class="$style.Project_banner"
+                        v-for="id in Array.from({ length: 8 })"
+                    ></div>
+                </div>
             </section>
         </div>
     </div>
@@ -169,8 +173,44 @@ function handleScrolling() {
         width: 100%;
         max-width: 1200rem;
         height: max-content;
-        margin-bottom: @gap*2;
+        margin-bottom: @gap*4;
     }
+}
+
+.Bio {
+    font-size: @size;
+
+    h2 {
+        font-size: @size-xl;
+        font-weight: bold;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    table,
+    p {
+        margin-bottom: @gap*1.5;
+    }
+}
+
+.Projects_heading {
+    .h2_bordered();
+    font-size: @size-xl;
+    margin-bottom: @gap*2;
+}
+
+.Projects_container {
+    display: flex;
+    flex-direction: column;
+    gap: @gap*2;
+}
+
+.Project_banner {
+    min-height: 100rem;
+    box-shadow: @shadow;
+    border: @border-width-s solid @color-border;
 }
 
 /*
