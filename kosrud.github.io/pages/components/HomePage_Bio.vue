@@ -260,10 +260,19 @@ const devIcons = {
 }
 
 .Bio___adaptive_2 {
-    // put photo on separate line
+    .Bio_text {
+        flex: 1 0 100%;
+    }
+
+    .Bio_photo {
+        border-radius: @gap @gap 30% 30% / @gap @gap 50% 50%;
+    }
 }
 
 .Bio___adaptive_3 {
+    .Bio_text {
+        text-align: left;
+    }
 }
 
 .Bio___narrow {
