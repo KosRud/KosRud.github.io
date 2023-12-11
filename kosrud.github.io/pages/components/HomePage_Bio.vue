@@ -4,7 +4,7 @@ import { useResizeObserver } from "../../.vitepress/theme/components/composables
 import { pxToRem } from "../../.vitepress/theme/components/composables/unitConverter";
 
 const adaptiveStage = ref(0);
-const isNarrowThresholdsRem = [1000, 900, 600];
+const isNarrowThresholdsRem = [1100, 900, 700, 500];
 const containerElement: Ref<Element | null> = ref(null);
 
 useResizeObserver(
@@ -75,6 +75,7 @@ const devIcons = {
             [$style.Bio___adaptive_0]: adaptiveStage >= 0,
             [$style.Bio___adaptive_1]: adaptiveStage >= 1,
             [$style.Bio___adaptive_2]: adaptiveStage >= 2,
+            [$style.Bio___adaptive_3]: adaptiveStage >= 3,
         }"
         :ref="(element) => {containerElement = element as Element}"
     >
@@ -153,7 +154,7 @@ const devIcons = {
 }
 
 .Bio_title {
-    flex: 1 1 400rem;
+    flex: 1 1 600rem;
 
     font-size: @size-xl;
     font-weight: bold;
@@ -231,6 +232,23 @@ const devIcons = {
     .Bio_titleContainer {
         margin-right: 0rem;
     }
+}
+
+.Bio___adaptive_1 {
+    .Bio_content {
+        gap: @gap*2;
+    }
+
+    .DeviconsTable {
+        td {
+            white-space: wrap;
+        }
+
+        tr {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
 
     .Bio_titleSpacer {
         display: none;
@@ -241,22 +259,11 @@ const devIcons = {
     }
 }
 
-.Bio___adaptive_1 {
-    .DeviconsTable {
-        td {
-            white-space: wrap;
-            text-align: left;
-        }
-
-        tr {
-            display: flex;
-            flex-wrap: wrap;
-        }
-    }
+.Bio___adaptive_2 {
+    // put photo on separate line
 }
 
-.Bio___adaptive_2 {
-    // background-color: blue;
+.Bio___adaptive_3 {
 }
 
 .Bio___narrow {
