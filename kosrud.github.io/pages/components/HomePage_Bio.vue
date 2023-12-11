@@ -124,8 +124,7 @@ const devIcons = {
 @import "../../.vitepress/theme/style/mixins/index.less";
 
 @Bio_photo-width: 130rem;
-@Bio_photo-to-content-gap: @gap * 4;
-@Bio_content-gap: @gap*1.5;
+@Bio_photo-to-content-gap: @gap * 3;
 
 .DeviconsTable {
 	td:first-child {
@@ -144,17 +143,15 @@ const devIcons = {
 .Bio_title {
 	flex: 1 1 600rem;
 
-	font-size: @size-xl;
-	font-weight: bold;
 	max-width: @content-width;
-	margin-bottom: @Bio_content-gap;
+	text-align: left;
 }
 
 .Bio_content {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap-reverse;
-	gap: @Bio_content-gap @Bio_photo-to-content-gap;
+	gap: 0rem @Bio_photo-to-content-gap;
 	justify-content: center;
 	align-items: start;
 
@@ -167,14 +164,6 @@ const devIcons = {
 
 	font-size: @size-l;
 	text-align: justify;
-
-	h1,
-	h2,
-	h3,
-	h4,
-	p {
-		margin-bottom: @Bio_content-gap;
-	}
 }
 
 .Bio_titleContainer {
@@ -274,16 +263,5 @@ const devIcons = {
 	}
 
 
-}
-
-.Bio___narrow {
-	.Bio_content {
-		gap: @gap*2 @gap*4;
-		margin-right: 0rem;
-	}
-
-	.Bio_titleContainer {
-		margin-right: 0rem;
-	}
 }
 </style>
