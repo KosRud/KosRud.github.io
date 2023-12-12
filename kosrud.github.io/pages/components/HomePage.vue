@@ -88,7 +88,11 @@ function handleScrolling() {
                 <h2 :class="$style.Projects_heading">Project highlights</h2>
 
                 <div :class="$style.Projects_container">
-                    <CardTrapezoid v-for="id in Array.from({ length: 8 })">
+                    <CardTrapezoid
+                        :tilt="40"
+                        :height="200"
+                        v-for="id in Array.from({ length: 8 })"
+                    >
                     </CardTrapezoid>
                 </div>
             </section>
