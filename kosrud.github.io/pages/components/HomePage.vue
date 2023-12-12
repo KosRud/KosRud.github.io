@@ -2,6 +2,7 @@
 import type { Ref, ComponentPublicInstance } from "vue";
 
 import FeaturesGallery from "./FeaturesGallery.vue";
+import CardTrapezoid from "./CardTrapezoid.vue";
 
 import { computed, onMounted, onUnmounted, ref } from "vue";
 import { useResizeObserver } from "../../.vitepress/theme/components/composables/resizeObserver";
@@ -85,11 +86,10 @@ function handleScrolling() {
             </section>
             <section>
                 <h2 :class="$style.Projects_heading">Project highlights</h2>
+
                 <div :class="$style.Projects_container">
-                    <div
-                        :class="$style.Project_banner"
-                        v-for="id in Array.from({ length: 8 })"
-                    ></div>
+                    <CardTrapezoid v-for="id in Array.from({ length: 8 })">
+                    </CardTrapezoid>
                 </div>
             </section>
         </div>
@@ -205,12 +205,6 @@ function handleScrolling() {
     display: flex;
     flex-direction: column;
     gap: @gap*2;
-}
-
-.Project_banner {
-    min-height: 100rem;
-    box-shadow: @shadow;
-    border: @border-width-s solid @color-border;
 }
 
 /*
