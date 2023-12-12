@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FeaturesGallery_Card from "./FeaturesGallery_Card.vue";
+import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
 
 const props = defineProps<{
     dummies?: number;
@@ -11,12 +11,12 @@ const props = defineProps<{
     <div>
         <div :class="$style.FeaturesGallery">
             <slot />
-            <FeaturesGallery_Card
+            <FeaturesGalleryCard
                 dummy
                 name=""
                 :class="$style.FeaturesGallery_dummy"
                 v-for="_ in Array.from({ length: props.dummies ?? 0 })"
-            ></FeaturesGallery_Card>
+            ></FeaturesGalleryCard>
         </div>
     </div>
 </template>
