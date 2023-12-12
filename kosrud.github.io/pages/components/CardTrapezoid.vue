@@ -3,15 +3,19 @@ import { computed } from "vue";
 
 const props = defineProps<{ tilt: number; height: number }>();
 
-const perspectiveNum = 2000;
-const perspective = `${perspectiveNum}rem`;
-const angleValue = computed(() => `${props.tilt}deg`);
+const perspectiveUnitless = 2000;
+
+const perspective = `${perspectiveUnitless}rem`;
+const angle = computed(() => `${props.tilt}deg`);
 const angleSin = computed(() => Math.sin((props.tilt * Math.PI) / 180));
 const angleCos = computed(() => Math.cos((props.tilt * Math.PI) / 180));
 const depth = computed(() => props.height * angleSin.value);
 const height = computed(() => `${props.height / angleCos.value}rem`);
 const triangleWidth = computed(
-    () => `${(1 - perspectiveNum / (perspectiveNum + depth.value)) * 50}%`
+    () =>
+        `${
+            (1 - perspectiveUnitless / (perspectiveUnitless + depth.value)) * 50
+        }%`
 );
 </script>
 
@@ -62,7 +66,7 @@ const triangleWidth = computed(
     box-shadow: @shadow;
     border: @border-width-s solid @color-border;
 
-    transform: rotateX(calc(0deg - v-bind(angleValue)));
+    transform: rotateX(calc(0deg - v-bind(angle)));
     transform-origin: top;
 
     position: absolute;

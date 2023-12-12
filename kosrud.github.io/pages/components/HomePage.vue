@@ -89,7 +89,7 @@ function handleScrolling() {
 
                 <div :class="$style.Projects_container">
                     <CardTrapezoid
-                        :tilt="40"
+                        :tilt="30"
                         :height="200"
                         v-for="id in Array.from({ length: 8 })"
                     >
