@@ -70,7 +70,7 @@ useResizeObserver(
     }
 
     h2 {
-        .h2_bordered();
+        .heading2();
 
         font-size: @size-l;
         text-align: center;
@@ -87,10 +87,14 @@ useResizeObserver(
         color: @color-white;
     }
 
+    /*
+		Headings.Shadows
+	\*----------------------------------*/
+
     h1,
     h2,
     h3 {
-        box-shadow: @shadow;
+        .heading-shadow();
     }
 
     /*
