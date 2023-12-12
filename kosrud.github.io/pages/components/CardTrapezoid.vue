@@ -11,13 +11,14 @@ const angleSin = computed(() => Math.sin((props.tilt * Math.PI) / 180));
 const angleCos = computed(() => Math.cos((props.tilt * Math.PI) / 180));
 const depth = computed(() => props.height * angleSin.value);
 const height = computed(() => `${props.height / angleCos.value}rem`);
-const triangleWidth = computed(
-    () =>
-        `${
-            (1 - perspectiveUnitless / (perspectiveUnitless + depth.value)) * 50
-        }%`
-);
+const triangleWidth = computed(() => {
+    const ratio = perspectiveUnitless / (perspectiveUnitless + depth.value);
+    const percent = 50 * (1 - ratio) * (props.tilt >= 0 ? 1 : -1);
+    return `${percent}%`;
+});
 const transformOrigin = computed(() => (props.tilt >= 0 ? "top" : "bottom"));
+const clipTop = computed(() => (props.tilt >= 0 ? "0%" : "100%"));
+const clipBottom = computed(() => (props.tilt >= 0 ? "100%" : "0%"));
 </script>
 
 <template>
@@ -105,18 +106,24 @@ const transformOrigin = computed(() => (props.tilt >= 0 ? "top" : "bottom"));
     }
 
     overflow: hidden;
-
-    // background-color: green;
-    // opacity: 50%;
 }
 
 .Trapezoid_triangleLeft {
     height: 100%;
     width: v-bind(triangleWidth);
     float: left;
-    shape-outside: polygon(0% 0%, 100% 100%, 0% 100%);
-    clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
-    // background-color: red;
+    shape-outside: polygon(
+        0% 0%,
+        v-bind(clipTop) 0%,
+        v-bind(clipBottom) 100%,
+        0% 100%
+    );
+    clip-path: polygon(
+        0% 0%,
+        v-bind(clipTop) 0%,
+        v-bind(clipBottom) 100%,
+        0% 100%
+    );
     visibility: hidden;
 }
 
@@ -124,9 +131,18 @@ const transformOrigin = computed(() => (props.tilt >= 0 ? "top" : "bottom"));
     height: 100%;
     width: v-bind(triangleWidth);
     float: right;
-    shape-outside: polygon(100% 0%, 100% 100%, 0% 100%);
-    clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
-    // background-color: red;
+    shape-outside: polygon(
+        100% 0%,
+        calc(100% - v-bind(clipTop)) 0%,
+        calc(100% - v-bind(clipBottom)) 100%,
+        100% 100%
+    );
+    clip-path: polygon(
+        100% 0%,
+        calc(100% - v-bind(clipTop)) 0%,
+        calc(100% - v-bind(clipBottom)) 100%,
+        100% 100%
+    );
     visibility: hidden;
 }
 </style>
