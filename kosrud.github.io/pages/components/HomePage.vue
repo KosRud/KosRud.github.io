@@ -89,7 +89,9 @@ function handleScrolling() {
                     <div
                         :class="$style.Project_banner"
                         v-for="id in Array.from({ length: 8 })"
-                    ></div>
+                    >
+                        <h3 :class="$style.Project_title">Project title</h3>
+                    </div>
                 </div>
             </section>
         </div>
@@ -196,21 +198,48 @@ function handleScrolling() {
 }
 
 .Projects_heading {
-    .h2_bordered();
+    .heading2();
+
     font-size: @size-xl;
     margin-bottom: @gap*2;
 }
 
 .Projects_container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
     gap: @gap*2;
 }
 
 .Project_banner {
-    min-height: 100rem;
-    box-shadow: @shadow;
+    flex: 1 1 500rem;
+
+    min-height: 200rem;
+    // box-shadow: @shadow-s;
     border: @border-width-s solid @color-border;
+}
+
+.Project_title {
+    @Project_title-padding: @gap*0.5;
+    @Project_title-clip: @gap;
+
+    min-width: min(220rem, 100%);
+    width: fit-content;
+
+    padding: @Project_title-padding;
+    padding-right: @Project_title-padding + @Project_title-clip;
+    background-color: @color-background-dark;
+
+    text-align: left;
+    color: @color-white;
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        calc(100% - @Project_title-clip) 100%,
+        0% 100%
+    );
+
+    .heading-shadow();
 }
 
 /*
