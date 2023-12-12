@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import FeaturesGallery from "./FeaturesGallery.vue";
-import FeaturesGallery_Card from "./FeaturesGallery_Card.vue";
-import HomePageFeatures_Content from "./HomePage_FeaturesContent.vue";
+import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
+import HomePageFeaturesContent from "./HomePageFeaturesContent.vue";
 </script>
 
 <template>
@@ -9,19 +9,19 @@ import HomePageFeatures_Content from "./HomePage_FeaturesContent.vue";
         :dummies="8"
         :card-min-width="'300rem'"
     >
-        <FeaturesGallery_Card
+        <FeaturesGalleryCard
             name="Programming languages"
             :icon-url="'/assets/icons/programming/icon.svg'"
         >
-            <HomePageFeatures_Content>
+            <HomePageFeaturesContent>
                 C#, HLSL, TypeScript, Javascript, Python, C++
-            </HomePageFeatures_Content>
-        </FeaturesGallery_Card>
-        <FeaturesGallery_Card
+            </HomePageFeaturesContent>
+        </FeaturesGalleryCard>
+        <FeaturesGalleryCard
             name="Communication"
             :icon-url="'/assets/icons/communication/icon.svg'"
         >
-            <HomePageFeatures_Content>
+            <HomePageFeaturesContent>
                 <table>
                     <tbody>
                         <tr>
@@ -42,13 +42,13 @@ import HomePageFeatures_Content from "./HomePage_FeaturesContent.vue";
                         </tr>
                     </tbody>
                 </table>
-            </HomePageFeatures_Content>
-        </FeaturesGallery_Card>
-        <FeaturesGallery_Card
+            </HomePageFeaturesContent>
+        </FeaturesGalleryCard>
+        <FeaturesGalleryCard
             name="Technologies"
             :icon-url="'/assets/icons/gears/icon.svg'"
         >
-            <HomePageFeatures_Content>
+            <HomePageFeaturesContent>
                 <table>
                     <tbody>
                         <tr>
@@ -73,13 +73,13 @@ import HomePageFeatures_Content from "./HomePage_FeaturesContent.vue";
                         </tr>
                     </tbody>
                 </table>
-            </HomePageFeatures_Content>
-        </FeaturesGallery_Card>
-        <FeaturesGallery_Card
+            </HomePageFeaturesContent>
+        </FeaturesGalleryCard>
+        <FeaturesGalleryCard
             name="Education"
             :icon-url="'/assets/icons/education/icon.svg'"
         >
-            <HomePageFeatures_Content>
+            <HomePageFeaturesContent>
                 <table>
                     <tbody>
                         <tr>
@@ -88,13 +88,13 @@ import HomePageFeatures_Content from "./HomePage_FeaturesContent.vue";
                         </tr>
                     </tbody>
                 </table>
-            </HomePageFeatures_Content>
-        </FeaturesGallery_Card>
-        <FeaturesGallery_Card
+            </HomePageFeaturesContent>
+        </FeaturesGalleryCard>
+        <FeaturesGalleryCard
             name="Experience"
             :icon-url="'/assets/icons/job/icon.svg'"
         >
-            <HomePageFeatures_Content>
+            <HomePageFeaturesContent>
                 <table>
                     <tbody>
                         <tr>
@@ -106,7 +106,7 @@ import HomePageFeatures_Content from "./HomePage_FeaturesContent.vue";
                         </tr>
                     </tbody>
                 </table>
-            </HomePageFeatures_Content>
-        </FeaturesGallery_Card>
+            </HomePageFeaturesContent>
+        </FeaturesGalleryCard>
     </FeaturesGallery>
 </template>
