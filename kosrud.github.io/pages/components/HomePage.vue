@@ -201,7 +201,7 @@ function handleScrolling() {
     .heading2();
 
     font-size: @size-xl;
-    margin-bottom: @gap*2;
+    margin-bottom: @gap*4;
 }
 
 .Projects_container {
