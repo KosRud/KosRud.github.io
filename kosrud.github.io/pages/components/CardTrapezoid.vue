@@ -17,13 +17,26 @@ const triangleWidth = computed(
             (1 - perspectiveUnitless / (perspectiveUnitless + depth.value)) * 50
         }%`
 );
+const transformOrigin = computed(() => (props.tilt >= 0 ? "top" : "bottom"));
 </script>
 
 <template>
     <div>
-        <div :class="$style.Trapezoid">
+        <div
+            :class="$style.Trapezoid"
+            :style="
+                props.tilt >= 0
+                    ? { marginTop: 'unset' }
+                    : { marginBottom: 'unset' }
+            "
+        >
             <div :class="$style.Trapezoid_background"></div>
-            <div :class="$style.Trapezoid_content">
+            <div
+                :class="$style.Trapezoid_content"
+                :style="
+                    props.tilt >= 0 ? { bottom: 'unset' } : { top: 'unset' }
+                "
+            >
                 <div :class="$style.Trapezoid_triangleLeft"></div>
                 <div :class="$style.Trapezoid_triangleRight"></div>
                 <p>
@@ -54,6 +67,7 @@ const triangleWidth = computed(
     height: v-bind(height);
 
     margin-bottom: calc(v-bind(height) * v-bind(angleCos) - v-bind(height));
+    margin-top: calc(v-bind(height) * v-bind(angleCos) - v-bind(height));
 
     perspective: v-bind(perspective);
     perspective-origin: center;
@@ -63,11 +77,11 @@ const triangleWidth = computed(
 }
 
 .Trapezoid_background {
-    box-shadow: @shadow;
+    box-shadow: @shadow-l;
     border: @border-width-s solid @color-border;
 
     transform: rotateX(calc(0deg - v-bind(angle)));
-    transform-origin: top;
+    transform-origin: v-bind(transformOrigin);
 
     position: absolute;
     top: 0rem;
@@ -81,6 +95,7 @@ const triangleWidth = computed(
     top: @gap;
     left: @gap;
     right: @gap;
+    bottom: @gap;
     height: calc(100% * v-bind(angleCos) - @gap*2);
 
     text-align: justify;
