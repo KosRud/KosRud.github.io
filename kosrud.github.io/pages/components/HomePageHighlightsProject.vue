@@ -1,6 +1,9 @@
 <template>
     <div :class="$style.Project">
-        <h3 :class="$style.Project_title">Project title</h3>
+        <div :class="$style.Project_description">
+            <h3 :class="$style.Project_title">Project title</h3>
+        </div>
+        <div :class="$style.Project_images"></div>
     </div>
 </template>
 
@@ -9,11 +12,27 @@
 @import "../../.vitepress/theme/style/mixins/index.less";
 
 .Project {
-    flex: 1 1 500rem;
-
     min-height: 200rem;
-    // box-shadow: @shadow-s;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-items: stretch;
+    align-items: stretch;
+
     border: @border-width-s solid @color-border;
+}
+
+.Project_description {
+    flex: 1 1;
+
+    background-color: #a003;
+}
+
+.Project_images {
+    flex: 1 1;
+
+    background-color: #0a03;
 }
 
 .Project_title {
