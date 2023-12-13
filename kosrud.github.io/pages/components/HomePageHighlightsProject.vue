@@ -1,12 +1,6 @@
-<script setup lang="ts">
-import HomePageHighlightsProject from "./HomePageHighlightsProject.vue";
-</script>
-
 <template>
-    <h2 :class="$style.Projects_heading">Project highlights</h2>
-    <div :class="$style.Projects_container">
-        <HomePageHighlightsProject v-for="id in Array.from({ length: 8 })">
-        </HomePageHighlightsProject>
+    <div :class="$style.Project">
+        <h3 :class="$style.Project_title">Project title</h3>
     </div>
 </template>
 
@@ -14,21 +8,7 @@ import HomePageHighlightsProject from "./HomePageHighlightsProject.vue";
 @import "../../.vitepress/theme/style/variables/index.less";
 @import "../../.vitepress/theme/style/mixins/index.less";
 
-.Projects_heading {
-    .heading2();
-
-    font-size: @size-xl;
-    margin-bottom: @gap*4;
-}
-
-.Projects_container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: @gap*2;
-}
-
-.Project_banner {
+.Project {
     flex: 1 1 500rem;
 
     min-height: 200rem;
