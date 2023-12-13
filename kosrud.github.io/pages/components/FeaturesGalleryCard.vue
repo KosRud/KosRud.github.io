@@ -19,9 +19,6 @@ const store = useStore();
     <article
         :class="[
             $style.Card,
-            store.adaptiveStage == AdaptiveStage.compact
-                ? $style.Card___compact
-                : '',
             props.dummy ? $style.FeaturesGallery_card___dummy : '',
             props.class,
         ]"
@@ -66,10 +63,6 @@ const store = useStore();
     padding: @gap @gap @gap*2 @gap;
 
     text-align: left;
-}
-
-.Card___compact {
-    min-height: 120rem;
 }
 
 .FeaturesGallery_card___dummy {
