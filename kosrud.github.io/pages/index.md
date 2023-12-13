@@ -11,19 +11,6 @@ import HomePageHighlights from "./components/HomePageHighlights.vue";
 import HomePageContact from "./components/HomePageContact.vue";
 </script>
 
-<HomePage :dummyFeatures="8">
-	<template #Bio>
-		<HomePageBio/>
-	</template>
-	<template #Features>
-		<HomePageFeatures/>
-	</template>
-	<template #Highlights>
-		<HomePageHighlights/>
-	</template>
-	<template #Contact>
-		<HomePageContact/>
-	</template>
-</HomePage>
+<HomePage />
 
 

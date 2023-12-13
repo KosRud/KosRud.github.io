@@ -71,6 +71,7 @@ const devIcons = {
 
 <template>
 	<div :class="{
+		[$style.Bio]: true,
 		[$style.Bio___adaptive_0]: adaptiveStage >= 0,
 		[$style.Bio___adaptive_1]: adaptiveStage >= 1,
 		[$style.Bio___adaptive_2]: adaptiveStage >= 2,
@@ -125,6 +126,24 @@ const devIcons = {
 
 @Bio_photo-width: 130rem;
 @Bio_photo-to-content-gap: @gap * 3;
+
+.Bio {
+	font-size: @size;
+
+	h2 {
+		font-size: @size-xl;
+		font-weight: bold;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	table,
+	p {
+		margin-bottom: @gap*1.5;
+	}
+}
 
 .DeviconsTable {
 	td:first-child {
