@@ -181,6 +181,7 @@ const devIcons = {
 .Bio_photo {
 	box-shadow: @shadow;
 	object-fit: cover;
+	border: @border-width-l solid white;
 }
 
 .Bio_photo___aside {

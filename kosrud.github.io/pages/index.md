@@ -7,7 +7,7 @@ title: Home page
 import HomePage from "./components/HomePage.vue";
 import HomePageBio from "./components/HomePageBio.vue"
 import HomePageFeatures from "./components/HomePageFeatures.vue"
-import HomePageBanners from "./components/HomePageBanners.vue"
+import HomePageHighlights from "./components/HomePageHighlights.vue";
 </script>
 
 <HomePage :dummyFeatures="8">
@@ -17,8 +17,8 @@ import HomePageBanners from "./components/HomePageBanners.vue"
 	<template #Features>
 		<HomePageFeatures/>
 	</template>
-	<template #Banners>
-		<HomePageBanners/>
+	<template #Highlights>
+		<HomePageHighlights/>
 	</template>
 </HomePage>
 
