@@ -70,7 +70,17 @@ useResizeObserver(
     }
 
     h2 {
-        .heading2();
+        min-width: min(350rem, 100%);
+        width: min-content;
+        margin-left: auto;
+        margin-right: auto;
+
+        border: @border-width solid @color-background-dark;
+        border-radius: @gap;
+
+        text-align: center;
+        font-weight: bold;
+        font-family: @font-techy;
 
         font-size: @size-l;
         text-align: center;
@@ -94,7 +104,7 @@ useResizeObserver(
     h1,
     h2,
     h3 {
-        .heading-shadow();
+        box-shadow: @shadow;
     }
 
     /*

@@ -69,8 +69,6 @@ import HomePageHighlightsProject from "./HomePageHighlightsProject.vue";
 @import "../../.vitepress/theme/style/mixins/index.less";
 
 .Projects_heading {
-    // .heading2();
-
     font-weight: bold;
     width: fit-content;
     margin-left: auto;
