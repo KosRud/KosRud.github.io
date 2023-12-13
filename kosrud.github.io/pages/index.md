@@ -8,6 +8,7 @@ import HomePage from "./components/HomePage.vue";
 import HomePageBio from "./components/HomePageBio.vue"
 import HomePageFeatures from "./components/HomePageFeatures.vue"
 import HomePageHighlights from "./components/HomePageHighlights.vue";
+import HomePageContact from "./components/HomePageContact.vue";
 </script>
 
 <HomePage :dummyFeatures="8">
@@ -19,6 +20,9 @@ import HomePageHighlights from "./components/HomePageHighlights.vue";
 	</template>
 	<template #Highlights>
 		<HomePageHighlights/>
+	</template>
+	<template #Contact>
+		<HomePageContact/>
 	</template>
 </HomePage>
 

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import HomePageHighlightsProject from "./HomePageHighlightsProject.vue";
+import GrungeHeading from "./GrungeHeading.vue";
 </script>
 
 <template>
-    <h2 :class="$style.Projects_heading">My projects</h2>
+    <GrungeHeading text="My projects" />
     <div :class="$style.Projects_container">
         <HomePageHighlightsProject
             :images="[
@@ -78,7 +79,7 @@ import HomePageHighlightsProject from "./HomePageHighlightsProject.vue";
     margin-bottom: @gap*4;
 
     background-image: url("/assets/smudges/2.svg");
-    background-size: contain;
+    background-size: 100% 100%;
     padding: 5rem 50rem 21rem 40rem;
     transform: translateX(5rem);
     background-repeat: no-repeat;

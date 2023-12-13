@@ -84,6 +84,9 @@ function handleScrolling() {
             <section>
                 <slot name="Highlights" />
             </section>
+            <section>
+                <slot name="Contact" />
+            </section>
         </div>
     </div>
 </template>
