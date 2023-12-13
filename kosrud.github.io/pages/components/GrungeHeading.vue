@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import smudge from "./assets/smudges/2.svg";
+
 const props = defineProps<{ text: string }>();
+const smudgeUrl = `url("${smudge}")`;
 </script>
 
 <template>
@@ -26,7 +29,7 @@ const props = defineProps<{ text: string }>();
     text-align: center;
     white-space: nowrap;
 
-    background-image: url("/assets/smudges/2.svg");
+    background-image: v-bind(smudgeUrl);
     background-size: 100% 100%;
     padding: 5rem 50rem 21rem 40rem;
     transform: translateX(5rem);
