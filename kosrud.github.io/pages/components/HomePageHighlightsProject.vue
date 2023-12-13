@@ -77,8 +77,9 @@ useResizeObserver(
 
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: stretch;
     align-items: stretch;
+    align-content: start;
     flex-wrap: wrap;
     gap: @gap*0.5;
 
