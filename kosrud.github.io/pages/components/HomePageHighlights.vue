@@ -6,7 +6,11 @@ import HomePageHighlightsProject from "./HomePageHighlightsProject.vue";
     <h2 :class="$style.Projects_heading">My projects</h2>
     <div :class="$style.Projects_container">
         <HomePageHighlightsProject
-            :images="[]"
+            :images="[
+                '/content/project screenshots/Protege v2/1.png',
+                '/content/project screenshots/Protege v2/2.png',
+                '/content/project screenshots/Protege v2/3.png',
+            ]"
             :title="'DQ skinning for Unity'"
         >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
