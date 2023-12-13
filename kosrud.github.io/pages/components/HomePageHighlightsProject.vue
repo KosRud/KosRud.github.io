@@ -139,6 +139,8 @@ useResizeObserver(
         }
 
         margin-bottom: @Project-gap;
+        margin-left: @Project-gap;
+        margin-right: @Project-gap;
     }
 }
 </style>
