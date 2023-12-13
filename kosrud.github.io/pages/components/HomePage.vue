@@ -126,7 +126,7 @@ function handleScrolling() {
 
     text-shadow: 2px 2px 0px black, 4px 4px 12px #000a;
     line-height: 1.2;
-    margin: @gap*2;
+    margin: @gap*3;
 }
 
 .Hero_title {

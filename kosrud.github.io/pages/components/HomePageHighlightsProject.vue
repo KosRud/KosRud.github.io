@@ -1,9 +1,19 @@
+<script setup lang="ts">
+const props = defineProps<{ title: string; images?: string[] }>();
+</script>
+
 <template>
     <div :class="$style.Project">
-        <div :class="$style.Project_description">
-            <h3 :class="$style.Project_title">Project title</h3>
+        <div :class="$style.Project_descriptionContainer">
+            <h3 :class="$style.Project_title">{{ props.title }}</h3>
+            <div :class="$style.Project_description">
+                <slot />
+            </div>
         </div>
-        <div :class="$style.Project_images"></div>
+        <div
+            v-if="props.images"
+            :class="$style.Project_images"
+        ></div>
     </div>
 </template>
 
@@ -23,16 +33,16 @@
     border: @border-width-s solid @color-border;
 }
 
-.Project_description {
+.Project_descriptionContainer {
     flex: 1 1;
 
-    background-color: #a003;
+    // background-color: #a003;
 }
 
 .Project_images {
     flex: 1 1;
 
-    background-color: #0a03;
+    // background-color: #0a03;
 }
 
 .Project_title {
@@ -55,6 +65,10 @@
         0% 100%
     );
 
-    .heading-shadow();
+    margin-bottom: @gap;
+}
+
+.Project_description {
+    margin: @gap;
 }
 </style>
