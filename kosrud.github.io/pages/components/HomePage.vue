@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import type { Ref, ComponentPublicInstance } from "vue";
 
-import FeaturesGallery from "./FeaturesGallery.vue";
+import HomePageHighlights from "./HomePageHighlights.vue";
+import HomePageFeatures from "./HomePageFeatures.vue";
+import HomePageBio from "./HomePageBio.vue";
+import HomePageContact from "./HomePageContact.vue";
 
 import { computed, onMounted, onUnmounted, ref } from "vue";
 import { useResizeObserver } from "../../.vitepress/theme/components/composables/resizeObserver";
 import { pxToRem } from "../../.vitepress/theme/components/composables/unitConverter";
-
-const props = defineProps<{ dummyFeatures?: number }>();
 
 const hero: Ref<Element | null> = ref(null);
 const scrollY = ref(0);
@@ -62,6 +63,7 @@ function handleScrolling() {
 			hero = element as Element;
 		}"
             :class="$style.Hero"
+            v-if="!isCompact"
         >
             <img
                 :class="$style.Hero_photo"
@@ -74,18 +76,14 @@ function handleScrolling() {
         </section>
         <div :class="$style.ContentWrapper">
             <section>
-                <div :class="$style.Bio">
-                    <slot name="Bio" />
-                </div>
-                <FeaturesGallery :dummies="props.dummyFeatures">
-                    <slot name="Features" />
-                </FeaturesGallery>
+                <HomePageBio :class="$style.Bio" />
+                <HomePageFeatures />
             </section>
             <section>
-                <slot name="Highlights" />
+                <HomePageHighlights :dummies="8" />
             </section>
             <section>
-                <slot name="Contact" />
+                <HomePageContact />
             </section>
         </div>
     </div>
@@ -172,24 +170,6 @@ function handleScrolling() {
     }
 }
 
-.Bio {
-    font-size: @size;
-
-    h2 {
-        font-size: @size-xl;
-        font-weight: bold;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    table,
-    p {
-        margin-bottom: @gap*1.5;
-    }
-}
-
 /*
 	Responsive
 \*----------------------------------*/
@@ -198,10 +178,6 @@ function handleScrolling() {
     .ContentWrapper {
         padding: @Main-padding-horizontal-compact;
         padding-top: @Main-padding-horizontal-compact* (3/2);
-    }
-
-    .Hero {
-        display: none;
     }
 }
 

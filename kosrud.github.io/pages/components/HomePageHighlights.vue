@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import HomePageHighlightsProject from "./HomePageHighlightsProject.vue";
 import GrungeHeading from "./GrungeHeading.vue";
+
+const props = defineProps<{ dummies: number }>();
 </script>
 
 <template>
     <GrungeHeading text="My projects" />
-    <div :class="$style.Projects_container">
+    <div :class="$style.ProjectsContainer">
         <HomePageHighlightsProject
             :images="[
                 '/content/project screenshots/Protege v2/1.png',
@@ -62,6 +64,10 @@ import GrungeHeading from "./GrungeHeading.vue";
             sit amet purus risus. Aliquam erat volutpat. Vivamus et lacus
             posuere, rutrum magna quis, faucibus nunc.
         </HomePageHighlightsProject>
+        <div
+            :class="$style.ProjectsContainer_dummy"
+            v-for="_ in Array.from({ length: props.dummies })"
+        ></div>
     </div>
 </template>
 
@@ -90,7 +96,7 @@ import GrungeHeading from "./GrungeHeading.vue";
     text-shadow: 3rem 1rem 0rem black;
 }
 
-.Projects_container {
+.ProjectsContainer {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
