@@ -53,6 +53,8 @@ useResizeObserver(
 @import "../../.vitepress/theme/style/variables/index.less";
 @import "../../.vitepress/theme/style/mixins/index.less";
 
+@Project-gap: @gap;
+
 .Project {
     min-height: 200rem;
 
@@ -106,10 +108,11 @@ useResizeObserver(
     );
 
     margin-bottom: @gap;
+    margin-right: @Project-gap;
 }
 
 .Project_description {
-    margin: @gap;
+    margin: @Project-gap;
 }
 
 /*
@@ -134,7 +137,7 @@ useResizeObserver(
             flex: 0 1 250rem;
         }
 
-        margin-bottom: @gap;
+        margin-bottom: @Project-gap;
     }
 }
 </style>
