@@ -8,14 +8,7 @@ const props = defineProps<{ dummies: number }>();
 <template>
     <GrungeHeading text="My projects" />
     <div :class="$style.ProjectsContainer">
-        <HomePageHighlightsProject
-            :images="[
-                '/content/project screenshots/Protege v2/1.png',
-                '/content/project screenshots/Protege v2/2.png',
-                '/content/project screenshots/Protege v2/3.png',
-            ]"
-            :title="'DQ skinning for Unity'"
-        >
+        <HomePageHighlightsProject :title="'DQ skinning for Unity'">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
             dignissim nibh. Sed pharetra sem et congue faucibus. Maecenas eget
             libero lacus. Nunc non eros id risus accumsan ullamcorper. Nullam
@@ -29,14 +22,23 @@ const props = defineProps<{ dummies: number }>();
             sit amet purus risus. Aliquam erat volutpat. Vivamus et lacus
             posuere, rutrum magna quis, faucibus nunc.
         </HomePageHighlightsProject>
-        <HomePageHighlightsProject :title="'ProTeGe v2'">
+        <HomePageHighlightsProject
+            :title="'ProTeGe v2'"
+            :images="[
+                '/content/project screenshots/Protege v2/1.png',
+                '/content/project screenshots/Protege v2/3.png',
+            ]"
+        >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
             dignissim nibh. Sed pharetra sem et congue faucibus. Maecenas eget
             libero lacus. Nunc non eros id risus accumsan ullamcorper. Nullam
             sit amet purus risus. Aliquam erat volutpat. Vivamus et lacus
             posuere, rutrum magna quis, faucibus nunc.
         </HomePageHighlightsProject>
-        <HomePageHighlightsProject :title="'ProTeGe v1'">
+        <HomePageHighlightsProject
+            :title="'ProTeGe v1'"
+            :images="['/content/project screenshots/Protege v1/1.png']"
+        >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
             dignissim nibh. Sed pharetra sem et congue faucibus. Maecenas eget
             libero lacus. Nunc non eros id risus accumsan ullamcorper. Nullam
