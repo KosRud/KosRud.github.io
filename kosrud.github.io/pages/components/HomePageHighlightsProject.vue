@@ -40,11 +40,15 @@ useResizeObserver(
             v-if="props.images"
             :class="$style.Project_images"
         >
-            <img
-                :src="image"
+            <div
+                :class="$style.Project_imageWrapper"
                 v-for="image in props.images"
-                :alt="alt"
-            />
+            >
+                <img
+                    :src="image"
+                    :alt="alt"
+                />
+            </div>
         </div>
     </article>
 </template>
@@ -82,9 +86,17 @@ useResizeObserver(
     align-content: start;
     flex-wrap: wrap;
     gap: @gap*0.5;
+}
 
-    > * {
-        flex: 0 0 100%;
+.Project_imageWrapper {
+    flex: 0 0 100%;
+
+    > img {
+        max-width: 100%;
+        max-height: 200rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
     }
 }
 
@@ -134,13 +146,13 @@ useResizeObserver(
         justify-content: center;
         align-items: center;
 
-        > * {
-            flex: 0 1 250rem;
-        }
-
         margin-bottom: @Project-gap;
         margin-left: @Project-gap;
         margin-right: @Project-gap;
+    }
+
+    .Project_imageWrapper {
+        flex: 1 1 200rem;
     }
 }
 </style>
