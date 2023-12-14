@@ -15,7 +15,28 @@ const props = defineProps<{ dummies: number }>();
             sit amet purus risus. Aliquam erat volutpat. Vivamus et lacus
             posuere, rutrum magna quis, faucibus nunc.
         </HomePageHighlightsProject>
+        <HomePageHighlightsProject :title="'dice-pool-calc'">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
+            dignissim nibh. Sed pharetra sem et congue faucibus. Maecenas eget
+            libero lacus. Nunc non eros id risus accumsan ullamcorper. Nullam
+            sit amet purus risus. Aliquam erat volutpat. Vivamus et lacus
+            posuere, rutrum magna quis, faucibus nunc.
+        </HomePageHighlightsProject>
+        <HomePageHighlightsProject :title="'This website'">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
+            dignissim nibh. Sed pharetra sem et congue faucibus. Maecenas eget
+            libero lacus. Nunc non eros id risus accumsan ullamcorper. Nullam
+            sit amet purus risus. Aliquam erat volutpat. Vivamus et lacus
+            posuere, rutrum magna quis, faucibus nunc.
+        </HomePageHighlightsProject>
         <HomePageHighlightsProject :title="'joplin-plugin-paginator'">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
+            dignissim nibh. Sed pharetra sem et congue faucibus. Maecenas eget
+            libero lacus. Nunc non eros id risus accumsan ullamcorper. Nullam
+            sit amet purus risus. Aliquam erat volutpat. Vivamus et lacus
+            posuere, rutrum magna quis, faucibus nunc.
+        </HomePageHighlightsProject>
+        <HomePageHighlightsProject :title="'Material Clustering Benchmark'">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
             dignissim nibh. Sed pharetra sem et congue faucibus. Maecenas eget
             libero lacus. Nunc non eros id risus accumsan ullamcorper. Nullam
@@ -39,27 +60,6 @@ const props = defineProps<{ dummies: number }>();
             :title="'ProTeGe v1'"
             :images="['/content/project screenshots/Protege v1/1.png']"
         >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
-            dignissim nibh. Sed pharetra sem et congue faucibus. Maecenas eget
-            libero lacus. Nunc non eros id risus accumsan ullamcorper. Nullam
-            sit amet purus risus. Aliquam erat volutpat. Vivamus et lacus
-            posuere, rutrum magna quis, faucibus nunc.
-        </HomePageHighlightsProject>
-        <HomePageHighlightsProject :title="'dice-pool-calc'">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
-            dignissim nibh. Sed pharetra sem et congue faucibus. Maecenas eget
-            libero lacus. Nunc non eros id risus accumsan ullamcorper. Nullam
-            sit amet purus risus. Aliquam erat volutpat. Vivamus et lacus
-            posuere, rutrum magna quis, faucibus nunc.
-        </HomePageHighlightsProject>
-        <HomePageHighlightsProject :title="'This website'">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
-            dignissim nibh. Sed pharetra sem et congue faucibus. Maecenas eget
-            libero lacus. Nunc non eros id risus accumsan ullamcorper. Nullam
-            sit amet purus risus. Aliquam erat volutpat. Vivamus et lacus
-            posuere, rutrum magna quis, faucibus nunc.
-        </HomePageHighlightsProject>
-        <HomePageHighlightsProject :title="'Material Clustering Benchmark'">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
             dignissim nibh. Sed pharetra sem et congue faucibus. Maecenas eget
             libero lacus. Nunc non eros id risus accumsan ullamcorper. Nullam
