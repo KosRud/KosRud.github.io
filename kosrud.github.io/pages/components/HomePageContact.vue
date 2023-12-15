@@ -130,6 +130,8 @@ import GrungeHeading from "./GrungeHeading.vue";
     button {
         .button();
 
+        font-size: @size-l;
+
         margin-top: @gap*2;
         margin-left: auto;
         margin-right: auto;
