@@ -12,5 +12,3 @@ import HomePageContact from "./components/HomePageContact.vue";
 </script>
 
 <HomePage />
-
-

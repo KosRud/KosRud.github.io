@@ -2,23 +2,19 @@
 import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
 
 const props = defineProps<{
-    dummies?: number;
+	dummies?: number;
 }>();
 </script>
 
 <template>
-    <!-- surrounding div is necessary to ensure negative margins work properly -->
-    <div>
-        <div :class="$style.FeaturesGallery">
-            <slot />
-            <FeaturesGalleryCard
-                dummy
-                name=""
-                :class="$style.FeaturesGallery_dummy"
-                v-for="_ in Array.from({ length: props.dummies ?? 0 })"
-            ></FeaturesGalleryCard>
-        </div>
-    </div>
+	<!-- surrounding div is necessary to ensure negative margins work properly -->
+	<div>
+		<div :class="$style.FeaturesGallery">
+			<slot />
+			<FeaturesGalleryCard dummy name="" :class="$style.FeaturesGallery_dummy"
+								 v-for="_ in Array.from({ length: props.dummies ?? 0 })"></FeaturesGalleryCard>
+		</div>
+	</div>
 </template>
 
 <style module lang="less">
@@ -27,21 +23,21 @@ const props = defineProps<{
 @CardGalleryGap: @gap*2;
 
 .FeaturesGallery {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: stretch;
-    align-items: stretch;
-    width: calc(100% + @CardGalleryGap);
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: stretch;
+	align-items: stretch;
+	width: calc(100% + @CardGalleryGap);
 
-    > * {
-        margin: @CardGalleryGap*0.5;
-    }
+	>* {
+		margin: @CardGalleryGap*0.5;
+	}
 
-    margin: @CardGalleryGap*-0.5;
+	margin: @CardGalleryGap*-0.5;
 }
 
 .FeaturesGallery_dummy {
-    margin-top: @CardGalleryGap*-0.5;
+	margin-top: @CardGalleryGap*-0.5;
 }
 </style>
