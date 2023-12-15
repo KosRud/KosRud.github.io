@@ -49,51 +49,67 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 </script>
 
 <template>
-    <nav
-        :class="[$style.NavPages, props.mobile ? $style.NavPages___mobile : '']"
-    >
-        <template v-if="navItems.length > 0">
-            <h2 :class="$style.NavPages_title">{{ title }}</h2>
-            <ul :class="$style.NavPages_itemList">
-                <LayoutNavPagesItem
-                    :starting-level="props.mobile ? 0 : 1"
-                    :nav-item="navItem"
-                    v-for="(navItem, id) in navItems"
-                    :is-open="oneChildOpen.isChildOpen(id)"
-                    @nav-item-toggle="oneChildOpen.toggleChild(id)"
-                    :is-nav-pages-loaded="isMounted"
-                />
-            </ul>
-        </template>
-    </nav>
+    <div :class="$style.NavPagesWrapper">
+        <nav
+            :class="[
+                $style.NavPages,
+                props.mobile ? $style.NavPages___mobile : '',
+            ]"
+        >
+            <template v-if="navItems.length > 0">
+                <h2 :class="$style.NavPages_title">{{ title }}</h2>
+                <ul :class="$style.NavPages_itemList">
+                    <LayoutNavPagesItem
+                        :starting-level="props.mobile ? 0 : 1"
+                        :nav-item="navItem"
+                        v-for="(navItem, id) in navItems"
+                        :is-open="oneChildOpen.isChildOpen(id)"
+                        @nav-item-toggle="oneChildOpen.toggleChild(id)"
+                        :is-nav-pages-loaded="isMounted"
+                    />
+                </ul>
+            </template>
+        </nav>
+    </div>
 </template>
 
 <style module lang="less">
 @import "../style/variables/index.less";
 
+.NavPagesWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
 .NavPages {
+    flex: 1 0 @Aside-width;
+    max-width: @Aside-max-width;
+
     display: flex;
     flex-direction: column;
     justify-content: stretch;
+    align-items: start;
     overflow-y: auto;
     gap: @gap;
+    padding-left: @Aside-padding-horizontal;
+    padding-right: @Aside-padding-horizontal;
+    padding-bottom: @Aside-padding-bottom;
+    padding-top: @Aside-padding-top;
 }
 
 .NavPages_title {
-    flex: 0 0 max-content;
+    flex: 0 0 fit-content;
+    min-width: @Aside-width;
+    text-align: center;
 
     font-weight: bold;
-    margin-left: auto;
-    margin-right: auto;
 
     font-family: @font-techy;
 }
 
 .NavPages_itemList {
     flex: 1 0 max-content;
-
-    padding-left: @gap;
-    padding-bottom: @NavVertical-padding-bottom;
 }
 
 /*

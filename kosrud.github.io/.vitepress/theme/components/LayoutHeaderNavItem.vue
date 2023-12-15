@@ -65,7 +65,7 @@ const props = defineProps<{ navItem: NavItem }>();
         left: @gap*0.0;
         right: @gap*0.0;
         bottom: calc(0rem - @gap);
-        top: calc(0rem - @NavTop-padding-vertical);
+        top: calc(0rem - @HeaderNav-padding-vertical);
         border-top: @border-width solid @color-background;
         pointer-events: none;
     }

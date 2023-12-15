@@ -19,40 +19,50 @@ onMounted(() => {
 </script>
 
 <template>
-    <nav :class="[$style.Toc, props.isMobile ? $style.Toc___mobile : '']">
-        <template v-if="store.tocItems.length > 0 && !page.isNotFound">
-            <h2 :class="$style.Toc_title">On this page:</h2>
-            <nav :class="$style.Toc_content">
-                <ul :class="$style.Toc_itemList">
-                    <LayoutNavTocItem
-                        v-for="tocItem in store.tocItems"
-                        :key="tocItem.element.id"
-                        :heading="tocItem"
-                        @jumpedToItem="emit('jumpedToItem')"
-                        :isTocLoaded="isLoaded"
-                    />
-                </ul>
-            </nav>
-        </template>
-    </nav>
+    <div :class="$style.TocWrapper">
+        <nav :class="[$style.Toc, props.isMobile ? $style.Toc___mobile : '']">
+            <template v-if="store.tocItems.length > 0 && !page.isNotFound">
+                <h2 :class="$style.Toc_title">On this page:</h2>
+                <nav :class="$style.Toc_content">
+                    <ul :class="$style.Toc_itemList">
+                        <LayoutNavTocItem
+                            v-for="tocItem in store.tocItems"
+                            :key="tocItem.element.id"
+                            :heading="tocItem"
+                            @jumpedToItem="emit('jumpedToItem')"
+                            :isTocLoaded="isLoaded"
+                        />
+                    </ul>
+                </nav>
+            </template>
+        </nav>
+    </div>
 </template>
 
 <style lang="less" module>
 @import "../style/variables/index.less";
 @import "../style/mixins/index.less";
 
+.TocWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
 .Toc {
+    flex: 1 0 @Aside-width;
+    max-width: @Aside-max-width;
+
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: stretch;
     gap: @gap;
 
-    // background-color: @color-white;
-    // padding: @gap*2;
-    // border: @border-width-s solid @color-border;
-    // border-radius: @gap;
-    // box-shadow: @shadow-s;
+    padding-left: @Aside-padding-horizontal;
+    padding-right: @Aside-padding-horizontal;
+    padding-bottom: @Aside-padding-bottom;
+    padding-top: @Aside-padding-top;
 }
 
 .Toc_title {
@@ -76,7 +86,7 @@ onMounted(() => {
     padding-top: .NavItem_text(1) [padding-top] - .NavItem_text___compact()
         [padding-top];
 
-    padding-bottom: @NavVertical-padding-bottom;
+    padding-bottom: @Aside-padding-bottom;
 }
 /*
 	Font-size

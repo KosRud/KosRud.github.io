@@ -114,8 +114,6 @@ useResizeObserver(
 
 .Main___doc {
     flex-grow: 1;
-
-    // box-shadow: @shadow-s;
 }
 
 .Main___hero {

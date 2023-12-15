@@ -15,42 +15,50 @@ const { page } = useData();
 </script>
 
 <template>
-    <main
+    <div
         :class="[
-            $style.Main,
+            $style.MainWrapper,
             store.adaptiveStage == AdaptiveStage.full
-                ? $style.Main___full
-                : $style.Main___compact,
+                ? $style.MainWrapper___full
+                : $style.MainWrapper___compact,
         ]"
     >
-        <header :class="$style.CurrentLocation">
-            <YouAreHere />
-        </header>
-        <LayoutError404 v-if="page.isNotFound" />
-
-        <MarkdownWrapper
-            :class="$style.Markdown"
-            v-else
-        >
-            <Content
-                :ref="(component: ComponentPublicInstance | null) => {
-					store.pageContent = component;
-				}
-				"
-            />
-        </MarkdownWrapper>
-    </main>
+        <main :class="$style.Main">
+            <header :class="$style.CurrentLocation">
+                <YouAreHere />
+            </header>
+            <LayoutError404 v-if="page.isNotFound" />
+            <MarkdownWrapper
+                :class="$style.Markdown"
+                v-else
+            >
+                <Content
+                    :ref="(component: ComponentPublicInstance | null) => {
+							store.pageContent = component;
+						}
+						"
+                />
+            </MarkdownWrapper>
+        </main>
+    </div>
 </template>
 
 <style lang="less" module>
 @import "../style/variables/index.less";
+
+.MainWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+}
 
 .CurrentLocation {
     margin-bottom: @gap*2;
 }
 
 .Main {
-    max-width: @content-width + @Main-padding-horizontal*2; // account for padding
+    flex: 0 1 @content-width + @Main-padding-horizontal*2;
 
     padding: @Header-to-Content-gap @Main-padding-horizontal;
     background-color: @color-white;
@@ -64,17 +72,23 @@ const { page } = useData();
     padding-bottom: @gap*16;
 }
 
-.Main___compact {
+.MainWrapper___compact {
     max-width: none;
-    padding-left: @Main-padding-horizontal-compact;
-    padding-right: @Main-padding-horizontal-compact;
+
+    .Main {
+        flex-grow: 1;
+        padding-left: @Main-padding-horizontal-compact;
+        padding-right: @Main-padding-horizontal-compact;
+    }
 }
 
-.Main___full {
-    margin-left: @NavPages-width;
-    margin-right: @Toc-to-Main-gap + @Toc-width;
+.MainWrapper___full {
+    margin-left: @Aside-width;
+    margin-right: @Aside-width;
 
-    border-right: @border-width-s solid @color-border;
-    border-left: @border-width-s solid @color-border;
+    .Main {
+        border-right: @border-width-s solid @color-border;
+        border-left: @border-width-s solid @color-border;
+    }
 }
 </style>

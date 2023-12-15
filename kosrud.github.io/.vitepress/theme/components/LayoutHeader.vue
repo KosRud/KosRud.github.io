@@ -52,8 +52,8 @@ function updateSiteTitleVisibility() {
             <SiteTitle />
         </div>
         <LayoutHeaderNav
-            :class="$style.NavTop"
-            v-if="store.adaptiveStage == AdaptiveStage.full"
+            v-if="store.adaptiveStage == AdaptiveStage.full || true"
+            :class="$style.HeaderNav"
         />
         <template v-else>
             <LayoutHeaderButtonBurger
@@ -88,12 +88,14 @@ function updateSiteTitleVisibility() {
 @import "../style/variables/index.less";
 
 .SiteTitleContainer {
-    width: @NavPages-width;
+    flex: 0 0 fit-content;
+
     display: flex;
     flex-direction: row;
     align-items: stretch;
     justify-content: start;
     visibility: v-bind(siteTitleVisibility);
+    padding-right: @gap*2;
 }
 
 .Header {
@@ -115,14 +117,14 @@ function updateSiteTitleVisibility() {
         left: @gap*0.0;
         right: @gap*0.0;
         bottom: calc(0rem - @gap);
-        top: calc(0rem - @NavTop-padding-vertical);
+        top: calc(0rem - @HeaderNav-padding-vertical);
         border-top: @border-width solid @color-background;
         pointer-events: none;
     }
 }
 
-.NavTop {
-    flex: 1 0;
+.HeaderNav {
+    flex: 0 0 fit-content;
     margin-right: @gap;
 }
 
