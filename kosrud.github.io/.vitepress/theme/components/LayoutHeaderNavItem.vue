@@ -4,24 +4,28 @@ import { useRoute } from "vitepress";
 import { type NavItem } from "../ThemeConfig";
 import { urlMatch } from "./composables/urlMatch";
 import { findFirstChildPage } from "./composables/nav";
+import { computed } from "vue";
 
 const route = useRoute();
 
 const props = defineProps<{ navItem: NavItem }>();
+
+const isActive = computed(() => urlMatch(route.path, props.navItem.url).inside);
 </script>
 
 <template>
-    <li :class="$style.NavItem">
+    <li
+        :class="$style.NavItem"
+        :aria-current="isActive ? 'page' : undefined"
+    >
         <a
             :class="[
                 $style.NavItem_link,
-                urlMatch(route.path, props.navItem.url).inside
-                    ? $style.NavItem_link___active
-                    : '',
+                isActive ? $style.NavItem_link___active : '',
             ]"
             :href="findFirstChildPage(props.navItem).url"
-            >{{ props.navItem.title }}</a
-        >
+            >{{ props.navItem.title }}
+        </a>
     </li>
 </template>
 
