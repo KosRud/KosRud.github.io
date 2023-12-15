@@ -49,7 +49,7 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 </script>
 
 <template>
-    <div :class="$style.NavPagesWrapper">
+    <aside :class="$style.NavPagesWrapper">
         <nav
             :class="[
                 $style.NavPages,
@@ -70,7 +70,7 @@ const oneChildOpen = useOneChildOpen(navItems.value);
                 </ul>
             </template>
         </nav>
-    </div>
+    </aside>
 </template>
 
 <style module lang="less">

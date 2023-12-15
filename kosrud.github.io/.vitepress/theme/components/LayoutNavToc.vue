@@ -19,7 +19,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div :class="$style.TocWrapper">
+    <aside :class="$style.TocWrapper">
         <nav :class="[$style.Toc, props.isMobile ? $style.Toc___mobile : '']">
             <template v-if="store.tocItems.length > 0 && !page.isNotFound">
                 <h2 :class="$style.Toc_title">On this page:</h2>
@@ -36,7 +36,7 @@ onMounted(() => {
                 </nav>
             </template>
         </nav>
-    </div>
+    </aside>
 </template>
 
 <style lang="less" module>
