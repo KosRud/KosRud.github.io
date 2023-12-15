@@ -58,7 +58,7 @@ function getAdaptivePreference() {
 </script>
 
 <template>
-    <nav :class="$style.NavTop">
+    <nav :class="$style.HeaderNav">
         <ul
             :ref="
                 (element) => {
@@ -77,14 +77,15 @@ function getAdaptivePreference() {
 <style module lang="less">
 @import "../style/variables/index.less";
 
-.NavTop {
+.HeaderNav {
     > ul {
         display: flex;
         flex-direction: row;
+        justify-content: center;
         height: 100%;
         gap: @gap;
-        padding-top: @NavTop-padding-vertical;
-        padding-bottom: @NavTop-padding-vertical;
+        padding-top: @HeaderNav-padding-vertical;
+        padding-bottom: @HeaderNav-padding-vertical;
     }
     visibility: v-bind(visibility);
 }

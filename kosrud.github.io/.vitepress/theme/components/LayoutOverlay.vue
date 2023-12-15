@@ -41,7 +41,7 @@ watchEffect(() => {
                     :class="$style.NavPages"
                     v-if="store.adaptiveStage == AdaptiveStage.full"
                 />
-                <div :class="$style.Overlay_spacer"></div>
+                <div :class="$style.Overlay_spacer___content"></div>
                 <LayoutNavToc
                     :class="$style.Toc"
                     v-if="store.adaptiveStage == AdaptiveStage.full"
@@ -118,8 +118,9 @@ watchEffect(() => {
     flex-direction: column;
 }
 
-.Overlay_spacer {
-    flex: 0 1 @Main-padding-horizontal * 2 + @content-width + @Toc-to-Main-gap;
+.Overlay_spacer___content {
+    flex: 0 1 @Main-padding-horizontal * 2 + @content-width;
+    margin-right: @Toc-to-Main-gap;
 }
 
 .Overlay___shaded {
@@ -139,19 +140,13 @@ watchEffect(() => {
 }
 
 .NavPages {
-    margin-top: @Header-to-Content-gap;
-    flex: 0 0 @NavPages-width;
+    flex: 1 0 @Aside-width;
 }
 
 .Toc {
     position: sticky;
     top: 0rem;
-    flex: 0 0 @Toc-width;
-    margin-top: @Header-to-Content-gap;
-
-    padding: 0rem @gap;
-    display: flex;
-    flex-direction: column;
+    flex: 1 0 @Toc-width;
 }
 
 .NavMobile {
