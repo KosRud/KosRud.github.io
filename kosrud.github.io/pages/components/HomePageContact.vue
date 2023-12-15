@@ -44,12 +44,14 @@ import GrungeHeading from "./GrungeHeading.vue";
                 required
                 type="text"
                 name="name"
+                autocomplete="name"
             />
             <span>Your email:</span>
             <input
                 required
                 type="email"
                 name="email"
+                autocomplete="email"
             />
             <span>Your message:</span>
 
