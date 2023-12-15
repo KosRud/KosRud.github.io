@@ -83,7 +83,7 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 }
 
 .NavPages {
-    flex: 1 0 @Aside-width;
+    flex: 1 1 @Aside-width;
     max-width: @Aside-max-width;
 
     display: flex;
@@ -99,8 +99,8 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 }
 
 .NavPages_title {
-    flex: 0 0 fit-content;
-    min-width: @Aside-width;
+    flex: 0 1 fit-content;
+    min-width: min(100%, @Aside-width);
     text-align: center;
 
     font-weight: bold;

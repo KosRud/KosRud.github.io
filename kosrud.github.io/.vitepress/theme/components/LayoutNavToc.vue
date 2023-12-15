@@ -50,7 +50,7 @@ onMounted(() => {
 }
 
 .Toc {
-    flex: 1 0 @Aside-width;
+    flex: 1 1 @Aside-width;
     max-width: @Aside-max-width;
 
     display: flex;
