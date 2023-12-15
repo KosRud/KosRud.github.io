@@ -27,6 +27,7 @@ const props = defineProps<{ navItem: NavItem }>();
 
 <style module lang="less">
 @import "../style/variables/index.less";
+@import "../style/mixins/index.less";
 
 .NavItem {
     &::before {
@@ -38,34 +39,12 @@ const props = defineProps<{ navItem: NavItem }>();
     justify-content: stretch;
     align-items: stretch;
 
-    min-width: @gap*11;
+    min-width: 16rem * 9;
     flex: 0 1 auto;
 }
 
 .NavItem_link {
-    @navlink-pad: @gap*0.5;
-
-    flex: 1 1 calc(@navlink-pad*2 + 1em);
-
-    text-decoration: inherit;
-    &,
-    &:link,
-    &:visited {
-        color: @color-white;
-    }
-
-    background: @color-primary;
-    background-clip: border-box;
-    border: @border-width solid #fff1;
-    border-radius: @gap*0.5;
-    line-height: 1;
-    padding: @navlink-pad;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: @shadow;
-    transition: background-color @duration;
-    transition: border-color @duration-l;
+    .button();
 
     &:hover {
         background-color: @color-primary-light;
@@ -91,12 +70,4 @@ const props = defineProps<{ navItem: NavItem }>();
         pointer-events: none;
     }
 }
-
-/*
-	Transitions
-\*----------------------------------*/
-
-// .NavItem_link {
-//     transition: transform @duration-s ease-out;
-// }
 </style>

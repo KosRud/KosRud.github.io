@@ -11,7 +11,7 @@ import { useOneChildOpen } from "./composables/oneChildOpen";
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site } = useData<ThemeConfig>();
 
-const props = defineProps<{ topLevel?: boolean }>();
+const props = defineProps<{ mobile?: boolean }>();
 const route = useRoute();
 
 const isMounted = ref(false);
@@ -21,7 +21,7 @@ onMounted(() => {
 });
 
 const navItems = computed(() => {
-    if (props.topLevel) {
+    if (props.mobile) {
         return [{ title: "Home", url: "/" }].concat(site.value.themeConfig.nav);
     }
 
@@ -32,29 +32,31 @@ const navItems = computed(() => {
     );
 });
 
-const title = computed(
-    () =>
+const title = computed(() => {
+    if (props.mobile) {
+        return "Menu";
+    }
+
+    return (
         site.value.themeConfig.nav.find((navItem) => {
             const match = urlMatch(route.path, navItem.url);
             return match.inside;
         })?.title ?? ""
-);
+    ).concat("/");
+});
 
 const oneChildOpen = useOneChildOpen(navItems.value);
 </script>
 
 <template>
-    <nav :class="$style.NavPages">
+    <nav
+        :class="[$style.NavPages, props.mobile ? $style.NavPages___mobile : '']"
+    >
         <template v-if="navItems.length > 0">
-            <h2
-                :class="$style.NavPages_title"
-                v-if="!props.topLevel"
-            >
-                {{ title }}/
-            </h2>
+            <h2 :class="$style.NavPages_title">{{ title }}</h2>
             <ul :class="$style.NavPages_itemList">
                 <LayoutNavPagesItem
-                    :starting-level="props.topLevel ? 0 : 1"
+                    :starting-level="props.mobile ? 0 : 1"
                     :nav-item="navItem"
                     v-for="(navItem, id) in navItems"
                     :is-open="oneChildOpen.isChildOpen(id)"
@@ -100,5 +102,15 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 
 .NavPages_title {
     font-size: @size-l;
+}
+
+/*
+	Responsive
+\*----------------------------------*/
+
+.NavPages___mobile {
+    .NavPages_title {
+        font-size: @size-xl;
+    }
 }
 </style>

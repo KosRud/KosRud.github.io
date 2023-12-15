@@ -26,3 +26,20 @@ a:visited {
 strong {
     font-weight: bold;
 }
+
+label {
+    display: block;
+}
+
+input,
+textarea {
+    border: @border-width-s solid @color-border;
+    border-radius: @gap*0.25;
+    box-shadow: 0rem 0rem 6rem inset #0002;
+    padding: @gap*0.25 @gap*0.5;
+    vertical-align: bottom;
+}
+
+textarea {
+    vertical-align: top;
+}

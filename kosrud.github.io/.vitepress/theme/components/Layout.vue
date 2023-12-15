@@ -52,6 +52,8 @@ useResizeObserver(
         :class="$style.Layout"
         :ref="(element) => {containerElement = element as HTMLElement}"
     >
+        <LayoutOverlay :class="$style.Overlay" />
+
         <LayoutMainDoc
             :class="[
                 $style.Main,
@@ -74,8 +76,6 @@ useResizeObserver(
         >
             <Content />
         </main>
-
-        <LayoutOverlay />
 
         <div
             :class="$style.VisibleRectMarker"
@@ -109,9 +109,6 @@ useResizeObserver(
 }
 
 .Main {
-    position: relative;
-    z-index: 0; // establish a stacking context
-
     margin-top: @Header-height;
 }
 
@@ -143,5 +140,27 @@ useResizeObserver(
 
 .Main___nonInteractive {
     pointer-events: none;
+}
+
+/*
+	Z-index
+\*----------------------------------*/
+
+.Layout {
+    // establish a stacking context
+    position: relative;
+    z-index: 0;
+}
+
+.Overlay {
+    // establish a stacking context
+    position: fixed;
+    z-index: 1;
+}
+
+.Main {
+    // establish a stacking context
+    position: relative;
+    z-index: 0;
 }
 </style>
