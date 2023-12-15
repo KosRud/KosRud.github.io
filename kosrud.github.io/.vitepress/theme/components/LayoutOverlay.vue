@@ -72,7 +72,7 @@ watchEffect(() => {
                         }
                     "
             >
-                <LayoutNavPages top-level />
+                <LayoutNavPages mobile />
             </LayoutNavMobile>
         </div>
     </div>

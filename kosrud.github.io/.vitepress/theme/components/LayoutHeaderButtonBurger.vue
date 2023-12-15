@@ -8,7 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-    <div
+    <button
         :class="{ [$style.BurgerWrapper]: true, [$style.open]: props.isOpen }"
         @click="props.toggleIsOpen"
     >
@@ -19,7 +19,7 @@ const props = defineProps<{
                 v-for="_ in numLines"
             ></div>
         </div>
-    </div>
+    </button>
 </template>
 
 <style lang="less" module>
@@ -66,6 +66,8 @@ const props = defineProps<{
     justify-content: center;
     align-items: stretch;
     gap: @border-width*2;
+
+    // ---- resets ----
 }
 
 .Burger_line {

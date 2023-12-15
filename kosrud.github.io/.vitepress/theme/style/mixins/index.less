@@ -62,3 +62,41 @@
         white-space: pre-wrap;
     }
 }
+
+.button() {
+    background-color: @color-primary;
+    background-clip: border-box;
+    color: @color-white;
+    text-decoration: none;
+
+    min-width: 16rem * 9;
+
+    text-decoration: inherit;
+    &,
+    &:link,
+    &:visited {
+        color: @color-white;
+    }
+
+    line-height: 1;
+    border: @border-width solid #fff1;
+    border-radius: @gap*0.5;
+    padding: @gap*0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color @duration;
+    transition: border-color @duration-l;
+
+    box-shadow: @shadow;
+
+    &:hover {
+        background-color: @color-primary-light;
+        border-color: @color-highlight;
+    }
+
+    &:active {
+        transform: translateY(@click-offset);
+    }
+}

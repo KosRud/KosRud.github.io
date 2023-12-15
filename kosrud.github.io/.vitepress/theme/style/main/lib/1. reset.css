@@ -44,3 +44,7 @@ a:link {
 a:visited {
     color: #551a8b;
 }
+
+button {
+    background-color: transparent;
+}
