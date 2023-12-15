@@ -60,6 +60,8 @@ const { page } = useData();
         margin-right: auto;
         max-width: @content-width;
     }
+
+    padding-bottom: @gap*16;
 }
 
 .Main___compact {
