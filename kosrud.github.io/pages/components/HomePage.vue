@@ -154,6 +154,8 @@ function handleScrolling() {
     flex-grow: 1;
 
     padding: @gap*4;
+    padding-bottom: @gap*8;
+
     display: flex;
     flex-direction: column;
     align-items: center;
