@@ -78,6 +78,7 @@ useResizeObserver(
         </main>
 
         <div
+            aria-hidden="true"
             :class="$style.VisibleRectMarker"
             :ref="(element: Element | ComponentPublicInstance | null) => {
 			store.VisibleAreaMarker = element as Element;

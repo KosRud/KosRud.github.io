@@ -39,26 +39,31 @@ import GrungeHeading from "./GrungeHeading.vue";
             method="POST"
             :class="$style.ContactForm"
         >
-            <span>Your name:</span>
-            <input
-                required
-                type="text"
-                name="name"
-                autocomplete="name"
-            />
-            <span>Your email:</span>
-            <input
-                required
-                type="email"
-                name="email"
-                autocomplete="email"
-            />
-            <span>Your message:</span>
-
-            <textarea
-                required
-                name="message"
-            ></textarea>
+            <label>
+                <span>Your name:</span>
+                <input
+                    required
+                    type="text"
+                    name="name"
+                    autocomplete="name"
+                />
+            </label>
+            <label>
+                <span>Your email:</span>
+                <input
+                    required
+                    type="email"
+                    name="email"
+                    autocomplete="email"
+                />
+            </label>
+            <label>
+                <span>Your message:</span>
+                <textarea
+                    required
+                    name="message"
+                ></textarea>
+            </label>
 
             <button
                 colspan="2"
@@ -107,13 +112,14 @@ import GrungeHeading from "./GrungeHeading.vue";
     margin-right: auto;
     align-items: stretch;
     width: min(100%, 600rem);
+    gap: @gap;
 
-    > * {
-        margin-bottom: @gap*0.25;
-    }
+    label {
+        width: 100%;
 
-    input {
-        margin-bottom: @gap*0.5%;
+        display: flex;
+        flex-direction: column;
+        gap: @gap*0.25;
     }
 
     display: flex;
@@ -132,7 +138,7 @@ import GrungeHeading from "./GrungeHeading.vue";
 
         font-size: @size-l;
 
-        margin-top: @gap*2;
+        margin-top: @gap*1.5;
         margin-left: auto;
         margin-right: auto;
         min-width: min(200rem, 100%);
