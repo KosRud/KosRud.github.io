@@ -52,7 +52,7 @@ function updateSiteTitleVisibility() {
             <SiteTitle />
         </div>
         <LayoutHeaderNav
-            v-if="store.adaptiveStage == AdaptiveStage.full || true"
+            v-if="store.adaptiveStage == AdaptiveStage.full"
             :class="$style.HeaderNav"
         />
         <template v-else>
