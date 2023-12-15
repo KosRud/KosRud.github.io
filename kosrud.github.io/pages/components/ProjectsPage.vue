@@ -1,3 +1,3 @@
 <template>
-    <slot name="Projects" />
+	<slot name="Projects" />
 </template>

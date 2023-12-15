@@ -33,6 +33,7 @@ const devIcons = {
 		{ url: "/assets/icons/dev/csharp/icon.svg" },
 		{ url: "/assets/icons/dev/hlsl/icon.svg" },
 
+		{ url: "/assets/icons/dev/vitepress/icon.svg" },
 		{ url: "/assets/icons/dev/vue/icon.svg" },
 		{ url: "/assets/icons/dev/pinia/icon.svg" },
 
@@ -56,12 +57,18 @@ const devIcons = {
 	],
 	dabbled: [
 		{ url: "/assets/icons/dev/react/icon.svg" },
+		{ url: "/assets/icons/dev/vite/icon.svg" },
+		{ url: "/assets/icons/dev/cypress/icon.svg" },
+
+		{ url: "/assets/icons/dev/neutralino/icon.svg" },
+
 		{ url: "/assets/icons/dev/redis/icon.svg" },
 		{ url: "/assets/icons/dev/postgresql/icon.svg" },
 		{ url: "/assets/icons/dev/mongodb/icon.svg" },
-		{ url: "/assets/icons/dev/cypress/icon.svg" },
+
 		{ url: "/assets/icons/dev/fastify/icon.svg" },
 		{ url: "/assets/icons/dev/deno/icon.svg" },
+
 		{ url: "/assets/icons/dev/cython/icon.svg" },
 		{ url: "/assets/icons/dev/lua/icon.svg" },
 		{ url: "/assets/icons/dev/rust/icon.svg" },
