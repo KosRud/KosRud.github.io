@@ -2,44 +2,52 @@
 @import "./lib/1. reset.css";
 
 html {
-    font-family: @font-main, system-ui, sans-serif;
-    font-size: 0.0625rem;
+	font-family: @font-main, system-ui, sans-serif;
+	font-size: 0.0625rem;
 }
 
 body {
-    font-size: @size;
-    overflow-y: scroll;
+	font-size: @size;
+	overflow-y: scroll;
 }
 
 html,
 body,
 #app {
-    height: 100%;
+	height: 100%;
 }
 
 a,
 a:link,
 a:visited {
-    color: @color-primary;
+	color: @color-primary;
 }
 
 strong {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 label {
-    display: block;
+	display: block;
 }
 
 input,
 textarea {
-    border: @border-width-s solid @color-border;
-    border-radius: @gap*0.25;
-    box-shadow: 0rem 0rem 6rem inset #0002;
-    padding: @gap*0.25 @gap*0.5;
-    vertical-align: bottom;
+	border: @border-width-s solid @color-border;
+	border-radius: @gap*0.25;
+	box-shadow: 0rem 0rem 6rem inset #0002;
+	padding: @gap*0.25 @gap*0.5;
+	vertical-align: bottom;
 }
 
 textarea {
-    vertical-align: top;
+	vertical-align: top;
+}
+
+/*
+	Vitepress
+\*----------------------------------*/
+
+.header-anchor {
+	display: none;
 }
