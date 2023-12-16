@@ -1,50 +1,50 @@
 * {
-    padding: 0rem;
-    margin: 0rem;
+	padding: 0rem;
+	margin: 0rem;
 
-    box-sizing: border-box;
+	box-sizing: border-box;
 
-    border-radius: 0rem;
-    border: 0rem solid black;
+	border-radius: 0rem;
+	border: 0rem solid black;
 
-    min-width: 0rem;
-    min-height: 0rem;
-    max-width: unset;
-    max-height: unset;
+	min-width: 0rem;
+	min-height: 0rem;
+	max-width: unset;
+	max-height: unset;
 
-    font: inherit;
-    font-size: 100%;
+	font: inherit;
+	font-size: 100%;
 }
 
 body {
-    line-height: 1.5;
+	line-height: 1.5;
 }
 
 li {
-    display: flex;
-    align-items: center;
-    align-items: flex-start;
+	display: flex;
+	align-items: center;
+	align-items: flex-start;
 }
 li::before {
-    content: "•";
-    margin-right: 0.5em;
+	content: "•";
+	margin-right: 0.5em;
 }
 
 table,
 th,
 td {
-    border-collapse: collapse;
+	border-collapse: collapse;
 }
 
 a,
 a:link {
-    color: #0000ee;
+	color: #0000ee;
 }
 
 a:visited {
-    color: #551a8b;
+	color: #551a8b;
 }
 
 button {
-    background-color: transparent;
+	background-color: transparent;
 }

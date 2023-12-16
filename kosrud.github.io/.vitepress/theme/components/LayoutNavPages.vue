@@ -17,84 +17,84 @@ const route = useRoute();
 const isMounted = ref(false);
 
 onMounted(() => {
-    isMounted.value = true;
+	isMounted.value = true;
 });
 
 const navItems = computed(() => {
-    if (props.mobile) {
-        return [{ title: "Home", url: "/" }].concat(site.value.themeConfig.nav);
-    }
+	if (props.mobile) {
+		return [{ title: "Home", url: "/" }].concat(site.value.themeConfig.nav);
+	}
 
-    return (
-        site.value.themeConfig.nav.find((navItem) => {
-            return urlMatch(route.path, navItem.url).inside;
-        })?.children ?? []
-    );
+	return (
+		site.value.themeConfig.nav.find((navItem) => {
+			return urlMatch(route.path, navItem.url).inside;
+		})?.children ?? []
+	);
 });
 
 const title = computed(() => {
-    if (props.mobile) {
-        return "Menu";
-    }
+	if (props.mobile) {
+		return "Menu";
+	}
 
-    return (
-        site.value.themeConfig.nav.find((navItem) => {
-            const match = urlMatch(route.path, navItem.url);
-            return match.inside;
-        })?.title ?? ""
-    ).concat("/");
+	return (
+		site.value.themeConfig.nav.find((navItem) => {
+			const match = urlMatch(route.path, navItem.url);
+			return match.inside;
+		})?.title ?? ""
+	).concat("/");
 });
 
 const oneChildOpen = useOneChildOpen(navItems.value);
 </script>
 
 <template>
-    <nav
-        :class="[$style.NavPages, props.mobile ? $style.NavPages___mobile : '']"
-    >
-        <template v-if="navItems.length > 0">
-            <h2 :class="$style.NavPages_title">{{ title }}</h2>
-            <ul :class="$style.NavPages_itemList">
-                <LayoutNavPagesItem
-                    :starting-level="props.mobile ? 0 : 1"
-                    :nav-item="navItem"
-                    v-for="(navItem, id) in navItems"
-                    :is-open="oneChildOpen.isChildOpen(id)"
-                    @nav-item-toggle="oneChildOpen.toggleChild(id)"
-                    :is-nav-pages-loaded="isMounted"
-                />
-            </ul>
-        </template>
-    </nav>
+	<nav
+		:class="[$style.NavPages, props.mobile ? $style.NavPages___mobile : '']"
+	>
+		<template v-if="navItems.length > 0">
+			<h2 :class="$style.NavPages_title">{{ title }}</h2>
+			<ul :class="$style.NavPages_itemList">
+				<LayoutNavPagesItem
+					:starting-level="props.mobile ? 0 : 1"
+					:nav-item="navItem"
+					v-for="(navItem, id) in navItems"
+					:is-open="oneChildOpen.isChildOpen(id)"
+					@nav-item-toggle="oneChildOpen.toggleChild(id)"
+					:is-nav-pages-loaded="isMounted"
+				/>
+			</ul>
+		</template>
+	</nav>
 </template>
 
 <style module lang="less">
 @import "../style/variables/index.less";
 
 .NavPages {
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    align-items: start;
-    overflow-y: auto;
-    gap: @gap;
-    padding-left: @Aside-padding-horizontal;
-    padding-right: @Aside-padding-horizontal;
-    padding-bottom: @Aside-padding-bottom;
-    padding-top: @Aside-padding-top;
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	align-items: start;
+	overflow-y: auto;
+	gap: @gap;
+	padding-left: @Aside-padding-horizontal;
+	padding-right: @Aside-padding-horizontal;
+	padding-bottom: @Aside-padding-bottom;
+	padding-top: @Aside-padding-top;
 }
 
 .NavPages_title {
-    width: 100%;
-    text-align: center;
+	width: 100%;
+	text-align: center;
 
-    font-weight: bold;
+	font-weight: bold;
 
-    font-family: @font-techy;
+	font-family: @font-techy;
 }
 
 .NavPages_itemList {
-    flex: 1 0 max-content;
+	flex: 1 0 max-content;
 }
 
 /*
@@ -102,7 +102,7 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 \*----------------------------------*/
 
 .NavPages_title {
-    font-size: @size-l;
+	font-size: @size-l;
 }
 
 /*
@@ -110,8 +110,8 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 \*----------------------------------*/
 
 .NavPages___mobile {
-    .NavPages_title {
-        font-size: @size-xl;
-    }
+	.NavPages_title {
+		font-size: @size-xl;
+	}
 }
 </style>

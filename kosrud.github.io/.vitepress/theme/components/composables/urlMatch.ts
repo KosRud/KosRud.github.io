@@ -1,6 +1,6 @@
 export interface UrlMatch {
-    inside: boolean;
-    exact: boolean;
+	inside: boolean;
+	exact: boolean;
 }
 
 /**
@@ -10,20 +10,20 @@ export interface UrlMatch {
  * @returns
  */
 export const urlMatch = (url: string, target: string): UrlMatch => {
-    const extensionRegex = /\.[^.]+$/;
+	const extensionRegex = /\.[^.]+$/;
 
-    url = encodeURI(url.replace(extensionRegex, ""));
-    target = target.replace(extensionRegex, "");
+	url = encodeURI(url.replace(extensionRegex, ""));
+	target = target.replace(extensionRegex, "");
 
-    const result: UrlMatch = { inside: false, exact: false };
+	const result: UrlMatch = { inside: false, exact: false };
 
-    if (target == url) {
-        result.exact = true;
-    }
+	if (target == url) {
+		result.exact = true;
+	}
 
-    if (url.slice(0, target.length) == target) {
-        result.inside = true;
-    }
+	if (url.slice(0, target.length) == target) {
+		result.inside = true;
+	}
 
-    return result;
+	return result;
 };

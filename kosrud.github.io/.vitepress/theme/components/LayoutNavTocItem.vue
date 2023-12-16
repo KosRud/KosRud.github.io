@@ -37,18 +37,32 @@ const linkElement: Ref<Element | null> = ref(null);
 
 <template>
 	<li :class="$style.TocItem">
-		<a :class="[
-			$style.TocItem_link,
-			isActive ? $style.TocItem_link___active : '',
-		]" :href="`#${props.heading.element.id}`" @click="emit('jumpedToItem')"
-		   :ref="(element) => { linkElement = element as Element }">
-			<LayoutNavItemText :level="1" compact :active="isActive" :class="$style.TocItem_linkText">
+		<a
+			:class="[
+				$style.TocItem_link,
+				isActive ? $style.TocItem_link___active : '',
+			]"
+			:href="`#${props.heading.element.id}`"
+			@click="emit('jumpedToItem')"
+			:ref="(element) => { linkElement = element as Element }"
+		>
+			<LayoutNavItemText
+				:level="1"
+				compact
+				:active="isActive"
+				:class="$style.TocItem_linkText"
+			>
 				{{ props.heading.title }}
 			</LayoutNavItemText>
 		</a>
 		<ul v-if="props.heading.children.length != 0">
-			<LayoutNavTocItem v-for="child in props.heading.children" :heading="child" :level="level + 1"
-							  @jumped-to-item="emit('jumpedToItem')" :is-toc-loaded="props.isTocLoaded" />
+			<LayoutNavTocItem
+				v-for="child in props.heading.children"
+				:heading="child"
+				:level="level + 1"
+				@jumped-to-item="emit('jumpedToItem')"
+				:is-toc-loaded="props.isTocLoaded"
+			/>
 		</ul>
 	</li>
 </template>

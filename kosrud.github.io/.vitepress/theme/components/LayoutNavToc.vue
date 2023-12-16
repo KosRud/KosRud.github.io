@@ -24,8 +24,13 @@ onMounted(() => {
 			<h2 :class="$style.Toc_title">On this page:</h2>
 			<nav :class="$style.Toc_content">
 				<ul :class="$style.Toc_itemList">
-					<LayoutNavTocItem v-for="tocItem in store.tocItems" :key="tocItem.element.id" :heading="tocItem"
-									  @jumpedToItem="emit('jumpedToItem')" :isTocLoaded="isLoaded" />
+					<LayoutNavTocItem
+						v-for="tocItem in store.tocItems"
+						:key="tocItem.element.id"
+						:heading="tocItem"
+						@jumpedToItem="emit('jumpedToItem')"
+						:isTocLoaded="isLoaded"
+					/>
 				</ul>
 			</nav>
 		</template>
@@ -35,8 +40,6 @@ onMounted(() => {
 <style lang="less" module>
 @import "../style/variables/index.less";
 @import "../style/mixins/index.less";
-
-
 
 .Toc {
 	display: flex;
@@ -69,7 +72,8 @@ onMounted(() => {
 	// align the first item
 	// with the first item of navigation panel on the left
 
-	padding-top: .NavItem_text(1) [padding-top] - .NavItem_text___compact() [padding-top];
+	padding-top: .NavItem_text(1) [padding-top] - .NavItem_text___compact()
+		[padding-top];
 
 	padding-bottom: @Aside-padding-bottom;
 }

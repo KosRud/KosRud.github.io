@@ -5,11 +5,11 @@ import { InjectionKey, inject, provide, ref } from "vue";
 const symbolDarkMode: InjectionKey<Ref<boolean>> = Symbol();
 
 export function useDarkModeEnforce(isDarkModeActive: boolean) {
-    const toggle = ref(isDarkModeActive);
-    provide(symbolDarkMode, toggle);
-    return toggle;
+	const toggle = ref(isDarkModeActive);
+	provide(symbolDarkMode, toggle);
+	return toggle;
 }
 
 export function useDarkModeDetect() {
-    return inject(symbolDarkMode) ?? ref(false);
+	return inject(symbolDarkMode) ?? ref(false);
 }
