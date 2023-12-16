@@ -15,6 +15,8 @@ const { site } = useData<ThemeConfig>();
         <img
             src="/assets/icons/home/icon.svg"
             :class="$style.SiteTitleContainer_homeIcon"
+            alt="homepage"
+            title="homepage"
         />
         <div>
             <span :class="$style.SiteTitle"> {{ site.title }}</span>

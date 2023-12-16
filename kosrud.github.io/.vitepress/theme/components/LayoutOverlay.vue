@@ -28,30 +28,55 @@ watchEffect(() => {
 </script>
 
 <template>
-	<div :class="[
-		$style.Overlay,
-		store.isMobileNavAnythingOpen ? $style.Overlay___shaded : '',
-	]">
+	<div
+		:class="[
+			$style.Overlay,
+			store.isMobileNavAnythingOpen ? $style.Overlay___shaded : '',
+		]"
+	>
 		<LayoutHeader :class="$style.Header" />
 		<div :class="$style.NavContainer">
 			<template v-if="!frontmatter.hero">
-				<LayoutNavPages :class="$style.NavPages" v-if="store.adaptiveStage == AdaptiveStage.full" />
-				<div :class="$style.Overlay_spacer___content"></div>
-				<LayoutNavToc :class="$style.Toc" v-if="store.adaptiveStage == AdaptiveStage.full" />
-				<div :class="$style.NavContainer_spacer"></div>
+				<aside :class="$style.NavPagesWrapper">
+					<LayoutNavPages
+						:class="$style.NavPages"
+						v-if="store.adaptiveStage == AdaptiveStage.full"
+					/>
+				</aside>
+				<div
+					aria-hidden="true"
+					:class="$style.Overlay_spacer___content"
+				></div>
+				<aside :class="$style.TocWrapper">
+					<LayoutNavToc
+						:class="$style.Toc"
+						v-if="store.adaptiveStage == AdaptiveStage.full"
+					/>
+				</aside>
 			</template>
-			<LayoutNavMobile :class="$style.NavMobile" :isOpen="store.isMobileNavTocOpen" :setIsOpen="(isOpen: boolean) => {
+			<LayoutNavMobile
+				:class="$style.NavMobile"
+				:isOpen="store.isMobileNavTocOpen"
+				:setIsOpen="(isOpen: boolean) => {
 				store.isMobileNavTocOpen = isOpen;
 			}
-				">
+				"
+			>
 				<template #default="{ close }">
-					<LayoutNavToc is-mobile @jumped-to-item="close" />
+					<LayoutNavToc
+						is-mobile
+						@jumped-to-item="close"
+					/>
 				</template>
 			</LayoutNavMobile>
-			<LayoutNavMobile :class="$style.NavMobile" :isOpen="store.isMobileNavPagesOpen" :setIsOpen="(isOpen: boolean) => {
+			<LayoutNavMobile
+				:class="$style.NavMobile"
+				:isOpen="store.isMobileNavPagesOpen"
+				:setIsOpen="(isOpen: boolean) => {
 				store.isMobileNavPagesOpen = isOpen;
 			}
-				">
+				"
+			>
 				<LayoutNavPages mobile />
 			</LayoutNavMobile>
 		</div>
@@ -100,11 +125,14 @@ watchEffect(() => {
 
 .Overlay_spacer___content {
 	flex: 0 1 @Main-padding-horizontal * 2 + @content-width;
-	margin-right: @Toc-to-Main-gap;
 }
 
 .Overlay___shaded {
 	background-color: fade(@color-black, 70%);
+}
+
+.Header {
+	flex: 0 0 @Header-height;
 }
 
 .NavContainer {
@@ -115,19 +143,30 @@ watchEffect(() => {
 	position: relative; // for NavMobile
 }
 
-.Header {
-	flex: 0 0 @Header-height;
+.NavPagesWrapper {
+	flex: 1 0 @Aside-width;
+	display: flex;
+	flex-direction: column;
+	align-items: end;
 }
 
 .NavPages {
+	width: 100%;
+	max-width: @Aside-max-width;
+}
+
+.TocWrapper {
 	flex: 1 0 @Aside-width;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+
+	padding-left: @Toc-to-Main-gap;
 }
 
 .Toc {
-	position: sticky;
-	top: 0rem;
-	flex: 0 0 @Aside-width;
-	// max-width: @Aside-max-width;
+	width: 100%;
+	max-width: @Aside-max-width;
 }
 
 .NavMobile {
@@ -137,10 +176,6 @@ watchEffect(() => {
 	bottom: 0rem;
 	right: 0rem;
 	width: 100%;
-}
-
-.NavContainer_spacer {
-	flex: 1 1 0rem;
 }
 
 /*
