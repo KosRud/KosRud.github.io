@@ -7,8 +7,16 @@ const props = defineProps<{ max: number; full: number }>();
 
 <template>
 	<div :class="$style.Starline">
-		<img :src="iconFull" :class="$style.Star" v-for="_ in props.full" />
-		<img :src="iconEmpty" :class="$style.Star" v-for="_ in props.max - props.full" />
+		<img
+			:src="iconFull"
+			:class="$style.Star"
+			v-for="_ in props.full"
+		/>
+		<img
+			:src="iconEmpty"
+			:class="$style.Star"
+			v-for="_ in props.max - props.full"
+		/>
 	</div>
 </template>
 

@@ -42,7 +42,9 @@ const props = defineProps<{ dummies: number }>();
 					erat volutpat. Vivamus et lacus posuere, rutrum magna quis,
 					faucibus nunc.
 				</HomePageHighlightsProject>
-				<HomePageHighlightsProject :title="'Material Clustering Benchmark'">
+				<HomePageHighlightsProject
+					:title="'Material Clustering Benchmark'"
+				>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					Donec ac dignissim nibh. Sed pharetra sem et congue
 					faucibus. Maecenas eget libero lacus. Nunc non eros id risus
@@ -50,10 +52,13 @@ const props = defineProps<{ dummies: number }>();
 					erat volutpat. Vivamus et lacus posuere, rutrum magna quis,
 					faucibus nunc.
 				</HomePageHighlightsProject>
-				<HomePageHighlightsProject :title="'ProTeGe v2'" :images="[
-					'/content/project screenshots/Protege v2/1.png',
-					'/content/project screenshots/Protege v2/3.png',
-				]">
+				<HomePageHighlightsProject
+					:title="'ProTeGe v2'"
+					:images="[
+						'/content/project screenshots/Protege v2/1.png',
+						'/content/project screenshots/Protege v2/3.png',
+					]"
+				>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					Donec ac dignissim nibh. Sed pharetra sem et congue
 					faucibus. Maecenas eget libero lacus. Nunc non eros id risus
@@ -61,8 +66,10 @@ const props = defineProps<{ dummies: number }>();
 					erat volutpat. Vivamus et lacus posuere, rutrum magna quis,
 					faucibus nunc.
 				</HomePageHighlightsProject>
-				<HomePageHighlightsProject :title="'ProTeGe v1'"
-										   :images="['/content/project screenshots/Protege v1/1.png']">
+				<HomePageHighlightsProject
+					:title="'ProTeGe v1'"
+					:images="['/content/project screenshots/Protege v1/1.png']"
+				>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					Donec ac dignissim nibh. Sed pharetra sem et congue
 					faucibus. Maecenas eget libero lacus. Nunc non eros id risus
@@ -70,7 +77,10 @@ const props = defineProps<{ dummies: number }>();
 					erat volutpat. Vivamus et lacus posuere, rutrum magna quis,
 					faucibus nunc.
 				</HomePageHighlightsProject>
-				<div :class="$style.Highlights_dummy" v-for="_ in Array.from({ length: props.dummies })"></div>
+				<div
+					:class="$style.Highlights_dummy"
+					v-for="_ in Array.from({ length: props.dummies })"
+				></div>
 			</div>
 		</div>
 	</div>
@@ -89,7 +99,7 @@ const props = defineProps<{ dummies: number }>();
 	flex-wrap: wrap;
 	flex-direction: row;
 
-	>* {
+	> * {
 		flex: 1 1 500rem;
 
 		margin: @gap @Highlights-gap * 0.5;

@@ -19,16 +19,27 @@ function makeHeadingId(title: string) {
 
 <template>
 	<article :class="$style.Project">
-		<h3 :class="$style.Project_title" :id="makeHeadingId(props.title)">
+		<h3
+			:class="$style.Project_title"
+			:id="makeHeadingId(props.title)"
+		>
 			<span :class="$style.Project_titleText">{{ props.title }}</span>
 			<span :class="$style.Project_devIcons">
-				<img v-for="icon in sortedIcons" :src="icon.url" :alt="icon.title" :title="icon.title"
-					 :class="$style.DevIcon" />
+				<img
+					v-for="icon in sortedIcons"
+					:src="icon.url"
+					:alt="icon.title"
+					:title="icon.title"
+					:class="$style.DevIcon"
+				/>
 			</span>
 		</h3>
 		<p>
 			<strong :class="$style.Uses_title">uses:</strong>
-			<span :class="$style.Uses_item" v-for="icon in sortedIcons">
+			<span
+				:class="$style.Uses_item"
+				v-for="icon in sortedIcons"
+			>
 				{{ icon.title }}
 			</span>
 		</p>

@@ -26,17 +26,28 @@ useResizeObserver(
 </script>
 
 <template>
-	<article :class="[$style.Project, compact ? $style.Project___compact : '']"
-			 :ref="(element) => { container = element as Element }">
+	<article
+		:class="[$style.Project, compact ? $style.Project___compact : '']"
+		:ref="(element) => { container = element as Element }"
+	>
 		<div :class="$style.Project_descriptionContainer">
 			<h3 :class="$style.Project_title">{{ props.title }}</h3>
 			<div :class="$style.Project_description">
 				<slot />
 			</div>
 		</div>
-		<div v-if="props.images" :class="$style.Project_images">
-			<div :class="$style.Project_imageWrapper" v-for="image in props.images">
-				<img :src="image" :alt="alt" />
+		<div
+			v-if="props.images"
+			:class="$style.Project_images"
+		>
+			<div
+				:class="$style.Project_imageWrapper"
+				v-for="image in props.images"
+			>
+				<img
+					:src="image"
+					:alt="alt"
+				/>
 			</div>
 		</div>
 	</article>
@@ -80,7 +91,7 @@ useResizeObserver(
 .Project_imageWrapper {
 	flex: 0 0 100%;
 
-	>img {
+	> img {
 		max-width: 100%;
 		max-height: 200rem;
 		margin-left: auto;
@@ -102,10 +113,12 @@ useResizeObserver(
 
 	text-align: left;
 	color: @color-white;
-	clip-path: polygon(0% 0%,
-			100% 0%,
-			calc(100% - @Project_title-clip) 100%,
-			0% 100%);
+	clip-path: polygon(
+		0% 0%,
+		100% 0%,
+		calc(100% - @Project_title-clip) 100%,
+		0% 100%
+	);
 
 	margin-bottom: @gap;
 	margin-right: @Project-gap;

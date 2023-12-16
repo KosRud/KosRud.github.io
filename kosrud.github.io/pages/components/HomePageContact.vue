@@ -20,26 +20,55 @@ import GrungeHeading from "./GrungeHeading.vue";
     <a href="https://formspree.io/">Formspree</a> -->
 
 		<div :class="$style.StatusBox">
-			<strong v-if="false" :class="$style.StatusBox_title">Status:</strong>
-			<img :class="$style.StatusBox_icon" :src="handshake" />
-			<span :class="$style.StatusBox_text">I'm available for contract work</span>
+			<strong
+				v-if="false"
+				:class="$style.StatusBox_title"
+				>Status:</strong
+			>
+			<img
+				:class="$style.StatusBox_icon"
+				:src="handshake"
+			/>
+			<span :class="$style.StatusBox_text"
+				>I'm available for contract work</span
+			>
 		</div>
 
-		<form action="https://formspree.io/f/xwkdgjao" method="POST" :class="$style.ContactForm">
+		<form
+			action="https://formspree.io/f/xwkdgjao"
+			method="POST"
+			:class="$style.ContactForm"
+		>
 			<label>
 				<span>Your name:</span>
-				<input required type="text" name="name" autocomplete="name" />
+				<input
+					required
+					type="text"
+					name="name"
+					autocomplete="name"
+				/>
 			</label>
 			<label>
 				<span>Your email:</span>
-				<input required type="email" name="email" autocomplete="email" />
+				<input
+					required
+					type="email"
+					name="email"
+					autocomplete="email"
+				/>
 			</label>
 			<label>
 				<span>Your message:</span>
-				<textarea required name="message"></textarea>
+				<textarea
+					required
+					name="message"
+				></textarea>
 			</label>
 
-			<button colspan="2" type="submit">
+			<button
+				colspan="2"
+				type="submit"
+			>
 				Send message
 			</button>
 		</form>
