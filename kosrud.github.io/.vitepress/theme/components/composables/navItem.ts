@@ -5,15 +5,15 @@ import { onContentUpdated, useRoute } from "vitepress";
 import { urlMatch } from "./urlMatch";
 
 export function useIsNavItemActive(url: string): Ref<boolean> {
-    const route = useRoute();
+	const route = useRoute();
 
-    const isOpen = ref(false);
+	const isOpen = ref(false);
 
-    function update() {
-        isOpen.value = urlMatch(route.path, url).exact;
-    }
-    onContentUpdated(update);
-    watchEffect(update);
+	function update() {
+		isOpen.value = urlMatch(route.path, url).exact;
+	}
+	onContentUpdated(update);
+	watchEffect(update);
 
-    return isOpen;
+	return isOpen;
 }

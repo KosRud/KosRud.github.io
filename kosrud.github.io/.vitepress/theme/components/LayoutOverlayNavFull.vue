@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <!--  -->
+	<!--  -->
 </template>
 
 <style module lang="less">
