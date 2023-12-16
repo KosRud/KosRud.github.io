@@ -19,63 +19,43 @@ const store = useStore();
 const $style = useCssModule();
 
 watchEffect(() => {
-    if (store.isMobileNavAnythingOpen) {
-        document.querySelector("body")?.classList.add($style.noScroll);
-    } else {
-        document.querySelector("body")?.classList.remove($style.noScroll);
-    }
+	if (store.isMobileNavAnythingOpen) {
+		document.querySelector("body")?.classList.add($style.noScroll);
+	} else {
+		document.querySelector("body")?.classList.remove($style.noScroll);
+	}
 });
 </script>
 
 <template>
-    <div
-        :class="[
-            $style.Overlay,
-            store.isMobileNavAnythingOpen ? $style.Overlay___shaded : '',
-        ]"
-    >
-        <LayoutHeader :class="$style.Header" />
-        <div :class="$style.NavContainer">
-            <template v-if="!frontmatter.hero">
-                <LayoutNavPages
-                    :class="$style.NavPages"
-                    v-if="store.adaptiveStage == AdaptiveStage.full"
-                />
-                <div :class="$style.Overlay_spacer___content"></div>
-                <LayoutNavToc
-                    :class="$style.Toc"
-                    v-if="store.adaptiveStage == AdaptiveStage.full"
-                />
-            </template>
-            <LayoutNavMobile
-                :class="$style.NavMobile"
-                :isOpen="store.isMobileNavTocOpen"
-                :setIsOpen="
-                        (isOpen: boolean) => {
-                            store.isMobileNavTocOpen = isOpen;
-                        }
-                    "
-            >
-                <template #default="{ close }">
-                    <LayoutNavToc
-                        is-mobile
-                        @jumped-to-item="close"
-                    />
-                </template>
-            </LayoutNavMobile>
-            <LayoutNavMobile
-                :class="$style.NavMobile"
-                :isOpen="store.isMobileNavPagesOpen"
-                :setIsOpen="
-                        (isOpen: boolean) => {
-                            store.isMobileNavPagesOpen = isOpen;
-                        }
-                    "
-            >
-                <LayoutNavPages mobile />
-            </LayoutNavMobile>
-        </div>
-    </div>
+	<div :class="[
+		$style.Overlay,
+		store.isMobileNavAnythingOpen ? $style.Overlay___shaded : '',
+	]">
+		<LayoutHeader :class="$style.Header" />
+		<div :class="$style.NavContainer">
+			<template v-if="!frontmatter.hero">
+				<LayoutNavPages :class="$style.NavPages" v-if="store.adaptiveStage == AdaptiveStage.full" />
+				<div :class="$style.Overlay_spacer___content"></div>
+				<LayoutNavToc :class="$style.Toc" v-if="store.adaptiveStage == AdaptiveStage.full" />
+				<div :class="$style.NavContainer_spacer"></div>
+			</template>
+			<LayoutNavMobile :class="$style.NavMobile" :isOpen="store.isMobileNavTocOpen" :setIsOpen="(isOpen: boolean) => {
+				store.isMobileNavTocOpen = isOpen;
+			}
+				">
+				<template #default="{ close }">
+					<LayoutNavToc is-mobile @jumped-to-item="close" />
+				</template>
+			</LayoutNavMobile>
+			<LayoutNavMobile :class="$style.NavMobile" :isOpen="store.isMobileNavPagesOpen" :setIsOpen="(isOpen: boolean) => {
+				store.isMobileNavPagesOpen = isOpen;
+			}
+				">
+				<LayoutNavPages mobile />
+			</LayoutNavMobile>
+		</div>
+	</div>
 </template>
 
 <style module lang="less">
@@ -86,21 +66,21 @@ watchEffect(() => {
 \*----------------------------------*/
 
 .noScroll {
-    overflow: hidden !important;
+	overflow: hidden !important;
 }
 
 .Overlay {
-    // establish a stacking context
-    position: fixed;
-    z-index: 0;
+	// establish a stacking context
+	position: fixed;
+	z-index: 0;
 }
 
 .Header {
-    z-index: 1;
+	z-index: 1;
 }
 
 .NavContainer {
-    z-index: 0;
+	z-index: 0;
 }
 
 /*
@@ -108,54 +88,59 @@ watchEffect(() => {
 \*----------------------------------*/
 
 .Overlay {
-    position: fixed;
-    top: 0rem;
-    bottom: 0rem;
-    left: 0rem;
-    right: 0rem;
+	position: fixed;
+	top: 0rem;
+	bottom: 0rem;
+	left: 0rem;
+	right: 0rem;
 
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .Overlay_spacer___content {
-    flex: 0 1 @Main-padding-horizontal * 2 + @content-width;
-    margin-right: @Toc-to-Main-gap;
+	flex: 0 1 @Main-padding-horizontal * 2 + @content-width;
+	margin-right: @Toc-to-Main-gap;
 }
 
 .Overlay___shaded {
-    background-color: fade(@color-black, 70%);
+	background-color: fade(@color-black, 70%);
 }
 
 .NavContainer {
-    flex-grow: 1;
-    display: flex;
-    justify-content: stretch;
+	flex-grow: 1;
+	display: flex;
+	justify-content: stretch;
 
-    position: relative; // for NavMobile
+	position: relative; // for NavMobile
 }
 
 .Header {
-    flex: 0 0 @Header-height;
+	flex: 0 0 @Header-height;
 }
 
 .NavPages {
-    flex: 1 0 @Aside-width;
+	flex: 1 0 @Aside-width;
 }
 
 .Toc {
-    position: sticky;
-    top: 0rem;
-    flex: 1 0 @Toc-width;
+	position: sticky;
+	top: 0rem;
+	flex: 0 0 @Aside-width;
+	// max-width: @Aside-max-width;
 }
 
 .NavMobile {
-    position: absolute;
+	position: absolute;
 
-    top: 0rem;
-    bottom: 0rem;
-    right: 0rem;
-    width: 100%;
+	top: 0rem;
+	bottom: 0rem;
+	right: 0rem;
+	width: 100%;
+}
+
+.NavContainer_spacer {
+	flex: 1 1 0rem;
 }
 
 /*
@@ -163,7 +148,7 @@ watchEffect(() => {
 \*----------------------------------*/
 
 .Overlay {
-    transition: background-color @duration-s;
+	transition: background-color @duration-s;
 }
 
 /*
@@ -171,18 +156,18 @@ watchEffect(() => {
 \*----------------------------------*/
 
 .Overlay {
-    pointer-events: none;
+	pointer-events: none;
 
-    a {
-        user-select: none;
-        cursor: pointer;
-    }
+	a {
+		user-select: none;
+		cursor: pointer;
+	}
 }
 
 .Toc,
 .NavPages,
 .NavMobile,
 .Header {
-    pointer-events: auto;
+	pointer-events: auto;
 }
 </style>
