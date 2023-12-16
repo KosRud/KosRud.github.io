@@ -11,8 +11,12 @@ const props = defineProps<{
 	<div>
 		<div :class="$style.FeaturesGallery">
 			<slot />
-			<FeaturesGalleryCard dummy name="" :class="$style.FeaturesGallery_dummy"
-								 v-for="_ in Array.from({ length: props.dummies ?? 0 })"></FeaturesGalleryCard>
+			<FeaturesGalleryCard
+				dummy
+				name=""
+				:class="$style.FeaturesGallery_dummy"
+				v-for="_ in Array.from({ length: props.dummies ?? 0 })"
+			></FeaturesGalleryCard>
 		</div>
 	</div>
 </template>
@@ -30,7 +34,7 @@ const props = defineProps<{
 	align-items: stretch;
 	width: calc(100% + @CardGalleryGap);
 
-	>* {
+	> * {
 		margin: @CardGalleryGap*0.5;
 	}
 

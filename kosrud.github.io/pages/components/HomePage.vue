@@ -54,12 +54,21 @@ function handleScrolling() {
 </script>
 
 <template>
-	<div :class="[$style.HomePage, isCompact ? $style.HomePage___compact : '']"
-		 :ref="(element) => { containerDiv = element as Element }">
-		<section :ref="(element: Element | ComponentPublicInstance | null) => {
+	<div
+		:class="[$style.HomePage, isCompact ? $style.HomePage___compact : '']"
+		:ref="(element) => { containerDiv = element as Element }"
+	>
+		<section
+			:ref="(element: Element | ComponentPublicInstance | null) => {
 			hero = element as Element;
-		}" :class="$style.Hero" v-if="!isCompact">
-			<img :class="$style.Hero_photo" src="/assets/photo.png" />
+		}"
+			:class="$style.Hero"
+			v-if="!isCompact"
+		>
+			<img
+				:class="$style.Hero_photo"
+				src="/assets/photo.png"
+			/>
 			<div :class="$style.Hero_titleContainer">
 				<h2 :class="$style.Hero_title">Kostiantyn Rudenko</h2>
 				<h3 :class="$style.Hero_subtitle">software engineer</h3>
@@ -154,7 +163,7 @@ function handleScrolling() {
 	box-shadow: @shadow-l;
 	background-color: @color-white;
 
-	&>* {
+	& > * {
 		flex-shrink: 0;
 		width: 100%;
 		max-width: 1200rem;

@@ -16,14 +16,19 @@ const store = useStore();
 </script>
 
 <template>
-	<article :class="[
-		$style.Card,
-		props.dummy ? $style.FeaturesGallery_card___dummy : '',
-		props.class,
-	]">
+	<article
+		:class="[
+			$style.Card,
+			props.dummy ? $style.FeaturesGallery_card___dummy : '',
+			props.class,
+		]"
+	>
 		<template v-if="!props.dummy">
 			<h2 :class="$style.Feature_title">
-				<span v-if="props.iconUrl" :class="$style.Feature_icon"></span>
+				<span
+					v-if="props.iconUrl"
+					:class="$style.Feature_icon"
+				></span>
 				{{ props.name }}
 			</h2>
 			<slot />
