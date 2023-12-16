@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useStore } from "../../.vitepress/theme/components/pinia/store";
-import { AdaptiveStage } from "../../.vitepress/theme/components/composables/adaptiveStages";
 
 const props = defineProps<{
 	dummy?: boolean;
@@ -11,8 +9,6 @@ const props = defineProps<{
 }>();
 
 const iconUrl = computed(() => `url(${props.iconUrl})`);
-
-const store = useStore();
 </script>
 
 <template>
