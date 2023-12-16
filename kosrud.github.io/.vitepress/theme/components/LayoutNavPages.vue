@@ -17,99 +17,92 @@ const route = useRoute();
 const isMounted = ref(false);
 
 onMounted(() => {
-    isMounted.value = true;
+	isMounted.value = true;
 });
 
 const navItems = computed(() => {
-    if (props.mobile) {
-        return [{ title: "Home", url: "/" }].concat(site.value.themeConfig.nav);
-    }
+	if (props.mobile) {
+		return [{ title: "Home", url: "/" }].concat(site.value.themeConfig.nav);
+	}
 
-    return (
-        site.value.themeConfig.nav.find((navItem) => {
-            return urlMatch(route.path, navItem.url).inside;
-        })?.children ?? []
-    );
+	return (
+		site.value.themeConfig.nav.find((navItem) => {
+			return urlMatch(route.path, navItem.url).inside;
+		})?.children ?? []
+	);
 });
 
 const title = computed(() => {
-    if (props.mobile) {
-        return "Menu";
-    }
+	if (props.mobile) {
+		return "Menu";
+	}
 
-    return (
-        site.value.themeConfig.nav.find((navItem) => {
-            const match = urlMatch(route.path, navItem.url);
-            return match.inside;
-        })?.title ?? ""
-    ).concat("/");
+	return (
+		site.value.themeConfig.nav.find((navItem) => {
+			const match = urlMatch(route.path, navItem.url);
+			return match.inside;
+		})?.title ?? ""
+	).concat("/");
 });
 
 const oneChildOpen = useOneChildOpen(navItems.value);
 </script>
 
 <template>
-    <aside :class="$style.NavPagesWrapper">
-        <nav
-            :class="[
-                $style.NavPages,
-                props.mobile ? $style.NavPages___mobile : '',
-            ]"
-        >
-            <template v-if="navItems.length > 0">
-                <h2 :class="$style.NavPages_title">{{ title }}</h2>
-                <ul :class="$style.NavPages_itemList">
-                    <LayoutNavPagesItem
-                        :starting-level="props.mobile ? 0 : 1"
-                        :nav-item="navItem"
-                        v-for="(navItem, id) in navItems"
-                        :is-open="oneChildOpen.isChildOpen(id)"
-                        @nav-item-toggle="oneChildOpen.toggleChild(id)"
-                        :is-nav-pages-loaded="isMounted"
-                    />
-                </ul>
-            </template>
-        </nav>
-    </aside>
+	<aside :class="[
+		$style.NavPagesWrapper,
+		props.mobile ? $style.NavPagesWrapper___mobile : '',
+	]">
+		<nav :class="$style.NavPages">
+			<template v-if="navItems.length > 0">
+				<h2 :class="$style.NavPages_title">{{ title }}</h2>
+				<ul :class="$style.NavPages_itemList">
+					<LayoutNavPagesItem :starting-level="props.mobile ? 0 : 1" :nav-item="navItem"
+										v-for="(navItem, id) in navItems" :is-open="oneChildOpen.isChildOpen(id)"
+										@nav-item-toggle="oneChildOpen.toggleChild(id)" :is-nav-pages-loaded="isMounted" />
+				</ul>
+			</template>
+		</nav>
+	</aside>
 </template>
 
 <style module lang="less">
 @import "../style/variables/index.less";
 
 .NavPagesWrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
 }
 
 .NavPages {
-    flex: 1 1 @Aside-width;
-    max-width: @Aside-max-width;
+	flex: 1 1 @Aside-width;
+	max-width: @Aside-max-width;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    align-items: start;
-    overflow-y: auto;
-    gap: @gap;
-    padding-left: @Aside-padding-horizontal;
-    padding-right: @Aside-padding-horizontal;
-    padding-bottom: @Aside-padding-bottom;
-    padding-top: @Aside-padding-top;
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	align-items: start;
+	overflow-y: auto;
+	gap: @gap;
+	padding-left: @Aside-padding-horizontal;
+	padding-right: @Aside-padding-horizontal;
+	padding-bottom: @Aside-padding-bottom;
+	padding-top: @Aside-padding-top;
 }
 
 .NavPages_title {
-    flex: 0 1 fit-content;
-    min-width: min(100%, @Aside-width);
-    text-align: center;
+	flex: 0 1 fit-content;
+	min-width: min(100%, @Aside-width);
+	text-align: center;
 
-    font-weight: bold;
+	font-weight: bold;
 
-    font-family: @font-techy;
+	font-family: @font-techy;
 }
 
 .NavPages_itemList {
-    flex: 1 0 max-content;
+	flex: 1 0 max-content;
 }
 
 /*
@@ -117,16 +110,21 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 \*----------------------------------*/
 
 .NavPages_title {
-    font-size: @size-l;
+	font-size: @size-l;
 }
 
 /*
 	Responsive
 \*----------------------------------*/
 
-.NavPages___mobile {
-    .NavPages_title {
-        font-size: @size-xl;
-    }
+.NavPagesWrapper___mobile {
+	.NavPages_title {
+		font-size: @size-xl;
+	}
+
+	.NavPages {
+		max-width: unset;
+		align-items: stretch;
+	}
 }
 </style>
