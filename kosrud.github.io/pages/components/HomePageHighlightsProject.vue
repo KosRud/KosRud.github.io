@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Ref, ref } from 'vue';
+
 import { useResizeObserver } from '../../.vitepress/theme/components/composables/resizeObserver';
 import { pxToRem } from '../../.vitepress/theme/components/composables/unitConverter';
 
@@ -28,12 +29,14 @@ useResizeObserver(
 </script>
 
 <template>
-	<article
+	<div
 		:class="[$style.Project, compact ? $style.Project___compact : '']"
 		:ref="(element) => { container = element as Element }"
 	>
 		<div :class="$style.Project_descriptionContainer">
-			<h3 :class="$style.Project_title">{{ props.title }}</h3>
+			<h3 :class="$style.Project_title">
+				{{ props.title }}
+			</h3>
 			<div :class="$style.Project_description">
 				<slot />
 			</div>
@@ -53,7 +56,7 @@ useResizeObserver(
 				/>
 			</div>
 		</div>
-	</article>
+	</div>
 </template>
 
 <style lang="less" module>

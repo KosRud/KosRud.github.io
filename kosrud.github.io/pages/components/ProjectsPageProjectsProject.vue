@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import naturalSort from 'javascript-natural-sort';
 import { computed } from 'vue';
+
+import { makeHeadingId } from '../../.vitepress/theme/components/composables/makeHeadingId';
+import naturalSort from 'javascript-natural-sort';
 
 const props = defineProps<{
 	icons: { title: string; url: string }[];
@@ -11,20 +13,6 @@ const props = defineProps<{
 const sortedIcons = computed(() =>
 	[...props.icons].sort((a, b) => naturalSort(a.title, b.title))
 );
-
-function makeHeadingId(title: string) {
-	return (
-		title
-			// prevent XSS when used as attribute
-			.replace(/["']/, '')
-			// id can't contain whitespace
-			.replace(/\s/g, '-')
-			// lowercase
-			.toLowerCase()
-			// leave only whitelisted characters
-			.replace(/[^a-z\d_-]/, '')
-	);
-}
 </script>
 
 <template>

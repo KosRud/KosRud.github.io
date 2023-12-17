@@ -65,7 +65,7 @@ useResizeObserver(
 			]"
 			v-if="!frontmatter.hero"
 		/>
-		<main
+		<div
 			:inert="store.isMobileNavAnythingOpen ? true : undefined"
 			v-else
 			:class="[
@@ -77,7 +77,7 @@ useResizeObserver(
 			]"
 		>
 			<Content />
-		</main>
+		</div>
 
 		<div
 			aria-hidden="true"

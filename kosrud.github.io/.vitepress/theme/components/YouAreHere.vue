@@ -66,8 +66,12 @@ const navTrace = computed((): NavItem[] => {
 <template>
 	<p :class="[$style.YouAreHere, darkMode ? $style.YouAreHere___dark : '']">
 		<span :class="$style.YouAreHere_title">You are here:</span>
-		<template v-for="navItem in navTrace">
-			<a :href="findFirstChildPage(navItem).url">{{ navItem?.title }}</a>
+		<template v-for="(navItem, id) in navTrace">
+			<a
+				:aria-current="id == navTrace.length - 1 ? 'page' : undefined"
+				:href="findFirstChildPage(navItem).url"
+				>{{ navItem?.title }}</a
+			>
 			<span :class="$style.NavTrace_separator">/</span>
 		</template>
 	</p>

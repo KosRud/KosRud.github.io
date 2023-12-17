@@ -44,6 +44,7 @@ function updateSiteTitleVisibility() {
 	<header
 		:class="$style.Header"
 		:ref="(element) => {header = element as Element}"
+		role="banner"
 	>
 		<div
 			:class="$style.SiteTitleContainer"
