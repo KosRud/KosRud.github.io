@@ -39,6 +39,14 @@ const props = defineProps<{ dummies: number }>();
 							url="https://kpi.ua/en/fpm"
 						/>.
 					</p>
+					<iframe
+						src="https://ghbtns.com/github-btn.html?user=KosRud&repo=DQ-skinning-for-Unity&type=star&count=true&size=large"
+						frameborder="0"
+						scrolling="no"
+						height="30"
+						title="GitHub stars"
+					>
+					</iframe>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject :title="'dice-pool-calc'">
 					<p>
