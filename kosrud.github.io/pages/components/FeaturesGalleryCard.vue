@@ -12,7 +12,7 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
 </script>
 
 <template>
-	<article
+	<div
 		:class="[
 			$style.Card,
 			props.dummy ? $style.FeaturesGallery_card___dummy : '',
@@ -20,16 +20,16 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
 		]"
 	>
 		<template v-if="!props.dummy">
-			<h2 :class="$style.Feature_title">
+			<h3 :class="$style.Feature_title">
 				<span
 					v-if="props.iconUrl"
 					:class="$style.Feature_icon"
 				></span>
 				{{ props.name }}
-			</h2>
+			</h3>
 			<slot />
 		</template>
-	</article>
+	</div>
 </template>
 
 <style module lang="less">

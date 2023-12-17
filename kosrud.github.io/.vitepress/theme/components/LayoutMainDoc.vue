@@ -23,23 +23,25 @@ const { page } = useData();
 				: $style.MainWrapper___compact,
 		]"
 	>
-		<main :class="$style.Main">
-			<header :class="$style.CurrentLocation">
+		<div :class="$style.Main">
+			<div :class="$style.CurrentLocation">
 				<YouAreHere />
-			</header>
-			<LayoutError404 v-if="page.isNotFound" />
-			<MarkdownWrapper
-				:class="$style.Markdown"
-				v-else
-			>
-				<Content
-					:ref="(component: ComponentPublicInstance | null) => {
-							store.pageContent = component;
-						}
-						"
-				/>
-			</MarkdownWrapper>
-		</main>
+			</div>
+			<main>
+				<LayoutError404 v-if="page.isNotFound" />
+				<MarkdownWrapper
+					:class="$style.Markdown"
+					v-else
+				>
+					<Content
+						:ref="(component: ComponentPublicInstance | null) => {
+								store.pageContent = component;
+							}
+							"
+					/>
+				</MarkdownWrapper>
+			</main>
+		</div>
 	</div>
 </template>
 
