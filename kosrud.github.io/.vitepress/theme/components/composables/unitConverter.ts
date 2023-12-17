@@ -1,8 +1,8 @@
 function getNumPxInRem() {
-	const rootElement = document.querySelector("html");
+	const rootElement = document.querySelector('html');
 
 	if (!rootElement) {
-		console.error("root <html> element not found");
+		console.error('root <html> element not found');
 		return 1;
 	}
 

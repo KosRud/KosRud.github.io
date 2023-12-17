@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import LayoutNavPagesItem from "./LayoutNavPagesItem.vue";
+import LayoutNavPagesItem from './LayoutNavPagesItem.vue';
 
-import { computed, onMounted, ref } from "vue";
-import { useData, useRoute } from "vitepress";
+import { computed, onMounted, ref } from 'vue';
+import { useData, useRoute } from 'vitepress';
 
-import { ThemeConfig } from "../ThemeConfig";
-import { urlMatch } from "./composables/urlMatch";
-import { useOneChildOpen } from "./composables/oneChildOpen";
-import { useStore } from "./pinia/store";
+import { ThemeConfig } from '../ThemeConfig';
+import { urlMatch } from './composables/urlMatch';
+import { useOneChildOpen } from './composables/oneChildOpen';
+import { useStore } from './pinia/store';
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site } = useData<ThemeConfig>();
@@ -28,15 +28,15 @@ onMounted(() => {
 
 const title = computed(() => {
 	if (props.mobile) {
-		return "Menu";
+		return 'Menu';
 	}
 
 	return (
 		site.value.themeConfig.nav.find((navItem) => {
 			const match = urlMatch(route.path, navItem.url);
 			return match.inside;
-		})?.title ?? ""
-	).concat("/");
+		})?.title ?? ''
+	).concat('/');
 });
 
 const oneChildOpen = useOneChildOpen(navItems.value);
@@ -69,7 +69,7 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 </template>
 
 <style module lang="less">
-@import "../style/variables/index.less";
+@import '../style/variables/index.less';
 
 .NavPages {
 	display: flex;

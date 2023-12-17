@@ -23,7 +23,7 @@ const props = defineProps<{
 </template>
 
 <style lang="less" module>
-@import "../style/variables/index.less";
+@import '../style/variables/index.less';
 
 .BurgerWrapper {
 	display: flex;

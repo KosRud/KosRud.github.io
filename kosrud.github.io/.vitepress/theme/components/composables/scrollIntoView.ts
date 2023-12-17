@@ -1,4 +1,4 @@
-type Block = "start" | "center" | "end" | "nearest";
+type Block = 'start' | 'center' | 'end' | 'nearest';
 
 export function scrollIntoViewIfNeeded(element: Element, block: Block) {
 	if (isObscured(element)) {

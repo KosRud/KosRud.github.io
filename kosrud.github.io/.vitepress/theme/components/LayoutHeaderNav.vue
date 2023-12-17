@@ -1,29 +1,29 @@
 <script lang="ts" setup>
-import { ref, computed, Ref } from "vue";
-import { useData } from "vitepress";
-import { useStore } from "./pinia/store";
+import { ref, computed, Ref } from 'vue';
+import { useData } from 'vitepress';
+import { useStore } from './pinia/store';
 
 import {
 	AdaptiveStage,
 	useAdaptivePreference,
-} from "./composables/adaptiveStages";
+} from './composables/adaptiveStages';
 
-import { ThemeConfig } from "../ThemeConfig";
+import { ThemeConfig } from '../ThemeConfig';
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site } = useData<ThemeConfig>();
 
 const store = useStore();
 
-import LayoutHeaderNavItem from "./LayoutHeaderNavItem.vue";
-import { useResizeObserver } from "./composables/resizeObserver";
+import LayoutHeaderNavItem from './LayoutHeaderNavItem.vue';
+import { useResizeObserver } from './composables/resizeObserver';
 
 const itemList: Ref<Element | null> = ref(null);
 const adaptivePreference = useAdaptivePreference();
 handleAdaptivePeference();
 
 const visibility = computed(() => {
-	return store.adaptiveStage == AdaptiveStage.full ? "visible" : "hidden";
+	return store.adaptiveStage == AdaptiveStage.full ? 'visible' : 'hidden';
 });
 
 function handleAdaptivePeference() {
@@ -36,13 +36,13 @@ function updateAdaptivePreference() {
 
 function getAdaptivePreference() {
 	if (!itemList.value) {
-		console.error("Top navigation bar item list not found.");
+		console.error('Top navigation bar item list not found.');
 		return AdaptiveStage.full;
 	}
 
 	const lastItem = itemList.value.lastElementChild;
 	if (!lastItem) {
-		console.warn("Top navigation bar has no items.");
+		console.warn('Top navigation bar has no items.');
 		return AdaptiveStage.full;
 	}
 
@@ -78,7 +78,7 @@ function getAdaptivePreference() {
 </template>
 
 <style module lang="less">
-@import "../style/variables/index.less";
+@import '../style/variables/index.less';
 
 .HeaderNav {
 	> ul {

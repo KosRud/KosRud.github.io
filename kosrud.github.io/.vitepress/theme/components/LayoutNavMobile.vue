@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watchEffect, ref, Ref, onMounted } from "vue";
+import { watchEffect, ref, Ref, onMounted } from 'vue';
 
 const props = defineProps<{
 	isOpen: boolean;
@@ -22,10 +22,10 @@ onMounted(() => {
 	watchEffect(() => {
 		if (props.isOpen) {
 			window.requestAnimationFrame(() =>
-				window.addEventListener("click", onClick)
+				window.addEventListener('click', onClick)
 			);
 		} else {
-			window.removeEventListener("click", onClick);
+			window.removeEventListener('click', onClick);
 		}
 	});
 });
@@ -51,8 +51,8 @@ onMounted(() => {
 </template>
 
 <style module lang="less">
-@import "../style/variables/index.less";
-@import "../style/mixins/index.less";
+@import '../style/variables/index.less';
+@import '../style/mixins/index.less';
 
 .NavMobile {
 	max-width: 400rem;

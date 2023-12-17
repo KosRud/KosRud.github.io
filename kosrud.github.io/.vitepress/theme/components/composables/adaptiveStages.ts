@@ -1,6 +1,6 @@
-import { onMounted, onUnmounted, ref, Ref, watchEffect } from "vue";
+import { onMounted, onUnmounted, ref, Ref, watchEffect } from 'vue';
 
-import { useStore } from "../pinia/store";
+import { useStore } from '../pinia/store';
 
 export const AdaptiveStage = {
 	// typescript enums get awkward when you need to iterate over possible values
@@ -12,7 +12,7 @@ export const AdaptiveStage = {
 	full: 2,
 } as const;
 
-import type { EnumValues } from "./tsUtil";
+import type { EnumValues } from './tsUtil';
 
 export type AdaptivePreference = {
 	requestedStage: EnumValues<typeof AdaptiveStage>;

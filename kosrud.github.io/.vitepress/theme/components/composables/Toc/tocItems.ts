@@ -1,6 +1,6 @@
-import { onMounted, watchEffect } from "vue";
-import { onContentUpdated } from "vitepress";
-import { useStore } from "../../pinia/store";
+import { onMounted, watchEffect } from 'vue';
+import { onContentUpdated } from 'vitepress';
+import { useStore } from '../../pinia/store';
 
 export interface TocItem {
 	level: number;
@@ -35,7 +35,7 @@ function getTocItems() {
 	const contentSource = store.pageContent.$el as Element;
 
 	const headings: TocItem[] = Array.from(
-		contentSource.querySelectorAll("h1, h2, h3, h4")
+		contentSource.querySelectorAll('h1, h2, h3, h4')
 	).flatMap((element) => {
 		const title = Array.from(element.childNodes).find(
 			(node) => node.nodeType == Node.TEXT_NODE && node.textContent
@@ -86,7 +86,7 @@ function getTocItems() {
 }
 
 function tagToTitleLevel(tag: string) {
-	const index = ["H1", "H2", "H3", "H4", "H5", "H6"].findIndex(
+	const index = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].findIndex(
 		(x) => x == tag
 	);
 	if (index != -1) {

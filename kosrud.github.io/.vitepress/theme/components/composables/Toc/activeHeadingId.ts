@@ -5,11 +5,11 @@ import {
 	onMounted,
 	InjectionKey,
 	Ref,
-} from "vue";
-import { onContentUpdated } from "vitepress";
-import { useStore } from "../../pinia/store";
+} from 'vue';
+import { onContentUpdated } from 'vitepress';
+import { useStore } from '../../pinia/store';
 
-import { TocItem } from "./tocItems.js";
+import { TocItem } from './tocItems.js';
 
 export const activeHeadingIdSymbol: InjectionKey<Ref<string>> = Symbol();
 
@@ -22,10 +22,10 @@ export function useTrackActiveHeadingId() {
 
 function setTriggers(update: () => void) {
 	onBeforeMount(() => {
-		window.addEventListener("scroll", update, { passive: true });
+		window.addEventListener('scroll', update, { passive: true });
 	});
 	onUnmounted(() => {
-		window.removeEventListener("scroll", update);
+		window.removeEventListener('scroll', update);
 	});
 	onContentUpdated(() => {
 		update();
@@ -52,7 +52,7 @@ function getActiveHeadingId() {
 		return store.tocItems[0].element.id;
 	}
 
-	return "";
+	return '';
 }
 
 function findActiveTocItem(headings: TocItem[]): TocItem | undefined {

@@ -1,5 +1,5 @@
-import { onUnmounted, onMounted } from "vue";
-import { useStore } from "../store";
+import { onUnmounted, onMounted } from 'vue';
+import { useStore } from '../store';
 
 export interface ViewPortSize {
 	height: number;
@@ -22,10 +22,10 @@ export function useTrackViewportSize() {
 function setupHooks(update: () => void) {
 	onMounted(() => {
 		update();
-		window.addEventListener("resize", update, { passive: true });
+		window.addEventListener('resize', update, { passive: true });
 	});
 
 	onUnmounted(() => {
-		window.removeEventListener("resize", update);
+		window.removeEventListener('resize', update);
 	});
 }

@@ -12,8 +12,8 @@ export interface UrlMatch {
 export const urlMatch = (url: string, target: string): UrlMatch => {
 	const extensionRegex = /\.[^.]+$/;
 
-	url = encodeURI(url.replace(extensionRegex, ""));
-	target = target.replace(extensionRegex, "");
+	url = encodeURI(url.replace(extensionRegex, ''));
+	target = target.replace(extensionRegex, '');
 
 	const result: UrlMatch = { inside: false, exact: false };
 

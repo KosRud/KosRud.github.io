@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useData } from "vitepress";
+import { useData } from 'vitepress';
 
-import { ThemeConfig } from "../ThemeConfig";
+import { ThemeConfig } from '../ThemeConfig';
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site } = useData<ThemeConfig>();
@@ -26,7 +26,7 @@ const { site } = useData<ThemeConfig>();
 </template>
 
 <style lang="less" module>
-@import "../style/variables/index.less";
+@import '../style/variables/index.less';
 
 .SiteTitleContainer {
 	&,

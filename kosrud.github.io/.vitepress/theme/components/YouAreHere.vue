@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ThemeConfig, NavItem } from "../ThemeConfig";
+import { ThemeConfig, NavItem } from '../ThemeConfig';
 
-import { computed } from "vue";
-import { useData, useRoute } from "vitepress";
+import { computed } from 'vue';
+import { useData, useRoute } from 'vitepress';
 
-import { urlMatch } from "./composables/urlMatch.js";
-import { useDarkModeDetect } from "./composables/darkMode";
-import { findFirstChildPage } from "./composables/nav";
+import { urlMatch } from './composables/urlMatch.js';
+import { useDarkModeDetect } from './composables/darkMode';
+import { findFirstChildPage } from './composables/nav';
 
 const route = useRoute();
 const { site, frontmatter } = useData<ThemeConfig>();
@@ -21,11 +21,11 @@ function improviseNavTitle() {
 	const match = route.path.match(/[^\/]+$/); // last portion of url
 
 	if (match) {
-		const fileName = match[0].replace(/\.[^.]+$/, ""); // remove extension
+		const fileName = match[0].replace(/\.[^.]+$/, ''); // remove extension
 		return fileName.charAt(0).toUpperCase() + fileName.slice(1);
 	}
 
-	return "Unknown page";
+	return 'Unknown page';
 }
 
 const navTrace = computed((): NavItem[] => {
@@ -33,7 +33,7 @@ const navTrace = computed((): NavItem[] => {
 		console.warn(`Page has no title: ${route.path}`);
 	}
 
-	function tracePath(nav: ThemeConfig["nav"]): NavItem[] {
+	function tracePath(nav: ThemeConfig['nav']): NavItem[] {
 		for (const navItem of nav) {
 			const match = urlMatch(route.path, navItem.url);
 
@@ -57,7 +57,7 @@ const navTrace = computed((): NavItem[] => {
 	}
 
 	return [
-		{ title: "Home", url: "/", children: site.value.themeConfig.nav },
+		{ title: 'Home', url: '/', children: site.value.themeConfig.nav },
 		...tracePath(site.value.themeConfig.nav),
 	];
 });
@@ -74,8 +74,8 @@ const navTrace = computed((): NavItem[] => {
 </template>
 
 <style module lang="less">
-@import "../style/variables/index.less";
-@import "../style/mixins/index.less";
+@import '../style/variables/index.less';
+@import '../style/mixins/index.less';
 
 .YouAreHere {
 	display: flex;

@@ -1,8 +1,8 @@
-import { ref, Ref } from "vue";
+import { ref, Ref } from 'vue';
 
-import { NavItem } from "../../ThemeConfig";
-import { urlMatch } from "./urlMatch";
-import { useRoute } from "vitepress";
+import { NavItem } from '../../ThemeConfig';
+import { urlMatch } from './urlMatch';
+import { useRoute } from 'vitepress';
 
 export function useOneChildOpen(navItems: NavItem[]) {
 	const route = useRoute();

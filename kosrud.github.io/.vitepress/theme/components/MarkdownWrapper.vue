@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Ref, ref } from "vue";
-import { useResizeObserver } from "./composables/resizeObserver";
+import { Ref, ref } from 'vue';
+import { useResizeObserver } from './composables/resizeObserver';
 
 const containerElement: Ref<Element | null> = ref(null);
 const isNarrow = ref(false);
@@ -9,7 +9,7 @@ const narrowThresholdRem = 500;
 useResizeObserver(
 	() => {
 		if (!containerElement.value) {
-			console.error("markdown container element ref not set");
+			console.error('markdown container element ref not set');
 			return;
 		}
 
@@ -31,8 +31,8 @@ useResizeObserver(
 </template>
 
 <style lang="less" module>
-@import "../style/variables/index.less";
-@import "../style/mixins/index.less";
+@import '../style/variables/index.less';
+@import '../style/mixins/index.less';
 
 .Markdown {
 	text-align: justify;

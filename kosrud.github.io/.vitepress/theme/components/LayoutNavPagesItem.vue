@@ -1,15 +1,15 @@
 <script lang="ts" setup>
-import LayoutNavItemText from "./LayoutNavItemText.vue";
+import LayoutNavItemText from './LayoutNavItemText.vue';
 
-import { Ref, ref, computed, onMounted, watchEffect } from "vue";
+import { Ref, ref, computed, onMounted, watchEffect } from 'vue';
 
-import { NavItem } from "../ThemeConfig";
-import { useIsNavItemActive } from "./composables/navItem";
-import { useDarkModeDetect } from "./composables/darkMode";
-import { useOneChildOpen } from "./composables/oneChildOpen";
-import { scrollIntoViewIfNeeded } from "./composables/scrollIntoView";
+import { NavItem } from '../ThemeConfig';
+import { useIsNavItemActive } from './composables/navItem';
+import { useDarkModeDetect } from './composables/darkMode';
+import { useOneChildOpen } from './composables/oneChildOpen';
+import { scrollIntoViewIfNeeded } from './composables/scrollIntoView';
 
-const emit = defineEmits(["navItemToggle"]);
+const emit = defineEmits(['navItemToggle']);
 
 const props = defineProps<{
 	navItem: NavItem;
@@ -24,7 +24,7 @@ const oneChildOpen = useOneChildOpen(props.navItem.children ?? []);
 const depth = computed(() => props.depth ?? 0);
 const isActive = useIsNavItemActive(props.navItem.url);
 const isDarkMode = useDarkModeDetect();
-const chevronDisplay = props.navItem.children ? "visible" : "hidden";
+const chevronDisplay = props.navItem.children ? 'visible' : 'hidden';
 const linkElement: Ref<Element | null> = ref(null);
 
 onMounted(() => {
@@ -34,7 +34,7 @@ onMounted(() => {
 		}
 		scrollIntoViewIfNeeded(
 			linkElement.value,
-			depth.value == 0 ? "center" : "nearest"
+			depth.value == 0 ? 'center' : 'nearest'
 		);
 	});
 });
@@ -94,8 +94,8 @@ onMounted(() => {
 </template>
 
 <style module lang="less">
-@import "../style/variables/index.less";
-@import "../style/mixins/index.less";
+@import '../style/variables/index.less';
+@import '../style/mixins/index.less';
 
 @chevron-size: @size * 0.7;
 @chevron-margin-right: @gap*0.5;
@@ -128,10 +128,10 @@ onMounted(() => {
 	padding-left: calc(@leveled-padding * v-bind(depth));
 
 	&::before {
-		content: "";
+		content: '';
 		height: @chevron-size;
 		width: @chevron-size;
-		background-image: url("/assets/icons/chevron/right.svg");
+		background-image: url('/assets/icons/chevron/right.svg');
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: left;

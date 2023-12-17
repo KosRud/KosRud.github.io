@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import LayoutError404 from "./LayoutError404.vue";
-import MarkdownWrapper from "./MarkdownWrapper.vue";
-import YouAreHere from "./YouAreHere.vue";
+import LayoutError404 from './LayoutError404.vue';
+import MarkdownWrapper from './MarkdownWrapper.vue';
+import YouAreHere from './YouAreHere.vue';
 
-import { ComponentPublicInstance } from "vue";
-import { useData } from "vitepress";
+import { ComponentPublicInstance } from 'vue';
+import { useData } from 'vitepress';
 
-import { useStore } from "./pinia/store";
+import { useStore } from './pinia/store';
 
-import { AdaptiveStage } from "./composables/adaptiveStages";
+import { AdaptiveStage } from './composables/adaptiveStages';
 
 const store = useStore();
 const { page } = useData();
@@ -44,7 +44,7 @@ const { page } = useData();
 </template>
 
 <style lang="less" module>
-@import "../style/variables/index.less";
+@import '../style/variables/index.less';
 
 .MainWrapper {
 	display: flex;
