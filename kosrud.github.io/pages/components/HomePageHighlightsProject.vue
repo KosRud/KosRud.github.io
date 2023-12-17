@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Ref, computed, ref } from "vue";
-import { useResizeObserver } from "../../.vitepress/theme/components/composables/resizeObserver";
-import { pxToRem } from "../../.vitepress/theme/components/composables/unitConverter";
+import { Ref, computed, ref } from 'vue';
+import { useResizeObserver } from '../../.vitepress/theme/components/composables/resizeObserver';
+import { pxToRem } from '../../.vitepress/theme/components/composables/unitConverter';
 
 const props = defineProps<{ title: string; images?: string[] }>();
 const alt = computed(() => `screenshot of project "${props.title}""`);
@@ -13,7 +13,7 @@ const compact = ref(false);
 useResizeObserver(
 	() => {
 		if (!container.value) {
-			console.error("project highlight container ref not set");
+			console.error('project highlight container ref not set');
 			return;
 		}
 
@@ -54,8 +54,8 @@ useResizeObserver(
 </template>
 
 <style lang="less" module>
-@import "../../.vitepress/theme/style/variables/index.less";
-@import "../../.vitepress/theme/style/mixins/index.less";
+@import '../../.vitepress/theme/style/variables/index.less';
+@import '../../.vitepress/theme/style/mixins/index.less';
 
 @Project-gap: @gap;
 

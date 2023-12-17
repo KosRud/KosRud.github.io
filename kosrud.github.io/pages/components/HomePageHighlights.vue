@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HomePageHighlightsProject from "./HomePageHighlightsProject.vue";
-import GrungeHeading from "./GrungeHeading.vue";
+import HomePageHighlightsProject from './HomePageHighlightsProject.vue';
+import GrungeHeading from './GrungeHeading.vue';
 
 const props = defineProps<{ dummies: number }>();
 </script>
@@ -87,8 +87,8 @@ const props = defineProps<{ dummies: number }>();
 </template>
 
 <style lang="less" module>
-@import "../../.vitepress/theme/style/variables/index.less";
-@import "../../.vitepress/theme/style/mixins/index.less";
+@import '../../.vitepress/theme/style/variables/index.less';
+@import '../../.vitepress/theme/style/mixins/index.less';
 
 @Highlights-gap: @gap*2;
 

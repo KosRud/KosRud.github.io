@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FeaturesGalleryCard from "./FeaturesGalleryCard.vue";
+import FeaturesGalleryCard from './FeaturesGalleryCard.vue';
 
 const props = defineProps<{
 	dummies?: number;
@@ -22,7 +22,7 @@ const props = defineProps<{
 </template>
 
 <style module lang="less">
-@import "../../.vitepress/theme/style/variables/index.less";
+@import '../../.vitepress/theme/style/variables/index.less';
 
 @CardGalleryGap: @gap*2;
 
