@@ -34,7 +34,6 @@ const props = defineProps<{
 
 	padding: 0rem @gap*0.5;
 
-	&:hover,
 	&.open {
 		background-color: @color-highlight;
 	}
@@ -46,6 +45,12 @@ const props = defineProps<{
 	}
 
 	font-family: @font-techy;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.BurgerWrapper:hover {
+		background-color: @color-highlight;
+	}
 }
 
 .Burger_title {

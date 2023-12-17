@@ -9,7 +9,6 @@ const props = defineProps<{ isMobile?: boolean }>();
 const emit = defineEmits(["jumpedToItem"]);
 
 const store = useStore();
-const { page } = useData();
 
 const isLoaded = ref(false);
 
@@ -19,21 +18,27 @@ onMounted(() => {
 </script>
 
 <template>
-	<nav :class="[$style.Toc, props.isMobile ? $style.Toc___mobile : '']">
-		<template v-if="store.tocItems.length > 0 && !page.isNotFound">
-			<h2 :class="$style.Toc_title">On this page:</h2>
-			<nav :class="$style.Toc_content">
-				<ul :class="$style.Toc_itemList">
-					<LayoutNavTocItem
-						v-for="tocItem in store.tocItems"
-						:key="tocItem.element.id"
-						:heading="tocItem"
-						@jumpedToItem="emit('jumpedToItem')"
-						:isTocLoaded="isLoaded"
-					/>
-				</ul>
-			</nav>
-		</template>
+	<nav
+		aria-label="Table of contents"
+		:class="[$style.Toc, props.isMobile ? $style.Toc___mobile : '']"
+	>
+		<h2
+			:aria-hidden="true"
+			:class="$style.Toc_title"
+		>
+			On this page:
+		</h2>
+		<div :class="$style.Toc_content">
+			<ul :class="$style.Toc_itemList">
+				<LayoutNavTocItem
+					v-for="tocItem in store.tocItems"
+					:key="tocItem.element.id"
+					:heading="tocItem"
+					@jumpedToItem="emit('jumpedToItem')"
+					:isTocLoaded="isLoaded"
+				/>
+			</ul>
+		</div>
 	</nav>
 </template>
 
