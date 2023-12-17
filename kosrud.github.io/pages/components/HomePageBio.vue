@@ -2,6 +2,7 @@
 import { Ref, ref } from "vue";
 import { useResizeObserver } from "../../.vitepress/theme/components/composables/resizeObserver";
 import { pxToRem } from "../../.vitepress/theme/components/composables/unitConverter";
+import * as devIconsCollection from './tsx/devIcons'
 
 const adaptiveStage = ref(0);
 const isNarrowThresholdsRem = [1100, 900, 700];
@@ -53,7 +54,7 @@ const devIcons = {
 		{ url: "/assets/icons/dev/cpp/icon.svg" },
 
 		{ url: "/assets/icons/dev/doxygen/icon.png" },
-		{ url: "/assets/icons/dev/git/icon.svg" },
+		{ url: "/assets/icons/dev/git/icon.svg" }
 	],
 	dabbled: [
 		{ url: "/assets/icons/dev/react/icon.svg" },
@@ -117,6 +118,7 @@ const devIcons = {
 						<td>I have experience working with:</td>
 						<td>
 							<img :class="$style.devIcon" v-for="devIcon in devIcons.worked" :src="devIcon.url" />
+							<devIconsCollection.git/>
 						</td>
 					</tr>
 					<tr>
@@ -158,6 +160,8 @@ const devIcons = {
 }
 
 .DeviconsTable {
+	line-height: .devIcon()[ height];
+
 	td:first-child {
 		text-align: right;
 		padding-right: @gap*1.5;
@@ -243,7 +247,7 @@ const devIcons = {
 	}
 
 	margin: @gap*0.25;
-	transform: translateY(-15%);
+	// transform: translateY(-15%);
 }
 
 /*
