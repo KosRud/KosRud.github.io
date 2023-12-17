@@ -13,7 +13,7 @@ import { AdaptiveStage } from "./composables/adaptiveStages";
 import { watchEffect } from "vue";
 
 // https://vitepress.dev/reference/runtime-api#usedata
-const frontmatter = useData<ThemeConfig>().frontmatter;
+const { frontmatter, page } = useData<ThemeConfig>();
 
 const store = useStore();
 const $style = useCssModule();
@@ -29,6 +29,7 @@ watchEffect(() => {
 
 <template>
 	<div
+		:aria-modal="store.isMobileNavAnythingOpen"
 		:class="[
 			$style.Overlay,
 			store.isMobileNavAnythingOpen ? $style.Overlay___shaded : '',
@@ -36,23 +37,28 @@ watchEffect(() => {
 	>
 		<LayoutHeader :class="$style.Header" />
 		<div :class="$style.NavContainer">
-			<template v-if="!frontmatter.hero">
-				<aside :class="$style.NavPagesWrapper">
+			<template
+				v-if="
+					!frontmatter.hero &&
+					store.adaptiveStage == AdaptiveStage.full
+				"
+			>
+				<div :class="$style.NavPagesWrapper">
 					<LayoutNavPages
 						:class="$style.NavPages"
-						v-if="store.adaptiveStage == AdaptiveStage.full"
+						v-if="store.navSecondary.length"
 					/>
-				</aside>
+				</div>
 				<div
 					aria-hidden="true"
 					:class="$style.Overlay_spacer___content"
 				></div>
-				<aside :class="$style.TocWrapper">
+				<div :class="$style.TocWrapper">
 					<LayoutNavToc
 						:class="$style.Toc"
-						v-if="store.adaptiveStage == AdaptiveStage.full"
+						v-if="store.tocItems.length"
 					/>
-				</aside>
+				</div>
 			</template>
 			<LayoutNavMobile
 				:class="$style.NavMobile"

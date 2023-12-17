@@ -13,7 +13,9 @@ import {
 import { useTrackActiveHeadingId } from "../composables/Toc/activeHeadingId";
 import { TocItem, useTrackTocItems } from "../composables/Toc/tocItems";
 import { EnumValues } from "../composables/tsUtil";
-import { useNavMobileService } from "../composables/navMobile";
+import { useNavMobileAutoClose } from "../composables/navMobile";
+import type { NavItem } from "../../ThemeConfig";
+import { useTrackNavItems } from "../composables/navItem";
 
 export const useStore = defineStore("counter", {
 	state: () => {
@@ -33,6 +35,9 @@ export const useStore = defineStore("counter", {
 		const isMobileNavPagesOpen = ref(false);
 		const isMobileNavTocOpen = ref(false);
 
+		const navMain: Ref<NavItem[]> = ref([]);
+		const navSecondary: Ref<NavItem[]> = ref([]);
+
 		return {
 			pageContent: contentContainer,
 			VisibleAreaMarker,
@@ -47,6 +52,9 @@ export const useStore = defineStore("counter", {
 
 			isMobileNavPagesOpen,
 			isMobileNavTocOpen,
+
+			navMain,
+			navSecondary,
 		};
 	},
 
@@ -68,13 +76,13 @@ export function useStoreService() {
 	const store = useStore();
 
 	useTrackViewportSize();
+	useTrackAdaptiveStage();
 
 	useTrackActiveHeadingId();
 	useTrackTocItems();
+	useTrackNavItems();
 
-	useTrackAdaptiveStage();
-
-	useNavMobileService();
+	useNavMobileAutoClose();
 
 	return store;
 }

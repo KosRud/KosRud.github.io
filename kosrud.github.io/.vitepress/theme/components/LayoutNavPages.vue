@@ -7,29 +7,23 @@ import { useData, useRoute } from "vitepress";
 import { ThemeConfig } from "../ThemeConfig";
 import { urlMatch } from "./composables/urlMatch";
 import { useOneChildOpen } from "./composables/oneChildOpen";
+import { useStore } from "./pinia/store";
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site } = useData<ThemeConfig>();
 
 const props = defineProps<{ mobile?: boolean }>();
 const route = useRoute();
+const store = useStore();
+
+const navItems = computed(() =>
+	props.mobile ? store.navMain : store.navSecondary
+);
 
 const isMounted = ref(false);
 
 onMounted(() => {
 	isMounted.value = true;
-});
-
-const navItems = computed(() => {
-	if (props.mobile) {
-		return [{ title: "Home", url: "/" }].concat(site.value.themeConfig.nav);
-	}
-
-	return (
-		site.value.themeConfig.nav.find((navItem) => {
-			return urlMatch(route.path, navItem.url).inside;
-		})?.children ?? []
-	);
 });
 
 const title = computed(() => {
@@ -50,10 +44,16 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 
 <template>
 	<nav
+		:aria-label="`Submenu: ${title}`"
 		:class="[$style.NavPages, props.mobile ? $style.NavPages___mobile : '']"
 	>
 		<template v-if="navItems.length > 0">
-			<h2 :class="$style.NavPages_title">{{ title }}</h2>
+			<h2
+				aria-hidden="true"
+				:class="$style.NavPages_title"
+			>
+				{{ title }}
+			</h2>
 			<ul :class="$style.NavPages_itemList">
 				<LayoutNavPagesItem
 					:starting-level="props.mobile ? 0 : 1"
