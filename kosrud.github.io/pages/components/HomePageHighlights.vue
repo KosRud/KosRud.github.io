@@ -86,7 +86,7 @@ const props = defineProps<{ dummies: number }>();
 							text="ARIA"
 							url="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
 						/>
-						and support for browser
+						attributes and support for browser
 						<HyperLink
 							text="font size"
 							url="https://github.com/facebook/docusaurus/issues/9390"
