@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import LayoutNavItemText from "./LayoutNavItemText.vue";
+import LayoutNavItemText from './LayoutNavItemText.vue';
 
-import { ref, Ref, computed, watchEffect, onMounted } from "vue";
-import { useStore } from "./pinia/store";
+import { ref, Ref, computed, watchEffect, onMounted } from 'vue';
+import { useStore } from './pinia/store';
 
-import { type TocItem } from "./composables/Toc/tocItems";
-import { scrollIntoViewIfNeeded } from "./composables/scrollIntoView";
+import { type TocItem } from './composables/Toc/tocItems';
+import { scrollIntoViewIfNeeded } from './composables/scrollIntoView';
 
 const props = defineProps<{
 	heading: TocItem;
 	level?: number;
 	isTocLoaded: boolean;
 }>();
-const emit = defineEmits(["jumpedToItem"]);
+const emit = defineEmits(['jumpedToItem']);
 
 const level = props.level ?? 1;
 
@@ -27,7 +27,7 @@ onMounted(() => {
 			return;
 		}
 		if (linkElement.value) {
-			scrollIntoViewIfNeeded(linkElement.value, "center");
+			scrollIntoViewIfNeeded(linkElement.value, 'center');
 		}
 	});
 });
@@ -68,8 +68,8 @@ const linkElement: Ref<Element | null> = ref(null);
 </template>
 
 <style module lang="less">
-@import "../style/variables/index.less";
-@import "../style/mixins/index.less";
+@import '../style/variables/index.less';
+@import '../style/mixins/index.less';
 
 .TocItem {
 	display: flex;

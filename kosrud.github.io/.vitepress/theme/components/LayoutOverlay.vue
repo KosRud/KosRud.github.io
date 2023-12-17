@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-import LayoutNavToc from "./LayoutNavToc.vue";
-import LayoutNavPages from "./LayoutNavPages.vue";
-import LayoutHeader from "./LayoutHeader.vue";
-import LayoutNavMobile from "./LayoutNavMobile.vue";
+import LayoutNavToc from './LayoutNavToc.vue';
+import LayoutNavPages from './LayoutNavPages.vue';
+import LayoutHeader from './LayoutHeader.vue';
+import LayoutNavMobile from './LayoutNavMobile.vue';
 
-import { useData } from "vitepress";
-import { useStore } from "./pinia/store";
-import { useCssModule } from "vue";
+import { useData } from 'vitepress';
+import { useStore } from './pinia/store';
+import { useCssModule } from 'vue';
 
-import { ThemeConfig } from "../ThemeConfig";
-import { AdaptiveStage } from "./composables/adaptiveStages";
-import { watchEffect } from "vue";
+import { ThemeConfig } from '../ThemeConfig';
+import { AdaptiveStage } from './composables/adaptiveStages';
+import { watchEffect } from 'vue';
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { frontmatter, page } = useData<ThemeConfig>();
@@ -20,9 +20,9 @@ const $style = useCssModule();
 
 watchEffect(() => {
 	if (store.isMobileNavAnythingOpen) {
-		document.querySelector("body")?.classList.add($style.noScroll);
+		document.querySelector('body')?.classList.add($style.noScroll);
 	} else {
-		document.querySelector("body")?.classList.remove($style.noScroll);
+		document.querySelector('body')?.classList.remove($style.noScroll);
 	}
 });
 </script>
@@ -89,7 +89,7 @@ watchEffect(() => {
 </template>
 
 <style module lang="less">
-@import "../style/variables/index.less";
+@import '../style/variables/index.less';
 
 /*
 	Z-index

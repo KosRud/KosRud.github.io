@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { useData } from "vitepress";
-import { useStore } from "./pinia/store";
-import { onMounted, ref } from "vue";
+import { useData } from 'vitepress';
+import { useStore } from './pinia/store';
+import { onMounted, ref } from 'vue';
 
-import LayoutNavTocItem from "./LayoutNavTocItem.vue";
+import LayoutNavTocItem from './LayoutNavTocItem.vue';
 
 const props = defineProps<{ isMobile?: boolean }>();
-const emit = defineEmits(["jumpedToItem"]);
+const emit = defineEmits(['jumpedToItem']);
 
 const store = useStore();
 
@@ -43,8 +43,8 @@ onMounted(() => {
 </template>
 
 <style lang="less" module>
-@import "../style/variables/index.less";
-@import "../style/mixins/index.less";
+@import '../style/variables/index.less';
+@import '../style/mixins/index.less';
 
 .Toc {
 	display: flex;

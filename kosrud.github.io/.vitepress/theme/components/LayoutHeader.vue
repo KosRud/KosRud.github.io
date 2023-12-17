@@ -1,25 +1,25 @@
 <script lang="ts" setup>
-import { useStore } from "./pinia/store";
-import { Ref, onUpdated, ref } from "vue";
+import { useStore } from './pinia/store';
+import { Ref, onUpdated, ref } from 'vue';
 
-import LayoutHeaderNav from "./LayoutHeaderNav.vue";
-import LayoutHeaderButtonBurger from "./LayoutHeaderButtonBurger.vue";
-import SiteTitle from "./SiteTitle.vue";
-import { AdaptiveStage } from "./composables/adaptiveStages";
-import { useResizeObserver } from "./composables/resizeObserver";
+import LayoutHeaderNav from './LayoutHeaderNav.vue';
+import LayoutHeaderButtonBurger from './LayoutHeaderButtonBurger.vue';
+import SiteTitle from './SiteTitle.vue';
+import { AdaptiveStage } from './composables/adaptiveStages';
+import { useResizeObserver } from './composables/resizeObserver';
 
 const store = useStore();
 
 const siteTitleContainer: Ref<Element | null> = ref(null);
 const header: Ref<Element | null> = ref(null);
-const siteTitleVisibility = ref("visible");
+const siteTitleVisibility = ref('visible');
 
 useResizeObserver(updateSiteTitleVisibility, () => header.value, true);
 onUpdated(updateSiteTitleVisibility);
 
 function updateSiteTitleVisibility() {
 	if (!siteTitleContainer.value) {
-		console.error("site title container reference not set");
+		console.error('site title container reference not set');
 		return;
 	}
 
@@ -33,9 +33,9 @@ function updateSiteTitleVisibility() {
 		siteTitleContainer.value.getBoundingClientRect().right >=
 		nextSibling.getBoundingClientRect().left
 	) {
-		siteTitleVisibility.value = "hidden";
+		siteTitleVisibility.value = 'hidden';
 	} else {
-		siteTitleVisibility.value = "visible";
+		siteTitleVisibility.value = 'visible';
 	}
 }
 </script>
@@ -85,7 +85,7 @@ function updateSiteTitleVisibility() {
 </template>
 
 <style module lang="less">
-@import "../style/variables/index.less";
+@import '../style/variables/index.less';
 
 .SiteTitleContainer {
 	flex: 0 0 fit-content;
@@ -113,7 +113,7 @@ function updateSiteTitleVisibility() {
 
 	&::after {
 		position: absolute;
-		content: "";
+		content: '';
 		left: @gap*0.0;
 		right: @gap*0.0;
 		bottom: calc(0rem - @gap);

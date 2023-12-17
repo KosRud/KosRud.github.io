@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import LayoutOverlay from "./LayoutOverlay.vue";
-import LayoutMainDoc from "./LayoutMainDoc.vue";
+import LayoutOverlay from './LayoutOverlay.vue';
+import LayoutMainDoc from './LayoutMainDoc.vue';
 
-import { useStoreService } from "./pinia/store";
-import { ComponentPublicInstance, getCurrentInstance, ref, Ref } from "vue";
-import { useData } from "vitepress";
-import { createPinia } from "pinia";
+import { useStoreService } from './pinia/store';
+import { ComponentPublicInstance, getCurrentInstance, ref, Ref } from 'vue';
+import { useData } from 'vitepress';
+import { createPinia } from 'pinia';
 
-import { ThemeConfig } from "../ThemeConfig";
-import { useDarkModeEnforce } from "./composables/darkMode";
+import { ThemeConfig } from '../ThemeConfig';
+import { useDarkModeEnforce } from './composables/darkMode';
 import {
 	useAdaptivePreference,
 	AdaptiveStage,
-} from "./composables/adaptiveStages";
-import { pxToRem } from "./composables/unitConverter";
-import { useResizeObserver } from "./composables/resizeObserver";
+} from './composables/adaptiveStages';
+import { pxToRem } from './composables/unitConverter';
+import { useResizeObserver } from './composables/resizeObserver';
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { frontmatter } = useData<ThemeConfig>();
@@ -31,7 +31,7 @@ useDarkModeEnforce(false);
 useResizeObserver(
 	() => {
 		if (!containerElement.value) {
-			console.error("Layout container element ref not set");
+			console.error('Layout container element ref not set');
 			return;
 		}
 
@@ -42,7 +42,7 @@ useResizeObserver(
 				? AdaptiveStage.full
 				: AdaptiveStage.compact;
 	},
-	() => document.querySelector("html"),
+	() => document.querySelector('html'),
 	true
 );
 </script>
@@ -91,7 +91,7 @@ useResizeObserver(
 </template>
 
 <style lang="less" module>
-@import "../style/variables/index.less";
+@import '../style/variables/index.less';
 
 .VisibleRectMarker {
 	pointer-events: none;

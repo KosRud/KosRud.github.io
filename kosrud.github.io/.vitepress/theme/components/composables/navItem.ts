@@ -1,8 +1,8 @@
-import { useStore } from "../pinia/store";
-import { Ref, onMounted, ref, watchEffect } from "vue";
-import { useData, onContentUpdated, useRoute } from "vitepress";
+import { useStore } from '../pinia/store';
+import { Ref, onMounted, ref, watchEffect } from 'vue';
+import { useData, onContentUpdated, useRoute } from 'vitepress';
 
-import { urlMatch } from "./urlMatch";
+import { urlMatch } from './urlMatch';
 
 export function useIsNavItemActive(url: string): Ref<boolean> {
 	const route = useRoute();
@@ -26,7 +26,7 @@ export function useTrackNavItems() {
 
 	onMounted(() => {
 		watchEffect(() => {
-			store.navMain = [{ title: "Home", url: "/" }].concat(
+			store.navMain = [{ title: 'Home', url: '/' }].concat(
 				site.value.themeConfig.nav
 			);
 

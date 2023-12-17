@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed } from "vue";
+import { computed } from 'vue';
 
 const props = defineProps<{
 	level: number;
@@ -30,8 +30,8 @@ const level = computed(() => {
 </template>
 
 <style module lang="less">
-@import "../style/variables/index.less";
-@import "../style/mixins/index.less";
+@import '../style/variables/index.less';
+@import '../style/mixins/index.less';
 
 .NavItem_text {
 	line-height: 1.2;

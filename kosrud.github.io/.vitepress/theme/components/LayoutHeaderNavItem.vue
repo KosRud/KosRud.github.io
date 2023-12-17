@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { useRoute } from "vitepress";
+import { useRoute } from 'vitepress';
 
-import { type NavItem } from "../ThemeConfig";
-import { urlMatch } from "./composables/urlMatch";
-import { findFirstChildPage } from "./composables/nav";
-import { computed } from "vue";
+import { type NavItem } from '../ThemeConfig';
+import { urlMatch } from './composables/urlMatch';
+import { findFirstChildPage } from './composables/nav';
+import { computed } from 'vue';
 
 const route = useRoute();
 
@@ -30,8 +30,8 @@ const isActive = computed(() => urlMatch(route.path, props.navItem.url).inside);
 </template>
 
 <style module lang="less">
-@import "../style/variables/index.less";
-@import "../style/mixins/index.less";
+@import '../style/variables/index.less';
+@import '../style/mixins/index.less';
 
 .NavItem {
 	&::before {
@@ -65,7 +65,7 @@ const isActive = computed(() => urlMatch(route.path, props.navItem.url).inside);
 
 	&::after {
 		position: absolute;
-		content: "";
+		content: '';
 		left: @gap*0.0;
 		right: @gap*0.0;
 		bottom: calc(0rem - @gap);
