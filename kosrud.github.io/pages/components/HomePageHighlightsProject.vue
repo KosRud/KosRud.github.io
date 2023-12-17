@@ -60,7 +60,7 @@ useResizeObserver(
 @import '../../.vitepress/theme/style/variables/index.less';
 @import '../../.vitepress/theme/style/mixins/index.less';
 
-@Project-gap: @gap;
+@Project-gap: @gap*1.5;
 
 .Project {
 	min-height: 200rem;
@@ -71,6 +71,8 @@ useResizeObserver(
 	align-items: stretch;
 
 	border: @border-width-s solid @color-border;
+
+	line-height: @line-height-s;
 }
 
 .Project_descriptionContainer {
