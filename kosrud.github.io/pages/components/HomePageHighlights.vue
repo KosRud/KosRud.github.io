@@ -31,7 +31,7 @@ const props = defineProps<{ dummies: number }>();
 							text="dual quaternions"
 							url="https://www.gamedevs.org/uploads/skinning-with-dual-quaternions.pdf"
 						/>
-						combined an original bulging compensation algorithm
+						combined an original artifact compensation algorithm
 						which I developed for my master's thesis at the Faculty
 						of Applied Mathematics in
 						<HyperLink
@@ -67,30 +67,41 @@ const props = defineProps<{ dummies: number }>();
 							url="https://vuejs.org/"
 						/>.
 					</p>
-					It gracefully conforms to viewport widths as narrow as
-					320px, utilizes responsive components implemented via
-					<HyperLink
-						text="ResizeObserver"
-						url="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver"
-					/>, as well as provides accessibility with
-					<HyperLink
-						text="ARIA"
-						url="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
-					/>
-					and support for browser
-					<HyperLink
-						text="font size"
-						url="https://github.com/facebook/docusaurus/issues/9390"
-					/>
-					accessibility setting.
+					<p>
+						It gracefully conforms to viewport widths as narrow as
+						320px, utilizes responsive components implemented via
+						<HyperLink
+							text="ResizeObserver"
+							url="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver"
+						/>, as well as provides accessibility with
+						<HyperLink
+							text="ARIA"
+							url="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
+						/>
+						and support for browser
+						<HyperLink
+							text="font size"
+							url="https://github.com/facebook/docusaurus/issues/9390"
+						/>
+						accessibility setting.
+					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject :title="'joplin-plugin-paginator'">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Donec ac dignissim nibh. Sed pharetra sem et congue
-					faucibus. Maecenas eget libero lacus. Nunc non eros id risus
-					accumsan ullamcorper. Nullam sit amet purus risus. Aliquam
-					erat volutpat. Vivamus et lacus posuere, rutrum magna quis,
-					faucibus nunc.
+					<p>
+						<HyperLink
+							text="Joplin"
+							url="https://joplinapp.org/"
+						/>
+						is an open-source note taking app with synchronization,
+						plugins, multimedia support, tags, and a tree of
+						folders.
+					</p>
+					<p>
+						Normally, a note in joplin is continuous, like an HTML
+						page. My plugin implements pagination and generates a
+						table of contents for the note, making a printable
+						document from it.
+					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
 					:title="'Material Clustering Benchmark'"
