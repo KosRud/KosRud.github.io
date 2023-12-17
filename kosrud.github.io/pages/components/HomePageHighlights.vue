@@ -9,7 +9,7 @@ const props = defineProps<{ dummies: number }>();
 <template>
 	<div>
 		<GrungeHeading text="My projects" />
-		<div :class="$style.HighlightsWrapper">
+		<div>
 			<div :class="$style.Highlights">
 				<HomePageHighlightsProject
 					:images="[
@@ -43,8 +43,8 @@ const props = defineProps<{ dummies: number }>();
 						src="https://ghbtns.com/github-btn.html?user=KosRud&repo=DQ-skinning-for-Unity&type=star&count=true&size=large"
 						frameborder="0"
 						scrolling="no"
-						height="30"
 						title="GitHub stars"
+						style="height: 30px; width: 100%"
 					>
 					</iframe>
 				</HomePageHighlightsProject>
