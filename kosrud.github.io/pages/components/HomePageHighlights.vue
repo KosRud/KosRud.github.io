@@ -143,7 +143,12 @@ const props = defineProps<{ dummies: number }>();
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
 					:title="'ProTeGe v1'"
-					:images="['/content/project screenshots/Protege v1/1.png']"
+					:images="[
+						{
+							title: 'screenshot',
+							url: '/content/project screenshots/Protege v1/1.png',
+						},
+					]"
 				>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					Donec ac dignissim nibh. Sed pharetra sem et congue
