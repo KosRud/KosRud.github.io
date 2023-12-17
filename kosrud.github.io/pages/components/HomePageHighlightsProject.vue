@@ -131,8 +131,13 @@ useResizeObserver(
 .Project_description {
 	margin: @Project-gap;
 
-	p:not(:last-child) {
-		margin-bottom: @gap*1.5;
+	p,
+	iframe,
+	img,
+	figure {
+		&:not(:last-child) {
+			margin-bottom: @gap*1.5;
+		}
 	}
 
 	a {
