@@ -29,7 +29,6 @@ watchEffect(() => {
 
 <template>
 	<div
-		:aria-modal="store.isMobileNavAnythingOpen"
 		:class="[
 			$style.Overlay,
 			store.isMobileNavAnythingOpen ? $style.Overlay___shaded : '',

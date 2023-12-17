@@ -55,6 +55,7 @@ useResizeObserver(
 		<LayoutOverlay :class="$style.Overlay" />
 
 		<LayoutMainDoc
+			:inert="store.isMobileNavAnythingOpen ? true : undefined"
 			:class="[
 				$style.Main,
 				$style.Main___doc,
@@ -65,6 +66,7 @@ useResizeObserver(
 			v-if="!frontmatter.hero"
 		/>
 		<main
+			:inert="store.isMobileNavAnythingOpen ? true : undefined"
 			v-else
 			:class="[
 				$style.Main,
