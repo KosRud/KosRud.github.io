@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { Ref, computed, ref } from 'vue';
+import { Ref, ref } from 'vue';
 import { useResizeObserver } from '../../.vitepress/theme/components/composables/resizeObserver';
 import { pxToRem } from '../../.vitepress/theme/components/composables/unitConverter';
 
-const props = defineProps<{ title: string; images?: string[] }>();
-const alt = computed(() => `screenshot of project "${props.title}""`);
+const props = defineProps<{
+	title: string;
+	images?: { url: string; title: string }[];
+}>();
 
 const thresholdWidthRem = 550;
 
@@ -45,8 +47,9 @@ useResizeObserver(
 				v-for="image in props.images"
 			>
 				<img
-					:src="image"
-					:alt="alt"
+					:src="image.url"
+					:alt="image.title"
+					:title="image.title"
 				/>
 			</div>
 		</div>
@@ -91,11 +94,10 @@ useResizeObserver(
 .Project_imageWrapper {
 	flex: 0 0 100%;
 
-	> img {
+	> * {
 		max-width: 100%;
 		max-height: 200rem;
 		margin-left: auto;
-		margin-right: auto;
 		display: block;
 	}
 }
@@ -126,6 +128,14 @@ useResizeObserver(
 
 .Project_description {
 	margin: @Project-gap;
+
+	p:not(:last-child) {
+		margin-bottom: @gap*1.5;
+	}
+
+	a {
+		font-weight: bold;
+	}
 }
 
 /*
@@ -153,6 +163,10 @@ useResizeObserver(
 
 	.Project_imageWrapper {
 		flex: 1 1 200rem;
+
+		> * {
+			margin-right: auto;
+		}
 	}
 }
 </style>
