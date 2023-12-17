@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import naturalSort from "javascript-natural-sort";
-import { computed } from "vue";
+import naturalSort from 'javascript-natural-sort';
+import { computed } from 'vue';
 
 const props = defineProps<{
 	icons: { title: string; url: string }[];
@@ -13,7 +13,17 @@ const sortedIcons = computed(() =>
 );
 
 function makeHeadingId(title: string) {
-	return title.replace(/[&<"]/, "").replace(/\s/g, "-"); // ToDo this is just a placeholder
+	return (
+		title
+			// prevent XSS when used as attribute
+			.replace(/["']/, '')
+			// id can't contain whitespace
+			.replace(/\s/g, '-')
+			// lowercase
+			.toLowerCase()
+			// leave only whitelisted characters
+			.replace(/[^a-z\d_-]/, '')
+	);
 }
 </script>
 
@@ -54,7 +64,7 @@ function makeHeadingId(title: string) {
 </template>
 
 <style module lang="less">
-@import "../../.vitepress/theme/style/variables/index.less";
+@import '../../.vitepress/theme/style/variables/index.less';
 
 .Project_linkSeparator:last-child {
 	display: none;
@@ -90,17 +100,17 @@ function makeHeadingId(title: string) {
 
 .Uses_title {
 	&::after {
-		content: " ";
+		content: ' ';
 	}
 }
 
 .Uses_item {
 	&::after {
-		content: ", ";
+		content: ', ';
 	}
 
 	&:last-child::after {
-		content: ".";
+		content: '.';
 	}
 }
 </style>
