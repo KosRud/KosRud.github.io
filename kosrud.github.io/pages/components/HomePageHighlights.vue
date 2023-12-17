@@ -2,6 +2,7 @@
 import HomePageHighlightsProject from './HomePageHighlightsProject.vue';
 import GrungeHeading from './GrungeHeading.vue';
 import HyperLink from './HyperLink.vue';
+import GithubButton from 'vue-github-button';
 
 const props = defineProps<{ dummies: number }>();
 </script>
@@ -39,14 +40,22 @@ const props = defineProps<{ dummies: number }>();
 							url="https://kpi.ua/en/fpm"
 						/>.
 					</p>
-					<iframe
+					<!-- https://github.com/buttons/github-buttons?tab=readme-ov-file -->
+					<GithubButton
+						href="https://github.com/KosRud/DQ-skinning-for-Unity"
+						:data-size="'large'"
+						:data-show-count="true"
+						:data-icon="'star'"
+						data-text="GitHub"
+					/>
+					<!-- <iframe
 						src="https://ghbtns.com/github-btn.html?user=KosRud&repo=DQ-skinning-for-Unity&type=star&count=true&size=large"
 						frameborder="0"
 						scrolling="no"
 						title="GitHub stars"
 						style="height: 30px; width: 100%"
 					>
-					</iframe>
+					</iframe> -->
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject :title="'dice-pool-calc'">
 					<p>

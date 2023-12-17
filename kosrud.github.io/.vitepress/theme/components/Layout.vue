@@ -76,7 +76,7 @@ useResizeObserver(
 					: '',
 			]"
 		>
-			<zz />
+			<dev-icons />
 			<Content />
 		</div>
 

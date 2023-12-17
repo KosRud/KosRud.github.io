@@ -6,6 +6,23 @@ import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
 export default defineConfigWithTheme<ThemeConfig>({
 	title: 'Kostiantyn Rudenko',
 	description: 'personal website',
+	head: [
+		[
+			'link',
+			{
+				rel: 'icon',
+				type: 'image/svg+xml',
+				href: '/favicon.svg',
+			},
+		],
+		[
+			'meta',
+			{
+				name: 'theme-color',
+				content: '#16643d',
+			},
+		],
+	],
 	srcDir: './pages',
 	vite: {
 		plugins: [
