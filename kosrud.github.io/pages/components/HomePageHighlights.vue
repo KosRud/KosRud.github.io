@@ -113,13 +113,30 @@ const props = defineProps<{ dummies: number }>();
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
 					:title="'Material Clustering Benchmark'"
+					:images="[
+						{
+							url: '/content/project screenshots/material clustering/1.png',
+							title: 'screenshot',
+						},
+					]"
 				>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Donec ac dignissim nibh. Sed pharetra sem et congue
-					faucibus. Maecenas eget libero lacus. Nunc non eros id risus
-					accumsan ullamcorper. Nullam sit amet purus risus. Aliquam
-					erat volutpat. Vivamus et lacus posuere, rutrum magna quis,
-					faucibus nunc.
+					<p>
+						This software was implemented to compare the speed and
+						quality of different clustering algorithms in a specific
+						use case connected to real-time mixed reality systems.
+					</p>
+
+					<p>
+						The benchmark results are published in the
+						<HyperLink
+							text="paper"
+							url="https://link.springer.com/chapter/10.1007/978-3-031-37963-5_67"
+						/>. The preprint pdf is available
+						<HyperLink
+							text="here"
+							url="https://www.researchgate.net/publication/369113944_Real-time_material_clustering_for_mixed_reality_applications_based_on_dichromatic_reflection_model"
+						/>.
+					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
 					:title="'ProTeGe v2'"
