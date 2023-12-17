@@ -127,15 +127,16 @@ const props = defineProps<{ dummies: number }>();
 					</p>
 
 					<p>
-						The benchmark results are published in the
+						The benchmark results are published in a
 						<HyperLink
 							text="paper"
 							url="https://link.springer.com/chapter/10.1007/978-3-031-37963-5_67"
-						/>. The preprint pdf is available
+						/>
+						(preprint pdf is available
 						<HyperLink
 							text="here"
 							url="https://www.researchgate.net/publication/369113944_Real-time_material_clustering_for_mixed_reality_applications_based_on_dichromatic_reflection_model"
-						/>.
+						/>).
 					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
