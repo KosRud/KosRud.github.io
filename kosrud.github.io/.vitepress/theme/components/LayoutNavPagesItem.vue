@@ -50,7 +50,7 @@ onMounted(() => {
 		]"
 	>
 		<a
-			:href="$props.navItem.children ? undefined : props.navItem.url"
+			:href="$props.navItem.children ? 'javascript:' : props.navItem.url"
 			:class="[$style.NavItem_link]"
 			@click="emit('navItemToggle')"
 			:ref="(element)=> {

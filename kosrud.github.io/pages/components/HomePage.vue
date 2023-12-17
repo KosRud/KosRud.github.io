@@ -58,7 +58,7 @@ function handleScrolling() {
 		:class="[$style.HomePage, isCompact ? $style.HomePage___compact : '']"
 		:ref="(element) => { containerDiv = element as Element }"
 	>
-		<section
+		<header
 			:ref="(element: Element | ComponentPublicInstance | null) => {
 			hero = element as Element;
 		}"
@@ -69,11 +69,11 @@ function handleScrolling() {
 				:class="$style.Hero_photo"
 				src="/assets/photo.png"
 			/>
-			<div :class="$style.Hero_titleContainer">
-				<h2 :class="$style.Hero_title">Kostiantyn Rudenko</h2>
-				<h3 :class="$style.Hero_subtitle">software engineer</h3>
-			</div>
-		</section>
+			<h2 :class="$style.Hero_titleContainer">
+				<span :class="$style.Hero_title">Kostiantyn Rudenko</span>
+				<span :class="$style.Hero_subtitle">software engineer</span>
+			</h2>
+		</header>
 		<div :class="$style.ContentWrapper">
 			<section>
 				<HomePageBio :class="$style.Bio" />

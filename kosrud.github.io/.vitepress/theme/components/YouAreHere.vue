@@ -64,13 +64,13 @@ const navTrace = computed((): NavItem[] => {
 </script>
 
 <template>
-	<div :class="[$style.YouAreHere, darkMode ? $style.YouAreHere___dark : '']">
+	<p :class="[$style.YouAreHere, darkMode ? $style.YouAreHere___dark : '']">
 		<span :class="$style.YouAreHere_title">You are here:</span>
 		<template v-for="navItem in navTrace">
 			<a :href="findFirstChildPage(navItem).url">{{ navItem?.title }}</a>
 			<span :class="$style.NavTrace_separator">/</span>
 		</template>
-	</div>
+	</p>
 </template>
 
 <style module lang="less">
