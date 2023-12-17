@@ -13,7 +13,7 @@ import { AdaptiveStage } from './composables/adaptiveStages';
 import { watchEffect } from 'vue';
 
 // https://vitepress.dev/reference/runtime-api#usedata
-const { frontmatter, page } = useData<ThemeConfig>();
+const { frontmatter } = useData<ThemeConfig>();
 
 const store = useStore();
 const $style = useCssModule();
