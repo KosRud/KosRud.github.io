@@ -154,9 +154,11 @@ const props = defineProps<{ dummies: number }>();
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
+	justify-content: center;
 
 	> * {
 		flex: 1 1 500rem;
+		max-width: 700rem;
 
 		margin: @gap @Highlights-gap * 0.5;
 	}
