@@ -111,6 +111,9 @@ useResizeObserver(
 	@Project_title-padding: @gap*0.5;
 	@Project_title-clip: @gap;
 
+	margin-top: -@border-width-s;
+	margin-left: -@border-width-s;
+
 	min-width: min(220rem, 100%);
 	width: fit-content;
 
