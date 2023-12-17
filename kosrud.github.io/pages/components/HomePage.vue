@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import type { Ref, ComponentPublicInstance } from "vue";
+import type { Ref, ComponentPublicInstance } from 'vue';
 
-import HomePageHighlights from "./HomePageHighlights.vue";
-import HomePageFeatures from "./HomePageFeatures.vue";
-import HomePageBio from "./HomePageBio.vue";
-import HomePageContact from "./HomePageContact.vue";
+import HomePageHighlights from './HomePageHighlights.vue';
+import HomePageFeatures from './HomePageFeatures.vue';
+import HomePageBio from './HomePageBio.vue';
+import HomePageContact from './HomePageContact.vue';
 
-import { computed, onMounted, onUnmounted, ref } from "vue";
-import { useResizeObserver } from "../../.vitepress/theme/components/composables/resizeObserver";
-import { pxToRem } from "../../.vitepress/theme/components/composables/unitConverter";
+import { computed, onMounted, onUnmounted, ref } from 'vue';
+import { useResizeObserver } from '../../.vitepress/theme/components/composables/resizeObserver';
+import { pxToRem } from '../../.vitepress/theme/components/composables/unitConverter';
 
 const hero: Ref<Element | null> = ref(null);
 const scrollY = ref(0);
@@ -27,7 +27,7 @@ const isCompact = ref(false);
 useResizeObserver(
 	() => {
 		if (!containerDiv.value) {
-			console.error("homepage container div reference not set");
+			console.error('homepage container div reference not set');
 			return;
 		}
 
@@ -45,10 +45,10 @@ function handleScrolling() {
 	}
 
 	onMounted(() => {
-		document.addEventListener("scroll", onScroll, { passive: true });
+		document.addEventListener('scroll', onScroll, { passive: true });
 	});
 	onUnmounted(() => {
-		document.removeEventListener("scroll", onScroll);
+		document.removeEventListener('scroll', onScroll);
 	});
 }
 </script>
@@ -90,8 +90,8 @@ function handleScrolling() {
 </template>
 
 <style module lang="less">
-@import "../../.vitepress/theme/style/variables/index.less";
-@import "../../.vitepress/theme/style/mixins/index.less";
+@import '../../.vitepress/theme/style/variables/index.less';
+@import '../../.vitepress/theme/style/mixins/index.less';
 
 .HomePage {
 	flex-grow: 1;

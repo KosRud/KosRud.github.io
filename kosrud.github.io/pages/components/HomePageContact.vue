@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import handshake from "./assets/icons/handshake/icon.svg";
+import handshake from './assets/icons/handshake/icon.svg';
 
-import GrungeHeading from "./GrungeHeading.vue";
+import GrungeHeading from './GrungeHeading.vue';
 </script>
 
 <template>
@@ -76,8 +76,8 @@ import GrungeHeading from "./GrungeHeading.vue";
 </template>
 
 <style module lang="less">
-@import "../../.vitepress/theme/style/variables/index.less";
-@import "../../.vitepress/theme/style/mixins/index.less";
+@import '../../.vitepress/theme/style/variables/index.less';
+@import '../../.vitepress/theme/style/mixins/index.less';
 
 .Contact {
 	width: min(100%, 800rem);

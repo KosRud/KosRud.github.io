@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import smudge from "./assets/smudges/2.svg";
+import smudge from './assets/smudges/2.svg';
 
 const props = defineProps<{ text: string }>();
 const smudgeUrl = `url("${smudge}")`;
@@ -12,8 +12,8 @@ const smudgeUrl = `url("${smudge}")`;
 </template>
 
 <style module lang="less">
-@import "../../.vitepress/theme/style/variables/index.less";
-@import "../../.vitepress/theme/style/mixins/index.less";
+@import '../../.vitepress/theme/style/variables/index.less';
+@import '../../.vitepress/theme/style/mixins/index.less';
 
 .HeadingWrapper {
 	width: min(300rem, 100%);
