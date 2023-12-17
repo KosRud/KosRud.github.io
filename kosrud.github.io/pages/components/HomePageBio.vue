@@ -89,7 +89,12 @@ const devIcons = {
 		</div>
 
 		<div :class="$style.Bio_content">
-			<img :class="[$style.Bio_photo, $style.Bio_photo___aside]" src="/assets/photo.png" v-if="adaptiveStage < 2" />
+			<img
+				alt="Photo of me"
+				:class="[$style.Bio_photo, $style.Bio_photo___aside]"
+				src="/assets/photo.png"
+				v-if="adaptiveStage < 2"
+			/>
 			<div :class="[$style.Bio_text]">
 				<p>
 					Name's Kostiantyn. I'm a programmer from Ukraine currently

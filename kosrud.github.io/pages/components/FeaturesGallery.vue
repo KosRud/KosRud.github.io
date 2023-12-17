@@ -8,7 +8,7 @@ const props = defineProps<{
 
 <template>
 	<!-- surrounding div is necessary to ensure negative margins work properly -->
-	<div>
+	<section>
 		<div :class="$style.FeaturesGallery">
 			<slot />
 			<FeaturesGalleryCard
@@ -18,7 +18,7 @@ const props = defineProps<{
 				v-for="_ in Array.from({ length: props.dummies ?? 0 })"
 			></FeaturesGalleryCard>
 		</div>
-	</div>
+	</section>
 </template>
 
 <style module lang="less">
