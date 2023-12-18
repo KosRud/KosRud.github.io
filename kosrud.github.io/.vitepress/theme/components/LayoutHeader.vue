@@ -19,8 +19,8 @@ const store = useStore();
 		>
 			<img
 				src="/favicon.svg"
-				alt="homepage"
-				title="homepage"
+				alt="website logo"
+				title="website logo"
 			/>
 		</a>
 		<template v-if="store.adaptiveStage == AdaptiveStage.full">
