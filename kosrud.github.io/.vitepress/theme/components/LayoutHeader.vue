@@ -86,11 +86,11 @@ const store = useStore();
 }
 
 .Header_spacer {
-	// flex: 0 1 calc(27% - 300rem);
-	// min-width: 0rem;
-	// max-width: @gap*16;
+	flex: 0 1 calc(27% - 300rem);
+	min-width: 0rem;
+	max-width: @gap*16;
 
-	width: @gap;
+	// width: @gap;
 }
 
 .HeaderNav {
