@@ -13,8 +13,6 @@ onMounted(async () => {
 	function retrieveCache() {
 		const cachedJSON = localStorage.getItem('githubStars') ?? '{}';
 
-		console.log(cachedJSON);
-
 		try {
 			return JSON.parse(cachedJSON);
 		} catch {
@@ -38,12 +36,9 @@ onMounted(async () => {
 			(age < cacheLongevitySuccess && cachedStars.numStars != -1)
 		) {
 			stars.value = cachedStars.numStars;
-			console.info('read stars from cache');
 			return;
 		}
 	}
-
-	console.info('updated stars cache');
 
 	const response = await fetch(`https://api.github.com/repos/${props.repo}`);
 	const data = await response.json();

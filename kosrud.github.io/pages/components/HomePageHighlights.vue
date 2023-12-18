@@ -49,7 +49,10 @@ const props = defineProps<{ dummies: number }>();
 						linear skinning and the plugin.
 					</p>
 				</HomePageHighlightsProject>
-				<HomePageHighlightsProject :title="'dice-pool-calc'">
+				<HomePageHighlightsProject
+					github="KosRud/dice-pool-calc"
+					:title="'dice-pool-calc'"
+				>
 					<p>
 						A
 						<HyperLink
@@ -63,7 +66,10 @@ const props = defineProps<{ dummies: number }>();
 						and easily handles hundreds of dice.
 					</p>
 				</HomePageHighlightsProject>
-				<HomePageHighlightsProject :title="'This website'">
+				<HomePageHighlightsProject
+					github="KosRud/KosRud.github.io"
+					:title="'This website'"
+				>
 					<p>
 						This website is built on
 						<HyperLink
@@ -95,7 +101,10 @@ const props = defineProps<{ dummies: number }>();
 						accessibility setting.
 					</p>
 				</HomePageHighlightsProject>
-				<HomePageHighlightsProject :title="'joplin-plugin-paginator'">
+				<HomePageHighlightsProject
+					github="KosRud/joplin-plugin-paginator"
+					:title="'joplin-plugin-paginator'"
+				>
 					<p>
 						<HyperLink
 							text="Joplin"
@@ -120,6 +129,7 @@ const props = defineProps<{ dummies: number }>();
 							title: 'screenshot',
 						},
 					]"
+					github="KosRud/Material-Clustering-Benchmark"
 				>
 					<p>
 						This software was implemented to compare the speed and
@@ -152,13 +162,16 @@ const props = defineProps<{ dummies: number }>();
 							title: 'textures in use',
 						},
 					]"
+					github="KosRud/ProTeGe_v2"
 				>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Donec ac dignissim nibh. Sed pharetra sem et congue
-					faucibus. Maecenas eget libero lacus. Nunc non eros id risus
-					accumsan ullamcorper. Nullam sit amet purus risus. Aliquam
-					erat volutpat. Vivamus et lacus posuere, rutrum magna quis,
-					faucibus nunc.
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Donec ac dignissim nibh. Sed pharetra sem et congue
+						faucibus. Maecenas eget libero lacus. Nunc non eros id
+						risus accumsan ullamcorper. Nullam sit amet purus risus.
+						Aliquam erat volutpat. Vivamus et lacus posuere, rutrum
+						magna quis, faucibus nunc.
+					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
 					:title="'ProTeGe v1'"
@@ -168,13 +181,16 @@ const props = defineProps<{ dummies: number }>();
 							url: '/content/project screenshots/Protege v1/1.png',
 						},
 					]"
+					github="KosRud/ProTeGe-v1"
 				>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Donec ac dignissim nibh. Sed pharetra sem et congue
-					faucibus. Maecenas eget libero lacus. Nunc non eros id risus
-					accumsan ullamcorper. Nullam sit amet purus risus. Aliquam
-					erat volutpat. Vivamus et lacus posuere, rutrum magna quis,
-					faucibus nunc.
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Donec ac dignissim nibh. Sed pharetra sem et congue
+						faucibus. Maecenas eget libero lacus. Nunc non eros id
+						risus accumsan ullamcorper. Nullam sit amet purus risus.
+						Aliquam erat volutpat. Vivamus et lacus posuere, rutrum
+						magna quis, faucibus nunc.
+					</p>
 				</HomePageHighlightsProject>
 				<div
 					:class="$style.Highlights_dummy"
