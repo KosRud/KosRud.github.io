@@ -44,7 +44,10 @@ const props = defineProps<{ dummies: number }>();
 							href="https://kpi.ua/en/fpm"
 						/>.
 					</p>
-
+					<p>
+						The animated screenshot alternates between built-in
+						linear skinning and the plugin.
+					</p>
 					<GitHubStars />
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject :title="'dice-pool-calc'">
