@@ -41,7 +41,8 @@ useResizeObserver(
 				<slot />
 			</div>
 		</div>
-		<div
+		<section
+			aria-label="screenshots"
 			v-if="props.images"
 			:class="$style.Project_images"
 		>
@@ -55,7 +56,7 @@ useResizeObserver(
 					:title="image.title"
 				/>
 			</div>
-		</div>
+		</section>
 	</div>
 </template>
 

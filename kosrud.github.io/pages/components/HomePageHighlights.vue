@@ -2,7 +2,6 @@
 import HomePageHighlightsProject from './HomePageHighlightsProject.vue';
 import GrungeHeading from './GrungeHeading.vue';
 import HyperLink from './HyperLink.vue';
-import GithubButton from 'vue-github-button';
 import GitHubStars from './GitHubStars.vue';
 
 const props = defineProps<{ dummies: number }>();
@@ -26,19 +25,23 @@ const props = defineProps<{ dummies: number }>();
 						A plugin for
 						<HyperLink
 							text="Unity"
-							url="https://unity.com/"
+							href="https://unity.com/"
 						/>
 						engine which implements skeletal deformations using
 						<HyperLink
 							text="dual quaternions"
-							url="https://www.gamedevs.org/uploads/skinning-with-dual-quaternions.pdf"
+							href="https://www.gamedevs.org/uploads/skinning-with-dual-quaternions.pdf"
 						/>
-						combined an original artifact compensation algorithm
+						combined with an original artifact compensation
+						<HyperLink
+							text="algorithm"
+							href="http://journals.khnu.km.ua/vestnik/pdf/tech/pdfbase/2020/2020_1/(281)_2020-1-t.pdf#page=12"
+						/>
 						which I developed for my master's thesis at the Faculty
 						of Applied Mathematics in
 						<HyperLink
 							text="KPI"
-							url="https://kpi.ua/en/fpm"
+							href="https://kpi.ua/en/fpm"
 						/>.
 					</p>
 
@@ -49,7 +52,7 @@ const props = defineProps<{ dummies: number }>();
 						A
 						<HyperLink
 							text="typescript"
-							url="https://www.typescriptlang.org/"
+							href="https://www.typescriptlang.org/"
 						/>
 						library that efficiently calculates probabilities of
 						possible outcomes when rolling an arbitrary collection
@@ -63,12 +66,12 @@ const props = defineProps<{ dummies: number }>();
 						This website is built on
 						<HyperLink
 							text="VitePress"
-							url="https://vitepress.dev/"
+							href="https://vitepress.dev/"
 						/>
 						and uses a custom theme written from scratch with
 						<HyperLink
 							text="Vue.js"
-							url="https://vuejs.org/"
+							href="https://vuejs.org/"
 						/>.
 					</p>
 					<p>
@@ -76,16 +79,16 @@ const props = defineProps<{ dummies: number }>();
 						320px, utilizes responsive components implemented via
 						<HyperLink
 							text="ResizeObserver"
-							url="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver"
+							href="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver"
 						/>, as well as provides accessibility with
 						<HyperLink
 							text="ARIA"
-							url="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
+							href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
 						/>
 						attributes and support for browser
 						<HyperLink
 							text="font size"
-							url="https://austingil.com/px-or-rem-in-css/"
+							href="https://austingil.com/px-or-rem-in-css/"
 						/>
 						accessibility setting.
 					</p>
@@ -94,7 +97,7 @@ const props = defineProps<{ dummies: number }>();
 					<p>
 						<HyperLink
 							text="Joplin"
-							url="https://joplinapp.org/"
+							href="https://joplinapp.org/"
 						/>
 						is an open-source note taking app with synchronization,
 						plugins, multimedia support, tags, and a tree of
@@ -126,12 +129,12 @@ const props = defineProps<{ dummies: number }>();
 						The benchmark results are published in a
 						<HyperLink
 							text="paper"
-							url="https://link.springer.com/chapter/10.1007/978-3-031-37963-5_67"
+							href="https://link.springer.com/chapter/10.1007/978-3-031-37963-5_67"
 						/>
 						(preprint pdf is available
 						<HyperLink
 							text="here"
-							url="https://www.researchgate.net/publication/369113944_Real-time_material_clustering_for_mixed_reality_applications_based_on_dichromatic_reflection_model"
+							href="https://www.researchgate.net/publication/369113944_Real-time_material_clustering_for_mixed_reality_applications_based_on_dichromatic_reflection_model"
 						/>).
 					</p>
 				</HomePageHighlightsProject>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import iconGithub from './assets/icons/github/mark-github.svg';
 import iconStar from './assets/icons/github/star.svg';
+import HyperLink from './HyperLink.vue';
 
 import { onMounted, ref } from 'vue';
 
@@ -19,7 +20,7 @@ onMounted(async () => {
 
 <template>
 	<div :class="$style.Github">
-		<a
+		<HyperLink
 			href="https://github.com/KosRud/DQ-skinning-for-Unity"
 			:class="[$style.Github_box, $style.Github_box___repo]"
 		>
@@ -28,14 +29,18 @@ onMounted(async () => {
 				:src="iconGithub"
 			/>
 			GitHub
-		</a>
-		<div :class="[$style.Github_box, $style.Github_box___stars]">
+		</HyperLink>
+		<HyperLink
+			href="https://github.com/KosRud/DQ-skinning-for-Unity"
+			:class="[$style.Github_box, $style.Github_box___stars]"
+		>
 			<img
+				alt="stars"
 				:class="[$style.Github_icon, $style.Github_icon___star]"
 				:src="iconStar"
 			/>
 			{{ stars }}
-		</div>
+		</HyperLink>
 	</div>
 </template>
 
@@ -60,31 +65,32 @@ onMounted(async () => {
 	flex-direction: row;
 	align-items: center;
 	gap: @gap*0.5;
+
+	text-decoration: none !important;
+	&,
+	&:link,
+	&:visited {
+		color: @color-black !important;
+		&:hover {
+			color: @color-github-blue !important;
+		}
+	}
 }
 
 .Github_box___repo {
-	font-weight: bold;
-
 	box-shadow: @shadow-ao, 0rem -2rem 4rem #0002 inset;
 	&:hover:not(:active) {
 		box-shadow: @shadow-ao, 0rem -2rem 4rem #0004 inset;
 	}
 
-	text-decoration: none;
-	&,
-	&:link,
-	&:visited {
-		color: @color-black;
-		&:hover {
-			color: @color-github-blue;
-		}
-	}
+	font-weight: bold !important;
 }
 
 .Github_box___stars {
 	gap: @gap*0.125;
 	padding-left: @gap*0.5;
 	padding-right: @gap*0.5;
+	font-weight: normal !important;
 }
 
 .Github_icon {
@@ -100,8 +106,7 @@ onMounted(async () => {
 	Transitions
 \*----------------------------------*/
 
-.Github_box,
-Github_box___repo {
+.Github_box___repo {
 	transition: box-shadow @duration linear, background-color @duration-s linear;
 	&:active {
 		transition: background-color @duration-s linear;
