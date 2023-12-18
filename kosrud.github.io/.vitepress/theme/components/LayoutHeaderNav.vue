@@ -1,17 +1,11 @@
 <script lang="ts" setup>
 import { ref, computed, Ref } from 'vue';
-import { useData } from 'vitepress';
 import { useStore } from './pinia/store';
 
 import {
 	AdaptiveStage,
 	useAdaptivePreference,
 } from './composables/adaptiveStages';
-
-import { ThemeConfig } from '../ThemeConfig';
-
-// https://vitepress.dev/reference/runtime-api#usedata
-const { site } = useData<ThemeConfig>();
 
 const store = useStore();
 
@@ -71,7 +65,7 @@ function getAdaptivePreference() {
 		>
 			<LayoutHeaderNavItem
 				:nav-item="navItem"
-				v-for="navItem in site.themeConfig.nav"
+				v-for="navItem in store.navMain"
 			/>
 		</ul>
 	</nav>
