@@ -84,6 +84,8 @@ useResizeObserver(
 	border: @border-width-s solid @color-border;
 
 	line-height: @line-height-s;
+
+	box-shadow: @shadow-s;
 }
 
 .Project_descriptionContainer {
