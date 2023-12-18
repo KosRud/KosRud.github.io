@@ -2,7 +2,6 @@
 import { Ref, ref } from "vue";
 import { useResizeObserver } from "../../.vitepress/theme/components/composables/resizeObserver";
 import { pxToRem } from "../../.vitepress/theme/components/composables/unitConverter";
-import * as devIconsCollection from './tsx/devIcons'
 
 const adaptiveStage = ref(0);
 const isNarrowThresholdsRem = [1100, 900, 700];
@@ -118,7 +117,6 @@ const devIcons = {
 						<td>I have experience working with:</td>
 						<td>
 							<img :class="$style.devIcon" v-for="devIcon in devIcons.worked" :src="devIcon.url" />
-							<devIconsCollection.git/>
 						</td>
 					</tr>
 					<tr>
