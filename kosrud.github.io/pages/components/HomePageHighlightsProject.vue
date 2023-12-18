@@ -1,18 +1,39 @@
 <script setup lang="ts">
 import GitHubStars from './GitHubStars.vue';
+import HyperLink from './HyperLink.vue';
 
-import { Ref, ref } from 'vue';
+import { Ref, ref, computed } from 'vue';
 
 import { useResizeObserver } from '../../.vitepress/theme/components/composables/resizeObserver';
 import { pxToRem } from '../../.vitepress/theme/components/composables/unitConverter';
+import naturalSort from 'javascript-natural-sort';
 
 const props = defineProps<{
 	title: string;
 	images?: { url: string; title: string }[];
 	github?: string;
+	links?: {
+		npm?: string;
+		docs?: string;
+		examples?: string;
+		paper?: string;
+	} & {
+		[key: string]: string;
+	};
 }>();
 
 const thresholdWidthRem = 550;
+
+const links = computed(() =>
+	Object.entries(props.links ?? {})
+		.sort(([keyA], [keyB]) => naturalSort(keyA, keyB))
+		.map(([name, url]) => {
+			return {
+				name,
+				url,
+			};
+		})
+);
 
 const container: Ref<Element | null> = ref(null);
 const compact = ref(false);
@@ -46,6 +67,17 @@ useResizeObserver(
 					:repo="props.github"
 					v-if="props.github"
 				/>
+				<section
+					v-if="links.length"
+					aria-label="links"
+				>
+					<template v-for="link in links">
+						<HyperLink :href="link.url">
+							{{ link.name }}
+						</HyperLink>
+						<span :class="$style.Project_linkSeparator">|</span>
+					</template>
+				</section>
 			</div>
 		</div>
 		<section
@@ -92,8 +124,12 @@ useResizeObserver(
 
 .Project_descriptionContainer {
 	flex: 1 1 200rem;
+}
 
-	// background-color: #a003;
+.Project_linkSeparator {
+	&:last-child {
+		display: none;
+	}
 }
 
 .Project_images {
@@ -150,6 +186,7 @@ useResizeObserver(
 	margin: @Project-gap;
 
 	p,
+	div,
 	iframe,
 	img,
 	figure {

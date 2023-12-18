@@ -20,6 +20,10 @@ const props = defineProps<{ dummies: number }>();
 					]"
 					:title="'DQ skinning for Unity'"
 					github="KosRud/DQ-skinning-for-Unity"
+					:links="{
+						docs: 'https://kosrud.github.io/DQ-skinning-for-Unity/hierarchy.html',
+						paper: 'http://journals.khnu.km.ua/vestnik/pdf/tech/pdfbase/2020/2020_1/1-2020_(281).pdf#page=12',
+					}"
 				>
 					<p>
 						A plugin for
@@ -52,6 +56,12 @@ const props = defineProps<{ dummies: number }>();
 				<HomePageHighlightsProject
 					github="KosRud/dice-pool-calc"
 					:title="'dice-pool-calc'"
+					:links="{
+						docs: 'https://kosrud.github.io/dice-pool-calc/',
+						examples:
+							'https://github.com/KosRud/dice-pool-calc-examples',
+						npm: 'https://www.npmjs.com/package/dice-pool-calc#dice-pool-calc',
+					}"
 				>
 					<p>
 						A
@@ -104,6 +114,9 @@ const props = defineProps<{ dummies: number }>();
 				<HomePageHighlightsProject
 					github="KosRud/joplin-plugin-paginator"
 					:title="'joplin-plugin-paginator'"
+					:links="{
+						npm: 'https://www.npmjs.com/package/joplin-plugin-paginator',
+					}"
 				>
 					<p>
 						<HyperLink
