@@ -83,18 +83,20 @@ onMounted(async () => {
 <style module lang="less">
 @import '../../.vitepress/theme/style/variables/index.less';
 
-@color-github-blue: rgb(9 105 218);
+@github-color-blue: rgb(9 105 218);
+@github-gap: @gap;
 
 .Github {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	gap: @gap;
+	gap: @github-gap;
 }
 
 .Github_box {
 	border: @border-width-s solid @color-border;
 	border-radius: @gap*0.25;
+	background-color: @color-white;
 
 	padding: @gap*0.5 @gap;
 	display: flex;
@@ -107,9 +109,6 @@ onMounted(async () => {
 	&:link,
 	&:visited {
 		color: @color-black !important;
-		&:hover {
-			color: @color-github-blue !important;
-		}
 	}
 }
 
@@ -120,6 +119,16 @@ onMounted(async () => {
 	}
 
 	font-weight: bold !important;
+
+	&:hover {
+		&,
+		&:visited,
+		&:link {
+			&:hover {
+				color: @github-color-blue !important;
+			}
+		}
+	}
 }
 
 .Github_box___stars {
@@ -127,6 +136,36 @@ onMounted(async () => {
 	padding-left: @gap*0.5;
 	padding-right: @gap*0.5;
 	font-weight: normal !important;
+
+	position: relative;
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+
+		aspect-ratio: 1;
+		right: 100%;
+		top: 50%;
+		transform-origin: center;
+		transform: translateY(-50%) translateX(-50%) rotate(-90deg) scaleY(2)
+			scaleX(1);
+	}
+	&::before {
+		border: @github-gap*0.5 solid transparent;
+		border-bottom-color: @color-border;
+	}
+
+	&::after {
+		border: calc(@github-gap*0.5 - @border-width-s) solid transparent;
+		border-bottom-color: @color-white;
+	}
+
+	&:hover {
+		border-color: @github-color-blue;
+		&::before {
+			border-bottom-color: @github-color-blue;
+		}
+	}
 }
 
 .Github_icon {
@@ -139,13 +178,39 @@ onMounted(async () => {
 }
 
 /*
+	Z-index
+\*----------------------------------*/
+
+.Github {
+	// establish stacking context
+	position: relative;
+	z-index: 0;
+}
+
+.Github_box___repo {
+	z-index: 1;
+}
+
+.Github_box___stars {
+	z-index: 0;
+}
+
+/*
 	Transitions
 \*----------------------------------*/
 
 .Github_box___repo {
-	transition: box-shadow @duration linear, background-color @duration-s linear;
+	transition: box-shadow @duration linear, background-color @duration-s linear,
+		color @duration-s linear;
 	&:active {
 		transition: background-color @duration-s linear;
+	}
+}
+
+.Github_box___stars {
+	&,
+	&::before {
+		transition: border-color @duration linear;
 	}
 }
 </style>
