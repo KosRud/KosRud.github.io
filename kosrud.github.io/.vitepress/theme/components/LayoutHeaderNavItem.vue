@@ -10,7 +10,13 @@ const route = useRoute();
 
 const props = defineProps<{ navItem: NavItem }>();
 
-const isActive = computed(() => urlMatch(route.path, props.navItem.url).inside);
+const isActive = computed(() => {
+	const match = urlMatch(route.path, props.navItem.url);
+	if (props.navItem.url == '/') {
+		return match.exact;
+	}
+	return match.inside;
+});
 </script>
 
 <template>

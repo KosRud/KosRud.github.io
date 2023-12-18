@@ -35,11 +35,6 @@ export default defineConfigWithTheme<ThemeConfig>({
 		nav: [
 			{ title: 'About me', url: '/about/' },
 			{
-				title: 'My projects',
-				url: '/projects',
-			},
-			{ title: 'Papers', url: '/Papers' },
-			{
 				title: 'For students',
 				url: '/students',
 				children: [
@@ -89,7 +84,6 @@ export default defineConfigWithTheme<ThemeConfig>({
 					},
 				],
 			},
-			{ title: 'Blog', url: '/blog' },
 		],
 	},
 });

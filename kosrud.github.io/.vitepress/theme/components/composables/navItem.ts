@@ -1,6 +1,7 @@
 import { useStore } from '../pinia/store';
 import { Ref, onMounted, ref, watchEffect } from 'vue';
 import { useData, onContentUpdated, useRoute } from 'vitepress';
+import { ThemeConfig } from '../../ThemeConfig';
 
 import { urlMatch } from './urlMatch';
 
@@ -22,7 +23,7 @@ export function useTrackNavItems() {
 	const store = useStore();
 	const route = useRoute();
 
-	const { site } = useData();
+	const { site } = useData<ThemeConfig>();
 
 	onMounted(() => {
 		watchEffect(() => {
