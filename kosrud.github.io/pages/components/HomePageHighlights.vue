@@ -116,7 +116,7 @@ const props = defineProps<{ dummies: number }>();
 					</p>
 					<p>
 						Normally, a note in joplin is continuous, like an HTML
-						page. My plugin implements pagination and generates a
+						page. This plugin implements pagination and generates a
 						table of contents for the note, making a printable
 						document from it.
 					</p>
