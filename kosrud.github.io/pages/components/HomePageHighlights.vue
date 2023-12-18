@@ -2,7 +2,6 @@
 import HomePageHighlightsProject from './HomePageHighlightsProject.vue';
 import GrungeHeading from './GrungeHeading.vue';
 import HyperLink from './HyperLink.vue';
-import GitHubStars from './GitHubStars.vue';
 
 const props = defineProps<{ dummies: number }>();
 </script>
@@ -20,6 +19,7 @@ const props = defineProps<{ dummies: number }>();
 						},
 					]"
 					:title="'DQ skinning for Unity'"
+					github="KosRud/DQ-skinning-for-Unity"
 				>
 					<p>
 						A plugin for
@@ -48,7 +48,6 @@ const props = defineProps<{ dummies: number }>();
 						The animated screenshot alternates between built-in
 						linear skinning and the plugin.
 					</p>
-					<GitHubStars />
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject :title="'dice-pool-calc'">
 					<p>

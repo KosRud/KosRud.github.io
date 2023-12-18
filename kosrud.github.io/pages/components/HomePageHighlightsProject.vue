@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import GitHubStars from './GitHubStars.vue';
+
 import { Ref, ref } from 'vue';
 
 import { useResizeObserver } from '../../.vitepress/theme/components/composables/resizeObserver';
@@ -7,6 +9,7 @@ import { pxToRem } from '../../.vitepress/theme/components/composables/unitConve
 const props = defineProps<{
 	title: string;
 	images?: { url: string; title: string }[];
+	github?: string;
 }>();
 
 const thresholdWidthRem = 550;
@@ -39,6 +42,10 @@ useResizeObserver(
 			</h3>
 			<div :class="$style.Project_description">
 				<slot />
+				<GitHubStars
+					:repo="props.github"
+					v-if="props.github"
+				/>
 			</div>
 		</div>
 		<section
