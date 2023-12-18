@@ -1,61 +1,32 @@
 <script lang="ts" setup>
 import { useStore } from './pinia/store';
-import { Ref, onUpdated, ref } from 'vue';
 
 import LayoutHeaderNav from './LayoutHeaderNav.vue';
 import LayoutHeaderButtonBurger from './LayoutHeaderButtonBurger.vue';
-import SiteTitle from './SiteTitle.vue';
 import { AdaptiveStage } from './composables/adaptiveStages';
-import { useResizeObserver } from './composables/resizeObserver';
 
 const store = useStore();
-
-const siteTitleContainer: Ref<Element | null> = ref(null);
-const header: Ref<Element | null> = ref(null);
-const siteTitleVisibility = ref('visible');
-
-useResizeObserver(updateSiteTitleVisibility, () => header.value, true);
-onUpdated(updateSiteTitleVisibility);
-
-function updateSiteTitleVisibility() {
-	if (!siteTitleContainer.value) {
-		console.error('site title container reference not set');
-		return;
-	}
-
-	const nextSibling = siteTitleContainer.value.nextElementSibling;
-
-	if (!nextSibling) {
-		return;
-	}
-
-	if (
-		siteTitleContainer.value.getBoundingClientRect().right >=
-		nextSibling.getBoundingClientRect().left
-	) {
-		siteTitleVisibility.value = 'hidden';
-	} else {
-		siteTitleVisibility.value = 'visible';
-	}
-}
 </script>
 
 <template>
 	<header
 		:class="$style.Header"
-		:ref="(element) => {header = element as Element}"
 		role="banner"
 	>
-		<div
-			:class="$style.SiteTitleContainer"
-			:ref="(element) => {siteTitleContainer = element as Element}"
+		<a
+			href="/"
+			:class="$style.Header_logo"
 		>
-			<SiteTitle />
-		</div>
-		<LayoutHeaderNav
-			v-if="store.adaptiveStage == AdaptiveStage.full"
-			:class="$style.HeaderNav"
-		/>
+			<img
+				src="/favicon.svg"
+				alt="homepage"
+				title="homepage"
+			/>
+		</a>
+		<template v-if="store.adaptiveStage == AdaptiveStage.full">
+			<div :class="$style.Header_spacer"></div>
+			<LayoutHeaderNav :class="$style.HeaderNav" />
+		</template>
 		<template v-else>
 			<LayoutHeaderButtonBurger
 				:class="$style.BurgerToc"
@@ -88,45 +59,42 @@ function updateSiteTitleVisibility() {
 <style module lang="less">
 @import '../style/variables/index.less';
 
-.SiteTitleContainer {
-	flex: 0 0 fit-content;
-
-	display: flex;
-	flex-direction: row;
-	align-items: stretch;
-	justify-content: start;
-	visibility: v-bind(siteTitleVisibility);
-	padding-right: @gap*2;
-}
+@Header-logo-size: @Header-height - @gap;
+@Header-gap: @gap;
 
 .Header {
 	background-color: @color-background-dark;
 	display: flex;
-	gap: @gap;
+	flex-direction: row;
+	align-items: center;
+	gap: @Header-gap;
+	padding: 0rem @Header-gap;
 
 	height: @Header-height;
 
 	position: relative; // for  burger's absolute
 }
 
-.Header_navLink___active {
-	position: relative;
+.Header_logo {
+	height: @Header-logo-size;
+	aspect-ratio: 1;
+	display: flex;
+	justify-content: stretch;
+	align-items: stretch;
 
-	&::after {
-		position: absolute;
-		content: '';
-		left: @gap*0.0;
-		right: @gap*0.0;
-		bottom: calc(0rem - @gap);
-		top: calc(0rem - @HeaderNav-padding-vertical);
-		border-top: @border-width solid @color-background;
-		pointer-events: none;
-	}
+	box-shadow: @shadow;
+}
+
+.Header_spacer {
+	// flex: 0 1 calc(27% - 300rem);
+	// min-width: 0rem;
+	// max-width: @gap*16;
+
+	width: @gap;
 }
 
 .HeaderNav {
-	flex: 0 0 fit-content;
-	margin-right: @gap;
+	flex: 1 0 fit-content;
 }
 
 .BurgerMenu {

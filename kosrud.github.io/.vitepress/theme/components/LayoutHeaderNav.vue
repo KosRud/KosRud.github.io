@@ -78,7 +78,7 @@ function getAdaptivePreference() {
 	> ul {
 		display: flex;
 		flex-direction: row;
-		justify-content: center;
+		justify-content: start;
 		height: 100%;
 		gap: @gap;
 		padding-top: @HeaderNav-padding-vertical;
