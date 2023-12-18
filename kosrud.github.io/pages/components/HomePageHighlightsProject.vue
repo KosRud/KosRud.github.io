@@ -6,7 +6,7 @@ import { Ref, ref, computed } from 'vue';
 
 import { useResizeObserver } from '../../.vitepress/theme/components/composables/resizeObserver';
 import { pxToRem } from '../../.vitepress/theme/components/composables/unitConverter';
-import naturalSort from 'javascript-natural-sort';
+import naturalSort from 'typescript-natural-sort';
 
 const props = defineProps<{
 	title: string;

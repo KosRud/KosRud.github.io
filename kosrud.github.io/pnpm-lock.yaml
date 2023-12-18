@@ -8,15 +8,15 @@ dependencies:
   '@vitejs/plugin-vue-jsx':
     specifier: ^3.1.0
     version: 3.1.0(vite@4.4.11)(vue@3.3.4)
-  javascript-natural-sort:
-    specifier: ^0.7.1
-    version: 0.7.1
   less:
     specifier: ^4.2.0
     version: 4.2.0
   pinia:
     specifier: ^2.1.7
     version: 2.1.7(vue@3.3.4)
+  typescript-natural-sort:
+    specifier: ^0.7.2
+    version: 0.7.2
   vitepress:
     specifier: 1.0.0-rc.21
     version: 1.0.0-rc.21(@algolia/client-search@4.20.0)(less@4.2.0)(search-insights@2.9.0)
@@ -1201,10 +1201,6 @@ packages:
     resolution: {integrity: sha512-sNxgpk9793nzSs7bA6JQJGeIuRBQhAaNGG77kzYQgMkrID+lS6SlK07K5LaptscDlSaIgH+GPFzf+d75FVxozA==}
     dev: false
 
-  /javascript-natural-sort@0.7.1:
-    resolution: {integrity: sha512-nO6jcEfZWQXDhOiBtG2KvKyEptz7RVbpGP4vTD2hLBdmNQSsCiicO2Ioinv6UI4y9ukqnBpy+XZ9H6uLNgJTlw==}
-    dev: false
-
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
     dev: false
@@ -1449,6 +1445,10 @@ packages:
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
+    dev: false
+
+  /typescript-natural-sort@0.7.2:
+    resolution: {integrity: sha512-C8gaSIZySgJ+PchvslIJ6j5wcUIKPsGMzUm1gbFSmKjk+YkXTYPLlFc8UJHp2mvUadF80pWPgsxsAOPIP3TZ4g==}
     dev: false
 
   /update-browserslist-db@1.0.13(browserslist@4.22.2):
