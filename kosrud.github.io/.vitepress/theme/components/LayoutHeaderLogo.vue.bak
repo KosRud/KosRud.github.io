@@ -13,7 +13,7 @@ const { site } = useData<ThemeConfig>();
 		href="/"
 	>
 		<img
-			src="/assets/icons/home/icon.svg"
+			src="/favicon.svg"
 			:class="$style.SiteTitleContainer_homeIcon"
 			alt="homepage"
 			title="homepage"
@@ -43,7 +43,7 @@ const { site } = useData<ThemeConfig>();
 		text-decoration-line: inherit;
 
 		.SiteTitleContainer_homeIcon {
-			height: @size*1.5;
+			height: @size*2;
 			aspect-ratio: 1;
 			margin-right: @gap;
 			margin-left: 0rem;
