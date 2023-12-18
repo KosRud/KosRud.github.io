@@ -143,6 +143,11 @@ const props = defineProps<{ dummies: number }>();
 						},
 					]"
 					github="KosRud/Material-Clustering-Benchmark"
+					:links="{
+						paper: 'https://link.springer.com/chapter/10.1007/978-3-031-37963-5_67',
+						preprint:
+							'https://www.researchgate.net/publication/369113944_Real-time_material_clustering_for_mixed_reality_applications_based_on_dichromatic_reflection_model',
+					}"
 				>
 					<p>
 						This software was implemented to compare the speed and

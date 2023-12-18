@@ -6,34 +6,35 @@ import { Ref, ref, computed } from 'vue';
 
 import { useResizeObserver } from '../../.vitepress/theme/components/composables/resizeObserver';
 import { pxToRem } from '../../.vitepress/theme/components/composables/unitConverter';
-import naturalSort from 'typescript-natural-sort';
+
+const projectLinkTypes = ['npm', 'docs', 'examples', 'paper', 'preprint'];
+type ProjectLinks = Record<(typeof projectLinkTypes)[number], string>;
 
 const props = defineProps<{
 	title: string;
 	images?: { url: string; title: string }[];
 	github?: string;
-	links?: {
-		npm?: string;
-		docs?: string;
-		examples?: string;
-		paper?: string;
-	} & {
-		[key: string]: string;
-	};
+	links?: ProjectLinks;
 }>();
 
-const thresholdWidthRem = 550;
+const links = computed(() => {
+	if (!props.links) {
+		return null;
+	}
 
-const links = computed(() =>
-	Object.entries(props.links ?? {})
-		.sort(([keyA], [keyB]) => naturalSort(keyA, keyB))
-		.map(([name, url]) => {
-			return {
-				name,
-				url,
-			};
-		})
-);
+	const result: ProjectLinks = {};
+
+	for (const name of projectLinkTypes) {
+		const url = props.links[name];
+		if (url) {
+			result[name] = url;
+		}
+	}
+
+	return result;
+});
+
+const thresholdWidthRem = 550;
 
 const container: Ref<Element | null> = ref(null);
 const compact = ref(false);
@@ -68,12 +69,12 @@ useResizeObserver(
 					v-if="props.github"
 				/>
 				<section
-					v-if="links.length"
+					v-if="links"
 					aria-label="links"
 				>
-					<template v-for="link in links">
-						<HyperLink :href="link.url">
-							{{ link.name }}
+					<template v-for="(url, name) in links">
+						<HyperLink :href="url">
+							{{ name }}
 						</HyperLink>
 						<span :class="$style.Project_linkSeparator">|</span>
 					</template>
