@@ -22,9 +22,17 @@ function devIcon(data: devIconData) {
 	);
 }
 
-export const git = () =>
-	devIcon({
+const devIconDataCollection = {
+	git: {
 		imgUrl: '/assets/icons/dev/git/icon.svg',
 		title: 'git',
 		url: 'https://git-scm.com/',
-	});
+	},
+};
+
+export const devIcons = Object.fromEntries(
+	Object.entries(devIconDataCollection).map(([name, data]) => [
+		name,
+		devIcon(data),
+	])
+) as { [key in keyof typeof devIconDataCollection]: JSX.Element };
