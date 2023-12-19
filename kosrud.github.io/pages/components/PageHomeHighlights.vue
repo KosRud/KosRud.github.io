@@ -142,11 +142,9 @@ const props = defineProps<{ dummies: number }>();
 						to produce the final output.
 					</p>
 					<p>
-						Developed in collaboration with Ihor Los (<HyperLink
-							text="VectorElk"
-							href="https://github.com/VectorElk"
-						/>) as a joint bachelor's project at the Faculty of
-						Applied Mathematics at
+						Developed in collaboration with Ihor Los as a joint
+						bachelor's project at the Faculty of Applied Mathematics
+						at
 						<HyperLink
 							text="KPI"
 							href="https://kpi.ua/en/fpm"
