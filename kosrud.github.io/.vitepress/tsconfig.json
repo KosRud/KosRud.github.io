@@ -11,6 +11,10 @@
 		"jsx": "preserve",
 		"lib": ["esnext", "dom", "dom.iterable"],
 		"isolatedModules": true,
-		"baseUrl": "./"
+		"baseUrl": ".",
+		"paths": {
+			"#/*": ["../*"],
+			"#vitepress/*": ["./*"]
+		}
 	}
 }

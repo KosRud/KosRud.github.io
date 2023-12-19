@@ -7,8 +7,8 @@ import HomePageBio from './PageHomeBio.vue';
 import HomePageContact from './PageHomeContact.vue';
 
 import { computed, onMounted, onUnmounted, ref } from 'vue';
-import { useResizeObserver } from '../../.vitepress/theme/components/composables/resizeObserver';
-import { pxToRem } from '../../.vitepress/theme/components/composables/unitConverter';
+import { useResizeObserver } from '#vitepress/theme/components/composables/resizeObserver';
+import { pxToRem } from '#vitepress/theme/components/composables/unitConverter';
 
 const hero: Ref<Element | null> = ref(null);
 const scrollY = ref(0);
@@ -84,8 +84,8 @@ function handleScrolling() {
 </template>
 
 <style module lang="less">
-@import '../../.vitepress/theme/style/variables/index.less';
-@import '../../.vitepress/theme/style/mixins/index.less';
+@import '#vitepress/theme/style/variables/index.less';
+@import '#vitepress/theme/style/mixins/index.less';
 
 .HomePage {
 	flex-grow: 1;

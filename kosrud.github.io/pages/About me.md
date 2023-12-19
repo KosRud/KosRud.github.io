@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import HyperLink from '../.vitepress/theme/components/HyperLink.vue'
+	import HyperLink from '#vitepress/theme/components/HyperLink.vue'
 </script>
 
 # About me

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import HyperLink from '../../.vitepress/theme/components/HyperLink.vue';
+import HyperLink from '#vitepress/theme/components/HyperLink.vue';
 
 import { Ref, ref, computed } from 'vue';
 
-import { useResizeObserver } from '../../.vitepress/theme/components/composables/resizeObserver';
-import { pxToRem } from '../../.vitepress/theme/components/composables/unitConverter';
+import { useResizeObserver } from '#vitepress/theme/components/composables/resizeObserver';
+import { pxToRem } from '#vitepress/theme/components/composables/unitConverter';
 
 const projectLinkTypes = ['npm', 'docs', 'examples', 'paper', 'preprint'];
 type ProjectLinks = Record<(typeof projectLinkTypes)[number], string>;
@@ -102,8 +102,8 @@ useResizeObserver(
 </template>
 
 <style lang="less" module>
-@import '../../.vitepress/theme/style/variables/index.less';
-@import '../../.vitepress/theme/style/mixins/index.less';
+@import '#vitepress/theme/style/variables/index.less';
+@import '#vitepress/theme/style/mixins/index.less';
 
 @Project-gap: @gap*1.5;
 @Project_description_margin: @Project-gap;
