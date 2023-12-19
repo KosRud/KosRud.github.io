@@ -75,16 +75,10 @@ function handleScrolling() {
 			</div>
 		</div>
 		<main :class="$style.ContentWrapper">
-			<section>
-				<HomePageBio :class="$style.Bio" />
-				<HomePageFeatures />
-			</section>
-			<section>
-				<HomePageHighlights :dummies="8" />
-			</section>
-			<section>
-				<HomePageContact />
-			</section>
+			<HomePageBio :class="$style.Bio" />
+			<HomePageFeatures />
+			<HomePageHighlights :dummies="8" />
+			<HomePageContact />
 		</main>
 	</div>
 </template>
