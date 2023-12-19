@@ -16,6 +16,11 @@
 	font-size: 100%;
 }
 
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 body {
 	line-height: 1.5;
 }

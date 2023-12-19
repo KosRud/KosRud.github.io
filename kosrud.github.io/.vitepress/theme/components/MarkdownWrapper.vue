@@ -34,6 +34,9 @@ useResizeObserver(
 @import '../style/variables/index.less';
 @import '../style/mixins/index.less';
 
+@admonition_title-height: @gap + @size;
+@admonition-padding: @gap;
+
 .Markdown {
 	text-align: justify;
 
@@ -209,26 +212,40 @@ useResizeObserver(
 		border-bottom: none;
 		border-radius: 0rem 0rem @gap @gap;
 		background-color: @color-background;
-		padding: @gap;
+		padding: @admonition-padding;
 		box-shadow: @shadow-s;
 		margin-left: @gap;
 		margin-right: @gap;
+		margin-top: calc(@admonition_title-height + @content-gap);
+	}
+
+	:global(.custom-block-title) {
+		display: none;
 	}
 
 	:global(.custom-block.warning) {
 		background-color: #fceccf;
 		border-color: #f0b37e;
 
-		:global(.custom-block-title) {
+		&::before {
+			height: @admonition_title-height;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+
 			background-color: #f0b37e;
 			margin-left: -@gap*2;
 			margin-right: -@gap*2;
-			margin-top: -@gap;
+			margin-top: calc(-@admonition-padding - @admonition_title-height);
 			padding: @gap*0.25 @gap;
 			text-align: center;
 			box-shadow: @shadow-s;
-			margin-bottom: @gap;
-			border-radius: @gap*0.5;
+			margin-bottom: @admonition-padding;
+			border-radius: @gap * 0.5;
+			font-weight: bold;
+			content: 'Warning';
+			display: block;
 		}
 	}
 
