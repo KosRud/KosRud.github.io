@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import GitHubStars from './GitHubStars.vue';
-import HyperLink from './HyperLink.vue';
+import HyperLink from '../../.vitepress/theme/components/HyperLink.vue';
 
 import { Ref, ref, computed } from 'vue';
 
@@ -64,10 +63,12 @@ useResizeObserver(
 			</h3>
 			<div :class="$style.Project_description">
 				<slot />
-				<GitHubStars
-					:repo="props.github"
-					v-if="props.github"
-				/>
+				<div>
+					<github-stars
+						:repo="props.github"
+						v-if="props.github"
+					/>
+				</div>
 				<section
 					v-if="links"
 					aria-label="links"
@@ -188,12 +189,11 @@ useResizeObserver(
 
 	p,
 	div,
+	section,
 	iframe,
 	img,
 	figure {
-		&:not(:last-child) {
-			margin-bottom: @gap*1.5;
-		}
+		margin-bottom: @gap*1.5;
 	}
 
 	a {

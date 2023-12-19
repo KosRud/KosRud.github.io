@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import iconGithub from './assets/icons/github/mark-github.svg';
-import iconStar from './assets/icons/github/star.svg';
-import HyperLink from './HyperLink.vue';
+import iconGithub from '../assets/icons/github/mark-github.svg';
+import iconStar from '../assets/icons/github/star.svg';
+import HyperLink from '../HyperLink.vue';
 
 import { onMounted, ref } from 'vue';
 
@@ -54,25 +54,25 @@ onMounted(async () => {
 </script>
 
 <template>
-	<div :class="$style.Github">
+	<div class="Github">
 		<HyperLink
 			:href="`https://github.com/${repo}`"
-			:class="[$style.Github_box, $style.Github_box___repo]"
+			class="Github_box Github_box___repo"
 		>
 			<img
-				:class="$style.Github_icon"
+				class="Github_icon"
 				:src="iconGithub"
 			/>
 			GitHub
 		</HyperLink>
 		<HyperLink
 			:href="`https://github.com/${repo}`"
-			:class="[$style.Github_box, $style.Github_box___stars]"
+			class="Github_box Github_box___stars"
 			v-if="stars != -1"
 		>
 			<img
 				alt="stars"
-				:class="[$style.Github_icon, $style.Github_icon___star]"
+				class="Github_icon Github_icon___star"
 				:src="iconStar"
 			/>
 			{{ stars }}
@@ -80,8 +80,8 @@ onMounted(async () => {
 	</div>
 </template>
 
-<style module lang="less">
-@import '../../.vitepress/theme/style/variables/index.less';
+<style lang="less">
+@import '../../style/variables/index.less';
 
 @github-color-blue: rgb(9 105 218);
 @github-gap: @gap;

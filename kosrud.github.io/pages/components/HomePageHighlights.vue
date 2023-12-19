@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import HomePageHighlightsProject from './HomePageHighlightsProject.vue';
 import GrungeHeading from './GrungeHeading.vue';
-import HyperLink from './HyperLink.vue';
+import HyperLink from '../../.vitepress/theme/components/HyperLink.vue';
 
 const props = defineProps<{ dummies: number }>();
 </script>

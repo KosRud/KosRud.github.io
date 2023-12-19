@@ -15,6 +15,9 @@ import {
 } from './composables/adaptiveStages';
 import { pxToRem } from './composables/unitConverter';
 import { useResizeObserver } from './composables/resizeObserver';
+import { register as registerCustomElements } from './elements/index';
+
+registerCustomElements();
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { frontmatter } = useData<ThemeConfig>();
