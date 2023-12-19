@@ -108,7 +108,8 @@ const devIconDataCollection = {
 	git: {
 		imgUrl: iconGit,
 		title: 'Git',
-		url: 'https://git-scm.com/',
+		url: '',
+		// url: 'https://git-scm.com/',
 	},
 	hlsl: {
 		imgUrl: iconHlsl,
