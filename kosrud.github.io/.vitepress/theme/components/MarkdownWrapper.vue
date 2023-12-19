@@ -42,6 +42,8 @@ useResizeObserver(
 	h3,
 	h4,
 	p,
+	div,
+	section,
 	table {
 		margin-bottom: @content-gap;
 	}
@@ -112,13 +114,10 @@ useResizeObserver(
 	\*----------------------------------*/
 
 	h1,
-	h2 {
-		margin-bottom: @content-gap*2;
-	}
-
-	h1,
 	h2,
 	h3 {
+		margin-bottom: @content-gap*2;
+
 		&:not(:first-child) {
 			margin-top: @content-gap*4;
 		}
