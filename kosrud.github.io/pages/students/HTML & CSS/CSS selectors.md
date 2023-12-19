@@ -6,32 +6,32 @@
 |:---|:---|:---|
 |*|Any element (universal selector).|
 |#elementID|Any element with `id="elementID"`.|A page should only have one element with a given `id`.|
-|.enementClass|Any element with `class="elementClass"`.|An element can have multiple classes, separated by space.|
+|.enementClass|Any element with `class="elementClass"`.|An element can have multiple classes separated by space.|
 |div|Any `<div>`.|
 |div#divID.divClass|Any `<div>` with `id="id"` and `class="divClass"`.|
 
 ## Combinators
 
-|Selector|Description|Comment|
-|:---|:---|:---|    
-|div, p|Any `<div>`, and any `<p>`.|
-|div p|Any `<p>` inside a `<div>`.|Does not have to be a direct child.|
-|div > p|Any `<p>`, which is a direct child of a `<div>`.|
-|div + p|Any `<p>` immediately after a `<div>`.|
+|Selector|Description|
+|:---|:---|  
+|div, p|any `<div>` and any `<p>`|
+|div p|any `<p>` inside a `<div>`<br>*(does not have to be a direct child)* |
+|div > p|any `<p>` which is a direct child of a `<div>`|
+|div + p|any `<p>` immediately after a `<div>`|
 
 ## Links
 
 |Selector|Description|
 |:---|:---|
-|a:link|Unvisited link.|
-|a:visited|Visited link.|
+|a:link|unvisited link|
+|a:visited|visited link|
 
 ## Hover and click
 
 |Selector|Description|
 |:---|:---|
-|.button:active|Any element with `class="button"`,<br>which is currently being clicked.|
-|.button:hover|Any element with `class="button"`,<br>which has the cursor hovering above it.|
+|.button:active|any element with `class="button"` <br> which is currently being clicked|
+|.button:hover|any element with `class="button"` <br> which has the cursor hovering above it|
 
 ## Further reading
 
