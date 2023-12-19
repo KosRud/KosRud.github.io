@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import iconFull from './_assets/icons/star/full.svg';
-import iconEmpty from './_assets/icons/star/empty.svg';
+import iconFull from './assets/icons/star/full.svg';
+import iconEmpty from './assets/icons/star/empty.svg';
 
 const props = defineProps<{ max: number; full: number }>();
 </script>
