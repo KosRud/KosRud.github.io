@@ -49,7 +49,7 @@ function getTocItems() {
 					children: [],
 					element: element,
 					title: title.trim(),
-					italics: false,
+					italic: false,
 				},
 			];
 		} else {
