@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { Ref, ref } from "vue";
-import { useResizeObserver } from "../../.vitepress/theme/components/composables/resizeObserver";
-import { pxToRem } from "../../.vitepress/theme/components/composables/unitConverter";
+import { Ref, ref } from 'vue';
+import { useResizeObserver } from '../../.vitepress/theme/components/composables/resizeObserver';
+import { pxToRem } from '../../.vitepress/theme/components/composables/unitConverter';
+import { devIcons } from './tsx/devIcons';
 
 const adaptiveStage = ref(0);
 const isNarrowThresholdsRem = [1100, 900, 700];
@@ -10,7 +11,7 @@ const containerElement: Ref<Element | null> = ref(null);
 useResizeObserver(
 	() => {
 		if (!containerElement.value) {
-			console.error("Homepage bio container element not found");
+			console.error('Homepage bio container element not found');
 			return;
 		}
 
@@ -27,62 +28,65 @@ useResizeObserver(
 	true
 );
 
-const devIcons = {
+const devIconGroups = {
 	worked: [
-		{ url: "/assets/icons/dev/unity/icon.svg" },
-		{ url: "/assets/icons/dev/csharp/icon.svg" },
-		{ url: "/assets/icons/dev/hlsl/icon.svg" },
+		devIcons.unity,
+		devIcons.csharp,
+		devIcons.hlsl,
 
-		{ url: "/assets/icons/dev/vitepress/icon.svg" },
-		{ url: "/assets/icons/dev/vue/icon.svg" },
-		{ url: "/assets/icons/dev/pinia/icon.svg" },
+		devIcons.vitepress,
+		devIcons.vue,
+		devIcons.pinia,
 
-		{ url: "/assets/icons/dev/javascript/icon.svg" },
-		{ url: "/assets/icons/dev/typescript/icon.svg" },
+		devIcons.javascript,
+		devIcons.typescript,
 
-		{ url: "/assets/icons/dev/html5/icon.svg" },
-		{ url: "/assets/icons/dev/css3/icon.svg" },
-		{ url: "/assets/icons/dev/less/icon.svg" },
+		devIcons.html5,
+		devIcons.css3,
+		devIcons.less,
 
-		{ url: "/assets/icons/dev/immutable/icon.svg" },
-		{ url: "/assets/icons/dev/typedoc/icon.png" },
-		{ url: "/assets/icons/dev/node/icon.svg" },
+		devIcons.immutableJs,
+		devIcons.typedoc,
+		devIcons.nodeJs,
 
-		{ url: "/assets/icons/dev/python/icon.svg" },
+		devIcons.python,
 
-		{ url: "/assets/icons/dev/cpp/icon.svg" },
+		devIcons.cpp,
 
-		{ url: "/assets/icons/dev/doxygen/icon.png" },
-		{ url: "/assets/icons/dev/git/icon.svg" }
+		devIcons.doxygen,
+		devIcons.git,
 	],
 	dabbled: [
-		{ url: "/assets/icons/dev/react/icon.svg" },
-		{ url: "/assets/icons/dev/vite/icon.svg" },
-		{ url: "/assets/icons/dev/cypress/icon.svg" },
+		devIcons.react,
+		devIcons.vite,
+		devIcons.cypress,
 
-		{ url: "/assets/icons/dev/neutralino/icon.svg" },
+		devIcons.neutralino,
 
-		{ url: "/assets/icons/dev/redis/icon.svg" },
-		{ url: "/assets/icons/dev/postgresql/icon.svg" },
-		{ url: "/assets/icons/dev/mongodb/icon.svg" },
+		devIcons.redis,
+		devIcons.postgresql,
+		devIcons.mongodb,
 
-		{ url: "/assets/icons/dev/fastify/icon.svg" },
-		{ url: "/assets/icons/dev/deno/icon.svg" },
+		devIcons.fastify,
+		devIcons.deno,
 
-		{ url: "/assets/icons/dev/cython/icon.svg" },
-		{ url: "/assets/icons/dev/lua/icon.svg" },
-		{ url: "/assets/icons/dev/rust/icon.svg" },
+		devIcons.cython,
+		devIcons.lua,
+		devIcons.rust,
 	],
 };
 </script>
 
 <template>
-	<div :class="{
-		[$style.Bio]: true,
-		[$style.Bio___adaptive_0]: adaptiveStage >= 0,
-		[$style.Bio___adaptive_1]: adaptiveStage >= 1,
-		[$style.Bio___adaptive_2]: adaptiveStage >= 2,
-	}" :ref="(element) => { containerElement = element as Element }">
+	<div
+		:class="{
+			[$style.Bio]: true,
+			[$style.Bio___adaptive_0]: adaptiveStage >= 0,
+			[$style.Bio___adaptive_1]: adaptiveStage >= 1,
+			[$style.Bio___adaptive_2]: adaptiveStage >= 2,
+		}"
+		:ref="(element) => { containerElement = element as Element }"
+	>
 		<div :class="$style.Bio_titleContainer">
 			<div :class="$style.Bio_titleSpacer"></div>
 			<h2 :class="$style.Bio_title">Greetings!</h2>
@@ -103,38 +107,51 @@ const devIcons = {
 					<a href="/papers/">papers</a>), as well as an assortment of
 					condensed <a href="#">highlights</a> from the web
 					development seminars I've been teaching at
-					<a href="https://www.fiit.stuba.sk/en.html"><span
-							  title="Faculty of Informatics and Information Technologies, Slovak University of Technology">FIIT
-							STU</span></a>.
+					<a href="https://www.fiit.stuba.sk/en.html"
+						><span
+							title="Faculty of Informatics and Information Technologies, Slovak University of Technology"
+							>FIIT STU</span
+						></a
+					>.
 				</p>
 				<p>
-					<img :class="[$style.Bio_photo, $style.Bio_photo___inside]" src="/assets/photo.png"
-						 v-if="adaptiveStage >= 2" />
+					<img
+						:class="[$style.Bio_photo, $style.Bio_photo___inside]"
+						src="/assets/photo.png"
+						v-if="adaptiveStage >= 2"
+					/>
 				</p>
-				<p>
+				<p></p>
 				<table :class="$style.DeviconsTable">
 					<tr>
 						<td>I have experience working with:</td>
 						<td>
-							<img :class="$style.devIcon" v-for="devIcon in devIcons.worked" :src="devIcon.url" />
+							<component
+								:class="$style.devIcon"
+								:is="devIcon"
+								v-for="devIcon in devIconGroups.worked"
+							/>
 						</td>
 					</tr>
 					<tr>
 						<td>I have dabbled with:</td>
 						<td>
-							<img :class="$style.devIcon" :src="devIcon.url" v-for="devIcon in devIcons.dabbled" />
+							<component
+								:class="$style.devIcon"
+								:is="devIcon"
+								v-for="devIcon in devIconGroups.dabbled"
+							/>
 						</td>
 					</tr>
 				</table>
-				</p>
 			</div>
 		</div>
 	</div>
 </template>
 
 <style module lang="less">
-@import "../../.vitepress/theme/style/variables/index.less";
-@import "../../.vitepress/theme/style/mixins/index.less";
+@import '../../.vitepress/theme/style/variables/index.less';
+@import '../../.vitepress/theme/style/mixins/index.less';
 
 @Bio_photo-width: 130rem;
 @Bio_photo-to-content-gap: @gap * 3;
@@ -158,13 +175,15 @@ const devIcons = {
 }
 
 .DeviconsTable {
-	line-height: .devIcon()[ height];
+	line-height: .devIcon() [ height];
 
-	td:first-child {
-		text-align: right;
-		padding-right: @gap*1.5;
-		vertical-align: top;
-		white-space: nowrap;
+	td {
+		&:first-child {
+			text-align: right;
+			padding-right: @gap*1.5;
+			vertical-align: top;
+			white-space: nowrap;
+		}
 	}
 
 	td {
@@ -221,7 +240,6 @@ const devIcons = {
 	flex: 0 1 @Bio_photo-width;
 	border-radius: 50% @gap @gap 30% / 50% @gap @gap 50%;
 
-
 	margin-top: @size-l*0.3;
 	margin-bottom: @gap;
 }
@@ -240,12 +258,7 @@ const devIcons = {
 	height: @size*2;
 	vertical-align: middle;
 
-	&:first-child {
-		margin-left: @gap*0.5;
-	}
-
 	margin: @gap*0.25;
-	// transform: translateY(-15%);
 }
 
 /*
@@ -253,7 +266,6 @@ const devIcons = {
 \*----------------------------------*/
 
 .Bio___adaptive_0 {
-
 	.Bio_content,
 	.Bio_titleContainer {
 		margin-right: 0rem;
@@ -295,7 +307,5 @@ const devIcons = {
 		flex: 1 0 100%;
 		text-align: left;
 	}
-
-
 }
 </style>
