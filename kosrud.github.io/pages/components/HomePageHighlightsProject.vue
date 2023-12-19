@@ -106,6 +106,7 @@ useResizeObserver(
 @import '../../.vitepress/theme/style/mixins/index.less';
 
 @Project-gap: @gap*1.5;
+@Project_description_margin: @Project-gap;
 
 .Project {
 	min-height: 200rem;
@@ -156,30 +157,32 @@ useResizeObserver(
 }
 
 .Project_title {
-	@Project_title-padding: @gap*0.5;
+	@Project_title-padding-vertical: @gap*0.5;
+	@Project_title-padding-horizontal: @Project_description_margin;
 	@Project_title-clip: @gap;
 
 	margin-top: -@border-width-s;
 	margin-left: -@border-width-s;
+	margin-bottom: @Project-gap;
+	margin-right: @Project_description_margin;
 
 	min-width: min(220rem, 100%);
 	width: fit-content;
 
-	padding: @Project_title-padding;
-	padding-right: @Project_title-padding + @Project_title-clip;
+	padding: @Project_title-padding-vertical @Project_title-padding-horizontal;
+	padding-right: @Project_title-padding-horizontal + @Project_title-clip;
 	background-color: @color-background-dark;
 
 	text-align: left;
 	color: @color-white;
+	font-family: @font-techy;
+
 	clip-path: polygon(
 		0% 0%,
 		100% 0%,
 		calc(100% - @Project_title-clip) 100%,
 		0% 100%
 	);
-
-	margin-bottom: @gap;
-	margin-right: @Project-gap;
 }
 
 .Project_description {
