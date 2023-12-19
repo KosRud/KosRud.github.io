@@ -1,3 +1,10 @@
+---
+head:
+  - - link
+    - rel: stylesheet
+      href: https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css
+---
+
 # Clean Code
 
 Some advice about keeping your code clean and manageable
@@ -6,7 +13,7 @@ Some advice about keeping your code clean and manageable
 
 When a function becomes too long, extract parts of it into separate functions.
 
-### Example
+#### Example
 
 ```js
 function DrawEverything(canvas) {
@@ -26,15 +33,15 @@ function DrawEverything(canvas) {
 }
 ```
 
-## Big classes
+## Long classes
 
-Same as with the big functions, try to break them up.
+Same as long functions, try to break them up.
 
 ## Too many arguments
 
-If you have functions with 6+ arguments, create a class to group up related values.
+If you have functions with 6+ arguments, create a class to group the related values into a single package.
 
-### Example
+#### Example
 
 ```js
 function printDocument(
@@ -113,7 +120,7 @@ When a class has too many attributes, group them into new classes.
 
 Avoid having multiple variables holding copies of the same value. Also, if certain value can be trivially computed from existing variables, it's usually better to provide a function for computing it, instead of storing it in a variable.
 
-### Example
+#### Example
 ```js
 class Player {
 	constructor(health) {
@@ -174,7 +181,7 @@ class Player {
 
 If you have multiple classes with similar methods and/or attributes, consider extracting the common part into a base class and using inheritance.
 
-### Example
+#### Example
 
 ```js
 class Vector2 {
@@ -294,7 +301,7 @@ class Slime extends Character {
 
 If you have multiple functions with similar code, consider extracting the common part into a separate function.
 
-### Example
+#### Example
 
 ```js
 function castFireball() {
@@ -337,7 +344,7 @@ If you have a feeling that something might go wrong in your code, implement a sa
 
 MDN link: [throw statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw).
 
-### Example
+#### Example
 ```js
 class Player {
     constructor (health) {
@@ -368,9 +375,9 @@ class Player {
 
 ## Magic numbers
 
-When using numeric constants (for example, pi), create named constants instead of writing the values directly in your code.
+When using numeric constants (for example, $\pi$), create named constants instead of writing the values directly in your code.
 
-### Example
+#### Example
 
 ```js
 class Circle {

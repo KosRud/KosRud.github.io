@@ -7,7 +7,7 @@
 
 ### For of
 
-Iterates over values.
+Iterates over values in arrays.
 
 ```js
 let arr = [10, 20, 30];
@@ -19,7 +19,7 @@ for (const value of arr) {
 
 ### For in
 
-Iterates over indices.
+Iterates over indices in arrays and keys in objects.
 
 ```js
 let arr = [10, 20, 30];
@@ -41,9 +41,9 @@ for (const i in dict) {
 }
 ```
 
-### For each
+### Array.forEach()
 
-Runs the given function on every value.
+Runs the given function on every value in the array.
 
 ```js
 let arr = [10, 20, 30];
@@ -65,7 +65,7 @@ arr.forEach(
 
 Conveniently insert variables into your strings.
 
-### Example
+##### Example
 
 ```js
 let foo = 5;
@@ -94,13 +94,11 @@ console.log(`${human.name} is ${human.age} years old`);
 ```
 
 !!! note
-    Mozilla Developer Network &mdash; [Template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+    Mozilla Developer Network &mdash; [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
 ## Destructuring assignment
 
-Destructuring assignment syntax allows unpacking values from arrays, and properties from objects.
-
-This has several convenient applications, such as swapping variables without creating a temporary variable, or creating functions with named arguments.
+Destructuring assignment syntax allows to unpack values from arrays and properties from objects. This has several convenient applications, such as swapping variables without creating a temporary variable, creating functions with named arguments, and creating a copy of an object or array with added values.
 
 ### Swap variables
 
@@ -139,16 +137,22 @@ sayTimes(
 ```
 
 !!! note
-    Mozilla Developer Network &mdash; [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+    Mozilla Developer Network &mdash; [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 ## Static methods and attributes
 
-Static methods and attributes are attached to the class itself, not a particular instance of the class.
+Static methods and attributes are attached to the class itself, not a particular instance of the class. In other words, there is only one instance of a static attribute in the entire application which is shared by all instances of the class.
 
-### Example
+#### Example
 
 ```js
 class Student {
+	// static initialization
+	// will be called automatically, only once
+	static {
+		Student.all = [];
+	}
+
 	constructor (name) {
 		this.name = name;
 		Student.all.push(this);
@@ -158,13 +162,7 @@ class Student {
 		Student.all.forEach((student) => {
 			console.log(`Hello, ${student.name}`);
 		})
-	}
-
-	// static initialization
-	static {
-		Student.all = [];
-		console.log("static initialization called");
-	}
+	}	
 }
 
 const ann = new Student("Ann");
@@ -184,17 +182,13 @@ Student.GreetAll();
 ```
 
 !!! note
-    Mozilla Developer Network &mdash; [static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
+    Mozilla Developer Network &mdash; [static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static), [static initialization blocks](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks)
 
 ## Optional chaining
 
-Normally, if you try to call a method, or read an attribute, which does not exist, you'd raise an error.
+Normally, if you try to call a method or read an attribute which does not exist, you'd raise an error. With optional chaining you can call a method or receive an attribute (if it exists), and move on without raising an error if it doesn't. This is useful when iterating over an array, where some objects might have properties set to `null` or `undefined`.
 
-With optional chaining you can call a method, or receive an attribute (if it exists), and move on without raising an error, if it doesn't.
-
-This is useful, when iterating over an array, where some objects might be `null`, or lack the relevant method/attribute.
-
-### Example
+#### Example
 
 ```js
 class Pet {
@@ -221,13 +215,13 @@ let petOwners = [
 
 for (let petOwner of petOwners) {
     petOwner?.dog?.call();
-    // if petOwner == null, do nothing
-    // if petOwner doesn't have a dog, do nothing
+    // if petOwner == null, assume that .dog is undefined
+    // if .dog is undefined, do nothing
 }
 ```
 
 !!! note
-    Mozilla Developer Network &mdash; [Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+    Mozilla Developer Network &mdash; [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 
 ## Console output
 
@@ -239,7 +233,7 @@ Console.table
 Console.dir
 :	Display an interactive list of properties of a JavaScript object.
 
-### Example
+#### Example
 
 ```js
 let arr = [
@@ -338,14 +332,13 @@ console.log(copy);
 
 ```
 
-!!! warning
-    Shallow copy sets attributes of the target object identical to the source object.
+::: warning
+Shallow copy sets attributes of the target object identical to the source object.
 
-    This means, that if the source object had a reference (non-[primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)) attribute, the target object will be referencing the same thing!
+This means, that if the source object had a reference (i.e. non&ndash;[primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)) attribute, the target object will be referencing the same thing! There are 7 primitive data types: string, number, bigint, boolean, undefined, symbol, and null.
 
-    There are 7 primitive data types: string, number, bigint, boolean, undefined, symbol, and null.
-
-    <img src="../images.JS tricks.md/shallow copy.png">
+<img src="../images.JS tricks.md/shallow copy.png">
+:::
 
 ### Removing duplicates
 
@@ -371,7 +364,7 @@ console.log(arr);
 
 Applies the given function to every element of an array, then returns results as a new array.
 
-### Example
+#### Example
 
 ```js
 let arr = [1,2,3];

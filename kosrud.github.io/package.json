@@ -2,10 +2,14 @@
 	"dependencies": {
 		"@types/node": "^20.10.5",
 		"@vitejs/plugin-vue-jsx": "^3.1.0",
+		"katex": "^0.16.9",
 		"less": "^4.2.0",
+		"markdown-it-katex": "^2.0.3",
+		"mermaid": "^10.6.1",
 		"pinia": "^2.1.7",
 		"typescript-natural-sort": "^0.7.2",
 		"vitepress": "1.0.0-rc.21",
+		"vitepress-plugin-mermaid": "^2.0.16",
 		"vue": "^3.3.4",
 		"vue-github-button": "^3.1.0"
 	},
