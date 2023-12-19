@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { Ref, ComponentPublicInstance } from 'vue';
 
-import HomePageHighlights from './HomePageHighlights.vue';
-import HomePageFeatures from './HomePageFeatures.vue';
-import HomePageBio from './HomePageBio.vue';
-import HomePageContact from './HomePageContact.vue';
+import HomePageHighlights from './PageHomeHighlights.vue';
+import HomePageFeatures from './PageHomeFeatures.vue';
+import HomePageBio from './PageHomeBio.vue';
+import HomePageContact from './PageHomeContact.vue';
 
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { useResizeObserver } from '../../.vitepress/theme/components/composables/resizeObserver';

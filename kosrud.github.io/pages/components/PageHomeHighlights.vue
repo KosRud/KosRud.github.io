@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HomePageHighlightsProject from './HomePageHighlightsProject.vue';
+import HomePageHighlightsProject from './PageHomeHighlightsProject.vue';
 import GrungeHeading from './GrungeHeading.vue';
 import HyperLink from '../../.vitepress/theme/components/HyperLink.vue';
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import FeaturesGallery from './FeaturesGallery.vue';
 import FeaturesGalleryCard from './FeaturesGalleryCard.vue';
-import HomePageFeaturesContent from './HomePageFeaturesContent.vue';
+import HomePageFeaturesContent from './PageHomeFeaturesContent.vue';
 </script>
 
 <template>
