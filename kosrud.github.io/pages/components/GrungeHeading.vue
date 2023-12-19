@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import smudge from './assets/smudges/2.svg';
 
+import { makeHeadingId } from '../../.vitepress/theme/components/composables/makeHeadingId';
+
 const props = defineProps<{ text: string }>();
 const smudgeUrl = `url("${smudge}")`;
 </script>
 
 <template>
-	<h2 :class="$style.HeadingWrapper">
+	<h2
+		:id="makeHeadingId(props.text)"
+		:class="$style.HeadingWrapper"
+	>
 		{{ props.text }}
 	</h2>
 </template>
