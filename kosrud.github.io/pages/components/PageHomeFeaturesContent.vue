@@ -7,7 +7,7 @@
 </template>
 
 <style module lang="less">
-@import '#vitepress/theme/style/main/index.less';
+@import '@vitepress/theme/style/main/index.less';
 
 .Feature_content {
 	flex-grow: 1;
