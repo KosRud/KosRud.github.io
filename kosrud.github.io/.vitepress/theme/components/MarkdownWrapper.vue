@@ -261,7 +261,17 @@ useResizeObserver(
 	}
 
 	/*
-		Code
+		Code (inline)
+	\*----------------------------------*/
+
+	p > code {
+		background-color: @color-background-card;
+		padding: 0.15em 0.2em;
+		border-radius: @gap*0.25;
+	}
+
+	/*
+		Code (block)
 	\*----------------------------------*/
 
 	:global(.github-dark) {
@@ -283,8 +293,6 @@ useResizeObserver(
 
 	:global(.shiki) {
 		padding: @gap;
-		// padding: 0rem;
-		// padding-left: @gap*2;
 		border: @border-width-s solid @color-border;
 		box-shadow: @shadow-ao;
 	}
@@ -292,6 +300,10 @@ useResizeObserver(
 	.copy {
 		display: none;
 	}
+
+	/*
+		Fonts
+	\*----------------------------------*/
 
 	code,
 	pre {
