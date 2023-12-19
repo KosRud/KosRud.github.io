@@ -42,7 +42,7 @@ const props = defineProps<{ dummies: number }>();
 							href="http://journals.khnu.km.ua/vestnik/pdf/tech/pdfbase/2020/2020_1/(281)_2020-1-t.pdf#page=12"
 						/>
 						which I developed for my master's thesis at the Faculty
-						of Applied Mathematics in
+						of Applied Mathematics at
 						<HyperLink
 							text="KPI"
 							href="https://kpi.ua/en/fpm"
@@ -112,26 +112,44 @@ const props = defineProps<{ dummies: number }>();
 					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
-					github="KosRud/joplin-plugin-paginator"
-					:title="'joplin-plugin-paginator'"
-					:links="{
-						npm: 'https://www.npmjs.com/package/joplin-plugin-paginator',
-					}"
+					:title="'ProTeGe v2'"
+					:images="[
+						{
+							url: '/content/project screenshots/Protege v2/1.png',
+							title: 'screenshot',
+						},
+						{
+							url: '/content/project screenshots/Protege v2/3.png',
+							title: 'textures in use',
+						},
+					]"
+					github="KosRud/ProTeGe_v2"
 				>
 					<p>
-						<HyperLink
-							text="Joplin"
-							href="https://joplinapp.org/"
-						/>
-						is an open-source note taking app with tags,
-						hierarchical folders, plugin support, synchronization,
-						and embedded multimedia.
+						A graph-based procedural texture generator with
+						real-time preview.
 					</p>
 					<p>
-						Normally, a note in joplin is continuous like an HTML
-						page. This plugin implements pagination and generates a
-						table of contents for the note, making a printable
-						document from it.
+						Implemented in
+						<HyperLink
+							text="Unity"
+							href="https://unity.com/"
+						/>
+						engine with texture processing performed on the GPU. A
+						collection of configurable nodes (noise generators,
+						color adjustments, blending) can be chained arbitrarily
+						to produce the final output.
+					</p>
+					<p>
+						Developed in collaboration with Ihor Los (<HyperLink
+							text="VectorElk"
+							href="https://github.com/VectorElk"
+						/>) as a joint bachelor's project at the Faculty of
+						Applied Mathematics at
+						<HyperLink
+							text="KPI"
+							href="https://kpi.ua/en/fpm"
+						/>.
 					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
@@ -169,26 +187,26 @@ const props = defineProps<{ dummies: number }>();
 					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
-					:title="'ProTeGe v2'"
-					:images="[
-						{
-							url: '/content/project screenshots/Protege v2/1.png',
-							title: 'screenshot',
-						},
-						{
-							url: '/content/project screenshots/Protege v2/3.png',
-							title: 'textures in use',
-						},
-					]"
-					github="KosRud/ProTeGe_v2"
+					github="KosRud/joplin-plugin-paginator"
+					:title="'joplin-plugin-paginator'"
+					:links="{
+						npm: 'https://www.npmjs.com/package/joplin-plugin-paginator',
+					}"
 				>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Donec ac dignissim nibh. Sed pharetra sem et congue
-						faucibus. Maecenas eget libero lacus. Nunc non eros id
-						risus accumsan ullamcorper. Nullam sit amet purus risus.
-						Aliquam erat volutpat. Vivamus et lacus posuere, rutrum
-						magna quis, faucibus nunc.
+						<HyperLink
+							text="Joplin"
+							href="https://joplinapp.org/"
+						/>
+						is an open-source note taking app with tags,
+						hierarchical folders, plugin support, synchronization,
+						and embedded multimedia.
+					</p>
+					<p>
+						Normally, a note in joplin is continuous like an HTML
+						page. This plugin implements pagination and generates a
+						table of contents for the note, making a printable
+						document from it.
 					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
@@ -202,12 +220,9 @@ const props = defineProps<{ dummies: number }>();
 					github="KosRud/ProTeGe-v1"
 				>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Donec ac dignissim nibh. Sed pharetra sem et congue
-						faucibus. Maecenas eget libero lacus. Nunc non eros id
-						risus accumsan ullamcorper. Nullam sit amet purus risus.
-						Aliquam erat volutpat. Vivamus et lacus posuere, rutrum
-						magna quis, faucibus nunc.
+						A procedural texture generator written in C++ using
+						wxWidgets library for the GUI. The computations are
+						performed on the CPU and utilize multithreading.
 					</p>
 				</HomePageHighlightsProject>
 				<div
