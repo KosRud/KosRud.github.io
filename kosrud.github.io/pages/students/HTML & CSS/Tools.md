@@ -6,20 +6,17 @@ This page lists some tools you can use when developing the website for the cours
 
 Validators check your HTML and CSS files for errors. The browser will often attempt to make sense of the code, that contains mistakes, and guess the intention behind it. Sometimes it works, sometimes it doesn't. This behavior is unpredictable between different browsers, and can result in the page being completely broken in one browser, while appearing perfectly functional in the other.
 
-### HTML
+#### HTML
 
 <a href="https://validator.w3.org/" target="_blank">validator.w3.org</a>
 
-### CSS
+#### CSS
 
 <a href="https://jigsaw.w3.org/css-validator/" target="_blank">jigsaw.w3.org</a>
 
 ## Code Editor
 
 <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>
-
-!!! warning
-	You can use any code editor of your choice, with the exception of <a href="https://en.wikipedia.org/wiki/WYSIWYG" target="_blank">WYSIWYG</a> html editors. Using WYSIWYG editors is strictly forbidden.
 
 ### VS Code extensions
 
@@ -38,9 +35,7 @@ Validators check your HTML and CSS files for errors. The browser will often atte
 
 * <a href="https://marketplace.visualstudio.com/items?itemName=dzhavat.css-flexbox-cheatsheet" target="_blank">CSS Flexbox Cheatsheet</a>
 * <a href="https://marketplace.visualstudio.com/items?itemName=oguzhanyildiz.lorem-text-generator" target="_blank">Lorem Text Generator</a> (generate fake text)
-!!! warning
-	Final project should contain actual text, not lorem ipsum.
-* <a href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons" target="_blank">vscode-icons</a> (gives icons to folders and different file extensions)
+* <a href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons" target="_blank">vscode-icons</a> (different icons in explorer view based on file extension)
 * <a href="https://marketplace.visualstudio.com/items?itemName=tomsaunders-code.workspace-explorer" target="_blank">Workspace Explorer</a> (conveniently switch between several projects)
 
 ## Wireframe

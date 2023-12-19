@@ -44,6 +44,8 @@ useResizeObserver(
 	p,
 	div,
 	section,
+	ul,
+	ol,
 	table {
 		margin-bottom: @content-gap;
 	}
@@ -180,10 +182,10 @@ useResizeObserver(
 
 	:global(.github-dark) {
 		display: none;
+	}
 
-		:global(.copy) {
-			display: none;
-		}
+	:global(.copy) {
+		display: none;
 	}
 
 	:global(.lang) {
