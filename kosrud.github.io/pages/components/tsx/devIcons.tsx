@@ -1,6 +1,6 @@
 import style from './devicons.module.less';
 
-import HyperLink from '../../../.vitepress/theme/components/HyperLink.vue';
+import HyperLink from '#vitepress/theme/components/HyperLink.vue';
 
 import iconCpp from '../assets/icons/dev/cpp/icon.svg';
 import iconCsharp from '../assets/icons/dev/csharp/icon.svg';

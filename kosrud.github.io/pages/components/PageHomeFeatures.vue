@@ -2,7 +2,7 @@
 import FeaturesGallery from './FeaturesGallery.vue';
 import FeaturesGalleryCard from './FeaturesGalleryCard.vue';
 import HomePageFeaturesContent from './PageHomeFeaturesContent.vue';
-import HyperLink from '../../.vitepress/theme/components/HyperLink.vue';
+import HyperLink from '#vitepress/theme/components/HyperLink.vue';
 </script>
 
 <template>

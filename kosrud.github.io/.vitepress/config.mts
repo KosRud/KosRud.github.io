@@ -4,6 +4,7 @@ import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
 import { withMermaid } from 'vitepress-plugin-mermaid';
 import { buildNav } from './buildNav';
 import markdownItKatex from 'markdown-it-katex';
+import { resolve } from 'node:path';
 
 // https://vitepress.dev/reference/site-config
 const config = defineConfigWithTheme<ThemeConfig>({
@@ -36,6 +37,12 @@ const config = defineConfigWithTheme<ThemeConfig>({
 		optimizeDeps: {
 			// https://github.com/mermaid-js/mermaid/issues/4320
 			include: ['mermaid'],
+		},
+		resolve: {
+			alias: {
+				'#': resolve('.'),
+				'#vitepress': resolve('./.vitepress'),
+			},
 		},
 	},
 	vue: {

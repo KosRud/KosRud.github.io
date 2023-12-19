@@ -76,8 +76,8 @@ import GrungeHeading from './GrungeHeading.vue';
 </template>
 
 <style module lang="less">
-@import '../../.vitepress/theme/style/variables/index.less';
-@import '../../.vitepress/theme/style/mixins/index.less';
+@import '#vitepress/theme/style/variables/index.less';
+@import '#vitepress/theme/style/mixins/index.less';
 
 .Contact {
 	width: min(100%, 800rem);
