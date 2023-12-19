@@ -105,7 +105,6 @@ useResizeObserver(
 
 	h4 {
 		font-weight: bold;
-		text-decoration: underline;
 	}
 
 	/*
@@ -152,7 +151,7 @@ useResizeObserver(
 	\*----------------------------------*/
 
 	table {
-		margin-left: auto;
+		// margin-left: auto;
 		margin-right: auto;
 		display: block;
 		max-width: max-content;
@@ -195,6 +194,10 @@ useResizeObserver(
 
 	:global(.github-dark) {
 		display: none;
+
+		:global(.copy) {
+			display: none;
+		}
 	}
 
 	:global(.lang) {
@@ -208,6 +211,10 @@ useResizeObserver(
 
 	:global(.shiki) {
 		padding: @gap;
+		// padding: 0rem;
+		// padding-left: @gap*2;
+		border: @border-width-s solid @color-border;
+		box-shadow: @shadow-ao;
 	}
 
 	.copy {

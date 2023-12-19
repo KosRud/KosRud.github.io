@@ -254,6 +254,8 @@ let arr = [
 console.table(arr);
 ```
 
+Output:
+
 |(index)|name|age|cat|
 |---|---|---|---|
 |0|Ivy|29| |
@@ -392,6 +394,7 @@ let editedGrid = grid.map(
 
 console.table(editedGrid);
 ```
+Output:
 
 ||||
 |---|---|---|
@@ -399,7 +402,7 @@ console.table(editedGrid);
 |3|4|5|
 |6|7|8|
 
-Combined with [spread syntax](#spread-syntax):
+#### Combined with [spread syntax](#spread-syntax):
 
 ```js
 let grid = [
@@ -419,6 +422,8 @@ let editedGrid = grid.map(
 
 console.table(editedGrid);
 ```
+
+Output:
 
 |||||
 |---|---|---|---|
