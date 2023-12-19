@@ -7,11 +7,7 @@ import markdownItKatex from 'markdown-it-katex';
 import markdownItDeflist from 'markdown-it-deflist';
 import { resolve } from 'node:path';
 
-import { rewriteUrl } from './rewriteUrl';
-
 const nav = buildNav('./pages', '/') ?? [];
-
-console.log(JSON.stringify(nav, null, 2));
 
 // https://vitepress.dev/reference/site-config
 const config = defineConfigWithTheme<ThemeConfig>({
@@ -35,9 +31,6 @@ const config = defineConfigWithTheme<ThemeConfig>({
 		],
 	],
 	srcDir: './pages',
-	transformPageData: (pageData) => {
-		pageData.relativePath = rewriteUrl(pageData.relativePath);
-	},
 	vite: {
 		plugins: [
 			vueJsxPlugin({

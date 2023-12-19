@@ -1,11 +1,14 @@
 import { readdirSync, lstatSync } from 'node:fs';
 import { join, parse, posix } from 'node:path';
 import { NavItem } from 'theme/ThemeConfig';
-import { rewriteUrl } from './rewriteUrl';
 
 const pageExtensions = ['.md', '.html'];
 
 const numberedRegex = /^(?<number>\d+)\.\s(?<name>.+)/;
+
+function removeNumber(str: string) {
+	return str.replace(/^\d+\.\s/, '');
+}
 
 export function buildNav(rootPath: string, navPath: string) {
 	const dirContents = readdirSync(rootPath).map((path) =>
@@ -30,6 +33,10 @@ export function buildNav(rootPath: string, navPath: string) {
 
 	if (!navItems) {
 		return null;
+	}
+
+	for (const navItem of navItems) {
+		navItem.title = removeNumber(navItem.title);
 	}
 
 	return navItems;
@@ -85,9 +92,7 @@ function loadFiles({
 				index: parseInt(match.groups.number),
 				navItem: {
 					title: match.groups.name,
-					url: encodeURI(
-						rewriteUrl(posix.join(navPath, `${parsed.name}.html`))
-					),
+					url: encodeURI(posix.join(navPath, `${parsed.name}.html`)),
 				},
 			});
 			continue;
@@ -95,9 +100,7 @@ function loadFiles({
 
 		unnumberedNavItems.push({
 			title: name,
-			url: encodeURI(
-				rewriteUrl(posix.join(navPath, `${parsed.name}.html`))
-			),
+			url: encodeURI(posix.join(navPath, `${parsed.name}.html`)),
 		});
 	}
 }
