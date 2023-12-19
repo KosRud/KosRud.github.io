@@ -1,5 +1,5 @@
 import { useStore } from '../pinia/store';
-import { Ref, onBeforeMount, onMounted, ref, watchEffect } from 'vue';
+import { Ref, onBeforeMount, ref, watchEffect } from 'vue';
 import { useData, onContentUpdated, useRoute } from 'vitepress';
 import { ThemeConfig } from '../../ThemeConfig';
 

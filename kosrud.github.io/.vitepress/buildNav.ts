@@ -46,14 +46,14 @@ export function buildNav(rootPath: string, navPath: string) {
 
 		navItems.push({
 			title: name,
-			url: posix.join(navPath, `${parsed.name}.html`),
+			url: encodeURI(posix.join(navPath, `${parsed.name}.html`)),
 		});
 	}
 
 	for (const dir of subDirs) {
 		const parsed = parse(dir);
 
-		const url = posix.join(navPath, parsed.base);
+		const url = encodeURI(posix.join(navPath, parsed.base));
 		if (url == '/public') {
 			continue;
 		}
@@ -70,7 +70,7 @@ export function buildNav(rootPath: string, navPath: string) {
 		if (children) {
 			navItems.push({
 				title: parsed.base,
-				url,
+				url: url,
 				children,
 			});
 		}
