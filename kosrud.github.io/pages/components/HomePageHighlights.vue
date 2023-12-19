@@ -135,7 +135,7 @@ const props = defineProps<{ dummies: number }>();
 					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
-					:title="'Material Clustering Benchmark'"
+					:title="'Material clustering benchmark'"
 					:images="[
 						{
 							url: '/content/project screenshots/material clustering/1.png',
@@ -223,7 +223,7 @@ const props = defineProps<{ dummies: number }>();
 @import '../../.vitepress/theme/style/variables/index.less';
 @import '../../.vitepress/theme/style/mixins/index.less';
 
-@Highlights-gap: @gap*2;
+@Highlights-gap: @gap*4;
 
 .Highlights {
 	margin: -@Highlights-gap*0.5;
@@ -237,7 +237,7 @@ const props = defineProps<{ dummies: number }>();
 		flex: 1 1 500rem;
 		max-width: 700rem;
 
-		margin: @gap @Highlights-gap * 0.5;
+		margin: @Highlights-gap * 0.5;
 	}
 }
 

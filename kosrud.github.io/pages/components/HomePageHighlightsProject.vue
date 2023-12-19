@@ -120,8 +120,6 @@ useResizeObserver(
 	line-height: @line-height-s;
 
 	box-shadow: @shadow-s;
-	border-radius: @gap*0.5;
-	overflow: hidden;
 }
 
 .Project_descriptionContainer {
