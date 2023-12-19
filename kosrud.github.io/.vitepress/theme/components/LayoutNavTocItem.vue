@@ -47,8 +47,7 @@ const linkElement: Ref<Element | null> = ref(null);
 			:ref="(element) => { linkElement = element as Element }"
 		>
 			<LayoutNavItemText
-				:level="1"
-				compact
+				:level="level"
 				:active="isActive"
 				:class="$style.TocItem_linkText"
 			>
@@ -86,7 +85,7 @@ const linkElement: Ref<Element | null> = ref(null);
 	width: 100%;
 
 	border-left: @border-width solid @color-border;
-	padding-left: calc(@gap * v-bind(level));
+	padding-left: calc(@gap*3 * v-bind(level - 1) + @gap);
 	padding-right: @gap;
 
 	text-decoration: none;
