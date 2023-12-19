@@ -30,10 +30,6 @@ function improviseNavTitle() {
 }
 
 const navTrace = computed((): NavItem[] => {
-	if (!frontmatter.value.title) {
-		console.warn(`Page has no title: ${route.path}`);
-	}
-
 	function tracePath(nav: ThemeConfig['nav']): NavItem[] {
 		for (const navItem of nav) {
 			const match = urlMatch(route.path, navItem.url);
