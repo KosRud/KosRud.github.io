@@ -19,10 +19,6 @@ const nav = validateNav(
 					url: '/students/html+css',
 					children: [
 						{
-							title: 'Additional resources',
-							url: '/students/html+css/resources',
-						},
-						{
 							title: 'CSS selectors',
 							url: '/students/html+css/selectors',
 						},
@@ -38,15 +34,19 @@ const nav = validateNav(
 							title: 'Tools',
 							url: '/students/html+css/tools',
 						},
+						{
+							title: 'Additional resources',
+							url: '/students/html+css/resources',
+						},
 					],
 				},
 				{
 					title: 'JavaScript',
 					url: '/students/js',
 					children: [
+						{ title: 'Naming things', url: '/students/js/naming' },
 						{ title: 'Clean code', url: '/students/js/clean' },
 						{ title: 'JS tricks', url: '/students/js/tricks' },
-						{ title: 'Naming things', url: '/students/js/naming' },
 					],
 				},
 			],
