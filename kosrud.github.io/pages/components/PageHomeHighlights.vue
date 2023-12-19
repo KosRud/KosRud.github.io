@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import HomePageHighlightsProject from './PageHomeHighlightsProject.vue';
 import GrungeHeading from './GrungeHeading.vue';
-import HyperLink from '#vitepress/theme/components/HyperLink.vue';
-// import HyperLink from '#vitepress/theme/components/HyperLink.vue';
+import HyperLink from '@vitepress/theme/components/HyperLink.vue';
+// import HyperLink from '@vitepress/theme/components/HyperLink.vue';
 
 const props = defineProps<{ dummies: number }>();
 </script>
@@ -236,8 +236,8 @@ const props = defineProps<{ dummies: number }>();
 </template>
 
 <style lang="less" module>
-@import '#vitepress/theme/style/variables/index.less';
-@import '#vitepress/theme/style/mixins/index.less';
+@import '@vitepress/theme/style/variables/index.less';
+@import '@vitepress/theme/style/mixins/index.less';
 
 @Highlights-gap: @gap*4;
 

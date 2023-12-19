@@ -40,8 +40,8 @@ const config = defineConfigWithTheme<ThemeConfig>({
 		},
 		resolve: {
 			alias: {
-				'#': resolve('.'),
-				'#vitepress': resolve('./.vitepress'),
+				'@': resolve('.'),
+				'@vitepress': resolve('./.vitepress'),
 			},
 		},
 	},

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Ref, ref } from 'vue';
-import { useResizeObserver } from '#vitepress/theme/components/composables/resizeObserver';
-import { pxToRem } from '#vitepress/theme/components/composables/unitConverter';
+import { useResizeObserver } from '@vitepress/theme/components/composables/resizeObserver';
+import { pxToRem } from '@vitepress/theme/components/composables/unitConverter';
 import { devIcons } from './tsx/devIcons';
 
 const adaptiveStage = ref(0);
@@ -153,8 +153,8 @@ const devIconGroups = {
 </template>
 
 <style module lang="less">
-@import '#vitepress/theme/style/variables/index.less';
-@import '#vitepress/theme/style/mixins/index.less';
+@import '@vitepress/theme/style/variables/index.less';
+@import '@vitepress/theme/style/mixins/index.less';
 
 @Bio_photo-width: 130rem;
 @Bio_photo-to-content-gap: @gap * 3;
