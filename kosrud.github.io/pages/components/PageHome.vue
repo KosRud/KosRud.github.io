@@ -67,7 +67,7 @@ function handleScrolling() {
 		>
 			<img
 				:class="$style.Hero_photo"
-				src="/assets/photo.png"
+				src="/_assets/photo.png"
 			/>
 			<div :class="$style.Hero_titleContainer">
 				<span :class="$style.Hero_title">Kostiantyn Rudenko</span>

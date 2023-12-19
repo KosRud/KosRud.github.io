@@ -2,12 +2,58 @@ import { defineConfigWithTheme } from 'vitepress';
 import { ThemeConfig } from './theme/ThemeConfig';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
 import { withMermaid } from 'vitepress-plugin-mermaid';
-import { buildNav } from './buildNav';
 import markdownItKatex from 'markdown-it-katex';
 import markdownItDeflist from 'markdown-it-deflist';
 import { resolve } from 'node:path';
+import { validateNav } from './validateNav.js';
 
-const nav = buildNav('./pages', '/') ?? [];
+const nav = validateNav(
+	[
+		{ title: 'About me', url: '/about' },
+		{
+			title: 'For students',
+			url: '/students',
+			children: [
+				{
+					title: 'HTML & CSS',
+					url: '/students/html+css',
+					children: [
+						{
+							title: 'Additional resources',
+							url: '/students/html+css/resources',
+						},
+						{
+							title: 'CSS selectors',
+							url: '/students/html+css/selectors',
+						},
+						{
+							title: 'Design guidelines',
+							url: '/students/html+css/guidelines',
+						},
+						{
+							title: 'Semantic elements',
+							url: '/students/html+css/semantic',
+						},
+						{
+							title: 'Tools',
+							url: '/students/html+css/tools',
+						},
+					],
+				},
+				{
+					title: 'JavaScript',
+					url: '/students/js',
+					children: [
+						{ title: 'Clean code', url: '/students/js/clean' },
+						{ title: 'JS tricks', url: '/students/js/tricks' },
+						{ title: 'Naming things', url: '/students/js/naming' },
+					],
+				},
+			],
+		},
+	],
+	'./pages'
+);
 
 // https://vitepress.dev/reference/site-config
 const config = defineConfigWithTheme<ThemeConfig>({
