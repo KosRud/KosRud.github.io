@@ -29,6 +29,24 @@ const config = defineConfigWithTheme<ThemeConfig>({
 		],
 	],
 	srcDir: './pages',
+	rewrites: {
+		// This is horrible
+		//
+		// find a way to define rewrites as arbitrary functions
+		//
+		// https://vitepress.dev/guide/routing#route-rewrites
+		// https://github.com/pillarjs/path-to-regexp
+		//
+		'/(\\d+)?:a': '/:a',
+		'/(\\d+\\.\\s)?:a/(\\d+\\.\\s)?:b': '/:a/:b',
+		'/(\\d+\\.\\s)?:a/(\\d+\\.\\s)?:b/(\\d+\\.\\s)?:c': '/:a/:b/:c',
+		'/(\\d+\\.\\s)?:a/(\\d+\\.\\s)?:b/(\\d+\\.\\s)?:c/(\\d+\\.\\s)?:d':
+			'/:a/:b/:c/:d',
+		'/(\\d+\\.\\s)?:a/(\\d+\\.\\s)?:b/(\\d+\\.\\s)?:c/(\\d+\\.\\s)?:d/(\\d+\\.\\s)?:e':
+			'/:a/:b/:c/:d/:e',
+		'/(\\d+\\.\\s)?:a/(\\d+\\.\\s)?:b/(\\d+\\.\\s)?:c/(\\d+\\.\\s)?:d/(\\d+\\.\\s)?:e/(\\d+\\.\\s)?:f':
+			'/:a/:b/:c/:d/:e/:f',
+	},
 	vite: {
 		plugins: [
 			vueJsxPlugin({

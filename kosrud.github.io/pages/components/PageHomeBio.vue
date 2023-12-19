@@ -105,8 +105,7 @@ const devIconGroups = {
 					residing in Bratislava, Slovakia. This website contains an
 					overview of my <a href="#my-projects">projects</a>, as well
 					as an assortment of condensed
-					<a
-						href="/For%20students/HTML%20&%20CSS/CSS%20selectors.html"
+					<a href="/For students/HTML & CSS/CSS selectors.html"
 						>highlights</a
 					>
 					from the web development seminars I've been teaching at
