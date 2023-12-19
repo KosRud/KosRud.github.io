@@ -48,6 +48,7 @@ const linkElement: Ref<Element | null> = ref(null);
 		>
 			<LayoutNavItemText
 				:level="level"
+				compact
 				:active="isActive"
 				:class="$style.TocItem_linkText"
 			>
@@ -79,6 +80,19 @@ const linkElement: Ref<Element | null> = ref(null);
 	}
 
 	margin-left: 0rem;
+
+	.TocItem {
+		&:first-child {
+			.TocItem_link {
+				padding-top: @gap*0.25;
+			}
+		}
+		&:last-child {
+			.TocItem_link {
+				padding-bottom: @gap*0.25;
+			}
+		}
+	}
 }
 
 .TocItem_link {
