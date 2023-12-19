@@ -46,9 +46,13 @@ useResizeObserver(
 	section,
 	ul,
 	ol,
+	dl,
 	dd,
+	img,
 	table {
-		margin-bottom: @content-gap;
+		&:not(:last-child) {
+			margin-bottom: @content-gap;
+		}
 	}
 
 	.Content();
@@ -182,20 +186,55 @@ useResizeObserver(
 	}
 
 	/*
+		images
+	\*----------------------------------*/
+
+	img {
+		max-width: 100%;
+	}
+
+	/*
 		Admonitions
 	\*----------------------------------*/
 
-	:global(.custom-block-title) {
-		display: none;
+	// :global(.custom-block-title) {
+	// 	display: none;
+	// }
+
+	:global(.custom-block) {
+		border: @color-border solid @border-width;
+		// border-left: none;
+		// border-right: none;
+		border-top: none;
+		border-bottom: none;
+		border-radius: 0rem 0rem @gap @gap;
+		background-color: @color-background;
+		padding: @gap;
+		box-shadow: @shadow-s;
+		margin-left: @gap;
+		margin-right: @gap;
 	}
 
 	:global(.custom-block.warning) {
 		background-color: #fceccf;
-		// border-radius: @gap;
-		border: #f0b37e solid @border-width;
-		border-width: 0rem @border-width 0rem @border-width;
-		padding: @gap;
+		border-color: #f0b37e;
+
+		:global(.custom-block-title) {
+			background-color: #f0b37e;
+			margin-left: -@gap*2;
+			margin-right: -@gap*2;
+			margin-top: -@gap;
+			padding: @gap*0.25 @gap;
+			text-align: center;
+			box-shadow: @shadow-s;
+			margin-bottom: @gap;
+			border-radius: @gap*0.5;
+		}
 	}
+
+	/*
+		Code
+	\*----------------------------------*/
 
 	:global(.github-dark) {
 		display: none;
