@@ -125,24 +125,10 @@ useResizeObserver(
 	h2,
 	h3,
 	h4 {
-		margin-bottom: @content-gap*2;
+		margin-bottom: @content-gap;
 
 		&:not(:first-child) {
-			margin-top: @content-gap*4;
-		}
-	}
-
-	/*
-		Blocks
-	\*----------------------------------*/
-
-	article {
-		margin-bottom: @content-gap*2;
-	}
-
-	article {
-		&:not(:first-child) {
-			margin-top: @content-gap*4;
+			margin-top: @content-gap*2;
 		}
 	}
 
