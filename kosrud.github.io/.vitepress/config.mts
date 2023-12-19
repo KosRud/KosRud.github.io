@@ -5,9 +5,9 @@ import { withMermaid } from 'vitepress-plugin-mermaid';
 import markdownItKatex from 'markdown-it-katex';
 import markdownItDeflist from 'markdown-it-deflist';
 import { resolve } from 'node:path';
-import { validateNav } from './validateNav.js';
+import { makeNav } from './nav.js';
 
-const nav = validateNav(
+const nav = makeNav(
 	[
 		{ title: 'About me', url: '/about' },
 		{
@@ -16,37 +16,37 @@ const nav = validateNav(
 			children: [
 				{
 					title: 'HTML & CSS',
-					url: '/students/html+css',
+					url: 'html+css',
 					children: [
 						{
 							title: 'CSS selectors',
-							url: '/students/html+css/selectors',
+							url: 'selectors',
 						},
 						{
 							title: 'Design guidelines',
-							url: '/students/html+css/guidelines',
+							url: 'guidelines',
 						},
 						{
 							title: 'Semantic elements',
-							url: '/students/html+css/semantic',
+							url: 'semantic',
 						},
 						{
 							title: 'Tools',
-							url: '/students/html+css/tools',
+							url: 'tools',
 						},
 						{
 							title: 'Additional resources',
-							url: '/students/html+css/resources',
+							url: 'resources',
 						},
 					],
 				},
 				{
 					title: 'JavaScript',
-					url: '/students/js',
+					url: 'js',
 					children: [
-						{ title: 'Naming things', url: '/students/js/naming' },
-						{ title: 'Clean code', url: '/students/js/clean' },
-						{ title: 'JS tricks', url: '/students/js/tricks' },
+						{ title: 'Naming things', url: 'naming' },
+						{ title: 'Clean code', url: 'clean' },
+						{ title: 'JS tricks', url: 'tricks' },
 					],
 				},
 			],
