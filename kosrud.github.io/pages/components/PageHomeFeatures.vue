@@ -2,6 +2,7 @@
 import FeaturesGallery from './FeaturesGallery.vue';
 import FeaturesGalleryCard from './FeaturesGalleryCard.vue';
 import HomePageFeaturesContent from './PageHomeFeaturesContent.vue';
+import HyperLink from '../../.vitepress/theme/components/HyperLink.vue';
 </script>
 
 <template>
@@ -100,7 +101,10 @@ import HomePageFeaturesContent from './PageHomeFeaturesContent.vue';
 						<tr>
 							<td>
 								.NET (C#, C++) developer<br />for
-								<a href="https://risa.com/">RISA Tech, Inc.</a>
+								<HyperLink
+									text="RISA Tech, Inc."
+									href="https://risa.com/"
+								/>
 							</td>
 							<td>1 year</td>
 						</tr>

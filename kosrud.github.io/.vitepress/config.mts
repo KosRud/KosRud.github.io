@@ -38,7 +38,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 	},
 	themeConfig: {
 		nav: [
-			{ title: 'About me', url: '/about/' },
+			{ title: 'About me', url: '/about' },
 			{
 				title: 'For students',
 				url: '/students',
