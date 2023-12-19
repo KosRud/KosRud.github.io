@@ -232,6 +232,7 @@ const props = defineProps<{ dummies: number }>();
 	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: center;
+	align-items: stretch;
 
 	> * {
 		flex: 1 1 500rem;
