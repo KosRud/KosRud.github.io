@@ -7,6 +7,7 @@ export interface TocItem {
 	element: Element;
 	title: string;
 	children: TocItem[];
+	italic: boolean;
 }
 
 export function useTrackTocItems() {
@@ -48,6 +49,7 @@ function getTocItems() {
 					children: [],
 					element: element,
 					title: title.trim(),
+					italics: false,
 				},
 			];
 		} else {
@@ -79,7 +81,12 @@ function getTocItems() {
 			and return its children
 		*/
 	if (toc.length == 1 && toc[0].level == 1) {
-		return toc[0].children;
+		const result = toc[0].children;
+		toc[0].children = [];
+		toc[0].title = '(beginning)';
+		toc[0].italic = true;
+		result.unshift(toc[0]);
+		return result;
 	}
 
 	return toc;
