@@ -123,12 +123,12 @@ const props = defineProps<{ dummies: number }>();
 							text="Joplin"
 							href="https://joplinapp.org/"
 						/>
-						is an open-source note taking app with synchronization,
-						plugins, multimedia support, tags, and a tree of
-						folders.
+						is an open-source note taking app with tags,
+						hierarchical folders, plugin support, synchronization,
+						and embedded multimedia.
 					</p>
 					<p>
-						Normally, a note in joplin is continuous, like an HTML
+						Normally, a note in joplin is continuous like an HTML
 						page. This plugin implements pagination and generates a
 						table of contents for the note, making a printable
 						document from it.
