@@ -1,12 +1,32 @@
 import { readdirSync, lstatSync } from 'node:fs';
-import { join, parse, posix } from 'node:path';
+import { parse, posix } from 'node:path';
 import { NavItem } from 'theme/ThemeConfig';
 
 const pageExtensions = ['.md', '.html'];
 
 type NavItemTemplate = { url: string; children?: NavItemTemplate[] };
 
-export function validateNav(nav: NavItem[], rootPath: string) {
+export function makeNav(nav: NavItem[], base: string) {
+	return validateNav(propagateUrls(nav, ''), base);
+}
+
+function propagateUrls(nav: NavItem[], base: string) {
+	return nav.map((item) => {
+		const copy = { ...item };
+
+		copy.url = posix.join(base, copy.url);
+
+		if (!copy.children) {
+			return copy;
+		}
+
+		copy.children = propagateUrls(copy.children, copy.url);
+
+		return copy;
+	});
+}
+
+function validateNav(nav: NavItem[], rootPath: string) {
 	return validateNavTemplate(
 		nav,
 		rootPath,
