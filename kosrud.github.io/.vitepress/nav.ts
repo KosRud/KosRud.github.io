@@ -96,7 +96,7 @@ function buildNavTemplate(root: string, url: string) {
 		}
 
 		if (lstatSync(itemPath).isDirectory()) {
-			// drectory
+			// directory
 
 			const children = buildNavTemplate(
 				root,
