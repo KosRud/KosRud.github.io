@@ -7,6 +7,8 @@ import markdownItKatex from 'markdown-it-katex';
 import markdownItDeflist from 'markdown-it-deflist';
 import { resolve } from 'node:path';
 
+import { rewriteUrl } from './rewriteUrl';
+
 // https://vitepress.dev/reference/site-config
 const config = defineConfigWithTheme<ThemeConfig>({
 	title: 'Kostiantyn Rudenko',
@@ -30,10 +32,7 @@ const config = defineConfigWithTheme<ThemeConfig>({
 	],
 	srcDir: './pages',
 	transformPageData: (pageData) => {
-		const fragments = pageData.relativePath.split('/');
-		pageData.relativePath = fragments
-			.map((fragment) => fragment.replace(/^\d+\.\s/, ''))
-			.join('/');
+		pageData.relativePath = rewriteUrl(pageData.relativePath);
 	},
 	vite: {
 		plugins: [
