@@ -31,6 +31,11 @@ export default defineConfigWithTheme<ThemeConfig>({
 			}),
 		],
 	},
+	vue: {
+		template: {
+			compilerOptions: { isCustomElement: (tag) => tag.includes('-') },
+		},
+	},
 	themeConfig: {
 		nav: [
 			{ title: 'About me', url: '/about/' },
