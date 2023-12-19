@@ -131,7 +131,7 @@ onMounted(() => {
 		content: '';
 		height: @chevron-size;
 		width: @chevron-size;
-		background-image: url('/assets/icons/chevron/right.svg');
+		background-image: url('/_assets/icons/chevron/right.svg');
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: left;

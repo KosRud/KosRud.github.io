@@ -12,7 +12,7 @@ import HyperLink from '@vitepress/theme/components/HyperLink.vue';
 	>
 		<FeaturesGalleryCard
 			name="Programming languages"
-			:icon-url="'/assets/icons/programming/icon.svg'"
+			:icon-url="'/_assets/icons/programming/icon.svg'"
 		>
 			<HomePageFeaturesContent>
 				C#, HLSL, TypeScript, Javascript, Python, C++
@@ -20,7 +20,7 @@ import HyperLink from '@vitepress/theme/components/HyperLink.vue';
 		</FeaturesGalleryCard>
 		<FeaturesGalleryCard
 			name="Communication"
-			:icon-url="'/assets/icons/communication/icon.svg'"
+			:icon-url="'/_assets/icons/communication/icon.svg'"
 		>
 			<HomePageFeaturesContent>
 				<table>
@@ -47,7 +47,7 @@ import HyperLink from '@vitepress/theme/components/HyperLink.vue';
 		</FeaturesGalleryCard>
 		<FeaturesGalleryCard
 			name="Technologies"
-			:icon-url="'/assets/icons/gears/icon.svg'"
+			:icon-url="'/_assets/icons/gears/icon.svg'"
 		>
 			<HomePageFeaturesContent>
 				<table>
@@ -78,7 +78,7 @@ import HyperLink from '@vitepress/theme/components/HyperLink.vue';
 		</FeaturesGalleryCard>
 		<FeaturesGalleryCard
 			name="Education"
-			:icon-url="'/assets/icons/education/icon.svg'"
+			:icon-url="'/_assets/icons/education/icon.svg'"
 		>
 			<HomePageFeaturesContent>
 				<table>
@@ -93,7 +93,7 @@ import HyperLink from '@vitepress/theme/components/HyperLink.vue';
 		</FeaturesGalleryCard>
 		<FeaturesGalleryCard
 			name="Experience"
-			:icon-url="'/assets/icons/job/icon.svg'"
+			:icon-url="'/_assets/icons/job/icon.svg'"
 		>
 			<HomePageFeaturesContent>
 				<table>

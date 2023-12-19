@@ -4,7 +4,7 @@ Following consistent guidelines when creating names for your functions, variable
 
 ## Variable names
 
-### Single-letter Names
+### Single letter names
 
 Names should be sufficiently informative, describing the purpose of the variable. Avoid single-letter names such as `let x = 5`. When you have many such variables, it is very hard to keep track of their meaning.
 
@@ -45,7 +45,7 @@ for (i = 0; i < matrix.length; i++) {
 
 When possible, prefer `for in`, `for of`, `Array.map()`, `Array.filter()`, `Array.reduce()`, etc. instead of manually handling array indices. This eliminates a common source of errors and reduces the number of things you need to constantly double-check when writing the code.
 
-## Function  vs variable names
+## Functions and variables
 
 A variable *is* something, while a function *does* something. Use nouns for variable names and verbs for function names:
 

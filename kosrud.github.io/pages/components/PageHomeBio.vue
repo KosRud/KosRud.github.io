@@ -96,7 +96,7 @@ const devIconGroups = {
 			<img
 				alt="Photo of me"
 				:class="[$style.Bio_photo, $style.Bio_photo___aside]"
-				src="/assets/photo.png"
+				src="/_assets/photo.png"
 				v-if="adaptiveStage < 2"
 			/>
 			<div :class="[$style.Bio_text]">
@@ -119,7 +119,7 @@ const devIconGroups = {
 				<p>
 					<img
 						:class="[$style.Bio_photo, $style.Bio_photo___inside]"
-						src="/assets/photo.png"
+						src="/_assets/photo.png"
 						v-if="adaptiveStage >= 2"
 					/>
 				</p>

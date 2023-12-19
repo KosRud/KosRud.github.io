@@ -49,7 +49,7 @@ const linkElement: Ref<Element | null> = ref(null);
 			<LayoutNavItemText
 				:level="level"
 				compact
-				:active="isActive"
+				:active="isActive && !props.heading.italic"
 				:class="[
 					$style.TocItem_linkText,
 					props.heading.italic
