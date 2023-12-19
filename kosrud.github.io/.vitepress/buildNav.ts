@@ -32,11 +32,6 @@ export function buildNav(rootPath: string, navPath: string) {
 		return null;
 	}
 
-	for (const navItem of navItems) {
-		navItem.url = rewriteUrl(navItem.url);
-		console.log(rewriteUrl(decodeURI(navItem.url)));
-	}
-
 	return navItems;
 }
 
@@ -90,7 +85,9 @@ function loadFiles({
 				index: parseInt(match.groups.number),
 				navItem: {
 					title: match.groups.name,
-					url: encodeURI(posix.join(navPath, `${parsed.name}.html`)),
+					url: encodeURI(
+						rewriteUrl(posix.join(navPath, `${parsed.name}.html`))
+					),
 				},
 			});
 			continue;
@@ -98,7 +95,9 @@ function loadFiles({
 
 		unnumberedNavItems.push({
 			title: name,
-			url: encodeURI(posix.join(navPath, `${parsed.name}.html`)),
+			url: encodeURI(
+				rewriteUrl(posix.join(navPath, `${parsed.name}.html`))
+			),
 		});
 	}
 }

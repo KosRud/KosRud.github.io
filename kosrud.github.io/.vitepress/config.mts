@@ -9,6 +9,10 @@ import { resolve } from 'node:path';
 
 import { rewriteUrl } from './rewriteUrl';
 
+const nav = buildNav('./pages', '/') ?? [];
+
+console.log(JSON.stringify(nav, null, 2));
+
 // https://vitepress.dev/reference/site-config
 const config = defineConfigWithTheme<ThemeConfig>({
 	title: 'Kostiantyn Rudenko',
@@ -83,7 +87,7 @@ const config = defineConfigWithTheme<ThemeConfig>({
 		},
 	},
 	themeConfig: {
-		nav: buildNav('./pages', '/') ?? [],
+		nav,
 	},
 });
 
