@@ -217,6 +217,25 @@ useResizeObserver(
 		margin-left: @gap;
 		margin-right: @gap;
 		margin-top: calc(@admonition_title-height + @content-gap);
+
+		&::before {
+			height: @admonition_title-height;
+			margin-left: -@gap*2;
+			margin-right: -@gap*2;
+			margin-top: calc(-@admonition-padding - @admonition_title-height);
+			margin-bottom: @admonition-padding;
+
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+
+			text-align: center;
+			font-weight: bold;
+
+			box-shadow: @shadow-s;
+			border-radius: @gap;
+		}
 	}
 
 	:global(.custom-block-title) {
@@ -228,21 +247,7 @@ useResizeObserver(
 		border-color: #f0b37e;
 
 		&::before {
-			height: @admonition_title-height;
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: center;
-
 			background-color: #f0b37e;
-			margin-left: -@gap*2;
-			margin-right: -@gap*2;
-			margin-top: calc(-@admonition-padding - @admonition_title-height);
-			text-align: center;
-			box-shadow: @shadow-s;
-			margin-bottom: @admonition-padding;
-			border-radius: @gap;
-			font-weight: bold;
 			content: 'Warning';
 		}
 	}
