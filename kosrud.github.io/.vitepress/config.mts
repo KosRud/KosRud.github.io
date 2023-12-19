@@ -4,6 +4,7 @@ import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
 import { withMermaid } from 'vitepress-plugin-mermaid';
 import { buildNav } from './buildNav';
 import markdownItKatex from 'markdown-it-katex';
+import markdownItDeflist from 'markdown-it-deflist';
 import { resolve } from 'node:path';
 
 // https://vitepress.dev/reference/site-config
@@ -73,6 +74,7 @@ const config = defineConfigWithTheme<ThemeConfig>({
 	markdown: {
 		config: (md) => {
 			md.use(markdownItKatex);
+			md.use(markdownItDeflist);
 		},
 	},
 	themeConfig: {

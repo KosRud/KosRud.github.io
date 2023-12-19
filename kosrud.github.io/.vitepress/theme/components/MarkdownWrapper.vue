@@ -46,6 +46,7 @@ useResizeObserver(
 	section,
 	ul,
 	ol,
+	dd,
 	table {
 		margin-bottom: @content-gap;
 	}
@@ -132,6 +133,22 @@ useResizeObserver(
 		&:not(:first-child) {
 			margin-top: @content-gap*2;
 		}
+	}
+
+	/*
+		Definitions
+	\*----------------------------------*/
+
+	dt {
+		font-weight: bold;
+	}
+
+	dd {
+		margin-left: @gap*2;
+		border-left: @border-width solid @color-border;
+		padding-left: @gap;
+		padding-top: @gap;
+		padding-bottom: @gap;
 	}
 
 	/*
