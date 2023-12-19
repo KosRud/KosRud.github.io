@@ -4,8 +4,9 @@
 
 # JS Tricks
 
-!!! note
-    The same result could be achieved without using these constructs, albeit the code would be longer and messier.
+::: info
+The same result could be achieved without using these constructs, albeit the code would be longer and messier.
+:::
 
 ## For loops
 
@@ -59,11 +60,11 @@ arr.forEach(
 );
 ```
 
-!!! note
-    * Mozilla Developer Network &mdash; [for..of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
-    * Mozilla Developer Network &mdash; [for..in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
-    * Mozilla Developer Network &mdash; [Array.prototype.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-
+::: info
+* Mozilla Developer Network &mdash; [for..of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+* Mozilla Developer Network &mdash; [for..in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
+* Mozilla Developer Network &mdash; [Array.prototype.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+:::
 
 ## Template strings
 
@@ -97,8 +98,9 @@ console.log(`${human.name} is ${human.age} years old`);
 // Jack is 13 years old
 ```
 
-!!! note
-    Mozilla Developer Network &mdash; [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+::: info
+Mozilla Developer Network &mdash; [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+:::
 
 ## Destructuring assignment
 
@@ -140,8 +142,9 @@ sayTimes(
 );
 ```
 
-!!! note
-    Mozilla Developer Network &mdash; [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+::: info
+Mozilla Developer Network &mdash; [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+:::
 
 ## Static methods and attributes
 
@@ -185,8 +188,9 @@ Student.GreetAll();
 */
 ```
 
-!!! note
-    Mozilla Developer Network &mdash; [static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static), [static initialization blocks](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks)
+::: info
+Mozilla Developer Network &mdash; [static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static), [static initialization blocks](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks)
+:::
 
 ## Optional chaining
 
@@ -224,8 +228,9 @@ for (let petOwner of petOwners) {
 }
 ```
 
-!!! note
-    Mozilla Developer Network &mdash; [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+::: info
+Mozilla Developer Network &mdash; [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+:::
 
 ## Console output
 
@@ -265,8 +270,9 @@ Output:
 |0|Ivy|29| |
 |1|Dilan|42|`Object { name: "Whiskers", age: 3 }`|
 
-!!! note
-    Mozilla Developer Network &mdash; [console.table( )](https://developer.mozilla.org/en-US/docs/Web/API/Console/table), [console.dir( )](https://developer.mozilla.org/en-US/docs/Web/API/console/dir)
+::: info
+Mozilla Developer Network &mdash; [console.table( )](https://developer.mozilla.org/en-US/docs/Web/API/Console/table), [console.dir( )](https://developer.mozilla.org/en-US/docs/Web/API/console/dir)
+:::
 
 
 ## Spread syntax (...)
@@ -365,8 +371,9 @@ console.log(arr);
 // [1,2,3,4,5]
 ```
 
-!!! note
-    Mozilla Developer Network &mdash; [Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+::: info
+Mozilla Developer Network &mdash; [Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+:::
 
 ## Array.map()
 

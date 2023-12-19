@@ -1,7 +1,5 @@
 # Tools
 
-This page lists some tools you can use when developing the website for the course *"základné metódy tvorby multimediálneho obsahu"*.
-
 ## Validators
 
 Validators check your HTML and CSS files for errors. The browser will often attempt to make sense of the code that contains mistakes and guess the intention behind it. Sometimes it works, sometimes it doesn't. This behavior is unpredictable between different browsers and can result in the page being completely broken in one browser while appearing perfectly functional in the other.
@@ -46,10 +44,10 @@ Validators check your HTML and CSS files for errors. The browser will often atte
 
 ## Beautifier / minifier
 
-* <a href="https://beautifytools.com/" target="_blank">Beautifytools</a>
+* <a href="https://www.cleancss.com/css-minify/" target="_blank">Beautifytools</a>
 
 Minifier
-:	Minifier compresses your code by removing line breaks and whitespaces. This way it will take up less pages in the report.
+:	Minifier compresses your code by removing line breaks and whitespaces.
 
 Beautifier
 :	Beautifier makes the code more readable by adding line breaks and whitespaces whenever appropriate. It effectively "reverses" minification.
