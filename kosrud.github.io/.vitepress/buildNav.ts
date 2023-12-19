@@ -4,11 +4,41 @@ import { NavItem } from 'theme/ThemeConfig';
 
 const pageExtensions = ['.md', '.html'];
 
+const numberedRegex = /^(?<number>\d+)\.\s(?<name>.+)/;
+
 export function buildNav(rootPath: string, navPath: string) {
 	const dirContents = readdirSync(rootPath).map((path) =>
 		join(rootPath, path)
 	);
-	const subDirs = dirContents.filter((path) => lstatSync(path).isDirectory());
+
+	const unnumberedNavItems: NavItem[] = [];
+	const numberedNavItems: { index: number; navItem: NavItem }[] = [];
+
+	loadFiles({ dirContents, unnumberedNavItems, numberedNavItems, navPath });
+	loadDirs({
+		dirContents,
+		unnumberedNavItems,
+		numberedNavItems,
+		navPath,
+		rootPath,
+	});
+
+	numberedNavItems.sort((a, b) => a.index - b.index);
+
+	return combineNavs({ unnumberedNavItems, numberedNavItems });
+}
+
+function loadFiles({
+	dirContents,
+	unnumberedNavItems,
+	numberedNavItems,
+	navPath,
+}: {
+	dirContents: string[];
+	unnumberedNavItems: NavItem[];
+	numberedNavItems: { index: number; navItem: NavItem }[];
+	navPath: string;
+}) {
 	const files = dirContents.filter((path) => {
 		if (lstatSync(path).isDirectory()) {
 			return false;
@@ -20,8 +50,6 @@ export function buildNav(rootPath: string, navPath: string) {
 
 		return true;
 	});
-
-	const navItems: NavItem[] = [];
 
 	for (const path of files) {
 		const parsed = parse(path);
@@ -44,11 +72,39 @@ export function buildNav(rootPath: string, navPath: string) {
 			continue;
 		}
 
-		navItems.push({
+		const match = name.match(numberedRegex);
+		if (match?.groups) {
+			numberedNavItems.push({
+				index: parseInt(match.groups.number),
+				navItem: {
+					title: match.groups.name,
+					url: encodeURI(posix.join(navPath, `${parsed.name}.html`)),
+				},
+			});
+			continue;
+		}
+
+		unnumberedNavItems.push({
 			title: name,
 			url: encodeURI(posix.join(navPath, `${parsed.name}.html`)),
 		});
 	}
+}
+
+function loadDirs({
+	dirContents,
+	unnumberedNavItems,
+	numberedNavItems,
+	navPath,
+	rootPath,
+}: {
+	dirContents: string[];
+	unnumberedNavItems: NavItem[];
+	numberedNavItems: { index: number; navItem: NavItem }[];
+	navPath: string;
+	rootPath: string;
+}) {
+	const subDirs = dirContents.filter((path) => lstatSync(path).isDirectory());
 
 	for (const dir of subDirs) {
 		const parsed = parse(dir);
@@ -67,31 +123,48 @@ export function buildNav(rootPath: string, navPath: string) {
 			posix.join(navPath, parsed.base)
 		);
 
-		if (children) {
-			navItems.push({
-				title: parsed.base,
-				url: url,
-				children,
-			});
+		if (!children) {
+			continue;
 		}
+
+		const match = parsed.base.match(numberedRegex);
+		if (match?.groups) {
+			numberedNavItems.push({
+				index: parseInt(match.groups.number),
+				navItem: {
+					title: match.groups.name,
+					url: url,
+					children,
+				},
+			});
+			continue;
+		}
+
+		unnumberedNavItems.push({
+			title: parsed.base,
+			url: url,
+			children,
+		});
+	}
+}
+
+function combineNavs({
+	unnumberedNavItems,
+	numberedNavItems,
+}: {
+	unnumberedNavItems: NavItem[];
+	numberedNavItems: { index: number; navItem: NavItem }[];
+}) {
+	const navItems: NavItem[] = [];
+	for (const { navItem } of numberedNavItems) {
+		navItems.push(navItem);
+	}
+	for (const navItem of unnumberedNavItems) {
+		navItems.push(navItem);
 	}
 
 	if (!navItems.length) {
 		return null;
-	}
-
-	if (navPath == '/') {
-		// ensure "Home" is the first entry
-
-		const homeIndex = navItems.findIndex(
-			(navItem) => navItem.title == 'Home'
-		);
-
-		if (homeIndex != -1) {
-			return [navItems[homeIndex]].concat(
-				navItems.filter((_, id) => id != homeIndex)
-			);
-		}
 	}
 
 	return navItems;
