@@ -51,7 +51,7 @@ useResizeObserver(
 	ol,
 	dl,
 	dd,
-	img,
+	figure,
 	table {
 		&:not(:last-child) {
 			margin-bottom: @content-gap;
@@ -192,8 +192,16 @@ useResizeObserver(
 		images
 	\*----------------------------------*/
 
-	img {
-		max-width: 100%;
+	figure {
+		width: 100%;
+		overflow: auto;
+
+		img {
+			object-fit: contain;
+			width: 100%;
+			min-width: 600rem;
+			max-height: 400rem;
+		}
 	}
 
 	/*
