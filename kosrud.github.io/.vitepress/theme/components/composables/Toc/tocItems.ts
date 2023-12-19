@@ -35,7 +35,7 @@ function getTocItems() {
 	const contentSource = store.pageContent.$el as Element;
 
 	const headings: TocItem[] = Array.from(
-		contentSource.querySelectorAll('h1, h2, h3, h4')
+		contentSource.querySelectorAll('h1, h2, h3')
 	).flatMap((element) => {
 		const title = Array.from(element.childNodes).find(
 			(node) => node.nodeType == Node.TEXT_NODE && node.textContent

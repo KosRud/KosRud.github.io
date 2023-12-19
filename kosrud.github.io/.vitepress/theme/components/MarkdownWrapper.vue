@@ -54,6 +54,10 @@ useResizeObserver(
 		Headings
 	\*----------------------------------*/
 
+	:global(.header-anchor) {
+		display: none;
+	}
+
 	h1,
 	h2,
 	h3,
@@ -99,6 +103,11 @@ useResizeObserver(
 		color: @color-white;
 	}
 
+	h4 {
+		font-weight: bold;
+		text-decoration: underline;
+	}
+
 	/*
 		Headings.Shadows
 	\*----------------------------------*/
@@ -115,7 +124,8 @@ useResizeObserver(
 
 	h1,
 	h2,
-	h3 {
+	h3,
+	h4 {
 		margin-bottom: @content-gap*2;
 
 		&:not(:first-child) {
@@ -168,12 +178,41 @@ useResizeObserver(
 	}
 
 	/*
-		ETC
+		Admonitions
 	\*----------------------------------*/
 
-	/*
-		Code
-	\*----------------------------------*/
+	:global(.custom-block-title) {
+		display: none;
+	}
+
+	:global(.custom-block.warning) {
+		background-color: #fceccf;
+		// border-radius: @gap;
+		border: #f0b37e solid @border-width;
+		border-width: 0rem @border-width 0rem @border-width;
+		padding: @gap;
+	}
+
+	:global(.github-dark) {
+		display: none;
+	}
+
+	:global(.lang) {
+		background-color: @color-background;
+		display: block;
+		padding: @gap*0.25 @gap;
+		border-radius: @gap*0.5 @gap * 0.5 0rem 0rem;
+		border: @border-width-s solid @color-border;
+		display: none;
+	}
+
+	:global(.shiki) {
+		padding: @gap;
+	}
+
+	.copy {
+		display: none;
+	}
 
 	code,
 	pre {

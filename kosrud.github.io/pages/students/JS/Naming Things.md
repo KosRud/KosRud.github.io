@@ -2,11 +2,19 @@
 
 Following consistent guidelines when creating names for your functions, variables, and classes will make your code much easier to maintain. Different programming languages and different projects can have different conventions, but the most important thing is consistency. When working with libraries and existing projects, it is usually best to adopt the established conventions and keep the codebase uniform. Some general guidelines are provided below.
 
-## Variable mames
+## Variable names
 
 ### Single-letter Names
 
 Names should be sufficiently informative, describing the purpose of the variable. Avoid single-letter names such as `let x = 5`. When you have many such variables, it is very hard to keep track of their meaning.
+
+An exception can be made when the variable is only visible within a tiny fragment of code and its purpose is obvious:
+
+```js
+function sum(a,b){
+	return a+b;
+}
+```
 
 ### Visually similar letters
 
@@ -35,41 +43,16 @@ for (i = 0; i < matrix.length; i++) {
 }
 ```
 
-Counter variables (`i`, `j` in the example above) should be avoided (when possible) in favor of "for of", "for in" loops, and functions like `Array.filter()`, `Array.map()`, `Array.reduce()`, `Array.forEach()`:
+When possible, prefer `for in`, `for of`, `Array.map()`, `Array.filter()`, `Array.reduce()`, etc. instead of manually handling array indices. This eliminates a common source of errors and reduces the number of things you need to constantly double-check when writing the code.
+
+## Function  vs variable names
+
+A variable *is* something, while a function *does* something. Use nouns for variable names and verbs for function names:
 
 ```js
-const matrix = [
-	[1,2,3],
-	[4,5,6],
-	[7,8,9]
-];
-
-const sumMatrix = matrix.map(
-	// row => sum of the row
-	row => row.reduce(
-		(a,b) => a + b;
-	)
-).reduce(
-	(a,b) => a + b
-)
-
-for (row of matrix) {
-	for (element of row) {
-		console.log(element);
-	}
-}
-```
-
-## Function names
-
-Function name should be a verb describing what the function does:
-
-```
 let health = 20;
 
 function getIsDead() {
 	return health >= 0;
 }
 ```
-
-In this example the verb "get" hints that `getIsDead()` is a function, because it **does** something.
