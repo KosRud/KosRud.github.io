@@ -78,6 +78,8 @@ const linkElement: Ref<Element | null> = ref(null);
 	&::before {
 		display: none;
 	}
+
+	margin-left: 0rem;
 }
 
 .TocItem_link {

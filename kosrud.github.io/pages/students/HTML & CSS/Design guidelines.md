@@ -1,0 +1,157 @@
+# Web Page Design Guidelines
+
+Some advice for making a clean, functional and aesthetically pleasing web-page.
+
+## Animation and hovering
+
+Animations and `:hover` style can hint towards which elements are interactive. Don't use `:hover` on non-interactive elements to avoid confusion.
+
+<style>
+    .demo-button {
+		margin-left: auto;
+		margin-right: auto;
+		width: fit-content;
+
+        color: white;
+        padding: 4rem;
+        background-color: #55b;
+        user-select: none;
+        border-radius: 4rem;
+        box-shadow: 0rem 5rem 0rem #336, 2rem 8rem 3rem #0008;
+        border: 2rem solid #fff2;
+        padding: 6rem 12rem;
+		font-size: 16rem;
+		cursor: pointer;
+
+		transition: transform 0.1s, box-shadow 0.1s, border-color 0.2s, background-color 0.1s;
+    }
+
+    .demo-button:hover {
+        transform: scale(1.02);
+        box-shadow: 0rem 6rem 0rem #336, 3rem 10rem 7rem #0008;
+        border-color: #fff3;
+        background-color: #66c;
+    }
+
+    .demo-button:active{
+        transform: translateY(2rem);
+        box-shadow: 0rem 5rem 0rem #336, 1rem 8rem 2rem #000b;
+		background-color: #55b;
+    }
+
+</style>
+
+<div class="demo-button" onclick="alert('Thank you!')">I'm a button. Press me!</div>
+
+## Center of the page
+
+Keep the main content towards the center of the page, where it is most comfortable to read. 
+
+Keep the left and right edges of the screen empty or reserve them for the content which the user looks at only occasionally (suggested links, tags, FAQ, menu, recent posts, etc.)
+
+## Colors
+
+Don't use too many colors (2-4 is optimal).
+
+Pick one "main" color which you will use the most and use the other "secondary" colors for accents (buttons, headings, etc.). The accent colors are usually more saturated and vivid to attract attention.
+
+Use vivid colors sparingly. The "main" color should be easy on the eyes (desaturated).
+
+<style>
+    .text-color-demo {
+        padding: 4rem;
+        margin: 8rem;
+        width: 200rem;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        border-radius: 8rem;
+        padding-left: 16rem;
+    }
+
+    .text-color-demo-container {
+        background: rgb(60,60,60);
+        padding:12rem;
+        display: inline-block;
+        border-radius: 20rem;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        margin-top:-16rem;
+    }
+</style>
+
+See color palette [tools](./Tools#color-palette).
+
+## Consistency
+
+Have consistency in your style. Have a list of preset colors instead of selecting a "roughly similar" color by hand every time. Same with border styles, rounded corners, etc.
+
+Use CSS variables:
+
+```CSS
+body {
+    --border-radius: 5rem;
+}
+
+div.bordered {
+    border-radius: var(--border-radius);
+}
+
+li.menu-item {
+    border-radius: var(--border-radius);
+}
+```
+
+### Further reading
+
+* MDN: [Using CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+* w3school: [CSS Variables &mdash; The var( ) Function](https://www.w3schools.com/css/css3_variables.asp)
+
+## Get straight to the point
+
+When the user opens your website, they should immediately see the content they came for, not the full page logo.
+
+## Menu
+
+If the menu is on the top and [sticky](https://www.w3schools.com/howto/howto_css_sticky_element.asp), it should be very thin to maximize the amount of useful content that fits on the screen. With a non-sticky menu you can afford a bit more vertical space.
+
+## Tables
+
+Do not use tables for layout! Element `<table>` should only be used for tabular data, otherwise it will confuse applications trying to parse the page content (e.g. screen readers).
+
+For the page layout use `display: grid` or `display: flex` in CSS.
+
+## Text
+
+Text must be easy to read (size, color, contrast, font).
+
+<style>
+
+	.text-shadow-demo {
+		color: #000;
+		width: fit-content;
+		display: grid;
+		grid-template-columns: 1fr;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+    .text-shadow-demo > div {
+        margin-bottom: 16rem;
+        font-size: 30rem;
+		font-weight: bold;
+        padding: 0rem 12rem;
+    }
+</style>
+
+#### Shadows
+
+<div class="text-shadow-demo">
+	<div style="text-shadow: 1rem 2rem 5rem #cc5;">This is OK</div>
+	<div style="background: #666; color: #8f8; text-shadow: 2rem 3rem 0rem #000e;">This is also OK</div>
+	<div style="text-shadow: 3rem 3rem 4rem rgba(0,0,0,1)">This is bad</div>
+	<div style="text-shadow: 4rem 3rem 0rem rgba(0,0,0,0.8)">This is also bad</div>
+</div>
+
+#### Width
+
+Aim to have between [60 and 90](https://visualdesignfordh.files.wordpress.com/2014/06/type-readability.pdf) characters per line of text for comfortable reading.

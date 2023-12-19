@@ -21,13 +21,15 @@ body {
 }
 
 li {
-	display: flex;
-	align-items: center;
-	align-items: flex-start;
+	display: block;
+	margin-left: 1em;
+	position: relative;
 }
 li::before {
+	position: absolute;
+	right: calc(100% + 0.5em);
+	top: 0%;
 	content: '•';
-	margin-right: 0.5em;
 }
 
 table,
