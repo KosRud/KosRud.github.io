@@ -104,11 +104,11 @@ onMounted(async () => {
 	align-items: center;
 	gap: @gap*0.5;
 
-	text-decoration: none !important;
+	text-decoration: none;
 	&,
 	&:link,
 	&:visited {
-		color: @color-black !important;
+		color: @color-black;
 	}
 }
 
@@ -118,14 +118,14 @@ onMounted(async () => {
 		box-shadow: @shadow-ao, 0rem -2rem 4rem #0004 inset;
 	}
 
-	font-weight: bold !important;
+	font-weight: bold;
 
 	&:hover {
 		&,
 		&:visited,
 		&:link {
 			&:hover {
-				color: @github-color-blue !important;
+				color: @github-color-blue;
 			}
 		}
 	}
@@ -135,7 +135,7 @@ onMounted(async () => {
 	gap: @gap*0.125;
 	padding-left: @gap*0.5;
 	padding-right: @gap*0.5;
-	font-weight: normal !important;
+	font-weight: normal;
 
 	position: relative;
 	&::before,
