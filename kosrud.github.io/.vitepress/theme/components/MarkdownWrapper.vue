@@ -34,7 +34,7 @@ useResizeObserver(
 @import '../style/variables/index.less';
 @import '../style/mixins/index.less';
 
-@admonition_title-height: @gap + @size;
+@admonition_title-height: @size * 2;
 @admonition-padding: @gap;
 
 .Markdown {
@@ -238,14 +238,12 @@ useResizeObserver(
 			margin-left: -@gap*2;
 			margin-right: -@gap*2;
 			margin-top: calc(-@admonition-padding - @admonition_title-height);
-			padding: @gap*0.25 @gap;
 			text-align: center;
 			box-shadow: @shadow-s;
 			margin-bottom: @admonition-padding;
-			border-radius: @gap * 0.5;
+			border-radius: @gap;
 			font-weight: bold;
 			content: 'Warning';
-			display: block;
 		}
 	}
 
