@@ -50,7 +50,12 @@ const linkElement: Ref<Element | null> = ref(null);
 				:level="level"
 				compact
 				:active="isActive"
-				:class="$style.TocItem_linkText"
+				:class="[
+					$style.TocItem_linkText,
+					props.heading.italic
+						? $style.TocItem_linkText___italics
+						: '',
+				]"
 			>
 				{{ props.heading.title }}
 			</LayoutNavItemText>
@@ -107,6 +112,10 @@ const linkElement: Ref<Element | null> = ref(null);
 
 .TocItem_link___active {
 	border-color: @color-primary;
+}
+
+.TocItem_linkText___italics {
+	font-style: italic;
 }
 
 /*
