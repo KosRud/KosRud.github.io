@@ -171,6 +171,16 @@ useResizeObserver(
 	/*
 		ETC
 	\*----------------------------------*/
+
+	/*
+		Code
+	\*----------------------------------*/
+
+	code,
+	pre {
+		font-family: @font-code;
+		font-size: @size-s;
+	}
 }
 
 .Markdown___narrow {

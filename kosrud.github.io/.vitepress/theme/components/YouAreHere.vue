@@ -21,7 +21,8 @@ function improviseNavTitle() {
 	const match = route.path.match(/[^\/]+$/); // last portion of url
 
 	if (match) {
-		const fileName = match[0].replace(/\.[^.]+$/, ''); // remove extension
+		const decoded = decodeURI(match[0]);
+		const fileName = decoded.replace(/\.[^.]+$/, ''); // remove extension
 		return fileName.charAt(0).toUpperCase() + fileName.slice(1);
 	}
 

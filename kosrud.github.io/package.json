@@ -1,5 +1,6 @@
 {
 	"dependencies": {
+		"@types/node": "^20.10.5",
 		"@vitejs/plugin-vue-jsx": "^3.1.0",
 		"less": "^4.2.0",
 		"pinia": "^2.1.7",

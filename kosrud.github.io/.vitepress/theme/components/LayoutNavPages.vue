@@ -16,9 +16,9 @@ const props = defineProps<{ mobile?: boolean }>();
 const route = useRoute();
 const store = useStore();
 
-const navItems = computed(() =>
-	props.mobile ? store.navMain : store.navSecondary
-);
+const navItems = computed(() => {
+	return props.mobile ? store.navMain : store.navSecondary;
+});
 
 const isMounted = ref(false);
 

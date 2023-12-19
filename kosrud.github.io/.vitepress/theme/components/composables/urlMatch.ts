@@ -13,7 +13,7 @@ export const urlMatch = (url: string, target: string): UrlMatch => {
 	const extensionRegex = /\.[^.]+$/;
 
 	url = encodeURI(url.replace(extensionRegex, ''));
-	target = target.replace(extensionRegex, '');
+	target = encodeURI(target.replace(extensionRegex, ''));
 
 	const result: UrlMatch = { inside: false, exact: false };
 

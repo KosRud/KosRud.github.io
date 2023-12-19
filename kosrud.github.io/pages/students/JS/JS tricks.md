@@ -263,7 +263,7 @@ console.table(arr);
 |(index)|name|age|cat|
 |---|---|---|---|
 |0|Ivy|29| |
-|1|Dilan|42|Object { name: "Whiskers", age: 3 }|
+|1|Dilan|42|`Object { name: "Whiskers", age: 3 }`|
 
 !!! note
     Mozilla Developer Network &mdash; [console.table( )](https://developer.mozilla.org/en-US/docs/Web/API/Console/table), [console.dir( )](https://developer.mozilla.org/en-US/docs/Web/API/console/dir)
