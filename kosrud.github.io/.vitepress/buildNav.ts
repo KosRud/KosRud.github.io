@@ -1,6 +1,7 @@
 import { readdirSync, lstatSync } from 'node:fs';
 import { join, parse, posix } from 'node:path';
 import { NavItem } from 'theme/ThemeConfig';
+import { rewriteUrl } from './rewriteUrl';
 
 const pageExtensions = ['.md', '.html'];
 
@@ -25,7 +26,18 @@ export function buildNav(rootPath: string, navPath: string) {
 
 	numberedNavItems.sort((a, b) => a.index - b.index);
 
-	return combineNavs({ unnumberedNavItems, numberedNavItems });
+	const navItems = combineNavs({ unnumberedNavItems, numberedNavItems });
+
+	if (!navItems) {
+		return null;
+	}
+
+	for (const navItem of navItems) {
+		navItem.url = rewriteUrl(navItem.url);
+		console.log(rewriteUrl(decodeURI(navItem.url)));
+	}
+
+	return navItems;
 }
 
 function loadFiles({

@@ -260,6 +260,16 @@ useResizeObserver(
 		}
 	}
 
+	:global(.custom-block.info) {
+		border-color: hsl(204deg 80% 70%);
+		background-color: hsl(204deg 66% 94%);
+
+		&::before {
+			background-color: hsl(204deg 80% 70%);
+			content: 'Note';
+		}
+	}
+
 	/*
 		Code (inline)
 	\*----------------------------------*/
