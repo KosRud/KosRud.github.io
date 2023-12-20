@@ -2,20 +2,23 @@ import { defineStore } from 'pinia';
 import { ref, Ref, ComponentPublicInstance } from 'vue';
 import {
 	AdaptiveStage,
+	AdaptivePreference,
 	useTrackAdaptiveStage,
-} from '../composables/adaptiveStages';
-import { AdaptivePreference } from '../composables/adaptiveStages';
+} from '@theme/components/composables/adaptiveStages';
 import {
 	ViewPortSize,
 	useTrackViewportSize,
 	viewportSizeFallback,
 } from './services/viewportSize';
-import { useTrackActiveHeadingId } from '../composables/Toc/activeHeadingId';
-import { TocItem, useTrackTocItems } from '../composables/Toc/tocItems';
-import { EnumValues } from '../composables/tsUtil';
-import { useNavMobileAutoClose } from '../composables/navMobile';
-import type { NavItem } from '../../ThemeConfig';
-import { useTrackNavItems } from '../composables/navItem';
+import { useTrackActiveHeadingId } from '@theme/components/composables/Toc/activeHeadingId';
+import {
+	TocItem,
+	useTrackTocItems,
+} from '@theme/components/composables/Toc/tocItems';
+import { EnumValues } from '@theme/components/composables/tsUtil';
+import { useNavMobileAutoClose } from '@theme/components/composables/navMobile';
+import type { NavItem } from '@theme/ThemeConfig';
+import { useTrackNavItems } from '@theme/components/composables/navItem';
 
 export const useStore = defineStore('counter', {
 	state: () => {

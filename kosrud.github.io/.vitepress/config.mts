@@ -91,6 +91,8 @@ const config = defineConfigWithTheme<ThemeConfig>({
 			alias: {
 				'@': resolve('.'),
 				'@vitepress': resolve('./.vitepress'),
+				'@theme': resolve('./.vitepress/theme'),
+				'@pages': resolve('./pages'),
 			},
 		},
 	},

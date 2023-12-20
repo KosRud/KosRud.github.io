@@ -69,7 +69,7 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 </template>
 
 <style module lang="less">
-@import '../style/variables/index.less';
+@import '@theme/style/variables/index.less';
 
 .NavPages {
 	display: flex;

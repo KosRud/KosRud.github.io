@@ -31,8 +31,8 @@ useResizeObserver(
 </template>
 
 <style lang="less" module>
-@import '../style/variables/index.less';
-@import '../style/mixins/index.less';
+@import '@theme/style/variables/index.less';
+@import '@theme/style/mixins/index.less';
 
 @admonition_title-height: @size * 2;
 @admonition-padding: @gap;

@@ -7,7 +7,7 @@ import { ComponentPublicInstance, getCurrentInstance, ref, Ref } from 'vue';
 import { useData } from 'vitepress';
 import { createPinia } from 'pinia';
 
-import { ThemeConfig } from '../ThemeConfig';
+import { ThemeConfig } from '@theme/ThemeConfig';
 import { useDarkModeEnforce } from './composables/darkMode';
 import {
 	useAdaptivePreference,
@@ -94,7 +94,7 @@ useResizeObserver(
 </template>
 
 <style lang="less" module>
-@import '../style/variables/index.less';
+@import '@theme/style/variables/index.less';
 
 .VisibleRectMarker {
 	pointer-events: none;

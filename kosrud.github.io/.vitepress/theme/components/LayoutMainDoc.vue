@@ -46,7 +46,7 @@ const { page } = useData();
 </template>
 
 <style lang="less" module>
-@import '../style/variables/index.less';
+@import '@theme/style/variables/index.less';
 
 .MainWrapper {
 	display: flex;
