@@ -284,6 +284,26 @@ useResizeObserver(
 		Code (block)
 	\*----------------------------------*/
 
+	@code-padding: @gap;
+	@code-numbers-gap: @gap*2;
+	@code-lineNumbers-width: 80rem;
+
+	:global(.line-numbers-wrapper) {
+		position: absolute;
+		top: 0rem;
+		left: 0rem;
+		width: @code-lineNumbers-width;
+		text-align: right;
+		padding: @code-padding;
+		padding-right: @code-numbers-gap;
+		color: @color-black-faded-2;
+		user-select: none;
+	}
+
+	:global(.line-numbers-mode) {
+		position: relative;
+	}
+
 	:global(.github-dark) {
 		display: none;
 	}
@@ -295,15 +315,17 @@ useResizeObserver(
 	:global(.lang) {
 		background-color: @color-background;
 		display: block;
-		padding: @gap*0.25 @gap;
+		padding: @gap * 0.5 @gap;
 		border-radius: @gap*0.5 @gap * 0.5 0rem 0rem;
 		border: @border-width-s solid @color-border;
 		display: none;
 	}
 
 	:global(.shiki) {
-		padding: @gap;
+		padding: @code-padding;
+		padding-left: @code-lineNumbers-width;
 		border: @border-width-s solid @color-border;
+		border-radius: @gap*0.5;
 		box-shadow: @shadow-ao;
 	}
 
@@ -316,7 +338,8 @@ useResizeObserver(
 	\*----------------------------------*/
 
 	code,
-	pre {
+	pre,
+	:global(.line-numbers-wrapper) {
 		font-family: @font-code;
 		font-size: @size-s;
 	}

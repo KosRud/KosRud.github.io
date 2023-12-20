@@ -117,7 +117,7 @@ onMounted(() => {
 	&,
 	&:link,
 	&:visited {
-		color: @color-black-faded;
+		color: @color-black-faded-1;
 	}
 
 	display: flex;
