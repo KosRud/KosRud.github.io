@@ -10,6 +10,7 @@
 		"resolveJsonModule": true,
 		"jsx": "preserve",
 		"lib": ["esnext", "dom", "dom.iterable"],
+		"isolatedModules": true,
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./*"],
@@ -17,5 +18,6 @@
 			"@theme/*": ["./.vitepress/theme/*"],
 			"@pages/*": ["./pages/*"]
 		}
-	}
+	},
+	"include": ["**/*", "./.vitepress/**/*"]
 }
