@@ -126,6 +126,16 @@ const config = defineConfigWithTheme<ThemeConfig>({
 			md.use(markdownItKatex);
 			md.use(markdownItDeflist);
 		},
+		lineNumbers: true,
+		theme: 'github-light',
+		// codeTransformers: [
+		// 	// We use `[!!code` in demo to prevent transformation, here we revert it back.
+		// 	{
+		// 		postprocess(code) {
+		// 			return code.replace(/.+/g, '');
+		// 		},
+		// 	},
+		// ],
 	},
 	themeConfig: {
 		nav,

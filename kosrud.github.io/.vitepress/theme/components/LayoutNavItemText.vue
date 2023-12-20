@@ -36,7 +36,7 @@ const level = computed(() => {
 .NavItem_text {
 	line-height: 1.2;
 	display: block;
-	color: @color-black-faded;
+	color: @color-black-faded-1;
 	text-decoration: none;
 	font-weight: normal;
 	font-family: @font-main;
