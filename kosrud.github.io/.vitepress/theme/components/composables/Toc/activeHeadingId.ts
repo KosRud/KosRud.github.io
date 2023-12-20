@@ -7,7 +7,7 @@ import {
 	Ref,
 } from 'vue';
 import { onContentUpdated } from 'vitepress';
-import { useStore } from '../../pinia/store';
+import { useStore } from '@theme/components/pinia/store';
 
 import { TocItem } from './tocItems.js';
 

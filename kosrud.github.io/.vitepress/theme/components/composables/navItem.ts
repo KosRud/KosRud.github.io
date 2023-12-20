@@ -1,7 +1,7 @@
-import { useStore } from '../pinia/store';
+import { useStore } from '@theme/components/pinia/store';
 import { Ref, onBeforeMount, ref, watchEffect } from 'vue';
 import { useData, onContentUpdated, useRoute } from 'vitepress';
-import { ThemeConfig } from '../../ThemeConfig';
+import { ThemeConfig } from '@theme/ThemeConfig';
 
 import { urlMatch } from './urlMatch';
 

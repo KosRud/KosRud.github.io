@@ -13,7 +13,9 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./*"],
-			"@vitepress/*": ["./.vitepress/*"]
+			"@vitepress/*": ["./.vitepress/*"],
+			"@theme/*": ["./.vitepress/theme/*"],
+			"@pages/*": ["./pages/*"]
 		}
 	}
 }

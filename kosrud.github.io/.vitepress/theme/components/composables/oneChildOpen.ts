@@ -1,6 +1,6 @@
 import { ref, Ref } from 'vue';
 
-import { NavItem } from '../../ThemeConfig';
+import { NavItem } from '@theme/ThemeConfig';
 import { urlMatch } from './urlMatch';
 import { useRoute } from 'vitepress';
 

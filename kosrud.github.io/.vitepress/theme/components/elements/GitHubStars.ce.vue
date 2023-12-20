@@ -81,7 +81,7 @@ onMounted(async () => {
 </template>
 
 <style lang="less">
-@import '../../style/variables/index.less';
+@import '@theme/style/variables/index.less';
 
 @github-color-blue: rgb(9 105 218);
 @github-gap: @gap;

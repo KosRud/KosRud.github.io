@@ -1,4 +1,4 @@
-import { NavItem } from '../../ThemeConfig';
+import { NavItem } from '@theme/ThemeConfig';
 
 export function findFirstChildPage(navItem: NavItem) {
 	if (navItem.url == '/') {

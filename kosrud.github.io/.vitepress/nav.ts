@@ -1,6 +1,6 @@
 import { readdirSync, lstatSync } from 'node:fs';
 import { parse, posix } from 'node:path';
-import { NavItem } from 'theme/ThemeConfig';
+import { NavItem } from '@theme/ThemeConfig';
 
 const pageExtensions = ['.md', '.html'];
 

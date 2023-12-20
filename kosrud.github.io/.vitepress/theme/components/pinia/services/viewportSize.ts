@@ -1,5 +1,5 @@
 import { onUnmounted, onMounted } from 'vue';
-import { useStore } from '../store';
+import { useStore } from '@theme/components/pinia/store';
 
 export interface ViewPortSize {
 	height: number;
