@@ -24,7 +24,7 @@ export function useTrackTocItems() {
 function getTocItems() {
 	const store = useStore();
 
-	if (!store.pageContent) {
+	if (!store.contentForToc) {
 		// error commented because not every page needs a TOC
 		// and this not every page sets up pageContent element
 		//
@@ -33,7 +33,7 @@ function getTocItems() {
 		return [];
 	}
 
-	const contentSource = store.pageContent.$el as Element;
+	const contentSource = store.contentForToc.$el as Element;
 
 	const headings: TocItem[] = Array.from(
 		contentSource.querySelectorAll('h1, h2, h3')

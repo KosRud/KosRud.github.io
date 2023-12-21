@@ -3,6 +3,7 @@ import LayoutError404 from './LayoutError404.vue';
 import MarkdownWrapper from './MarkdownWrapper.vue';
 import YouAreHere from './YouAreHere.vue';
 
+import { ComponentPublicInstance } from 'vue';
 import { useData } from 'vitepress';
 import { useStore } from './pinia/store';
 
@@ -27,7 +28,12 @@ const store = useStore();
 					:class="$style.Markdown"
 					v-else
 				>
-					<Content />
+					<Content
+						:ref="(component: ComponentPublicInstance | null) => {
+								store.contentForToc = component;
+							}
+							"
+					/>
 				</MarkdownWrapper>
 			</main>
 		</div>

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useStore } from './pinia/store';
-import { Ref, ref } from 'vue';
+import { Ref, ref, computed } from 'vue';
 
 import LayoutHeaderNav from './LayoutHeaderNav.vue';
 import LayoutHeaderButtonBurger from './LayoutHeaderButtonBurger.vue';
@@ -10,33 +10,62 @@ const store = useStore();
 
 const container: Ref<Element | null> = ref(null);
 const logo: Ref<Element | null> = ref(null);
+const navWrapper: Ref<Element | null> = ref(null);
 const logoVisibility = ref('visible');
+const burgerTocVisibility = computed(() =>
+	store.isCompactModeActive && store.tocItems.length ? 'visible' : 'hidden'
+);
+const burgerNavPagesVisibility = computed(() =>
+	store.isCompactModeActive ? 'visible' : 'hidden'
+);
 
 useResizeObserver(
 	() => {
-		if (!logo.value) {
-			console.error('logo ref not set');
-			return;
-		}
-
-		const sibling = logo.value.nextElementSibling;
-		if (!sibling) {
-			return;
-		}
-
-		if (
-			logo.value.getBoundingClientRect().right >
-			sibling.getBoundingClientRect().left
-		) {
-			logoVisibility.value = 'hidden';
-			console.log('hide');
-		} else {
-			logoVisibility.value = 'visible';
-		}
+		onResizeHandleLogo();
+		onResizeHandleNav();
 	},
 	() => container.value,
 	true
 );
+
+function onResizeHandleLogo() {
+	if (!logo.value) {
+		console.error('logo ref not set');
+		return;
+	}
+
+	const sibling = logo.value.nextElementSibling;
+	if (!sibling) {
+		return;
+	}
+
+	if (
+		logo.value.getBoundingClientRect().right >
+		sibling.getBoundingClientRect().left
+	) {
+		logoVisibility.value = 'hidden';
+		console.log('hide');
+	} else {
+		logoVisibility.value = 'visible';
+	}
+}
+
+function onResizeHandleNav() {
+	if (!navWrapper.value) {
+		console.error('Header_navWrapper ref not set');
+		return;
+	}
+
+	const lastChild = navWrapper.value.lastElementChild;
+
+	if (!lastChild) {
+		return;
+	}
+
+	store.isHeaderNavOverlapping =
+		lastChild.getBoundingClientRect().right >
+		navWrapper.value.getBoundingClientRect().right;
+}
 </script>
 
 <template>
@@ -57,36 +86,42 @@ useResizeObserver(
 				title="website logo"
 			/>
 		</a>
-		<template v-if="!store.isCompactModeActive">
-			<div :class="$style.Header_spacer"></div>
-			<LayoutHeaderNav :class="$style.HeaderNav" />
-		</template>
-		<template v-else>
-			<LayoutHeaderButtonBurger
-				:class="$style.BurgerToc"
-				:title="'On this page'"
-				:is-open="store.isMobileNavTocOpen"
-				:toggle-is-open="
-					() => {
-						store.isMobileNavTocOpen = !store.isMobileNavTocOpen;
-					}
-				"
-				:num-lines="3"
-				v-if="store.tocItems.length"
+		<div :class="$style.Header_spacer"></div>
+		<div
+			:class="$style.Header_navWrapper"
+			:ref="(element) => {navWrapper = element as Element}"
+		>
+			<LayoutHeaderNav
+				:style="{
+					visibility: store.isCompactModeActive
+						? 'hidden'
+						: 'visible',
+				}"
+				:class="$style.Header_nav"
 			/>
-			<LayoutHeaderButtonBurger
-				:class="$style.BurgerMenu"
-				:title="'Menu'"
-				:is-open="store.isMobileNavPagesOpen"
-				:toggle-is-open="
-					() => {
-						store.isMobileNavPagesOpen =
-							!store.isMobileNavPagesOpen;
-					}
-				"
-				:num-lines="5"
-			/>
-		</template>
+		</div>
+		<LayoutHeaderButtonBurger
+			:class="$style.BurgerToc"
+			:title="'On this page'"
+			:is-open="store.isMobileNavTocOpen"
+			:toggle-is-open="
+				() => {
+					store.isMobileNavTocOpen = !store.isMobileNavTocOpen;
+				}
+			"
+			:num-lines="3"
+		/>
+		<LayoutHeaderButtonBurger
+			:class="$style.BurgerMenu"
+			:title="'Menu'"
+			:is-open="store.isMobileNavPagesOpen"
+			:toggle-is-open="
+				() => {
+					store.isMobileNavPagesOpen = !store.isMobileNavPagesOpen;
+				}
+			"
+			:num-lines="5"
+		/>
 	</header>
 </template>
 
@@ -101,15 +136,16 @@ useResizeObserver(
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	justify-content: stretch;
 	gap: @Header-gap;
 	padding: 0rem @Header-gap;
 
 	height: @Header-height;
-
-	position: relative; // for  burger's absolute
 }
 
 .Header_logoWrapper {
+	flex: 0 0 auto;
+
 	height: @Header-logo-size;
 	display: flex;
 	justify-content: stretch;
@@ -131,22 +167,27 @@ useResizeObserver(
 	// width: @gap;
 }
 
-.HeaderNav {
-	flex: 1 0 fit-content;
+.Header_navWrapper {
+	flex: 1 1 fit-content;
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+}
+
+.Header_nav {
+	flex: 0 0 fit-content;
 }
 
 .BurgerMenu {
-	position: absolute;
-	top: 0rem;
-	right: 0rem;
+	flex: 0 0 auto;
 	height: 100%;
+	visibility: v-bind(burgerNavPagesVisibility);
 }
 
 .BurgerToc {
-	position: absolute;
-	top: 0rem;
-	right: 120rem;
+	flex: 0 0 auto;
 	height: 100%;
+	visibility: v-bind(burgerTocVisibility);
 }
 
 /*

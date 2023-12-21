@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { useData } from 'vitepress';
 import { useStore } from './pinia/store';
 import { onMounted, ref } from 'vue';
 

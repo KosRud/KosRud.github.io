@@ -44,6 +44,8 @@ const isActive = computed(() => {
 		content: none;
 	}
 
+	margin-left: 0rem;
+
 	display: flex;
 	flex-direction: row;
 	justify-content: stretch;

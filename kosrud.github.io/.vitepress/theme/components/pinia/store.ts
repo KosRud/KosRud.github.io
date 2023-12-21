@@ -16,7 +16,7 @@ import { useTrackNavItems } from '@theme/components/composables/navItem';
 
 export const useStore = defineStore('counter', {
 	state: () => {
-		const contentContainer: Ref<ComponentPublicInstance | null> = ref(null);
+		const contentForToc: Ref<ComponentPublicInstance | null> = ref(null);
 		const VisibleAreaMarker: Ref<Element | null> = ref(null);
 
 		const viewportSize: Ref<ViewPortSize> = ref(viewportSizeFallback);
@@ -34,7 +34,7 @@ export const useStore = defineStore('counter', {
 		const isHeaderNavOverlapping = ref(false);
 
 		return {
-			pageContent: contentContainer,
+			contentForToc,
 			VisibleAreaMarker,
 
 			viewportSize,
