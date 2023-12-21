@@ -4,6 +4,15 @@ import GrungeHeading from './GrungeHeading.vue';
 import HyperLink from '@vitepress/theme/components/HyperLink.vue';
 // import HyperLink from '@vitepress/theme/components/HyperLink.vue';
 
+import imgPtgV2_1 from '@/content/project screenshots/Protege v2/1.png?format=jpg&w=600&withoutEnlargement&quality=70';
+import imgPtgV2_3 from '@/content/project screenshots/Protege v2/3.png?format=jpg&w=600&withoutEnlargement&quality=70';
+
+import imgPtgV1_1 from '@/content/project screenshots/Protege v1/1.png?format=jpg&w=600&withoutEnlargement&quality=70';
+
+import imgCluster from '@/content/project screenshots/material clustering/1.png?format=jpg&w=600&withoutEnlargement&quality=70';
+
+import imgDq from '@/content/project screenshots/DQ/before-after.gif?w=300&withoutEnlargement&quality=70';
+
 const props = defineProps<{ dummies: number }>();
 </script>
 
@@ -15,7 +24,7 @@ const props = defineProps<{ dummies: number }>();
 				<HomePageHighlightsProject
 					:images="[
 						{
-							url: '/content/project screenshots/DQ/before-after.gif',
+							url: imgDq,
 							title: 'DQ skinning vs built-in linear skinning comparison',
 						},
 					]"
@@ -116,11 +125,11 @@ const props = defineProps<{ dummies: number }>();
 					:title="'ProTeGe v2'"
 					:images="[
 						{
-							url: '/content/project screenshots/Protege v2/1.png',
+							url: imgPtgV2_1,
 							title: 'screenshot',
 						},
 						{
-							url: '/content/project screenshots/Protege v2/3.png',
+							url: imgPtgV2_3,
 							title: 'textures in use',
 						},
 					]"
@@ -155,7 +164,7 @@ const props = defineProps<{ dummies: number }>();
 					:title="'Material clustering benchmark'"
 					:images="[
 						{
-							url: '/content/project screenshots/material clustering/1.png',
+							url: imgCluster,
 							title: 'screenshot',
 						},
 					]"
@@ -213,7 +222,7 @@ const props = defineProps<{ dummies: number }>();
 					:images="[
 						{
 							title: 'screenshot',
-							url: '/content/project screenshots/Protege v1/1.png',
+							url: imgPtgV1_1,
 						},
 					]"
 					github="KosRud/ProTeGe-v1"

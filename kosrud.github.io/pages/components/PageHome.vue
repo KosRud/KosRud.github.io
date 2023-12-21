@@ -45,10 +45,6 @@ function handleScrolling() {
 		}"
 			:class="$style.Hero"
 		>
-			<img
-				:class="$style.Hero_photo"
-				src="/_assets/photo.png"
-			/>
 			<div :class="$style.Hero_titleContainer">
 				<span :class="$style.Hero_title">Kostiantyn Rudenko</span>
 				<span :class="$style.Hero_subtitle">software engineer</span>
@@ -112,16 +108,6 @@ function handleScrolling() {
 
 .Hero_subtitle {
 	font-size: @size-hero-s;
-}
-
-.Hero_photo {
-	aspect-ratio: 1;
-	object-fit: cover;
-	object-position: 0% 30%;
-	box-shadow: @shadow-l;
-	border-radius: @inf;
-
-	display: none;
 }
 
 .ContentWrapper {

@@ -4,7 +4,6 @@ import LayoutNavPages from './LayoutNavPages.vue';
 import LayoutHeader from './LayoutHeader.vue';
 import LayoutNavMobile from './LayoutNavMobile.vue';
 
-import { useData } from 'vitepress';
 import { useStore } from './pinia/store';
 import { useCssModule } from 'vue';
 
@@ -12,8 +11,6 @@ import { watchEffect } from 'vue';
 
 const store = useStore();
 const $style = useCssModule();
-
-const { frontmatter } = useData();
 
 watchEffect(() => {
 	if (store.isMobileNavAnythingOpen) {
