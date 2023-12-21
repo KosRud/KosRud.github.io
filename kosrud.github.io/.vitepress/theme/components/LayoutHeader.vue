@@ -4,7 +4,6 @@ import { Ref, ref } from 'vue';
 
 import LayoutHeaderNav from './LayoutHeaderNav.vue';
 import LayoutHeaderButtonBurger from './LayoutHeaderButtonBurger.vue';
-import { AdaptiveStage } from './composables/adaptiveStages';
 import { useResizeObserver } from './composables/resizeObserver';
 
 const store = useStore();
@@ -58,7 +57,7 @@ useResizeObserver(
 				title="website logo"
 			/>
 		</a>
-		<template v-if="store.adaptiveStage == AdaptiveStage.full">
+		<template v-if="!store.isCompactModeActive">
 			<div :class="$style.Header_spacer"></div>
 			<LayoutHeaderNav :class="$style.HeaderNav" />
 		</template>

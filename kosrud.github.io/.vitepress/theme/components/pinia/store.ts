@@ -1,10 +1,5 @@
 import { defineStore } from 'pinia';
-import { ref, Ref, ComponentPublicInstance } from 'vue';
-import {
-	AdaptiveStage,
-	AdaptivePreference,
-	useTrackAdaptiveStage,
-} from '@theme/components/composables/adaptiveStages';
+import { ref, Ref, ComponentPublicInstance, onMounted, onUnmounted } from 'vue';
 import {
 	ViewPortSize,
 	useTrackViewportSize,
@@ -15,7 +10,6 @@ import {
 	TocItem,
 	useTrackTocItems,
 } from '@theme/components/composables/Toc/tocItems';
-import { EnumValues } from '@theme/components/composables/tsUtil';
 import { useNavMobileAutoClose } from '@theme/components/composables/navMobile';
 import type { NavItem } from '@theme/ThemeConfig';
 import { useTrackNavItems } from '@theme/components/composables/navItem';
@@ -30,16 +24,14 @@ export const useStore = defineStore('counter', {
 		const tocItems: Ref<TocItem[]> = ref([]);
 		const activeHeadingId = ref('');
 
-		const adaptivePreferences: Ref<Ref<AdaptivePreference>[]> = ref([]);
-		const adaptiveStage: Ref<EnumValues<typeof AdaptiveStage>> = ref(
-			AdaptiveStage.full
-		);
-
 		const isMobileNavPagesOpen = ref(false);
 		const isMobileNavTocOpen = ref(false);
 
 		const navMain: Ref<NavItem[]> = ref([]);
 		const navSecondary: Ref<NavItem[]> = ref([]);
+
+		const isViewportNarrow = ref(false);
+		const isHeaderNavOverlapping = ref(false);
 
 		return {
 			pageContent: contentContainer,
@@ -50,8 +42,8 @@ export const useStore = defineStore('counter', {
 			tocItems,
 			activeHeadingId,
 
-			adaptiveStage,
-			adaptivePreferences,
+			isViewportNarrow,
+			isHeaderNavOverlapping,
 
 			isMobileNavPagesOpen,
 			isMobileNavTocOpen,
@@ -62,6 +54,9 @@ export const useStore = defineStore('counter', {
 	},
 
 	getters: {
+		isCompactModeActive: (state) =>
+			state.isHeaderNavOverlapping || state.isViewportNarrow,
+
 		visibleAreaRectTop: (state) => {
 			if (!state.VisibleAreaMarker) {
 				console.log('Visible area marker was not initialized');
@@ -69,6 +64,7 @@ export const useStore = defineStore('counter', {
 			}
 			return state.VisibleAreaMarker.getBoundingClientRect().top;
 		},
+
 		isMobileNavAnythingOpen: (state) => {
 			return state.isMobileNavPagesOpen || state.isMobileNavTocOpen;
 		},
@@ -79,13 +75,26 @@ export function useStoreService() {
 	const store = useStore();
 
 	useTrackViewportSize();
-	useTrackAdaptiveStage();
 
 	useTrackActiveHeadingId();
 	useTrackTocItems();
 	useTrackNavItems();
 
 	useNavMobileAutoClose();
+
+	const compactModeHandler = function (event: MediaQueryListEvent) {
+		store.isViewportNarrow = event.matches;
+	};
+
+	let mediaCompactMode: MediaQueryList | null = null;
+	onMounted(() => {
+		mediaCompactMode = matchMedia('screen and (width < 75em)');
+		mediaCompactMode.addEventListener('change', compactModeHandler);
+		store.isViewportNarrow = mediaCompactMode.matches;
+	});
+	onUnmounted(() => {
+		mediaCompactMode?.removeEventListener('change', compactModeHandler);
+	});
 
 	return store;
 }
