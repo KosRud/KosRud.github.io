@@ -5,6 +5,7 @@ import { Ref, ref, computed } from 'vue';
 
 import { useResizeObserver } from '@vitepress/theme/components/composables/resizeObserver';
 import { pxToRem } from '@vitepress/theme/components/composables/unitConverter';
+import { makeHeadingId } from '@/.vitepress/theme/components/composables/makeHeadingId';
 
 const projectLinkTypes = ['npm', 'docs', 'examples', 'paper', 'preprint'];
 type ProjectLinks = Record<(typeof projectLinkTypes)[number], string>;
@@ -58,7 +59,10 @@ useResizeObserver(
 		:ref="(element) => { container = element as Element }"
 	>
 		<div :class="$style.Project_descriptionContainer">
-			<h3 :class="$style.Project_title">
+			<h3
+				:id="makeHeadingId(props.title)"
+				:class="$style.Project_title"
+			>
 				{{ props.title }}
 			</h3>
 			<div :class="$style.Project_description">
