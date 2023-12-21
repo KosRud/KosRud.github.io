@@ -1,9 +1,10 @@
 import { useStore } from '@theme/components/pinia/store';
 import { Ref, onBeforeMount, ref, watchEffect } from 'vue';
-import { useData, onContentUpdated, useRoute } from 'vitepress';
+import { useData, useRoute } from 'vitepress';
 import { ThemeConfig } from '@theme/ThemeConfig';
 
 import { urlMatch } from './urlMatch';
+import { onContentUpdated } from './onContentUpdated';
 
 export function useIsNavItemActive(url: string): Ref<boolean> {
 	const route = useRoute();

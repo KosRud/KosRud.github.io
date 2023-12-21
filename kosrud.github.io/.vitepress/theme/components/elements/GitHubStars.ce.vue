@@ -55,6 +55,8 @@ onMounted(async () => {
 
 <template>
 	<div class="Github">
+		<CustomContent />
+
 		<HyperLink
 			:href="`https://github.com/${repo}`"
 			class="Github_box Github_box___repo"

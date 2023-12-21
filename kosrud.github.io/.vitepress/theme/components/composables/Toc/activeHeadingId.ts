@@ -6,9 +6,9 @@ import {
 	InjectionKey,
 	Ref,
 } from 'vue';
-import { onContentUpdated } from 'vitepress';
 import { useStore } from '@theme/components/pinia/store';
 
+import { onContentUpdated } from '../onContentUpdated';
 import { TocItem } from './tocItems.js';
 
 export const activeHeadingIdSymbol: InjectionKey<Ref<string>> = Symbol();

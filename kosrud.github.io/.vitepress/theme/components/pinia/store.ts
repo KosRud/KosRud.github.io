@@ -1,5 +1,8 @@
 import { defineStore } from 'pinia';
-import { ref, Ref, ComponentPublicInstance } from 'vue';
+import { ref, Ref, ComponentPublicInstance, onBeforeMount } from 'vue';
+import { useData, useRoute, VitePressData, Route } from 'vitepress';
+import { ThemeConfig, NavItem } from '@theme/ThemeConfig';
+
 import {
 	AdaptiveStage,
 	AdaptivePreference,
@@ -15,10 +18,10 @@ import {
 	TocItem,
 	useTrackTocItems,
 } from '@theme/components/composables/Toc/tocItems';
-import { EnumValues } from '@theme/components/composables/tsUtil';
 import { useNavMobileAutoClose } from '@theme/components/composables/navMobile';
-import type { NavItem } from '@theme/ThemeConfig';
 import { useTrackNavItems } from '@theme/components/composables/navItem';
+
+import { EnumValues } from '@theme/components/composables/tsUtil';
 
 export const useStore = defineStore('counter', {
 	state: () => {
@@ -41,6 +44,11 @@ export const useStore = defineStore('counter', {
 		const navMain: Ref<NavItem[]> = ref([]);
 		const navSecondary: Ref<NavItem[]> = ref([]);
 
+		const route: Ref<Route | null> = ref(null);
+		const data: Ref<VitePressData<ThemeConfig> | null> = ref(null);
+
+		const contentUpdateCallbacks: Ref<(() => void)[]> = ref([]);
+
 		return {
 			pageContent: contentContainer,
 			VisibleAreaMarker,
@@ -58,6 +66,11 @@ export const useStore = defineStore('counter', {
 
 			navMain,
 			navSecondary,
+
+			data,
+			route,
+
+			contentUpdateCallbacks,
 		};
 	},
 
@@ -86,6 +99,11 @@ export function useStoreService() {
 	useTrackNavItems();
 
 	useNavMobileAutoClose();
+
+	onBeforeMount(() => {
+		store.data = useData<ThemeConfig>();
+		store.route = useRoute();
+	});
 
 	return store;
 }

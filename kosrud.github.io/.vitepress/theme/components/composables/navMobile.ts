@@ -1,6 +1,8 @@
 import { onMounted, watchEffect } from 'vue';
-import { onContentUpdated, useRoute } from 'vitepress';
+import { useRoute } from 'vitepress';
 import { useStore } from '@theme/components/pinia/store';
+
+import { onContentUpdated } from './onContentUpdated';
 
 export function useNavMobileAutoClose() {
 	const route = useRoute();

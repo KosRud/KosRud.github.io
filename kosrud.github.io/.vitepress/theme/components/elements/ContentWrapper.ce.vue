@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Ref, ref } from 'vue';
-import { useResizeObserver } from './composables/resizeObserver';
+import { useResizeObserver } from '@theme/components/composables/resizeObserver';
+import CustomContent from '@theme/components/CustomContent.vue';
 
 const containerElement: Ref<Element | null> = ref(null);
 const isNarrow = ref(false);
@@ -24,13 +25,14 @@ useResizeObserver(
 <template>
 	<div
 		:ref="(element) => {containerElement = element as Element}"
-		:class="[$style.Markdown, isNarrow ? $style.Markdown___narrow : '']"
+		:class="['Markdown', isNarrow ? 'Markdown___narrow' : '']"
 	>
-		<slot />
+		<CustomContent />
 	</div>
 </template>
 
-<style lang="less" module>
+<style lang="less">
+@import '@theme/style/main/index.less';
 @import '@theme/style/variables/index.less';
 @import '@theme/style/mixins/index.less';
 

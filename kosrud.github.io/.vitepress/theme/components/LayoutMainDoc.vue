@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import CustomContent from './CustomContent.vue';
 import LayoutError404 from './LayoutError404.vue';
-import MarkdownWrapper from './MarkdownWrapper.vue';
 import YouAreHere from './YouAreHere.vue';
 
 import { ComponentPublicInstance } from 'vue';
@@ -29,17 +29,22 @@ const { page } = useData();
 			</div>
 			<main>
 				<LayoutError404 v-if="page.isNotFound" />
-				<MarkdownWrapper
+				<!-- <MarkdownWrapper
 					:class="$style.Markdown"
 					v-else
 				>
 					<Content
-						:ref="(component: ComponentPublicInstance | null) => {
-								store.pageContent = component;
+						
+					/>
+				</MarkdownWrapper> -->
+				<content-wrapper>
+					<CustomContent
+						:ref="(component) => {
+								store.pageContent = component as ComponentPublicInstance;
 							}
 							"
 					/>
-				</MarkdownWrapper>
+				</content-wrapper>
 			</main>
 		</div>
 	</div>

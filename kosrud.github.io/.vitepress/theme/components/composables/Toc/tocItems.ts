@@ -1,6 +1,7 @@
 import { onMounted, watchEffect } from 'vue';
-import { onContentUpdated } from 'vitepress';
 import { useStore } from '@theme/components/pinia/store';
+
+import { onContentUpdated } from '../onContentUpdated';
 
 export interface TocItem {
 	level: number;
