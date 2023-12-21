@@ -2,6 +2,7 @@ import { defineConfigWithTheme } from 'vitepress';
 import { ThemeConfig } from './theme/ThemeConfig';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
 import { withMermaid } from 'vitepress-plugin-mermaid';
+import vsharp from 'vite-plugin-vsharp';
 import markdownItKatex from 'markdown-it-katex';
 import markdownItDeflist from 'markdown-it-deflist';
 import { resolve } from 'node:path';
@@ -82,6 +83,9 @@ const config = defineConfigWithTheme<ThemeConfig>({
 			vueJsxPlugin({
 				// options are passed on to @vue/babel-plugin-jsx
 			}),
+			vsharp.default({
+				// https://jw-12138.github.io/vite-plugin-vsharp/
+			}),
 		],
 		optimizeDeps: {
 			// https://github.com/mermaid-js/mermaid/issues/4320
@@ -142,12 +146,14 @@ const config = defineConfigWithTheme<ThemeConfig>({
 	},
 });
 
-export default withMermaid({
-	...config,
-	mermaid: {
-		//
-	},
-	mermaidPlugin: {
-		//
-	},
-});
+export default config;
+
+// export default withMermaid({
+// 	...config,
+// 	mermaid: {
+// 		//
+// 	},
+// 	mermaidPlugin: {
+// 		//
+// 	},
+// });

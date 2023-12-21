@@ -118,6 +118,7 @@ const devIconGroups = {
 				</p>
 				<p>
 					<img
+						alt="Photo of me"
 						:class="[$style.Bio_photo, $style.Bio_photo___inside]"
 						src="/_assets/photo.png"
 						v-if="adaptiveStage >= 2"
