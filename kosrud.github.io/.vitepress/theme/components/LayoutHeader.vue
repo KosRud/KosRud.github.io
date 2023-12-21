@@ -44,14 +44,15 @@ useResizeObserver(
 	<header
 		:class="$style.Header"
 		role="banner"
-		:ref="(element) => container = element as Element"
+		:ref="(element) => {container = element as Element}"
 	>
 		<a
 			href="/"
-			:class="$style.Header_logo"
-			:ref="(element) => logo = element as Element"
+			:class="$style.Header_logoWrapper"
+			:ref="(element) => {logo = element as Element}"
 		>
 			<img
+				:class="$style.Header_logo"
 				src="/favicon.svg"
 				alt="website logo"
 				title="website logo"
@@ -109,16 +110,18 @@ useResizeObserver(
 	position: relative; // for  burger's absolute
 }
 
-.Header_logo {
+.Header_logoWrapper {
 	height: @Header-logo-size;
 	display: flex;
 	justify-content: stretch;
 	align-items: stretch;
 
-	box-shadow: @shadow;
-
 	padding-right: @gap;
 	visibility: v-bind(logoVisibility);
+}
+
+.Header_logo {
+	box-shadow: @shadow;
 }
 
 .Header_spacer {
