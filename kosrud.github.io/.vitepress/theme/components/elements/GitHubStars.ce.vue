@@ -62,6 +62,8 @@ onMounted(async () => {
 			<img
 				class="Github_icon"
 				:src="iconGithub"
+				alt="github icon"
+				aria-hidden="true"
 			/>
 			GitHub
 		</HyperLink>
