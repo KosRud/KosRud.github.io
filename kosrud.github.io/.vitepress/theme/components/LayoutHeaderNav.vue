@@ -1,11 +1,6 @@
 <script lang="ts" setup>
-import { ref, computed, Ref } from 'vue';
+import { ref, Ref } from 'vue';
 import { useStore } from './pinia/store';
-
-import {
-	AdaptiveStage,
-	useAdaptivePreference,
-} from './composables/adaptiveStages';
 
 const store = useStore();
 
@@ -13,42 +8,39 @@ import LayoutHeaderNavItem from './LayoutHeaderNavItem.vue';
 import { useResizeObserver } from './composables/resizeObserver';
 
 const itemList: Ref<Element | null> = ref(null);
-const adaptivePreference = useAdaptivePreference();
 handleAdaptivePeference();
 
-const visibility = computed(() => {
-	return store.adaptiveStage == AdaptiveStage.full ? 'visible' : 'hidden';
-});
-
 function handleAdaptivePeference() {
-	useResizeObserver(updateAdaptivePreference, () => itemList.value, true);
+	useResizeObserver(
+		() => {
+			store.isHeaderNavOverlapping = isOverlapping();
+		},
+		() => itemList.value,
+		true
+	);
 }
 
-function updateAdaptivePreference() {
-	adaptivePreference.value.requestedStage = getAdaptivePreference();
-}
-
-function getAdaptivePreference() {
+function isOverlapping() {
 	if (!itemList.value) {
 		console.error('Top navigation bar item list not found.');
-		return AdaptiveStage.full;
+		return false;
 	}
 
 	const lastItem = itemList.value.lastElementChild;
 	if (!lastItem) {
 		// not an error, because navItems are generated after mounting
 		// can't generate before mounting because hydration missmatch
-		return AdaptiveStage.full;
+		return false;
 	}
 
 	if (
 		lastItem.getBoundingClientRect().right >
 		itemList.value.getBoundingClientRect().right
 	) {
-		return AdaptiveStage.compact;
+		return true;
 	}
 
-	return AdaptiveStage.full;
+	return false;
 }
 </script>
 
@@ -85,6 +77,5 @@ function getAdaptivePreference() {
 		padding-top: @HeaderNav-padding-vertical;
 		padding-bottom: @HeaderNav-padding-vertical;
 	}
-	visibility: v-bind(visibility);
 }
 </style>

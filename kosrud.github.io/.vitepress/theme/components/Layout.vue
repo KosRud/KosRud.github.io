@@ -9,12 +9,6 @@ import { createPinia } from 'pinia';
 
 import { ThemeConfig } from '@theme/ThemeConfig';
 import { useDarkModeEnforce } from './composables/darkMode';
-import {
-	useAdaptivePreference,
-	AdaptiveStage,
-} from './composables/adaptiveStages';
-import { pxToRem } from './composables/unitConverter';
-import { useResizeObserver } from './composables/resizeObserver';
 import { register as registerCustomElements } from './elements/index';
 
 registerCustomElements();
@@ -24,30 +18,10 @@ const { frontmatter } = useData<ThemeConfig>();
 
 getCurrentInstance()?.appContext.app.use(createPinia());
 const store = useStoreService();
-const adaptivePreference = useAdaptivePreference();
-const adaptiveThresholdRem = 1200;
 
 const containerElement: Ref<Element | null> = ref(null);
 
 useDarkModeEnforce(false);
-
-useResizeObserver(
-	() => {
-		if (!containerElement.value) {
-			console.error('Layout container element ref not set');
-			return;
-		}
-
-		const width = containerElement.value.clientWidth;
-
-		adaptivePreference.value.requestedStage =
-			pxToRem(width) >= adaptiveThresholdRem
-				? AdaptiveStage.full
-				: AdaptiveStage.compact;
-	},
-	() => document.querySelector('html'),
-	true
-);
 </script>
 
 <template>
@@ -119,11 +93,11 @@ useResizeObserver(
 }
 
 .Main___doc {
-	flex-grow: 1;
+	flex: 1 1 100%;
 }
 
 .Main___hero {
-	flex-grow: 1;
+	flex: 1 1 100%;
 
 	display: flex;
 	flex-direction: column;

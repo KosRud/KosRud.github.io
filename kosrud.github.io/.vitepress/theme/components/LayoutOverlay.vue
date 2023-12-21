@@ -4,16 +4,10 @@ import LayoutNavPages from './LayoutNavPages.vue';
 import LayoutHeader from './LayoutHeader.vue';
 import LayoutNavMobile from './LayoutNavMobile.vue';
 
-import { useData } from 'vitepress';
 import { useStore } from './pinia/store';
 import { useCssModule } from 'vue';
 
-import { ThemeConfig } from '../ThemeConfig';
-import { AdaptiveStage } from './composables/adaptiveStages';
 import { watchEffect } from 'vue';
-
-// https://vitepress.dev/reference/runtime-api#usedata
-const { frontmatter } = useData<ThemeConfig>();
 
 const store = useStore();
 const $style = useCssModule();
@@ -36,12 +30,7 @@ watchEffect(() => {
 	>
 		<LayoutHeader :class="$style.Header" />
 		<div :class="$style.NavContainer">
-			<template
-				v-if="
-					!frontmatter.hero &&
-					store.adaptiveStage == AdaptiveStage.full
-				"
-			>
+			<template v-if="store.isCompactModeActive">
 				<div :class="$style.NavPagesWrapper">
 					<LayoutNavPages
 						:class="$style.NavPages"

@@ -3,24 +3,18 @@ import LayoutError404 from './LayoutError404.vue';
 import MarkdownWrapper from './MarkdownWrapper.vue';
 import YouAreHere from './YouAreHere.vue';
 
-import { ComponentPublicInstance } from 'vue';
 import { useData } from 'vitepress';
-
 import { useStore } from './pinia/store';
 
-import { AdaptiveStage } from './composables/adaptiveStages';
-
-const store = useStore();
 const { page } = useData();
+const store = useStore();
 </script>
 
 <template>
 	<div
 		:class="[
 			$style.MainWrapper,
-			store.adaptiveStage == AdaptiveStage.full
-				? $style.MainWrapper___full
-				: $style.MainWrapper___compact,
+			store.isCompactModeActive ? $style.MainWrapper___compact : '',
 		]"
 	>
 		<div :class="$style.Main">
@@ -33,12 +27,7 @@ const { page } = useData();
 					:class="$style.Markdown"
 					v-else
 				>
-					<Content
-						:ref="(component: ComponentPublicInstance | null) => {
-								store.pageContent = component;
-							}
-							"
-					/>
+					<Content />
 				</MarkdownWrapper>
 			</main>
 		</div>
@@ -53,6 +42,9 @@ const { page } = useData();
 	flex-direction: row;
 	align-items: stretch;
 	justify-content: center;
+
+	padding-left: @Aside-width;
+	padding-right: @Aside-width;
 }
 
 .CurrentLocation {
@@ -63,34 +55,35 @@ const { page } = useData();
 	flex: 0 1 @content-width + @Main-padding-horizontal*2;
 
 	padding: @Header-to-Content-gap @Main-padding-horizontal;
+	padding-bottom: @gap*16;
+
 	background-color: @color-white;
+	border-right: @border-width-s solid @color-border;
+	border-left: @border-width-s solid @color-border;
 
 	> * {
 		margin-left: auto;
 		margin-right: auto;
 		max-width: @content-width;
 	}
-
-	padding-bottom: @gap*16;
 }
 
 .MainWrapper___compact {
-	max-width: none;
+	padding-left: 0rem;
+	padding-right: 0rem;
 
 	.Main {
-		flex-grow: 1;
+		flex: 1 1 100%;
 		padding-left: @Main-padding-horizontal-compact;
 		padding-right: @Main-padding-horizontal-compact;
+		border-left: none;
+		border-right: none;
 	}
 }
 
-.MainWrapper___full {
-	margin-left: @Aside-width;
-	margin-right: @Aside-width;
-
-	.Main {
-		border-right: @border-width-s solid @color-border;
-		border-left: @border-width-s solid @color-border;
+@media screen and (width < 75em) {
+	.MainWrapper {
+		.MainWrapper___compact();
 	}
 }
 </style>
