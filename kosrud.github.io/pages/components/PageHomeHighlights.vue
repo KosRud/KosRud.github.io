@@ -39,7 +39,7 @@ const props = defineProps<{ dummies: number }>();
 						/>
 						combined with an original artifact compensation
 						<HyperLink
-							text="algorithm"
+							text="method"
 							href="http://journals.khnu.km.ua/vestnik/pdf/tech/pdfbase/2020/2020_1/(281)_2020-1-t.pdf#page=12"
 						/>
 						which I developed for my master's thesis at the Faculty
