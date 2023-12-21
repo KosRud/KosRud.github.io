@@ -1,6 +1,6 @@
 # Design Guidelines
 
-Some advice for making a clean, functional and aesthetically pleasing web-page.
+Some advice for making a clean, functional and aesthetically pleasing web page.
 
 ## Animation and hovering
 
@@ -45,17 +45,14 @@ Animations and `:hover` style can hint towards which elements are interactive. D
 
 ## Center of the page
 
-Keep the main content towards the center of the page, where it is most comfortable to read. 
-
-Keep the left and right edges of the screen empty or reserve them for the content which the user looks at only occasionally (suggested links, tags, FAQ, menu, recent posts, etc.)
+* Keep the main content towards the center of the page, where it is most comfortable to read. 
+* Keep the left and right edges of the screen empty or reserve them for the content that will be only looked at occasionally (suggested links, tags, FAQ, menu, recent posts, etc.)
 
 ## Colors
 
-Don't use too many colors (2-4 is optimal).
-
-Pick one "main" color which you will use the most and use the other "secondary" colors for accents (buttons, headings, etc.). The accent colors are usually more saturated and vivid to attract attention.
-
-Use vivid colors sparingly. The "main" color should be easy on the eyes (desaturated).
+* Don't use too many colors (2-4 is optimal).
+* Pick one "primary" color which you will use the most, and use other "secondary" colors to make important elements stand out (buttons, headings, links, etc.). The accent colors are usually more saturated and vivid to attract attention.
+* Use vivid colors sparingly. The "main" color should be easy on the eyes (desaturated).
 
 <style>
     .text-color-demo {
@@ -79,13 +76,17 @@ Use vivid colors sparingly. The "main" color should be easy on the eyes (desatur
     }
 </style>
 
-See color palette [tools](4. Tools#color-palette).
+See color palette [tools](tools#color-palette).
 
 ## Consistency
 
-Strive for consistency in your style. Have a list of preset colors instead of selecting a "roughly similar" color by hand every time. Same with border styles, rounded corners, etc.
+Strive for consistency in your style. For each property (font size, color, border radius, etc.) decide on a small set of values that you will use and only add new ones when necessary.
 
-Use CSS variables:
+For example: let's imagine you need a large font size for headings. You could choose something at random like 120% and stop at that. However, a few days later you once again need a large font size for a banner. If you pick a value at random, it might end up differing from the size of headings by just a little bit. A lot of these *"close but not quite equal"* values can make a website look messy.
+
+Using css variables gives a number of advantages:
+* You have a clearly defined list of possible values in one place: no need to check with existing elements, just pick a value from the list.
+* You can change all related values by editing a single line. This is great for experimenting with your design. Without variables, to change the "primary" color of your website from blue to yellow (for example) you'd have to manually edit every single style which includes that color.
 
 ```CSS
 body {
@@ -112,17 +113,19 @@ w3school
 
 ## Get straight to the point
 
-When the user opens your website, they should immediately see the content they came for, not a full page logo.
+People usually open a website with a purpose in mind (a shop to buy something, a wiki to find information, a messenger to chat, etc.). A full-screen image on the home page can be pretty, but it adds an unnecessary delay between the user and their goal, which can be annoying.
+
+Though sometimes an image *is* the main feature of the website (an artist's portfolio, for example), in which case it makes perfect sense to put it front and center.
 
 ## Menu
 
-If the menu is on the top and [sticky](https://www.w3schools.com/howto/howto_css_sticky_element.asp), it should be very thin to maximize the amount of useful content that fits on the screen. With a non-sticky menu you can afford a bit more vertical space.
+A [sticky](https://www.w3schools.com/howto/howto_css_sticky_element.asp) menu permanently covers a portion of the screen, reducing the available window through which the user can view content. You wouldn't want to cover a significant portion of your monitor if you can help it, so if you opt for a sticky menu, make it thin.
+
+A non-sticky menu does not have this issue and thus can be made larger, but keep in mind that whatever the user sees upon initial page load without scrolling will form the first impression so utilizing that space effectively is important.
 
 ## Tables
 
-Do not use tables for layout! Element `<table>` should only be used for tabular data, otherwise it will confuse applications trying to `parse` the page content (e.g. screen readers).
-
-For the page layout use `display: grid` or `display: flex` in CSS.
+Do not use tables for layout. Element `<table>` should only be used for tabular data, otherwise it will confuse applications trying to parse the page's content and understand its structure such as screen readers. For the page layout use `display: grid` or `display: flex` in CSS.
 
 ## Text
 

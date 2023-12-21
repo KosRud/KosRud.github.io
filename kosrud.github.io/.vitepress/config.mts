@@ -46,7 +46,7 @@ const nav = makeNav(
 					children: [
 						{ title: 'Naming things', url: 'naming' },
 						{ title: 'Clean code', url: 'clean' },
-						{ title: 'JS tricks', url: 'tricks' },
+						{ title: 'JS cheat sheet', url: 'cheat' },
 					],
 				},
 			],
@@ -126,7 +126,7 @@ const config = defineConfigWithTheme<ThemeConfig>({
 			md.use(markdownItKatex);
 			md.use(markdownItDeflist);
 		},
-		lineNumbers: true,
+		lineNumbers: false,
 		theme: 'github-light',
 		// codeTransformers: [
 		// 	// We use `[!!code` in demo to prevent transformation, here we revert it back.

@@ -61,6 +61,14 @@ useResizeObserver(
 	.Content();
 
 	/*
+		Lists
+	\*----------------------------------*/
+
+	li {
+		margin-bottom: @gap*0.5;
+	}
+
+	/*
 		Headings
 	\*----------------------------------*/
 
@@ -288,6 +296,9 @@ useResizeObserver(
 	@code-numbers-gap: @gap*2;
 	@code-lineNumbers-width: 80rem;
 
+	// temporary while line numbers disabled
+	@code-lineNumbers-width: @code-padding;
+
 	:global(.line-numbers-wrapper) {
 		position: absolute;
 		top: 0rem;
@@ -327,6 +338,8 @@ useResizeObserver(
 		border: @border-width-s solid @color-border;
 		border-radius: @gap*0.5;
 		box-shadow: @shadow-ao;
+		tab-size: 4;
+		text-align: left;
 	}
 
 	.copy {
