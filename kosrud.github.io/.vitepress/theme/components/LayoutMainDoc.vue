@@ -68,6 +68,10 @@ const store = useStore();
 	}
 }
 
+/*
+	Responsive
+\*----------------------------------*/
+
 .MainWrapper___compact {
 	padding-left: 0rem;
 	padding-right: 0rem;
