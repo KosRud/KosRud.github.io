@@ -1,7 +1,8 @@
 import { defineConfigWithTheme } from 'vitepress';
 import { ThemeConfig } from './theme/ThemeConfig';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
-import { withMermaid } from 'vitepress-plugin-mermaid';
+import { imagetools } from 'vite-imagetools';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import markdownItKatex from 'markdown-it-katex';
 import markdownItDeflist from 'markdown-it-deflist';
 import { resolve } from 'node:path';
@@ -82,6 +83,13 @@ const config = defineConfigWithTheme<ThemeConfig>({
 			vueJsxPlugin({
 				// options are passed on to @vue/babel-plugin-jsx
 			}),
+			// ViteImageOptimizer({
+			// 	// https://www.npmjs.com/package/vite-plugin-image-optimizer
+			// 	png: { quality: 20 },
+			// 	jpg: { quality: 20 },
+			// 	gif: { colors: 64 },
+			// }),
+			imagetools(),
 		],
 		optimizeDeps: {
 			// https://github.com/mermaid-js/mermaid/issues/4320

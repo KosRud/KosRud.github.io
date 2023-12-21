@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { devIcons } from './tsx/devIcons';
 
+import imgPhoto from '@/content/photo-of-me.png?format=jpg&w=300&withoutEnlargement&quality=70';
+
 const devIconGroups = {
 	worked: [
 		devIcons.unity,
@@ -61,7 +63,7 @@ const devIconGroups = {
 			<img
 				alt="Photo of me"
 				:class="[$style.Bio_photo, $style.Bio_photo___aside]"
-				src="/_assets/photo.png"
+				:src="imgPhoto"
 			/>
 			<div :class="[$style.Bio_text]">
 				<p>
@@ -84,7 +86,7 @@ const devIconGroups = {
 					<img
 						alt="Photo of me"
 						:class="[$style.Bio_photo, $style.Bio_photo___inside]"
-						src="/_assets/photo.png"
+						:src="imgPhoto"
 					/>
 				</p>
 				<p></p>
