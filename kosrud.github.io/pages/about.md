@@ -19,6 +19,6 @@ Software developer for <HyperLink
 	href="https://risa.com/"
 />
 
-* Converting inherited C/C++ code to .Net platform (C#, C++/CLI)
+* converting inherited C/C++ code to .Net platform (C#, C++/CLI)
 * developing UI with WPF, Telerik UI and Windows Forms
 * developing a report generation system with Telerik Reporting
