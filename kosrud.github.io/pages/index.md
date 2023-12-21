@@ -1,6 +1,5 @@
 ---
 hero: true
-title: Home page
 ---
 
 <script setup>

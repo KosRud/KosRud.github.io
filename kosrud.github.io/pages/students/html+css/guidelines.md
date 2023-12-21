@@ -1,5 +1,3 @@
-# Design Guidelines
-
 Some advice for making a clean, functional and aesthetically pleasing web page.
 
 ## Animation and hovering

@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { Ref, ref } from 'vue';
+
 import { useResizeObserver } from './composables/resizeObserver';
+import { useNavTrace } from './composables/navTrace';
 
 const containerElement: Ref<Element | null> = ref(null);
 const isNarrow = ref(false);
 const narrowThresholdRem = 500;
+
+const navTrace = useNavTrace();
 
 useResizeObserver(
 	() => {
@@ -26,6 +30,7 @@ useResizeObserver(
 		:ref="(element) => {containerElement = element as Element}"
 		:class="[$style.Markdown, isNarrow ? $style.Markdown___narrow : '']"
 	>
+		<h1>{{ navTrace[navTrace.length - 1].title }}</h1>
 		<slot />
 	</div>
 </template>
@@ -265,6 +270,16 @@ useResizeObserver(
 		&::before {
 			background-color: #f0b37e;
 			content: 'Warning';
+		}
+	}
+
+	:global(.custom-block.tip) {
+		background-color: #efe;
+		border-color: #888;
+
+		&::before {
+			background-color: #9b9;
+			content: 'References';
 		}
 	}
 

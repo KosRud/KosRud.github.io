@@ -1,5 +1,3 @@
-# Semantic HTML Elements
-
 Semantic elements work similarly to `<div>`, but they also convey their purpose on the page (example: `<nav>` provides navigation links), and help define the structure of your page.
 
 Non-semantic elements, on the other hand, do not have a strictly defined purpose 

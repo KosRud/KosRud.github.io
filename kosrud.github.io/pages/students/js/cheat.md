@@ -2,8 +2,6 @@
 	import imgShallowCopy from './_JS tricks/shallow copy.png';
 </script>
 
-# JS cheat sheet
-
 ## For loops
 
 ### For of
@@ -56,7 +54,7 @@ arr.forEach(
 );
 ```
 
-::: info
+::: tip
 * Mozilla Developer Network &mdash; [for..of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
 * Mozilla Developer Network &mdash; [for..in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
 * Mozilla Developer Network &mdash; [Array.prototype.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
@@ -94,7 +92,7 @@ console.log(`${human.name} is ${human.age} years old`);
 // Jack is 13 years old
 ```
 
-::: info
+::: tip
 Mozilla Developer Network &mdash; [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 :::
 
@@ -138,7 +136,7 @@ sayTimes(
 );
 ```
 
-::: info
+::: tip
 Mozilla Developer Network &mdash; [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 :::
 
@@ -184,7 +182,7 @@ Student.GreetAll();
 */
 ```
 
-::: info
+::: tip
 Mozilla Developer Network &mdash; [static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static), [static initialization blocks](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks)
 :::
 
@@ -224,7 +222,7 @@ for (let petOwner of petOwners) {
 }
 ```
 
-::: info
+::: tip
 Mozilla Developer Network &mdash; [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 :::
 
@@ -266,7 +264,7 @@ Output:
 |0|Ivy|29| |
 |1|Dilan|42|`Object { name: "Whiskers", age: 3 }`|
 
-::: info
+::: tip
 Mozilla Developer Network &mdash; [console.table( )](https://developer.mozilla.org/en-US/docs/Web/API/Console/table), [console.dir( )](https://developer.mozilla.org/en-US/docs/Web/API/console/dir)
 :::
 
@@ -346,7 +344,7 @@ Shallow copy sets attributes of the target object identical to the source object
 This means, that if the source object had a reference (i.e. non&ndash;[primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)) attribute, the target object will be referencing the same thing! There are 7 primitive data types: string, number, bigint, boolean, undefined, symbol, and null.
 
 <figure>
-	<img :src="imgShallowCopy">
+	<img src="./_JS%20tricks/shallow copy.png">
 </figure>
 :::
 
@@ -367,7 +365,7 @@ console.log(arr);
 // [1,2,3,4,5]
 ```
 
-::: info
+::: tip
 Mozilla Developer Network &mdash; [Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 :::
 
@@ -405,11 +403,17 @@ console.table(editedGrid);
 ```
 Output:
 
-||||
-|---|---|---|
-|0|1|2|
-|3|4|5|
-|6|7|8|
+<table>
+	<tr>
+		<td>0</td><td>1</td><td>2</td>
+	</tr>
+	<tr>
+		<td>3</td><td>4</td><td>5</td>
+	</tr>
+	<tr>
+		<td>6</td><td>7</td><td>8</td>
+	</tr>
+</table>
 
 #### Combined with [spread syntax](#spread-syntax):
 
@@ -434,8 +438,14 @@ console.table(editedGrid);
 
 Output:
 
-|||||
-|---|---|---|---|
-|0|1|2|0|
-|3|4|5|0|
-|6|7|8|0|
+<table>
+	<tr>
+		<td>0</td><td>1</td><td>2</td><td>0</td>
+	</tr>
+	<tr>
+		<td>3</td><td>4</td><td>5</td><td>0</td>
+	</tr>
+	<tr>
+		<td>6</td><td>7</td><td>8</td><td>0</td>
+	</tr>
+</table>
