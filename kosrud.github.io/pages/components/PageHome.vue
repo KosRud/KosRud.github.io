@@ -7,8 +7,6 @@ import HomePageBio from './PageHomeBio.vue';
 import HomePageContact from './PageHomeContact.vue';
 
 import { computed, onMounted, onUnmounted, ref } from 'vue';
-import { useResizeObserver } from '@vitepress/theme/components/composables/resizeObserver';
-import { pxToRem } from '@vitepress/theme/components/composables/unitConverter';
 
 const hero: Ref<Element | null> = ref(null);
 const scrollY = ref(0);
@@ -21,23 +19,6 @@ const heroBrightness = computed(() => {
 });
 const containerDiv: Ref<Element | null> = ref(null);
 handleScrolling();
-
-const compactThresholdRem = 800;
-const isCompact = ref(false);
-useResizeObserver(
-	() => {
-		if (!containerDiv.value) {
-			console.error('homepage container div reference not set');
-			return;
-		}
-
-		const width = pxToRem(containerDiv.value.clientWidth);
-
-		isCompact.value = width < compactThresholdRem;
-	},
-	() => containerDiv.value,
-	true
-);
 
 function handleScrolling() {
 	function onScroll() {
@@ -55,7 +36,7 @@ function handleScrolling() {
 
 <template>
 	<div
-		:class="[$style.HomePage, isCompact ? $style.HomePage___compact : '']"
+		:class="$style.HomePage"
 		:ref="(element) => { containerDiv = element as Element }"
 	>
 		<div
@@ -63,7 +44,6 @@ function handleScrolling() {
 			hero = element as Element;
 		}"
 			:class="$style.Hero"
-			v-if="!isCompact"
 		>
 			<img
 				:class="$style.Hero_photo"
@@ -170,10 +150,14 @@ function handleScrolling() {
 	Responsive
 \*----------------------------------*/
 
-.HomePage___compact {
+@media screen and (width < 50em) {
+	.Hero {
+		display: none;
+	}
+
 	.ContentWrapper {
 		padding: @Main-padding-horizontal-compact;
-		padding-top: @Main-padding-horizontal-compact* (3/2);
+		padding-top: @Main-padding-horizontal-compact * (3/2);
 	}
 }
 
