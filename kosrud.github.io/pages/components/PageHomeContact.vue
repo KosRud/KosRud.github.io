@@ -28,6 +28,7 @@ import GrungeHeading from './GrungeHeading.vue';
 			<img
 				:class="$style.StatusBox_icon"
 				:src="handshake"
+				alt="icon: handshake"
 			/>
 			<span :class="$style.StatusBox_text"
 				>I'm available for contract work</span
@@ -76,7 +77,7 @@ import GrungeHeading from './GrungeHeading.vue';
 </template>
 
 <style module lang="less">
-@import '@vitepress/theme/style/variables/index.less';
+@import '@vitepress/theme/style/variables.less';
 @import '@vitepress/theme/style/mixins/index.less';
 
 .Contact {

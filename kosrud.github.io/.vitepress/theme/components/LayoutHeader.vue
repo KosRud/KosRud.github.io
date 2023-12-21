@@ -92,7 +92,7 @@ useResizeObserver(
 </template>
 
 <style module lang="less">
-@import '@theme/style/variables/index.less';
+@import '@theme/style/variables.less';
 
 @Header-logo-size: @Header-height - @gap;
 @Header-gap: @gap;

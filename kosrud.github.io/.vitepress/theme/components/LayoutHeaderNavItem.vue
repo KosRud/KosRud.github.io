@@ -36,7 +36,7 @@ const isActive = computed(() => {
 </template>
 
 <style module lang="less">
-@import '@theme/style/variables/index.less';
+@import '@theme/style/variables.less';
 @import '@theme/style/mixins/index.less';
 
 .NavItem {

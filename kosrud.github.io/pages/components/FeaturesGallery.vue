@@ -22,7 +22,7 @@ const props = defineProps<{
 </template>
 
 <style module lang="less">
-@import '@vitepress/theme/style/variables/index.less';
+@import '@vitepress/theme/style/variables.less';
 
 @CardGalleryGap: @gap*2;
 
