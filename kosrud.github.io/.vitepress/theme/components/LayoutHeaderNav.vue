@@ -73,7 +73,7 @@ function getAdaptivePreference() {
 </template>
 
 <style module lang="less">
-@import '@theme/style/variables/index.less';
+@import '@theme/style/variables.less';
 
 .HeaderNav {
 	> ul {

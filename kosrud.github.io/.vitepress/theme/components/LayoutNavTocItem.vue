@@ -73,7 +73,7 @@ const linkElement: Ref<Element | null> = ref(null);
 </template>
 
 <style module lang="less">
-@import '@theme/style/variables/index.less';
+@import '@theme/style/variables.less';
 @import '@theme/style/mixins/index.less';
 
 .TocItem {

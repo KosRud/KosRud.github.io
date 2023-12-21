@@ -94,7 +94,7 @@ useResizeObserver(
 </template>
 
 <style lang="less" module>
-@import '@theme/style/variables/index.less';
+@import '@theme/style/variables.less';
 
 .VisibleRectMarker {
 	pointer-events: none;

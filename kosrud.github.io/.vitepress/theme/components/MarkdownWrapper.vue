@@ -36,7 +36,7 @@ useResizeObserver(
 </template>
 
 <style lang="less" module>
-@import '@theme/style/variables/index.less';
+@import '@theme/style/variables.less';
 @import '@theme/style/mixins/index.less';
 
 @admonition_title-height: @size * 2;

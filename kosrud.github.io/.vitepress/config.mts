@@ -2,7 +2,6 @@ import { defineConfigWithTheme } from 'vitepress';
 import { ThemeConfig } from './theme/ThemeConfig';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
 import { withMermaid } from 'vitepress-plugin-mermaid';
-import vsharp from 'vite-plugin-vsharp';
 import markdownItKatex from 'markdown-it-katex';
 import markdownItDeflist from 'markdown-it-deflist';
 import { resolve } from 'node:path';
@@ -82,9 +81,6 @@ const config = defineConfigWithTheme<ThemeConfig>({
 		plugins: [
 			vueJsxPlugin({
 				// options are passed on to @vue/babel-plugin-jsx
-			}),
-			vsharp.default({
-				// https://jw-12138.github.io/vite-plugin-vsharp/
 			}),
 		],
 		optimizeDeps: {
