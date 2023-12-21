@@ -80,11 +80,11 @@ See color palette [tools](tools#color-palette).
 
 Strive for consistency in your style. For each property (font size, color, border radius, etc.) decide on a small set of values that you will use and only add new ones when necessary.
 
-For example: let's imagine you need a large font size for headings. You could choose something at random like 120% and stop at that. However, a few days later you once again need a large font size for a banner. If you pick a value at random, it might end up differing from the size of headings by just a little bit. A lot of these *"close but not quite equal"* values can make a website look messy.
+For example: let's imagine you need a large font size for the headings. You could choose something at random like 120% and stop at that. However, a few days later you once again need a large font size for the banner. If you pick a value at random, it might end up differing from the size of headings by just a little bit. A lot of these *"close but not quite equal"* values can make a website look messy.
 
 Using css variables gives a number of advantages:
-* You have a clearly defined list of possible values in one place: no need to check with existing elements, just pick a value from the list.
-* You can change all related values by editing a single line. This is great for experimenting with your design. Without variables, to change the "primary" color of your website from blue to yellow (for example) you'd have to manually edit every single style which includes that color.
+* You have a clearly defined list of possible values in one place. No need to check with existing elements: just pick a value from the list.
+* You can change all related values by editing a single line, this is great for experimenting with your design. Without variables, to change the "primary" color of your website from blue to yellow (for example) you'd have to manually edit every single style which includes that color.
 
 ```CSS
 body {
@@ -107,19 +107,19 @@ w3school &mdash; [CSS Variables &mdash; The var( ) Function](https://www.w3schoo
 
 ## Get straight to the point
 
-People usually open a website with a purpose in mind (a shop to buy something, a wiki to find information, a messenger to chat, etc.). A full-screen image on the home page can be pretty, but it adds an unnecessary delay between the user and their goal, which can be annoying.
+People usually open a website with a purpose in mind (a shop to buy something, a wiki to find information, a messenger to chat, etc.). A full-screen image on the home page can be pretty, but it adds an unnecessary delay before the user can reach their goal, which can be annoying.
 
-Though sometimes an image *is* the main feature of the website (an artist's portfolio, for example), in which case it makes perfect sense to put it front and center.
+Though sometimes an image *is* the main feature of the website (such as an artist's portfolio), in which case it makes perfect sense to put it front and center.
 
 ## Menu
 
 A [sticky](https://www.w3schools.com/howto/howto_css_sticky_element.asp) menu permanently covers a portion of the screen, reducing the available window through which the user can view content. You wouldn't want to cover a significant portion of your monitor if you can help it, so if you opt for a sticky menu, make it thin.
 
-A non-sticky menu does not have this issue and thus can be made larger, but keep in mind that whatever the user sees upon initial page load without scrolling will form the first impression so utilizing that space effectively is important.
+A non-sticky menu does not have this issue and thus can be made larger, but keep in mind that whatever the user sees upon initial page load without scrolling will form the first impression, so utilizing that space effectively is important.
 
 ## Tables
 
-Do not use tables for layout. Element `<table>` should only be used for tabular data, otherwise it will confuse applications trying to parse the page's content and understand its structure such as screen readers. For the page layout use `display: grid` or `display: flex` in CSS.
+Do not use tables for layout. Element `<table>` should only be used for tabular data, otherwise it will confuse applications trying to parse the page's content and understand its structure, such as screen readers. For the page layout use `display: grid` or `display: flex` in CSS.
 
 ## Text
 
