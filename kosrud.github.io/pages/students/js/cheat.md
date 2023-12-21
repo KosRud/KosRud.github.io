@@ -405,16 +405,22 @@ Output:
 
 <table>
 	<tr>
-		<th>(index)</th><th>0</th><th>1</th><th>2</th>
+		<th scope="col">(index)</th>
+		<th scope="col">0</th>
+		<th scope="col">1</th>
+		<th scope="col">2</th>
 	</tr>
 	<tr>
-		<th>0</th><td>0</td><td>1</td><td>2</td>
+		<th scope="row">0</th>
+		<td>0</td><td>1</td><td>2</td>
 	</tr>
 	<tr>
-		<th>1</th><td>3</td><td>4</td><td>5</td>
+		<th scope="row">1</th>
+		<td>3</td><td>4</td><td>5</td>
 	</tr>
 	<tr>
-		<th>2</th><td>6</td><td>7</td><td>8</td>
+		<th scope="row">2</th>
+		<td>6</td><td>7</td><td>8</td>
 	</tr>
 </table>
 
@@ -443,15 +449,22 @@ Output:
 
 <table>
 	<tr>
-		<th>(index)</th><th>0</th><th>1</th><th>2</th><th>3</th>
+		<th scope="column">(index)</th>
+		<th scope="column">0</th>
+		<th scope="column">1</th>
+		<th scope="column">2</th>
+		<th scope="column">3</th>
 	</tr>
 	<tr>
-		<th>0</th><td>0</td><td>1</td><td>2</td><td>0</td>
+		<th  scope="row">0</th>
+		<td>0</td><td>1</td><td>2</td><td>0</td>
 	</tr>
 	<tr>
-		<th>1</th><td>3</td><td>4</td><td>5</td><td>0</td>
+		<th  scope="row">1</th>
+		<td>3</td><td>4</td><td>5</td><td>0</td>
 	</tr>
 	<tr>
-		<th>2</th><td>6</td><td>7</td><td>8</td><td>0</td>
+		<th  scope="row">2</th>
+		<td>6</td><td>7</td><td>8</td><td>0</td>
 	</tr>
 </table>
