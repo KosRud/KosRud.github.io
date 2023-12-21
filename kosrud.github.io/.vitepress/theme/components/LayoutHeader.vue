@@ -1,21 +1,55 @@
 <script lang="ts" setup>
 import { useStore } from './pinia/store';
+import { Ref, ref } from 'vue';
 
 import LayoutHeaderNav from './LayoutHeaderNav.vue';
 import LayoutHeaderButtonBurger from './LayoutHeaderButtonBurger.vue';
 import { AdaptiveStage } from './composables/adaptiveStages';
+import { useResizeObserver } from './composables/resizeObserver';
 
 const store = useStore();
+
+const container: Ref<Element | null> = ref(null);
+const logo: Ref<Element | null> = ref(null);
+const logoVisibility = ref('visible');
+
+useResizeObserver(
+	() => {
+		if (!logo.value) {
+			console.error('logo ref not set');
+			return;
+		}
+
+		const sibling = logo.value.nextElementSibling;
+		if (!sibling) {
+			return;
+		}
+
+		if (
+			logo.value.getBoundingClientRect().right >
+			sibling.getBoundingClientRect().left
+		) {
+			logoVisibility.value = 'hidden';
+			console.log('hide');
+		} else {
+			logoVisibility.value = 'visible';
+		}
+	},
+	() => container.value,
+	true
+);
 </script>
 
 <template>
 	<header
 		:class="$style.Header"
 		role="banner"
+		:ref="(element) => container = element as Element"
 	>
 		<a
 			href="/"
 			:class="$style.Header_logo"
+			:ref="(element) => logo = element as Element"
 		>
 			<img
 				src="/favicon.svg"
@@ -77,12 +111,14 @@ const store = useStore();
 
 .Header_logo {
 	height: @Header-logo-size;
-	aspect-ratio: 1;
 	display: flex;
 	justify-content: stretch;
 	align-items: stretch;
 
 	box-shadow: @shadow;
+
+	padding-right: @gap;
+	visibility: v-bind(logoVisibility);
 }
 
 .Header_spacer {
