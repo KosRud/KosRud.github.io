@@ -1,32 +1,5 @@
 <script setup lang="ts">
-import { Ref, ref } from 'vue';
-import { useResizeObserver } from '@vitepress/theme/components/composables/resizeObserver';
-import { pxToRem } from '@vitepress/theme/components/composables/unitConverter';
 import { devIcons } from './tsx/devIcons';
-
-const adaptiveStage = ref(0);
-const isNarrowThresholdsRem = [1100, 900, 700];
-const containerElement: Ref<Element | null> = ref(null);
-
-useResizeObserver(
-	() => {
-		if (!containerElement.value) {
-			console.error('Homepage bio container element not found');
-			return;
-		}
-
-		const width = pxToRem(containerElement.value.clientWidth);
-
-		adaptiveStage.value = -1;
-		isNarrowThresholdsRem.forEach((threshold, id) => {
-			if (width < threshold) {
-				adaptiveStage.value = id;
-			}
-		});
-	},
-	() => containerElement.value,
-	true
-);
 
 const devIconGroups = {
 	worked: [
@@ -78,15 +51,7 @@ const devIconGroups = {
 </script>
 
 <template>
-	<div
-		:class="{
-			[$style.Bio]: true,
-			[$style.Bio___adaptive_0]: adaptiveStage >= 0,
-			[$style.Bio___adaptive_1]: adaptiveStage >= 1,
-			[$style.Bio___adaptive_2]: adaptiveStage >= 2,
-		}"
-		:ref="(element) => { containerElement = element as Element }"
-	>
+	<div :class="$style.Bio">
 		<div :class="$style.Bio_titleContainer">
 			<div :class="$style.Bio_titleSpacer"></div>
 			<h2 :class="$style.Bio_title">Greetings!</h2>
@@ -97,7 +62,6 @@ const devIconGroups = {
 				alt="Photo of me"
 				:class="[$style.Bio_photo, $style.Bio_photo___aside]"
 				src="/_assets/photo.png"
-				v-if="adaptiveStage < 2"
 			/>
 			<div :class="[$style.Bio_text]">
 				<p>
@@ -121,7 +85,6 @@ const devIconGroups = {
 						alt="Photo of me"
 						:class="[$style.Bio_photo, $style.Bio_photo___inside]"
 						src="/_assets/photo.png"
-						v-if="adaptiveStage >= 2"
 					/>
 				</p>
 				<p></p>
@@ -256,7 +219,7 @@ const devIconGroups = {
 
 	margin-left: auto;
 	margin-right: auto;
-	display: block;
+	display: none;
 }
 
 .devIcon {
@@ -270,14 +233,14 @@ const devIconGroups = {
 	Responsive
 \*----------------------------------*/
 
-.Bio___adaptive_0 {
+@media screen and (width < 80em) {
 	.Bio_content,
 	.Bio_titleContainer {
 		margin-right: 0rem;
 	}
 }
 
-.Bio___adaptive_1 {
+@media screen and (width < 60em) {
 	.Bio_content {
 		gap: @gap*2;
 	}
@@ -307,10 +270,18 @@ const devIconGroups = {
 	}
 }
 
-.Bio___adaptive_2 {
+@media screen and (width < 45em) {
 	.Bio_text {
 		flex: 1 0 100%;
 		text-align: left;
+	}
+
+	.Bio_photo___aside {
+		display: none;
+	}
+
+	.Bio_photo___inside {
+		display: block;
 	}
 }
 </style>
