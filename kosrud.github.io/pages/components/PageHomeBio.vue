@@ -125,26 +125,28 @@ const devIconGroups = {
 				</p>
 				<p></p>
 				<table :class="$style.DeviconsTable">
-					<tr>
-						<td>I have experience working with:</td>
-						<td>
-							<component
-								:class="$style.devIcon"
-								:is="devIcon"
-								v-for="devIcon in devIconGroups.worked"
-							/>
-						</td>
-					</tr>
-					<tr>
-						<td>I have dabbled with:</td>
-						<td>
-							<component
-								:class="$style.devIcon"
-								:is="devIcon"
-								v-for="devIcon in devIconGroups.dabbled"
-							/>
-						</td>
-					</tr>
+					<tbody>
+						<tr>
+							<td>I have experience working with:</td>
+							<td>
+								<component
+									:class="$style.devIcon"
+									:is="devIcon"
+									v-for="devIcon in devIconGroups.worked"
+								/>
+							</td>
+						</tr>
+						<tr>
+							<td>I have dabbled with:</td>
+							<td>
+								<component
+									:class="$style.devIcon"
+									:is="devIcon"
+									v-for="devIcon in devIconGroups.dabbled"
+								/>
+							</td>
+						</tr>
+					</tbody>
 				</table>
 			</div>
 		</div>

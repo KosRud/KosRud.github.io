@@ -1,11 +1,4 @@
-import {
-	onUnmounted,
-	watchEffect,
-	onBeforeMount,
-	onMounted,
-	InjectionKey,
-	Ref,
-} from 'vue';
+import { onUnmounted, watchEffect, onMounted, InjectionKey, Ref } from 'vue';
 import { onContentUpdated } from 'vitepress';
 import { useStore } from '@theme/components/pinia/store';
 
@@ -21,9 +14,6 @@ export function useTrackActiveHeadingId() {
 }
 
 function setTriggers(update: () => void) {
-	onBeforeMount(() => {
-		window.addEventListener('scroll', update, { passive: true });
-	});
 	onUnmounted(() => {
 		window.removeEventListener('scroll', update);
 	});
@@ -31,8 +21,7 @@ function setTriggers(update: () => void) {
 		update();
 	});
 	onMounted(() => {
-		// wait until mounted
-		// to make sure pinia store is ready
+		window.addEventListener('scroll', update, { passive: true });
 		watchEffect(update);
 	});
 }

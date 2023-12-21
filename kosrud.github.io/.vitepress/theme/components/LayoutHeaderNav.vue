@@ -36,7 +36,8 @@ function getAdaptivePreference() {
 
 	const lastItem = itemList.value.lastElementChild;
 	if (!lastItem) {
-		console.warn('Top navigation bar has no items.');
+		// not an error, because navItems are generated after mounting
+		// can't generate before mounting because hydration missmatch
 		return AdaptiveStage.full;
 	}
 
