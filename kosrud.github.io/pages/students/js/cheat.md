@@ -2,11 +2,7 @@
 	import imgShallowCopy from './_JS tricks/shallow copy.png';
 </script>
 
-# JS Tricks
-
-::: info
-The same result could be achieved without using these constructs, albeit the code would be longer and messier.
-:::
+# JS cheat sheet
 
 ## For loops
 
