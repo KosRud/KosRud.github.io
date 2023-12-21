@@ -26,10 +26,10 @@ const nav = makeNav(
 							title: 'Design guidelines',
 							url: 'guidelines',
 						},
-						{
-							title: 'Semantic elements',
-							url: 'semantic',
-						},
+						// {
+						// 	title: 'Semantic elements',
+						// 	url: 'semantic',
+						// },
 						{
 							title: 'Tools',
 							url: 'tools',

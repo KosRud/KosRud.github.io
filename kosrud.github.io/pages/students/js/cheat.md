@@ -114,7 +114,7 @@ let a = 1,
 
 ### Named function arguments
 
-With named function arguments you don't have to remember the order of arguments, when calling a function.
+With named function arguments you don't have to remember the order of arguments when calling a function.
 
 ```js
 function sayTimes(
