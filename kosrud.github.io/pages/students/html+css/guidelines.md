@@ -101,8 +101,8 @@ li.menu-item {
 ```
 
 ::: tip
-Mozilla Developer Network &mdash; [Using CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)\
-w3school &mdash; [CSS Variables &mdash; The var( ) Function](https://www.w3schools.com/css/css3_variables.asp)
+* Mozilla Developer Network &mdash; [Using CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)\
+* w3school &mdash; [CSS Variables &mdash; The var( ) Function](https://www.w3schools.com/css/css3_variables.asp)
 :::
 
 ## Get straight to the point
