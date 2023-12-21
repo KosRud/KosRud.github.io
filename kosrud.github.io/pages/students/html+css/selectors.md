@@ -1,5 +1,3 @@
-# CSS Selectors
-
 ## Most common selectors
 
 |Selector|Description|Comment|

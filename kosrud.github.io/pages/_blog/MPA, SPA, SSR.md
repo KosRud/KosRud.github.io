@@ -6,8 +6,6 @@ title: SPA and SSR trade-offs
 	import StarRating from "@/pages/components/StarRating.vue";
 </script>
 
-# MPA, SPA, SSR
-
 More stars is better.
 
 | |MPA|SPA|SSR|

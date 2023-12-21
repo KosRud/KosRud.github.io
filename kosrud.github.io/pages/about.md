@@ -2,8 +2,6 @@
 	import HyperLink from '@vitepress/theme/components/HyperLink.vue'
 </script>
 
-# About me
-
 ## Education
 
 |Period|Institution|Qualification|
