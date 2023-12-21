@@ -5,9 +5,11 @@ export function useResizeObserver(
 	getElements: () => (Element | null)[] | Element | null,
 	callOnMounted: boolean
 ) {
-	const resizeObserver = new ResizeObserver(callback);
+	let resizeObserver: ResizeObserver | null = null; // creating it here would be a hydration missmatch
 
 	onMounted(() => {
+		resizeObserver = new ResizeObserver(callback);
+
 		if (callOnMounted) {
 			callback([]);
 		}
@@ -33,6 +35,6 @@ export function useResizeObserver(
 	});
 
 	onUnmounted(() => {
-		resizeObserver.disconnect();
+		resizeObserver?.disconnect();
 	});
 }

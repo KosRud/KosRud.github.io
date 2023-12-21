@@ -75,7 +75,7 @@ function handleScrolling() {
 			</div>
 		</div>
 		<main :class="$style.ContentWrapper">
-			<HomePageBio :class="$style.Bio" />
+			<HomePageBio />
 			<HomePageFeatures />
 			<HomePageHighlights :dummies="8" />
 			<HomePageContact />
