@@ -18,7 +18,7 @@ const smudgeUrl = `url("${smudge}")`;
 
 <style module lang="less">
 @import '@vitepress/theme/style/variables.less';
-@import '@vitepress/theme/style/mixins/index.less';
+@import '@vitepress/theme/style/mixins.less';
 
 .HeadingWrapper {
 	width: min(300rem, 100%);

@@ -121,14 +121,26 @@
 	Fonts
 \*----------------------------------*/
 
-@font-OpenSans: 'Open Sans', sans-serif;
-@font-IosevkaAileWeb: 'Iosevka Aile Web', system-ui, sans-serif;
-@font-FiraCode: 'Fira Code', monospace;
+@font-main: sans-serif;
+@font-techy: sans-serif;
+@font-hero: sans-serif;
+@font-code: sans-serif;
 
-@font-main: @font-OpenSans;
-@font-techy: @font-IosevkaAileWeb;
-@font-hero: @font-IosevkaAileWeb;
-@font-code: @font-FiraCode;
+// @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@font-face {
+	font-family: 'Open Sans-fallback';
+	size-adjust: 105.44%;
+	ascent-override: 103%;
+	src: local('Arial');
+}
+
+@font-main: 'Open Sans', 'Open Sans-fallback', sans-serif;
+@font-techy: 'Iosevka Aile', system-ui, sans-serif;
+@font-hero: 'Iosevka Aile', system-ui, sans-serif;
+@font-code: 'Fira Code', monospace;
 
 /*
 	Animation-related

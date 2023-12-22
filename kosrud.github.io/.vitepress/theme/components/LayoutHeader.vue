@@ -169,6 +169,7 @@ function onResizeHandleNav() {
 
 .Header_navWrapper {
 	flex: 1 1 fit-content;
+	align-items: stretch;
 	display: flex;
 	flex-direction: row;
 	justify-content: start;
@@ -176,6 +177,7 @@ function onResizeHandleNav() {
 
 .Header_nav {
 	flex: 0 0 fit-content;
+	height: 100%;
 }
 
 .BurgerMenu {
