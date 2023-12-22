@@ -31,7 +31,7 @@ const level = computed(() => {
 
 <style module lang="less">
 @import '@theme/style/variables.less';
-@import '@theme/style/mixins/index.less';
+@import '@theme/style/mixins.less';
 
 .NavItem_text {
 	line-height: 1.2;

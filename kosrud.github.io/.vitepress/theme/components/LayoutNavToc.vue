@@ -43,7 +43,7 @@ onMounted(() => {
 
 <style lang="less" module>
 @import '@theme/style/variables.less';
-@import '@theme/style/mixins/index.less';
+@import '@theme/style/mixins.less';
 
 .Toc {
 	display: flex;

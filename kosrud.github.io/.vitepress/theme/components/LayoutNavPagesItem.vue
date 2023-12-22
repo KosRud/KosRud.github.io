@@ -95,7 +95,7 @@ onMounted(() => {
 
 <style module lang="less">
 @import '@theme/style/variables.less';
-@import '@theme/style/mixins/index.less';
+@import '@theme/style/mixins.less';
 
 @chevron-size: @size * 0.7;
 @chevron-margin-right: @gap*0.5;

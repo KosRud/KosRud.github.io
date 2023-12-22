@@ -121,7 +121,7 @@ const devIconGroups = {
 
 <style module lang="less">
 @import '@vitepress/theme/style/variables.less';
-@import '@vitepress/theme/style/mixins/index.less';
+@import '@vitepress/theme/style/mixins.less';
 
 @Bio_photo-width: 130rem;
 @Bio_photo-to-content-gap: @gap * 3;

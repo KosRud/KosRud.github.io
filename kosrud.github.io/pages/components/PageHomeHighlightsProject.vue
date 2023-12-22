@@ -107,7 +107,7 @@ useResizeObserver(
 
 <style lang="less" module>
 @import '@vitepress/theme/style/variables.less';
-@import '@vitepress/theme/style/mixins/index.less';
+@import '@vitepress/theme/style/mixins.less';
 
 @Project-gap: @gap*1.5;
 @Project_description_margin: @Project-gap;
