@@ -2,6 +2,7 @@ import { defineConfigWithTheme } from 'vitepress';
 import { ThemeConfig } from './theme/ThemeConfig';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
 import { imagetools } from 'vite-imagetools';
+import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
 import svgLoader from 'vite-svg-loader';
 // import { visualizer } from 'rollup-plugin-visualizer';
 import markdownItKatex from 'markdown-it-katex';
@@ -138,6 +139,7 @@ const config = defineConfigWithTheme<ThemeConfig>({
 					floatPrecision: 1,
 				},
 			}),
+			optimizeCssModules(),
 		],
 		optimizeDeps: {
 			// https://github.com/mermaid-js/mermaid/issues/4320
