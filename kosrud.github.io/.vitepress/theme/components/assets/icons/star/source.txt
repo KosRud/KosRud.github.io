@@ -1,0 +1,5 @@
+full
+https://www.svgrepo.com/svg/444861/star
+
+empty
+https://www.svgrepo.com/svg/444768/star

@@ -1,3 +1,0 @@
-class ThiefView extends EnemyView {
-
-}

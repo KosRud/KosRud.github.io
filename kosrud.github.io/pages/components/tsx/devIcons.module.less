@@ -1,0 +1,26 @@
+@import '@vitepress/theme/style/variables.less';
+
+.DevIcon {
+	margin: @gap*0.25;
+	display: inline;
+	height: @size*2;
+	display: inline-flex;
+}
+
+.DevIcon_img {
+	vertical-align: middle;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.DevIcon:hover:not(:active):link .DevIcon_img {
+		transform: scale(1.05);
+	}
+}
+
+/*
+	Transitions
+\*----------------------------------*/
+
+.DevIcon_img {
+	transition: transform @duration-s linear;
+}
