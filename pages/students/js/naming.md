@@ -1,3 +1,7 @@
+---
+title: Naming things
+---
+
 Following consistent guidelines when creating names for your functions, variables, and classes will make your code much easier to maintain. Different programming languages and different projects can have their own conventions, but the most important thing is consistency. When working with libraries and existing projects, it is usually best to adopt the established conventions and keep the codebase uniform. Some general guidelines are provided below.
 
 ## Variable names

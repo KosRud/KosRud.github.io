@@ -1,3 +1,8 @@
+---
+Title: JS cheat sheet
+---
+
+
 <script lang="ts">
 	import imgShallowCopy from './_JS tricks/shallow copy.png';
 </script>

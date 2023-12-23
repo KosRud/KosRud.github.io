@@ -1,3 +1,8 @@
+---
+title: Web design guidelines
+description: Some advice for making a clean, functional and aesthetically pleasing web page.
+---
+
 Some advice for making a clean, functional and aesthetically pleasing web page.
 
 ## Animation and hovering
