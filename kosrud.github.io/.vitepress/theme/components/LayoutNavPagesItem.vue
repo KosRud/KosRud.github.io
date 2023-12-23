@@ -9,6 +9,8 @@ import { useDarkModeDetect } from './composables/darkMode';
 import { useOneChildOpen } from './composables/oneChildOpen';
 import { scrollIntoViewIfNeeded } from './composables/scrollIntoView';
 
+import iconChevron from '@theme/components/assets/icons/ui/chevron/right.svg';
+
 const emit = defineEmits(['navItemToggle']);
 
 const props = defineProps<{
@@ -18,6 +20,8 @@ const props = defineProps<{
 	isOpen: boolean;
 	isNavPagesLoaded: boolean;
 }>();
+
+const iconChevronUrl = `url("${iconChevron}")`;
 
 const oneChildOpen = useOneChildOpen(props.navItem.children ?? []);
 
@@ -130,7 +134,7 @@ onMounted(() => {
 		content: '';
 		height: @chevron-size;
 		width: @chevron-size;
-		background-image: url('/_assets/icons/chevron/right.svg');
+		background-image: v-bind(iconChevronUrl);
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: left;

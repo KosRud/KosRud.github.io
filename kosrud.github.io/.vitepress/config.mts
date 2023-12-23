@@ -3,7 +3,7 @@ import { ThemeConfig } from './theme/ThemeConfig';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
 import { imagetools } from 'vite-imagetools';
 import svgLoader from 'vite-svg-loader';
-import { visualizer } from 'rollup-plugin-visualizer';
+// import { visualizer } from 'rollup-plugin-visualizer';
 import markdownItKatex from 'markdown-it-katex';
 import markdownItDeflist from 'markdown-it-deflist';
 import { resolve } from 'node:path';
