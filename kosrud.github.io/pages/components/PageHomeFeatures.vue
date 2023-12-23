@@ -3,6 +3,14 @@ import FeaturesGallery from './FeaturesGallery.vue';
 import FeaturesGalleryCard from './FeaturesGalleryCard.vue';
 import HomePageFeaturesContent from './PageHomeFeaturesContent.vue';
 import HyperLink from '@theme/components/HyperLink.vue';
+
+import iconProgramming from '@pages/components/assets/icons/highlights/programming/icon.svg';
+import iconCommunication from '@pages/components/assets/icons/highlights/communication/icon.svg';
+import iconEducation from '@pages/components/assets/icons/highlights/education/icon.svg';
+import iconGears from '@pages/components/assets/icons/highlights/gears/icon.svg';
+import iconJob from '@pages/components/assets/icons/highlights/job/icon.svg';
+// import iconPaper from '@pages/components/assets/icons/highlights/paper/icon.svg';
+// import iconProject from '@pages/components/assets/icons/highlights/project/icon.svg';
 </script>
 
 <template>
@@ -12,7 +20,7 @@ import HyperLink from '@theme/components/HyperLink.vue';
 	>
 		<FeaturesGalleryCard
 			name="Programming languages"
-			:icon-url="'/_assets/icons/programming/icon.svg'"
+			:icon-url="iconProgramming"
 		>
 			<HomePageFeaturesContent>
 				C#, HLSL, TypeScript, Javascript, Python, C++
@@ -20,7 +28,7 @@ import HyperLink from '@theme/components/HyperLink.vue';
 		</FeaturesGalleryCard>
 		<FeaturesGalleryCard
 			name="Communication"
-			:icon-url="'/_assets/icons/communication/icon.svg'"
+			:icon-url="iconCommunication"
 		>
 			<HomePageFeaturesContent>
 				<table>
@@ -47,7 +55,7 @@ import HyperLink from '@theme/components/HyperLink.vue';
 		</FeaturesGalleryCard>
 		<FeaturesGalleryCard
 			name="Technologies"
-			:icon-url="'/_assets/icons/gears/icon.svg'"
+			:icon-url="iconGears"
 		>
 			<HomePageFeaturesContent>
 				<table>
@@ -78,7 +86,7 @@ import HyperLink from '@theme/components/HyperLink.vue';
 		</FeaturesGalleryCard>
 		<FeaturesGalleryCard
 			name="Education"
-			:icon-url="'/_assets/icons/education/icon.svg'"
+			:icon-url="iconEducation"
 		>
 			<HomePageFeaturesContent>
 				<table>
@@ -93,7 +101,7 @@ import HyperLink from '@theme/components/HyperLink.vue';
 		</FeaturesGalleryCard>
 		<FeaturesGalleryCard
 			name="Experience"
-			:icon-url="'/_assets/icons/job/icon.svg'"
+			:icon-url="iconJob"
 		>
 			<HomePageFeaturesContent>
 				<table>
