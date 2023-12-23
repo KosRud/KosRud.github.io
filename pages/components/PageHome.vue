@@ -45,10 +45,10 @@ function handleScrolling() {
 		}"
 			:class="$style.Hero"
 		>
-			<div :class="$style.Hero_titleContainer">
+			<h1 :class="$style.Hero_titleContainer">
 				<span :class="$style.Hero_title">Kostiantyn Rudenko</span>
 				<span :class="$style.Hero_subtitle">software engineer</span>
-			</div>
+			</h1>
 		</div>
 		<main :class="$style.ContentWrapper">
 			<HomePageBio />
