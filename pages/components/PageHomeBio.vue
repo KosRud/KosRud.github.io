@@ -149,13 +149,11 @@ const devIconGroups = {
 .DeviconsTable {
 	line-height: .devIcon() [ height];
 
-	td {
-		&:first-child {
-			text-align: right;
-			padding-right: @gap*1.5;
-			vertical-align: top;
-			white-space: nowrap;
-		}
+	th:first-child {
+		text-align: right;
+		padding-right: @gap*1.5;
+		vertical-align: top;
+		white-space: nowrap;
 	}
 
 	td {

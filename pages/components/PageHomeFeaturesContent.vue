@@ -9,7 +9,6 @@
 <style module lang="less">
 @import '@vitepress/theme/style/variables.less';
 
-
 .Feature_content {
 	flex-grow: 1;
 
@@ -17,7 +16,7 @@
 		margin-left: auto;
 		margin-right: auto;
 
-		td {
+		th {
 			&:nth-child(1) {
 				font-weight: bold;
 				text-align: right;
