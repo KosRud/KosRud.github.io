@@ -10,6 +10,7 @@
 		"pinia": "^2.1.7",
 		"typescript-natural-sort": "^0.7.2",
 		"vite-imagetools": "^6.2.8",
+		"vite-plugin-optimize-css-modules": "^1.0.6",
 		"vite-svg-loader": "^5.1.0",
 		"vitepress": "1.0.0-rc.32",
 		"vitepress-plugin-mermaid": "^2.0.16",
