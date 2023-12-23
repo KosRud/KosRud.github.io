@@ -13,6 +13,7 @@ type ProjectLinks = Record<(typeof projectLinkTypes)[number], string>;
 const props = defineProps<{
 	title: string;
 	images?: { url: string; title: string }[];
+	customImages?: any[];
 	github?: string;
 	links?: ProjectLinks;
 }>();
@@ -88,7 +89,7 @@ useResizeObserver(
 		</div>
 		<section
 			aria-label="screenshots"
-			v-if="props.images"
+			v-if="props.images || props.customImages"
 			:class="$style.Project_images"
 		>
 			<div
@@ -99,6 +100,15 @@ useResizeObserver(
 					:src="image.url"
 					:alt="image.title"
 					:title="image.title"
+				/>
+			</div>
+			<div
+				:class="$style.Project_imageWrapper"
+				v-for="image in props.customImages"
+			>
+				<slot
+					name="image"
+					v-bind="image"
 				/>
 			</div>
 		</section>

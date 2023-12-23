@@ -91,7 +91,7 @@ const iconUrl = computed(() => `url(${props.iconUrl})`);
 	width: @icon-size;
 	aspect-ratio: 1;
 
-	background-image: v-bind(iconUrl);
+	background-image: v-bind('iconUrl');
 	background-size: cover;
 	background-origin: content-box;
 	background-repeat: no-repeat;

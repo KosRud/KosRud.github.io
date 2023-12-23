@@ -2,16 +2,14 @@
 import HomePageHighlightsProject from './PageHomeHighlightsProject.vue';
 import GrungeHeading from './GrungeHeading.vue';
 import HyperLink from '@vitepress/theme/components/HyperLink.vue';
-// import HyperLink from '@vitepress/theme/components/HyperLink.vue';
+import PageHomeHighlightsDqImages from './PageHomeHighlightsDqImages.vue';
 
-import imgPtgV2_1 from '@/content/project screenshots/Protege v2/1.png?format=jpg&w=600&withoutEnlargement&quality=70';
-import imgPtgV2_3 from '@/content/project screenshots/Protege v2/3.png?format=jpg&w=600&withoutEnlargement&quality=70';
+import imgPtgV2_1 from '@/content/project screenshots/Protege v2/1.png?format=jpg&w=400&withoutEnlargement&quality=70';
+import imgPtgV2_3 from '@/content/project screenshots/Protege v2/3.png?format=jpg&w=400&withoutEnlargement&quality=70';
 
-import imgPtgV1_1 from '@/content/project screenshots/Protege v1/1.png?format=jpg&w=600&withoutEnlargement&quality=70';
+import imgPtgV1_1 from '@/content/project screenshots/Protege v1/1.png?format=jpg&w=400&withoutEnlargement&quality=70';
 
-import imgCluster from '@/content/project screenshots/material clustering/1.png?format=jpg&w=600&withoutEnlargement&quality=70';
-
-import imgDq from '@/content/project screenshots/DQ/before-after.gif?w=300&withoutEnlargement&quality=70';
+import imgCluster from '@/content/project screenshots/material clustering/1.png?format=jpg&w=400&withoutEnlargement&quality=70';
 
 const props = defineProps<{ dummies: number }>();
 </script>
@@ -22,19 +20,17 @@ const props = defineProps<{ dummies: number }>();
 		<div>
 			<div :class="$style.Highlights">
 				<HomePageHighlightsProject
-					:images="[
-						{
-							url: imgDq,
-							title: 'DQ skinning vs built-in linear skinning comparison',
-						},
-					]"
 					:title="'DQ skinning for Unity'"
 					github="KosRud/DQ-skinning-for-Unity"
 					:links="{
 						docs: 'https://kosrud.github.io/DQ-skinning-for-Unity/hierarchy.html',
 						paper: 'http://journals.khnu.km.ua/vestnik/pdf/tech/pdfbase/2020/2020_1/1-2020_(281).pdf#page=12',
 					}"
+					:custom-images="[{}]"
 				>
+					<template #image>
+						<PageHomeHighlightsDqImages />
+					</template>
 					<p>
 						A plugin for
 						<HyperLink

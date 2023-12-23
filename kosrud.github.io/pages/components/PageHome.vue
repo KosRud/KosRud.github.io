@@ -86,7 +86,7 @@ function handleScrolling() {
 	background-color: @color-primary-muted;
 	box-shadow: 0rem 0rem 100rem inset #0006;
 
-	filter: brightness(v-bind(heroBrightness));
+	filter: brightness(v-bind('heroBrightness'));
 }
 
 .Hero_titleContainer {

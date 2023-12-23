@@ -1,3 +1,4 @@
+<script lang="tsx">
 import style from './devicons.module.less';
 
 import HyperLink from '@vitepress/theme/components/HyperLink.vue';
@@ -228,3 +229,6 @@ export const devIcons = Object.fromEntries(
 		devIcon(data),
 	])
 ) as { [key in keyof typeof devIconDataCollection]: JSX.Element };
+
+export default devIcons;
+</script>
