@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useStore } from './pinia/store';
-import { Ref, ref, computed } from 'vue';
+import { Ref, ref } from 'vue';
 
 import LayoutHeaderNav from './LayoutHeaderNav.vue';
 import LayoutHeaderButtonBurger from './LayoutHeaderButtonBurger.vue';
@@ -12,12 +12,6 @@ const container: Ref<Element | null> = ref(null);
 const logo: Ref<Element | null> = ref(null);
 const navWrapper: Ref<Element | null> = ref(null);
 const logoVisibility = ref('visible');
-const burgerTocVisibility = computed(() =>
-	store.isCompactModeActive && store.tocItems.length ? 'visible' : 'hidden'
-);
-const burgerNavPagesVisibility = computed(() =>
-	store.isCompactModeActive ? 'visible' : 'hidden'
-);
 
 useResizeObserver(
 	() => {
@@ -154,7 +148,7 @@ function onResizeHandleNav() {
 	align-items: stretch;
 
 	padding-right: @gap;
-	visibility: v-bind(logoVisibility);
+	visibility: v-bind('logoVisibility');
 }
 
 .Header_logo {
@@ -185,13 +179,15 @@ function onResizeHandleNav() {
 .BurgerMenu {
 	flex: 0 0 auto;
 	height: 100%;
-	visibility: v-bind(burgerNavPagesVisibility);
+	visibility: v-bind('store.isCompactModeActive ? "visible" : "hidden"');
 }
 
 .BurgerToc {
 	flex: 0 0 auto;
 	height: 100%;
-	visibility: v-bind(burgerTocVisibility);
+	visibility: v-bind(
+		'store.isCompactModeActive && store.tocItems.length ? "visible" : "hidden"'
+	);
 }
 
 /*

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { devIcons } from './tsx/devIcons';
+import { devIcons } from './tsx/devIcons.vue';
 
 import imgPhoto from '@/content/photo-of-me.png?format=jpg&w=300&withoutEnlargement&quality=70';
 

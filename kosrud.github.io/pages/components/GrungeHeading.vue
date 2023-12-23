@@ -34,7 +34,7 @@ const smudgeUrl = `url("${smudge}")`;
 	text-align: center;
 	white-space: nowrap;
 
-	background-image: v-bind(smudgeUrl);
+	background-image: v-bind('smudgeUrl');
 	background-size: 100% 100%;
 	padding: 5rem 50rem 21rem 40rem;
 	transform: translateX(5rem);

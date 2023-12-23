@@ -24,7 +24,6 @@ const oneChildOpen = useOneChildOpen(props.navItem.children ?? []);
 const depth = computed(() => props.depth ?? 0);
 const isActive = useIsNavItemActive(props.navItem.url);
 const isDarkMode = useDarkModeDetect();
-const chevronDisplay = props.navItem.children ? 'visible' : 'hidden';
 const linkElement: Ref<Element | null> = ref(null);
 
 onMounted(() => {
@@ -125,7 +124,7 @@ onMounted(() => {
 	align-items: center;
 
 	@leveled-padding: @chevron-size + @chevron-margin-right;
-	padding-left: calc(@leveled-padding * v-bind(depth));
+	padding-left: calc(@leveled-padding * v-bind('depth'));
 
 	&::before {
 		content: '';
@@ -137,7 +136,7 @@ onMounted(() => {
 		background-position: left;
 		margin-right: calc(@chevron-margin-right - @font-builtin-padding);
 		margin-left: 0.1em;
-		visibility: v-bind(chevronDisplay);
+		visibility: v-bind('props.navItem.children ? "visible" : "hidden"');
 		vertical-align: top;
 	}
 }

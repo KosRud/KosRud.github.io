@@ -2,6 +2,7 @@ import { defineConfigWithTheme } from 'vitepress';
 import { ThemeConfig } from './theme/ThemeConfig';
 import vueJsxPlugin from '@vitejs/plugin-vue-jsx';
 import { imagetools } from 'vite-imagetools';
+import svgLoader from 'vite-svg-loader';
 import { visualizer } from 'rollup-plugin-visualizer';
 import markdownItKatex from 'markdown-it-katex';
 import markdownItDeflist from 'markdown-it-deflist';
@@ -81,12 +82,12 @@ const config = defineConfigWithTheme<ThemeConfig>({
 		const preloadFonts = assets.filter(
 			(file) =>
 				/OpenSans-Regular\.latin\.\w+\.woff2/.test(file) ||
-				// /OpenSans-Bold\.latin\.\w+\.woff2/.test(file) ||
-				// /OpenSans-Italic\.latin\.\w+\.woff2/.test(file) ||
-				// /OpenSans-Regular-ext\.latin\.\w+\.woff2/.test(file) ||
-				// /OpenSans-Bold-ext\.latin\.\w+\.woff2/.test(file) ||
-				// /OpenSans-Italic-ext\.latin\.\w+\.woff2/.test(file) ||
-				// /IosevkaAile-Regular\.latin\.\w+\.woff2/.test(file) ||
+				/OpenSans-Bold\.latin\.\w+\.woff2/.test(file) ||
+				/OpenSans-Italic\.latin\.\w+\.woff2/.test(file) ||
+				/OpenSans-Regular-ext\.latin\.\w+\.woff2/.test(file) ||
+				/OpenSans-Bold-ext\.latin\.\w+\.woff2/.test(file) ||
+				/OpenSans-Italic-ext\.latin\.\w+\.woff2/.test(file) ||
+				/IosevkaAile-Regular\.latin\.\w+\.woff2/.test(file) ||
 				/IosevkaAile-Bold\.latin\.\w+\.woff2/.test(file)
 		);
 		return preloadFonts.map((fontFile) => [
@@ -102,7 +103,19 @@ const config = defineConfigWithTheme<ThemeConfig>({
 	},
 	srcDir: './pages',
 	vite: {
-		build: {},
+		build: {
+			rollupOptions: {
+				output: {
+					manualChunks(id) {
+						console.log(
+							'\n\n------- manual chunks ------\n\n ',
+							id,
+							'\n\n'
+						);
+					},
+				},
+			},
+		},
 		plugins: [
 			vueJsxPlugin({
 				// options are passed on to @vue/babel-plugin-jsx
@@ -115,6 +128,15 @@ const config = defineConfigWithTheme<ThemeConfig>({
 			// }),
 			imagetools(),
 			visualizer(),
+			svgLoader({
+				// https://github.com/jpkleemans/vite-svg-loader
+				defaultImport: 'url',
+				svgo: true,
+				svgoConfig: {
+					multipass: true,
+					floatPrecision: 1,
+				},
+			}),
 		],
 		optimizeDeps: {
 			// https://github.com/mermaid-js/mermaid/issues/4320
