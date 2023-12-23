@@ -75,7 +75,7 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 	display: flex;
 	flex-direction: column;
 	justify-content: stretch;
-	align-items: start;
+	align-items: stretch;
 	overflow-y: auto;
 	gap: @gap;
 	padding-left: @Aside-padding-horizontal;
@@ -86,15 +86,17 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 
 .NavPages_title {
 	width: 100%;
-	text-align: center;
+	flex: 0 0 fit-content;
 
+	text-align: center;
 	font-weight: bold;
 
 	font-family: @font-techy;
 }
 
 .NavPages_itemList {
-	flex: 1 0 max-content;
+	flex: 1 1;
+	overflow: auto;
 }
 
 /*
