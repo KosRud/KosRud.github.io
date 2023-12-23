@@ -64,14 +64,7 @@ function devIcon(data: devIconData) {
 		);
 	}
 
-	return (
-		<div
-			class={style.DevIcon}
-			style={{ aspectRatio: data.aspect }}
-		>
-			{img}
-		</div>
-	);
+	return <div class={style.DevIcon}>{img}</div>;
 }
 
 const devIconDataCollection = {
@@ -103,7 +96,7 @@ const devIconDataCollection = {
 		imgUrl: iconCython,
 		title: 'Cython',
 		url: 'https://cython.org/',
-		aspect: 1,
+		aspect: 2.2411789210687334,
 	},
 	deno: {
 		imgUrl: iconDeno,
@@ -115,6 +108,7 @@ const devIconDataCollection = {
 		imgUrl: iconDoxygen,
 		title: 'Doxygen',
 		url: 'https://www.doxygen.nl/',
+		aspect: 3.354838709677419,
 	},
 	fastify: {
 		imgUrl: iconFastify,
@@ -156,7 +150,7 @@ const devIconDataCollection = {
 		imgUrl: iconLess,
 		title: 'LESS',
 		url: 'https://lesscss.org/',
-		aspect: 1,
+		aspect: 2.2402389277389276,
 	},
 	lua: {
 		imgUrl: iconLua,
@@ -198,7 +192,7 @@ const devIconDataCollection = {
 		imgUrl: iconPython,
 		title: 'Python',
 		url: 'https://www.python.org/',
-		aspect: null,
+		aspect: 0.9890768548304396,
 	},
 	react: {
 		imgUrl: iconReact,
@@ -222,6 +216,7 @@ const devIconDataCollection = {
 		imgUrl: iconTypedoc,
 		title: 'TypeDoc',
 		url: 'https://typedoc.org/',
+		aspect: 1,
 	},
 	typescript: {
 		imgUrl: iconTypescript,
@@ -257,7 +252,7 @@ const devIconDataCollection = {
 		imgUrl: iconWxWidgets,
 		title: 'wxWidgets',
 		url: 'https://www.wxwidgets.org/',
-		aspect: 1,
+		aspect: 1.4393942678571428,
 	},
 };
 

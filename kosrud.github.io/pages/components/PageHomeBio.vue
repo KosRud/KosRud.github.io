@@ -64,6 +64,7 @@ const devIconGroups = {
 				alt="Photo of me"
 				:class="[$style.Bio_photo, $style.Bio_photo___aside]"
 				:src="imgPhoto"
+				:style="{ aspectRatio: 300 / 360 }"
 			/>
 			<div :class="[$style.Bio_text]">
 				<p>
@@ -87,6 +88,7 @@ const devIconGroups = {
 						alt="Photo of me"
 						:class="[$style.Bio_photo, $style.Bio_photo___inside]"
 						:src="imgPhoto"
+						:style="{ aspectRatio: 300 / 360 }"
 					/>
 				</p>
 				<p></p>

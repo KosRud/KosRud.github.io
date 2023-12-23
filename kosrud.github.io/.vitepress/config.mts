@@ -83,10 +83,10 @@ const config = defineConfigWithTheme<ThemeConfig>({
 			(file) =>
 				/OpenSans-Regular\.latin\.\w+\.woff2/.test(file) ||
 				/OpenSans-Bold\.latin\.\w+\.woff2/.test(file) ||
-				/OpenSans-Italic\.latin\.\w+\.woff2/.test(file) ||
+				// /OpenSans-Italic\.latin\.\w+\.woff2/.test(file) ||
 				/OpenSans-Regular-ext\.latin\.\w+\.woff2/.test(file) ||
-				/OpenSans-Bold-ext\.latin\.\w+\.woff2/.test(file) ||
-				/OpenSans-Italic-ext\.latin\.\w+\.woff2/.test(file) ||
+				// /OpenSans-Bold-ext\.latin\.\w+\.woff2/.test(file) ||
+				// /OpenSans-Italic-ext\.latin\.\w+\.woff2/.test(file) ||
 				/IosevkaAile-Regular\.latin\.\w+\.woff2/.test(file) ||
 				/IosevkaAile-Bold\.latin\.\w+\.woff2/.test(file)
 		);
@@ -103,19 +103,19 @@ const config = defineConfigWithTheme<ThemeConfig>({
 	},
 	srcDir: './pages',
 	vite: {
-		build: {
-			rollupOptions: {
-				output: {
-					manualChunks(id) {
-						console.log(
-							'\n\n------- manual chunks ------\n\n ',
-							id,
-							'\n\n'
-						);
-					},
-				},
-			},
-		},
+		// build: {
+		// 	rollupOptions: {
+		// 		output: {
+		// 			manualChunks(id) {
+		// 				console.log(
+		// 					'\n\n------- manual chunks ------\n\n ',
+		// 					id,
+		// 					'\n\n'
+		// 				);
+		// 			},
+		// 		},
+		// 	},
+		// },
 		plugins: [
 			vueJsxPlugin({
 				// options are passed on to @vue/babel-plugin-jsx
