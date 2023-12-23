@@ -8,7 +8,7 @@ const props = defineProps<{
 
 <template>
 	<!-- surrounding div is necessary to ensure negative margins work properly -->
-	<section>
+	<section :class="$style.FeaturesGalleryWrapper">
 		<div :class="$style.FeaturesGallery">
 			<slot />
 			<FeaturesGalleryCard
@@ -25,6 +25,10 @@ const props = defineProps<{
 @import '@vitepress/theme/style/variables.less';
 
 @CardGalleryGap: @gap*2;
+
+.FeaturesGalleryWrapper {
+	overflow: hidden; // negative margin inside
+}
 
 .FeaturesGallery {
 	display: flex;

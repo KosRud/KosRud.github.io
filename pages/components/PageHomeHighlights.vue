@@ -20,7 +20,7 @@ const props = defineProps<{ dummies: number }>();
 <template>
 	<div>
 		<GrungeHeading text="My projects" />
-		<div>
+		<div :class="$style.HighlightsWrapper">
 			<div :class="$style.Highlights">
 				<HomePageHighlightsProject
 					:title="'DQ skinning for Unity'"
@@ -254,6 +254,10 @@ const props = defineProps<{ dummies: number }>();
 @import '@vitepress/theme/style/mixins.less';
 
 @Highlights-gap: @gap*4;
+
+.HighlightsWrapper {
+	overflow: hidden; // negative margin inside
+}
 
 .Highlights {
 	margin: -@Highlights-gap*0.5;
