@@ -72,7 +72,7 @@ const devIconDataCollection = {
 		imgUrl: iconCpp,
 		title: 'C++',
 		url: 'https://en.cppreference.com/w/cpp/language',
-		aspect: 1.56060300064527,
+		aspect: 1.5606030686846109,
 	},
 	csharp: {
 		imgUrl: iconCsharp,
@@ -84,7 +84,7 @@ const devIconDataCollection = {
 		imgUrl: iconCss3,
 		title: 'CSS3',
 		url: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
-		aspect: 0.7084648909556598,
+		aspect: 0.7084649126419045,
 	},
 	cypress: {
 		imgUrl: iconCypress,
@@ -102,7 +102,7 @@ const devIconDataCollection = {
 		imgUrl: iconDeno,
 		title: 'Deno',
 		url: 'https://deno.com/',
-		aspect: 0.999955397390708,
+		aspect: 0.9999581442770322,
 	},
 	doxygen: {
 		imgUrl: iconDoxygen,
@@ -114,7 +114,7 @@ const devIconDataCollection = {
 		imgUrl: iconFastify,
 		title: 'Fastify',
 		url: 'https://fastify.dev/',
-		aspect: 2.465562849298349,
+		aspect: 1.5596100721376136,
 	},
 	git: {
 		imgUrl: iconGit,
@@ -126,7 +126,7 @@ const devIconDataCollection = {
 		imgUrl: iconHlsl,
 		title: 'HLSL',
 		url: 'https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl',
-		aspect: 2.2748587871305945,
+		aspect: 2.2748588322132903,
 	},
 	html5: {
 		imgUrl: iconHtml5,
@@ -138,7 +138,7 @@ const devIconDataCollection = {
 		imgUrl: iconImmutableJs,
 		title: 'Immutable.js',
 		url: 'https://immutable-js.com/',
-		aspect: 1.489625606044343,
+		aspect: 1.4914889728952179,
 	},
 	javascript: {
 		imgUrl: iconJavascript,
@@ -174,7 +174,7 @@ const devIconDataCollection = {
 		imgUrl: iconNodeJs,
 		title: 'Node.js',
 		url: 'https://nodejs.org/en/about',
-		aspect: 1.6327894023895562,
+		aspect: 1.6327933384638382,
 	},
 	pinia: {
 		imgUrl: iconPinia,
@@ -204,7 +204,7 @@ const devIconDataCollection = {
 		imgUrl: iconRedis,
 		title: 'Redis',
 		url: 'https://redis.io/',
-		aspect: 1.1657775300581257,
+		aspect: 1.1668791839336945,
 	},
 	rust: {
 		imgUrl: iconRust,
