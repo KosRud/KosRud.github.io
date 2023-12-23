@@ -83,10 +83,10 @@ const config = defineConfigWithTheme<ThemeConfig>({
 			(file) =>
 				/OpenSans-Regular\.latin\.\w+\.woff2/.test(file) ||
 				/OpenSans-Bold\.latin\.\w+\.woff2/.test(file) ||
-				// /OpenSans-Italic\.latin\.\w+\.woff2/.test(file) ||
+				/OpenSans-Italic\.latin\.\w+\.woff2/.test(file) ||
 				/OpenSans-Regular-ext\.latin\.\w+\.woff2/.test(file) ||
-				// /OpenSans-Bold-ext\.latin\.\w+\.woff2/.test(file) ||
-				// /OpenSans-Italic-ext\.latin\.\w+\.woff2/.test(file) ||
+				/OpenSans-Bold-ext\.latin\.\w+\.woff2/.test(file) ||
+				/OpenSans-Italic-ext\.latin\.\w+\.woff2/.test(file) ||
 				/IosevkaAile-Regular\.latin\.\w+\.woff2/.test(file) ||
 				/IosevkaAile-Bold\.latin\.\w+\.woff2/.test(file)
 		);
@@ -102,6 +102,7 @@ const config = defineConfigWithTheme<ThemeConfig>({
 		]);
 	},
 	srcDir: './pages',
+	outDir: resolve('./docs'),
 	vite: {
 		// build: {
 		// 	rollupOptions: {
@@ -127,7 +128,7 @@ const config = defineConfigWithTheme<ThemeConfig>({
 			// 	gif: { colors: 64 },
 			// }),
 			imagetools(),
-			visualizer(),
+			// visualizer(),
 			svgLoader({
 				// https://github.com/jpkleemans/vite-svg-loader
 				defaultImport: 'url',

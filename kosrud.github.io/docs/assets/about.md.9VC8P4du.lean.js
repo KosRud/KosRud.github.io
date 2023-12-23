@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as a,a as r}from"./chunks/framework.oytdgtbb.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"about.md","filePath":"about.md"}'),i={name:"about.md"},n=r("",13),o=[n];function s(l,d,h,c,p,u){return t(),a("div",null,o)}const g=e(i,[["render",s]]);export{m as __pageData,g as default};
