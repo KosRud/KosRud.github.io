@@ -78,8 +78,7 @@ function onResizeHandleNav() {
 				src="/favicon.svg"
 				alt="website logo"
 				title="website logo"
-				width="40"
-				height="40"
+				:style="{ aspectRatio: 1 }"
 			/>
 		</a>
 		<div :class="$style.Header_spacer"></div>
@@ -132,11 +131,14 @@ function onResizeHandleNav() {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: stretch;
+	justify-content: end;
 	gap: @Header-gap;
 	padding: 0rem @Header-gap;
+	padding-left: @Header-logo-size + @Header-gap;
 
 	height: @Header-height;
+
+	position: relative; // for logo
 }
 
 .Header_logoWrapper {
@@ -147,7 +149,11 @@ function onResizeHandleNav() {
 	justify-content: stretch;
 	align-items: stretch;
 
-	padding-right: @gap;
+	position: absolute;
+	top: 50%;
+	left: @Header-gap;
+	transform: translateY(-50%);
+
 	visibility: v-bind('logoVisibility');
 }
 
