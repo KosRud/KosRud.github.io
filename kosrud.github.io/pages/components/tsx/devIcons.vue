@@ -39,6 +39,7 @@ interface devIconData {
 	title: string;
 	url: string;
 	imgUrl: string;
+	aspect: number;
 }
 
 function devIcon(data: devIconData) {
@@ -56,13 +57,21 @@ function devIcon(data: devIconData) {
 			<HyperLink
 				href={data.url}
 				class={style.DevIcon}
+				style={{ aspectRatio: data.aspect }}
 			>
 				{img}
 			</HyperLink>
 		);
 	}
 
-	return <div class={style.DevIcon}>{img}</div>;
+	return (
+		<div
+			class={style.DevIcon}
+			style={{ aspectRatio: data.aspect }}
+		>
+			{img}
+		</div>
+	);
 }
 
 const devIconDataCollection = {
@@ -70,31 +79,37 @@ const devIconDataCollection = {
 		imgUrl: iconCpp,
 		title: 'C++',
 		url: 'https://en.cppreference.com/w/cpp/language',
+		aspect: 1.56060300064527,
 	},
 	csharp: {
 		imgUrl: iconCsharp,
 		title: 'C#',
 		url: 'https://learn.microsoft.com/en-us/dotnet/csharp/',
+		aspect: 1.5672441922679645,
 	},
 	css3: {
 		imgUrl: iconCss3,
 		title: 'CSS3',
 		url: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+		aspect: 0.7084648909556598,
 	},
 	cypress: {
 		imgUrl: iconCypress,
 		title: 'Cypress',
 		url: 'https://www.cypress.io/',
+		aspect: 1.0016642396505098,
 	},
 	cython: {
 		imgUrl: iconCython,
 		title: 'Cython',
 		url: 'https://cython.org/',
+		aspect: 1,
 	},
 	deno: {
 		imgUrl: iconDeno,
 		title: 'Deno',
 		url: 'https://deno.com/',
+		aspect: 0.999955397390708,
 	},
 	doxygen: {
 		imgUrl: iconDoxygen,
@@ -105,86 +120,103 @@ const devIconDataCollection = {
 		imgUrl: iconFastify,
 		title: 'Fastify',
 		url: 'https://fastify.dev/',
+		aspect: 2.465562849298349,
 	},
 	git: {
 		imgUrl: iconGit,
 		title: 'Git',
 		url: 'https://git-scm.com/',
+		aspect: 1,
 	},
 	hlsl: {
 		imgUrl: iconHlsl,
 		title: 'HLSL',
 		url: 'https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl',
+		aspect: 2.2748587871305945,
 	},
 	html5: {
 		imgUrl: iconHtml5,
 		title: 'HTML5',
 		url: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+		aspect: 1,
 	},
 	immutableJs: {
 		imgUrl: iconImmutableJs,
 		title: 'Immutable.js',
 		url: 'https://immutable-js.com/',
+		aspect: 1.489625606044343,
 	},
 	javascript: {
 		imgUrl: iconJavascript,
 		title: 'JavaScript',
 		url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+		aspect: 1,
 	},
 	less: {
 		imgUrl: iconLess,
 		title: 'LESS',
 		url: 'https://lesscss.org/',
+		aspect: 1,
 	},
 	lua: {
 		imgUrl: iconLua,
 		title: 'Lua',
 		url: 'https://www.lua.org/',
+		aspect: 1,
 	},
 	mongodb: {
 		imgUrl: iconMongodb,
 		title: 'MongoDB',
 		url: 'https://www.mongodb.com/',
+		aspect: 0.46511627906976744,
 	},
 	neutralino: {
 		imgUrl: iconNeutralino,
 		title: 'Neutralino',
 		url: 'https://neutralino.js.org/',
+		aspect: 1.1127659574468085,
 	},
 	nodeJs: {
 		imgUrl: iconNodeJs,
 		title: 'Node.js',
 		url: 'https://nodejs.org/en/about',
+		aspect: 1.6327894023895562,
 	},
 	pinia: {
 		imgUrl: iconPinia,
 		title: 'Pinia',
 		url: 'https://pinia.vuejs.org/',
+		aspect: 0.6687631027253669,
 	},
 	postgresql: {
 		imgUrl: iconPostgresql,
 		title: 'PostgreSQL',
 		url: 'https://www.postgresql.org/',
+		aspect: 0.970111117846887,
 	},
 	python: {
 		imgUrl: iconPython,
 		title: 'Python',
 		url: 'https://www.python.org/',
+		aspect: null,
 	},
 	react: {
 		imgUrl: iconReact,
 		title: 'React',
 		url: 'https://react.dev/',
+		aspect: 1.0855263157894737,
 	},
 	redis: {
 		imgUrl: iconRedis,
 		title: 'Redis',
 		url: 'https://redis.io/',
+		aspect: 1.1657775300581257,
 	},
 	rust: {
 		imgUrl: iconRust,
 		title: 'Rust',
 		url: 'https://www.rust-lang.org/',
+		aspect: 1,
 	},
 	typedoc: {
 		imgUrl: iconTypedoc,
@@ -195,31 +227,37 @@ const devIconDataCollection = {
 		imgUrl: iconTypescript,
 		title: 'TypeSript',
 		url: 'https://www.typescriptlang.org/',
+		aspect: 1,
 	},
 	unity: {
 		imgUrl: iconUnity,
 		title: 'Unity',
 		url: 'https://unity.com/',
+		aspect: 0.8853712032073885,
 	},
 	vite: {
 		imgUrl: iconVite,
 		title: 'Vite',
 		url: 'https://vitejs.dev/',
+		aspect: 1.0148514851485149,
 	},
 	vitepress: {
 		imgUrl: iconVitepress,
 		title: 'VitePress',
 		url: 'https://vitepress.dev/',
+		aspect: 0.8333333333333334,
 	},
 	vue: {
 		imgUrl: iconVue,
 		title: 'Vue.js',
 		url: 'https://vuejs.org/',
+		aspect: 1.1546876838019056,
 	},
 	wxWidgets: {
 		imgUrl: iconWxWidgets,
 		title: 'wxWidgets',
 		url: 'https://www.wxwidgets.org/',
+		aspect: 1,
 	},
 };
 
