@@ -12,6 +12,8 @@ import imgCluster from '@/content/project screenshots/material clustering/1.png?
 
 import imgDq from '@/content/project screenshots/DQ/before-after [small].gif';
 
+import imgLighthouse from '@/content/project screenshots/website/lighthouse.png?format=jpg&w=400&withoutEnlargement&quality=90';
+
 const props = defineProps<{ dummies: number }>();
 </script>
 
@@ -63,47 +65,30 @@ const props = defineProps<{ dummies: number }>();
 					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
-					github="KosRud/dice-pool-calc"
-					:title="'dice-pool-calc'"
-					:links="{
-						docs: 'https://kosrud.github.io/dice-pool-calc/',
-						examples:
-							'https://github.com/KosRud/dice-pool-calc-examples',
-						npm: 'https://www.npmjs.com/package/dice-pool-calc#dice-pool-calc',
-					}"
-				>
-					<p>
-						A
-						<HyperLink
-							text="typescript"
-							href="https://www.typescriptlang.org/"
-						/>
-						library that efficiently calculates probabilities of
-						possible outcomes when rolling an arbitrary collection
-						of dice and using arbitrary rules to interpret them.
-						Enumerates all possible outcomes without random sampling
-						and easily handles hundreds of dice.
-					</p>
-				</HomePageHighlightsProject>
-				<HomePageHighlightsProject
 					github="KosRud/KosRud.github.io"
 					:title="'This website'"
+					:images="[
+						{
+							url: imgLighthouse,
+							title: 'lighthouse score: Performance (97), Accessibility (100), Best Practices (95), SEO (99)',
+						},
+					]"
 				>
 					<p>
-						This website is built on
+						This website is built in
 						<HyperLink
 							text="VitePress"
 							href="https://vitepress.dev/"
 						/>
-						and uses a custom theme written from scratch with
+						with a custom theme written from scratch using
 						<HyperLink
 							text="Vue.js"
 							href="https://vuejs.org/"
 						/>.
 					</p>
 					<p>
-						It gracefully conforms to viewport widths as narrow as
-						320px, utilizes responsive components implemented via
+						It gracefully conforms to viewports as narrow as 320px,
+						utilizes responsive components implemented via
 						<HyperLink
 							text="ResizeObserver"
 							href="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver"
@@ -157,6 +142,29 @@ const props = defineProps<{ dummies: number }>();
 							text="KPI"
 							href="https://kpi.ua/en/fpm"
 						/>.
+					</p>
+				</HomePageHighlightsProject>
+				<HomePageHighlightsProject
+					github="KosRud/dice-pool-calc"
+					:title="'dice-pool-calc'"
+					:links="{
+						docs: 'https://kosrud.github.io/dice-pool-calc/',
+						examples:
+							'https://github.com/KosRud/dice-pool-calc-examples',
+						npm: 'https://www.npmjs.com/package/dice-pool-calc#dice-pool-calc',
+					}"
+				>
+					<p>
+						A
+						<HyperLink
+							text="typescript"
+							href="https://www.typescriptlang.org/"
+						/>
+						library that efficiently calculates probabilities of
+						possible outcomes when rolling an arbitrary collection
+						of dice and using arbitrary rules to interpret them.
+						Enumerates all possible outcomes without random sampling
+						and easily handles hundreds of dice.
 					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject

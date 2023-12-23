@@ -34,19 +34,19 @@ import iconJob from '@pages/components/assets/icons/highlights/job/icon.svg';
 				<table>
 					<tbody>
 						<tr>
-							<td>English</td>
+							<th scope="row">English</th>
 							<td>C1 (Advanced)</td>
 						</tr>
 						<tr>
-							<td>Slovak</td>
+							<th scope="row">Slovak</th>
 							<td>basic</td>
 						</tr>
 						<tr>
-							<td>Ukrainian</td>
+							<th scope="row">Ukrainian</th>
 							<td>native speaker</td>
 						</tr>
 						<tr>
-							<td>Russian</td>
+							<th scope="row">Russian</th>
 							<td>native speaker</td>
 						</tr>
 					</tbody>
@@ -61,23 +61,23 @@ import iconJob from '@pages/components/assets/icons/highlights/job/icon.svg';
 				<table>
 					<tbody>
 						<tr>
-							<td>Game engine</td>
+							<th scope="row">Game engine</th>
 							<td>Unity</td>
 						</tr>
 						<tr>
-							<td>3D modeling</td>
+							<th scope="row">3D modeling</th>
 							<td>Blender</td>
 						</tr>
 						<tr>
-							<td>Frontend</td>
+							<th scope="row">Frontend</th>
 							<td>Vue, React</td>
 						</tr>
 						<tr>
-							<td>Backend</td>
+							<th scope="row">Backend</th>
 							<td>Fastify (Node.js)</td>
 						</tr>
 						<tr>
-							<td>Documentation</td>
+							<th scope="row">Documentation</th>
 							<td>Doxygen, TypeDoc</td>
 						</tr>
 					</tbody>
@@ -92,7 +92,7 @@ import iconJob from '@pages/components/assets/icons/highlights/job/icon.svg';
 				<table>
 					<tbody>
 						<tr>
-							<td>Software Engineering</td>
+							<th scope="row">Software Engineering</th>
 							<td>master's degree</td>
 						</tr>
 					</tbody>
@@ -107,13 +107,13 @@ import iconJob from '@pages/components/assets/icons/highlights/job/icon.svg';
 				<table>
 					<tbody>
 						<tr>
-							<td>
+							<th scope="row">
 								.NET (C#, C++) developer<br />for
 								<HyperLink
 									text="RISA Tech, Inc."
 									href="https://risa.com/"
 								/>
-							</td>
+							</th>
 							<td>1 year</td>
 						</tr>
 					</tbody>
