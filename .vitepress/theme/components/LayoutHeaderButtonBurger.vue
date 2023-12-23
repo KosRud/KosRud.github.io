@@ -60,10 +60,7 @@ const props = defineProps<{
 }
 
 .Burger {
-	aspect-ratio: 1;
-	flex: 1 1 0rem;
-
-	// background-color: red;
+	width: @Header-height;
 
 	padding: @gap*0.5;
 	display: flex;
@@ -71,8 +68,6 @@ const props = defineProps<{
 	justify-content: center;
 	align-items: stretch;
 	gap: @border-width*2;
-
-	// ---- resets ----
 }
 
 .Burger_line {
