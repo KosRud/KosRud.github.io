@@ -1,0 +1,57 @@
+* {
+	padding: 0rem;
+	margin: 0rem;
+
+	box-sizing: border-box;
+
+	border-radius: 0rem;
+	border: 0rem solid black;
+
+	min-width: 0rem;
+	min-height: 0rem;
+	max-width: unset;
+	max-height: unset;
+
+	font: inherit;
+	font-size: 100%;
+}
+
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	line-height: 1.5;
+}
+
+li {
+	display: block;
+	margin-left: 1em;
+	position: relative;
+}
+li::before {
+	position: absolute;
+	right: calc(100% + 0.5em);
+	top: 0%;
+	content: '•';
+}
+
+table,
+th,
+td {
+	border-collapse: collapse;
+}
+
+a,
+a:link {
+	color: #0000ee;
+}
+
+a:visited {
+	color: #551a8b;
+}
+
+button {
+	background-color: transparent;
+}
