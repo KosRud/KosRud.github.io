@@ -60,8 +60,9 @@ const nav = makeNav(
 
 // https://vitepress.dev/reference/site-config
 const config = defineConfigWithTheme<ThemeConfig>({
-	title: 'Kostiantyn Rudenko',
-	description: 'personal website',
+	title: 'Kostiantyn Rudenko, software engineer',
+	description:
+		'Software Engineer from Ukraine, currently residing in Slovakia. Unity 3d, compute shaders, computer graphics, vue.js, typescript...',
 	head: [
 		[
 			'link',

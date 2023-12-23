@@ -1,3 +1,7 @@
+---
+title: Web Dev learning resources
+---
+
 [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web)
 :	Detailed and exhaustive information, but can be overwhelming, if you aren't looking for a specific thing. Useful when you wish to learn about a particular tag, attribute, CSS property, etc.
 

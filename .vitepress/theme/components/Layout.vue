@@ -4,7 +4,7 @@ import LayoutMainDoc from './LayoutMainDoc.vue';
 
 import { useStoreService } from './pinia/store';
 import { ComponentPublicInstance, getCurrentInstance, ref, Ref } from 'vue';
-import { useData } from 'vitepress';
+import { useData, onContentUpdated } from 'vitepress';
 import { createPinia } from 'pinia';
 
 import { ThemeConfig } from '@theme/ThemeConfig';
@@ -22,6 +22,12 @@ const store = useStoreService();
 const containerElement: Ref<Element | null> = ref(null);
 
 useDarkModeEnforce(false);
+
+onContentUpdated(() => {
+	if (!frontmatter.value.title) {
+		console.warn('Frontmatter title empty');
+	}
+});
 </script>
 
 <template>
