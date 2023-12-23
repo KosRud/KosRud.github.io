@@ -164,7 +164,7 @@ useResizeObserver(
 
 	> * {
 		max-width: 100%;
-		max-height: 200rem;
+		max-height: 300rem;
 		margin-left: auto;
 		display: block;
 	}

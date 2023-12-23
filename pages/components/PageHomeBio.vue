@@ -95,7 +95,7 @@ const devIconGroups = {
 				<table :class="$style.DeviconsTable">
 					<tbody>
 						<tr>
-							<td>I have experience working with:</td>
+							<th scope="row">I have experience working with:</th>
 							<td>
 								<component
 									:class="$style.devIcon"
@@ -105,7 +105,7 @@ const devIconGroups = {
 							</td>
 						</tr>
 						<tr>
-							<td>I have dabbled with:</td>
+							<th scope="row">I have dabbled with:</th>
 							<td>
 								<component
 									:class="$style.devIcon"
