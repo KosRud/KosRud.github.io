@@ -62,7 +62,7 @@ const nav = makeNav(
 const config = defineConfigWithTheme<ThemeConfig>({
 	title: 'Kostiantyn Rudenko, software engineer',
 	description:
-		'Software Engineer from Ukraine, currently residing in Slovakia. Unity 3d, compute shaders, computer graphics, vue.js, typescript...',
+		'A programmer from Ukraine, currently residing in Slovakia. Unity 3d, compute shaders, computer graphics, vue.js, typescript...',
 	sitemap: {
 		hostname: 'https://kosrud.github.io',
 	},
@@ -80,6 +80,13 @@ const config = defineConfigWithTheme<ThemeConfig>({
 			{
 				name: 'theme-color',
 				content: '#16643d',
+			},
+		],
+		[
+			'meta',
+			{
+				name: 'google-site-verification',
+				content: 'nxt5ELdfTEfN5XdluDKwhqpad_QAqlv8Ps-9BrDxytQ',
 			},
 		],
 	],
