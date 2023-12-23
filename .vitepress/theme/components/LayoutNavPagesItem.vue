@@ -78,7 +78,7 @@ onMounted(() => {
 				:leave-active-class="$style.NavItem_childrenList___leaveActive"
 			>
 				<ul
-					v-if="isOpen"
+					v-if="isOpen && props.navItem.children?.length"
 					:class="$style.NavItem_childrenList"
 				>
 					<LayoutNavPagesItem
