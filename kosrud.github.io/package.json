@@ -20,6 +20,7 @@
 		"docs:preview": "vitepress preview"
 	},
 	"devDependencies": {
-		"font-ranger": "^3.0.5"
+		"font-ranger": "^3.0.5",
+		"rollup-plugin-visualizer": "^5.11.0"
 	}
 }

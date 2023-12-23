@@ -84,6 +84,8 @@ function onResizeHandleNav() {
 				src="/favicon.svg"
 				alt="website logo"
 				title="website logo"
+				width="40"
+				height="40"
 			/>
 		</a>
 		<div :class="$style.Header_spacer"></div>
