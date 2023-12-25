@@ -39,10 +39,15 @@ const title = computed(() => {
 	).concat('/');
 });
 
-const oneChildOpen = useOneChildOpen(navItems.value);
+const oneChildOpen = useOneChildOpen(navItems.value.map((item) => item.url));
+for (const child of navItems.value) {
+	if (urlMatch(route.path, child.url).inside) {
+		oneChildOpen.toggleChild(child.url);
+	}
+}
 
-function onItemClick(navItem: (typeof navItems.value)[number], id: number) {
-	oneChildOpen.toggleChild(id);
+function onItemClick(navItem: (typeof navItems.value)[number]) {
+	oneChildOpen.toggleChild(navItem.url);
 	if (!navItem.children) {
 		store.isMobileNavPagesOpen = false;
 	}
@@ -64,9 +69,9 @@ function onItemClick(navItem: (typeof navItems.value)[number], id: number) {
 				<LayoutNavPagesItem
 					:starting-level="props.mobile ? 0 : 1"
 					:nav-item="navItem"
-					v-for="(navItem, id) in navItems"
-					:is-open="oneChildOpen.isChildOpen(id)"
-					@nav-item-toggle="onItemClick(navItem, id)"
+					v-for="navItem in navItems"
+					:is-open="oneChildOpen.isChildOpen(navItem.url)"
+					@nav-item-toggle="onItemClick(navItem)"
 					:is-nav-pages-loaded="isMounted" />
 			</ul>
 		</template>
