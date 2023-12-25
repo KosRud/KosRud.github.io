@@ -1,53 +1,29 @@
 <script setup lang="ts">
 import handshake from './assets/icons/handshake/icon.svg';
-
-import GrungeHeading from './GrungeHeading.vue';
 </script>
 
 <template>
 	<div :class="$style.Contact">
-		<GrungeHeading text="Contact me" />
-
-		<!-- <a
-        href="https://medium.com/@naomiHauret/creating-a-contact-form-with-no-back-end-5248fb6bf7f7"
-        >ToDo</a
-    >
-    <br />
-    <a href="https://www.jotform.com/form-templates/category/contact-form"
-        >Templates</a
-    >
-    <br />
-    <a href="https://formspree.io/">Formspree</a> -->
-
 		<div :class="$style.StatusBox">
-			<strong
-				v-if="false"
-				:class="$style.StatusBox_title"
-				>Status:</strong
-			>
+			<strong v-if="false" :class="$style.StatusBox_title">
+				Status:
+			</strong>
 			<img
 				:class="$style.StatusBox_icon"
 				:src="handshake"
-				alt="icon: handshake"
-			/>
-			<span :class="$style.StatusBox_text"
-				>I'm available for contract work</span
-			>
+				alt="icon: handshake" />
+			<span :class="$style.StatusBox_text">
+				I'm available for contract work
+			</span>
 		</div>
 
 		<form
 			action="https://formspree.io/f/xwkdgjao"
 			method="POST"
-			:class="$style.ContactForm"
-		>
+			:class="$style.ContactForm">
 			<label>
 				<span>Your name:</span>
-				<input
-					required
-					type="text"
-					name="name"
-					autocomplete="name"
-				/>
+				<input required type="text" name="name" autocomplete="name" />
 			</label>
 			<label>
 				<span>Your email:</span>
@@ -55,23 +31,14 @@ import GrungeHeading from './GrungeHeading.vue';
 					required
 					type="email"
 					name="email"
-					autocomplete="email"
-				/>
+					autocomplete="email" />
 			</label>
 			<label>
 				<span>Your message:</span>
-				<textarea
-					required
-					name="message"
-				></textarea>
+				<textarea required name="message"></textarea>
 			</label>
 
-			<button
-				colspan="2"
-				type="submit"
-			>
-				Send message
-			</button>
+			<button colspan="2" type="submit">Send message</button>
 		</form>
 	</div>
 </template>
@@ -106,6 +73,7 @@ import GrungeHeading from './GrungeHeading.vue';
 	display: inline-block;
 	vertical-align: middle;
 	margin-right: @gap;
+	flex: 0 0 auto;
 }
 
 .ContactForm {

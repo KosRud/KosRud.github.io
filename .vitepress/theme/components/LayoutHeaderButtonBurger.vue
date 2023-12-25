@@ -4,20 +4,17 @@ const props = defineProps<{
 	isOpen: boolean;
 	toggleIsOpen: (value: boolean) => void;
 	numLines: 3 | 5;
+	compact: boolean;
 }>();
 </script>
 
 <template>
 	<button
 		:class="{ [$style.BurgerWrapper]: true, [$style.open]: props.isOpen }"
-		@click="props.toggleIsOpen"
-	>
+		@click="props.toggleIsOpen">
 		<div :class="$style.Burger_title">{{ props.title }}</div>
-		<div :class="$style.Burger">
-			<div
-				:class="$style.Burger_line"
-				v-for="_ in numLines"
-			></div>
+		<div :class="$style.Burger" v-if="!props.compact">
+			<div :class="$style.Burger_line" v-for="_ in numLines"></div>
 		</div>
 	</button>
 </template>
