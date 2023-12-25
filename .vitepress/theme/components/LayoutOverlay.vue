@@ -26,26 +26,22 @@ watchEffect(() => {
 		:class="[
 			$style.Overlay,
 			store.isMobileNavAnythingOpen ? $style.Overlay___shaded : '',
-		]"
-	>
+		]">
 		<LayoutHeader :class="$style.Header" />
 		<div :class="$style.NavContainer">
 			<template v-if="!store.isCompactModeActive">
 				<div :class="$style.NavPagesWrapper">
 					<LayoutNavPages
 						:class="$style.NavPages"
-						v-if="store.navSecondary.length"
-					/>
+						v-if="store.navSecondary.length" />
 				</div>
 				<div
 					aria-hidden="true"
-					:class="$style.Overlay_spacer___content"
-				></div>
+					:class="$style.Overlay_spacer___content"></div>
 				<div :class="$style.TocWrapper">
 					<LayoutNavToc
 						:class="$style.Toc"
-						v-if="store.tocItems.length"
-					/>
+						v-if="store.tocItems.length" />
 				</div>
 			</template>
 			<LayoutNavMobile
@@ -54,13 +50,9 @@ watchEffect(() => {
 				:setIsOpen="(isOpen: boolean) => {
 				store.isMobileNavTocOpen = isOpen;
 			}
-				"
-			>
+				">
 				<template #default="{ close }">
-					<LayoutNavToc
-						is-mobile
-						@jumped-to-item="close"
-					/>
+					<LayoutNavToc is-mobile @jumped-to-item="close" />
 				</template>
 			</LayoutNavMobile>
 			<LayoutNavMobile
@@ -69,8 +61,7 @@ watchEffect(() => {
 				:setIsOpen="(isOpen: boolean) => {
 				store.isMobileNavPagesOpen = isOpen;
 			}
-				"
-			>
+				">
 				<LayoutNavPages mobile />
 			</LayoutNavMobile>
 		</div>

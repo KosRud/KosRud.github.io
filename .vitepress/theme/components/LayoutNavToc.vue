@@ -19,14 +19,8 @@ onMounted(() => {
 <template>
 	<nav
 		aria-label="Table of contents"
-		:class="[$style.Toc, props.isMobile ? $style.Toc___mobile : '']"
-	>
-		<h2
-			:aria-hidden="true"
-			:class="$style.Toc_title"
-		>
-			On this page:
-		</h2>
+		:class="[$style.Toc, props.isMobile ? $style.Toc___mobile : '']">
+		<h2 :aria-hidden="true" :class="$style.Toc_title">On this page:</h2>
 		<div :class="$style.Toc_content">
 			<ul :class="$style.Toc_itemList">
 				<LayoutNavTocItem
@@ -34,8 +28,7 @@ onMounted(() => {
 					:key="tocItem.element.id"
 					:heading="tocItem"
 					@jumpedToItem="emit('jumpedToItem')"
-					:isTocLoaded="isLoaded"
-				/>
+					:isTocLoaded="isLoaded" />
 			</ul>
 		</div>
 	</nav>

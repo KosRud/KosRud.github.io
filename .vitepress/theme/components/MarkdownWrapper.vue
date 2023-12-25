@@ -28,8 +28,7 @@ useResizeObserver(
 <template>
 	<div
 		:ref="(element) => {containerElement = element as Element}"
-		:class="[$style.Markdown, isNarrow ? $style.Markdown___narrow : '']"
-	>
+		:class="[$style.Markdown, isNarrow ? $style.Markdown___narrow : '']">
 		<h1>{{ navTrace[navTrace.length - 1].title }}</h1>
 		<slot />
 	</div>
