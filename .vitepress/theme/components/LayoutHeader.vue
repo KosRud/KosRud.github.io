@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useStore } from './pinia/store';
-import { Ref, ref } from 'vue';
+import { Ref, ref, onUnmounted } from 'vue';
 
 import LayoutHeaderNav from './LayoutHeaderNav.vue';
 import LayoutHeaderButtonBurger from './LayoutHeaderButtonBurger.vue';
@@ -12,6 +12,21 @@ const container: Ref<Element | null> = ref(null);
 const logo: Ref<Element | null> = ref(null);
 const navWrapper: Ref<Element | null> = ref(null);
 const logoVisibility = ref('visible');
+
+const compactBurgers = ref(false);
+handleCompactBurgers();
+
+function handleCompactBurgers() {
+	const media = window.matchMedia('screen and (width < 20rem)');
+	const mediaCallback = (event: MediaQueryListEvent) => {
+		compactBurgers.value = event.matches;
+	};
+
+	compactBurgers.value = media.matches;
+	media.addEventListener('change', mediaCallback);
+
+	onUnmounted(() => media.removeEventListener('change', mediaCallback));
+}
 
 useResizeObserver(
 	() => {
@@ -38,7 +53,6 @@ function onResizeHandleLogo() {
 		sibling.getBoundingClientRect().left
 	) {
 		logoVisibility.value = 'hidden';
-		console.log('hide');
 	} else {
 		logoVisibility.value = 'visible';
 	}
@@ -66,34 +80,29 @@ function onResizeHandleNav() {
 	<header
 		:class="$style.Header"
 		role="banner"
-		:ref="(element) => {container = element as Element}"
-	>
+		:ref="(element) => {container = element as Element}">
 		<a
 			href="/"
 			:class="$style.Header_logoWrapper"
-			:ref="(element) => {logo = element as Element}"
-		>
+			:ref="(element) => {logo = element as Element}">
 			<img
 				:class="$style.Header_logo"
 				src="/favicon.svg"
 				alt="website logo"
 				title="website logo"
-				:style="{ aspectRatio: 1 }"
-			/>
+				:style="{ aspectRatio: 1 }" />
 		</a>
 		<div :class="$style.Header_spacer"></div>
 		<div
 			:class="$style.Header_navWrapper"
-			:ref="(element) => {navWrapper = element as Element}"
-		>
+			:ref="(element) => {navWrapper = element as Element}">
 			<LayoutHeaderNav
 				:style="{
 					visibility: store.isCompactModeActive
 						? 'hidden'
 						: 'visible',
 				}"
-				:class="$style.Header_nav"
-			/>
+				:class="$style.Header_nav" />
 		</div>
 		<LayoutHeaderButtonBurger
 			:class="$style.BurgerToc"
@@ -104,8 +113,8 @@ function onResizeHandleNav() {
 					store.isMobileNavTocOpen = !store.isMobileNavTocOpen;
 				}
 			"
-			:num-lines="3"
-		/>
+			:compact="compactBurgers"
+			:num-lines="3" />
 		<LayoutHeaderButtonBurger
 			:class="$style.BurgerMenu"
 			:title="'Menu'"
@@ -115,8 +124,8 @@ function onResizeHandleNav() {
 					store.isMobileNavPagesOpen = !store.isMobileNavPagesOpen;
 				}
 			"
-			:num-lines="5"
-		/>
+			:compact="compactBurgers"
+			:num-lines="5" />
 	</header>
 </template>
 

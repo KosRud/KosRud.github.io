@@ -5,6 +5,7 @@ import HomePageHighlights from './PageHomeHighlights.vue';
 import HomePageFeatures from './PageHomeFeatures.vue';
 import HomePageBio from './PageHomeBio.vue';
 import HomePageContact from './PageHomeContact.vue';
+import GrungeHeading from './GrungeHeading.vue';
 
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 
@@ -37,24 +38,32 @@ function handleScrolling() {
 <template>
 	<div
 		:class="$style.HomePage"
-		:ref="(element) => { containerDiv = element as Element }"
-	>
+		:ref="(element) => { containerDiv = element as Element }">
 		<div
 			:ref="(element: Element | ComponentPublicInstance | null) => {
 			hero = element as Element;
 		}"
-			:class="$style.Hero"
-		>
+			:class="$style.Hero">
 			<h1 :class="$style.Hero_titleContainer">
 				<span :class="$style.Hero_title">Kostiantyn Rudenko</span>
 				<span :class="$style.Hero_subtitle">software engineer</span>
 			</h1>
 		</div>
 		<main :class="$style.ContentWrapper">
-			<HomePageBio />
+			<div :class="$style.ContentWrapper_needsPadding">
+				<HomePageBio />
+			</div>
 			<HomePageFeatures />
+			<div>
+				<GrungeHeading text="My projects" />
+			</div>
 			<HomePageHighlights :dummies="8" />
-			<HomePageContact />
+			<div>
+				<GrungeHeading text="Contact me" />
+			</div>
+			<div :class="$style.ContentWrapper_needsPadding">
+				<HomePageContact />
+			</div>
 		</main>
 	</div>
 </template>
@@ -144,6 +153,22 @@ function handleScrolling() {
 	.ContentWrapper {
 		padding: @Main-padding-horizontal-compact;
 		padding-top: @Main-padding-horizontal-compact * (3/2);
+	}
+}
+
+@media screen and (width < 20em) {
+	.Hero {
+		display: none;
+	}
+
+	.ContentWrapper {
+		padding-left: 0rem;
+		padding-right: 0rem;
+	}
+
+	.ContentWrapper_needsPadding {
+		padding-left: @Main-padding-horizontal-compact;
+		padding-right: @Main-padding-horizontal-compact;
 	}
 }
 

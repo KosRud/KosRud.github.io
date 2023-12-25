@@ -64,30 +64,30 @@ const devIconGroups = {
 				alt="Photo of me"
 				:class="[$style.Bio_photo, $style.Bio_photo___aside]"
 				:src="imgPhoto"
-				:style="{ aspectRatio: 300 / 360 }"
-			/>
+				:style="{ aspectRatio: 300 / 360 }" />
 			<div :class="[$style.Bio_text]">
 				<p>
 					Name's Kostiantyn. I'm a programmer from Ukraine currently
 					residing in Bratislava, Slovakia. This website contains an
-					overview of my <a href="#my-projects">projects</a>, as well
-					as an assortment of condensed
+					overview of my
+					<a href="#my-projects">projects</a>
+					, as well as an assortment of condensed
 					<a href="/students/html+css/selectors.html">highlights</a>
 					from the web development seminars I've been teaching at
-					<a href="https://www.fiit.stuba.sk/en.html"
-						><span
-							title="Faculty of Informatics and Information Technologies, Slovak University of Technology"
-							>FIIT STU</span
-						></a
-					>.
+					<a href="https://www.fiit.stuba.sk/en.html">
+						<span
+							title="Faculty of Informatics and Information Technologies, Slovak University of Technology">
+							FIIT STU
+						</span>
+					</a>
+					.
 				</p>
 				<p>
 					<img
 						alt="Photo of me"
 						:class="[$style.Bio_photo, $style.Bio_photo___inside]"
 						:src="imgPhoto"
-						:style="{ aspectRatio: 300 / 360 }"
-					/>
+						:style="{ aspectRatio: 300 / 360 }" />
 				</p>
 				<p></p>
 				<table :class="$style.DeviconsTable">
@@ -98,8 +98,7 @@ const devIconGroups = {
 								<component
 									:class="$style.devIcon"
 									:is="devIcon"
-									v-for="devIcon in devIconGroups.worked"
-								/>
+									v-for="devIcon in devIconGroups.worked" />
 							</td>
 						</tr>
 						<tr>
@@ -108,8 +107,7 @@ const devIconGroups = {
 								<component
 									:class="$style.devIcon"
 									:is="devIcon"
-									v-for="devIcon in devIconGroups.dabbled"
-								/>
+									v-for="devIcon in devIconGroups.dabbled" />
 							</td>
 						</tr>
 					</tbody>
@@ -147,7 +145,7 @@ const devIconGroups = {
 .DeviconsTable {
 	line-height: .devIcon() [ height];
 
-	th:first-child {
+	th {
 		text-align: right;
 		padding-right: @gap*1.5;
 		vertical-align: top;
@@ -246,18 +244,15 @@ const devIconGroups = {
 	}
 
 	.DeviconsTable {
-		td {
-			white-space: wrap;
-
-			&:first-child {
-				width: 100%;
-				text-align: left;
-			}
-		}
-
 		tr {
 			display: flex;
 			flex-wrap: wrap;
+		}
+
+		th {
+			width: 100%;
+			text-align: left;
+			white-space: normal;
 		}
 	}
 
