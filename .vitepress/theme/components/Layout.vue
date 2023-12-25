@@ -33,8 +33,7 @@ onContentUpdated(() => {
 <template>
 	<div
 		:class="$style.Layout"
-		:ref="(element) => {containerElement = element as HTMLElement}"
-	>
+		:ref="(element) => {containerElement = element as HTMLElement}">
 		<LayoutOverlay :class="$style.Overlay" />
 
 		<LayoutMainDoc
@@ -46,8 +45,7 @@ onContentUpdated(() => {
 					? $style.Main___nonInteractive
 					: '',
 			]"
-			v-if="!frontmatter.hero"
-		/>
+			v-if="!frontmatter.hero" />
 		<div
 			:inert="store.isMobileNavAnythingOpen ? true : undefined"
 			v-else
@@ -57,8 +55,7 @@ onContentUpdated(() => {
 				store.isMobileNavAnythingOpen
 					? $style.Main___nonInteractive
 					: '',
-			]"
-		>
+			]">
 			<Content />
 		</div>
 
@@ -68,8 +65,7 @@ onContentUpdated(() => {
 			:ref="(element: Element | ComponentPublicInstance | null) => {
 			store.VisibleAreaMarker = element as Element;
 		}
-			"
-		></div>
+			"></div>
 	</div>
 </template>
 

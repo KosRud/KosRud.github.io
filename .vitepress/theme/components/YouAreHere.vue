@@ -9,17 +9,17 @@ const navTrace = useNavTrace();
 </script>
 
 <template>
-	<p :class="[$style.YouAreHere, darkMode ? $style.YouAreHere___dark : '']">
+	<div :class="[$style.YouAreHere, darkMode ? $style.YouAreHere___dark : '']">
 		<h2 :class="$style.YouAreHere_title">You are here:</h2>
 		<template v-for="(navItem, id) in navTrace">
 			<a
 				:aria-current="id == navTrace.length - 1 ? 'page' : undefined"
-				:href="findFirstChildPage(navItem).url"
-				>{{ navItem?.title }}</a
-			>
+				:href="findFirstChildPage(navItem).url">
+				{{ navItem?.title }}
+			</a>
 			<span :class="$style.NavTrace_separator">/</span>
 		</template>
-	</p>
+	</div>
 </template>
 
 <style module lang="less">

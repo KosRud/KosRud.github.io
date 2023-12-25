@@ -16,24 +16,19 @@ const store = useStore();
 		:class="[
 			$style.MainWrapper,
 			store.isCompactModeActive ? $style.MainWrapper___compact : '',
-		]"
-	>
+		]">
 		<div :class="$style.Main">
 			<div :class="$style.CurrentLocation">
 				<YouAreHere />
 			</div>
 			<main>
 				<LayoutError404 v-if="page.isNotFound" />
-				<MarkdownWrapper
-					:class="$style.Markdown"
-					v-else
-				>
+				<MarkdownWrapper :class="$style.Markdown" v-else>
 					<Content
 						:ref="(component: ComponentPublicInstance | null) => {
 								store.contentForToc = component;
 							}
-							"
-					/>
+							" />
 				</MarkdownWrapper>
 			</main>
 		</div>
