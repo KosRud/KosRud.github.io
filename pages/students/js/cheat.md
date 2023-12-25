@@ -1,5 +1,5 @@
 ---
-Title: JS cheat sheet
+title: JS cheat sheet
 ---
 
 

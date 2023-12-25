@@ -3,6 +3,7 @@ import LayoutNavItemText from './LayoutNavItemText.vue';
 
 import { Ref, ref, computed, onMounted, watchEffect } from 'vue';
 import { useRoute } from 'vitepress';
+import { useStore } from './pinia/store';
 
 import { NavItem } from '../ThemeConfig';
 import { useIsNavItemActive } from './composables/navItem';
@@ -24,6 +25,7 @@ const props = defineProps<{
 }>();
 
 const route = useRoute();
+const store = useStore();
 
 const iconChevronUrl = `url("${iconChevron}")`;
 
@@ -33,6 +35,12 @@ const oneChildOpen = useOneChildOpen(
 for (const child of props.navItem.children ?? []) {
 	if (urlMatch(route.path, child.url).inside) {
 		oneChildOpen.toggleChild(child.url);
+	}
+}
+function onItemClick(navItem: NavItem) {
+	oneChildOpen.toggleChild(navItem.url);
+	if (!navItem.children) {
+		store.isMobileNavPagesOpen = false;
 	}
 }
 
@@ -92,7 +100,7 @@ onMounted(() => {
 						:starting-level="startingLevel"
 						:nav-item="child"
 						v-for="child in props.navItem.children"
-						@nav-item-toggle="oneChildOpen.toggleChild(child.url)"
+						@nav-item-toggle="onItemClick(child)"
 						:is-open="oneChildOpen.isChildOpen(child.url)"
 						:is-nav-pages-loaded="props.isNavPagesLoaded" />
 				</ul>
