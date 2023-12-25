@@ -18,6 +18,7 @@
 	},
 	"scripts": {
 		"docs:dev": "vitepress dev",
+		"docs:dev:host": "vitepress dev --host",
 		"docs:build": "vitepress build",
 		"docs:preview": "vitepress preview"
 	},
