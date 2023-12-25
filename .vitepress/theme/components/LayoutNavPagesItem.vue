@@ -32,11 +32,13 @@ const iconChevronUrl = `url("${iconChevron}")`;
 const oneChildOpen = useOneChildOpen(
 	(props.navItem.children ?? []).map((child) => child.url)
 );
-for (const child of props.navItem.children ?? []) {
-	if (urlMatch(route.path, child.url).inside) {
-		oneChildOpen.toggleChild(child.url);
+onMounted(() => {
+	for (const child of props.navItem.children ?? []) {
+		if (urlMatch(route.path, child.url).inside) {
+			oneChildOpen.toggleChild(child.url);
+		}
 	}
-}
+});
 function onItemClick(navItem: NavItem) {
 	oneChildOpen.toggleChild(navItem.url);
 	if (!navItem.children) {
