@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useStore } from './pinia/store';
-import { Ref, ref, onUnmounted } from 'vue';
+import { Ref, ref, onUnmounted, onMounted } from 'vue';
 
 import LayoutHeaderNav from './LayoutHeaderNav.vue';
 import LayoutHeaderButtonBurger from './LayoutHeaderButtonBurger.vue';
@@ -17,15 +17,19 @@ const compactBurgers = ref(false);
 handleCompactBurgers();
 
 function handleCompactBurgers() {
-	const media = window.matchMedia('screen and (width < 20rem)');
+	let media: MediaQueryList | null = null;
+
 	const mediaCallback = (event: MediaQueryListEvent) => {
 		compactBurgers.value = event.matches;
 	};
 
-	compactBurgers.value = media.matches;
-	media.addEventListener('change', mediaCallback);
+	onMounted(() => {
+		media = window.matchMedia('screen and (width < 20rem)');
+		media.addEventListener('change', mediaCallback);
+		compactBurgers.value = media.matches;
+	});
 
-	onUnmounted(() => media.removeEventListener('change', mediaCallback));
+	onUnmounted(() => media?.removeEventListener('change', mediaCallback));
 }
 
 useResizeObserver(
