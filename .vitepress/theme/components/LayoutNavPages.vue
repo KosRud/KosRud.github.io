@@ -40,11 +40,13 @@ const title = computed(() => {
 });
 
 const oneChildOpen = useOneChildOpen(navItems.value.map((item) => item.url));
-for (const child of navItems.value) {
-	if (urlMatch(route.path, child.url).inside) {
-		oneChildOpen.toggleChild(child.url);
+onMounted(() => {
+	for (const child of navItems.value) {
+		if (urlMatch(route.path, child.url).inside) {
+			oneChildOpen.toggleChild(child.url);
+		}
 	}
-}
+});
 
 function onItemClick(navItem: (typeof navItems.value)[number]) {
 	oneChildOpen.toggleChild(navItem.url);
