@@ -2,13 +2,14 @@
 import LayoutNavItemText from './LayoutNavItemText.vue';
 
 import { Ref, ref, computed, onMounted, watchEffect } from 'vue';
-import { useStore } from './pinia/store';
+import { useRoute } from 'vitepress';
 
 import { NavItem } from '../ThemeConfig';
 import { useIsNavItemActive } from './composables/navItem';
 import { useDarkModeDetect } from './composables/darkMode';
 import { useOneChildOpen } from './composables/oneChildOpen';
 import { scrollIntoViewIfNeeded } from './composables/scrollIntoView';
+import { urlMatch } from '@theme/components/composables/urlMatch';
 
 import iconChevron from '@theme/components/assets/icons/ui/chevron/right.svg';
 
@@ -22,11 +23,18 @@ const props = defineProps<{
 	isNavPagesLoaded: boolean;
 }>();
 
-const store = useStore();
+const route = useRoute();
 
 const iconChevronUrl = `url("${iconChevron}")`;
 
-const oneChildOpen = useOneChildOpen(props.navItem.children ?? []);
+const oneChildOpen = useOneChildOpen(
+	(props.navItem.children ?? []).map((child) => child.url)
+);
+for (const child of props.navItem.children ?? []) {
+	if (urlMatch(route.path, child.url).inside) {
+		oneChildOpen.toggleChild(child.url);
+	}
+}
 
 const depth = computed(() => props.depth ?? 0);
 const isActive = useIsNavItemActive(props.navItem.url);
@@ -83,9 +91,9 @@ onMounted(() => {
 						:depth="depth + 1"
 						:starting-level="startingLevel"
 						:nav-item="child"
-						v-for="(child, id) in props.navItem.children"
-						@nav-item-toggle="oneChildOpen.toggleChild(id)"
-						:is-open="oneChildOpen.isChildOpen(id)"
+						v-for="child in props.navItem.children"
+						@nav-item-toggle="oneChildOpen.toggleChild(child.url)"
+						:is-open="oneChildOpen.isChildOpen(child.url)"
 						:is-nav-pages-loaded="props.isNavPagesLoaded" />
 				</ul>
 			</Transition>
