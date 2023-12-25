@@ -45,13 +45,12 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 <template>
 	<nav
 		:aria-label="`Submenu: ${title}`"
-		:class="[$style.NavPages, props.mobile ? $style.NavPages___mobile : '']"
-	>
+		:class="[
+			$style.NavPages,
+			props.mobile ? $style.NavPages___mobile : '',
+		]">
 		<template v-if="navItems.length > 0">
-			<h2
-				aria-hidden="true"
-				:class="$style.NavPages_title"
-			>
+			<h2 aria-hidden="true" :class="$style.NavPages_title">
 				{{ title }}
 			</h2>
 			<ul :class="$style.NavPages_itemList">
@@ -61,8 +60,7 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 					v-for="(navItem, id) in navItems"
 					:is-open="oneChildOpen.isChildOpen(id)"
 					@nav-item-toggle="oneChildOpen.toggleChild(id)"
-					:is-nav-pages-loaded="isMounted"
-				/>
+					:is-nav-pages-loaded="isMounted" />
 			</ul>
 		</template>
 	</nav>

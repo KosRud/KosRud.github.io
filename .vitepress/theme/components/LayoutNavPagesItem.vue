@@ -2,6 +2,7 @@
 import LayoutNavItemText from './LayoutNavItemText.vue';
 
 import { Ref, ref, computed, onMounted, watchEffect } from 'vue';
+import { useStore } from './pinia/store';
 
 import { NavItem } from '../ThemeConfig';
 import { useIsNavItemActive } from './composables/navItem';
@@ -20,6 +21,8 @@ const props = defineProps<{
 	isOpen: boolean;
 	isNavPagesLoaded: boolean;
 }>();
+
+const store = useStore();
 
 const iconChevronUrl = `url("${iconChevron}")`;
 
@@ -41,6 +44,11 @@ onMounted(() => {
 		);
 	});
 });
+
+function onClick() {
+	emit('navItemToggle');
+	store.isMobileNavPagesOpen = false;
+}
 </script>
 
 <template>
@@ -50,21 +58,18 @@ onMounted(() => {
 			$style.NavItem,
 			isDarkMode ? $style.Dark : '',
 			isOpen ? $style.NavItem___open : '',
-		]"
-	>
+		]">
 		<a
 			:href="$props.navItem.children ? 'javascript:' : props.navItem.url"
 			:class="[$style.NavItem_link]"
-			@click="emit('navItemToggle')"
+			@click="onClick"
 			:ref="(element)=> {
 				linkElement = element as Element;
-			}"
-		>
+			}">
 			<LayoutNavItemText
 				:level="depth + startingLevel"
 				:class="$style.NavItem_linkText"
-				:active="isActive"
-			>
+				:active="isActive">
 				{{ props.navItem.title }}
 			</LayoutNavItemText>
 		</a>
@@ -75,12 +80,10 @@ onMounted(() => {
 				:enter-active-class="$style.NavItem_childrenList___enterActive"
 				:leave-from-class="$style.NavItem_childrenList___leaveFrom"
 				:leave-to-class="$style.NavItem_childrenList___leaveTo"
-				:leave-active-class="$style.NavItem_childrenList___leaveActive"
-			>
+				:leave-active-class="$style.NavItem_childrenList___leaveActive">
 				<ul
 					v-if="isOpen && props.navItem.children?.length"
-					:class="$style.NavItem_childrenList"
-				>
+					:class="$style.NavItem_childrenList">
 					<LayoutNavPagesItem
 						:depth="depth + 1"
 						:starting-level="startingLevel"
@@ -88,8 +91,7 @@ onMounted(() => {
 						v-for="(child, id) in props.navItem.children"
 						@nav-item-toggle="oneChildOpen.toggleChild(id)"
 						:is-open="oneChildOpen.isChildOpen(id)"
-						:is-nav-pages-loaded="props.isNavPagesLoaded"
-					/>
+						:is-nav-pages-loaded="props.isNavPagesLoaded" />
 				</ul>
 			</Transition>
 		</div>
