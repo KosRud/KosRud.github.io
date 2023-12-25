@@ -40,6 +40,13 @@ const title = computed(() => {
 });
 
 const oneChildOpen = useOneChildOpen(navItems.value);
+
+function onItemClick(navItem: (typeof navItems.value)[number], id: number) {
+	oneChildOpen.toggleChild(id);
+	if (!navItem.children) {
+		store.isMobileNavPagesOpen = false;
+	}
+}
 </script>
 
 <template>
@@ -59,7 +66,7 @@ const oneChildOpen = useOneChildOpen(navItems.value);
 					:nav-item="navItem"
 					v-for="(navItem, id) in navItems"
 					:is-open="oneChildOpen.isChildOpen(id)"
-					@nav-item-toggle="oneChildOpen.toggleChild(id)"
+					@nav-item-toggle="onItemClick(navItem, id)"
 					:is-nav-pages-loaded="isMounted" />
 			</ul>
 		</template>

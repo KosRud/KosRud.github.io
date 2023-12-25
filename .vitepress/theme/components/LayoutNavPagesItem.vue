@@ -44,11 +44,6 @@ onMounted(() => {
 		);
 	});
 });
-
-function onClick() {
-	emit('navItemToggle');
-	store.isMobileNavPagesOpen = false;
-}
 </script>
 
 <template>
@@ -62,7 +57,7 @@ function onClick() {
 		<a
 			:href="$props.navItem.children ? 'javascript:' : props.navItem.url"
 			:class="[$style.NavItem_link]"
-			@click="onClick"
+			@click="emit('navItemToggle')"
 			:ref="(element)=> {
 				linkElement = element as Element;
 			}">
