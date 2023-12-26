@@ -150,7 +150,7 @@ useResizeObserver(
 		margin-bottom: @content-gap;
 
 		&:not(:first-child) {
-			margin-top: @content-gap*2;
+			margin-top: @content-gap*1.5;
 		}
 	}
 
