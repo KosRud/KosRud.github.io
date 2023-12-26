@@ -195,7 +195,7 @@ const config = defineConfigWithTheme<ThemeConfig>({
 			'link',
 			{
 				rel: 'shortcut icon',
-				href: '/favicon/favicon.ico',
+				href: '/favicon.ico',
 			},
 		],
 		[
