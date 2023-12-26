@@ -185,13 +185,6 @@ const config = defineConfigWithTheme<ThemeConfig>({
 		[
 			'link',
 			{
-				rel: 'shortcut icon',
-				href: '/favicon.ico',
-			},
-		],
-		[
-			'link',
-			{
 				rel: 'manifest',
 				href: '/manifest.json',
 			},
