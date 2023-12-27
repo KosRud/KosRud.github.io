@@ -32,22 +32,30 @@ const props = defineProps<{ dummies: number }>();
 							title: 'before and after: built-in skinning vs plugin',
 							url: imgDq,
 						},
-					]">
+					]"
+				>
 					<p>
 						A plugin for
-						<HyperLink text="Unity" href="https://unity.com/" />
+						<HyperLink
+							text="Unity"
+							href="https://unity.com/"
+						/>
 						engine which implements skeletal deformations using
 						<HyperLink
 							text="dual quaternions"
-							href="https://www.gamedevs.org/uploads/skinning-with-dual-quaternions.pdf" />
+							href="https://www.gamedevs.org/uploads/skinning-with-dual-quaternions.pdf"
+						/>
 						combined with an original artifact compensation
 						<HyperLink
 							text="method"
-							href="http://journals.khnu.km.ua/vestnik/pdf/tech/pdfbase/2020/2020_1/(281)_2020-1-t.pdf#page=12" />
+							href="http://journals.khnu.km.ua/vestnik/pdf/tech/pdfbase/2020/2020_1/(281)_2020-1-t.pdf#page=12"
+						/>
 						which I developed for my master's thesis at the Faculty
 						of Applied Mathematics at
-						<HyperLink text="KPI" href="https://kpi.ua/en/fpm" />
-						.
+						<HyperLink
+							text="KPI"
+							href="https://kpi.ua/en/fpm"
+						/>.
 					</p>
 					<p>
 						The animated screenshot alternates between built-in
@@ -62,30 +70,36 @@ const props = defineProps<{ dummies: number }>();
 							url: imgLighthouse,
 							title: 'lighthouse score: Performance (97), Accessibility (100), Best Practices (95), SEO (99)',
 						},
-					]">
+					]"
+				>
 					<p>
 						This website is built in
 						<HyperLink
 							text="VitePress"
-							href="https://vitepress.dev/" />
+							href="https://vitepress.dev/"
+						/>
 						with a custom theme written from scratch using
-						<HyperLink text="Vue.js" href="https://vuejs.org/" />
-						.
+						<HyperLink
+							text="Vue.js"
+							href="https://vuejs.org/"
+						/>.
 					</p>
 					<p>
 						It gracefully conforms to viewports as narrow as 260px,
 						utilizes responsive components implemented via
 						<HyperLink
 							text="ResizeObserver"
-							href="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver" />
-						, as well as provides accessibility with
+							href="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver"
+						/>, as well as provides accessibility with
 						<HyperLink
 							text="ARIA"
-							href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA" />
+							href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
+						/>
 						attributes and support for browser
 						<HyperLink
 							text="font size"
-							href="https://austingil.com/px-or-rem-in-css/" />
+							href="https://austingil.com/px-or-rem-in-css/"
+						/>
 						accessibility setting.
 					</p>
 				</HomePageHighlightsProject>
@@ -101,14 +115,18 @@ const props = defineProps<{ dummies: number }>();
 							title: 'textures in use',
 						},
 					]"
-					github="KosRud/ProTeGe_v2">
+					github="KosRud/ProTeGe_v2"
+				>
 					<p>
 						A graph-based procedural texture generator with
 						real-time preview.
 					</p>
 					<p>
 						Implemented in
-						<HyperLink text="Unity" href="https://unity.com/" />
+						<HyperLink
+							text="Unity"
+							href="https://unity.com/"
+						/>
 						engine with texture processing performed on the GPU. A
 						collection of configurable nodes (noise generators,
 						color adjustments, blending) can be chained arbitrarily
@@ -118,8 +136,10 @@ const props = defineProps<{ dummies: number }>();
 						Developed in collaboration with Ihor Los as a joint
 						bachelor's project at the Faculty of Applied Mathematics
 						at
-						<HyperLink text="KPI" href="https://kpi.ua/en/fpm" />
-						.
+						<HyperLink
+							text="KPI"
+							href="https://kpi.ua/en/fpm"
+						/>.
 					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
@@ -130,12 +150,14 @@ const props = defineProps<{ dummies: number }>();
 						examples:
 							'https://github.com/KosRud/dice-pool-calc-examples',
 						npm: 'https://www.npmjs.com/package/dice-pool-calc#dice-pool-calc',
-					}">
+					}"
+				>
 					<p>
 						A
 						<HyperLink
 							text="typescript"
-							href="https://www.typescriptlang.org/" />
+							href="https://www.typescriptlang.org/"
+						/>
 						library that efficiently calculates probabilities of
 						possible outcomes when rolling an arbitrary collection
 						of dice and using arbitrary rules to interpret them.
@@ -156,7 +178,8 @@ const props = defineProps<{ dummies: number }>();
 						paper: 'https://link.springer.com/chapter/10.1007/978-3-031-37963-5_67',
 						preprint:
 							'https://www.researchgate.net/publication/369113944_Real-time_material_clustering_for_mixed_reality_applications_based_on_dichromatic_reflection_model',
-					}">
+					}"
+				>
 					<p>
 						This software was implemented to compare the speed and
 						quality of different clustering algorithms in a specific
@@ -167,12 +190,13 @@ const props = defineProps<{ dummies: number }>();
 						The benchmark results are published in a
 						<HyperLink
 							text="paper"
-							href="https://link.springer.com/chapter/10.1007/978-3-031-37963-5_67" />
-						(you can also read a
+							href="https://link.springer.com/chapter/10.1007/978-3-031-37963-5_67"
+						/>
+						(you can also reada
 						<HyperLink
 							text="preprint"
-							href="https://www.researchgate.net/publication/369113944_Real-time_material_clustering_for_mixed_reality_applications_based_on_dichromatic_reflection_model" />
-						).
+							href="https://www.researchgate.net/publication/369113944_Real-time_material_clustering_for_mixed_reality_applications_based_on_dichromatic_reflection_model"
+						/>).
 					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
@@ -180,11 +204,13 @@ const props = defineProps<{ dummies: number }>();
 					:title="'joplin-plugin-paginator'"
 					:links="{
 						npm: 'https://www.npmjs.com/package/joplin-plugin-paginator',
-					}">
+					}"
+				>
 					<p>
 						<HyperLink
 							text="Joplin"
-							href="https://joplinapp.org/" />
+							href="https://joplinapp.org/"
+						/>
 						is an open-source note taking app with tags,
 						hierarchical folders, plugin support, synchronization,
 						and embedded multimedia.
@@ -204,7 +230,8 @@ const props = defineProps<{ dummies: number }>();
 							url: imgPtgV1_1,
 						},
 					]"
-					github="KosRud/ProTeGe-v1">
+					github="KosRud/ProTeGe-v1"
+				>
 					<p>
 						A procedural texture generator written in C++ using
 						wxWidgets library for the GUI. The computations are
@@ -213,7 +240,8 @@ const props = defineProps<{ dummies: number }>();
 				</HomePageHighlightsProject>
 				<div
 					:class="$style.Highlights_dummy"
-					v-for="_ in Array.from({ length: props.dummies })"></div>
+					v-for="_ in Array.from({ length: props.dummies })"
+				></div>
 			</div>
 		</div>
 	</div>
