@@ -271,6 +271,11 @@ const config = defineConfigWithTheme<ThemeConfig>({
 		},
 	},
 	markdown: {
+		container: {
+			tipLabel: 'References',
+			infoLabel: 'Note',
+			warningLabel: 'Warning',
+		},
 		config: (md) => {
 			md.use(markdownItKatex);
 			md.use(markdownItDeflist);
