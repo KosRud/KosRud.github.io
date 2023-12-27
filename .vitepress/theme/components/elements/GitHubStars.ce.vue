@@ -3,11 +3,27 @@ import iconGithub from '../assets/icons/github/mark-github.svg';
 import iconStar from '../assets/icons/github/star.svg';
 import HyperLink from '../HyperLink.vue';
 
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, Ref } from 'vue';
 
 const props = defineProps<{ repo: string }>();
 
-const stars = ref(0);
+const stars: Ref<number | null> = ref(0);
+
+async function requestStarCount(repo: string) {
+	try {
+		const response = await fetch(`https://api.github.com/repos/${repo}`);
+
+		if (!response.ok) {
+			return null;
+		}
+
+		const data = await response.json();
+
+		return (data.stargazers_count as number | undefined) ?? null;
+	} catch {
+		return null;
+	}
+}
 
 onMounted(async () => {
 	function retrieveCache() {
@@ -40,10 +56,10 @@ onMounted(async () => {
 		}
 	}
 
-	const response = await fetch(`https://api.github.com/repos/${props.repo}`);
-	const data = await response.json();
-	const retrievedStars = data.stargazers_count ?? -1;
+	const retrievedStars = await requestStarCount(props.repo);
 	stars.value = retrievedStars;
+
+	console.log('stats: ', stars.value);
 
 	cache[props.repo] = {
 		numStars: retrievedStars,
@@ -57,26 +73,22 @@ onMounted(async () => {
 	<div class="Github">
 		<HyperLink
 			:href="`https://github.com/${repo}`"
-			class="Github_box Github_box___repo"
-		>
+			class="Github_box Github_box___repo">
 			<img
 				class="Github_icon"
 				:src="iconGithub"
 				alt="github icon"
-				aria-hidden="true"
-			/>
+				aria-hidden="true" />
 			GitHub
 		</HyperLink>
 		<HyperLink
 			:href="`https://github.com/${repo}`"
 			class="Github_box Github_box___stars"
-			v-if="stars != -1"
-		>
+			v-if="stars != null">
 			<img
 				alt="stars"
 				class="Github_icon Github_icon___star"
-				:src="iconStar"
-			/>
+				:src="iconStar" />
 			{{ stars }}
 		</HyperLink>
 	</div>
