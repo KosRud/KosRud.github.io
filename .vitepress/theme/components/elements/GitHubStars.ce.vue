@@ -9,6 +9,11 @@ const props = defineProps<{ repo: string }>();
 
 const stars: Ref<number | null> = ref(0);
 
+type CachedStars = {
+	stars?: number;
+	timeStamp?: number;
+};
+
 async function requestStarCount(repo: string) {
 	try {
 		const response = await fetch(`https://api.github.com/repos/${repo}`);
@@ -17,31 +22,36 @@ async function requestStarCount(repo: string) {
 			return null;
 		}
 
-		const data = await response.json();
+		const json = await response.json();
 
-		return (data.stargazers_count as number | undefined) ?? null;
+		const stargazers_count = json.stargazers_count as number | undefined;
+
+		return stargazers_count ?? null;
 	} catch {
 		return null;
 	}
 }
 
 onMounted(async () => {
-	function retrieveCache() {
-		const cachedJSON = localStorage.getItem('githubStars') ?? '{}';
+	const cacheName = `github stars: ${props.repo}`;
+
+	function retrieveCache(cacheName: string) {
+		const cachedJSON = localStorage.getItem(cacheName) ?? '{}';
 
 		try {
-			return JSON.parse(cachedJSON);
+			return JSON.parse(cachedJSON) as CachedStars;
 		} catch {
-			localStorage.setItem('githubStars', '{}');
-			return {};
+			localStorage.removeItem(cacheName);
+			return null;
 		}
 	}
 
-	const cache = retrieveCache();
+	const cachedStars = retrieveCache(cacheName);
 
-	const cachedStars = cache[props.repo];
-
-	if (cachedStars !== undefined) {
+	if (
+		cachedStars?.timeStamp != undefined &&
+		cachedStars?.stars != undefined
+	) {
 		const age = (Date.now() - cachedStars.timeStamp) / 1000; // seconds
 
 		const cacheLongevitySuccess = 3600; // 1 hour
@@ -49,23 +59,34 @@ onMounted(async () => {
 
 		if (
 			age < cacheLongevityFailure ||
-			(age < cacheLongevitySuccess && cachedStars.numStars != -1)
+			(age < cacheLongevitySuccess && cachedStars.stars != -1)
 		) {
-			stars.value = cachedStars.numStars;
+			stars.value = cachedStars.stars;
 			return;
 		}
 	}
 
 	const retrievedStars = await requestStarCount(props.repo);
+
+	if (!retrievedStars) {
+		const newCachedStars: CachedStars = {
+			stars: -1,
+			timeStamp: Date.now(),
+		};
+
+		localStorage.setItem(cacheName, JSON.stringify(newCachedStars));
+
+		return;
+	}
+
 	stars.value = retrievedStars;
 
-	console.log('stats: ', stars.value);
-
-	cache[props.repo] = {
-		numStars: retrievedStars,
+	const newCachedStars: CachedStars = {
+		stars: retrievedStars,
 		timeStamp: Date.now(),
 	};
-	localStorage.setItem('githubStars', JSON.stringify(cache));
+
+	localStorage.setItem(cacheName, JSON.stringify(newCachedStars));
 });
 </script>
 
