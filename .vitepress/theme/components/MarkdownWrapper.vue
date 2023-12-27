@@ -220,10 +220,6 @@ useResizeObserver(
 		Admonitions
 	\*----------------------------------*/
 
-	// :global(.custom-block-title) {
-	// 	display: none;
-	// }
-
 	:global(.custom-block) {
 		border: @color-border solid @border-width;
 		// border-left: none;
@@ -237,38 +233,33 @@ useResizeObserver(
 		margin-left: @gap;
 		margin-right: @gap;
 		margin-top: calc(@admonition_title-height + @content-gap);
-
-		&::before {
-			height: @admonition_title-height;
-			margin-left: -@gap*2;
-			margin-right: -@gap*2;
-			margin-top: calc(-@admonition-padding - @admonition_title-height);
-			margin-bottom: @admonition-padding;
-
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: center;
-
-			text-align: center;
-			font-weight: bold;
-
-			box-shadow: @shadow-s;
-			border-radius: @gap;
-		}
 	}
 
 	:global(.custom-block-title) {
-		display: none;
+		height: @admonition_title-height;
+		margin-left: -@gap*2;
+		margin-right: -@gap*2;
+		margin-top: calc(-@admonition-padding - @admonition_title-height);
+		margin-bottom: @admonition-padding;
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+
+		text-align: center;
+		font-weight: bold;
+
+		box-shadow: @shadow-s;
+		border-radius: @gap;
 	}
 
 	:global(.custom-block.warning) {
 		background-color: #fceccf;
 		border-color: #f0b37e;
 
-		&::before {
+		:global(.custom-block-title) {
 			background-color: #f0b37e;
-			content: 'Warning';
 		}
 	}
 
@@ -276,9 +267,8 @@ useResizeObserver(
 		background-color: #efe;
 		border-color: #888;
 
-		&::before {
+		:global(.custom-block-title) {
 			background-color: #9b9;
-			content: 'References';
 		}
 	}
 
@@ -286,9 +276,8 @@ useResizeObserver(
 		border-color: hsl(204deg 70% 70%);
 		background-color: hsl(204deg 66% 94%);
 
-		&::before {
+		:global(.custom-block-title) {
 			background-color: hsl(204deg 70% 70%);
-			content: 'Note';
 		}
 	}
 
