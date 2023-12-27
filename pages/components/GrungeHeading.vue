@@ -9,7 +9,11 @@ const smudgeUrl = `url("${smudge}")`;
 
 <template>
 	<div :class="$style.HeadingWrapper">
-		<h2 :id="makeHeadingId(props.text)" :class="$style.Heading">
+		<h2
+			:id="makeHeadingId(props.text)"
+			:class="$style.Heading"
+			tabindex="-1"
+		>
 			{{ props.text }}
 		</h2>
 	</div>

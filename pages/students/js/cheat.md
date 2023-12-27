@@ -222,8 +222,31 @@ let petOwners = [
 
 for (let petOwner of petOwners) {
     petOwner?.dog?.call();
-    // if petOwner == null, assume that .dog is undefined
-    // if .dog is undefined, do nothing
+    // if petOwner is null or undefined, assume that .dog is undefined
+    // if petOwner.dog is null or undefined, do nothing
+}
+```
+
+```js
+const animals = [
+	{
+		species: 'cat',
+		name: 'Couch',
+	},
+	{
+		species: 'dog',
+		name: 'Flumph',
+		wag() {
+			console.log('Flumph happily wags its tail');
+		},
+	},
+	null,
+];
+
+for (const animal of animals) {
+	animal?.wag?.();
+	// if animal is null or undefined, do nothing
+	// if animal.wag is null or undefined, do nothing
 }
 ```
 
