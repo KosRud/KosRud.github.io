@@ -2,28 +2,32 @@
 title: About me
 ---
 
+*a more detailed free-form introduction in [timeline](#timeline)*
+
 ## Education
 
-|Period|Institution|Qualification|
-|:---:|---|---|
-|2020 &ndash; 2023 (interrupted)|Slovak University of Technology in Bratislava|PhD. in<br>applied informatics|
-|2018 &ndash; 2020|National Technical University of Ukraine "Igor Sikorsky Kyiv Polytechnic Institute"|Master's degree in software engineering|
+**Highest level completed**:&emsp;master's degree (software engineering).
+
+|Period|Faculty|Institution|Qualification|
+|:---:|---|---|---|
+|2020 &ndash; 2023 (interrupted)|Informatics and Information Technologies|Slovak University of Technology in Bratislava|PhD. in<br>applied informatics|
+|2018 &ndash; 2020|Applied Mathematics|National Technical University of Ukraine "Igor Sikorsky Kyiv Polytechnic Institute"|Master's degree in software engineering|
 <!-- |2014 &ndash; 2018|National Technical University of Ukraine<br>"Igor Sikorsky Kyiv Polytechnic Institute"|Bachelor's degree in software engineering| -->
 
 ## Work experience
 
-### RISA Tech, Inc.
+### Nov 2017 &mdash; Nov 2018 
 
-Software developer (Nov 2017 &mdash; Nov 2018)
+Software developer for [RISA](https://www.nemetschek.com/en/brand/risa) (Nemetschek group company):
 
 * converting inherited C/C++ code to .Net platform (C#, C++/CLI)
-* developing UI with WPF, Telerik UI and Windows Forms
-* developing an interactive calculation reports with [Telerik Reporting](https://www.telerik.com/products/reporting.aspx)
+* developing UI with [WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/?view=netdesktop-8.0) and [Telerik UI](https://www.telerik.com/products/wpf/overview.aspx)
+* developing interactive calculation reports with [Telerik Reporting](https://www.telerik.com/products/reporting.aspx)
 
 
 ## Timeline
 
-During my study for the bachelor's degree at [KPI](https://kpi.ua/en/fpm), I have worked as a contractor for [RISA Tech, Inc.](https://risa.com/) for 1 year, after which I enrolled for the master's course and dedicated all my efforts towards the university for the time being. My work at Risa Tech mostly concerned a "bridge" between the old C++ code and the new GUI written in C# and WPF. I also worked on developing interactive printable calculation reports using [Telerik Reporting](https://www.telerik.com/products/reporting.aspx).
+During my study for the bachelor's degree at [KPI](https://kpi.ua/en/fpm), I have worked as a contractor for [RISA Tech, Inc.](https://risa.com/) for 1 year, after which I enrolled for the master's course and dedicated all my efforts towards the university for the time being. My work at Risa Tech mostly concerned a "bridge" between the old C++ code and the new GUI written in C# and [WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/?view=netdesktop-8.0). I also worked on developing interactive printable calculation reports using [Telerik Reporting](https://www.telerik.com/products/reporting.aspx).
 
 During the same time, I have taught myself [Unity](https://unity.com/) engine as a hobby, which ended up being used in both my bachelor's ([ProTeGe v2](/#protege-v2)) and master' ([DQ skinning for Unity](/#dq-skinning-for-unity)) theses.
 
