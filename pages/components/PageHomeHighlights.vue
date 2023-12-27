@@ -98,7 +98,7 @@ const props = defineProps<{ dummies: number }>();
 						attributes and support for browser
 						<HyperLink
 							text="font size"
-							href="https://austingil.com/px-or-rem-in-css/"
+							href="https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/"
 						/>
 						accessibility setting.
 					</p>
