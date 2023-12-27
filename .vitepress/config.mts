@@ -8,55 +8,7 @@ import svgLoader from 'vite-svg-loader';
 import markdownItKatex from 'markdown-it-katex';
 import markdownItDeflist from 'markdown-it-deflist';
 import { resolve } from 'node:path';
-import { makeNav } from './nav.js';
-
-const nav = makeNav(
-	[
-		{ title: 'About me', url: '/about' },
-		{
-			title: 'For students',
-			url: '/students',
-			children: [
-				{
-					title: 'HTML & CSS',
-					url: 'html+css',
-					children: [
-						{
-							title: 'CSS selectors',
-							url: 'selectors',
-						},
-						{
-							title: 'Design guidelines',
-							url: 'guidelines',
-						},
-						// {
-						// 	title: 'Semantic elements',
-						// 	url: 'semantic',
-						// },
-						{
-							title: 'Tools',
-							url: 'tools',
-						},
-						{
-							title: 'Additional resources',
-							url: 'resources',
-						},
-					],
-				},
-				{
-					title: 'JavaScript',
-					url: 'js',
-					children: [
-						{ title: 'Naming things', url: 'naming' },
-						{ title: 'Clean code', url: 'clean' },
-						{ title: 'JS cheat sheet', url: 'cheat' },
-					],
-				},
-			],
-		},
-	],
-	'./pages'
-);
+import { getNav } from './config.nav';
 
 // https://vitepress.dev/reference/site-config
 const config = defineConfigWithTheme<ThemeConfig>({
@@ -335,7 +287,7 @@ const config = defineConfigWithTheme<ThemeConfig>({
 		// ],
 	},
 	themeConfig: {
-		nav,
+		nav: getNav(),
 	},
 });
 
