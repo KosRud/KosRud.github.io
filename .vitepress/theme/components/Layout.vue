@@ -10,8 +10,10 @@ import { createPinia } from 'pinia';
 import { ThemeConfig } from '@theme/ThemeConfig';
 import { useDarkModeEnforce } from './composables/darkMode';
 import { register as registerCustomElements } from './elements/index';
+import { useFocusFix } from './composables/focusFix';
 
 registerCustomElements();
+useFocusFix();
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { frontmatter } = useData<ThemeConfig>();
@@ -41,7 +43,8 @@ onContentUpdated(() => {
 					? $style.Main___nonInteractive
 					: '',
 			]"
-			v-if="!frontmatter.hero" />
+			v-if="!frontmatter.hero"
+		/>
 		<div
 			:inert="store.isMobileNavAnythingOpen ? true : undefined"
 			v-else
@@ -51,7 +54,8 @@ onContentUpdated(() => {
 				store.isMobileNavAnythingOpen
 					? $style.Main___nonInteractive
 					: '',
-			]">
+			]"
+		>
 			<Content />
 		</div>
 
@@ -61,7 +65,8 @@ onContentUpdated(() => {
 			:ref="(element: Element | ComponentPublicInstance | null) => {
 			store.VisibleAreaMarker = element as Element;
 		}
-			"></div>
+			"
+		></div>
 	</div>
 </template>
 

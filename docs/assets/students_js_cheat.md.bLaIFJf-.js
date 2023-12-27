@@ -110,8 +110,27 @@ import{_ as s,o as a,c as n,a as l}from"./chunks/framework.oytdgtbb.js";const C=
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;">for</span><span style="color:#24292E;"> (</span><span style="color:#D73A49;">let</span><span style="color:#24292E;"> petOwner </span><span style="color:#D73A49;">of</span><span style="color:#24292E;"> petOwners) {</span></span>
 <span class="line"><span style="color:#24292E;">    petOwner?.dog?.</span><span style="color:#6F42C1;">call</span><span style="color:#24292E;">();</span></span>
-<span class="line"><span style="color:#6A737D;">    // if petOwner == null, assume that .dog is undefined</span></span>
-<span class="line"><span style="color:#6A737D;">    // if .dog is undefined, do nothing</span></span>
+<span class="line"><span style="color:#6A737D;">    // if petOwner is null or undefined, assume that .dog is undefined</span></span>
+<span class="line"><span style="color:#6A737D;">    // if petOwner.dog is null or undefined, do nothing</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">const</span><span style="color:#005CC5;"> animals</span><span style="color:#D73A49;"> =</span><span style="color:#24292E;"> [</span></span>
+<span class="line"><span style="color:#24292E;">	{</span></span>
+<span class="line"><span style="color:#24292E;">		species: </span><span style="color:#032F62;">&#39;cat&#39;</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#24292E;">		name: </span><span style="color:#032F62;">&#39;Couch&#39;</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#24292E;">	},</span></span>
+<span class="line"><span style="color:#24292E;">	{</span></span>
+<span class="line"><span style="color:#24292E;">		species: </span><span style="color:#032F62;">&#39;dog&#39;</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#24292E;">		name: </span><span style="color:#032F62;">&#39;Flumph&#39;</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#6F42C1;">		wag</span><span style="color:#24292E;">() {</span></span>
+<span class="line"><span style="color:#24292E;">			console.</span><span style="color:#6F42C1;">log</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&#39;Flumph happily wags its tail&#39;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">		},</span></span>
+<span class="line"><span style="color:#24292E;">	},</span></span>
+<span class="line"><span style="color:#005CC5;">	null</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#24292E;">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">for</span><span style="color:#24292E;"> (</span><span style="color:#D73A49;">const</span><span style="color:#005CC5;"> animal</span><span style="color:#D73A49;"> of</span><span style="color:#24292E;"> animals) {</span></span>
+<span class="line"><span style="color:#24292E;">	animal?.</span><span style="color:#6F42C1;">wag</span><span style="color:#24292E;">?.();</span></span>
+<span class="line"><span style="color:#6A737D;">	// if animal is null or undefined, do nothing</span></span>
+<span class="line"><span style="color:#6A737D;">	// if animal.wag is null or undefined, do nothing</span></span>
 <span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><div class="tip custom-block"><p class="custom-block-title">References</p><p>Mozilla Developer Network — <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining" target="_blank" rel="noreferrer">optional chaining</a></p></div><h2 id="console-output" tabindex="-1">Console output <a class="header-anchor" href="#console-output" aria-label="Permalink to &quot;Console output&quot;">​</a></h2><dl><dt>Console.table</dt><dd>Display objects and their properties in console, formatted as a table.</dd><dt>Console.dir</dt><dd>Display an interactive list of properties of a JavaScript object.</dd></dl><h4 id="example-3" tabindex="-1">Example <a class="header-anchor" href="#example-3" aria-label="Permalink to &quot;Example&quot;">​</a></h4><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">let</span><span style="color:#24292E;"> arr </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> [</span></span>
 <span class="line"><span style="color:#24292E;">	{</span></span>
 <span class="line"><span style="color:#24292E;">    	name: </span><span style="color:#032F62;">&quot;Ivy&quot;</span><span style="color:#24292E;">,</span></span>
@@ -205,4 +224,4 @@ import{_ as s,o as a,c as n,a as l}from"./chunks/framework.oytdgtbb.js";const C=
 <span class="line"><span style="color:#24292E;">    ]</span></span>
 <span class="line"><span style="color:#24292E;">)</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E;">console.</span><span style="color:#6F42C1;">table</span><span style="color:#24292E;">(editedGrid);</span></span></code></pre></div><p>Output:</p><table><tr><th scope="column">(index)</th><th scope="column">0</th><th scope="column">1</th><th scope="column">2</th><th scope="column">3</th></tr><tr><th scope="row">0</th><td>0</td><td>1</td><td>2</td><td>0</td></tr><tr><th scope="row">1</th><td>3</td><td>4</td><td>5</td><td>0</td></tr><tr><th scope="row">2</th><td>6</td><td>7</td><td>8</td><td>0</td></tr></table>`,72),t=[e];function c(r,i,y,d,u,E){return a(),n("div",null,t)}const g=s(p,[["render",c]]);export{C as __pageData,g as default};
+<span class="line"><span style="color:#24292E;">console.</span><span style="color:#6F42C1;">table</span><span style="color:#24292E;">(editedGrid);</span></span></code></pre></div><p>Output:</p><table><tr><th scope="column">(index)</th><th scope="column">0</th><th scope="column">1</th><th scope="column">2</th><th scope="column">3</th></tr><tr><th scope="row">0</th><td>0</td><td>1</td><td>2</td><td>0</td></tr><tr><th scope="row">1</th><td>3</td><td>4</td><td>5</td><td>0</td></tr><tr><th scope="row">2</th><td>6</td><td>7</td><td>8</td><td>0</td></tr></table>`,73),t=[e];function c(r,i,y,d,u,E){return a(),n("div",null,t)}const g=s(p,[["render",c]]);export{C as __pageData,g as default};
