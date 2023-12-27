@@ -92,7 +92,7 @@ function handleScrolling() {
 	color: white;
 	font-family: @font-hero;
 
-	background-color: @color-primary-muted;
+	background-color: @color-primary-hero;
 	box-shadow: 0rem 0rem 100rem inset #0006;
 
 	filter: brightness(v-bind('heroBrightness'));
