@@ -69,8 +69,8 @@ onMounted(() => {
 	// align the first item
 	// with the first item of navigation panel on the left
 
-	padding-top: .NavItem_text(1) [padding-top] - .NavItem_text___compact()
-		[padding-top];
+	// padding-top: .NavItem_text(1) [padding-top] - .NavItem_text___compact()
+	// 	[padding-top];
 
 	padding-bottom: @Aside-padding-bottom;
 }

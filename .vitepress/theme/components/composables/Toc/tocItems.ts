@@ -81,18 +81,16 @@ function getTocItems() {
 		}
 	}
 
-	/*
-			If there's only one heading of level 1
-			assume it's the page title
-			and return its children
-		*/
-	if (toc.length == 1 && toc[0].level == 1) {
-		const result = toc[0].children;
-		toc[0].children = [];
-		toc[0].title = '(beginning)';
-		toc[0].italic = true;
-		result.unshift(toc[0]);
-		return result;
+	const beginningElement = document.querySelector('#Content_top');
+
+	if (beginningElement) {
+		toc.unshift({
+			children: [],
+			italic: true,
+			level: 0,
+			title: '(to beginning)',
+			element: beginningElement,
+		});
 	}
 
 	return toc;
