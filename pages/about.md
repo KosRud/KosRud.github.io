@@ -2,8 +2,6 @@
 title: About me
 ---
 
-*a more detailed free-form introduction in [timeline](#timeline)*
-
 ## Education
 
 **Highest level completed**:&emsp;master's degree (software engineering).
