@@ -3,7 +3,7 @@ import LayoutOverlay from './LayoutOverlay.vue';
 import LayoutMainDoc from './LayoutMainDoc.vue';
 
 import { useStoreService } from './pinia/store';
-import { ComponentPublicInstance, getCurrentInstance, ref, Ref } from 'vue';
+import { ComponentPublicInstance, getCurrentInstance } from 'vue';
 import { useData, onContentUpdated } from 'vitepress';
 import { createPinia } from 'pinia';
 
@@ -19,8 +19,6 @@ const { frontmatter } = useData<ThemeConfig>();
 getCurrentInstance()?.appContext.app.use(createPinia());
 const store = useStoreService();
 
-const containerElement: Ref<Element | null> = ref(null);
-
 useDarkModeEnforce(false);
 
 onContentUpdated(() => {
@@ -31,9 +29,7 @@ onContentUpdated(() => {
 </script>
 
 <template>
-	<div
-		:class="$style.Layout"
-		:ref="(element) => {containerElement = element as HTMLElement}">
+	<div :class="$style.Layout">
 		<LayoutOverlay :class="$style.Overlay" />
 
 		<LayoutMainDoc
