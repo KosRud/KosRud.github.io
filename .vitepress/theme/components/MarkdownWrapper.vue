@@ -221,26 +221,26 @@ useResizeObserver(
 	\*----------------------------------*/
 
 	:global(.custom-block) {
+		margin-left: @gap;
+		margin-right: @gap;
+		margin-top: calc(@admonition_title-height + @content-gap);
+
 		border: @color-border solid @border-width;
-		// border-left: none;
-		// border-right: none;
 		border-top: none;
 		border-bottom: none;
 		border-radius: 0rem 0rem @gap @gap;
 		background-color: @color-background;
 		padding: @admonition-padding;
 		box-shadow: @shadow-s;
-		margin-left: @gap;
-		margin-right: @gap;
-		margin-top: calc(@admonition_title-height + @content-gap);
 	}
 
 	:global(.custom-block-title) {
-		height: @admonition_title-height;
 		margin-left: -@gap*2;
 		margin-right: -@gap*2;
 		margin-top: calc(-@admonition-padding - @admonition_title-height);
 		margin-bottom: @admonition-padding;
+
+		height: @admonition_title-height;
 
 		display: flex;
 		flex-direction: row;
@@ -265,7 +265,7 @@ useResizeObserver(
 
 	:global(.custom-block.tip) {
 		background-color: #efe;
-		border-color: #888;
+		border-color: #9b9;
 
 		:global(.custom-block-title) {
 			background-color: #9b9;
