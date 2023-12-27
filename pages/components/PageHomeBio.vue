@@ -80,9 +80,7 @@ const devIconGroups = {
 						text="highlights"
 					/>
 					from the web development seminars I've been teaching at
-					<HyperLink
-						href="https://www.fiit.stuba.sk/en.html"
-						text="highlights"
+					<HyperLink href="https://www.fiit.stuba.sk/en.html"
 						><span
 							title="Faculty of Informatics and Information Technologies, Slovak University of Technology"
 							>FIIT STU</span
