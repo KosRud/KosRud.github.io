@@ -155,9 +155,9 @@ function onResizeHandleNav() {
 }
 
 .Header_logoWrapper {
-	flex: 0 0 auto;
-
 	height: @Header-logo-size;
+	aspect-ratio: 1;
+
 	display: flex;
 	justify-content: stretch;
 	align-items: stretch;

@@ -43,15 +43,21 @@ function getTocItems() {
 		)?.textContent;
 
 		if (title) {
-			return [
-				{
-					level: tagToTitleLevel(element.tagName),
-					children: [],
-					element: element,
-					title: title.trim(),
-					italic: false,
-				},
-			];
+			const level = tagToTitleLevel(element.tagName); // logs error and returns undefined if tag not recognized
+
+			if (level != null) {
+				return [
+					{
+						level,
+						children: [],
+						element: element,
+						title: title.trim(),
+						italic: false,
+					},
+				];
+			}
+
+			return [];
 		} else {
 			console.error(
 				`Error while trying to build TOC from headings. Heading is missing a title`,
@@ -101,7 +107,7 @@ function tagToTitleLevel(tag: string) {
 	}
 
 	console.error(`Invalid heading tag: ${tag}`);
-	return 7;
+	return null;
 }
 
 function parseHeading(
