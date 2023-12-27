@@ -17,10 +17,15 @@ const store = useStore();
 			$style.MainWrapper,
 			store.isCompactModeActive ? $style.MainWrapper___compact : '',
 		]">
+		<div id="Content_top" tabindex="-1"></div>
+
 		<div :class="$style.Main">
 			<div :class="$style.CurrentLocation">
 				<YouAreHere />
 			</div>
+
+			<div id="Content_beginning" tabindex="-1"></div>
+
 			<main>
 				<LayoutError404 v-if="page.isNotFound" />
 				<MarkdownWrapper :class="$style.Markdown" v-else>
