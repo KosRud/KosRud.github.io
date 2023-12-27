@@ -73,7 +73,7 @@ const props = defineProps<{ dummies: number }>();
 						.
 					</p>
 					<p>
-						It gracefully conforms to viewports as narrow as 320px,
+						It gracefully conforms to viewports as narrow as 260px,
 						utilizes responsive components implemented via
 						<HyperLink
 							text="ResizeObserver"
