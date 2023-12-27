@@ -36,7 +36,11 @@ onMounted(async () => {
 	const cacheName = `github stars: ${props.repo}`;
 
 	function retrieveCache(cacheName: string) {
-		const cachedJSON = localStorage.getItem(cacheName) ?? '{}';
+		const cachedJSON = localStorage.getItem(cacheName);
+
+		if (!cachedJSON) {
+			return null;
+		}
 
 		try {
 			return JSON.parse(cachedJSON) as CachedStars;
@@ -105,7 +109,7 @@ onMounted(async () => {
 		<HyperLink
 			:href="`https://github.com/${repo}`"
 			class="Github_box Github_box___stars"
-			v-if="stars != null">
+			v-if="stars != -1">
 			<img
 				alt="stars"
 				class="Github_icon Github_icon___star"
