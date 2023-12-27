@@ -10,15 +10,13 @@ const text = computed(() => props.text ?? '');
 	<a
 		v-if="props.sameTab"
 		:href="href"
-	>
-		{{ text }}<slot />
-	</a>
+		>{{ text }}<slot
+	/></a>
 	<a
 		v-else
 		rel="noopener"
 		target="_blank"
 		:href="href"
-	>
-		{{ text }}<slot />
-	</a>
+		>{{ text }}<slot
+	/></a>
 </template>
