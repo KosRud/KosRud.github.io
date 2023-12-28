@@ -3,6 +3,7 @@ import style from './devicons.module.less';
 
 import HyperLink from '@vitepress/theme/components/HyperLink.vue';
 
+import iconBlender from '../assets/icons/dev/blender/icon.svg';
 import iconCpp from '../assets/icons/dev/cpp/icon.svg';
 import iconCsharp from '../assets/icons/dev/csharp/icon.svg';
 import iconCss3 from '../assets/icons/dev/css3/icon.svg';
@@ -68,6 +69,12 @@ function devIcon(data: devIconData) {
 }
 
 const devIconDataCollection = {
+	blender: {
+		imgUrl: iconBlender,
+		title: 'Blender',
+		url: 'https://www.blender.org/',
+		aspect: 1.231033864721421,
+	},
 	cpp: {
 		imgUrl: iconCpp,
 		title: 'C++',
