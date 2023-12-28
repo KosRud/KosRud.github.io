@@ -65,10 +65,6 @@ import iconJob from '@pages/components/assets/icons/highlights/job/icon.svg';
 							<td>Unity</td>
 						</tr>
 						<tr>
-							<th scope="row">3D modeling</th>
-							<td>Blender</td>
-						</tr>
-						<tr>
 							<th scope="row">Frontend</th>
 							<td>Vue, React</td>
 						</tr>

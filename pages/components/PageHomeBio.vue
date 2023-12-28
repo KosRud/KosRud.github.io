@@ -47,6 +47,8 @@ const devIconGroups = {
 		devIcons.fastify,
 		devIcons.deno,
 
+		devIcons.blender,
+
 		devIcons.cython,
 		devIcons.lua,
 		devIcons.rust,
