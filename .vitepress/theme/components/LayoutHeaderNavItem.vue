@@ -29,6 +29,7 @@ const isActive = computed(() => {
 				$style.NavItem_link,
 				isActive ? $style.NavItem_link___active : '',
 			]"
+			:aria-current="isActive ? true : undefined"
 			:href="findFirstChildPage(props.navItem).url"
 			>{{ props.navItem.title }}
 		</a>

@@ -70,6 +70,7 @@ onMounted(() => {
 			isDarkMode ? $style.Dark : '',
 			isOpen ? $style.NavItem___open : '',
 		]"
+		:aria-current="isActive ? 'page' : undefined"
 	>
 		<a
 			:href="$props.navItem.children ? 'javascript:' : props.navItem.url"
