@@ -28,7 +28,8 @@ useResizeObserver(
 <template>
 	<div
 		:ref="(element) => {containerElement = element as Element}"
-		:class="[$style.Markdown, isNarrow ? $style.Markdown___narrow : '']">
+		:class="[$style.Markdown, isNarrow ? $style.Markdown___narrow : '']"
+	>
 		<h1>{{ navTrace[navTrace.length - 1].title }}</h1>
 		<slot />
 	</div>
@@ -148,10 +149,12 @@ useResizeObserver(
 	h3,
 	h4 {
 		margin-bottom: @content-gap;
+	}
 
-		&:not(:first-child) {
-			margin-top: @content-gap*1.5;
-		}
+	h2,
+	h3,
+	h4 {
+		margin-top: @content-gap*1.5;
 	}
 
 	/*
