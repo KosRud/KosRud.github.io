@@ -69,18 +69,21 @@ onMounted(() => {
 			$style.NavItem,
 			isDarkMode ? $style.Dark : '',
 			isOpen ? $style.NavItem___open : '',
-		]">
+		]"
+	>
 		<a
 			:href="$props.navItem.children ? 'javascript:' : props.navItem.url"
 			:class="[$style.NavItem_link]"
 			@click="emit('navItemToggle')"
 			:ref="(element)=> {
 				linkElement = element as Element;
-			}">
+			}"
+		>
 			<LayoutNavItemText
 				:level="depth + startingLevel"
 				:class="$style.NavItem_linkText"
-				:active="isActive">
+				:bold="isActive"
+			>
 				{{ props.navItem.title }}
 			</LayoutNavItemText>
 		</a>
@@ -91,10 +94,12 @@ onMounted(() => {
 				:enter-active-class="$style.NavItem_childrenList___enterActive"
 				:leave-from-class="$style.NavItem_childrenList___leaveFrom"
 				:leave-to-class="$style.NavItem_childrenList___leaveTo"
-				:leave-active-class="$style.NavItem_childrenList___leaveActive">
+				:leave-active-class="$style.NavItem_childrenList___leaveActive"
+			>
 				<ul
 					v-if="isOpen && props.navItem.children?.length"
-					:class="$style.NavItem_childrenList">
+					:class="$style.NavItem_childrenList"
+				>
 					<LayoutNavPagesItem
 						:depth="depth + 1"
 						:starting-level="startingLevel"
@@ -102,7 +107,8 @@ onMounted(() => {
 						v-for="child in props.navItem.children"
 						@nav-item-toggle="onItemClick(child)"
 						:is-open="oneChildOpen.isChildOpen(child.url)"
-						:is-nav-pages-loaded="props.isNavPagesLoaded" />
+						:is-nav-pages-loaded="props.isNavPagesLoaded"
+					/>
 				</ul>
 			</Transition>
 		</div>

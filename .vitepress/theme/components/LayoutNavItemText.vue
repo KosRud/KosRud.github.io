@@ -3,7 +3,7 @@ import { computed } from 'vue';
 
 const props = defineProps<{
 	level: number;
-	active: boolean;
+	bold: boolean;
 	compact?: boolean;
 }>();
 
@@ -21,7 +21,7 @@ const level = computed(() => {
 			level == 0 ? $style.NavItem_text___level0 : '',
 			level == 1 ? $style.NavItem_text___level1 : '',
 			level == 2 ? $style.NavItem_text___level2 : '',
-			props.active ? $style.NavItem_text___active : '',
+			props.bold ? $style.NavItem_text___active : '',
 			props.compact ? $style.NavItem_text___compact : '',
 		]"
 	>

@@ -36,7 +36,10 @@ const linkElement: Ref<Element | null> = ref(null);
 </script>
 
 <template>
-	<li :class="$style.TocItem">
+	<li
+		:class="$style.TocItem"
+		:aria-current="isActive ? 'location' : undefined"
+	>
 		<a
 			:class="[
 				$style.TocItem_link,
@@ -44,16 +47,18 @@ const linkElement: Ref<Element | null> = ref(null);
 			]"
 			:href="`#${props.heading.element.id}`"
 			@click="emit('jumpedToItem')"
-			:ref="(element) => { linkElement = element as Element }">
+			:ref="(element) => { linkElement = element as Element }"
+		>
 			<LayoutNavItemText
 				:level="level"
-				:active="isActive && !props.heading.italic"
+				:bold="isActive && !props.heading.utilityHeading"
 				:class="[
 					$style.TocItem_linkText,
-					props.heading.italic
-						? $style.TocItem_linkText___italics
+					props.heading.utilityHeading
+						? $style.TocItem_linkText___utilityHeading
 						: '',
-				]">
+				]"
+			>
 				{{ props.heading.title }}
 			</LayoutNavItemText>
 		</a>
@@ -63,7 +68,8 @@ const linkElement: Ref<Element | null> = ref(null);
 				:heading="child"
 				:level="level + 1"
 				@jumped-to-item="emit('jumpedToItem')"
-				:is-toc-loaded="props.isTocLoaded" />
+				:is-toc-loaded="props.isTocLoaded"
+			/>
 		</ul>
 	</li>
 </template>
@@ -110,7 +116,7 @@ const linkElement: Ref<Element | null> = ref(null);
 	border-color: @color-primary;
 }
 
-.TocItem_linkText___italics {
+.TocItem_linkText___utilityHeading {
 	font-style: italic;
 }
 
