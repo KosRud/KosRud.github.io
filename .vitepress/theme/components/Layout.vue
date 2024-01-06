@@ -11,6 +11,7 @@ import { ThemeConfig } from '@theme/ThemeConfig';
 import { useDarkModeEnforce } from './composables/darkMode';
 import { register as registerCustomElements } from './elements/index';
 import { useFocusFix } from './composables/focusFix';
+import { anchorIds } from './composables/anchorIds';
 
 registerCustomElements();
 useFocusFix();
@@ -31,7 +32,11 @@ onContentUpdated(() => {
 </script>
 
 <template>
-	<div :class="$style.Layout">
+	<div
+		:class="$style.Layout"
+		tabindex="-1"
+		:id="anchorIds.page.root"
+	>
 		<LayoutOverlay :class="$style.Overlay" />
 
 		<LayoutMainDoc

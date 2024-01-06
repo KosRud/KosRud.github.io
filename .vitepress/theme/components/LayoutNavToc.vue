@@ -1,8 +1,10 @@
 <script lang="ts" setup>
+import LayoutNavTocItem from './LayoutNavTocItem.vue';
+
 import { useStore } from './pinia/store';
 import { onMounted, ref } from 'vue';
 
-import LayoutNavTocItem from './LayoutNavTocItem.vue';
+import { anchorIds } from './composables/anchorIds';
 
 const props = defineProps<{ isMobile?: boolean }>();
 const emit = defineEmits(['jumpedToItem']);
@@ -18,9 +20,17 @@ onMounted(() => {
 
 <template>
 	<nav
+		tabindex="-1"
+		:id="anchorIds.page.toc"
 		aria-label="Table of contents"
-		:class="[$style.Toc, props.isMobile ? $style.Toc___mobile : '']">
-		<h2 :aria-hidden="true" :class="$style.Toc_title">On this page:</h2>
+		:class="[$style.Toc, props.isMobile ? $style.Toc___mobile : '']"
+	>
+		<h2
+			:aria-hidden="true"
+			:class="$style.Toc_title"
+		>
+			On this page:
+		</h2>
 		<div :class="$style.Toc_content">
 			<ul :class="$style.Toc_itemList">
 				<LayoutNavTocItem
@@ -28,7 +38,8 @@ onMounted(() => {
 					:key="tocItem.element.id"
 					:heading="tocItem"
 					@jumpedToItem="emit('jumpedToItem')"
-					:isTocLoaded="isLoaded" />
+					:isTocLoaded="isLoaded"
+				/>
 			</ul>
 		</div>
 	</nav>

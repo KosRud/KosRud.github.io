@@ -2,6 +2,8 @@ import { onMounted, watchEffect } from 'vue';
 import { onContentUpdated } from 'vitepress';
 import { useStore } from '@theme/components/pinia/store';
 
+import { anchorIds } from '@theme/components/composables/anchorIds';
+
 export interface TocItem {
 	level: number;
 	element: Element;
@@ -81,7 +83,9 @@ function getTocItems() {
 		}
 	}
 
-	const beginningElement = document.querySelector('#Content_top');
+	const beginningElement = document.querySelector(
+		`#${anchorIds.doc.youAreHere}`
+	);
 
 	if (beginningElement) {
 		toc.unshift({
