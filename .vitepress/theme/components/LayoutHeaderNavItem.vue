@@ -21,14 +21,11 @@ const isActive = computed(() => {
 
 <template>
 	<li
-		:class="$style.NavItem"
+		:class="[$style.NavItem, isActive ? $style.NavItem___active : '']"
 		:aria-current="isActive ? 'page' : undefined"
 	>
 		<a
-			:class="[
-				$style.NavItem_link,
-				isActive ? $style.NavItem_link___active : '',
-			]"
+			:class="$style.NavItem_link"
 			:aria-current="isActive ? true : undefined"
 			:href="findFirstChildPage(props.navItem).url"
 			>{{ props.navItem.title }}
@@ -56,6 +53,19 @@ const isActive = computed(() => {
 	flex: 0 1 auto;
 }
 
+.NavItem___active {
+	position: relative;
+
+	&::after {
+		position: absolute;
+		content: '';
+		left: @gap*0.25;
+		right: @gap*0.25;
+		top: calc(0rem - @HeaderNav-padding-vertical);
+		border-top: @border-width solid @color-background;
+	}
+}
+
 .NavItem_link {
 	.button();
 
@@ -66,21 +76,6 @@ const isActive = computed(() => {
 
 	&:active {
 		transform: translateY(@click-offset);
-	}
-}
-
-.NavItem_link___active:link {
-	position: relative;
-
-	&::after {
-		position: absolute;
-		content: '';
-		left: @gap*0.0;
-		right: @gap*0.0;
-		bottom: calc(0rem - @gap);
-		top: calc(0rem - @HeaderNav-padding-vertical);
-		border-top: @border-width solid @color-background;
-		pointer-events: none;
 	}
 }
 </style>
