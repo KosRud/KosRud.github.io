@@ -94,18 +94,20 @@ function onResizeHandleNav() {
 			title="content"
 			:anchor-id="anchorIds.page.content"
 		/>
-		<LayoutHeaderSkip
-			:class="$style.Header_skipLink"
-			title="submenu"
-			:anchor-id="anchorIds.page.subMenu"
-			v-if="store.navSecondary.length"
-		/>
-		<LayoutHeaderSkip
-			:class="$style.Header_skipLink"
-			title="outline"
-			:anchor-id="anchorIds.page.toc"
-			v-if="store.tocItems.length"
-		/>
+		<template v-if="!store.isCompactModeActive">
+			<LayoutHeaderSkip
+				:class="$style.Header_skipLink"
+				title="submenu"
+				:anchor-id="anchorIds.page.subMenu"
+				v-if="store.navSecondary.length"
+			/>
+			<LayoutHeaderSkip
+				:class="$style.Header_skipLink"
+				title="outline"
+				:anchor-id="anchorIds.page.toc"
+				v-if="store.tocItems.length"
+			/>
+		</template>
 		<div
 			:class="$style.Header_logoWrapper"
 			:ref="(element) => {logo = element as Element}"
