@@ -1,10 +1,13 @@
 <script lang="ts" setup>
+import LayoutHeaderNav from './LayoutHeaderNav.vue';
+import LayoutHeaderButtonBurger from './LayoutHeaderButtonBurger.vue';
+import LayoutHeaderSkip from './LayoutHeaderSkip.vue';
+
 import { useStore } from './pinia/store';
 import { Ref, ref, onUnmounted, onMounted } from 'vue';
 
-import LayoutHeaderNav from './LayoutHeaderNav.vue';
-import LayoutHeaderButtonBurger from './LayoutHeaderButtonBurger.vue';
 import { useResizeObserver } from './composables/resizeObserver';
+import { anchorIds } from './composables/anchorIds';
 
 const store = useStore();
 
@@ -84,29 +87,50 @@ function onResizeHandleNav() {
 	<header
 		:class="$style.Header"
 		role="banner"
-		:ref="(element) => {container = element as Element}">
-		<a
-			href="/"
+		:ref="(element) => {container = element as Element}"
+	>
+		<LayoutHeaderSkip
+			:class="$style.Header_skipLink"
+			title="content"
+			:anchor-id="anchorIds.page.content"
+		/>
+		<LayoutHeaderSkip
+			:class="$style.Header_skipLink"
+			title="submenu"
+			:anchor-id="anchorIds.page.subMenu"
+			v-if="store.navSecondary.length"
+		/>
+		<LayoutHeaderSkip
+			:class="$style.Header_skipLink"
+			title="outline"
+			:anchor-id="anchorIds.page.toc"
+			v-if="store.tocItems.length"
+		/>
+		<div
 			:class="$style.Header_logoWrapper"
-			:ref="(element) => {logo = element as Element}">
+			:ref="(element) => {logo = element as Element}"
+		>
 			<img
 				:class="$style.Header_logo"
 				src="/favicon.svg"
 				alt="website logo"
 				title="website logo"
-				:style="{ aspectRatio: 1 }" />
-		</a>
+				:style="{ aspectRatio: 1 }"
+			/>
+		</div>
 		<div :class="$style.Header_spacer"></div>
 		<div
 			:class="$style.Header_navWrapper"
-			:ref="(element) => {navWrapper = element as Element}">
+			:ref="(element) => {navWrapper = element as Element}"
+		>
 			<LayoutHeaderNav
 				:style="{
 					visibility: store.isCompactModeActive
 						? 'hidden'
 						: 'visible',
 				}"
-				:class="$style.Header_nav" />
+				:class="$style.Header_nav"
+			/>
 		</div>
 		<LayoutHeaderButtonBurger
 			:class="$style.BurgerToc"
@@ -118,7 +142,8 @@ function onResizeHandleNav() {
 				}
 			"
 			:compact="compactBurgers"
-			:num-lines="3" />
+			:num-lines="3"
+		/>
 		<LayoutHeaderButtonBurger
 			:class="$style.BurgerMenu"
 			:title="'Menu'"
@@ -129,7 +154,8 @@ function onResizeHandleNav() {
 				}
 			"
 			:compact="compactBurgers"
-			:num-lines="5" />
+			:num-lines="5"
+		/>
 	</header>
 </template>
 
@@ -152,6 +178,17 @@ function onResizeHandleNav() {
 	height: @Header-height;
 
 	position: relative; // for logo
+}
+
+.Header_skipLink {
+	left: @gap*0.5;
+	top: @gap*0.5;
+
+	opacity: 0%;
+	pointer-events: none;
+	&:focus {
+		opacity: 100%;
+	}
 }
 
 .Header_logoWrapper {
@@ -223,5 +260,18 @@ function onResizeHandleNav() {
 
 .Header {
 	box-shadow: @shadow;
+}
+
+/*
+	Z-index
+\*----------------------------------*/
+
+.Header {
+	position: relative;
+}
+
+.Header_skipLink {
+	position: absolute;
+	z-index: 1;
 }
 </style>

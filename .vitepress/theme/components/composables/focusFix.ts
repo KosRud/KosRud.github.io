@@ -1,11 +1,23 @@
-import { onMounted, onUnmounted } from 'vue';
+import { onMounted, onUnmounted, watch } from 'vue';
+import { useRoute } from 'vitepress';
+
+import { anchorIds } from './anchorIds';
 
 export function useFocusFix() {
-	onMounted(() =>
-		document.addEventListener('click', internalLinkFocusHandler)
-	);
+	const route = useRoute();
+
+	onMounted(() => {
+		document.addEventListener('click', internalLinkFocusHandler);
+	});
 	onUnmounted(() =>
 		document.removeEventListener('click', internalLinkFocusHandler)
+	);
+	watch(
+		() => route.path,
+		() => {
+			const url = location.href.replace(/#.*$/, '');
+			location.href = `${url}#${anchorIds.page.root}`;
+		}
 	);
 }
 

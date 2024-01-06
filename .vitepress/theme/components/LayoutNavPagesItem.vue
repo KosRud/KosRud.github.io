@@ -6,7 +6,7 @@ import { useRoute } from 'vitepress';
 import { useStore } from './pinia/store';
 
 import { NavItem } from '../ThemeConfig';
-import { useIsNavItemActive } from './composables/navItem';
+import { useIsNavItemActive } from './composables/nav';
 import { useDarkModeDetect } from './composables/darkMode';
 import { useOneChildOpen } from './composables/oneChildOpen';
 import { scrollIntoViewIfNeeded } from './composables/scrollIntoView';

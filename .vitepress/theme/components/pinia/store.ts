@@ -12,7 +12,7 @@ import {
 } from '@theme/components/composables/Toc/tocItems';
 import { useNavMobileAutoClose } from '@theme/components/composables/navMobile';
 import type { NavItem } from '@theme/ThemeConfig';
-import { useTrackNavItems } from '@theme/components/composables/navItem';
+import { useTrackNavItems } from '@theme/components/composables/nav';
 
 export const useStore = defineStore('counter', {
 	state: () => {

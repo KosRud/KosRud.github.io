@@ -3,11 +3,12 @@ import LayoutNavPagesItem from './LayoutNavPagesItem.vue';
 
 import { computed, onMounted, ref } from 'vue';
 import { useData, useRoute } from 'vitepress';
+import { useStore } from './pinia/store';
 
 import { ThemeConfig } from '../ThemeConfig';
 import { urlMatch } from './composables/urlMatch';
 import { useOneChildOpen } from './composables/oneChildOpen';
-import { useStore } from './pinia/store';
+import { anchorIds } from './composables/anchorIds';
 
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site } = useData<ThemeConfig>();
@@ -55,13 +56,16 @@ function onItemClick(navItem: (typeof navItems.value)[number]) {
 
 <template>
 	<nav
+		tabindex="-1"
+		:id="anchorIds.page.subMenu"
 		:aria-label="`Submenu: ${title}`"
-		:class="[
-			$style.NavPages,
-			props.mobile ? $style.NavPages___mobile : '',
-		]">
+		:class="[$style.NavPages, props.mobile ? $style.NavPages___mobile : '']"
+	>
 		<template v-if="navItems.length > 0">
-			<h2 aria-hidden="true" :class="$style.NavPages_title">
+			<h2
+				aria-hidden="true"
+				:class="$style.NavPages_title"
+			>
 				{{ title }}
 			</h2>
 			<ul :class="$style.NavPages_itemList">
@@ -71,7 +75,8 @@ function onItemClick(navItem: (typeof navItems.value)[number]) {
 					v-for="navItem in navItems"
 					:is-open="oneChildOpen.isChildOpen(navItem.url)"
 					@nav-item-toggle="onItemClick(navItem)"
-					:is-nav-pages-loaded="isMounted" />
+					:is-nav-pages-loaded="isMounted"
+				/>
 			</ul>
 		</template>
 	</nav>

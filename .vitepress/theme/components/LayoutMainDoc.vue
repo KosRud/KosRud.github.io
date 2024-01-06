@@ -7,6 +7,8 @@ import { ComponentPublicInstance } from 'vue';
 import { useData } from 'vitepress';
 import { useStore } from './pinia/store';
 
+import { anchorIds } from './composables/anchorIds';
+
 const { page } = useData();
 const store = useStore();
 </script>
@@ -16,24 +18,31 @@ const store = useStore();
 		:class="[
 			$style.MainWrapper,
 			store.isCompactModeActive ? $style.MainWrapper___compact : '',
-		]">
-		<div id="Content_top" tabindex="-1"></div>
-
+		]"
+	>
 		<div :class="$style.Main">
 			<div :class="$style.CurrentLocation">
-				<YouAreHere />
+				<YouAreHere
+					:id="anchorIds.doc.youAreHere"
+					tabindex="-1"
+				/>
 			</div>
 
-			<div id="Content_beginning" tabindex="-1"></div>
-
-			<main>
+			<main
+				:id="anchorIds.doc.main"
+				tabindex="-1"
+			>
 				<LayoutError404 v-if="page.isNotFound" />
-				<MarkdownWrapper :class="$style.Markdown" v-else>
+				<MarkdownWrapper
+					:class="$style.Markdown"
+					v-else
+				>
 					<Content
 						:ref="(component: ComponentPublicInstance | null) => {
 								store.contentForToc = component;
 							}
-							" />
+							"
+					/>
 				</MarkdownWrapper>
 			</main>
 		</div>
