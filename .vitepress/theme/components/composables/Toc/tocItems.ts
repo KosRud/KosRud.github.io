@@ -84,7 +84,7 @@ function getTocItems() {
 	}
 
 	const beginningElement = document.querySelector(
-		`#${anchorIds.doc.youAreHere}`
+		`#${anchorIds.page.content}`
 	);
 
 	if (beginningElement) {

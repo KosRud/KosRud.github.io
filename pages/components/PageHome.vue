@@ -9,6 +9,8 @@ import GrungeHeading from './GrungeHeading.vue';
 
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 
+import { anchorIds } from '@theme/components/composables/anchorIds';
+
 const hero: Ref<Element | null> = ref(null);
 const scrollY = ref(0);
 const heroBrightness = computed(() => {
@@ -38,18 +40,24 @@ function handleScrolling() {
 <template>
 	<div
 		:class="$style.HomePage"
-		:ref="(element) => { containerDiv = element as Element }">
+		:ref="(element) => { containerDiv = element as Element }"
+	>
 		<div
 			:ref="(element: Element | ComponentPublicInstance | null) => {
 			hero = element as Element;
 		}"
-			:class="$style.Hero">
+			:class="$style.Hero"
+		>
 			<h1 :class="$style.Hero_titleContainer">
 				<span :class="$style.Hero_title">Kostiantyn Rudenko</span>
 				<span :class="$style.Hero_subtitle">software engineer</span>
 			</h1>
 		</div>
-		<main :class="$style.ContentWrapper">
+		<main
+			tabindex="-1"
+			:id="anchorIds.page.content"
+			:class="$style.ContentWrapper"
+		>
 			<div :class="$style.ContentWrapper_needsPadding">
 				<HomePageBio />
 			</div>

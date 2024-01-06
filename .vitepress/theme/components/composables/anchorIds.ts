@@ -5,8 +5,4 @@ export const anchorIds = {
 		content: 'content',
 		root: 'root',
 	},
-	doc: {
-		main: 'content',
-		youAreHere: 'you-are-here',
-	},
 };

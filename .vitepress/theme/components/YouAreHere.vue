@@ -2,7 +2,6 @@
 import { useDarkModeDetect } from './composables/darkMode';
 import { findFirstChildPage } from './composables/nav';
 import { useNavTrace } from './composables/navTrace';
-import { anchorIds } from './composables/anchorIds';
 
 const darkMode = useDarkModeDetect();
 
@@ -12,7 +11,6 @@ const navTrace = useNavTrace();
 <template>
 	<div
 		:tabindex="-1"
-		:id="anchorIds.doc.youAreHere"
 		:class="[$style.YouAreHere, darkMode ? $style.YouAreHere___dark : '']"
 	>
 		<h2 :class="$style.YouAreHere_title">You are here:</h2>

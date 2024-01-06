@@ -19,19 +19,15 @@ const store = useStore();
 			$style.MainWrapper,
 			store.isCompactModeActive ? $style.MainWrapper___compact : '',
 		]"
+		tabindex="-1"
+		:id="anchorIds.page.content"
 	>
 		<div :class="$style.Main">
 			<div :class="$style.CurrentLocation">
-				<YouAreHere
-					:id="anchorIds.doc.youAreHere"
-					tabindex="-1"
-				/>
+				<YouAreHere />
 			</div>
 
-			<main
-				:id="anchorIds.doc.main"
-				tabindex="-1"
-			>
+			<main>
 				<LayoutError404 v-if="page.isNotFound" />
 				<MarkdownWrapper
 					:class="$style.Markdown"
