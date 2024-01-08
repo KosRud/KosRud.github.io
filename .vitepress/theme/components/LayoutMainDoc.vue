@@ -2,6 +2,7 @@
 import LayoutError404 from './LayoutError404.vue';
 import MarkdownWrapper from './MarkdownWrapper.vue';
 import YouAreHere from './YouAreHere.vue';
+import BackTop from './BackTop.vue';
 
 import { ComponentPublicInstance } from 'vue';
 import { useData } from 'vitepress';
@@ -37,6 +38,7 @@ const store = useStore();
 				/>
 			</MarkdownWrapper>
 		</main>
+		<BackTop />
 	</div>
 </template>
 
@@ -48,7 +50,6 @@ const store = useStore();
 	margin-right: @Aside-width;
 
 	padding: @Header-to-Content-gap @Main-padding-horizontal;
-	padding-bottom: @gap*16;
 
 	max-width: @content-width + @Main-padding-horizontal*2;
 
@@ -65,6 +66,10 @@ const store = useStore();
 
 .YouAreHere {
 	margin-bottom: @gap*2;
+}
+
+.Markdown {
+	padding-bottom: @gap*16;
 }
 
 /*
