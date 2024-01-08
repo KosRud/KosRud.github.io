@@ -313,7 +313,7 @@ useResizeObserver(
 		text-align: right;
 		padding: @code-padding;
 		padding-right: @code-numbers-gap;
-		color: @color-black-faded-2;
+		color: @color-text-faded-2;
 		user-select: none;
 	}
 

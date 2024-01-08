@@ -6,6 +6,7 @@ import HomePageFeatures from './PageHomeFeatures.vue';
 import HomePageBio from './PageHomeBio.vue';
 import HomePageContact from './PageHomeContact.vue';
 import GrungeHeading from './GrungeHeading.vue';
+import BackTop from '@theme/components/BackTop.vue';
 
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 
@@ -56,23 +57,27 @@ function handleScrolling() {
 		<main
 			tabindex="-1"
 			:id="anchorIds.page.content"
-			:class="$style.ContentWrapper"
+			:class="$style.Main"
 		>
-			<div :class="$style.ContentWrapper_needsPadding">
+			<div>
 				<HomePageBio />
 			</div>
-			<HomePageFeatures />
-			<div>
-				<GrungeHeading text="My projects" />
-			</div>
-			<HomePageHighlights :dummies="8" />
-			<div>
-				<GrungeHeading text="Contact me" />
-			</div>
-			<div :class="$style.ContentWrapper_needsPadding">
-				<HomePageContact />
-			</div>
+			<HomePageFeatures :class="$style.Main_unpad" />
+			<GrungeHeading
+				text="My projects"
+				:class="$style.Main_unpad"
+			/>
+			<HomePageHighlights
+				:dummies="8"
+				:class="$style.Main_unpad"
+			/>
+			<GrungeHeading
+				text="Contact me"
+				:class="$style.Main_unpad"
+			/>
+			<HomePageContact />
 		</main>
+		<BackTop :class="$style.BackTop" />
 	</div>
 </template>
 
@@ -127,11 +132,10 @@ function handleScrolling() {
 	font-size: @size-hero-s;
 }
 
-.ContentWrapper {
+.Main {
 	flex-grow: 1;
 
 	padding: @gap*4;
-	padding-bottom: @gap*8;
 
 	display: flex;
 	flex-direction: column;
@@ -142,11 +146,20 @@ function handleScrolling() {
 
 	& > * {
 		flex-shrink: 0;
-		width: 100%;
 		max-width: 1200rem;
 		height: max-content;
 		margin-bottom: @gap*4;
 	}
+}
+
+.BackTop {
+	margin-bottom: 0rem;
+	width: 100%;
+	max-width: unset;
+	text-align: center;
+	padding: @gap;
+	background-color: @color-background-card;
+	border-top: @border-width-s solid @color-border;
 }
 
 /*
@@ -158,7 +171,7 @@ function handleScrolling() {
 		display: none;
 	}
 
-	.ContentWrapper {
+	.Main {
 		padding: @Main-padding-horizontal-compact;
 		padding-top: @Main-padding-horizontal-compact * (3/2);
 	}
@@ -169,14 +182,15 @@ function handleScrolling() {
 		display: none;
 	}
 
-	.ContentWrapper {
-		padding-left: 0rem;
-		padding-right: 0rem;
-	}
-
-	.ContentWrapper_needsPadding {
+	.Main {
 		padding-left: @Main-padding-horizontal-compact;
 		padding-right: @Main-padding-horizontal-compact;
+	}
+
+	.Main_unpad {
+		margin-left: 0rem - @Main-padding-horizontal-compact;
+		margin-right: 0rem - @Main-padding-horizontal-compact;
+		width: calc(100% + @Main-padding-horizontal-compact * 2);
 	}
 }
 
@@ -184,8 +198,12 @@ function handleScrolling() {
 	Z-index
 \*----------------------------------*/
 
-.ContentWrapper {
+.Main {
 	position: relative;
 	z-index: 1;
+}
+
+.BackTop {
+	z-index: 2;
 }
 </style>
