@@ -94,6 +94,7 @@ onContentUpdated(() => {
 	display: flex;
 	flex-direction: column;
 	justify-content: stretch;
+	align-items: stretch;
 }
 
 .Main {
@@ -102,6 +103,7 @@ onContentUpdated(() => {
 
 .Main___doc {
 	flex: 1 1 100%;
+	align-self: center;
 }
 
 .Main___hero {

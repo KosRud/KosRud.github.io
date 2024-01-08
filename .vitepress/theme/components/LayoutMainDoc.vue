@@ -16,57 +16,44 @@ const store = useStore();
 <template>
 	<div
 		:class="[
-			$style.MainWrapper,
+			$style.Doc,
 			store.isCompactModeActive ? $style.MainWrapper___compact : '',
 		]"
 		tabindex="-1"
 		:id="anchorIds.page.content"
 	>
-		<div :class="$style.Main">
-			<div :class="$style.CurrentLocation">
-				<YouAreHere />
-			</div>
+		<div :class="$style.YouAreHere">
+			<YouAreHere />
+		</div>
 
-			<main>
-				<LayoutError404 v-if="page.isNotFound" />
-				<MarkdownWrapper
-					:class="$style.Markdown"
-					v-else
-				>
-					<Content
-						:ref="(component: ComponentPublicInstance | null) => {
+		<main>
+			<LayoutError404 v-if="page.isNotFound" />
+			<MarkdownWrapper
+				:class="$style.Markdown"
+				v-else
+			>
+				<Content
+					:ref="(component: ComponentPublicInstance | null) => {
 								store.contentForToc = component;
 							}
 							"
-					/>
-				</MarkdownWrapper>
-			</main>
-		</div>
+				/>
+			</MarkdownWrapper>
+		</main>
 	</div>
 </template>
 
 <style lang="less" module>
 @import '@theme/style/variables.less';
 
-.MainWrapper {
-	display: flex;
-	flex-direction: row;
-	align-items: stretch;
-	justify-content: center;
-
-	padding-left: @Aside-width;
-	padding-right: @Aside-width;
-}
-
-.CurrentLocation {
-	margin-bottom: @gap*2;
-}
-
-.Main {
-	flex: 0 1 @content-width + @Main-padding-horizontal*2;
+.Doc {
+	margin-left: @Aside-width;
+	margin-right: @Aside-width;
 
 	padding: @Header-to-Content-gap @Main-padding-horizontal;
 	padding-bottom: @gap*16;
+
+	max-width: @content-width + @Main-padding-horizontal*2;
 
 	background-color: @color-white;
 	border-right: @border-width-s solid @color-border;
@@ -79,6 +66,10 @@ const store = useStore();
 	}
 }
 
+.YouAreHere {
+	margin-bottom: @gap*2;
+}
+
 /*
 	Responsive
 \*----------------------------------*/
@@ -87,7 +78,7 @@ const store = useStore();
 	padding-left: 0rem;
 	padding-right: 0rem;
 
-	.Main {
+	.Doc {
 		flex: 1 1 100%;
 		padding-left: @Main-padding-horizontal-compact;
 		padding-right: @Main-padding-horizontal-compact;
@@ -97,7 +88,7 @@ const store = useStore();
 }
 
 @media screen and (width < 75em) {
-	.MainWrapper {
+	.Doc {
 		.MainWrapper___compact();
 	}
 }
