@@ -29,13 +29,14 @@ import arrowCircled from './assets/icons/ui/arrowCircled/icon.svg';
 	width: min(@gap*32, 100%);
 
 	text-align: center;
-	padding: @gap;
 
 	outline: @border-width-s solid @color-border;
 	border-radius: @gap @gap 0rem 0rem;
 
 	background-color: @color-background;
 	box-shadow: @shadow-s;
+
+	overflow: hidden;
 }
 
 .BackToTop_link {
@@ -44,10 +45,14 @@ import arrowCircled from './assets/icons/ui/arrowCircled/icon.svg';
 	font-family: @font-techy;
 	text-decoration: none;
 
+	padding: @gap;
+
 	&:link,
 	&:visited {
 		color: @color-text-faded-1;
 	}
+
+	display: block;
 }
 
 .Arrow {
@@ -55,5 +60,20 @@ import arrowCircled from './assets/icons/ui/arrowCircled/icon.svg';
 	vertical-align: middle;
 	margin-right: @gap*0.5;
 	margin-left: @gap*0.5;
+}
+
+/*
+	Transitions
+\*----------------------------------*/
+
+.BackToTop_link:hover .Arrow {
+	transform: scale(1.15);
+	transition: transform @duration-s ease-out;
+}
+
+.BackToTop_link:active .Arrow,
+.Arrow {
+	transform: scale(1);
+	transition: transform @duration-s ease-out;
 }
 </style>
