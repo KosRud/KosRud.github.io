@@ -76,8 +76,8 @@ function handleScrolling() {
 				:class="$style.Main_unpad"
 			/>
 			<HomePageContact />
+			<BackTop :class="$style.BackTop" />
 		</main>
-		<BackTop :class="$style.BackTop" />
 	</div>
 </template>
 
@@ -136,6 +136,7 @@ function handleScrolling() {
 	flex-grow: 1;
 
 	padding: @gap*4;
+	padding-bottom: 0rem;
 
 	display: flex;
 	flex-direction: column;
@@ -150,16 +151,10 @@ function handleScrolling() {
 		height: max-content;
 		margin-bottom: @gap*4;
 	}
-}
 
-.BackTop {
-	margin-bottom: 0rem;
-	width: 100%;
-	max-width: unset;
-	text-align: center;
-	padding: @gap;
-	background-color: @color-background-card;
-	border-top: @border-width-s solid @color-border;
+	& > :last-child {
+		margin-bottom: 0rem;
+	}
 }
 
 /*
@@ -174,6 +169,7 @@ function handleScrolling() {
 	.Main {
 		padding: @Main-padding-horizontal-compact;
 		padding-top: @Main-padding-horizontal-compact * (3/2);
+		padding-bottom: 0rem;
 	}
 }
 
