@@ -50,6 +50,7 @@ const store = useStore();
 	margin-right: @Aside-width;
 
 	padding: @Header-to-Content-gap @Main-padding-horizontal;
+	padding-bottom: 0rem;
 
 	max-width: @content-width + @Main-padding-horizontal*2;
 
