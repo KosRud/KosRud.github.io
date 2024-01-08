@@ -15,10 +15,7 @@ const store = useStore();
 
 <template>
 	<div
-		:class="[
-			$style.Doc,
-			store.isCompactModeActive ? $style.MainWrapper___compact : '',
-		]"
+		:class="$style.Doc"
 		tabindex="-1"
 		:id="anchorIds.page.content"
 	>
@@ -74,22 +71,19 @@ const store = useStore();
 	Responsive
 \*----------------------------------*/
 
-.MainWrapper___compact {
-	padding-left: 0rem;
-	padding-right: 0rem;
-
-	.Doc {
-		flex: 1 1 100%;
-		padding-left: @Main-padding-horizontal-compact;
-		padding-right: @Main-padding-horizontal-compact;
-		border-left: none;
-		border-right: none;
-	}
-}
-
 @media screen and (width < 75em) {
 	.Doc {
-		.MainWrapper___compact();
+		max-width: 100%;
+		width: 100%;
+
+		margin-left: 0rem;
+		margin-right: 0rem;
+
+		padding-left: @Main-padding-horizontal-compact;
+		padding-right: @Main-padding-horizontal-compact;
+
+		border-left: none;
+		border-right: none;
 	}
 }
 </style>
