@@ -4,17 +4,15 @@ import arrowCircled from './assets/icons/ui/arrowCircled/icon.svg';
 </script>
 
 <template>
-	<div :class="$style.BackToTop">
-		<a
-			:class="$style.BackToTop_link"
-			:href="`#${anchorIds.page.root}`"
-			><img
-				alt="upward arrow"
-				:class="$style.Arrow"
-				:src="arrowCircled"
-			/>Back to top</a
-		>
-	</div>
+	<a
+		:class="$style.BackToTop"
+		:href="`#${anchorIds.page.root}`"
+		><img
+			alt="upward arrow"
+			:class="$style.Arrow"
+			:src="arrowCircled"
+		/>Back to top</a
+	>
 </template>
 
 <style module lang="less">
@@ -36,10 +34,6 @@ import arrowCircled from './assets/icons/ui/arrowCircled/icon.svg';
 	background-color: @color-background;
 	box-shadow: @shadow-s;
 
-	overflow: hidden;
-}
-
-.BackToTop_link {
 	font-size: @size-l;
 	font-weight: bold;
 	font-family: @font-techy;
@@ -66,12 +60,21 @@ import arrowCircled from './assets/icons/ui/arrowCircled/icon.svg';
 	Transitions
 \*----------------------------------*/
 
-.BackToTop_link:hover .Arrow {
-	transform: scale(1.15);
-	transition: transform @duration-s ease-out;
+.BackToTop {
+	transition: outline-color @duration;
 }
 
-.BackToTop_link:active .Arrow,
+.BackToTop:hover {
+	outline-width: @border-width;
+	outline-color: @color-primary;
+
+	.Arrow {
+		transform: scale(1.15);
+		transition: transform @duration-s ease-out;
+	}
+}
+
+.BackToTop:active .Arrow,
 .Arrow {
 	transform: scale(1);
 	transition: transform @duration-s ease-out;
