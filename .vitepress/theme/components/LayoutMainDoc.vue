@@ -70,7 +70,7 @@ const store = useStore();
 }
 
 .Markdown {
-	padding-bottom: @gap*16;
+	padding-bottom: @gap*8;
 }
 
 /*
