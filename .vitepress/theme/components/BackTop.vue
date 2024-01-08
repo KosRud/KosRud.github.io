@@ -6,8 +6,8 @@ import { anchorIds } from './composables/anchorIds';
 	<a
 		:class="$style.BackToTop"
 		:href="`#${anchorIds.page.root}`"
-		text="Back to top"
-	></a>
+		>Back to top</a
+	>
 </template>
 
 <style module lang="less">
