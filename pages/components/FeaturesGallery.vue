@@ -3,12 +3,16 @@ import FeaturesGalleryCard from './FeaturesGalleryCard.vue';
 
 const props = defineProps<{
 	dummies?: number;
+	label: string;
 }>();
 </script>
 
 <template>
 	<!-- surrounding div is necessary to ensure negative margins work properly -->
-	<section :class="$style.FeaturesGalleryWrapper">
+	<section
+		:aria-label="$props.label"
+		:class="$style.FeaturesGalleryWrapper"
+	>
 		<div :class="$style.FeaturesGallery">
 			<slot />
 			<FeaturesGalleryCard

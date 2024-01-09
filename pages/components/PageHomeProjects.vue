@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HomePageHighlightsProject from './PageHomeHighlightsProject.vue';
+import PageHomeProjectsProject from './PageHomeProjectsProject.vue';
 import HyperLink from '@vitepress/theme/components/HyperLink.vue';
 
 import imgPtgV2_1 from '@/content/project screenshots/Protege v2/1.png?format=jpg&w=400&withoutEnlargement&quality=70';
@@ -20,7 +20,7 @@ const props = defineProps<{ dummies: number }>();
 	<div>
 		<div :class="$style.HighlightsWrapper">
 			<div :class="$style.Highlights">
-				<HomePageHighlightsProject
+				<PageHomeProjectsProject
 					:title="'DQ skinning for Unity'"
 					github="KosRud/DQ-skinning-for-Unity"
 					:links="{
@@ -61,8 +61,8 @@ const props = defineProps<{ dummies: number }>();
 						The animated screenshot alternates between built-in
 						linear skinning and the plugin.
 					</p>
-				</HomePageHighlightsProject>
-				<HomePageHighlightsProject
+				</PageHomeProjectsProject>
+				<PageHomeProjectsProject
 					github="KosRud/KosRud.github.io"
 					:title="'This website'"
 					:images="[
@@ -107,8 +107,8 @@ const props = defineProps<{ dummies: number }>();
 						/>
 						setting.
 					</p>
-				</HomePageHighlightsProject>
-				<HomePageHighlightsProject
+				</PageHomeProjectsProject>
+				<PageHomeProjectsProject
 					:title="'ProTeGe v2'"
 					:images="[
 						{
@@ -146,8 +146,8 @@ const props = defineProps<{ dummies: number }>();
 							href="https://kpi.ua/en/fpm"
 						/>.
 					</p>
-				</HomePageHighlightsProject>
-				<HomePageHighlightsProject
+				</PageHomeProjectsProject>
+				<PageHomeProjectsProject
 					github="KosRud/dice-pool-calc"
 					:title="'dice-pool-calc'"
 					:links="{
@@ -169,8 +169,8 @@ const props = defineProps<{ dummies: number }>();
 						Enumerates all possible outcomes without random sampling
 						and easily handles hundreds of dice.
 					</p>
-				</HomePageHighlightsProject>
-				<HomePageHighlightsProject
+				</PageHomeProjectsProject>
+				<PageHomeProjectsProject
 					:title="'Material clustering benchmark'"
 					:images="[
 						{
@@ -203,8 +203,8 @@ const props = defineProps<{ dummies: number }>();
 							href="https://www.researchgate.net/publication/369113944_Real-time_material_clustering_for_mixed_reality_applications_based_on_dichromatic_reflection_model"
 						/>).
 					</p>
-				</HomePageHighlightsProject>
-				<HomePageHighlightsProject
+				</PageHomeProjectsProject>
+				<PageHomeProjectsProject
 					github="KosRud/joplin-plugin-paginator"
 					:title="'joplin-plugin-paginator'"
 					:links="{
@@ -226,8 +226,8 @@ const props = defineProps<{ dummies: number }>();
 						table of contents for the note, making a printable
 						document from it.
 					</p>
-				</HomePageHighlightsProject>
-				<HomePageHighlightsProject
+				</PageHomeProjectsProject>
+				<PageHomeProjectsProject
 					:title="'ProTeGe v1'"
 					:images="[
 						{
@@ -242,7 +242,7 @@ const props = defineProps<{ dummies: number }>();
 						wxWidgets library for the GUI. The computations are
 						performed on the CPU and utilize multithreading.
 					</p>
-				</HomePageHighlightsProject>
+				</PageHomeProjectsProject>
 				<div
 					:class="$style.Highlights_dummy"
 					v-for="_ in Array.from({ length: props.dummies })"

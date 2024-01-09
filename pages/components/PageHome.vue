@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { Ref, ComponentPublicInstance } from 'vue';
 
-import HomePageHighlights from './PageHomeHighlights.vue';
-import HomePageFeatures from './PageHomeFeatures.vue';
-import HomePageBio from './PageHomeBio.vue';
-import HomePageContact from './PageHomeContact.vue';
+import PageHomeProjects from './PageHomeProjects.vue';
+import PageHomeExpertise from './PageHomeExpertise.vue';
+import PageHomeBio from './PageHomeBio.vue';
+import PageHomeContact from './PageHomeContact.vue';
 import GrungeHeading from './GrungeHeading.vue';
 import BackTop from '@theme/components/BackTop.vue';
 
@@ -39,7 +39,7 @@ function handleScrolling() {
 </script>
 
 <template>
-	<div
+	<main
 		:class="$style.HomePage"
 		:ref="(element) => { containerDiv = element as Element }"
 	>
@@ -54,20 +54,20 @@ function handleScrolling() {
 				<span :class="$style.Hero_subtitle">software engineer</span>
 			</h1>
 		</div>
-		<main
+		<div
 			tabindex="-1"
 			:id="anchorIds.page.content"
 			:class="$style.Main"
 		>
 			<div>
-				<HomePageBio />
+				<PageHomeBio />
 			</div>
-			<HomePageFeatures :class="$style.Main_unpad" />
+			<PageHomeExpertise :class="$style.Main_unpad" />
 			<GrungeHeading
 				text="My projects"
 				:class="$style.Main_unpad"
 			/>
-			<HomePageHighlights
+			<PageHomeProjects
 				:dummies="8"
 				:class="$style.Main_unpad"
 			/>
@@ -75,10 +75,10 @@ function handleScrolling() {
 				text="Contact me"
 				:class="$style.Main_unpad"
 			/>
-			<HomePageContact />
+			<PageHomeContact />
 			<BackTop :class="$style.BackTop" />
-		</main>
-	</div>
+		</div>
+	</main>
 </template>
 
 <style module lang="less">

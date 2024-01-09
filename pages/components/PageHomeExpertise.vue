@@ -17,6 +17,7 @@ import iconJob from '@pages/components/assets/icons/highlights/job/icon.svg';
 	<FeaturesGallery
 		:dummies="8"
 		:card-min-width="'300rem'"
+		label="expertise"
 	>
 		<FeaturesGalleryCard
 			name="Programming languages"
@@ -31,7 +32,7 @@ import iconJob from '@pages/components/assets/icons/highlights/job/icon.svg';
 			:icon-url="iconCommunication"
 		>
 			<HomePageFeaturesContent>
-				<table>
+				<table aria-label="languages">
 					<tbody>
 						<tr>
 							<th scope="row">English</th>
