@@ -143,6 +143,7 @@ onMounted(() => {
 
 	@leveled-padding: @chevron-size + @chevron-margin-right;
 	padding-left: calc(@leveled-padding * v-bind('depth'));
+	margin-right: @NavItem_link-to-scrollbar-gap;
 
 	&::before {
 		content: '';

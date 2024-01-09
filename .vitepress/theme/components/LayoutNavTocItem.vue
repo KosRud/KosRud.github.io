@@ -105,7 +105,7 @@ const linkElement: Ref<Element | null> = ref(null);
 .TocItem_link {
 	border-left: @border-width solid @color-border;
 	padding-left: calc(@gap*3 * v-bind('level - 1') + @gap);
-	margin-right: @gap;
+	margin-right: @NavItem_link-to-scrollbar-gap;
 
 	text-decoration: none;
 }

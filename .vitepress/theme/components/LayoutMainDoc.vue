@@ -24,20 +24,18 @@ const store = useStore();
 			<YouAreHere />
 		</div>
 
-		<div>
-			<LayoutError404 v-if="page.isNotFound" />
-			<MarkdownWrapper
-				:class="$style.Markdown"
-				v-else
-			>
-				<Content
-					:ref="(component: ComponentPublicInstance | null) => {
+		<LayoutError404 v-if="page.isNotFound" />
+		<MarkdownWrapper
+			:class="$style.Markdown"
+			v-else
+		>
+			<Content
+				:ref="(component: ComponentPublicInstance | null) => {
 								store.contentForToc = component;
 							}
 							"
-				/>
-			</MarkdownWrapper>
-		</div>
+			/>
+		</MarkdownWrapper>
 		<BackTop />
 	</main>
 </template>
@@ -49,27 +47,29 @@ const store = useStore();
 	margin-left: @Aside-width;
 	margin-right: @Aside-width;
 
+	max-width: @content-width + @Main-padding-horizontal*2;
+
 	padding: @Header-to-Content-gap @Main-padding-horizontal;
 	padding-bottom: 0rem;
 
-	max-width: @content-width + @Main-padding-horizontal*2;
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	align-items: center;
 
 	background-color: @color-white;
 	border-right: @border-width-s solid @color-border;
 	border-left: @border-width-s solid @color-border;
-
-	> * {
-		margin-left: auto;
-		margin-right: auto;
-		max-width: @content-width;
-	}
 }
 
 .YouAreHere {
 	margin-bottom: @gap*2;
+	width: 100%;
 }
 
 .Markdown {
+	flex-grow: 1;
+
 	padding-bottom: @gap*8;
 }
 
