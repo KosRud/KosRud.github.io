@@ -77,10 +77,7 @@ const devIconGroups = {
 					overview of my
 					<a href="#my-projects">projects</a>, as well as condensed
 					highlights from the web development
-					<HyperLink
-						href="/students/html+css/selectors.html"
-						text="seminars"
-					/>
+					<a href="/students/html+css/selectors">seminars</a>
 					I've been teaching at
 					<HyperLink href="https://www.fiit.stuba.sk/en.html"
 						><span
