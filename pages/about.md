@@ -4,7 +4,7 @@ title: About me
 
 ## Education
 
-**Highest level completed**:&emsp;master's degree (software engineering)
+**Highest level completed**:&ensp;master's degree (software engineering)
 
 |Period|Faculty|Institution|Qualification|
 |:---:|---|---|---|
