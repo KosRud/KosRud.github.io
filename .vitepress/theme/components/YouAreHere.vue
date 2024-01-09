@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { useDarkModeDetect } from './composables/darkMode';
 import { findFirstChildPage } from './composables/nav';
 import { useNavTrace } from './composables/navTrace';
-
-const darkMode = useDarkModeDetect();
 
 const navTrace = useNavTrace();
 </script>
@@ -11,7 +8,7 @@ const navTrace = useNavTrace();
 <template>
 	<div
 		:tabindex="-1"
-		:class="[$style.YouAreHere, darkMode ? $style.YouAreHere___dark : '']"
+		:class="$style.YouAreHere"
 	>
 		<h2 :class="$style.YouAreHere_title">You are here:</h2>
 		<template v-for="(navItem, id) in navTrace">
@@ -31,21 +28,13 @@ const navTrace = useNavTrace();
 @import '@theme/style/mixins.less';
 
 .YouAreHere {
-	display: flex;
-	flex-wrap: wrap;
-
 	a {
 		font-weight: bold;
 	}
 }
 
-.YouAreHere___dark {
-	font-weight: normal;
-
-	.DarkMode();
-}
-
 .YouAreHere_title {
+	display: inline;
 	margin-right: @gap*0.5;
 
 	font-weight: bold;
