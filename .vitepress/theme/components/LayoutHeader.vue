@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import LayoutHeaderNav from './LayoutHeaderNav.vue';
 import LayoutHeaderButtonBurger from './LayoutHeaderButtonBurger.vue';
-import LayoutHeaderSkip from './LayoutHeaderSkip.vue';
+import LayoutHeaderSkipLink from './LayoutHeaderSkipLink.vue';
 
 import { useStore } from './pinia/store';
 import { Ref, ref, onUnmounted, onMounted } from 'vue';
@@ -89,19 +89,19 @@ function onResizeHandleNav() {
 		role="banner"
 		:ref="(element) => {container = element as Element}"
 	>
-		<LayoutHeaderSkip
+		<LayoutHeaderSkipLink
 			:class="$style.Header_skipLink"
 			title="content"
 			:anchor-id="anchorIds.page.content"
 		/>
 		<template v-if="!store.isCompactModeActive">
-			<LayoutHeaderSkip
+			<LayoutHeaderSkipLink
 				:class="$style.Header_skipLink"
 				title="submenu"
 				:anchor-id="anchorIds.page.subMenu"
 				v-if="store.navSecondary.length"
 			/>
-			<LayoutHeaderSkip
+			<LayoutHeaderSkipLink
 				:class="$style.Header_skipLink"
 				title="outline"
 				:anchor-id="anchorIds.page.toc"
@@ -190,6 +190,7 @@ function onResizeHandleNav() {
 	pointer-events: none;
 	&:focus {
 		opacity: 100%;
+		pointer-events: all;
 	}
 }
 
