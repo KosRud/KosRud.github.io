@@ -4,11 +4,16 @@
 html {
 	font-family: @font-main, system-ui, sans-serif;
 	font-size: 0.0625rem;
-	overflow: auto; // android bug fix: https://stackoverflow.com/a/14569741
+
+	// overflow: hidden;
+	// android bug fix: https://stackoverflow.com/a/14569741
+	// BUT
+	// Breaks anchor links
 }
 
 body {
 	font-size: @size;
+	overflow-y: scroll;
 	overflow-x: hidden; // prevent negative margins from causing trouble
 	line-height: @line-height;
 }
