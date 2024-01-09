@@ -169,6 +169,19 @@ const config = defineConfigWithTheme<ThemeConfig>({
 				content: 'nxt5ELdfTEfN5XdluDKwhqpad_QAqlv8Ps-9BrDxytQ',
 			},
 		],
+		[
+			'meta',
+			{
+				'http-equiv': 'Content-Security-Policy',
+				content: [
+					"default-src 'self'",
+					'connect-src api.github.com',
+					"child-src 'none'",
+					"script-src 'unsafe-inline'",
+					"style-src 'unsafe-inline'",
+				].join('; '),
+			},
+		],
 	],
 	transformHead({ assets }) {
 		const preloadFonts = assets.filter(
