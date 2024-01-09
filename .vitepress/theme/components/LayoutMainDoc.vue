@@ -15,7 +15,7 @@ const store = useStore();
 </script>
 
 <template>
-	<div
+	<main
 		:class="$style.Doc"
 		tabindex="-1"
 		:id="anchorIds.page.content"
@@ -24,7 +24,7 @@ const store = useStore();
 			<YouAreHere />
 		</div>
 
-		<main>
+		<div>
 			<LayoutError404 v-if="page.isNotFound" />
 			<MarkdownWrapper
 				:class="$style.Markdown"
@@ -37,9 +37,9 @@ const store = useStore();
 							"
 				/>
 			</MarkdownWrapper>
-		</main>
+		</div>
 		<BackTop />
-	</div>
+	</main>
 </template>
 
 <style lang="less" module>
