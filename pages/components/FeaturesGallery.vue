@@ -9,10 +9,11 @@ const props = defineProps<{
 
 <template>
 	<!-- surrounding div is necessary to ensure negative margins work properly -->
-	<section
-		:aria-label="$props.label"
-		:class="$style.FeaturesGalleryWrapper"
-	>
+	<section :aria-label="$props.label">
+		<!--
+			Wrapper element is needed in case width is set externally.
+			The gallery has width exceeding 100% to account for negative margins.
+		-->
 		<div :class="$style.FeaturesGallery">
 			<slot />
 			<FeaturesGalleryCard
@@ -30,23 +31,19 @@ const props = defineProps<{
 
 @CardGalleryGap: @gap*2;
 
-.FeaturesGalleryWrapper {
-	overflow: hidden; // negative margin inside
-}
-
 .FeaturesGallery {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: stretch;
 	align-items: stretch;
-	width: calc(100% + @CardGalleryGap);
 
 	> * {
 		margin: @CardGalleryGap*0.5;
 	}
 
 	margin: @CardGalleryGap*-0.5;
+	width: calc(100% + @CardGalleryGap);
 }
 
 .FeaturesGallery_dummy {
