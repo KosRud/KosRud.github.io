@@ -5,13 +5,17 @@ import handshake from './assets/icons/handshake/icon.svg';
 <template>
 	<div :class="$style.Contact">
 		<div :class="$style.StatusBox">
-			<strong v-if="false" :class="$style.StatusBox_title">
+			<strong
+				v-if="false"
+				:class="$style.StatusBox_title"
+			>
 				Status:
 			</strong>
 			<img
 				:class="$style.StatusBox_icon"
 				:src="handshake"
-				alt="icon: handshake" />
+				alt="icon: handshake"
+			/>
 			<span :class="$style.StatusBox_text">
 				I'm available for contract work
 			</span>
@@ -20,10 +24,16 @@ import handshake from './assets/icons/handshake/icon.svg';
 		<form
 			action="https://formspree.io/f/xwkdgjao"
 			method="POST"
-			:class="$style.ContactForm">
+			:class="$style.ContactForm"
+		>
 			<label>
 				<span>Your name:</span>
-				<input required type="text" name="name" autocomplete="name" />
+				<input
+					required
+					type="text"
+					name="name"
+					autocomplete="name"
+				/>
 			</label>
 			<label>
 				<span>Your email:</span>
@@ -31,14 +41,23 @@ import handshake from './assets/icons/handshake/icon.svg';
 					required
 					type="email"
 					name="email"
-					autocomplete="email" />
+					autocomplete="email"
+				/>
 			</label>
 			<label>
 				<span>Your message:</span>
-				<textarea required name="message"></textarea>
+				<textarea
+					required
+					name="message"
+				></textarea>
 			</label>
 
-			<button colspan="2" type="submit">Send message</button>
+			<button
+				colspan="2"
+				type="submit"
+			>
+				Send message
+			</button>
 		</form>
 	</div>
 </template>
@@ -111,6 +130,8 @@ import handshake from './assets/icons/handshake/icon.svg';
 		margin-left: auto;
 		margin-right: auto;
 		min-width: min(200rem, 100%);
+
+		cursor: pointer;
 	}
 }
 </style>
