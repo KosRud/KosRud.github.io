@@ -7,7 +7,6 @@ import { useStore } from './pinia/store';
 
 import { NavItem } from '../ThemeConfig';
 import { useIsNavItemActive } from './composables/nav';
-import { useDarkModeDetect } from './composables/darkMode';
 import { useOneChildOpen } from './composables/oneChildOpen';
 import { scrollIntoViewIfNeeded } from './composables/scrollIntoView';
 import { urlMatch } from '@theme/components/composables/urlMatch';
@@ -46,7 +45,6 @@ function onItemClick(navItem: NavItem) {
 
 const depth = computed(() => props.depth ?? 0);
 const isActive = useIsNavItemActive(props.navItem.url);
-const isDarkMode = useDarkModeDetect();
 const linkElement: Ref<Element | null> = ref(null);
 
 onMounted(() => {
@@ -65,11 +63,7 @@ onMounted(() => {
 <template>
 	<li
 		:level="depth"
-		:class="[
-			$style.NavItem,
-			isDarkMode ? $style.Dark : '',
-			isOpen ? $style.NavItem___open : '',
-		]"
+		:class="[$style.NavItem, isOpen ? $style.NavItem___open : '']"
 		:aria-current="isActive ? 'page' : undefined"
 	>
 		<a
@@ -175,19 +169,6 @@ onMounted(() => {
 
 .NavItem_childrenListWrapper {
 	overflow: hidden;
-}
-
-/*
-	Dark Mode
-\*----------------------------------*/
-
-.Dark {
-	.NavItem_link {
-		&::before {
-			filter: invert(1);
-			opacity: 0.7;
-		}
-	}
 }
 
 /*
