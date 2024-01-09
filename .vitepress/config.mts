@@ -179,6 +179,7 @@ const config = defineConfigWithTheme<ThemeConfig>({
 					"child-src 'none'",
 					"script-src 'unsafe-inline'",
 					"style-src 'unsafe-inline'",
+					'img-src data:',
 				].join('; '),
 			},
 		],
