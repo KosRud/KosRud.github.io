@@ -98,22 +98,26 @@ onMounted(async () => {
 	<div class="Github">
 		<HyperLink
 			:href="`https://github.com/${repo}`"
-			class="Github_box Github_box___repo">
+			class="Github_box Github_box___repo"
+		>
 			<img
 				class="Github_icon"
 				:src="iconGithub"
 				alt="github icon"
-				aria-hidden="true" />
+				aria-hidden="true"
+			/>
 			GitHub
 		</HyperLink>
 		<HyperLink
 			:href="`https://github.com/${repo}`"
 			class="Github_box Github_box___stars"
-			v-if="stars != -1">
+			v-if="stars != -1"
+		>
 			<img
 				alt="stars"
 				class="Github_icon Github_icon___star"
-				:src="iconStar" />
+				:src="iconStar"
+			/>
 			{{ stars }}
 		</HyperLink>
 	</div>
@@ -124,6 +128,28 @@ onMounted(async () => {
 
 @github-color-blue: rgb(9 105 218);
 @github-gap: @gap;
+
+/*
+	Z-index
+\*----------------------------------*/
+
+.Github {
+	// establish stacking context
+	position: relative;
+	z-index: 0;
+}
+
+.Github_box___repo {
+	z-index: 1;
+}
+
+.Github_box___stars {
+	z-index: 0;
+}
+
+/*
+	Main section
+\*----------------------------------*/
 
 .Github {
 	display: flex;
@@ -214,24 +240,6 @@ onMounted(async () => {
 
 .Github_icon___star {
 	height: 1.2em;
-}
-
-/*
-	Z-index
-\*----------------------------------*/
-
-.Github {
-	// establish stacking context
-	position: relative;
-	z-index: 0;
-}
-
-.Github_box___repo {
-	z-index: 1;
-}
-
-.Github_box___stars {
-	z-index: 0;
 }
 
 /*

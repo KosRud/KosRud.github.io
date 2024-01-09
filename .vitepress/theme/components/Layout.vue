@@ -78,6 +78,28 @@ onContentUpdated(() => {
 <style lang="less" module>
 @import '@theme/style/variables.less';
 
+/*
+	Z-index
+\*----------------------------------*/
+
+.Layout {
+	// establish a stacking context
+	position: relative;
+	z-index: 0;
+}
+
+.Overlay {
+	z-index: 1;
+}
+
+.Main {
+	z-index: 0;
+}
+
+/*
+	Main section
+\*----------------------------------*/
+
 .VisibleRectMarker {
 	pointer-events: none;
 	position: fixed;
@@ -128,27 +150,5 @@ onContentUpdated(() => {
 
 .Main___nonInteractive {
 	pointer-events: none;
-}
-
-/*
-	Z-index
-\*----------------------------------*/
-
-.Layout {
-	// establish a stacking context
-	position: relative;
-	z-index: 0;
-}
-
-.Overlay {
-	// establish a stacking context
-	position: fixed;
-	z-index: 1;
-}
-
-.Main {
-	// establish a stacking context
-	position: relative;
-	z-index: 0;
 }
 </style>
