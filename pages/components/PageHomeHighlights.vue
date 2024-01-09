@@ -90,17 +90,22 @@ const props = defineProps<{ dummies: number }>();
 						<HyperLink
 							text="ResizeObserver"
 							href="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver"
-						/>, as well as provides accessibility with
+						/>, provides
 						<HyperLink
-							text="ARIA"
-							href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
+							text="accessibility"
+							href="https://vuejs.org/guide/best-practices/accessibility.html"
 						/>
-						attributes and support for browser
+						features,
+						<HyperLink
+							text="focus"
+							href="https://github.com/vuejs/vue-router/issues/2488"
+						/>
+						management, and support for browser
 						<HyperLink
 							text="font size"
 							href="https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/"
 						/>
-						accessibility setting.
+						setting.
 					</p>
 				</HomePageHighlightsProject>
 				<HomePageHighlightsProject
