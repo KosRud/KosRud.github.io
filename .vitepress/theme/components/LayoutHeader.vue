@@ -167,6 +167,23 @@ function onResizeHandleNav() {
 @Header-logo-size: @Header-height - @gap;
 @Header-gap: @gap;
 
+/*
+	Z-index
+\*----------------------------------*/
+
+.Header {
+	position: relative;
+}
+
+.Header_skipLink {
+	position: absolute;
+	z-index: 1;
+}
+
+/*
+	Main section
+\*----------------------------------*/
+
 .Header {
 	background-color: @color-background-dark;
 	display: flex;
@@ -263,18 +280,5 @@ function onResizeHandleNav() {
 
 .Header {
 	box-shadow: @shadow;
-}
-
-/*
-	Z-index
-\*----------------------------------*/
-
-.Header {
-	position: relative;
-}
-
-.Header_skipLink {
-	position: absolute;
-	z-index: 1;
 }
 </style>
