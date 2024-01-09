@@ -83,6 +83,11 @@ onContentUpdated(() => {
 \*----------------------------------*/
 
 .Layout {
+	overflow: hidden;
+	// android bug fix: https://stackoverflow.com/a/14569741
+	// setting it in HTML would fix the bug
+	// but also prevent href="#anchor" links from working
+
 	// establish a stacking context
 	position: relative;
 	z-index: 0;
