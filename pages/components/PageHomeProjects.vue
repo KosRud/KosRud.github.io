@@ -17,7 +17,11 @@ const props = defineProps<{ dummies: number }>();
 </script>
 
 <template>
-	<div :class="$style.ProjectsWrapper">
+	<div>
+		<!--
+			Wrapper element is needed in case width is set externally.
+			The gallery has width exceeding 100% to account for negative margins.
+		-->
 		<div :class="$style.Projects">
 			<PageHomeProjectsProject
 				:title="'DQ skinning for Unity'"
@@ -254,12 +258,9 @@ const props = defineProps<{ dummies: number }>();
 
 @Highlights-gap: @gap*4;
 
-.ProjectsWrapper {
-	overflow: hidden; // negative margin inside
-}
-
 .Projects {
-	margin: -@Highlights-gap*0.5;
+	margin: @Highlights-gap*-0.5;
+	width: calc(100% + @Highlights-gap);
 
 	display: flex;
 	flex-wrap: wrap;
