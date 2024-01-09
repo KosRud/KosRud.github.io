@@ -258,10 +258,6 @@ const props = defineProps<{ dummies: number }>();
 
 @Highlights-gap: @gap*4;
 
-.HighlightsWrapper {
-	overflow: hidden; // negative margin inside
-}
-
 .Highlights {
 	margin: -@Highlights-gap*0.5;
 
