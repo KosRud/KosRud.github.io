@@ -75,13 +75,13 @@ const devIconGroups = {
 					Name's Kostiantyn. I'm a programmer from Ukraine currently
 					residing in Bratislava, Slovakia. This website contains an
 					overview of my
-					<a href="#my-projects">projects</a>, as well as an
-					assortment of condensed
+					<a href="#my-projects">projects</a>, as well as condensed
+					highlights from the web development
 					<HyperLink
 						href="/students/html+css/selectors.html"
-						text="highlights"
+						text="seminars"
 					/>
-					from the web development seminars I've been teaching at
+					I've been teaching at
 					<HyperLink href="https://www.fiit.stuba.sk/en.html"
 						><span
 							title="Faculty of Informatics and Information Technologies, Slovak University of Technology"
