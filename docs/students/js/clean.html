@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Clean code advice | Kostiantyn Rudenko, software engineer</title>
+    <meta name="description" content="A programmer from Ukraine, currently residing in Slovakia. Unity 3d, compute shaders, computer graphics, vue.js, typescript...">
+    <meta name="generator" content="VitePress v1.0.0-rc.32">
+    <link rel="preload stylesheet" href="/assets/style.V_aU_YEP.css" as="style">
+    
+    <script type="module" src="/assets/app.y05le9hh.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.oytdgtbb.js">
+    <link rel="modulepreload" href="/assets/chunks/BackTop.nFlm-mHf.js">
+    <link rel="modulepreload" href="/assets/students_js_clean.md._u-g2MKT.lean.js">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png">
+    <link rel="mask-icon" color="#16643d" href="/favicon/safari-pinned-tab.svg">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#16643d">
+    <meta name="google-site-verification" content="nxt5ELdfTEfN5XdluDKwhqpad_QAqlv8Ps-9BrDxytQ">
+    <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link rel="preload" href="/assets/OpenSans-Regular.latin.zr39HmZm.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="/assets/OpenSans-Bold.latin.EXrzGTkz.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="/assets/OpenSans-Italic.latin.ioIMncMZ.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="/assets/IosevkaAile-Bold.latin.8_PDoT2o.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="/assets/IosevkaAile-Regular.latin.goUfAF_O.woff2" as="font" type="font/woff2" crossorigin="">
+  </head>
+  <body>
+    <div id="app"><div class="a" tabindex="-1" id="root"><div class="p f"><header class="G q" role="banner" style="--9223f6c8:visible;--5d67c155:hidden;--38efce72:hidden;"><a class="P H" href="#content">Skip to content</a><!--[--><!----><!----><!--]--><div class="I"><img class="J" src="/favicon.svg" alt="website logo" title="website logo" style="aspect-ratio:1;"></div><div class="K"></div><div class="L"><nav class="Q M" aria-label="Main menu" style="visibility:visible;"><ul><!--[--><!--]--></ul></nav></div><button class="W O"><div class="Y">On this page</div><div class="Z"><!--[--><div class="__"></div><div class="__"></div><div class="__"></div><!--]--></div></button><button class="W N"><div class="Y">Menu</div><div class="Z"><!--[--><div class="__"></div><div class="__"></div><div class="__"></div><div class="__"></div><div class="__"></div><!--]--></div></button></header><div class="r"><!--[--><div class="u"><!----></div><div aria-hidden="true" class="s"></div><div class="w"><!----></div><!--]--><!----><!----></div></div><main class="R b c" tabindex="-1" id="content"><div class="S"><div tabindex="-1" class="S_"><h2 class="U_">You are here:</h2><!--[--><!--[--><a href="/">Home</a><span class="V_">/</span><!--]--><!--[--><a href="/students/html+css/selectors">For students</a><span class="V_">/</span><!--]--><!--[--><a href="/students/js/naming">JavaScript</a><span class="V_">/</span><!--]--><!--[--><a aria-current="page" href="/students/js/clean">Clean code</a><span class="V_">/</span><!--]--><!--]--></div></div><div><div class="kb T"><h1>Clean code</h1><!--[--><div style="position:relative;"><div><p>Some advice for keeping your code clean and manageable</p><h2 id="long-functions" tabindex="-1">Long functions <a class="header-anchor" href="#long-functions" aria-label="Permalink to &quot;Long functions&quot;">​</a></h2><p>When a function becomes too long, extract parts of it into separate functions.</p><h4 id="example" tabindex="-1">Example <a class="header-anchor" href="#example" aria-label="Permalink to &quot;Example&quot;">​</a></h4><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">function</span><span style="color:#6F42C1;"> DrawEverything</span><span style="color:#24292E;">(</span><span style="color:#E36209;">canvas</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#6A737D;">	// lots of code</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><p>Becomes:</p><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">function</span><span style="color:#6F42C1;"> DrawEverything</span><span style="color:#24292E;">(</span><span style="color:#E36209;">canvas</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#6F42C1;">	drawBackground</span><span style="color:#24292E;">(canvas);</span></span>
+<span class="line"><span style="color:#6F42C1;">	drawEnemies</span><span style="color:#24292E;">(canvas);</span></span>
+<span class="line"><span style="color:#6F42C1;">	drawPlayer</span><span style="color:#24292E;">(canvas);</span></span>
+<span class="line"><span style="color:#6F42C1;">	drawProjectiles</span><span style="color:#24292E;">(canvas);</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><h2 id="long-classes" tabindex="-1">Long classes <a class="header-anchor" href="#long-classes" aria-label="Permalink to &quot;Long classes&quot;">​</a></h2><p>Same as long functions, try to break them up.</p><h2 id="too-many-arguments" tabindex="-1">Too many arguments <a class="header-anchor" href="#too-many-arguments" aria-label="Permalink to &quot;Too many arguments&quot;">​</a></h2><p>If you have a function with many arguments, create a class to group the related values into a single package.</p><h4 id="example-1" tabindex="-1">Example <a class="header-anchor" href="#example-1" aria-label="Permalink to &quot;Example&quot;">​</a></h4><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">function</span><span style="color:#6F42C1;"> printDocument</span><span style="color:#24292E;">(</span></span>
+<span class="line"><span style="color:#E36209;">	paperSize</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#E36209;">	marginLeft</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#E36209;">	marginRight</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#E36209;">	marginTop</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#E36209;">	marginBotton</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#E36209;">	numCopies</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#E36209;">	resolution</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#E36209;">	text</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#E36209;">	fontColor</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#E36209;">	fontSize</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#E36209;">	fontFamily</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#E36209;">	lineSpacing</span><span style="color:#24292E;">,</span></span>
+<span class="line"><span style="color:#E36209;">	paragraphIndentation</span></span>
+<span class="line"><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#6A737D;">	// do the printing</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><p>Becomes:</p><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Margin</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;"> (</span><span style="color:#E36209;">left</span><span style="color:#24292E;">, </span><span style="color:#E36209;">right</span><span style="color:#24292E;">, </span><span style="color:#E36209;">top</span><span style="color:#E36209;"> bottom</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.left </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> left;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.right </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> right;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.top </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> top;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.bottom </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> bottom;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> PrintParameters</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;"> (</span><span style="color:#E36209;">paperSize</span><span style="color:#24292E;">, </span><span style="color:#E36209;">margin</span><span style="color:#24292E;">, </span><span style="color:#E36209;">numCopies</span><span style="color:#24292E;">, </span><span style="color:#E36209;">resolution</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.paperSize </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> paperSize;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.margin </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> margin;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.numCopies </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> numCopies;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.resolution </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> resolution;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Font</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;"> (</span><span style="color:#E36209;">color</span><span style="color:#24292E;">, </span><span style="color:#E36209;">size</span><span style="color:#24292E;">, </span><span style="color:#E36209;">family</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.color </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> color;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.size </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> size;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.family </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> family;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> DocumentFormat</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;"> (</span><span style="color:#E36209;">font</span><span style="color:#24292E;">, </span><span style="color:#E36209;">lineSpacing</span><span style="color:#24292E;">, </span><span style="color:#E36209;">paragraphIndentation</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.font </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> font;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.lineSpacing </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> lineSpacing;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.paragraphIndentation </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> paragraphIndentation;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> TextDocument</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;"> (</span><span style="color:#E36209;">text</span><span style="color:#24292E;">, </span><span style="color:#E36209;">format</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.text </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> text;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.format </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> format;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">function</span><span style="color:#6F42C1;"> printDocument</span><span style="color:#24292E;">(</span><span style="color:#E36209;">printParameters</span><span style="color:#24292E;">, </span><span style="color:#E36209;">textDocument</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#6A737D;">	// do the printing</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><h2 id="too-many-attributes" tabindex="-1">Too many attributes <a class="header-anchor" href="#too-many-attributes" aria-label="Permalink to &quot;Too many attributes&quot;">​</a></h2><p>Similar to the previous issue, but instead of having too many function arguments, you have too many properties in a class.</p><p>When a class has too many properties, group them into new classes.</p><h2 id="data-duplication" tabindex="-1">Data duplication <a class="header-anchor" href="#data-duplication" aria-label="Permalink to &quot;Data duplication&quot;">​</a></h2><p>Avoid having multiple variables holding copies of the same value. If certain value can be trivially computed from existing variables, it&#39;s usually better to provide a function for computing it instead of storing it in a variable.</p><h4 id="example-2" tabindex="-1">Example <a class="header-anchor" href="#example-2" aria-label="Permalink to &quot;Example&quot;">​</a></h4><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Player</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;">(</span><span style="color:#E36209;">health</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> health;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.isDead </span><span style="color:#D73A49;">=</span><span style="color:#005CC5;"> false</span><span style="color:#24292E;">;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">	</span></span>
+<span class="line"><span style="color:#6F42C1;">	receiveDamage</span><span style="color:#24292E;">(</span><span style="color:#E36209;">amount</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">-=</span><span style="color:#24292E;"> amount;</span></span>
+<span class="line"><span style="color:#D73A49;">		if</span><span style="color:#24292E;"> (</span><span style="color:#005CC5;">this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">&lt;</span><span style="color:#005CC5;"> 0</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">			this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">=</span><span style="color:#005CC5;"> 0</span><span style="color:#24292E;">;</span></span>
+<span class="line"><span style="color:#24292E;">		}</span></span>
+<span class="line"><span style="color:#24292E;">		</span></span>
+<span class="line"><span style="color:#D73A49;">		if</span><span style="color:#24292E;"> (</span><span style="color:#005CC5;">this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">==</span><span style="color:#005CC5;"> 0</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">			this</span><span style="color:#24292E;">.isDead </span><span style="color:#D73A49;">=</span><span style="color:#005CC5;"> true</span><span style="color:#24292E;">;</span></span>
+<span class="line"><span style="color:#24292E;">		}</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">	</span></span>
+<span class="line"><span style="color:#6F42C1;">	heal</span><span style="color:#24292E;">(</span><span style="color:#E36209;">amount</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">+=</span><span style="color:#24292E;"> amount;</span></span>
+<span class="line"><span style="color:#24292E;">		</span></span>
+<span class="line"><span style="color:#D73A49;">		if</span><span style="color:#24292E;"> (</span><span style="color:#005CC5;">this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">&gt;</span><span style="color:#005CC5;"> 0</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">			this</span><span style="color:#24292E;">.isDead </span><span style="color:#D73A49;">=</span><span style="color:#005CC5;"> false</span><span style="color:#24292E;">;</span></span>
+<span class="line"><span style="color:#24292E;">		}</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><p>Becomes:</p><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Player</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;"> (</span><span style="color:#E36209;">health</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> health;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">	</span></span>
+<span class="line"><span style="color:#6F42C1;">	receiveDamage</span><span style="color:#24292E;">(</span><span style="color:#E36209;">amount</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">-=</span><span style="color:#24292E;"> amount;</span></span>
+<span class="line"><span style="color:#24292E;">		</span></span>
+<span class="line"><span style="color:#D73A49;">		if</span><span style="color:#24292E;"> (</span><span style="color:#005CC5;">this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">&lt;</span><span style="color:#005CC5;"> 0</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">			this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">=</span><span style="color:#005CC5;"> 0</span><span style="color:#24292E;">;</span></span>
+<span class="line"><span style="color:#24292E;">		}</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">	</span></span>
+<span class="line"><span style="color:#6F42C1;">	heal</span><span style="color:#24292E;">(</span><span style="color:#E36209;">amount</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">+=</span><span style="color:#24292E;"> amount;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">	</span></span>
+<span class="line"><span style="color:#6F42C1;">	getIsDead</span><span style="color:#24292E;"> ( ) {</span></span>
+<span class="line"><span style="color:#D73A49;">		return</span><span style="color:#005CC5;"> this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">&lt;=</span><span style="color:#005CC5;"> 0</span><span style="color:#24292E;">;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><div class="info custom-block"><p class="custom-block-title">Note</p><ul><li>Second variant is shorter, because there is no need to update <code>this.isDead</code> every time health changes.</li><li>In the second variant, it is impossible for the value to be incorrect as long as the function <code>isDead( )</code> is correct. In the first variant, forgetting to update <code>this.isDead</code> (or updating it incorrectly) will introduce a bug which can be difficult to find.</li></ul></div><h2 id="code-duplication-in-classes" tabindex="-1">Code duplication in classes <a class="header-anchor" href="#code-duplication-in-classes" aria-label="Permalink to &quot;Code duplication in classes&quot;">​</a></h2><p>If you have multiple classes with similar methods and/or attributes, consider extracting the common part into a base class and using inheritance.</p><h4 id="example-3" tabindex="-1">Example <a class="header-anchor" href="#example-3" aria-label="Permalink to &quot;Example&quot;">​</a></h4><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Vector2</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;">(</span><span style="color:#E36209;">x</span><span style="color:#24292E;">, </span><span style="color:#E36209;">y</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.x </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> x;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.y </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> y;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Player</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;">(</span><span style="color:#E36209;">name</span><span style="color:#24292E;">){</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.position </span><span style="color:#D73A49;">=</span><span style="color:#D73A49;"> new</span><span style="color:#6F42C1;"> Vector2</span><span style="color:#24292E;">(</span><span style="color:#005CC5;">0</span><span style="color:#24292E;">,</span><span style="color:#005CC5;">0</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.name </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> name;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;">	move</span><span style="color:#24292E;">(</span><span style="color:#E36209;">offset</span><span style="color:#24292E;">){</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.position.x </span><span style="color:#D73A49;">+=</span><span style="color:#24292E;"> offset.x;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.position.y </span><span style="color:#D73A49;">+=</span><span style="color:#24292E;"> offset.y;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">	// Player-related methods</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Skeleton</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;">(){</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.position </span><span style="color:#D73A49;">=</span><span style="color:#D73A49;"> new</span><span style="color:#6F42C1;"> Vector2</span><span style="color:#24292E;">(</span><span style="color:#005CC5;">0</span><span style="color:#24292E;">,</span><span style="color:#005CC5;">0</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.name </span><span style="color:#D73A49;">=</span><span style="color:#032F62;"> &quot;Skeleton&quot;</span><span style="color:#24292E;">;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;">	move</span><span style="color:#24292E;">(</span><span style="color:#E36209;">offset</span><span style="color:#24292E;">){</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.position.x </span><span style="color:#D73A49;">+=</span><span style="color:#24292E;"> offset.x;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.position.y </span><span style="color:#D73A49;">+=</span><span style="color:#24292E;"> offset.y;</span></span>
+<span class="line"><span style="color:#24292E;">		console.</span><span style="color:#6F42C1;">log</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;rattling of bones echoes through the dungeon&quot;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">	// Skeleton-related methods</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Slime</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;">(){</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.position </span><span style="color:#D73A49;">=</span><span style="color:#D73A49;"> new</span><span style="color:#6F42C1;"> Vector2</span><span style="color:#24292E;">(</span><span style="color:#005CC5;">0</span><span style="color:#24292E;">,</span><span style="color:#005CC5;">0</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.name </span><span style="color:#D73A49;">=</span><span style="color:#032F62;"> &quot;Slime&quot;</span><span style="color:#24292E;">;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;">	move</span><span style="color:#24292E;">(</span><span style="color:#E36209;">offset</span><span style="color:#24292E;">){</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.position.x </span><span style="color:#D73A49;">+=</span><span style="color:#24292E;"> offset.x;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.position.y </span><span style="color:#D73A49;">+=</span><span style="color:#24292E;"> offset.y;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">	// Slime-related methods</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><p>Becomes:</p><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Vector2</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;">(</span><span style="color:#E36209;">x</span><span style="color:#24292E;">, </span><span style="color:#E36209;">y</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.x </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> x;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.y </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> y;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Character</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;">(</span><span style="color:#E36209;">name</span><span style="color:#24292E;">){</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.position </span><span style="color:#D73A49;">=</span><span style="color:#D73A49;"> new</span><span style="color:#6F42C1;"> Vector2</span><span style="color:#24292E;">(</span><span style="color:#005CC5;">0</span><span style="color:#24292E;">,</span><span style="color:#005CC5;">0</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.name </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> name;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;">	move</span><span style="color:#24292E;">(</span><span style="color:#E36209;">offset</span><span style="color:#24292E;">){</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.position.x </span><span style="color:#D73A49;">+=</span><span style="color:#24292E;"> offset.x;</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.position.y </span><span style="color:#D73A49;">+=</span><span style="color:#24292E;"> offset.y;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Player</span><span style="color:#D73A49;"> extends</span><span style="color:#6F42C1;"> Character</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;">(</span><span style="color:#E36209;">name</span><span style="color:#24292E;">){</span></span>
+<span class="line"><span style="color:#005CC5;">		super</span><span style="color:#24292E;">(name);</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">	// Player-related methods</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Skeleton</span><span style="color:#D73A49;"> extends</span><span style="color:#6F42C1;"> Character</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;">(){</span></span>
+<span class="line"><span style="color:#005CC5;">		super</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Skeleton&quot;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;">	move</span><span style="color:#24292E;">(</span><span style="color:#E36209;">offset</span><span style="color:#24292E;">){</span></span>
+<span class="line"><span style="color:#005CC5;">		super</span><span style="color:#24292E;">.</span><span style="color:#6F42C1;">move</span><span style="color:#24292E;">(offset);</span></span>
+<span class="line"><span style="color:#24292E;">		console.</span><span style="color:#6F42C1;">log</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;rattling of bones echoes through the dungeon&quot;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">	// Skeleton-related methods</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Slime</span><span style="color:#D73A49;"> extends</span><span style="color:#6F42C1;"> Character</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;">(){</span></span>
+<span class="line"><span style="color:#005CC5;">		super</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Slime&quot;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">	// Slime-related methods</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#6A737D;">	// ...</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><h2 id="code-duplication-in-functions" tabindex="-1">Code duplication in functions <a class="header-anchor" href="#code-duplication-in-functions" aria-label="Permalink to &quot;Code duplication in functions&quot;">​</a></h2><p>If you have multiple functions with similar code, consider extracting the common part into a separate function.</p><h4 id="example-4" tabindex="-1">Example <a class="header-anchor" href="#example-4" aria-label="Permalink to &quot;Example&quot;">​</a></h4><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">function</span><span style="color:#6F42C1;"> castFireball</span><span style="color:#24292E;">() {</span></span>
+<span class="line"><span style="color:#24292E;">	console.</span><span style="color:#6F42C1;">log</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;preparing to cast...&quot;</span><span style="color:#24292E;">); </span><span style="color:#6A737D;">// accidental inconsistency</span></span>
+<span class="line"><span style="color:#24292E;">	console.</span><span style="color:#6F42C1;">log</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;reading the spell scroll: Fireball...&quot;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">	console.</span><span style="color:#6F42C1;">log</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;a massive sphere of flame flies towards the enemy!&quot;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">function</span><span style="color:#6F42C1;"> castHeal</span><span style="color:#24292E;">() {</span></span>
+<span class="line"><span style="color:#24292E;">	console.</span><span style="color:#6F42C1;">log</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;preparing to cast a spell...&quot;</span><span style="color:#24292E;">); </span><span style="color:#6A737D;">// accidental inconsistency</span></span>
+<span class="line"><span style="color:#24292E;">	console.</span><span style="color:#6F42C1;">log</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;reading the spell scroll: Heal...&quot;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">	console.</span><span style="color:#6F42C1;">log</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;you summon healing energies, which make you feel better&quot;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><p>Becomes:</p><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">function</span><span style="color:#6F42C1;"> readSpell</span><span style="color:#24292E;">(</span><span style="color:#E36209;">name</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#24292E;">	console.</span><span style="color:#6F42C1;">log</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;preparing to cast a spell...&quot;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">	console.</span><span style="color:#6F42C1;">log</span><span style="color:#24292E;">(</span><span style="color:#032F62;">`reading the spell scroll: ${</span><span style="color:#24292E;">name</span><span style="color:#032F62;">}...`</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">function</span><span style="color:#6F42C1;"> castFireball</span><span style="color:#24292E;">() {</span></span>
+<span class="line"><span style="color:#6F42C1;">	readSpell</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Fireball&quot;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">	console.</span><span style="color:#6F42C1;">log</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;a massive sphere of flame flies towards the enemy!&quot;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">function</span><span style="color:#6F42C1;"> castHeal</span><span style="color:#24292E;">() {</span></span>
+<span class="line"><span style="color:#6F42C1;">	readSpell</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Heal&quot;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">	console.</span><span style="color:#6F42C1;">log</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;you summon healing energies, which make you feel better&quot;</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><div class="info custom-block"><p class="custom-block-title">Note</p><p>In the first version you could modify one of the functions and forget to modify the other, introducing an inconsistency.</p><p>The second version protects you from this.</p></div><h2 id="panic-early" tabindex="-1">Panic early <a class="header-anchor" href="#panic-early" aria-label="Permalink to &quot;Panic early&quot;">​</a></h2><p>If you have a feeling that something might go wrong in your code, implement a sanity check to receive an immediate warning. Javascript is particularly notorious for pretending like everything is fine and continuing the execution with corrupt data (undefined, etc).</p><p>MDN link: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw" target="_blank" rel="noreferrer">throw statement</a>.</p><h4 id="example-5" tabindex="-1">Example <a class="header-anchor" href="#example-5" aria-label="Permalink to &quot;Example&quot;">​</a></h4><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Player</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;"> (</span><span style="color:#E36209;">health</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> health;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">	</span></span>
+<span class="line"><span style="color:#6F42C1;">	receiveDamage</span><span style="color:#24292E;">(</span><span style="color:#E36209;">amount</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">-=</span><span style="color:#24292E;"> amount;</span></span>
+<span class="line"><span style="color:#24292E;">		</span></span>
+<span class="line"><span style="color:#D73A49;">		if</span><span style="color:#24292E;"> (</span><span style="color:#005CC5;">this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">&lt;</span><span style="color:#005CC5;"> 0</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">			this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">=</span><span style="color:#005CC5;"> 0</span><span style="color:#24292E;">;</span></span>
+<span class="line"><span style="color:#24292E;">		}</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">	</span></span>
+<span class="line"><span style="color:#6F42C1;">	heal</span><span style="color:#24292E;">(</span><span style="color:#E36209;">amount</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">+=</span><span style="color:#24292E;"> amount;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">	</span></span>
+<span class="line"><span style="color:#6F42C1;">	getIsDead</span><span style="color:#24292E;"> ( ) {</span></span>
+<span class="line"><span style="color:#D73A49;">		if</span><span style="color:#24292E;"> (</span><span style="color:#005CC5;">this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">&lt;</span><span style="color:#005CC5;"> 0</span><span style="color:#24292E;">) {</span></span>
+<span class="line"><span style="color:#D73A49;">		   throw</span><span style="color:#032F62;"> &quot;health should never be negative!&quot;</span><span style="color:#24292E;">;</span></span>
+<span class="line"><span style="color:#6A737D;">		   // something clearly went wrong, no reason to continue execution!</span></span>
+<span class="line"><span style="color:#24292E;">		}</span></span>
+<span class="line"><span style="color:#D73A49;">		return</span><span style="color:#005CC5;"> this</span><span style="color:#24292E;">.health </span><span style="color:#D73A49;">==</span><span style="color:#005CC5;"> 0</span><span style="color:#24292E;">;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><h2 id="magic-numbers" tabindex="-1">Magic numbers <a class="header-anchor" href="#magic-numbers" aria-label="Permalink to &quot;Magic numbers&quot;">​</a></h2><p>When using numeric constants (for example, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>π</mi></mrow><annotation encoding="application/x-tex">\pi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">π</span></span></span></span>), create named constants instead of writing the values directly in your code.</p><h4 id="example-6" tabindex="-1">Example <a class="header-anchor" href="#example-6" aria-label="Permalink to &quot;Example&quot;">​</a></h4><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Circle</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;">(</span><span style="color:#E36209;">radius</span><span style="color:#24292E;">){</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.radius </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> radius;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;">	getCircumference</span><span style="color:#24292E;">(){</span></span>
+<span class="line"><span style="color:#D73A49;">		return</span><span style="color:#005CC5;"> this</span><span style="color:#24292E;">.radius </span><span style="color:#D73A49;">*</span><span style="color:#005CC5;"> 2.0</span><span style="color:#D73A49;"> *</span><span style="color:#005CC5;"> 3.1415</span><span style="color:#24292E;">;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;">	getArea</span><span style="color:#24292E;">(){</span></span>
+<span class="line"><span style="color:#D73A49;">		return</span><span style="color:#005CC5;"> 3.14</span><span style="color:#D73A49;"> *</span><span style="color:#24292E;"> (</span><span style="color:#005CC5;">this</span><span style="color:#24292E;">.radius </span><span style="color:#D73A49;">**</span><span style="color:#005CC5;"> 2</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><p>Becomes:</p><div class="language-js"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki github-light vp-code"><code><span class="line"><span style="color:#D73A49;">const</span><span style="color:#005CC5;"> PI</span><span style="color:#D73A49;"> =</span><span style="color:#005CC5;"> 3.1415</span><span style="color:#24292E;">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;">class</span><span style="color:#6F42C1;"> Circle</span><span style="color:#24292E;"> {</span></span>
+<span class="line"><span style="color:#D73A49;">	constructor</span><span style="color:#24292E;">(</span><span style="color:#E36209;">radius</span><span style="color:#24292E;">){</span></span>
+<span class="line"><span style="color:#005CC5;">		this</span><span style="color:#24292E;">.radius </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> radius;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;">	getCircumference</span><span style="color:#24292E;">(){</span></span>
+<span class="line"><span style="color:#D73A49;">		return</span><span style="color:#005CC5;"> this</span><span style="color:#24292E;">.radius </span><span style="color:#D73A49;">*</span><span style="color:#005CC5;"> 2.0</span><span style="color:#D73A49;"> *</span><span style="color:#005CC5;"> PI</span><span style="color:#24292E;">;</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;">	getArea</span><span style="color:#24292E;">(){</span></span>
+<span class="line"><span style="color:#D73A49;">		return</span><span style="color:#005CC5;"> PI</span><span style="color:#D73A49;"> *</span><span style="color:#24292E;"> (</span><span style="color:#005CC5;">this</span><span style="color:#24292E;">.radius </span><span style="color:#D73A49;">**</span><span style="color:#005CC5;"> 2</span><span style="color:#24292E;">);</span></span>
+<span class="line"><span style="color:#24292E;">	}</span></span>
+<span class="line"><span style="color:#24292E;">}</span></span></code></pre></div><div class="info custom-block"><p class="custom-block-title">Note</p><p>In the first variant different precision was used for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>π</mi></mrow><annotation encoding="application/x-tex">\pi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">π</span></span></span></span> in different places. This can create confusion.</p><p>Creating a constant ensures the value is always the same throughout the code.</p></div></div></div><!--]--></div></div><div class="h"><a class="i" href="#root"><img alt="upward arrow" class="j" src="data:image/svg+xml,%3c?xml%20version=&#39;1.0&#39;%20encoding=&#39;utf-8&#39;?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width=&#39;800px&#39;%20height=&#39;800px&#39;%20viewBox=&#39;0%200%2024%2024&#39;%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20id=&#39;up-circle&#39;%20class=&#39;icon%20glyph&#39;%3e%3cpath%20d=&#39;M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm3.71,11.71a1,1,0,0,1-1.42,0L12,11.41l-2.29,2.3a1,1,0,0,1-1.42-1.42l3-3a1,1,0,0,1,1.42,0l3,3A1,1,0,0,1,15.71,13.71Z&#39;%20style=&#39;fill:%2316643d&#39;%3e%3c/path%3e%3c/svg%3e">Back to top</a></div></main><div aria-hidden="true" class="_"></div></div></div>
+    <script>window.__VP_HASH_MAP__=JSON.parse("{\"students_html_css_resources.md\":\"bIgbJmgF\",\"students_html_css_selectors.md\":\"1xDSS2_x\",\"students_html_css_guidelines.md\":\"WMhpzCGW\",\"about.md\":\"K1ESYPjX\",\"students_html_css_tools.md\":\"Wr7C9aFO\",\"students_js_naming.md\":\"i0z5zfTv\",\"students_js_cheat.md\":\"bLaIFJf-\",\"students_js_clean.md\":\"_u-g2MKT\",\"index.md\":\"b3scDZ1w\"}");window.__VP_SITE_DATA__=JSON.parse("{\"lang\":\"en-US\",\"dir\":\"ltr\",\"title\":\"Kostiantyn Rudenko, software engineer\",\"description\":\"A programmer from Ukraine, currently residing in Slovakia. Unity 3d, compute shaders, computer graphics, vue.js, typescript...\",\"base\":\"/\",\"head\":[],\"router\":{\"prefetchLinks\":true},\"appearance\":true,\"themeConfig\":{\"nav\":[{\"title\":\"About me\",\"url\":\"/about\"},{\"title\":\"For students\",\"url\":\"/students\",\"children\":[{\"title\":\"HTML & CSS\",\"url\":\"/students/html+css\",\"children\":[{\"title\":\"CSS selectors\",\"url\":\"/students/html+css/selectors\"},{\"title\":\"Design guidelines\",\"url\":\"/students/html+css/guidelines\"},{\"title\":\"Tools\",\"url\":\"/students/html+css/tools\"},{\"title\":\"Additional resources\",\"url\":\"/students/html+css/resources\"}]},{\"title\":\"JavaScript\",\"url\":\"/students/js\",\"children\":[{\"title\":\"Naming things\",\"url\":\"/students/js/naming\"},{\"title\":\"Clean code\",\"url\":\"/students/js/clean\"},{\"title\":\"JS cheat sheet\",\"url\":\"/students/js/cheat\"}]}]}]},\"locales\":{},\"scrollOffset\":90,\"cleanUrls\":false}");</script>
+    
+  </body>
+</html>
