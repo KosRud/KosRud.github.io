@@ -15,8 +15,11 @@ export function useFocusFix() {
 	watch(
 		() => route.path,
 		() => {
-			const url = location.href.replace(/#.*$/, '');
-			location.href = `${url}#${anchorIds.page.root}`;
+			const root = document.querySelector(
+				`#${anchorIds.page.root}`
+			) as HTMLElement | null;
+			root?.focus();
+			root?.blur();
 		}
 	);
 }
