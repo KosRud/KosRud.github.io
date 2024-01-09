@@ -169,21 +169,6 @@ const config = defineConfigWithTheme<ThemeConfig>({
 				content: 'nxt5ELdfTEfN5XdluDKwhqpad_QAqlv8Ps-9BrDxytQ',
 			},
 		],
-		[
-			'meta',
-			{
-				'http-equiv': 'Content-Security-Policy',
-				content: [
-					"default-src 'self'",
-					'connect-src api.github.com',
-					"child-src 'none'",
-					"script-src 'self' 'unsafe-inline'",
-					"style-src 'self' 'unsafe-inline'",
-					"img-src 'self' data:",
-					"font-src 'self' data:",
-				].join('; '),
-			},
-		],
 	],
 	transformHead({ assets }) {
 		const preloadFonts = assets.filter(
