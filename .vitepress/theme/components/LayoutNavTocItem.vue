@@ -103,11 +103,9 @@ const linkElement: Ref<Element | null> = ref(null);
 }
 
 .TocItem_link {
-	width: 100%;
-
 	border-left: @border-width solid @color-border;
 	padding-left: calc(@gap*3 * v-bind('level - 1') + @gap);
-	padding-right: @gap;
+	margin-right: @gap;
 
 	text-decoration: none;
 }
