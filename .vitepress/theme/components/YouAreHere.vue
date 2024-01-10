@@ -18,7 +18,7 @@ const navTrace = useNavTrace();
 			>
 				{{ navItem?.title }}
 			</a>
-			<span :class="$style.NavTrace_separator">/</span>
+			<span :class="$style.NavTrace_separator">&nbsp;/ </span>
 		</template>
 	</div>
 </template>
@@ -41,9 +41,6 @@ const navTrace = useNavTrace();
 }
 
 .NavTrace_separator {
-	margin-left: @gap*0.25;
-	margin-right: @gap*0.25;
-
 	&:last-child {
 		display: none;
 	}
