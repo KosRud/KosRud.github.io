@@ -20,6 +20,7 @@
 		"docs:dev": "vitepress dev",
 		"docs:dev:host": "vitepress dev --host",
 		"docs:build": "vitepress build",
+		"docs:build:debug": "set DEBUG=true && vitepress build",
 		"docs:preview": "vitepress preview"
 	},
 	"devDependencies": {

@@ -5,17 +5,19 @@ import LayoutHeader from './LayoutHeader.vue';
 import LayoutNavMobile from './LayoutNavMobile.vue';
 
 import { useStore } from './pinia/store';
-import { useCssModule, watchEffect } from 'vue';
+import { onMounted, useCssModule, watchEffect } from 'vue';
 
 const store = useStore();
 const $style = useCssModule();
 
-watchEffect(() => {
-	if (store.isMobileNavAnythingOpen) {
-		document.querySelector('body')?.classList.add($style.noScroll);
-	} else {
-		document.querySelector('body')?.classList.remove($style.noScroll);
-	}
+onMounted(() => {
+	watchEffect(() => {
+		if (store.isMobileNavAnythingOpen) {
+			document.querySelector('body')?.classList.add($style.noScroll);
+		} else {
+			document.querySelector('body')?.classList.remove($style.noScroll);
+		}
+	});
 });
 </script>
 
