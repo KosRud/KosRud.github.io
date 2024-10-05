@@ -10,6 +10,8 @@ import markdownItDeflist from 'markdown-it-deflist';
 import { resolve } from 'node:path';
 import { getNav } from './config.nav';
 
+// https://github.com/vuejs/vitepress/blob/8687b86e1e00ae39ff9c8173aef04eb8a9cda0a8/src/node/markdown/markdown.ts#L269
+// https://github.com/vuejs/vitepress/blob/8687b86e1e00ae39ff9c8173aef04eb8a9cda0a8/src/node/markdown/markdown.ts#L191
 // https://vitepress.dev/reference/site-config
 const config = defineConfigWithTheme<ThemeConfig>({
 	title: 'Kostiantyn Rudenko, software engineer',
