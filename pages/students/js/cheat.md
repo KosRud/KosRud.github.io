@@ -432,24 +432,26 @@ console.table(editedGrid);
 Output:
 
 <table>
-	<tr>
-		<th scope="col">(index)</th>
-		<th scope="col">0</th>
-		<th scope="col">1</th>
-		<th scope="col">2</th>
-	</tr>
-	<tr>
-		<th scope="row">0</th>
-		<td>0</td><td>1</td><td>2</td>
-	</tr>
-	<tr>
-		<th scope="row">1</th>
-		<td>3</td><td>4</td><td>5</td>
-	</tr>
-	<tr>
-		<th scope="row">2</th>
-		<td>6</td><td>7</td><td>8</td>
-	</tr>
+	<tbody>
+		<tr>
+			<th scope="col">(index)</th>
+			<th scope="col">0</th>
+			<th scope="col">1</th>
+			<th scope="col">2</th>
+		</tr>
+		<tr>
+			<th scope="row">0</th>
+			<td>0</td><td>1</td><td>2</td>
+		</tr>
+		<tr>
+			<th scope="row">1</th>
+			<td>3</td><td>4</td><td>5</td>
+		</tr>
+		<tr>
+			<th scope="row">2</th>
+			<td>6</td><td>7</td><td>8</td>
+		</tr>
+	</tbody>
 </table>
 
 #### Combined with [spread syntax](#spread-syntax):
