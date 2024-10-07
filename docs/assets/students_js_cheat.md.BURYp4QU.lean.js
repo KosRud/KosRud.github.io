@@ -107,7 +107,7 @@ import{_ as a,c as n,a as l,o as p}from"./chunks/framework.CBd7paq1.js";const E=
 <span class="line"><span style="color:#D73A49;">let</span><span style="color:#24292E;"> petOwners </span><span style="color:#D73A49;">=</span><span style="color:#24292E;"> [</span></span>
 <span class="line"><span style="color:#24292E;">    {</span></span>
 <span class="line"><span style="color:#24292E;">        name: </span><span style="color:#032F62;">&quot;Steve&quot;</span><span style="color:#24292E;">,</span></span>
-<span class="line"><span style="color:#24292E;">        cat: </span><span style="color:#D73A49;">new</span><span style="color:#6F42C1;"> Pet</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;couch&quot;</span><span style="color:#24292E;">)</span></span>
+<span class="line"><span style="color:#24292E;">        cat: </span><span style="color:#D73A49;">new</span><span style="color:#6F42C1;"> Pet</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&quot;Couch&quot;</span><span style="color:#24292E;">)</span></span>
 <span class="line"><span style="color:#24292E;">    },</span></span>
 <span class="line"><span style="color:#24292E;">    {</span></span>
 <span class="line"><span style="color:#24292E;">        name: </span><span style="color:#032F62;">&quot;Glen&quot;</span><span style="color:#24292E;">,</span></span>
