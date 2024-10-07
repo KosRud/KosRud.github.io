@@ -7,6 +7,7 @@ const props = defineProps<{ text: string }>();
 
 // must be wrapped in double quotes, or the image can be missing from build!
 // see: https://github.com/vitejs/vite/issues/15444#issuecomment-1870732943
+// see: https://vite.dev/guide/assets (section "Inlining SVGs through url()")
 const smudgeUrl = `url("${smudge}")`;
 </script>
 
