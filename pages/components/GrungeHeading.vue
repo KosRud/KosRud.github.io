@@ -4,6 +4,9 @@ import smudge from './assets/smudges/2.svg';
 import { makeHeadingId } from '@vitepress/theme/components/composables/makeHeadingId';
 
 const props = defineProps<{ text: string }>();
+
+// must be wrapped in double quotes, or the image can be missing from build!
+// see: https://github.com/vitejs/vite/issues/15444#issuecomment-1870732943
 const smudgeUrl = `url("${smudge}")`;
 </script>
 

@@ -8,7 +8,9 @@ const props = defineProps<{
 	iconUrl?: string;
 }>();
 
-const iconUrl = computed(() => `url(${props.iconUrl})`);
+// must be wrapped in double quotes, or the image can be missing from build!
+// see: https://github.com/vitejs/vite/issues/15444#issuecomment-1870732943
+const iconUrl = computed(() => `url("${props.iconUrl}")`);
 </script>
 
 <template>
