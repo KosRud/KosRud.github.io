@@ -191,6 +191,32 @@ Student.GreetAll();
 Mozilla Developer Network &mdash; [static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static), [static initialization blocks](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks)
 :::
 
+## In operator
+
+You can check if an object contains a certain key.
+
+```js
+const person = {name: "Harry", age: 48};
+
+if ("name" in person){ // true
+    console.log(`name: ${person.name}`);
+}
+
+if ("expirationDate" in person){ // false
+    console.log(`expiration date: ${person.expirationDate}`);
+}
+```
+
+Output:
+
+```text
+name: Harry
+```
+
+::: tip
+Mozilla Developer Network &mdash; [in operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in)
+:::
+
 ## Optional chaining
 
 Normally, if you try to call a method or read an attribute which does not exist, you'd raise an error. With optional chaining you can call a method or receive an attribute (if it exists), and move on without raising an error if it doesn't. This is useful when iterating over an array, where some objects might have properties set to `null` or `undefined`.
