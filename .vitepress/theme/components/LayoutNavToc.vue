@@ -67,8 +67,12 @@ onMounted(() => {
 	font-weight: bold;
 }
 
-.Toc___mobile .Toc_title {
-	text-align: center;
+.Toc___mobile {
+	padding-left: @gap*2;
+
+	.Toc_title {
+		text-align: center;
+	}
 }
 
 .Toc_content {
@@ -86,9 +90,9 @@ onMounted(() => {
 	padding-bottom: @Aside-padding-bottom;
 }
 
-/*
-	Font-size
-\*----------------------------------*/
+//----------------------------------
+//	Font-size
+//----------------------------------
 
 .Toc_title {
 	font-size: @size-l;

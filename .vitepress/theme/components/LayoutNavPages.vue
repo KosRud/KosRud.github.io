@@ -113,17 +113,17 @@ function onItemClick(navItem: (typeof navItems.value)[number]) {
 	overflow: auto;
 }
 
-/*
-	Font-size
-\*----------------------------------*/
+//----------------------------------
+//	Font-size
+//----------------------------------
 
 .NavPages_title {
 	font-size: @size-l;
 }
 
-/*
-	Responsive
-\*----------------------------------*/
+//----------------------------------
+//	Responsive
+//----------------------------------
 
 .NavPages___mobile {
 	.NavPages_title {

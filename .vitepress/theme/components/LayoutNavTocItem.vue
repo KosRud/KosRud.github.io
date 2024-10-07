@@ -118,9 +118,9 @@ const linkElement: Ref<Element | null> = ref(null);
 	font-style: italic;
 }
 
-/*
-	Font-size
-\*----------------------------------*/
+//----------------------------------
+//	Font-size
+//----------------------------------
 
 .TocItem_link {
 	transition: border-color @duration;

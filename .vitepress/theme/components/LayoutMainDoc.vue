@@ -73,9 +73,9 @@ const store = useStore();
 	padding-bottom: @gap*8;
 }
 
-/*
-	Responsive
-\*----------------------------------*/
+//----------------------------------
+//	Responsive
+//----------------------------------
 
 @media screen and (width < 75em) {
 	.Doc {

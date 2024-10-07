@@ -167,9 +167,9 @@ function onResizeHandleNav() {
 @Header-logo-size: @Header-height - @gap;
 @Header-gap: @gap;
 
-/*
-	Z-index
-\*----------------------------------*/
+//----------------------------------
+//	Z-index
+//----------------------------------
 
 .Header {
 	position: relative;
@@ -180,9 +180,9 @@ function onResizeHandleNav() {
 	z-index: 1;
 }
 
-/*
-	Main section
-\*----------------------------------*/
+//----------------------------------
+//	Main section
+//----------------------------------
 
 .Header {
 	background-color: @color-background-dark;
@@ -266,17 +266,17 @@ function onResizeHandleNav() {
 	);
 }
 
-/*
-	Font-family
-\*----------------------------------*/
+//----------------------------------
+//	Font-family
+//----------------------------------
 
 .Header {
 	font-family: @font-techy;
 }
 
-/*
-	UI shadows
-\*----------------------------------*/
+//----------------------------------
+//	UI shadows
+//----------------------------------
 
 .Header {
 	box-shadow: @shadow;

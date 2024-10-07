@@ -57,7 +57,7 @@ onMounted(() => {
 .NavMobile {
 	max-width: 400rem;
 
-	padding: @gap*2;
+	padding: @gap*2 0px;
 
 	background-color: @color-background;
 
@@ -66,9 +66,9 @@ onMounted(() => {
 	overflow: auto;
 }
 
-/*
-	Transitions
-\*----------------------------------*/
+//----------------------------------
+//	Transitions
+//----------------------------------
 
 .NavMobile___enterFrom {
 	transform: translateX(100%);
@@ -94,9 +94,9 @@ onMounted(() => {
 	transition: transform @duration ease-out;
 }
 
-/*
-	UI shadows
-\*----------------------------------*/
+//----------------------------------
+//	UI shadows
+//----------------------------------
 
 .NavMobile {
 	box-shadow: @shadow;

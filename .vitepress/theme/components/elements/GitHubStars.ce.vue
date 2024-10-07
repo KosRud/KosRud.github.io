@@ -129,9 +129,9 @@ onMounted(async () => {
 @github-color-blue: rgb(9 105 218);
 @github-gap: @gap;
 
-/*
-	Z-index
-\*----------------------------------*/
+//----------------------------------
+//	Z-index
+//----------------------------------
 
 .Github {
 	// establish stacking context
@@ -147,9 +147,9 @@ onMounted(async () => {
 	z-index: 0;
 }
 
-/*
-	Main section
-\*----------------------------------*/
+//----------------------------------
+//	Main section
+//----------------------------------
 
 .Github {
 	display: flex;
@@ -242,9 +242,9 @@ onMounted(async () => {
 	height: 1.2em;
 }
 
-/*
-	Transitions
-\*----------------------------------*/
+//----------------------------------
+//	Transitions
+//----------------------------------
 
 .Github_box___repo {
 	transition: box-shadow @duration linear, background-color @duration-s linear,

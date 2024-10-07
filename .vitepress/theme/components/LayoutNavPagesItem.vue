@@ -122,6 +122,7 @@ onMounted(() => {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
+	margin-left: @gap;
 
 	&::before {
 		// remove marker from <li>
@@ -172,9 +173,9 @@ onMounted(() => {
 	overflow: hidden;
 }
 
-/*
-	Transitions
-\*----------------------------------*/
+//----------------------------------
+//	Transitions
+//----------------------------------
 
 .NavItem_link::before {
 	transition: transform @duration;

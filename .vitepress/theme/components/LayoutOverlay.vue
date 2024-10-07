@@ -80,9 +80,9 @@ onMounted(() => {
 <style module lang="less">
 @import '@theme/style/variables.less';
 
-/*
-	Z-index
-\*----------------------------------*/
+//----------------------------------
+//	Z-index
+//----------------------------------
 
 .noScroll {
 	overflow: hidden !important;
@@ -102,9 +102,9 @@ onMounted(() => {
 	z-index: 0;
 }
 
-/*
-	Main section
-\*----------------------------------*/
+//----------------------------------
+//	Main section
+//----------------------------------
 
 .Overlay {
 	position: fixed;
@@ -172,17 +172,17 @@ onMounted(() => {
 	width: 100%;
 }
 
-/*
-	Transitions
-\*----------------------------------*/
+//----------------------------------
+//	Transitions
+//----------------------------------
 
 .Overlay {
 	transition: background-color @duration-s;
 }
 
-/*
-	Pointer behavior
-\*----------------------------------*/
+//----------------------------------
+//	Pointer behavior
+//----------------------------------
 
 .Overlay {
 	pointer-events: none;
