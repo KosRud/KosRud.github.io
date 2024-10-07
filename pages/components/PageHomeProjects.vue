@@ -88,8 +88,8 @@ const props = defineProps<{ dummies: number }>();
 					/>.
 				</p>
 				<p>
-					It gracefully conforms to viewports as narrow as 260px,
-					utilizes responsive components implemented via
+					It conforms to viewports as narrow as 260px, utilizes
+					responsive components implemented via
 					<HyperLink
 						text="ResizeObserver"
 						href="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver"
