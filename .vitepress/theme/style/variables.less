@@ -77,16 +77,15 @@
 // box-shadow: 0 45px 65px rgba(0,0,0,0.50), 0 35px 22px rgba(0,0,0,0.16);
 // box-shadow: 0 60px 80px rgba(0,0,0,0.60), 0 45px 26px rgba(0,0,0,0.14);
 
+@shadow-ao: 0rem 0rem 2rem #0003;
+
 .shadow(@strength) {
 	@blur: pow(2, abs(@strength) - 1);
 	@offset: @blur * if(@strength > 0, 1, -1);
-	@result: round(0.5rem * (@offset / 3)) round(1rem * @offset)
-			round(6rem * @blur) fade(black, 18%),
-		round(1rem * (@offset / 3)) round(2rem * @offset) round(2rem * @blur)
-			fade(black, 10%);
+	@result: @shadow-ao,
+		0rem round(1rem * @offset) round(2rem * @blur) fade(black, 8%),
+		0rem round(2rem * @offset) round(3rem * @blur) fade(black, 32%);
 }
-
-@shadow-ao: 0rem 0rem 2rem #0003;
 
 @shadow-s: .shadow(1) [ @result];
 @shadow: .shadow(2) [ @result];
