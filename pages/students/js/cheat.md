@@ -237,7 +237,7 @@ class Pet {
 let petOwners = [
     {
         name: "Steve",
-        cat: new Pet("couch")
+        cat: new Pet("Couch")
     },
     {
         name: "Glen",
