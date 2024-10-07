@@ -235,26 +235,26 @@ useResizeObserver(
 		background-color: @color-background;
 		padding: @admonition-padding;
 		box-shadow: @shadow-s;
-	}
 
-	:global(.custom-block-title) {
-		margin-left: -@gap*2;
-		margin-right: -@gap*2;
-		margin-top: calc(-@admonition-padding - @admonition_title-height);
-		margin-bottom: @admonition-padding;
+		:global(.custom-block-title) {
+			margin-left: -@gap*2;
+			margin-right: -@gap*2;
+			margin-top: calc(-@admonition-padding - @admonition_title-height);
+			margin-bottom: @admonition-padding;
 
-		height: @admonition_title-height;
+			height: @admonition_title-height;
 
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
 
-		text-align: center;
-		font-weight: bold;
+			text-align: center;
+			font-weight: bold;
 
-		box-shadow: @shadow-s;
-		border-radius: @gap;
+			box-shadow: @shadow-s;
+			border-radius: @gap;
+		}
 	}
 
 	:global(.custom-block.warning) {
