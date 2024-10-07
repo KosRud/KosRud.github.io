@@ -59,7 +59,7 @@ export const useStore = defineStore('counter', {
 
 		visibleAreaRectTop: (state) => {
 			if (!state.VisibleAreaMarker) {
-				console.log('Visible area marker was not initialized');
+				console.error('Visible area marker was not initialized');
 				return 0;
 			}
 			return state.VisibleAreaMarker.getBoundingClientRect().top;

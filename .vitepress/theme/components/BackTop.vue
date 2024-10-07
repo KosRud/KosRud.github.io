@@ -62,9 +62,9 @@ import arrowCircled from './assets/icons/ui/arrowCircled/icon.svg';
 	margin-left: @gap*0.5;
 }
 
-/*
-	Transitions
-\*----------------------------------*/
+//----------------------------------
+//	Transitions
+//----------------------------------
 
 .BackToTop {
 	transition: outline-color @duration;

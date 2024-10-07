@@ -78,9 +78,9 @@ onContentUpdated(() => {
 <style lang="less" module>
 @import '@theme/style/variables.less';
 
-/*
-	Z-index
-\*----------------------------------*/
+//----------------------------------
+//	Z-index
+//----------------------------------
 
 .Layout {
 	overflow: hidden;
@@ -101,9 +101,9 @@ onContentUpdated(() => {
 	z-index: 0;
 }
 
-/*
-	Main section
-\*----------------------------------*/
+//----------------------------------
+//	Main section
+//----------------------------------
 
 .VisibleRectMarker {
 	pointer-events: none;
@@ -149,9 +149,9 @@ onContentUpdated(() => {
 	}
 }
 
-/*
-	Pointer behavior
-\*----------------------------------*/
+//----------------------------------
+//	Pointer behavior
+//----------------------------------
 
 .Main___nonInteractive {
 	pointer-events: none;

@@ -85,9 +85,9 @@ function handleScrolling() {
 @import '@vitepress/theme/style/variables.less';
 @import '@vitepress/theme/style/mixins.less';
 
-/*
-	Z-index
-\*----------------------------------*/
+//----------------------------------
+//	Z-index
+//----------------------------------
 
 .Main {
 	position: relative;
@@ -98,9 +98,9 @@ function handleScrolling() {
 	z-index: 2;
 }
 
-/*
-	Main section
-\*----------------------------------*/
+//----------------------------------
+//	Main section
+//----------------------------------
 
 .HomePage {
 	flex-grow: 1;
@@ -174,9 +174,9 @@ function handleScrolling() {
 	}
 }
 
-/*
-	Responsive
-\*----------------------------------*/
+//----------------------------------
+//	Responsive
+//----------------------------------
 
 @media screen and (width < 50em) {
 	.Hero {

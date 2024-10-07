@@ -1,8 +1,8 @@
 @inf: max(1000000rem, 1000vmax);
 
-/*
-	Distances, gaps, font sizes
-\*----------------------------------*/
+//----------------------------------
+//	Distances, gaps, font sizes
+//----------------------------------
 
 @gap: 12rem;
 @content-gap: @size*2;
@@ -23,9 +23,9 @@
 @border-width: 2rem;
 @border-width-l: 3rem;
 
-/*
-	Layout-specific distances
-\*----------------------------------*/
+//----------------------------------
+//	Layout-specific distances
+//----------------------------------
 
 @content-width: 700rem;
 
@@ -48,23 +48,23 @@
 
 @Toc-to-Main-gap: @Header-to-Content-gap;
 
-/*
-	Layout-specific distances: thresholds
-\*----------------------------------*/
+//----------------------------------
+//	Layout-specific distances: thresholds
+//----------------------------------
 
 @content-width-threshold: 500rem;
 
-/*
-	Derived distances
-	(do not modify directly)
-\*----------------------------------*/
+//----------------------------------
+//	Derived distances
+//	(do not modify directly)
+//----------------------------------
 
 @Header-height: @Header-content-height + @HeaderNav-padding-vertical*2;
 @Aside-padding-top: @Header-to-Content-gap;
 
-/*
-	Shadows
-\*----------------------------------*/
+//----------------------------------
+//	Shadows
+//----------------------------------
 
 //  material design examples
 //
@@ -98,9 +98,9 @@
 @shadow-l-inverted: .shadow(-3) [ @result];
 @shadow-xl-inverted: .shadow(-4) [ @result];
 
-/*
-	Colors
-\*----------------------------------*/
+//----------------------------------
+//	Colors
+//----------------------------------
 
 @color-border: #c0c0c0;
 @color-background-dark: #282828;
@@ -118,18 +118,18 @@
 
 @color-highlight: #fff4;
 
-/*
-	Fonts
-\*----------------------------------*/
+//----------------------------------
+//	Fonts
+//----------------------------------
 
 @font-main: 'Open Sans', 'Open Sans-fallback', sans-serif;
 @font-techy: 'Iosevka Aile', system-ui, sans-serif;
 @font-hero: 'Iosevka Aile', system-ui, sans-serif;
 @font-code: 'Fira Code', monospace;
 
-/*
-	Animation-related
-\*----------------------------------*/
+//----------------------------------
+//	Animation-related
+//----------------------------------
 
 @duration-s: 0.1s;
 @duration: 0.2s;

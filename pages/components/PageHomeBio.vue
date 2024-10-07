@@ -234,9 +234,9 @@ const devIconGroups = {
 	margin: @gap*0.25;
 }
 
-/*
-	Responsive
-\*----------------------------------*/
+//----------------------------------
+//	Responsive
+//----------------------------------
 
 @media screen and (width < 80em) {
 	.Bio_content,

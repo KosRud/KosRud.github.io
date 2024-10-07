@@ -11,10 +11,17 @@ const props = defineProps<{
 <template>
 	<button
 		:class="{ [$style.BurgerWrapper]: true, [$style.open]: props.isOpen }"
-		@click="props.toggleIsOpen">
+		@click="props.toggleIsOpen"
+	>
 		<div :class="$style.Burger_title">{{ props.title }}</div>
-		<div :class="$style.Burger" v-if="!props.compact">
-			<div :class="$style.Burger_line" v-for="_ in numLines"></div>
+		<div
+			:class="$style.Burger"
+			v-if="!props.compact"
+		>
+			<div
+				:class="$style.Burger_line"
+				v-for="_ in numLines"
+			></div>
 		</div>
 	</button>
 </template>
@@ -94,9 +101,9 @@ const props = defineProps<{
 	}
 }
 
-/*
-	Transitions
-\*----------------------------------*/
+//----------------------------------
+//	Transitions
+//----------------------------------
 
 .Burger_line&:nth-child(2n) {
 	transition: transform @duration ease-out;

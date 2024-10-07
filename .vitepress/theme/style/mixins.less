@@ -19,13 +19,12 @@
 
 .NavItem_text(@level) {
 	@numLevels: 3;
-	@index: min(@numLevels - 1, max(@level, 0)) + 1;
+	@index: min((max(@level, 0)), @numLevels - 1) + 1;
 
-	@paddings: @gap*0.75, @gap*0.5, @gap * 0.25;
-	// @paddings: 0rem, 0rem, 0rem;
+	@paddings: @size-l, @size, @size-s;
 	@font-sizes: @size-l, @size, @size-s;
 
-	padding-top: extract(@paddings, @index);
+	padding-top: extract(@paddings, @index) * 0.5;
 	padding-bottom: $padding-top;
 
 	font-size: extract(@font-sizes, @index);
@@ -46,17 +45,17 @@
 		margin-bottom: 0rem;
 	}
 
-	/*
-		Links
-	\*----------------------------------*/
+	//----------------------------------
+	// Links
+	//----------------------------------
 
 	a {
 		font-weight: bold;
 	}
 
-	/*
-		Code
-	\*----------------------------------*/
+	//----------------------------------
+	// Code
+	//----------------------------------
 
 	pre {
 		white-space: pre-wrap;

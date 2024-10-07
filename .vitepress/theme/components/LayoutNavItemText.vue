@@ -74,9 +74,9 @@ const level = computed(() => {
 	.NavItem_text___compact();
 }
 
-/*
-	Transitions
-\*----------------------------------*/
+//----------------------------------
+//	Transitions
+//----------------------------------
 
 .NavItem_text {
 	transition: font-weight @duration, color @duration, text-shadow @duration-s;
