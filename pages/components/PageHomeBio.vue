@@ -25,6 +25,7 @@ const devIconGroups = {
 		devIcons.immutableJs,
 		devIcons.typedoc,
 		devIcons.nodeJs,
+		devIcons.deno,
 
 		devIcons.python,
 
@@ -45,7 +46,6 @@ const devIconGroups = {
 		devIcons.mongodb,
 
 		devIcons.fastify,
-		devIcons.deno,
 
 		devIcons.blender,
 
@@ -76,7 +76,7 @@ const devIconGroups = {
 					residing in Bratislava, Slovakia. This website contains an
 					overview of my
 					<a href="#my-projects">projects</a>, as well as condensed
-					highlights from the web development
+					cheat sheets from the web development
 					<a href="/students/html+css/selectors">seminars</a>
 					I've been teaching at
 					<HyperLink href="https://www.fiit.stuba.sk/en.html"

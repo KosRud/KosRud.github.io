@@ -20,6 +20,37 @@ import iconJob from '@pages/components/assets/icons/highlights/job/icon.svg';
 		label="expertise"
 	>
 		<FeaturesGalleryCard
+			name="Experience"
+			:icon-url="iconJob"
+		>
+			<HomePageFeaturesContent>
+				<table>
+					<tbody>
+						<tr>
+							<th scope="row">
+								Senior .NET/Unity developer<br />for
+								<HyperLink
+									text="Ciklum"
+									href="https://www.ciklum.com/"
+								/>
+							</th>
+							<td>1 year</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								.NET (C#, C++) developer<br />for
+								<HyperLink
+									text="RISA Tech, Inc."
+									href="https://risa.com/"
+								/>
+							</th>
+							<td>1 year</td>
+						</tr>
+					</tbody>
+				</table>
+			</HomePageFeaturesContent>
+		</FeaturesGalleryCard>
+		<FeaturesGalleryCard
 			name="Programming languages"
 			:icon-url="iconProgramming"
 		>
@@ -67,7 +98,7 @@ import iconJob from '@pages/components/assets/icons/highlights/job/icon.svg';
 						</tr>
 						<tr>
 							<th scope="row">Frontend</th>
-							<td>Vue, React</td>
+							<td>Vue, React, Vite</td>
 						</tr>
 						<tr>
 							<th scope="row">Backend</th>
@@ -75,7 +106,7 @@ import iconJob from '@pages/components/assets/icons/highlights/job/icon.svg';
 						</tr>
 						<tr>
 							<th scope="row">Documentation</th>
-							<td>Doxygen, TypeDoc</td>
+							<td>Doxygen, TypeDoc, Deno Doc</td>
 						</tr>
 					</tbody>
 				</table>
@@ -90,28 +121,14 @@ import iconJob from '@pages/components/assets/icons/highlights/job/icon.svg';
 					<tbody>
 						<tr>
 							<th scope="row">Software Engineering</th>
-							<td>master's degree</td>
-						</tr>
-					</tbody>
-				</table>
-			</HomePageFeaturesContent>
-		</FeaturesGalleryCard>
-		<FeaturesGalleryCard
-			name="Experience"
-			:icon-url="iconJob"
-		>
-			<HomePageFeaturesContent>
-				<table>
-					<tbody>
-						<tr>
-							<th scope="row">
-								.NET (C#, C++) developer<br />for
-								<HyperLink
-									text="RISA Tech, Inc."
-									href="https://risa.com/"
-								/>
-							</th>
-							<td>1 year</td>
+							<td>
+								master's degree (<strong>
+									<HyperLink
+										text="KPI"
+										href="https://kpi.ua/en/fpm"
+									/> </strong
+								>)
+							</td>
 						</tr>
 					</tbody>
 				</table>
