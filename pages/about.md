@@ -14,6 +14,15 @@ title: About me
 
 ## Work experience
 
+### Jan 2024 &mdash; ongoing
+
+Senior .NET/Unity developer for [Ciklum](https://www.ciklum.com/):
+
+* developing reusable ui components and tools
+* implementing asynchronous operations
+* performance and app size optimization
+* general unity expertise
+
 ### Nov 2017 &mdash; Nov 2018 
 
 .NET (C#, C++/CLI) developer for [RISA](https://www.nemetschek.com/en/brand/risa) (Nemetschek group company):
