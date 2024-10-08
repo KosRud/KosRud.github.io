@@ -134,7 +134,7 @@ function handleScrolling() {
 	align-items: end;
 	justify-content: center;
 
-	text-shadow: 2px 2px 0px black, 4px 4px 12px #000a;
+	text-shadow: 2rem 2rem 0rem black, 4rem 4rem 12rem #000a;
 	line-height: 1.2;
 	margin: @gap*3;
 }

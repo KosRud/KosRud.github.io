@@ -11,30 +11,30 @@
 
 .Feature_content {
 	flex-grow: 1;
-}
 
-table {
-	margin-left: auto;
-	margin-right: auto;
-}
+	table {
+		margin-left: auto;
+		margin-right: auto;
+	}
 
-th {
-	&:nth-child(1) {
+	th {
+		&:nth-child(1) {
+			font-weight: bold;
+			text-align: right;
+		}
+
+		&:not(:last-child) {
+			border-right: @gap*2 solid transparent;
+		}
+	}
+
+	td {
+		padding-top: @gap*0.125;
+		padding-bottom: @gap*0.125;
+	}
+
+	h2 {
 		font-weight: bold;
-		text-align: right;
 	}
-
-	&:not(:last-child) {
-		border-right: @gap*2 solid transparent;
-	}
-}
-
-td {
-	padding-top: @gap*0.125;
-	padding-bottom: @gap*0.125;
-}
-
-h2 {
-	font-weight: bold;
 }
 </style>

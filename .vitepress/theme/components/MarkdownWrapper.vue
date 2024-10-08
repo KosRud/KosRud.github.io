@@ -193,13 +193,14 @@ useResizeObserver(
 			padding: @gap*0.5 @gap;
 		}
 
+		th,
 		td {
-			border: 1rem solid @color-border;
+			border: @border-width-s solid @color-border;
 			padding: @gap*0.5 @gap;
 		}
 
-		th:not(:last-child) {
-			border-right: rem solid @color-border;
+		th {
+			border-color: @color-background-dark;
 		}
 	}
 
