@@ -31,7 +31,7 @@ Senior .NET/Unity developer for [Ciklum](https://www.ciklum.com/):
 |:---:|---|---|---|
 |2020 &ndash; 2023 (interrupted)|Informatics and Information Technologies|Slovak University of Technology in Bratislava|PhD. in<br>applied informatics|
 |2018 &ndash; 2020|Applied Mathematics|National Technical University of Ukraine "Igor Sikorsky Kyiv Polytechnic Institute"|Master's degree in software engineering|
-<!-- |2014 &ndash; 2018|National Technical University of Ukraine<br>"Igor Sikorsky Kyiv Polytechnic Institute"|Bachelor's degree in software engineering| -->
+|2014 &ndash; 2018|Applied Mathematics|National Technical University of Ukraine<br>"Igor Sikorsky Kyiv Polytechnic Institute"|Bachelor's degree in software engineering|
 
 ## Timeline
 
