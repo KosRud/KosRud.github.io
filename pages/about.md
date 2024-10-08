@@ -2,16 +2,6 @@
 title: About me
 ---
 
-## Education
-
-**Highest level completed**:&ensp;master's degree (software engineering)
-
-|Period|Faculty|Institution|Qualification|
-|:---:|---|---|---|
-|2020 &ndash; 2023 (interrupted)|Informatics and Information Technologies|Slovak University of Technology in Bratislava|PhD. in<br>applied informatics|
-|2018 &ndash; 2020|Applied Mathematics|National Technical University of Ukraine "Igor Sikorsky Kyiv Polytechnic Institute"|Master's degree in software engineering|
-<!-- |2014 &ndash; 2018|National Technical University of Ukraine<br>"Igor Sikorsky Kyiv Polytechnic Institute"|Bachelor's degree in software engineering| -->
-
 ## Work experience
 
 ### Jan 2024 &mdash; ongoing
@@ -33,6 +23,15 @@ Senior .NET/Unity developer for [Ciklum](https://www.ciklum.com/):
 
 **Project**: Our team was developing [RISAConnection](https://risa.com/products/risaconnection), an application which can model and visualize various types of connections for structural engineering and analyze their reliability under different loads.
 
+## Education
+
+**Highest level completed**:&ensp;master's degree (software engineering)
+
+|Period|Faculty|Institution|Qualification|
+|:---:|---|---|---|
+|2020 &ndash; 2023 (interrupted)|Informatics and Information Technologies|Slovak University of Technology in Bratislava|PhD. in<br>applied informatics|
+|2018 &ndash; 2020|Applied Mathematics|National Technical University of Ukraine "Igor Sikorsky Kyiv Polytechnic Institute"|Master's degree in software engineering|
+<!-- |2014 &ndash; 2018|National Technical University of Ukraine<br>"Igor Sikorsky Kyiv Polytechnic Institute"|Bachelor's degree in software engineering| -->
 
 ## Timeline
 
