@@ -57,7 +57,7 @@ onMounted(() => {
 .NavMobile {
 	max-width: 400rem;
 
-	padding: @gap*2 0px;
+	padding: @gap*2 0rem;
 
 	background-color: @color-background;
 
