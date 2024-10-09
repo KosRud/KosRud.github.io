@@ -120,7 +120,6 @@ function handleScrolling() {
 	justify-content: center;
 
 	color: white;
-	font-family: @font-hero;
 
 	background-color: @color-primary-hero;
 	box-shadow: 0rem 0rem 100rem inset #0006;
@@ -136,17 +135,21 @@ function handleScrolling() {
 
 	text-shadow: 2rem 2rem 0rem black, 4rem 4rem 12rem #000a;
 	line-height: 1.2;
-	margin: @gap*3;
+	margin: @gap*4;
 }
 
 .Hero_title {
 	font-weight: bold;
 	font-size: @size-hero;
-	letter-spacing: -0.03em;
+
+	letter-spacing: -0.05em;
+	font-family: @font-techy;
 }
 
 .Hero_subtitle {
 	font-size: @size-hero-s;
+
+	// font-family: @font-main;
 }
 
 .Main {
