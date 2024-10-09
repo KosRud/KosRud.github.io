@@ -6,7 +6,9 @@ title: About me
 
 ### Jan 2024 &mdash; ongoing
 
-Senior .NET/Unity developer for [Ciklum](https://www.ciklum.com/):
+Senior .NET/Unity developer for [Ciklum](https://www.ciklum.com/)
+
+**Project**: Worked on a Unity mobile app *(specifics under NDA)* with 10M+ downloads on Google Play and 4.4/4.7 star rating on Google Play and App Store, respectively. 
 
 * developing reusable ui components and tools
 * implementing asynchronous operations
@@ -15,13 +17,13 @@ Senior .NET/Unity developer for [Ciklum](https://www.ciklum.com/):
 
 ### Nov 2017 &mdash; Nov 2018 
 
-.NET (C#, C++/CLI) developer for [RISA](https://www.nemetschek.com/en/brand/risa) (Nemetschek group company):
+.NET (C#, C++/CLI) developer for [RISA](https://www.nemetschek.com/en/brand/risa) (Nemetschek group company)
+
+**Project**: Our team was developing [RISAConnection](https://risa.com/products/risaconnection), an application which can model and visualize various types of connections for structural engineering and analyze their reliability under different loads.
 
 * converting inherited C/C++ code to .Net platform (C#, C++/CLI)
 * developing UI with [WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/?view=netdesktop-8.0) and [Telerik UI](https://www.telerik.com/products/wpf/overview.aspx)
 * developing interactive calculation reports with [Telerik Reporting](https://www.telerik.com/products/reporting.aspx)
-
-**Project**: Our team was developing [RISAConnection](https://risa.com/products/risaconnection), an application which can model and visualize various types of connections for structural engineering and analyze their reliability under different loads.
 
 ## Education
 
