@@ -154,7 +154,7 @@ useResizeObserver(
 	h2,
 	h3,
 	h4 {
-		margin-top: @content-gap*1.5;
+		margin-top: @content-gap*1.2;
 	}
 
 	//----------------------------------
