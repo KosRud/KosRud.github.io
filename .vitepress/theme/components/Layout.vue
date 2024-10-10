@@ -83,7 +83,10 @@ onContentUpdated(() => {
 //----------------------------------
 
 .Layout {
-	// chrome android bug workaround: https://stackoverflow.com/a/14569741
+	// chrome android bug workaround:
+	// https://stackoverflow.com/a/14569741
+	// https://issues.chromium.org/issues/40954436
+	//
 	// setting it in <HTML> would also work
 	// but also prevent href="#anchor" links from working
 	//
