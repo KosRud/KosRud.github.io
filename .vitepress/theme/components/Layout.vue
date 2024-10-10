@@ -90,9 +90,11 @@ onContentUpdated(() => {
 	// setting it in <HTML> would also work
 	// but also prevent href="#anchor" links from working
 	//
-	// overflow: hidden; // breaks position:sticky in children
-	//
-	// put "transform: translateZ(0);" on overlay instead
+	// breaks "position:sticky" in children
+	// use as backup if "overflow: clip" is not supported
+	overflow: hidden;
+	// fix android bug without breaking "position: sticky"
+	overflow: clip;
 
 	// establish a stacking context
 	position: relative;
