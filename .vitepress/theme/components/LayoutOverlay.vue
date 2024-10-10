@@ -89,6 +89,9 @@ onMounted(() => {
 }
 
 .Overlay {
+	// chrome android bug workaround: https://stackoverflow.com/a/14569741
+	transform: translateZ(0);
+
 	// establish a stacking context
 	position: fixed;
 	z-index: 0;
