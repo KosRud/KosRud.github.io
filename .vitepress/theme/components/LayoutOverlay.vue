@@ -90,7 +90,7 @@ onMounted(() => {
 
 .Overlay {
 	// establish a stacking context
-	position: sticky;
+	position: relative;
 	z-index: 0;
 }
 
@@ -107,7 +107,7 @@ onMounted(() => {
 //----------------------------------
 
 .Overlay {
-	position: fixed;
+	position: sticky;
 	top: 0rem;
 	bottom: 0rem;
 	left: 0rem;
