@@ -83,11 +83,13 @@ onContentUpdated(() => {
 //----------------------------------
 
 .Layout {
-	// android bug fix: https://stackoverflow.com/a/14569741
-	// setting it in HTML would fix the bug
+	// chrome android bug workaround: https://stackoverflow.com/a/14569741
+	// setting it in <HTML> would also work
 	// but also prevent href="#anchor" links from working
 	//
 	// overflow: hidden; // breaks position:sticky in children
+	//
+	// put "transform: translateZ(0);" on overlay instead
 
 	// establish a stacking context
 	position: relative;
