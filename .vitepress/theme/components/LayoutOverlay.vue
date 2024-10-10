@@ -90,8 +90,15 @@ onMounted(() => {
 
 .Overlay {
 	// establish a stacking context
-	position: sticky;
+	position: relative;
 	z-index: 0;
+
+	> * {
+		// chrome android bug workaround:
+		// https://stackoverflow.com/a/14569741
+		// https://issues.chromium.org/issues/40954436
+		-webkit-transform: translateZ(0);
+	}
 }
 
 .Header {
