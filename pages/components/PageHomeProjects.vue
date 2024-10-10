@@ -2,16 +2,16 @@
 import PageHomeProjectsProject from './PageHomeProjectsProject.vue';
 import HyperLink from '@vitepress/theme/components/HyperLink.vue';
 
-import imgPtgV2_1 from '@/content/project screenshots/Protege v2/1.png?format=webp&w=400&withoutEnlargement&quality=70';
-import imgPtgV2_3 from '@/content/project screenshots/Protege v2/3.png?format=webp&w=400&withoutEnlargement&quality=70';
+import imgPtgV2_1 from '@/content/project screenshots/Protege v2/1.png?format=jpg&w=400&withoutEnlargement&quality=70';
+import imgPtgV2_3 from '@/content/project screenshots/Protege v2/3.png?format=jpg&w=400&withoutEnlargement&quality=70';
 
-import imgPtgV1_1 from '@/content/project screenshots/Protege v1/1.png?format=webp&w=400&withoutEnlargement&quality=70';
+import imgPtgV1_1 from '@/content/project screenshots/Protege v1/1.png?format=jpg&w=400&withoutEnlargement&quality=70';
 
-import imgCluster from '@/content/project screenshots/material clustering/1.png?format=webp&w=400&withoutEnlargement&quality=70';
+import imgCluster from '@/content/project screenshots/material clustering/1.png?format=jpg&w=400&withoutEnlargement&quality=70';
 
 import imgDq from '@/content/project screenshots/DQ/before-after [small].gif';
 
-import imgLighthouse from '@/content/project screenshots/website/lighthouse.png?format=webp&w=400&withoutEnlargement&quality=90';
+import imgLighthouse from '@/content/project screenshots/website/lighthouse.png?format=jpg&w=400&withoutEnlargement&quality=90';
 
 const props = defineProps<{ dummies: number }>();
 </script>
