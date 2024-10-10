@@ -26,11 +26,15 @@
 		&:not(:last-child) {
 			border-right: @gap*2 solid transparent;
 		}
+
+		vertical-align: top;
 	}
 
 	td {
 		padding-top: @gap*0.125;
 		padding-bottom: @gap*0.125;
+
+		vertical-align: top;
 	}
 
 	h2 {

@@ -60,7 +60,7 @@ const devIconGroups = {
 	<div :class="$style.Bio">
 		<div :class="$style.Bio_titleContainer">
 			<div :class="$style.Bio_titleSpacer"></div>
-			<!-- <h2 :class="$style.Bio_title">Greetings!</h2> -->
+			<h2 :class="$style.Bio_title">Greetings!</h2>
 		</div>
 
 		<div :class="$style.Bio_content">
