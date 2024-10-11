@@ -81,7 +81,7 @@ const props = defineProps<{ dummies: number }>();
 						text="VitePress"
 						href="https://vitepress.dev/"
 					/>
-					with a custom theme written from scratch using
+					with a custom frontend written from scratch with
 					<HyperLink
 						text="Vue.js"
 						href="https://vuejs.org/"
@@ -126,8 +126,8 @@ const props = defineProps<{ dummies: number }>();
 				github="KosRud/ProTeGe_v2"
 			>
 				<p>
-					A graph-based procedural texture generator with real-time
-					preview.
+					A graph-based procedural texture generator with a real-time
+					preview, outputs a full set of textures for a PBR material.
 				</p>
 				<p>
 					Implemented in

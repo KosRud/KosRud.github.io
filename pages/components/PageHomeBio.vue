@@ -78,7 +78,7 @@ const devIconGroups = {
 					<a href="#my-projects">projects</a>, as well as condensed
 					cheat sheets from the web development
 					<a href="/students/html+css/selectors">seminars</a>
-					I've been teaching at
+					I've conducted at
 					<HyperLink href="https://www.fiit.stuba.sk/en.html"
 						><span
 							title="Faculty of Informatics and Information Technologies, Slovak University of Technology"
