@@ -4,17 +4,15 @@ import arrowCircled from './assets/icons/ui/arrowCircled/icon.svg';
 </script>
 
 <template>
-	<div :class="$style.BackToTop">
-		<a
-			:class="$style.BackToTop_link"
-			:href="`#${anchorIds.page.root}`"
-			><img
-				alt="upward arrow"
-				:class="$style.Arrow"
-				:src="arrowCircled"
-			/>Back to top</a
-		>
-	</div>
+	<a
+		:class="$style.BackToTop"
+		:href="`#${anchorIds.page.root}`"
+		><img
+			alt="upward arrow"
+			:class="$style.Arrow"
+			:src="arrowCircled"
+		/>Back to top</a
+	>
 </template>
 
 <style module lang="less">
@@ -33,26 +31,24 @@ import arrowCircled from './assets/icons/ui/arrowCircled/icon.svg';
 	outline: @border-width-s solid @color-border;
 	border-radius: @gap @gap 0rem 0rem;
 
-	background-color: @color-background;
-	box-shadow: @shadow-s;
+	padding: @gap;
 
-	overflow: hidden;
-}
-
-.BackToTop_link {
 	font-size: @size-l;
 	font-weight: bold;
 	font-family: @font-techy;
 	text-decoration: none;
 
-	padding: @gap;
+	background-color: @color-background;
+	box-shadow: @shadow-s;
 
 	&:link,
 	&:visited {
 		color: @color-text-faded-1;
 	}
 
-	display: block;
+	&:focus-visible {
+		outline: revert;
+	}
 }
 
 .Arrow {

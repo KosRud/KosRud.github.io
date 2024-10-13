@@ -205,7 +205,7 @@ function onResizeHandleNav() {
 
 	opacity: 0%;
 	pointer-events: none;
-	&:focus {
+	&:focus-visible {
 		opacity: 100%;
 		pointer-events: all;
 	}
