@@ -14,6 +14,7 @@ import { getNav } from './config.nav';
 // https://github.com/vuejs/vitepress/blob/8687b86e1e00ae39ff9c8173aef04eb8a9cda0a8/src/node/markdown/markdown.ts#L191
 // https://vitepress.dev/reference/site-config
 const config = defineConfigWithTheme<ThemeConfig>({
+	lastUpdated: true, // required for <lastmod> in sitemap
 	title: 'Kostiantyn Rudenko, software engineer',
 	description:
 		'A programmer from Ukraine, currently residing in Slovakia. Unity 3d, compute shaders, computer graphics, vue.js, typescript...',
