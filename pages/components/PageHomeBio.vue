@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import HyperLink from '@/.vitepress/theme/components/HyperLink.vue';
+import PageHomeContacts from './PageHomeContacts.vue';
 
 import { devIcons } from './tsx/devIcons.vue';
 
@@ -94,7 +95,7 @@ const devIconGroups = {
 						:style="{ aspectRatio: 300 / 360 }"
 					/>
 				</p>
-				<p></p>
+				<PageHomeContacts :class="$style.Bio_block" />
 				<table :class="$style.DeviconsTable">
 					<tbody>
 						<tr>
@@ -147,6 +148,10 @@ const devIconGroups = {
 	p {
 		margin-bottom: @gap*1.5;
 	}
+}
+
+.Bio_block {
+	margin-bottom: @gap*3;
 }
 
 .DeviconsTable {

@@ -8,7 +8,7 @@ declare module '*.svg' {
 	export default content;
 }
 
-declare module '*.png' {
+declare module '*.png?*' {
 	const content: string;
 	export default content;
 }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import iconGithub from '../assets/icons/github/mark-github.svg';
-import iconStar from '../assets/icons/github/star.svg';
+import iconGithub from '@pages/components/assets/icons/websites/github/mark-github.svg';
+import iconStar from '@pages/components/assets/icons/websites/github/star.svg';
 import HyperLink from '../HyperLink.vue';
 
 import { onMounted, ref, Ref } from 'vue';

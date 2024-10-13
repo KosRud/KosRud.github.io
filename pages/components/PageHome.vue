@@ -4,7 +4,7 @@ import type { Ref, ComponentPublicInstance } from 'vue';
 import PageHomeProjects from './PageHomeProjects.vue';
 import PageHomeExpertise from './PageHomeExpertise.vue';
 import PageHomeBio from './PageHomeBio.vue';
-import PageHomeContact from './PageHomeContact.vue';
+import PageHomeEmailForm from './PageHomeEmailForm.vue';
 import GrungeHeading from './GrungeHeading.vue';
 import BackTop from '@theme/components/BackTop.vue';
 
@@ -59,9 +59,7 @@ function handleScrolling() {
 			:id="anchorIds.page.content"
 			:class="$style.Main"
 		>
-			<div>
-				<PageHomeBio />
-			</div>
+			<PageHomeBio />
 			<PageHomeExpertise :class="$style.Main_unpad" />
 			<GrungeHeading
 				text="My projects"
@@ -75,7 +73,7 @@ function handleScrolling() {
 				text="Contact me"
 				:class="$style.Main_unpad"
 			/>
-			<PageHomeContact />
+			<PageHomeEmailForm />
 			<BackTop :class="$style.BackTop" />
 		</div>
 	</main>
