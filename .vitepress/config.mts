@@ -169,7 +169,7 @@ const config = defineConfigWithTheme<ThemeConfig>({
 			'meta',
 			{
 				name: 'google-site-verification',
-				content: 'nxt5ELdfTEfN5XdluDKwhqpad_QAqlv8Ps-9BrDxytQ',
+				content: '1ytdccSpqrjqhfHKSbIa2JwD9Nw8cwPyeTgT9s5N9M4',
 			},
 		],
 	],
