@@ -17,7 +17,7 @@ import handshake from './assets/icons/handshake/icon.svg';
 				alt="icon: handshake"
 			/>
 			<span :class="$style.StatusBox_text">
-				I'm available for contract work
+				available for contract work
 			</span>
 		</div>
 
@@ -75,7 +75,7 @@ import handshake from './assets/icons/handshake/icon.svg';
 }
 
 .StatusBox {
-	margin-bottom: @gap*4;
+	margin-bottom: @gap*2;
 	width: fit-content;
 	margin-left: auto;
 	margin-right: auto;
@@ -83,6 +83,8 @@ import handshake from './assets/icons/handshake/icon.svg';
 	display: flex;
 	flex-direction: row;
 	align-items: start;
+
+	font-weight: bold;
 }
 
 .StatusBox_text {
