@@ -70,6 +70,8 @@ import handshake from './assets/icons/handshake/icon.svg';
 	width: min(100%, 800rem);
 	margin-left: auto;
 	margin-right: auto;
+
+	font-size: @size-l;
 }
 
 .StatusBox {
@@ -115,10 +117,17 @@ import handshake from './assets/icons/handshake/icon.svg';
 
 	input {
 		max-width: 200rem;
+
+		font-size: @size;
 	}
 
 	textarea {
 		height: 200rem;
+
+		padding-top: @gap;
+		padding-bottom: @gap;
+
+		font-size: @size;
 	}
 
 	button {
