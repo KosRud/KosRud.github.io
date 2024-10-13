@@ -3,6 +3,7 @@ import PageHomeContactsLink from './PageHomeContactsLink.vue';
 import iconGithub from '@pages/components/assets/icons/websites/github/mark-github.svg';
 import iconLinkein from '@pages/components/assets/icons/websites/linkedin/icon.svg';
 import iconEmail from '@pages/components/assets/icons/etc/email/icon.svg';
+import iconCv from '@pages/components/assets/icons/etc/cv/icon.svg';
 </script>
 
 <template>
@@ -18,6 +19,12 @@ import iconEmail from '@pages/components/assets/icons/etc/email/icon.svg';
 			icon-alt="linkedin icon"
 			name="LinkedIn"
 			:icon-src="iconLinkein"
+		/>
+		<PageHomeContactsLink
+			href="/files/Resume%20Rudenko.pdf"
+			icon-alt="resume icon"
+			name="Resume"
+			:icon-src="iconCv"
 		/>
 		<PageHomeContactsLink
 			href="#contact-me"
