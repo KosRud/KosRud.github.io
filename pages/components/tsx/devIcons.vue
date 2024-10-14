@@ -35,6 +35,7 @@ import iconVite from '../assets/icons/dev/vite/icon.svg';
 import iconVitepress from '../assets/icons/dev/vitepress/icon.svg';
 import iconVue from '../assets/icons/dev/vue/icon.svg';
 import iconWxWidgets from '../assets/icons/dev/wxWidgets/icon.svg';
+import { JSX } from 'vue/jsx-runtime';
 
 interface devIconData {
 	title: string;

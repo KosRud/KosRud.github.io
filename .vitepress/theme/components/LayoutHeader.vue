@@ -151,7 +151,7 @@ function onResizeHandleNav() {
 			:title="'Menu'"
 			:is-open="store.isMobileNavPagesOpen"
 			:toggle-is-open="
-				() => {
+				(a) => {
 					store.isMobileNavPagesOpen = !store.isMobileNavPagesOpen;
 				}
 			"

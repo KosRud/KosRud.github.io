@@ -2,7 +2,7 @@
 const props = defineProps<{
 	title: string;
 	isOpen: boolean;
-	toggleIsOpen: (value: boolean) => void;
+	toggleIsOpen: (value: MouseEvent) => void;
 	numLines: 3 | 5;
 	compact: boolean;
 }>();
