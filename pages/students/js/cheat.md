@@ -395,7 +395,7 @@ console.log(copy);
 ::: warning
 Shallow copy sets attributes of the target object identical to the source object.
 
-This means, that if the source object had a reference (i.e. non&ndash;[primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)) attribute, the target object will be referencing the same thing! There are 7 primitive data types: string, number, bigint, boolean, undefined, symbol, and null.
+This means that if the source object had a reference (i.e. non&ndash;[primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)) attribute, the target object will be referencing the same thing! There are 7 primitive data types: string, number, bigint, boolean, undefined, symbol, and null.
 
 <figure>
 	<img src="./_JS%20tricks/shallow copy.png">
