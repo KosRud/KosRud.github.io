@@ -86,17 +86,13 @@ const props = defineProps<{
 	}
 }
 
-.BurgerWrapper {
-	&:hover,
-	&:active,
-	&.open {
-		.Burger_line {
-			&:nth-child(2n + 1) {
-				transform: scaleX(100%);
-			}
-			&:nth-child(2n) {
-				transform: scaleX(90%);
-			}
+.BurgerWrapper.open {
+	.Burger_line {
+		&:nth-child(2n + 1) {
+			transform: scaleX(100%);
+		}
+		&:nth-child(2n) {
+			transform: scaleX(90%);
 		}
 	}
 }
@@ -106,19 +102,19 @@ const props = defineProps<{
 //----------------------------------
 
 .Burger_line&:nth-child(2n) {
-	transition: transform @duration ease-out;
+	transition: transform @duration-s ease-out;
 }
 .Burger_line&:nth-child(2n + 1) {
-	transition: transform @duration ease-in;
+	transition: transform @duration-s ease-in;
 }
 
 .BurgerWrapper:hover {
 	.Burger_line&:nth-child(2n) {
-		transition: transform @duration ease-in;
+		transition: transform @duration-s ease-in;
 	}
 
 	.Burger_line&:nth-child(2n + 1) {
-		transition: transform @duration ease-out;
+		transition: transform @duration-s ease-out;
 	}
 }
 
