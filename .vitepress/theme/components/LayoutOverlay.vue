@@ -10,6 +10,9 @@ import { onMounted, useCssModule, watchEffect } from 'vue';
 const store = useStore();
 const $style = useCssModule();
 
+// TODO
+// this causes <body> scrollbar to disappear when nav opened
+// and slightly shifts the page content
 onMounted(() => {
 	watchEffect(() => {
 		if (store.isMobileNavAnythingOpen) {
