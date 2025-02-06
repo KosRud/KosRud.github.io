@@ -199,7 +199,7 @@ const props = defineProps<{ dummies: number }>();
 						text="paper"
 						href="https://link.springer.com/chapter/10.1007/978-3-031-37963-5_67"
 					/>
-					(you can also reada
+					(you can also read a
 					<HyperLink
 						text="preprint"
 						href="https://www.researchgate.net/publication/369113944_Real-time_material_clustering_for_mixed_reality_applications_based_on_dichromatic_reflection_model"
